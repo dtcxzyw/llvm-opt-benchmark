@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = and i32 %4, 1040
   %6 = and i32 %4, 16779264
   %.not = icmp eq i32 %6, 0
@@ -23,9 +23,9 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %9 = load i64, ptr %8, align 8
+  %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = icmp ult i64 %9, 512
   br i1 %12, label %is_tar.exit.thread, label %13
 
@@ -46,16 +46,16 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
 19:                                               ; preds = %16, %13
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 148
   %21 = tail call ptr @__ctype_b_loc() #6
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
   br label %23
 
 23:                                               ; preds = %29, %19
   %.015.i.i = phi ptr [ %20, %19 ], [ %30, %29 ]
   %.014.i.i = phi i64 [ 8, %19 ], [ %31, %29 ]
-  %24 = load i8, ptr %.015.i.i, align 1
+  %24 = load i8, ptr %.015.i.i, align 1, !tbaa !24
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr %22, i64 %25
-  %27 = load i16, ptr %26, align 2
+  %27 = load i16, ptr %26, align 2, !tbaa !25
   %28 = and i16 %27, 8192
   %.not.i.i = icmp eq i16 %28, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %29
@@ -74,7 +74,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
   %.033.i.i = phi i32 [ %39, %35 ], [ 0, %.preheader.i.i ]
   %.132.i.i = phi i64 [ %40, %35 ], [ %.014.i.i, %.preheader.i.i ]
   %.11631.i.i = phi ptr [ %37, %35 ], [ %.015.i.i, %.preheader.i.i ]
-  %33 = load i8, ptr %.11631.i.i, align 1
+  %33 = load i8, ptr %.11631.i.i, align 1, !tbaa !24
   %34 = and i8 %33, -8
   %or.cond.i.i = icmp eq i8 %34, 48
   br i1 %or.cond.i.i, label %35, label %.critedge.i.i
@@ -96,7 +96,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
 41:                                               ; preds = %.critedge.i.i
   %42 = zext i8 %33 to i64
   %43 = getelementptr inbounds nuw i16, ptr %22, i64 %42
-  %44 = load i16, ptr %43, align 2
+  %44 = load i16, ptr %43, align 2, !tbaa !25
   %45 = and i16 %44, 8192
   %.not22.i.i = icmp eq i16 %45, 0
   %spec.select.i.i = select i1 %.not22.i.i, i32 -1, i32 %.033.i.i
@@ -111,7 +111,7 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   %.02636.i = phi i32 [ 0, %from_oct.exit.i ], [ %49, %46 ]
   %.025.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %.025.idx37.i
   %.025.add.i = add nuw nsw i64 %.025.idx37.i, 1
-  %47 = load i8, ptr %.025.ptr.i, align 1
+  %47 = load i8, ptr %.025.ptr.i, align 1, !tbaa !24
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %.02636.i, %48
   %exitcond.not.i = icmp eq i64 %.025.add.i, 512
@@ -121,7 +121,7 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   %.02439.i = phi i64 [ %54, %.preheader.i ], [ 0, %46 ]
   %.138.i = phi i32 [ %53, %.preheader.i ], [ %49, %46 ]
   %50 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 0, i64 %.02439.i
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 1, !tbaa !24
   %52 = sext i8 %51 to i32
   %53 = sub nsw i32 %.138.i, %52
   %54 = add nuw nsw i64 %.02439.i, 1
@@ -164,7 +164,7 @@ is_tar.exit.thread:                               ; preds = %55, %16, %7, %66, %
   ret i32 %.0
 }
 
-declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare hidden i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -178,10 +178,10 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #3
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind willreturn memory(read) }
 attributes #6 = { nounwind willreturn memory(none) }
@@ -191,5 +191,27 @@ attributes #7 = { nounwind }
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !14, i64 68}
+!5 = !{!"magic_set", !6, i64 0, !8, i64 16, !12, i64 32, !14, i64 56, !14, i64 60, !14, i64 64, !14, i64 68, !14, i64 72, !13, i64 80, !9, i64 88, !14, i64 96, !15, i64 100, !16, i64 104, !6, i64 136, !15, i64 264, !15, i64 266, !15, i64 268, !15, i64 270, !15, i64 272, !15, i64 274, !15, i64 276, !9, i64 280, !9, i64 288, !9, i64 296}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"cont", !9, i64 0, !10, i64 8}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!"p1 _ZTS10level_info", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"out", !13, i64 0, !9, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !11, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = !{!"", !13, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!17 = !{!18, !9, i64 160}
+!18 = !{!"buffer", !14, i64 0, !19, i64 8, !11, i64 152, !9, i64 160, !9, i64 168, !11, i64 176, !9, i64 184}
+!19 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !20, i64 72, !20, i64 88, !20, i64 104, !6, i64 120}
+!20 = !{!"timespec", !9, i64 0, !9, i64 8}
+!21 = !{!18, !11, i64 152}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 short", !11, i64 0}
+!24 = !{!6, !6, i64 0}
+!25 = !{!15, !15, i64 0}

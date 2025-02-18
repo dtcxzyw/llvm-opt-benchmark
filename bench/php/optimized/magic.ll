@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct._php_stream_statbuf = type { %struct.stat }
 
-@rcsid = internal constant [62 x i8] c"@(#)$File: magic.c,v 1.121 2023/02/09 17:45:19 christos Exp $\00", align 16
+@rcsid = internal constant [62 x i8] c"@(#)$File: magic.c,v 1.123 2023/12/29 18:04:48 christos Exp $\00", align 16
 @.str = private unnamed_addr constant [27 x i8] c"Magic database is not open\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.2 = private unnamed_addr constant [17 x i8] c"cannot stat `%s'\00", align 1
@@ -19,35 +19,35 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @rcsid], section "llvm.metadata"
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @magic_open(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @file_ms_alloc(i32 noundef %0) #11
+define dso_local ptr @magic_open(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @file_ms_alloc(i32 noundef %0) #12
   ret ptr %2
 }
 
-declare ptr @file_ms_alloc(i32 noundef) local_unnamed_addr #1
+declare hidden ptr @file_ms_alloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @magic_close(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @magic_close(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @file_ms_free(ptr noundef nonnull %0) #11
+  tail call void @file_ms_free(ptr noundef nonnull %0) #12
   br label %4
 
 4:                                                ; preds = %1, %3
   ret void
 }
 
-declare void @file_ms_free(ptr noundef) local_unnamed_addr #1
+declare hidden void @file_ms_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @magic_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @magic_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #11
+  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #12
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -55,29 +55,15 @@ define hidden i32 @magic_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   ret i32 %.0
 }
 
-declare i32 @file_apprentice(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare hidden i32 @file_apprentice(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @magic_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @magic_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2) #11
-  br label %6
-
-6:                                                ; preds = %2, %4
-  %.0 = phi i32 [ %5, %4 ], [ -1, %2 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden i32 @magic_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %6, label %4
-
-4:                                                ; preds = %2
-  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1) #11
+  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 2) #12
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -86,12 +72,12 @@ define hidden i32 @magic_check(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @magic_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @magic_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 3) #11
+  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1) #12
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -100,7 +86,21 @@ define hidden i32 @magic_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @magic_descriptor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @magic_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  br i1 %3, label %6, label %4
+
+4:                                                ; preds = %2
+  %5 = tail call i32 @file_apprentice(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 3) #12
+  br label %6
+
+6:                                                ; preds = %2, %4
+  %.0 = phi i32 [ %5, %4 ], [ -1, %2 ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @magic_descriptor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -117,21 +117,22 @@ define hidden ptr @magic_descriptor(ptr noundef %0, i32 noundef %1) local_unname
 define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct._php_stream_statbuf, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
-  %6 = tail call i32 @file_reset(ptr noundef nonnull %0, i32 noundef 1) #11
+  %6 = tail call i32 @file_reset(ptr noundef nonnull %0, i32 noundef 1) #12
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !4
   %11 = add i64 %10, 129
-  %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #12
+  %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #13
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %8
-  %15 = call i32 @file_fsmagic(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #11
+  %15 = call i32 @file_fsmagic(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #12
   switch i32 %15, label %16 [
     i32 -1, label %unreadable_info.exit
     i32 0, label %17
@@ -141,37 +142,37 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br label %unreadable_info.exit
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %18, align 4
+  %18 = tail call ptr @__errno_location() #14
+  store i32 0, ptr %18, align 4, !tbaa !17
   %19 = icmp eq ptr %1, null
   %20 = icmp ne ptr %2, null
   %or.cond = or i1 %19, %20
   br i1 %or.cond, label %45, label %21
 
 21:                                               ; preds = %17
-  %22 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i32 noundef 8, ptr noundef null, ptr noundef null) #11
+  %22 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i32 noundef 8, ptr noundef null, ptr noundef null) #12
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %45
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %25 = load i32, ptr %24, align 8
-  %26 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 2) #11
+  %25 = load i32, ptr %24, align 8, !tbaa !18
+  %26 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 2) #12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
-  %29 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #11
+  %29 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %unreadable_info.exit, label %31
 
 31:                                               ; preds = %28, %23
-  %32 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #11
+  %32 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 1) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #11
+  %35 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #12
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %unreadable_info.exit, label %37
 
@@ -181,49 +182,49 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
-  %41 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #11
+  %41 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #12
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %unreadable_info.exit, label %43
 
 43:                                               ; preds = %40, %37
-  %44 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #11
+  %44 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #12
   br label %unreadable_info.exit
 
 45:                                               ; preds = %21, %17
   %.174 = phi ptr [ %2, %17 ], [ %22, %21 ]
   %.1 = phi i32 [ 0, %17 ], [ 1, %21 ]
-  %46 = call i32 @_php_stream_stat(ptr noundef %.174, ptr noundef nonnull %5) #11
+  %46 = call i32 @_php_stream_stat(ptr noundef %.174, ptr noundef nonnull %5) #12
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %50 = load i32, ptr %49, align 4
+  %50 = load i32, ptr %49, align 4, !tbaa !21
   %51 = and i32 %50, 512
   %.not81 = icmp eq i32 %51, 0
   br i1 %.not81, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = load i32, ptr %18, align 4
-  call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %53, ptr noundef nonnull @.str.2, ptr noundef %1) #11
+  %53 = load i32, ptr %18, align 4, !tbaa !17
+  call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %53, ptr noundef nonnull @.str.2, ptr noundef %1) #12
   br label %unreadable_info.exit
 
 54:                                               ; preds = %48, %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
-  %55 = load i64, ptr %9, align 8
-  %56 = call i64 @_php_stream_read(ptr noundef %.174, ptr noundef nonnull %12, i64 noundef %55) #11
+  %55 = load i64, ptr %9, align 8, !tbaa !4
+  %56 = call i64 @_php_stream_read(ptr noundef %.174, ptr noundef nonnull %12, i64 noundef %55) #12
   %57 = icmp slt i64 %56, 0
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %18, align 4
-  call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %59, ptr noundef nonnull @.str.3, ptr noundef %1) #11
+  %59 = load i32, ptr %18, align 4, !tbaa !17
+  call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %59, ptr noundef nonnull @.str.3, ptr noundef %1) #12
   br label %unreadable_info.exit
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(129) %61, i8 0, i64 129, i1 false)
-  %62 = call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef %.174, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %56) #11
+  %62 = call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef %.174, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %56) #12
   %63 = icmp ne i32 %62, -1
   br label %unreadable_info.exit
 
@@ -231,30 +232,31 @@ unreadable_info.exit:                             ; preds = %43, %40, %34, %28, 
   %.073 = phi ptr [ %2, %16 ], [ %.174, %52 ], [ %.174, %58 ], [ %2, %14 ], [ %.174, %60 ], [ null, %28 ], [ null, %34 ], [ null, %40 ], [ null, %43 ]
   %.172 = phi i1 [ true, %16 ], [ false, %52 ], [ false, %58 ], [ false, %14 ], [ %63, %60 ], [ false, %28 ], [ false, %34 ], [ false, %40 ], [ false, %43 ]
   %.0 = phi i32 [ 0, %16 ], [ %.1, %52 ], [ %.1, %58 ], [ 0, %14 ], [ %.1, %60 ], [ 1, %28 ], [ 1, %34 ], [ 1, %40 ], [ 1, %43 ]
-  call void @_efree(ptr noundef nonnull %12) #11
+  call void @_efree(ptr noundef nonnull %12) #12
   %64 = icmp ne i32 %.0, 0
   %65 = icmp ne ptr %.073, null
   %or.cond3 = and i1 %65, %64
   br i1 %or.cond3, label %66, label %68
 
 66:                                               ; preds = %unreadable_info.exit
-  %67 = call i32 @_php_stream_free(ptr noundef nonnull %.073, i32 noundef 3) #11
+  %67 = call i32 @_php_stream_free(ptr noundef nonnull %.073, i32 noundef 3) #12
   br label %68
 
 68:                                               ; preds = %unreadable_info.exit, %66
   br i1 %.172, label %69, label %.thread
 
 69:                                               ; preds = %68
-  %70 = call ptr @file_getbuffer(ptr noundef nonnull %0) #11
+  %70 = call ptr @file_getbuffer(ptr noundef nonnull %0) #12
   br label %.thread
 
 .thread:                                          ; preds = %3, %69, %68, %8
   %.070 = phi ptr [ null, %8 ], [ %70, %69 ], [ null, %68 ], [ null, %3 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #12
   ret ptr %.070
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @magic_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @magic_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -268,7 +270,7 @@ define hidden ptr @magic_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @magic_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @magic_stream(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -282,22 +284,22 @@ define hidden ptr @magic_stream(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @magic_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @magic_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @file_reset(ptr noundef nonnull %0, i32 noundef 1) #11
+  %6 = tail call i32 @file_reset(ptr noundef nonnull %0, i32 noundef 1) #12
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1, i64 noundef %2) #11
+  %9 = tail call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1, i64 noundef %2) #12
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call ptr @file_getbuffer(ptr noundef nonnull %0) #11
+  %12 = tail call ptr @file_getbuffer(ptr noundef nonnull %0) #12
   br label %13
 
 13:                                               ; preds = %8, %5, %3, %11
@@ -305,27 +307,27 @@ define hidden ptr @magic_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   ret ptr %.0
 }
 
-declare i32 @file_reset(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare hidden i32 @file_reset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @file_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare hidden i32 @file_buffer(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @file_getbuffer(ptr noundef) local_unnamed_addr #1
+declare hidden ptr @file_getbuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @magic_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @magic_error(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !22
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !23
   br label %10
 
 10:                                               ; preds = %7, %3, %1
@@ -334,20 +336,20 @@ define hidden ptr @magic_error(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @magic_errno(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local i32 @magic_errno(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load i32, ptr %4, align 8
+  %5 = load i32, ptr %4, align 8, !tbaa !22
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !24
   br label %10
 
 10:                                               ; preds = %7, %3, %1
@@ -356,13 +358,13 @@ define hidden i32 @magic_errno(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @magic_getflags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local i32 @magic_getflags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !21
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -371,13 +373,13 @@ define hidden i32 @magic_getflags(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -1, 1) i32 @magic_setflags(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @magic_setflags(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %1, ptr %5, align 4
+  store i32 %1, ptr %5, align 4, !tbaa !21
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -386,108 +388,113 @@ define hidden range(i32 -1, 1) i32 @magic_setflags(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @magic_version() local_unnamed_addr #4 {
-  ret i32 545
+define dso_local noundef i32 @magic_version() local_unnamed_addr #4 {
+  ret i32 546
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @magic_setparam(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 1) i32 @magic_setparam(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %41, label %5
+  br i1 %4, label %36, label %5
 
 5:                                                ; preds = %3
-  switch i32 %1, label %39 [
-    i32 0, label %6
+  %6 = load i64, ptr %2, align 8, !tbaa !25
+  switch i32 %1, label %34 [
+    i32 0, label %7
     i32 1, label %10
-    i32 2, label %14
-    i32 3, label %18
-    i32 8, label %22
-    i32 4, label %25
-    i32 5, label %29
-    i32 6, label %33
-    i32 7, label %36
+    i32 2, label %13
+    i32 3, label %16
+    i32 8, label %19
+    i32 4, label %21
+    i32 5, label %24
+    i32 6, label %27
+    i32 7, label %29
+    i32 9, label %31
   ]
 
-6:                                                ; preds = %5
-  %7 = load i64, ptr %2, align 8
-  %8 = trunc i64 %7 to i16
+7:                                                ; preds = %5
+  %8 = trunc i64 %6 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i16 %8, ptr %9, align 8
-  br label %41
+  store i16 %8, ptr %9, align 8, !tbaa !26
+  br label %36
 
 10:                                               ; preds = %5
-  %11 = load i64, ptr %2, align 8
-  %12 = trunc i64 %11 to i16
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 266
-  store i16 %12, ptr %13, align 2
-  br label %41
+  %11 = trunc i64 %6 to i16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 266
+  store i16 %11, ptr %12, align 2, !tbaa !27
+  br label %36
 
-14:                                               ; preds = %5
-  %15 = load i64, ptr %2, align 8
-  %16 = trunc i64 %15 to i16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 270
-  store i16 %16, ptr %17, align 2
-  br label %41
+13:                                               ; preds = %5
+  %14 = trunc i64 %6 to i16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 270
+  store i16 %14, ptr %15, align 2, !tbaa !28
+  br label %36
 
-18:                                               ; preds = %5
-  %19 = load i64, ptr %2, align 8
-  %20 = trunc i64 %19 to i16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i16 %20, ptr %21, align 4
-  br label %41
+16:                                               ; preds = %5
+  %17 = trunc i64 %6 to i16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  store i16 %17, ptr %18, align 4, !tbaa !29
+  br label %36
 
-22:                                               ; preds = %5
-  %23 = load i64, ptr %2, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %23, ptr %24, align 8
-  br label %41
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %6, ptr %20, align 8, !tbaa !30
+  br label %36
 
-25:                                               ; preds = %5
-  %26 = load i64, ptr %2, align 8
-  %27 = trunc i64 %26 to i16
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i16 %27, ptr %28, align 8
-  br label %41
+21:                                               ; preds = %5
+  %22 = trunc i64 %6 to i16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i16 %22, ptr %23, align 8, !tbaa !31
+  br label %36
+
+24:                                               ; preds = %5
+  %25 = trunc i64 %6 to i16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 274
+  store i16 %25, ptr %26, align 2, !tbaa !32
+  br label %36
+
+27:                                               ; preds = %5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store i64 %6, ptr %28, align 8, !tbaa !4
+  br label %36
 
 29:                                               ; preds = %5
-  %30 = load i64, ptr %2, align 8
-  %31 = trunc i64 %30 to i16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 274
-  store i16 %31, ptr %32, align 2
-  br label %41
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 %6, ptr %30, align 8, !tbaa !33
+  br label %36
 
-33:                                               ; preds = %5
-  %34 = load i64, ptr %2, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store i64 %34, ptr %35, align 8
-  br label %41
+31:                                               ; preds = %5
+  %32 = trunc i64 %6 to i16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i16 %32, ptr %33, align 4, !tbaa !34
+  br label %36
 
-36:                                               ; preds = %5
-  %37 = load i64, ptr %2, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 %37, ptr %38, align 8
-  br label %41
+34:                                               ; preds = %5
+  %35 = tail call ptr @__errno_location() #14
+  store i32 22, ptr %35, align 4, !tbaa !17
+  br label %36
 
-39:                                               ; preds = %5
-  %40 = tail call ptr @__errno_location() #13
-  store i32 22, ptr %40, align 4
-  br label %41
-
-41:                                               ; preds = %3, %39, %36, %33, %29, %25, %22, %18, %14, %10, %6
-  %.0 = phi i32 [ -1, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %6 ], [ -1, %3 ]
+36:                                               ; preds = %7, %10, %13, %16, %19, %21, %24, %27, %29, %31, %34, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %34 ], [ 0, %31 ], [ 0, %29 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %7 ]
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @magic_getparam(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define dso_local range(i32 -1, 1) i32 @magic_getparam(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %41, label %5
+  br i1 %4, label %45, label %5
 
 5:                                                ; preds = %3
-  switch i32 %1, label %39 [
+  switch i32 %1, label %43 [
     i32 0, label %6
     i32 1, label %10
     i32 2, label %14
@@ -497,94 +504,102 @@ define hidden range(i32 -1, 1) i32 @magic_getparam(ptr noundef readonly captures
     i32 5, label %29
     i32 6, label %33
     i32 7, label %36
+    i32 9, label %39
   ]
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %8 = load i16, ptr %7, align 8
+  %8 = load i16, ptr %7, align 8, !tbaa !26
   %9 = zext i16 %8 to i64
-  store i64 %9, ptr %2, align 8
-  br label %41
+  store i64 %9, ptr %2, align 8, !tbaa !25
+  br label %45
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 266
-  %12 = load i16, ptr %11, align 2
+  %12 = load i16, ptr %11, align 2, !tbaa !27
   %13 = zext i16 %12 to i64
-  store i64 %13, ptr %2, align 8
-  br label %41
+  store i64 %13, ptr %2, align 8, !tbaa !25
+  br label %45
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 270
-  %16 = load i16, ptr %15, align 2
+  %16 = load i16, ptr %15, align 2, !tbaa !28
   %17 = zext i16 %16 to i64
-  store i64 %17, ptr %2, align 8
-  br label %41
+  store i64 %17, ptr %2, align 8, !tbaa !25
+  br label %45
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %20 = load i16, ptr %19, align 4
+  %20 = load i16, ptr %19, align 4, !tbaa !29
   %21 = zext i16 %20 to i64
-  store i64 %21, ptr %2, align 8
-  br label %41
+  store i64 %21, ptr %2, align 8, !tbaa !25
+  br label %45
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %24 = load i64, ptr %23, align 8
-  store i64 %24, ptr %2, align 8
-  br label %41
+  %24 = load i64, ptr %23, align 8, !tbaa !30
+  store i64 %24, ptr %2, align 8, !tbaa !25
+  br label %45
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %27 = load i16, ptr %26, align 8
+  %27 = load i16, ptr %26, align 8, !tbaa !31
   %28 = zext i16 %27 to i64
-  store i64 %28, ptr %2, align 8
-  br label %41
+  store i64 %28, ptr %2, align 8, !tbaa !25
+  br label %45
 
 29:                                               ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 274
-  %31 = load i16, ptr %30, align 2
+  %31 = load i16, ptr %30, align 2, !tbaa !32
   %32 = zext i16 %31 to i64
-  store i64 %32, ptr %2, align 8
-  br label %41
+  store i64 %32, ptr %2, align 8, !tbaa !25
+  br label %45
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %35 = load i64, ptr %34, align 8
-  store i64 %35, ptr %2, align 8
-  br label %41
+  %35 = load i64, ptr %34, align 8, !tbaa !4
+  store i64 %35, ptr %2, align 8, !tbaa !25
+  br label %45
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load i64, ptr %37, align 8
-  store i64 %38, ptr %2, align 8
-  br label %41
+  %38 = load i64, ptr %37, align 8, !tbaa !33
+  store i64 %38, ptr %2, align 8, !tbaa !25
+  br label %45
 
 39:                                               ; preds = %5
-  %40 = tail call ptr @__errno_location() #13
-  store i32 22, ptr %40, align 4
-  br label %41
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %41 = load i16, ptr %40, align 4, !tbaa !34
+  %42 = zext i16 %41 to i64
+  store i64 %42, ptr %2, align 8, !tbaa !25
+  br label %45
 
-41:                                               ; preds = %3, %39, %36, %33, %29, %25, %22, %18, %14, %10, %6
-  %.0 = phi i32 [ -1, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %6 ], [ -1, %3 ]
+43:                                               ; preds = %5
+  %44 = tail call ptr @__errno_location() #14
+  store i32 22, ptr %44, align 4, !tbaa !17
+  br label %45
+
+45:                                               ; preds = %3, %43, %39, %36, %33, %29, %25, %22, %18, %14, %10, %6
+  %.0 = phi i32 [ -1, %43 ], [ 0, %39 ], [ 0, %36 ], [ 0, %33 ], [ 0, %29 ], [ 0, %25 ], [ 0, %22 ], [ 0, %18 ], [ 0, %14 ], [ 0, %10 ], [ 0, %6 ], [ -1, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
 
-declare i32 @file_fsmagic(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare hidden i32 @file_fsmagic(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @_php_stream_stat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @file_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare hidden void @file_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -593,28 +608,60 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #10
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #11
 
-declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare hidden i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !9, i64 280}
+!5 = !{!"magic_set", !6, i64 0, !8, i64 16, !12, i64 32, !14, i64 56, !14, i64 60, !14, i64 64, !14, i64 68, !14, i64 72, !13, i64 80, !9, i64 88, !14, i64 96, !15, i64 100, !16, i64 104, !6, i64 136, !15, i64 264, !15, i64 266, !15, i64 268, !15, i64 270, !15, i64 272, !15, i64 274, !15, i64 276, !9, i64 280, !9, i64 288, !9, i64 296}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"cont", !9, i64 0, !10, i64 8}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!"p1 _ZTS10level_info", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"out", !13, i64 0, !9, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !11, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = !{!"", !13, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!17 = !{!14, !14, i64 0}
+!18 = !{!19, !14, i64 24}
+!19 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !20, i64 72, !20, i64 88, !20, i64 104, !6, i64 120}
+!20 = !{!"timespec", !9, i64 0, !9, i64 8}
+!21 = !{!5, !14, i64 68}
+!22 = !{!5, !14, i64 72}
+!23 = !{!5, !13, i64 32}
+!24 = !{!5, !14, i64 64}
+!25 = !{!9, !9, i64 0}
+!26 = !{!5, !15, i64 264}
+!27 = !{!5, !15, i64 266}
+!28 = !{!5, !15, i64 270}
+!29 = !{!5, !15, i64 268}
+!30 = !{!5, !9, i64 296}
+!31 = !{!5, !15, i64 272}
+!32 = !{!5, !15, i64 274}
+!33 = !{!5, !9, i64 288}
+!34 = !{!5, !15, i64 276}

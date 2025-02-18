@@ -5,385 +5,383 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._opt_struct = type { i8, i32, ptr }
 
-@php_optidx = local_unnamed_addr global i32 -1, align 4
+@php_optidx = dso_local local_unnamed_addr global i32 -1, align 4
 @php_getopt.optchr = internal unnamed_addr global i32 0, align 4
 @php_getopt.dash = internal unnamed_addr global i1 false, align 4
 @php_getopt.prev_optarg = internal unnamed_addr global ptr null, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
-@.str.1 = private unnamed_addr constant [32 x i8] c"Error in argument %d, char %d: \00", align 1
-@.str.2 = private unnamed_addr constant [12 x i8] c": in flags\0A\00", align 1
-@.str.3 = private unnamed_addr constant [21 x i8] c"option not found %c\0A\00", align 1
-@.str.4 = private unnamed_addr constant [27 x i8] c"no argument for option %c\0A\00", align 1
+@.str = private unnamed_addr constant [32 x i8] c"Error in argument %d, char %d: \00", align 1
+@.str.1 = private unnamed_addr constant [12 x i8] c": in flags\0A\00", align 1
+@.str.2 = private unnamed_addr constant [21 x i8] c"option not found %c\0A\00", align 1
+@.str.3 = private unnamed_addr constant [27 x i8] c"no argument for option %c\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  store i32 -1, ptr @php_optidx, align 4
-  %8 = load ptr, ptr @php_getopt.prev_optarg, align 8
+define dso_local range(i32 -128, 128) i32 @php_getopt(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+  store i32 -1, ptr @php_optidx, align 4, !tbaa !4
+  %8 = load ptr, ptr @php_getopt.prev_optarg, align 8, !tbaa !8
   %.not = icmp eq ptr %8, null
-  %.not160 = icmp eq ptr %8, %3
-  %or.cond = or i1 %.not, %.not160
+  %.not119 = icmp eq ptr %8, %3
+  %or.cond = or i1 %.not, %.not119
   br i1 %or.cond, label %10, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr @php_getopt.optchr, align 4
+  store i32 0, ptr @php_getopt.optchr, align 4, !tbaa !4
   store i1 false, ptr @php_getopt.dash, align 4
   br label %10
 
 10:                                               ; preds = %9, %7
-  store ptr %3, ptr @php_getopt.prev_optarg, align 8
-  %11 = load i32, ptr %4, align 4
-  %.not161 = icmp slt i32 %11, %0
-  br i1 %.not161, label %12, label %php_opt_error.exit
+  store ptr %3, ptr @php_getopt.prev_optarg, align 8, !tbaa !8
+  %11 = load i32, ptr %4, align 4, !tbaa !4
+  %.not120 = icmp slt i32 %11, %0
+  br i1 %.not120, label %12, label %php_opt_error.exit131
 
 12:                                               ; preds = %10
-  %.b159 = load i1, ptr @php_getopt.dash, align 4
+  %.b118 = load i1, ptr @php_getopt.dash, align 4
   %.phi.trans.insert = sext i32 %11 to i64
-  %.phi.trans.insert178 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert
-  %.pre = load ptr, ptr %.phi.trans.insert178, align 8
-  %.pre179 = load i8, ptr %.pre, align 1
-  %13 = icmp eq i8 %.pre179, 45
-  br i1 %.b159, label %18, label %14
+  %.phi.trans.insert141 = getelementptr inbounds ptr, ptr %1, i64 %.phi.trans.insert
+  %.pre = load ptr, ptr %.phi.trans.insert141, align 8, !tbaa !11
+  %.pre142 = load i8, ptr %.pre, align 1, !tbaa !13
+  %13 = icmp eq i8 %.pre142, 45
+  br i1 %.b118, label %18, label %14
 
 14:                                               ; preds = %12
-  br i1 %13, label %15, label %php_opt_error.exit
+  br i1 %13, label %15, label %php_opt_error.exit131
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  %17 = load i8, ptr %16, align 1
-  %.not163 = icmp eq i8 %17, 0
-  br i1 %.not163, label %php_opt_error.exit, label %.thread185
+  %17 = load i8, ptr %16, align 1, !tbaa !13
+  %.not122 = icmp eq i8 %17, 0
+  br i1 %.not122, label %php_opt_error.exit131, label %.thread148
 
 18:                                               ; preds = %12
-  br i1 %13, label %19, label %._crit_edge180
+  br i1 %13, label %19, label %._crit_edge143
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = icmp eq i8 %21, 45
-  br i1 %22, label %26, label %._crit_edge180
+  br i1 %22, label %26, label %._crit_edge143
 
-.thread185:                                       ; preds = %15
+.thread148:                                       ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  %24 = load i8, ptr %23, align 1
+  %24 = load i8, ptr %23, align 1, !tbaa !13
   %25 = icmp eq i8 %24, 45
-  br i1 %25, label %26, label %79
+  br i1 %25, label %26, label %78
 
-26:                                               ; preds = %.thread185, %19
+26:                                               ; preds = %.thread148, %19
   %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
   %31 = add nsw i32 %11, 1
-  store i32 %31, ptr %4, align 4
-  br label %php_opt_error.exit
+  store i32 %31, ptr %4, align 4, !tbaa !4
+  br label %php_opt_error.exit131
 
 32:                                               ; preds = %26
-  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #5
-  %34 = add i64 %33, -1
-  %35 = icmp sgt i64 %34, 1
-  tail call void @llvm.assume(i1 %35)
-  %gepdiff = add i64 %33, -3
-  %36 = tail call ptr @memchr(ptr noundef nonnull %27, i32 noundef 61, i64 noundef %gepdiff) #5
-  %.not164 = icmp eq ptr %36, null
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %27 to i64
-  %39 = sub i64 %37, %38
-  %40 = add i64 %33, -2
-  %.0147 = select i1 %.not164, i32 2, i32 3
-  %.0145 = select i1 %.not164, i64 %40, i64 %39
-  store i32 0, ptr @php_optidx, align 4
-  %41 = load i8, ptr %2, align 8
-  %42 = icmp eq i8 %41, 45
-  br i1 %42, label %._crit_edge, label %.lr.ph
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #4
+  %34 = add i64 %33, -3
+  %35 = tail call ptr @memchr(ptr noundef nonnull %27, i32 noundef 61, i64 noundef %34) #4
+  %.not123 = icmp eq ptr %35, null
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %27 to i64
+  %38 = sub i64 %36, %37
+  %39 = add i64 %33, -2
+  %.0109 = select i1 %.not123, i64 %39, i64 %38
+  %.1107 = select i1 %.not123, i32 2, i32 3
+  store i32 0, ptr @php_optidx, align 4, !tbaa !4
+  %40 = load i8, ptr %2, align 8, !tbaa !14
+  %41 = icmp eq i8 %40, 45
+  br i1 %41, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %73, %32
-  %43 = load i32, ptr %4, align 4
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %4, align 4
+._crit_edge:                                      ; preds = %72, %32
+  %42 = load i32, ptr %4, align 4, !tbaa !4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %4, align 4, !tbaa !4
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %php_opt_error.exit, label %45
+  br i1 %.not.i, label %php_opt_error.exit131, label %44
 
-45:                                               ; preds = %._crit_edge
-  %46 = load i32, ptr @php_getopt.optchr, align 4
-  %47 = load ptr, ptr @stderr, align 8
-  %48 = add nsw i32 %46, 1
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.1, i32 noundef %43, i32 noundef %48) #6
-  %50 = load ptr, ptr @stderr, align 8
-  %51 = sext i32 %43 to i64
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %51
-  %53 = load ptr, ptr %52, align 8
-  %54 = sext i32 %46 to i64
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  %56 = load i8, ptr %55, align 1
-  %57 = sext i8 %56 to i32
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.4, i32 noundef %57) #6
-  br label %php_opt_error.exit
+44:                                               ; preds = %._crit_edge
+  %45 = load i32, ptr @php_getopt.optchr, align 4, !tbaa !4
+  %46 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %47 = add nsw i32 %45, 1
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef %42, i32 noundef %47) #5
+  %49 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %50 = sext i32 %42 to i64
+  %51 = getelementptr inbounds ptr, ptr %1, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !11
+  %53 = sext i32 %45 to i64
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !13
+  %56 = sext i8 %55 to i32
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.3, i32 noundef %56) #5
+  br label %php_opt_error.exit131
 
-.lr.ph:                                           ; preds = %32, %73
-  %59 = phi i32 [ %74, %73 ], [ 0, %32 ]
-  %60 = phi i64 [ %75, %73 ], [ 0, %32 ]
-  %61 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %60, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %.not165 = icmp eq ptr %62, null
-  br i1 %.not165, label %73, label %63
+.lr.ph:                                           ; preds = %32, %72
+  %58 = phi i32 [ %73, %72 ], [ 0, %32 ]
+  %59 = phi i64 [ %74, %72 ], [ 0, %32 ]
+  %60 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %59, i32 2
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
+  %.not124 = icmp eq ptr %61, null
+  br i1 %.not124, label %72, label %62
 
-63:                                               ; preds = %.lr.ph
-  %64 = load i32, ptr %4, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %1, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  %69 = tail call i32 @strncmp(ptr noundef nonnull %68, ptr noundef nonnull %62, i64 noundef %.0145) #5
-  %.not166 = icmp eq i32 %69, 0
-  br i1 %.not166, label %70, label %73
+62:                                               ; preds = %.lr.ph
+  %63 = load i32, ptr %4, align 4, !tbaa !4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %1, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !11
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
+  %68 = tail call i32 @strncmp(ptr noundef nonnull %67, ptr noundef nonnull %61, i64 noundef %.0109) #4
+  %.not125 = icmp eq i32 %68, 0
+  br i1 %.not125, label %69, label %72
 
-70:                                               ; preds = %63
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #5
-  %72 = icmp eq i64 %.0145, %71
-  br i1 %72, label %..loopexit_crit_edge, label %73
+69:                                               ; preds = %62
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #4
+  %71 = icmp eq i64 %.0109, %70
+  br i1 %71, label %..loopexit_crit_edge, label %72
 
-73:                                               ; preds = %.lr.ph, %63, %70
-  %74 = add nuw nsw i32 %59, 1
-  store i32 %74, ptr @php_optidx, align 4
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %75
-  %77 = load i8, ptr %76, align 8
-  %78 = icmp eq i8 %77, 45
-  br i1 %78, label %._crit_edge, label %.lr.ph
+72:                                               ; preds = %.lr.ph, %62, %69
+  %73 = add nuw nsw i32 %58, 1
+  store i32 %73, ptr @php_optidx, align 4, !tbaa !4
+  %74 = zext nneg i32 %73 to i64
+  %75 = getelementptr inbounds nuw %struct._opt_struct, ptr %2, i64 %74
+  %76 = load i8, ptr %75, align 8, !tbaa !14
+  %77 = icmp eq i8 %76, 45
+  br i1 %77, label %._crit_edge, label %.lr.ph
 
-._crit_edge180:                                   ; preds = %18, %19
-  %.pre181 = load i32, ptr @php_getopt.optchr, align 4
-  br label %80
+._crit_edge143:                                   ; preds = %18, %19
+  %.pre144 = load i32, ptr @php_getopt.optchr, align 4, !tbaa !4
+  br label %79
 
-79:                                               ; preds = %.thread185
+78:                                               ; preds = %.thread148
   store i1 true, ptr @php_getopt.dash, align 4
-  store i32 1, ptr @php_getopt.optchr, align 4
-  br label %80
+  store i32 1, ptr @php_getopt.optchr, align 4, !tbaa !4
+  br label %79
 
-80:                                               ; preds = %._crit_edge180, %79
-  %81 = phi i32 [ %.pre181, %._crit_edge180 ], [ 1, %79 ]
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %.pre, i64 %82
-  %84 = load i8, ptr %83, align 1
-  %85 = icmp eq i8 %84, 58
-  br i1 %85, label %86, label %.thread187
+79:                                               ; preds = %._crit_edge143, %78
+  %80 = phi i32 [ %.pre144, %._crit_edge143 ], [ 1, %78 ]
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %.pre, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !13
+  %84 = icmp eq i8 %83, 58
+  br i1 %84, label %85, label %.thread150
 
-86:                                               ; preds = %80
+85:                                               ; preds = %79
   store i1 false, ptr @php_getopt.dash, align 4
-  %87 = add nsw i32 %11, 1
-  store i32 %87, ptr %4, align 4
-  %.not.i171 = icmp eq i32 %5, 0
-  br i1 %.not.i171, label %php_opt_error.exit, label %88
+  %86 = add nsw i32 %11, 1
+  store i32 %86, ptr %4, align 4, !tbaa !4
+  %.not.i130 = icmp eq i32 %5, 0
+  br i1 %.not.i130, label %php_opt_error.exit131, label %87
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr @stderr, align 8
-  %90 = add nsw i32 %81, 1
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.1, i32 noundef %11, i32 noundef %90) #6
-  %92 = load ptr, ptr @stderr, align 8
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 11, i64 1, ptr %92) #7
-  br label %php_opt_error.exit
+87:                                               ; preds = %85
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %89 = add nsw i32 %80, 1
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %89) #5
+  %91 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %92 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 11, i64 1, ptr %91) #6
+  br label %php_opt_error.exit131
 
-.thread187:                                       ; preds = %80
-  %94 = add nsw i32 %81, 1
-  %95 = sext i32 %81 to i64
-  br label %98
+.thread150:                                       ; preds = %79
+  %93 = add nsw i32 %80, 1
+  %94 = sext i32 %80 to i64
+  br label %97
 
-..loopexit_crit_edge:                             ; preds = %70
-  store i32 0, ptr @php_getopt.optchr, align 4
+..loopexit_crit_edge:                             ; preds = %69
+  store i32 0, ptr @php_getopt.optchr, align 4, !tbaa !4
   store i1 false, ptr @php_getopt.dash, align 4
-  %96 = trunc i64 %.0145 to i32
-  %97 = add nsw i32 %.0147, %96
-  %.pre182 = zext nneg i32 %59 to i64
+  %95 = trunc i64 %.0109 to i32
+  %96 = add nsw i32 %.1107, %95
+  %.pre145 = zext nneg i32 %58 to i64
   br label %.loopexit
 
-98:                                               ; preds = %.thread187, %128
-  %99 = phi i32 [ -1, %.thread187 ], [ %100, %128 ]
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr @php_optidx, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %101
-  %103 = load i8, ptr %102, align 8
-  %104 = icmp eq i8 %103, 45
-  %105 = load i32, ptr %4, align 4
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds ptr, ptr %1, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  br i1 %104, label %109, label %128
+97:                                               ; preds = %.thread150, %127
+  %98 = phi i32 [ -1, %.thread150 ], [ %99, %127 ]
+  %99 = add nsw i32 %98, 1
+  store i32 %99, ptr @php_optidx, align 4, !tbaa !4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %100
+  %102 = load i8, ptr %101, align 8, !tbaa !14
+  %103 = icmp eq i8 %102, 45
+  %104 = load i32, ptr %4, align 4, !tbaa !4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds ptr, ptr %1, i64 %105
+  %107 = load ptr, ptr %106, align 8, !tbaa !11
+  br i1 %103, label %108, label %127
 
-109:                                              ; preds = %98
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %106
-  %111 = add nsw i32 %81, 1
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %108, i64 %112
-  %114 = load i8, ptr %113, align 1
-  %.not170 = icmp eq i8 %114, 0
-  br i1 %.not170, label %115, label %117
+108:                                              ; preds = %97
+  %109 = getelementptr inbounds ptr, ptr %1, i64 %105
+  %110 = add nsw i32 %80, 1
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i8, ptr %107, i64 %111
+  %113 = load i8, ptr %112, align 1, !tbaa !13
+  %.not129 = icmp eq i8 %113, 0
+  br i1 %.not129, label %114, label %116
 
-115:                                              ; preds = %109
+114:                                              ; preds = %108
   store i1 false, ptr @php_getopt.dash, align 4
-  %116 = add nsw i32 %105, 1
-  store i32 %116, ptr %4, align 4
-  br label %118
+  %115 = add nsw i32 %104, 1
+  store i32 %115, ptr %4, align 4, !tbaa !4
+  br label %117
 
-117:                                              ; preds = %109
-  store i32 %111, ptr @php_getopt.optchr, align 4
-  br label %118
+116:                                              ; preds = %108
+  store i32 %110, ptr @php_getopt.optchr, align 4, !tbaa !4
+  br label %117
 
-118:                                              ; preds = %117, %115
-  %.not.i173 = icmp eq i32 %5, 0
-  br i1 %.not.i173, label %php_opt_error.exit, label %119
+117:                                              ; preds = %116, %114
+  %.not.i132 = icmp eq i32 %5, 0
+  br i1 %.not.i132, label %php_opt_error.exit131, label %118
 
-119:                                              ; preds = %118
-  %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.1, i32 noundef %105, i32 noundef %111) #6
-  %122 = load ptr, ptr @stderr, align 8
-  %123 = load ptr, ptr %110, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 %95
-  %125 = load i8, ptr %124, align 1
-  %126 = sext i8 %125 to i32
-  %127 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.3, i32 noundef %126) #6
-  br label %php_opt_error.exit
+118:                                              ; preds = %117
+  %119 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str, i32 noundef %104, i32 noundef %110) #5
+  %121 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %122 = load ptr, ptr %109, align 8, !tbaa !11
+  %123 = getelementptr inbounds i8, ptr %122, i64 %94
+  %124 = load i8, ptr %123, align 1, !tbaa !13
+  %125 = sext i8 %124 to i32
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.2, i32 noundef %125) #5
+  br label %php_opt_error.exit131
 
-128:                                              ; preds = %98
-  %129 = getelementptr inbounds i8, ptr %108, i64 %95
-  %130 = load i8, ptr %129, align 1
-  %131 = icmp eq i8 %130, %103
-  br i1 %131, label %.loopexit, label %98
+127:                                              ; preds = %97
+  %128 = getelementptr inbounds i8, ptr %107, i64 %94
+  %129 = load i8, ptr %128, align 1, !tbaa !13
+  %130 = icmp eq i8 %129, %102
+  br i1 %130, label %.loopexit, label %97
 
-.loopexit:                                        ; preds = %128, %..loopexit_crit_edge
-  %.1189 = phi i32 [ %97, %..loopexit_crit_edge ], [ %94, %128 ]
-  %132 = phi i32 [ 0, %..loopexit_crit_edge ], [ %81, %128 ]
-  %.pre-phi183 = phi i64 [ %.pre182, %..loopexit_crit_edge ], [ %101, %128 ]
-  %133 = phi i32 [ %64, %..loopexit_crit_edge ], [ %105, %128 ]
-  %134 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %.pre-phi183, i32 1
-  %135 = load i32, ptr %134, align 4
-  %.not167 = icmp eq i32 %135, 0
-  br i1 %.not167, label %172, label %136
+.loopexit:                                        ; preds = %127, %..loopexit_crit_edge
+  %.2152 = phi i32 [ %96, %..loopexit_crit_edge ], [ %93, %127 ]
+  %131 = phi i32 [ 0, %..loopexit_crit_edge ], [ %80, %127 ]
+  %.pre-phi146 = phi i64 [ %.pre145, %..loopexit_crit_edge ], [ %100, %127 ]
+  %132 = phi i32 [ %63, %..loopexit_crit_edge ], [ %104, %127 ]
+  %133 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %.pre-phi146, i32 1
+  %134 = load i32, ptr %133, align 4, !tbaa !19
+  %.not126 = icmp eq i32 %134, 0
+  br i1 %.not126, label %169, label %135
 
-136:                                              ; preds = %.loopexit
+135:                                              ; preds = %.loopexit
   store i1 false, ptr @php_getopt.dash, align 4
-  %137 = sext i32 %133 to i64
-  %138 = getelementptr inbounds ptr, ptr %1, i64 %137
-  %139 = load ptr, ptr %138, align 8
-  %140 = sext i32 %.1189 to i64
-  %141 = getelementptr inbounds i8, ptr %139, i64 %140
-  %142 = load i8, ptr %141, align 1
-  switch i8 %142, label %163 [
-    i8 0, label %143
-    i8 61, label %159
+  %136 = sext i32 %132 to i64
+  %137 = getelementptr inbounds ptr, ptr %1, i64 %136
+  %138 = load ptr, ptr %137, align 8, !tbaa !11
+  %139 = sext i32 %.2152 to i64
+  %140 = getelementptr inbounds i8, ptr %138, i64 %139
+  %141 = load i8, ptr %140, align 1, !tbaa !13
+  switch i8 %141, label %161 [
+    i8 0, label %142
+    i8 61, label %158
   ]
 
-143:                                              ; preds = %136
-  %144 = add nsw i32 %133, 1
-  store i32 %144, ptr %4, align 4
-  %145 = icmp eq i32 %144, %0
-  %146 = load i32, ptr @php_optidx, align 4
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %147, i32 1
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp eq i32 %149, 1
-  br i1 %145, label %151, label %153
+142:                                              ; preds = %135
+  %143 = add nsw i32 %132, 1
+  store i32 %143, ptr %4, align 4, !tbaa !4
+  %144 = icmp eq i32 %143, %0
+  %145 = load i32, ptr @php_optidx, align 4, !tbaa !4
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %146, i32 1
+  %148 = load i32, ptr %147, align 4, !tbaa !19
+  %149 = icmp eq i32 %148, 1
+  br i1 %144, label %150, label %152
 
-151:                                              ; preds = %143
-  br i1 %150, label %152, label %166
+150:                                              ; preds = %142
+  br i1 %149, label %151, label %163
 
-152:                                              ; preds = %151
-  tail call fastcc void @php_opt_error(ptr noundef nonnull %1, i32 noundef %133, i32 noundef %132, i32 noundef 3, i32 noundef %5)
-  br label %php_opt_error.exit
+151:                                              ; preds = %150
+  tail call fastcc void @php_opt_error(ptr noundef nonnull %1, i32 noundef %132, i32 noundef %131, i32 noundef 3, i32 noundef %5)
+  br label %php_opt_error.exit131
 
-153:                                              ; preds = %143
-  br i1 %150, label %154, label %166
+152:                                              ; preds = %142
+  br i1 %149, label %153, label %163
 
-154:                                              ; preds = %153
-  %155 = add nsw i32 %133, 2
-  store i32 %155, ptr %4, align 4
-  %156 = sext i32 %144 to i64
-  %157 = getelementptr inbounds ptr, ptr %1, i64 %156
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %3, align 8
-  br label %166
+153:                                              ; preds = %152
+  %154 = add nsw i32 %132, 2
+  store i32 %154, ptr %4, align 4, !tbaa !4
+  %155 = sext i32 %143 to i64
+  %156 = getelementptr inbounds ptr, ptr %1, i64 %155
+  %157 = load ptr, ptr %156, align 8, !tbaa !11
+  store ptr %157, ptr %3, align 8, !tbaa !11
+  br label %163
 
-159:                                              ; preds = %136
-  %160 = getelementptr i8, ptr %141, i64 1
-  store ptr %160, ptr %3, align 8
-  %161 = load i32, ptr %4, align 4
-  %162 = add nsw i32 %161, 1
-  store i32 %162, ptr %4, align 4
-  br label %166
+158:                                              ; preds = %135
+  %159 = getelementptr i8, ptr %140, i64 1
+  store ptr %159, ptr %3, align 8, !tbaa !11
+  %160 = add nsw i32 %132, 1
+  store i32 %160, ptr %4, align 4, !tbaa !4
+  br label %163
 
-163:                                              ; preds = %136
-  store ptr %141, ptr %3, align 8
-  %164 = load i32, ptr %4, align 4
-  %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %4, align 4
-  br label %166
+161:                                              ; preds = %135
+  store ptr %140, ptr %3, align 8, !tbaa !11
+  %162 = add nsw i32 %132, 1
+  store i32 %162, ptr %4, align 4, !tbaa !4
+  br label %163
 
-166:                                              ; preds = %159, %163, %151, %154, %153
-  %167 = load i32, ptr @php_optidx, align 4
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %168
-  %170 = load i8, ptr %169, align 8
-  %171 = sext i8 %170 to i32
-  br label %php_opt_error.exit
+163:                                              ; preds = %158, %161, %150, %153, %152
+  %164 = load i32, ptr @php_optidx, align 4, !tbaa !4
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %165
+  %167 = load i8, ptr %166, align 8, !tbaa !14
+  %168 = sext i8 %167 to i32
+  br label %php_opt_error.exit131
 
-172:                                              ; preds = %.loopexit
-  %173 = icmp sgt i32 %.1189, 1
-  br i1 %173, label %174, label %192
+169:                                              ; preds = %.loopexit
+  %170 = icmp sgt i32 %.2152, 1
+  br i1 %170, label %171, label %189
 
-174:                                              ; preds = %172
-  %175 = sext i32 %133 to i64
-  %176 = getelementptr inbounds ptr, ptr %1, i64 %175
-  %177 = load ptr, ptr %176, align 8
-  %178 = load i8, ptr %177, align 1
-  %179 = icmp eq i8 %178, 45
-  br i1 %179, label %180, label %184
+171:                                              ; preds = %169
+  %172 = sext i32 %132 to i64
+  %173 = getelementptr inbounds ptr, ptr %1, i64 %172
+  %174 = load ptr, ptr %173, align 8, !tbaa !11
+  %175 = load i8, ptr %174, align 1, !tbaa !13
+  %176 = icmp eq i8 %175, 45
+  br i1 %176, label %177, label %181
 
-180:                                              ; preds = %174
-  %181 = getelementptr inbounds nuw i8, ptr %177, i64 1
-  %182 = load i8, ptr %181, align 1
-  %183 = icmp eq i8 %182, 45
-  br i1 %183, label %192, label %184
+177:                                              ; preds = %171
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 1
+  %179 = load i8, ptr %178, align 1, !tbaa !13
+  %180 = icmp eq i8 %179, 45
+  br i1 %180, label %189, label %181
 
-184:                                              ; preds = %180, %174
-  %185 = add nsw i32 %132, 1
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds i8, ptr %177, i64 %186
-  %188 = load i8, ptr %187, align 1
-  %.not168 = icmp eq i8 %188, 0
-  br i1 %.not168, label %189, label %191
+181:                                              ; preds = %177, %171
+  %182 = add nsw i32 %131, 1
+  %183 = sext i32 %182 to i64
+  %184 = getelementptr inbounds i8, ptr %174, i64 %183
+  %185 = load i8, ptr %184, align 1, !tbaa !13
+  %.not127 = icmp eq i8 %185, 0
+  br i1 %.not127, label %186, label %188
 
-189:                                              ; preds = %184
+186:                                              ; preds = %181
   store i1 false, ptr @php_getopt.dash, align 4
-  %190 = add nsw i32 %133, 1
-  store i32 %190, ptr %4, align 4
-  br label %194
+  %187 = add nsw i32 %132, 1
+  store i32 %187, ptr %4, align 4, !tbaa !4
+  br label %191
 
-191:                                              ; preds = %184
-  store i32 %185, ptr @php_getopt.optchr, align 4
-  br label %194
+188:                                              ; preds = %181
+  store i32 %182, ptr @php_getopt.optchr, align 4, !tbaa !4
+  br label %191
 
-192:                                              ; preds = %180, %172
-  %193 = add nsw i32 %133, 1
-  store i32 %193, ptr %4, align 4
-  br label %194
+189:                                              ; preds = %177, %169
+  %190 = add nsw i32 %132, 1
+  store i32 %190, ptr %4, align 4, !tbaa !4
+  br label %191
 
-194:                                              ; preds = %189, %191, %192
-  %195 = load i32, ptr @php_optidx, align 4
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %196
-  %198 = load i8, ptr %197, align 8
-  %199 = sext i8 %198 to i32
-  br label %php_opt_error.exit
+191:                                              ; preds = %186, %188, %189
+  %192 = load i32, ptr @php_optidx, align 4, !tbaa !4
+  %193 = sext i32 %192 to i64
+  %194 = getelementptr inbounds %struct._opt_struct, ptr %2, i64 %193
+  %195 = load i8, ptr %194, align 8, !tbaa !14
+  %196 = sext i8 %195 to i32
+  br label %php_opt_error.exit131
 
-php_opt_error.exit:                               ; preds = %119, %118, %88, %86, %45, %._crit_edge, %15, %14, %10, %194, %166, %152, %30
-  %.0148 = phi i32 [ -1, %30 ], [ %171, %166 ], [ -2, %152 ], [ %199, %194 ], [ -1, %10 ], [ -1, %14 ], [ -1, %15 ], [ -2, %._crit_edge ], [ -2, %45 ], [ -2, %86 ], [ -2, %88 ], [ -2, %118 ], [ -2, %119 ]
-  ret i32 %.0148
+php_opt_error.exit131:                            ; preds = %44, %._crit_edge, %30, %118, %117, %87, %85, %15, %14, %10, %191, %163, %151
+  %.0 = phi i32 [ %168, %163 ], [ -2, %151 ], [ %196, %191 ], [ -1, %10 ], [ -1, %14 ], [ -1, %15 ], [ -2, %85 ], [ -2, %87 ], [ -2, %117 ], [ -2, %118 ], [ -2, %44 ], [ -2, %._crit_edge ], [ -1, %30 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @php_opt_error(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 4) %3, i32 noundef %4) unnamed_addr #0 {
@@ -391,10 +389,10 @@ define internal fastcc void @php_opt_error(ptr noundef readonly captures(none) %
   br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %5
-  %7 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !16
   %8 = add nsw i32 %2, 1
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %8) #6
-  %10 = load ptr, ptr @stderr, align 8
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef %1, i32 noundef %8) #5
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !16
   switch i32 %3, label %default.unreachable9 [
     i32 1, label %11
     i32 2, label %13
@@ -402,29 +400,29 @@ define internal fastcc void @php_opt_error(ptr noundef readonly captures(none) %
   ]
 
 11:                                               ; preds = %6
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 11, i64 1, ptr %10) #7
+  %12 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 11, i64 1, ptr %10) #6
   br label %31
 
 13:                                               ; preds = %6
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds ptr, ptr %0, i64 %14
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = sext i32 %2 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 1, !tbaa !13
   %20 = sext i8 %19 to i32
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, i32 noundef %20) #6
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.2, i32 noundef %20) #5
   br label %31
 
 22:                                               ; preds = %6
   %23 = sext i32 %1 to i64
   %24 = getelementptr inbounds ptr, ptr %0, i64 %23
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = sext i32 %2 to i64
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1
+  %28 = load i8, ptr %27, align 1, !tbaa !13
   %29 = sext i8 %28 to i32
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef %29) #6
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.3, i32 noundef %29) #5
   br label %31
 
 default.unreachable9:                             ; preds = %6
@@ -437,30 +435,39 @@ default.unreachable9:                             ; preds = %6
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #2
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: nofree nounwind
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
-
-attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { cold nounwind }
-attributes #7 = { cold }
+attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind }
+attributes #4 = { nounwind willreturn memory(read) }
+attributes #5 = { cold nounwind }
+attributes #6 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p2 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !10, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !6, i64 0}
+!15 = !{!"_opt_struct", !6, i64 0, !5, i64 4, !12, i64 8}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!18 = !{!15, !12, i64 8}
+!19 = !{!15, !5, i64 4}

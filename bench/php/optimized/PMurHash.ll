@@ -5,14 +5,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load i32, ptr %0, align 4
-  %6 = load i32, ptr %1, align 4
+  %5 = load i32, ptr %0, align 4, !tbaa !4
+  %6 = load i32, ptr %1, align 4, !tbaa !4
   %7 = and i32 %6, 3
   %8 = sub i32 0, %6
   %9 = and i32 %8, 3
   %.not = icmp eq i32 %9, 0
-  %.not91 = icmp sgt i32 %9, %3
-  %or.cond = or i1 %.not, %.not91
+  %.not85 = icmp sgt i32 %9, %3
+  %or.cond = or i1 %.not, %.not85
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
@@ -22,16 +22,16 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
 
 12:                                               ; preds = %.preheader, %30
   %.in = phi i32 [ %9, %.preheader ], [ %13, %30 ]
-  %.17097 = phi i32 [ %7, %.preheader ], [ %.271, %30 ]
-  %.17396 = phi i32 [ %5, %.preheader ], [ %.274, %30 ]
-  %.17895 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
-  %.18294 = phi i32 [ %6, %.preheader ], [ %.283, %30 ]
+  %.16491 = phi i32 [ %5, %.preheader ], [ %.265, %30 ]
+  %.16790 = phi i32 [ %7, %.preheader ], [ %.268, %30 ]
+  %.17289 = phi i32 [ %6, %.preheader ], [ %.273, %30 ]
+  %.17788 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
   %13 = add nsw i32 %.in, -1
-  %14 = getelementptr inbounds nuw i8, ptr %.17895, i64 1
-  %15 = load i8, ptr %.17895, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %.17788, i64 1
+  %15 = load i8, ptr %.17788, align 1, !tbaa !8
   %16 = zext i8 %15 to i32
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.18294, i32 24)
-  %18 = add nuw nsw i32 %.17097, 1
+  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.17289, i32 24)
+  %18 = add nuw nsw i32 %.16790, 1
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %20, label %30
 
@@ -41,101 +41,101 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %23 = lshr i32 %21, 17
   %24 = or disjoint i32 %23, %22
   %25 = mul i32 %24, 461845907
-  %26 = xor i32 %25, %.17396
+  %26 = xor i32 %25, %.16491
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 13)
   %28 = mul i32 %27, 5
   %29 = add i32 %28, -430675100
   br label %30
 
 30:                                               ; preds = %20, %12
-  %.283 = phi i32 [ %25, %20 ], [ %17, %12 ]
-  %.274 = phi i32 [ %29, %20 ], [ %.17396, %12 ]
-  %.271 = phi i32 [ 0, %20 ], [ %18, %12 ]
-  %.not92 = icmp eq i32 %13, 0
-  br i1 %.not92, label %.loopexit.loopexit, label %12
+  %.273 = phi i32 [ %25, %20 ], [ %17, %12 ]
+  %.268 = phi i32 [ 0, %20 ], [ %18, %12 ]
+  %.265 = phi i32 [ %29, %20 ], [ %.16491, %12 ]
+  %.not86 = icmp eq i32 %13, 0
+  br i1 %.not86, label %.loopexit.loopexit, label %12
 
 .loopexit.loopexit:                               ; preds = %30
   %31 = sub i32 %3, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.081 = phi i32 [ %6, %4 ], [ %.283, %.loopexit.loopexit ]
-  %.077 = phi ptr [ %2, %4 ], [ %11, %.loopexit.loopexit ]
-  %.072 = phi i32 [ %5, %4 ], [ %.274, %.loopexit.loopexit ]
-  %.069 = phi i32 [ %7, %4 ], [ %.271, %.loopexit.loopexit ]
-  %.068 = phi i32 [ %3, %4 ], [ %31, %.loopexit.loopexit ]
-  %32 = and i32 %.068, -4
+  %.076 = phi ptr [ %2, %4 ], [ %11, %.loopexit.loopexit ]
+  %.071 = phi i32 [ %6, %4 ], [ %.273, %.loopexit.loopexit ]
+  %.066 = phi i32 [ %7, %4 ], [ %.268, %.loopexit.loopexit ]
+  %.063 = phi i32 [ %5, %4 ], [ %.265, %.loopexit.loopexit ]
+  %.061 = phi i32 [ %3, %4 ], [ %31, %.loopexit.loopexit ]
+  %32 = and i32 %.061, -4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.077, i64 %33
-  %35 = icmp sgt i32 %.068, 3
+  %34 = getelementptr inbounds i8, ptr %.076, i64 %33
+  %35 = icmp sgt i32 %.061, 3
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.375100 = phi i32 [ %45, %.lr.ph ], [ %.072, %.loopexit ]
-  %.27999 = phi ptr [ %46, %.lr.ph ], [ %.077, %.loopexit ]
-  %36 = load i32, ptr %.27999, align 4
+  %.394 = phi i32 [ %45, %.lr.ph ], [ %.063, %.loopexit ]
+  %.27893 = phi ptr [ %46, %.lr.ph ], [ %.076, %.loopexit ]
+  %36 = load i32, ptr %.27893, align 4, !tbaa !4
   %37 = mul i32 %36, -862048943
   %38 = mul i32 %36, 380141568
   %39 = lshr i32 %37, 17
   %40 = or disjoint i32 %39, %38
   %41 = mul i32 %40, 461845907
-  %42 = xor i32 %41, %.375100
+  %42 = xor i32 %41, %.394
   %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 13)
   %44 = mul i32 %43, 5
   %45 = add i32 %44, -430675100
-  %46 = getelementptr inbounds nuw i8, ptr %.27999, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.27893, i64 4
   %47 = icmp ult ptr %46, %34
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.279.lcssa = phi ptr [ %.077, %.loopexit ], [ %46, %.lr.ph ]
-  %.375.lcssa = phi i32 [ %.072, %.loopexit ], [ %45, %.lr.ph ]
-  %48 = and i32 %.068, 3
-  %.not93102 = icmp eq i32 %48, 0
-  br i1 %.not93102, label %._crit_edge109, label %.lr.ph108
+  %.278.lcssa = phi ptr [ %.076, %.loopexit ], [ %46, %.lr.ph ]
+  %.3.lcssa = phi i32 [ %.063, %.loopexit ], [ %45, %.lr.ph ]
+  %48 = and i32 %.061, 3
+  %.not8796 = icmp eq i32 %48, 0
+  br i1 %.not8796, label %._crit_edge103, label %.lr.ph102
 
-.lr.ph108:                                        ; preds = %._crit_edge, %66
-  %.in113 = phi i32 [ %49, %66 ], [ %48, %._crit_edge ]
-  %.3106 = phi i32 [ %.4, %66 ], [ %.069, %._crit_edge ]
-  %.476105 = phi i32 [ %.5, %66 ], [ %.375.lcssa, %._crit_edge ]
-  %.380104 = phi ptr [ %50, %66 ], [ %.279.lcssa, %._crit_edge ]
-  %.384103 = phi i32 [ %.485, %66 ], [ %.081, %._crit_edge ]
-  %49 = add nsw i32 %.in113, -1
-  %50 = getelementptr inbounds nuw i8, ptr %.380104, i64 1
-  %51 = load i8, ptr %.380104, align 1
+.lr.ph102:                                        ; preds = %._crit_edge, %66
+  %.in107 = phi i32 [ %49, %66 ], [ %48, %._crit_edge ]
+  %.4100 = phi i32 [ %.5, %66 ], [ %.3.lcssa, %._crit_edge ]
+  %.36999 = phi i32 [ %.470, %66 ], [ %.066, %._crit_edge ]
+  %.37498 = phi i32 [ %.475, %66 ], [ %.071, %._crit_edge ]
+  %.37997 = phi ptr [ %50, %66 ], [ %.278.lcssa, %._crit_edge ]
+  %49 = add nsw i32 %.in107, -1
+  %50 = getelementptr inbounds nuw i8, ptr %.37997, i64 1
+  %51 = load i8, ptr %.37997, align 1, !tbaa !8
   %52 = zext i8 %51 to i32
-  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %.384103, i32 24)
-  %54 = add nuw nsw i32 %.3106, 1
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %.37498, i32 24)
+  %54 = add nuw nsw i32 %.36999, 1
   %55 = icmp eq i32 %54, 4
   br i1 %55, label %56, label %66
 
-56:                                               ; preds = %.lr.ph108
+56:                                               ; preds = %.lr.ph102
   %57 = mul i32 %53, -862048943
   %58 = mul i32 %53, 380141568
   %59 = lshr i32 %57, 17
   %60 = or disjoint i32 %59, %58
   %61 = mul i32 %60, 461845907
-  %62 = xor i32 %61, %.476105
+  %62 = xor i32 %61, %.4100
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
   %64 = mul i32 %63, 5
   %65 = add i32 %64, -430675100
   br label %66
 
-66:                                               ; preds = %56, %.lr.ph108
-  %.485 = phi i32 [ %61, %56 ], [ %53, %.lr.ph108 ]
-  %.5 = phi i32 [ %65, %56 ], [ %.476105, %.lr.ph108 ]
-  %.4 = phi i32 [ 0, %56 ], [ %54, %.lr.ph108 ]
-  %.not93 = icmp eq i32 %49, 0
-  br i1 %.not93, label %._crit_edge109, label %.lr.ph108
+66:                                               ; preds = %56, %.lr.ph102
+  %.475 = phi i32 [ %61, %56 ], [ %53, %.lr.ph102 ]
+  %.470 = phi i32 [ 0, %56 ], [ %54, %.lr.ph102 ]
+  %.5 = phi i32 [ %65, %56 ], [ %.4100, %.lr.ph102 ]
+  %.not87 = icmp eq i32 %49, 0
+  br i1 %.not87, label %._crit_edge103, label %.lr.ph102
 
-._crit_edge109:                                   ; preds = %66, %._crit_edge
-  %.384.lcssa = phi i32 [ %.081, %._crit_edge ], [ %.485, %66 ]
-  %.476.lcssa = phi i32 [ %.375.lcssa, %._crit_edge ], [ %.5, %66 ]
-  %.3.lcssa = phi i32 [ %.069, %._crit_edge ], [ %.4, %66 ]
-  store i32 %.476.lcssa, ptr %0, align 4
-  %67 = and i32 %.384.lcssa, -256
-  %68 = or i32 %.3.lcssa, %67
-  store i32 %68, ptr %1, align 4
+._crit_edge103:                                   ; preds = %66, %._crit_edge
+  %.374.lcssa = phi i32 [ %.071, %._crit_edge ], [ %.475, %66 ]
+  %.369.lcssa = phi i32 [ %.066, %._crit_edge ], [ %.470, %66 ]
+  %.4.lcssa = phi i32 [ %.3.lcssa, %._crit_edge ], [ %.5, %66 ]
+  store i32 %.4.lcssa, ptr %0, align 4, !tbaa !4
+  %67 = and i32 %.374.lcssa, -256
+  %68 = or i32 %67, %.369.lcssa
+  store i32 %68, ptr %1, align 4, !tbaa !4
   ret void
 }
 
@@ -174,13 +174,18 @@ define hidden i32 @PMurHash32_Result(i32 noundef %0, i32 noundef %1, i32 noundef
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #2
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}

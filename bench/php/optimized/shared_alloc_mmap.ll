@@ -4,8 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.zend_shared_memory_handlers = type { ptr, ptr, ptr }
+%struct._zend_jit_globals = type { i8, i8, i8, i8, i32, ptr, i64, i64, i64, double, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, i8, ptr, ptr, [64 x ptr], [64 x i8], [64 x i8], i32, ptr }
 
 @zend_alloc_mmap_handlers = hidden local_unnamed_addr constant %struct.zend_shared_memory_handlers { ptr @create_segments, ptr @detach_segment, ptr @segment_type_size }, align 8
+@jit_globals = external local_unnamed_addr global %struct._zend_jit_globals, align 8
 @.str = private unnamed_addr constant [5 x i8] c"mmap\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"calloc\00", align 1
 @.str.2 = private unnamed_addr constant [16 x i8] c"/proc/self/maps\00", align 1
@@ -18,229 +20,239 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7)
-  %8 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %.sink.split, label %.preheader.i
+  %8 = load i8, ptr @jit_globals, align 8, !tbaa !4, !range !17, !noundef !18
+  %9 = trunc nuw i8 %8 to i1
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 16), align 8
+  %11 = icmp ne i64 %10, 0
+  %or.cond = select i1 %9, i1 %11, i1 false
+  br i1 %or.cond, label %12, label %.thread
 
-.preheader.i:                                     ; preds = %4
-  %9 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %8)
-  %.not425863.i = icmp eq ptr %9, null
-  br i1 %.not425863.i, label %find_prefered_mmap_base.exit.thread81, label %.lr.ph.i
+12:                                               ; preds = %4
+  %13 = tail call i32 @zend_jit_check_support() #8
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %.thread
 
-find_prefered_mmap_base.exit.thread81:            ; preds = %.preheader.i
-  %10 = call i32 @fclose(ptr noundef nonnull %8)
-  br label %.sink.split
+15:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #8
+  %16 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %.thread.sink.split, label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.outer.i
-  %.034.ph66.i = phi i64 [ %spec.select49.i, %.outer.i ], [ 0, %.preheader.i ]
-  %.035.ph65.i = phi i64 [ %.4.i, %.outer.i ], [ -1, %.preheader.i ]
-  %.037.ph64.i = phi i64 [ %.138.i, %.outer.i ], [ 0, %.preheader.i ]
-  br label %11
+.preheader.i:                                     ; preds = %15
+  %17 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
+  %.not5166.i = icmp eq ptr %17, null
+  br i1 %.not5166.i, label %.thread92, label %.lr.ph.i
 
-11:                                               ; preds = %19, %.lr.ph.i
-  %.03459.i = phi i64 [ %.034.ph66.i, %.lr.ph.i ], [ %22, %19 ]
-  %12 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
-  %13 = icmp eq i32 %12, 2
-  br i1 %13, label %14, label %find_prefered_mmap_base.exit
+.thread92:                                        ; preds = %.preheader.i
+  %18 = call i32 @fclose(ptr noundef nonnull %16)
+  br label %.thread.sink.split
 
-14:                                               ; preds = %11
-  %15 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.5) #9
-  %.not43.i = icmp eq ptr %15, null
-  %.pr.i = load i64, ptr %5, align 8
-  br i1 %.not43.i, label %thread-pre-split.i, label %16
+.lr.ph.i:                                         ; preds = %.preheader.i, %52
+  %.03769.i = phi i64 [ %.3.i, %52 ], [ 2097152, %.preheader.i ]
+  %.04068.i = phi i64 [ %.242.i, %52 ], [ -1, %.preheader.i ]
+  %.04567.i = phi i64 [ %.146.i, %52 ], [ 0, %.preheader.i ]
+  %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  %20 = icmp eq i32 %19, 2
+  br i1 %20, label %21, label %55
 
-16:                                               ; preds = %14
-  %17 = and i64 %.pr.i, -2097152
-  %18 = add i64 %.03459.i, %0
-  %.not44.i = icmp ult i64 %18, %17
-  br i1 %.not44.i, label %.loopexit.i, label %19
+21:                                               ; preds = %.lr.ph.i
+  %22 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.5) #9
+  %.not52.i = icmp eq ptr %22, null
+  %.pre.i = load i64, ptr %5, align 8, !tbaa !19
+  br i1 %.not52.i, label %._crit_edge, label %23
 
-19:                                               ; preds = %16
-  %20 = load i64, ptr %6, align 8
-  %21 = add i64 %20, 4194303
-  %22 = and i64 %21, -2097152
-  %23 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %8)
-  %.not42.i = icmp eq ptr %23, null
-  br i1 %.not42.i, label %find_prefered_mmap_base.exit, label %11
+._crit_edge:                                      ; preds = %21
+  %.pre = add i64 %.03769.i, %0
+  br label %29
 
-thread-pre-split.i:                               ; preds = %14
-  %.pre = add i64 %.03459.i, %0
-  br label %.loopexit.i
+23:                                               ; preds = %21
+  %24 = and i64 %.pre.i, -2097152
+  %25 = add i64 %.03769.i, %0
+  %.not53.i = icmp ult i64 %25, %24
+  %26 = load i64, ptr %6, align 8
+  %27 = add i64 %26, 4194303
+  %28 = and i64 %27, -2097152
+  br i1 %.not53.i, label %29, label %52
 
-.loopexit.i:                                      ; preds = %16, %thread-pre-split.i
-  %.pre-phi = phi i64 [ %.pre, %thread-pre-split.i ], [ %18, %16 ]
-  %.not45.i = icmp ugt i64 %.pr.i, ptrtoint (ptr @execute_ex to i64)
-  br i1 %.not45.i, label %37, label %24
+29:                                               ; preds = %._crit_edge, %23
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %25, %23 ]
+  %.not54.i = icmp ugt i64 %.pre.i, ptrtoint (ptr @execute_ex to i64)
+  br i1 %.not54.i, label %43, label %30
 
-24:                                               ; preds = %.loopexit.i
-  %.not47.i = icmp ugt i64 %.pre-phi, %.pr.i
-  br i1 %.not47.i, label %31, label %25
+30:                                               ; preds = %29
+  %.not56.i = icmp ugt i64 %.pre-phi, %.pre.i
+  br i1 %.not56.i, label %37, label %31
 
-25:                                               ; preds = %24
-  %reass.sub = sub i64 %.pr.i, %0
-  %26 = add i64 %reass.sub, 2097151
-  %27 = and i64 %26, -2097152
-  %28 = add i64 %27, %0
-  %29 = icmp ugt i64 %28, %.pr.i
-  %30 = add i64 %27, -2097152
-  %spec.select.i = select i1 %29, i64 %30, i64 %27
-  br label %31
+31:                                               ; preds = %30
+  %reass.sub = sub i64 %.pre.i, %0
+  %32 = add i64 %reass.sub, 2097151
+  %33 = and i64 %32, -2097152
+  %34 = add i64 %33, %0
+  %35 = icmp ugt i64 %34, %.pre.i
+  %36 = add i64 %33, -2097152
+  %spec.select.i = select i1 %35, i64 %36, i64 %33
+  br label %37
 
-31:                                               ; preds = %25, %24
-  %.2.i = phi i64 [ %.035.ph65.i, %24 ], [ %spec.select.i, %25 ]
-  %32 = load i64, ptr %6, align 8
-  %33 = icmp ugt i64 %32, ptrtoint (ptr @execute_ex to i64)
-  br i1 %33, label %34, label %.outer.i
-
-34:                                               ; preds = %31
-  %.not48.i = icmp ne i64 %.2.i, -1
-  %35 = sub i64 %32, %.2.i
-  %36 = icmp ult i64 %35, 4294967295
-  %or.cond.i = and i1 %.not48.i, %36
-  br i1 %or.cond.i, label %find_prefered_mmap_base.exit.thread98, label %.outer.i
-
-37:                                               ; preds = %.loopexit.i
-  %38 = sub i64 %.pre-phi, %.037.ph64.i
-  %39 = icmp ugt i64 %38, 4294967295
-  br i1 %39, label %find_prefered_mmap_base.exit, label %40
+37:                                               ; preds = %31, %30
+  %.343.i = phi i64 [ %.04068.i, %30 ], [ %spec.select.i, %31 ]
+  %38 = load i64, ptr %6, align 8, !tbaa !19
+  %39 = icmp ugt i64 %38, ptrtoint (ptr @execute_ex to i64)
+  br i1 %39, label %40, label %47
 
 40:                                               ; preds = %37
-  %.not46.i = icmp ugt i64 %.pre-phi, %.pr.i
-  br i1 %.not46.i, label %..outer_crit_edge.i, label %find_prefered_mmap_base.exit.thread98
+  %.not57.i = icmp ne i64 %.343.i, -1
+  %41 = sub i64 %38, %.343.i
+  %42 = icmp ult i64 %41, 4294967295
+  %or.cond.i = and i1 %.not57.i, %42
+  br i1 %or.cond.i, label %.thread100, label %47
 
-..outer_crit_edge.i:                              ; preds = %40
-  %.pre.i = load i64, ptr %6, align 8
-  br label %.outer.i
+43:                                               ; preds = %29
+  %44 = sub i64 %.pre-phi, %.04567.i
+  %45 = icmp ugt i64 %44, 4294967295
+  br i1 %45, label %55, label %46
 
-.outer.i:                                         ; preds = %..outer_crit_edge.i, %34, %31
-  %41 = phi i64 [ %32, %31 ], [ %.pre.i, %..outer_crit_edge.i ], [ %32, %34 ]
-  %.138.i = phi i64 [ %.037.ph64.i, %31 ], [ %.037.ph64.i, %..outer_crit_edge.i ], [ %.pr.i, %34 ]
-  %.4.i = phi i64 [ %.2.i, %31 ], [ %.035.ph65.i, %..outer_crit_edge.i ], [ -1, %34 ]
-  %42 = add i64 %41, 2097151
-  %43 = and i64 %42, -2097152
-  %44 = add i64 %43, 2097152
-  %spec.select49.i = select i1 %.not43.i, i64 %43, i64 %44
-  %45 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %8)
-  %.not4258.i = icmp eq ptr %45, null
-  br i1 %.not4258.i, label %find_prefered_mmap_base.exit, label %.lr.ph.i
+46:                                               ; preds = %43
+  %.not55.i = icmp ugt i64 %.pre-phi, %.pre.i
+  br i1 %.not55.i, label %._crit_edge.i, label %.thread100
 
-find_prefered_mmap_base.exit.thread98:            ; preds = %34, %40
-  %.136.i.ph = phi i64 [ %.03459.i, %40 ], [ %.2.i, %34 ]
-  %46 = call i32 @fclose(ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  br label %48
+._crit_edge.i:                                    ; preds = %46
+  %.pre78.i = load i64, ptr %6, align 8, !tbaa !19
+  br label %47
 
-find_prefered_mmap_base.exit:                     ; preds = %37, %.outer.i, %11, %19
-  %.136.i = phi i64 [ %.035.ph65.i, %19 ], [ %.035.ph65.i, %11 ], [ %.035.ph65.i, %37 ], [ %.4.i, %.outer.i ]
-  %47 = call i32 @fclose(ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  %.not = icmp eq i64 %.136.i, -1
-  br i1 %.not, label %57, label %48
+47:                                               ; preds = %._crit_edge.i, %40, %37
+  %48 = phi i64 [ %38, %37 ], [ %.pre78.i, %._crit_edge.i ], [ %38, %40 ]
+  %.247.i = phi i64 [ %.04567.i, %37 ], [ %.04567.i, %._crit_edge.i ], [ %.pre.i, %40 ]
+  %.5.i = phi i64 [ %.343.i, %37 ], [ %.04068.i, %._crit_edge.i ], [ -1, %40 ]
+  %49 = add i64 %48, 2097151
+  %50 = and i64 %49, -2097152
+  %51 = add i64 %50, 2097152
+  %spec.select58.i = select i1 %.not52.i, i64 %50, i64 %51
+  br label %52
 
-48:                                               ; preds = %find_prefered_mmap_base.exit.thread98, %find_prefered_mmap_base.exit
-  %.in = phi i64 [ %.136.i.ph, %find_prefered_mmap_base.exit.thread98 ], [ %.136.i, %find_prefered_mmap_base.exit ]
-  %49 = inttoptr i64 %.in to ptr
-  %50 = icmp ugt i64 %0, 2097151
-  %51 = and i64 %0, 2097151
-  %52 = icmp eq i64 %51, 0
-  %or.cond = and i1 %50, %52
-  br i1 %or.cond, label %53, label %55
+52:                                               ; preds = %47, %23
+  %.146.i = phi i64 [ %.247.i, %47 ], [ %.04567.i, %23 ]
+  %.242.i = phi i64 [ %.5.i, %47 ], [ %.04068.i, %23 ]
+  %.3.i = phi i64 [ %spec.select58.i, %47 ], [ %28, %23 ]
+  %53 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
+  %.not51.i = icmp eq ptr %53, null
+  br i1 %.not51.i, label %55, label %.lr.ph.i
 
-53:                                               ; preds = %48
-  %54 = call ptr @mmap(ptr noundef %49, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
-  %.not69 = icmp eq ptr %54, inttoptr (i64 -1 to ptr)
-  br i1 %.not69, label %55, label %78
-
-55:                                               ; preds = %53, %48
-  %56 = call ptr @mmap(ptr noundef %49, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
-  %.not70 = icmp eq ptr %56, inttoptr (i64 -1 to ptr)
-  br i1 %.not70, label %57, label %78
-
-.sink.split:                                      ; preds = %4, %find_prefered_mmap_base.exit.thread81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
+.thread100:                                       ; preds = %40, %46
+  %.141.i.ph = phi i64 [ %.03769.i, %46 ], [ %.343.i, %40 ]
+  %54 = call i32 @fclose(ptr noundef nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   br label %57
 
-57:                                               ; preds = %.sink.split, %55, %find_prefered_mmap_base.exit
-  %58 = icmp ugt i64 %0, 2097151
-  %59 = and i64 %0, 2097151
-  %60 = icmp eq i64 %59, 0
-  %or.cond78 = and i1 %58, %60
-  br i1 %or.cond78, label %61, label %74
+55:                                               ; preds = %.lr.ph.i, %43, %52
+  %.141.i = phi i64 [ %.04068.i, %43 ], [ %.242.i, %52 ], [ %.04068.i, %.lr.ph.i ]
+  %56 = call i32 @fclose(ptr noundef nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  %.not = icmp eq i64 %.141.i, -1
+  br i1 %.not, label %.thread, label %57
 
-61:                                               ; preds = %57
-  %62 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not71 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
-  br i1 %.not71, label %72, label %63
+57:                                               ; preds = %.thread100, %55
+  %.in = phi i64 [ %.141.i.ph, %.thread100 ], [ %.141.i, %55 ]
+  %58 = inttoptr i64 %.in to ptr
+  %59 = icmp ugt i64 %0, 2097151
+  %60 = and i64 %0, 2097151
+  %61 = icmp eq i64 %60, 0
+  %or.cond82 = and i1 %59, %61
+  br i1 %or.cond82, label %62, label %64
 
-63:                                               ; preds = %61
-  %64 = call i32 @munmap(ptr noundef %62, i64 noundef %0) #8
-  %65 = ptrtoint ptr %62 to i64
-  %66 = add i64 %65, 2097151
-  %67 = and i64 %66, -2097152
-  %68 = inttoptr i64 %67 to ptr
-  %69 = call ptr @mmap(ptr noundef %68, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
-  %.not72 = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
-  br i1 %.not72, label %70, label %78
+62:                                               ; preds = %57
+  %63 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
+  %.not74 = icmp eq ptr %63, inttoptr (i64 -1 to ptr)
+  br i1 %.not74, label %64, label %.thread96
 
-70:                                               ; preds = %63
-  %71 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not73 = icmp eq ptr %71, inttoptr (i64 -1 to ptr)
-  br i1 %.not73, label %72, label %78
+64:                                               ; preds = %62, %57
+  %65 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
+  %.not75 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
+  br i1 %.not75, label %.thread, label %.thread96
 
-72:                                               ; preds = %70, %61
-  %73 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
-  %.not74 = icmp eq ptr %73, inttoptr (i64 -1 to ptr)
-  br i1 %.not74, label %74, label %78
+.thread.sink.split:                               ; preds = %15, %.thread92
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  br label %.thread
 
-74:                                               ; preds = %72, %57
-  %75 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
-  %76 = icmp eq ptr %75, inttoptr (i64 -1 to ptr)
-  br i1 %76, label %77, label %78
+.thread:                                          ; preds = %.thread.sink.split, %4, %12, %64, %55
+  %66 = icmp ugt i64 %0, 2097151
+  %67 = and i64 %0, 2097151
+  %68 = icmp eq i64 %67, 0
+  %or.cond86 = and i1 %66, %68
+  br i1 %or.cond86, label %69, label %82
 
-77:                                               ; preds = %74
-  store ptr @.str, ptr %3, align 8
-  br label %85
+69:                                               ; preds = %.thread
+  %70 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not76 = icmp eq ptr %70, inttoptr (i64 -1 to ptr)
+  br i1 %.not76, label %80, label %71
 
-78:                                               ; preds = %74, %72, %70, %63, %55, %53
-  %.058 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %69, %63 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ]
-  store i32 1, ptr %2, align 4
-  %79 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
-  store ptr %79, ptr %1, align 8
-  %.not75 = icmp eq ptr %79, null
-  br i1 %.not75, label %80, label %82
+71:                                               ; preds = %69
+  %72 = call i32 @munmap(ptr noundef %70, i64 noundef %0) #8
+  %73 = ptrtoint ptr %70 to i64
+  %74 = add i64 %73, 2097151
+  %75 = and i64 %74, -2097152
+  %76 = inttoptr i64 %75 to ptr
+  %77 = call ptr @mmap(ptr noundef %76, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
+  %.not77 = icmp eq ptr %77, inttoptr (i64 -1 to ptr)
+  br i1 %.not77, label %78, label %.thread96
 
-80:                                               ; preds = %78
-  %81 = call i32 @munmap(ptr noundef %.058, i64 noundef %0) #8
-  store ptr @.str.1, ptr %3, align 8
-  br label %85
+78:                                               ; preds = %71
+  %79 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not78 = icmp eq ptr %79, inttoptr (i64 -1 to ptr)
+  br i1 %.not78, label %80, label %.thread96
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %83, ptr %79, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  store ptr %.058, ptr %84, align 8
-  store i64 %0, ptr %83, align 8
-  br label %85
+80:                                               ; preds = %78, %69
+  %81 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
+  %.not79 = icmp eq ptr %81, inttoptr (i64 -1 to ptr)
+  br i1 %.not79, label %82, label %.thread96
 
-85:                                               ; preds = %82, %80, %77
-  %.0 = phi i32 [ 1, %82 ], [ 0, %80 ], [ 0, %77 ]
+82:                                               ; preds = %80, %.thread
+  %83 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
+  %84 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
+  br i1 %84, label %85, label %.thread96
+
+85:                                               ; preds = %82
+  store ptr @.str, ptr %3, align 8, !tbaa !20
+  br label %92
+
+.thread96:                                        ; preds = %64, %62, %82, %80, %78, %71
+  %.1 = phi ptr [ %77, %71 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %65, %64 ], [ %63, %62 ]
+  store i32 1, ptr %2, align 4, !tbaa !21
+  %86 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
+  store ptr %86, ptr %1, align 8, !tbaa !22
+  %.not80 = icmp eq ptr %86, null
+  br i1 %.not80, label %87, label %89
+
+87:                                               ; preds = %.thread96
+  %88 = call i32 @munmap(ptr noundef %.1, i64 noundef %0) #8
+  store ptr @.str.1, ptr %3, align 8, !tbaa !20
+  br label %92
+
+89:                                               ; preds = %.thread96
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %90, ptr %86, align 8, !tbaa !24
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  store ptr %.1, ptr %91, align 8, !tbaa !26
+  store i64 %0, ptr %90, align 8, !tbaa !28
+  br label %92
+
+92:                                               ; preds = %89, %87, %85
+  %.0 = phi i32 [ 1, %89 ], [ 0, %87 ], [ 0, %85 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @detach_segment(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8
-  %4 = load i64, ptr %0, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %4 = load i64, ptr %0, align 8, !tbaa !28
   %5 = tail call i32 @munmap(ptr noundef %3, i64 noundef %4) #8
   ret i32 0
 }
@@ -250,46 +262,48 @@ define internal noundef i64 @segment_type_size() #1 {
   ret i64 32
 }
 
-; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+declare i32 @zend_jit_check_support() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-declare void @execute_ex(ptr noundef) #6
+declare void @execute_ex(ptr noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind allocsize(0,1) }
@@ -298,5 +312,30 @@ attributes #10 = { nounwind allocsize(0,1) }
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_zend_jit_globals", !6, i64 0, !6, i64 1, !7, i64 2, !7, i64 3, !9, i64 4, !10, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !13, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !14, i64 160, !6, i64 168, !15, i64 176, !16, i64 184, !7, i64 192, !7, i64 704, !7, i64 768, !9, i64 832, !10, i64 840}
+!6 = !{!"_Bool", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"int", !7, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = !{!"long", !7, i64 0}
+!13 = !{!"double", !7, i64 0}
+!14 = !{!"p1 _ZTS9_sym_node", !11, i64 0}
+!15 = !{!"p1 _ZTS19_zend_jit_trace_rec", !11, i64 0}
+!16 = !{!"p1 _ZTS27_zend_jit_trace_stack_frame", !11, i64 0}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!12, !12, i64 0}
+!20 = !{!10, !10, i64 0}
+!21 = !{!9, !9, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p2 _ZTS20_zend_shared_segment", !11, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS20_zend_shared_segment", !11, i64 0}
+!26 = !{!27, !11, i64 24}
+!27 = !{!"_zend_shared_segment", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24}
+!28 = !{!27, !12, i64 0}

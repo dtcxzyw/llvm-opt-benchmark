@@ -3,6 +3,7 @@
 // This file is licensed under the MIT License.
 // See the LICENSE file for more information.
 
+#include <llvm-21/llvm/Support/raw_ostream.h>
 #include <llvm/IR/Analysis.h>
 #include <llvm/IR/DebugInfo.h>
 #include <llvm/IR/Module.h>
@@ -27,7 +28,8 @@ public:
     if (!Prefix)
       return PreservedAnalyses::none();
     std::string FileName = M.getSourceFileName();
-    if (FileName.find("CMakeTmp") != std::string::npos || FileName.find("CMakeScratch") != std::string::npos)
+    if (FileName.find("CMakeTmp") != std::string::npos ||
+        FileName.find("CMakeScratch") != std::string::npos)
       return PreservedAnalyses::none();
     M.setModuleIdentifier("");
     M.setSourceFileName("");
@@ -36,14 +38,14 @@ public:
     if (M.empty())
       return PreservedAnalyses::none();
     std::error_code EC;
-    std::unique_ptr<ToolOutputFile> Out(new ToolOutputFile(
+    raw_fd_ostream OS(
         (Prefix / fs::path(FileName).filename().replace_extension(".ll"))
             .string(),
-        EC, sys::fs::OF_Text));
+        EC);
     if (EC)
       return PreservedAnalyses::none();
-    M.print(Out->os(), /*AAW=*/nullptr);
-    Out->keep();
+    if (auto L = OS.lock())
+      M.print(OS, /*AAW=*/nullptr);
     return PreservedAnalyses::none();
   }
 };

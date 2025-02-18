@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   switch i64 %1, label %54 [
     i64 0, label %zend_sort_2.exit
     i64 1, label %zend_sort_2.exit
@@ -15,7 +15,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %2
   %8 = tail call i32 %3(ptr noundef %0, ptr noundef %7) #1
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %zend_sort_2.exit
@@ -25,8 +25,8 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br label %zend_sort_2.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 %2
-  %13 = getelementptr inbounds i8, ptr %12, i64 %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %2
   %14 = tail call i32 %3(ptr noundef %0, ptr noundef %12) #1
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %23, label %16
@@ -67,18 +67,18 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
 
 31:                                               ; preds = %5
   %32 = shl i64 %2, 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 %2
-  %34 = getelementptr inbounds i8, ptr %0, i64 %32
-  %35 = getelementptr inbounds i8, ptr %33, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %2
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %32
   tail call fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %3, ptr noundef %4)
   br label %zend_sort_2.exit
 
 36:                                               ; preds = %5
   %37 = shl i64 %2, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 %2
-  %39 = getelementptr inbounds i8, ptr %0, i64 %37
-  %40 = getelementptr inbounds i8, ptr %38, i64 %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   tail call fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef readonly %3, ptr noundef readonly %4)
   %42 = tail call i32 %3(ptr noundef %40, ptr noundef %41) #1
   %43 = icmp sgt i32 %42, 0
@@ -108,12 +108,12 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
 
 54:                                               ; preds = %5
   %55 = mul i64 %2, %1
-  %56 = getelementptr inbounds i8, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %55
   %.neg = mul i64 %2, -2
   %57 = mul i64 %2, 6
-  %58 = getelementptr inbounds i8, ptr %0, i64 %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 %2
-  %60 = icmp slt i64 %2, %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %2
+  %60 = icmp samesign ult i64 %2, %57
   br i1 %60, label %.lr.ph137, label %.preheader129
 
 .lr.ph137:                                        ; preds = %54
@@ -121,7 +121,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br label %64
 
 .preheader129:                                    ; preds = %.loopexit130, %54
-  %62 = icmp slt i64 %57, %55
+  %62 = icmp samesign ult i64 %57, %55
   br i1 %62, label %.lr.ph142, label %zend_sort_2.exit
 
 .lr.ph142:                                        ; preds = %.preheader129
@@ -159,7 +159,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br i1 %75, label %.lr.ph, label %.loopexit130
 
 .loopexit130:                                     ; preds = %.lr.ph, %72, %64
-  %76 = getelementptr inbounds i8, ptr %.0135, i64 %2
+  %76 = getelementptr inbounds nuw i8, ptr %.0135, i64 %2
   %77 = icmp ult ptr %76, %58
   br i1 %77, label %64, label %.preheader129
 
@@ -178,11 +178,11 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %.preheader
-  %86 = getelementptr inbounds i8, ptr %82, i64 %2
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %2
   %87 = tail call i32 %3(ptr noundef %86, ptr noundef %.1140) #1
   %88 = icmp sgt i32 %87, 0
   %spec.select.idx = select i1 %88, i64 0, i64 %2
-  %spec.select = getelementptr inbounds i8, ptr %86, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %86, i64 %spec.select.idx
   br label %.loopexit128
 
 89:                                               ; preds = %.preheader
@@ -212,7 +212,7 @@ define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   br i1 %98, label %.lr.ph139, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph139, %.loopexit128, %78
-  %99 = getelementptr inbounds i8, ptr %.1140, i64 %2
+  %99 = getelementptr inbounds nuw i8, ptr %.1140, i64 %2
   %100 = icmp ult ptr %99, %56
   br i1 %100, label %78, label %zend_sort_2.exit
 
@@ -286,7 +286,7 @@ zend_sort_3.exit:                                 ; preds = %9, %12, %15, %19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @zend_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %1, 17
   br i1 %6, label %._crit_edge, label %.lr.ph
 
@@ -304,18 +304,18 @@ define void @zend_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   %.0117 = phi ptr [ %0, %.lr.ph ], [ %.1, %90 ]
   %.097116 = phi i64 [ %1, %.lr.ph ], [ %.198, %90 ]
   %9 = mul i64 %.097116, %2
-  %10 = getelementptr inbounds i8, ptr %.0117, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %.0117, i64 %9
   %11 = lshr i64 %.097116, 1
   %12 = mul i64 %11, %2
-  %13 = getelementptr inbounds i8, ptr %.0117, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %.0117, i64 %12
   %.not = icmp ult i64 %.097116, 1024
   br i1 %.not, label %32, label %14
 
 14:                                               ; preds = %8
   %15 = lshr i64 %.097116, 2
   %16 = mul i64 %15, %2
-  %17 = getelementptr inbounds i8, ptr %.0117, i64 %16
-  %18 = getelementptr inbounds i8, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %.0117, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   %19 = getelementptr inbounds i8, ptr %10, i64 %7
   tail call fastcc void @zend_sort_4(ptr noundef %.0117, ptr noundef %17, ptr noundef %13, ptr noundef %18, ptr noundef readonly %3, ptr noundef readonly %4)
   %20 = tail call i32 %3(ptr noundef %18, ptr noundef %19) #1
@@ -385,9 +385,9 @@ define void @zend_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br label %zend_sort_5.exit
 
 zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, %39, %36, %31, %28, %25, %22, %14
-  %51 = getelementptr inbounds i8, ptr %.0117, i64 %2
+  %51 = getelementptr inbounds nuw i8, ptr %.0117, i64 %2
   tail call void %4(ptr noundef %51, ptr noundef %13) #1
-  %52 = getelementptr inbounds i8, ptr %51, i64 %2
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %2
   %53 = getelementptr inbounds i8, ptr %10, i64 %7
   br label %54
 
@@ -403,14 +403,14 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.1100, i64 %2
+  %59 = getelementptr inbounds nuw i8, ptr %.1100, i64 %2
   %60 = icmp eq ptr %59, %.0101
-  br i1 %60, label %.loopexit, label %55
+  br i1 %60, label %.loopexit, label %55, !prof !4
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds i8, ptr %.0101, i64 %7
   %63 = icmp eq ptr %62, %.1100
-  br i1 %63, label %.loopexit, label %.preheader
+  br i1 %63, label %.loopexit, label %.preheader, !prof !4
 
 .preheader:                                       ; preds = %61, %66
   %.1102 = phi ptr [ %67, %66 ], [ %62, %61 ]
@@ -421,13 +421,13 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
 66:                                               ; preds = %.preheader
   %67 = getelementptr inbounds i8, ptr %.1102, i64 %7
   %68 = icmp eq ptr %67, %.1100
-  br i1 %68, label %.loopexit, label %.preheader
+  br i1 %68, label %.loopexit, label %.preheader, !prof !4
 
 69:                                               ; preds = %.preheader
   tail call void %4(ptr noundef %.1100, ptr noundef %.1102) #1
-  %70 = getelementptr inbounds i8, ptr %.1100, i64 %2
+  %70 = getelementptr inbounds nuw i8, ptr %.1100, i64 %2
   %71 = icmp eq ptr %70, %.1102
-  br i1 %71, label %.loopexit, label %54
+  br i1 %71, label %.loopexit, label %54, !prof !4
 
 .loopexit:                                        ; preds = %69, %61, %58, %66
   %.2 = phi ptr [ %.1100, %66 ], [ %59, %58 ], [ %70, %69 ], [ %.1100, %61 ]
@@ -458,19 +458,20 @@ zend_sort_5.exit:                                 ; preds = %50, %47, %46, %42, 
   %89 = add i64 %88, -1
   br label %90
 
-90:                                               ; preds = %80, %85
+90:                                               ; preds = %85, %80
   %.198 = phi i64 [ %84, %80 ], [ %89, %85 ]
   %.1 = phi ptr [ %.2, %80 ], [ %.0117, %85 ]
   %91 = icmp ult i64 %.198, 17
   br i1 %91, label %._crit_edge, label %8
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}

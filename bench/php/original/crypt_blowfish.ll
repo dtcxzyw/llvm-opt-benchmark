@@ -40,175 +40,209 @@ define hidden ptr @php_crypt_blowfish_rn(ptr noundef %0, ptr noundef %1, ptr nou
   %21 = alloca [18 x i32], align 16
   %22 = alloca [18 x i32], align 16
   %23 = alloca [18 x i32], align 16
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
-  store ptr @.str, ptr %10, align 8
-  store ptr @.str.1, ptr %11, align 8
-  %24 = load ptr, ptr @php_crypt_blowfish_rn.test_hashes, align 16
-  store ptr %24, ptr %12, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = call i32 @_crypt_output_magic(ptr noundef %25, ptr noundef %26, i32 noundef %27)
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = load i32, ptr %9, align 4
-  %33 = call ptr @BF_crypt(ptr noundef %29, ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef 16)
-  store ptr %33, ptr %13, align 8
-  %34 = call ptr @__errno_location() #5
-  %35 = load i32, ptr %34, align 4
-  store i32 %35, ptr %15, align 4
-  %36 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 0
-  %37 = getelementptr inbounds [30 x i8], ptr %36, i64 0, i64 0
-  %38 = load ptr, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %37, ptr align 1 %38, i64 30, i1 false)
-  %39 = load ptr, ptr %13, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %61
+  %24 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !4
+  store i32 %3, ptr %9, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  store ptr @.str, ptr %10, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  store ptr @.str.1, ptr %11, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %25 = load ptr, ptr @php_crypt_blowfish_rn.test_hashes, align 16, !tbaa !4
+  store ptr %25, ptr %12, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 93, ptr %17) #6
+  %26 = load ptr, ptr %7, align 8, !tbaa !4
+  %27 = load ptr, ptr %8, align 8, !tbaa !4
+  %28 = load i32, ptr %9, align 4, !tbaa !9
+  %29 = call i32 @_crypt_output_magic(ptr noundef %26, ptr noundef %27, i32 noundef %28)
+  %30 = load ptr, ptr %6, align 8, !tbaa !4
+  %31 = load ptr, ptr %7, align 8, !tbaa !4
+  %32 = load ptr, ptr %8, align 8, !tbaa !4
+  %33 = load i32, ptr %9, align 4, !tbaa !9
+  %34 = call ptr @BF_crypt(ptr noundef %30, ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef 16)
+  store ptr %34, ptr %13, align 8, !tbaa !4
+  %35 = call ptr @__errno_location() #7
+  %36 = load i32, ptr %35, align 4, !tbaa !9
+  store i32 %36, ptr %15, align 4, !tbaa !9
+  %37 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 0
+  %38 = getelementptr inbounds [30 x i8], ptr %37, i64 0, i64 0
+  %39 = load ptr, ptr %11, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %39, i64 30, i1 false)
+  %40 = load ptr, ptr %13, align 8, !tbaa !4
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %62
 
-41:                                               ; preds = %4
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 2
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = sub i32 %45, 97
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds [26 x i8], ptr @flags_by_subtype, i64 0, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  store i32 %50, ptr %18, align 4
-  %51 = load i32, ptr %18, align 4
-  %52 = and i32 %51, 1
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds [2 x ptr], ptr @php_crypt_blowfish_rn.test_hashes, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %12, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 2
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 0
-  %60 = getelementptr inbounds [30 x i8], ptr %59, i64 0, i64 2
-  store i8 %58, ptr %60, align 1
-  br label %61
+42:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %43 = load ptr, ptr %7, align 8, !tbaa !4
+  %44 = getelementptr inbounds i8, ptr %43, i64 2
+  %45 = load i8, ptr %44, align 1, !tbaa !11
+  %46 = zext i8 %45 to i32
+  %47 = sub i32 %46, 97
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw [26 x i8], ptr @flags_by_subtype, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !11
+  %51 = zext i8 %50 to i32
+  store i32 %51, ptr %18, align 4, !tbaa !9
+  %52 = load i32, ptr %18, align 4, !tbaa !9
+  %53 = and i32 %52, 1
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw [2 x ptr], ptr @php_crypt_blowfish_rn.test_hashes, i64 0, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !4
+  store ptr %56, ptr %12, align 8, !tbaa !4
+  %57 = load ptr, ptr %7, align 8, !tbaa !4
+  %58 = getelementptr inbounds i8, ptr %57, i64 2
+  %59 = load i8, ptr %58, align 1, !tbaa !11
+  %60 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 0
+  %61 = getelementptr inbounds [30 x i8], ptr %60, i64 0, i64 2
+  store i8 %59, ptr %61, align 1, !tbaa !11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %62
 
-61:                                               ; preds = %41, %4
-  %62 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  %63 = getelementptr inbounds [63 x i8], ptr %62, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 1 %63, i8 85, i64 63, i1 false)
-  %64 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  %65 = getelementptr inbounds [63 x i8], ptr %64, i64 0, i64 62
-  store i8 0, ptr %65, align 1
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 0
-  %68 = getelementptr inbounds [30 x i8], ptr %67, i64 0, i64 0
-  %69 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  %70 = getelementptr inbounds [63 x i8], ptr %69, i64 0, i64 0
-  %71 = call ptr @BF_crypt(ptr noundef %66, ptr noundef %68, ptr noundef %70, i32 noundef 61, i32 noundef 1)
-  store ptr %71, ptr %14, align 8
-  %72 = load ptr, ptr %14, align 8
-  %73 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 1
-  %74 = getelementptr inbounds [63 x i8], ptr %73, i64 0, i64 0
-  %75 = icmp eq ptr %72, %74
-  br i1 %75, label %76, label %89
+62:                                               ; preds = %42, %4
+  %63 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 1
+  %64 = getelementptr inbounds [63 x i8], ptr %63, i64 0, i64 0
+  call void @llvm.memset.p0.i64(ptr align 1 %64, i8 85, i64 63, i1 false)
+  %65 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 1
+  %66 = getelementptr inbounds nuw [63 x i8], ptr %65, i64 0, i64 62
+  store i8 0, ptr %66, align 1, !tbaa !11
+  %67 = load ptr, ptr %10, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 0
+  %69 = getelementptr inbounds [30 x i8], ptr %68, i64 0, i64 0
+  %70 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 1
+  %71 = getelementptr inbounds [63 x i8], ptr %70, i64 0, i64 0
+  %72 = call ptr @BF_crypt(ptr noundef %67, ptr noundef %69, ptr noundef %71, i32 noundef 61, i32 noundef 1)
+  store ptr %72, ptr %14, align 8, !tbaa !4
+  %73 = load ptr, ptr %14, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 1
+  %75 = getelementptr inbounds [63 x i8], ptr %74, i64 0, i64 0
+  %76 = icmp eq ptr %73, %75
+  br i1 %76, label %77, label %90
 
-76:                                               ; preds = %61
-  %77 = load ptr, ptr %14, align 8
-  %78 = getelementptr inbounds %struct.anon, ptr %17, i32 0, i32 0
-  %79 = getelementptr inbounds [30 x i8], ptr %78, i64 0, i64 0
-  %80 = call i32 @memcmp(ptr noundef %77, ptr noundef %79, i64 noundef 29) #6
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %89, label %82
+77:                                               ; preds = %62
+  %78 = load ptr, ptr %14, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw %struct.anon, ptr %17, i32 0, i32 0
+  %80 = getelementptr inbounds [30 x i8], ptr %79, i64 0, i64 0
+  %81 = call i32 @memcmp(ptr noundef %78, ptr noundef %80, i64 noundef 29) #8
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %90, label %83
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %14, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 29
-  %85 = load ptr, ptr %12, align 8
-  %86 = call i32 @memcmp(ptr noundef %84, ptr noundef %85, i64 noundef 34) #6
-  %87 = icmp ne i32 %86, 0
-  %88 = xor i1 %87, true
-  br label %89
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %14, align 8, !tbaa !4
+  %85 = getelementptr inbounds i8, ptr %84, i64 29
+  %86 = load ptr, ptr %12, align 8, !tbaa !4
+  %87 = call i32 @memcmp(ptr noundef %85, ptr noundef %86, i64 noundef 34) #8
+  %88 = icmp ne i32 %87, 0
+  %89 = xor i1 %88, true
+  br label %90
 
-89:                                               ; preds = %82, %76, %61
-  %90 = phi i1 [ false, %76 ], [ false, %61 ], [ %88, %82 ]
-  %91 = zext i1 %90 to i32
-  store i32 %91, ptr %16, align 4
-  store ptr @.str.4, ptr %19, align 8
-  %92 = load ptr, ptr %19, align 8
-  %93 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
-  %94 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
-  call void @BF_set_key(ptr noundef %92, ptr noundef %93, ptr noundef %94, i8 noundef zeroext 2)
-  %95 = load ptr, ptr %19, align 8
-  %96 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 0
-  %97 = getelementptr inbounds [18 x i32], ptr %23, i64 0, i64 0
-  call void @BF_set_key(ptr noundef %95, ptr noundef %96, ptr noundef %97, i8 noundef zeroext 4)
-  %98 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
-  %99 = load i32, ptr %98, align 16
-  %100 = xor i32 %99, 65536
-  store i32 %100, ptr %98, align 16
-  %101 = load i32, ptr %16, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %122
+90:                                               ; preds = %83, %77, %62
+  %91 = phi i1 [ false, %77 ], [ false, %62 ], [ %89, %83 ]
+  %92 = zext i1 %91 to i32
+  store i32 %92, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  store ptr @.str.4, ptr %19, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 72, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 72, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 72, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 72, ptr %23) #6
+  %93 = load ptr, ptr %19, align 8, !tbaa !4
+  %94 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %95 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
+  call void @BF_set_key(ptr noundef %93, ptr noundef %94, ptr noundef %95, i8 noundef zeroext 2)
+  %96 = load ptr, ptr %19, align 8, !tbaa !4
+  %97 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 0
+  %98 = getelementptr inbounds [18 x i32], ptr %23, i64 0, i64 0
+  call void @BF_set_key(ptr noundef %96, ptr noundef %97, ptr noundef %98, i8 noundef zeroext 4)
+  %99 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
+  %100 = load i32, ptr %99, align 16, !tbaa !9
+  %101 = xor i32 %100, 65536
+  store i32 %101, ptr %99, align 16, !tbaa !9
+  %102 = load i32, ptr %16, align 4, !tbaa !9
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %123
 
-103:                                              ; preds = %89
-  %104 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
-  %105 = load i32, ptr %104, align 16
-  %106 = icmp eq i32 %105, -610510404
-  br i1 %106, label %107, label %122
+104:                                              ; preds = %90
+  %105 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
+  %106 = load i32, ptr %105, align 16, !tbaa !9
+  %107 = icmp eq i32 %106, -610510404
+  br i1 %107, label %108, label %123
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 17
-  %109 = load i32, ptr %108, align 4
-  %110 = icmp eq i32 %109, 859059456
-  br i1 %110, label %111, label %122
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 17
+  %110 = load i32, ptr %109, align 4, !tbaa !9
+  %111 = icmp eq i32 %110, 859059456
+  br i1 %111, label %112, label %123
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
-  %113 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 0
-  %114 = call i32 @memcmp(ptr noundef %112, ptr noundef %113, i64 noundef 72) #6
-  %115 = icmp ne i32 %114, 0
-  br i1 %115, label %122, label %116
+112:                                              ; preds = %108
+  %113 = getelementptr inbounds [18 x i32], ptr %20, i64 0, i64 0
+  %114 = getelementptr inbounds [18 x i32], ptr %22, i64 0, i64 0
+  %115 = call i32 @memcmp(ptr noundef %113, ptr noundef %114, i64 noundef 72) #8
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %123, label %117
 
-116:                                              ; preds = %111
-  %117 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
-  %118 = getelementptr inbounds [18 x i32], ptr %23, i64 0, i64 0
-  %119 = call i32 @memcmp(ptr noundef %117, ptr noundef %118, i64 noundef 72) #6
-  %120 = icmp ne i32 %119, 0
-  %121 = xor i1 %120, true
-  br label %122
+117:                                              ; preds = %112
+  %118 = getelementptr inbounds [18 x i32], ptr %21, i64 0, i64 0
+  %119 = getelementptr inbounds [18 x i32], ptr %23, i64 0, i64 0
+  %120 = call i32 @memcmp(ptr noundef %118, ptr noundef %119, i64 noundef 72) #8
+  %121 = icmp ne i32 %120, 0
+  %122 = xor i1 %121, true
+  br label %123
 
-122:                                              ; preds = %116, %111, %107, %103, %89
-  %123 = phi i1 [ false, %111 ], [ false, %107 ], [ false, %103 ], [ false, %89 ], [ %121, %116 ]
-  %124 = zext i1 %123 to i32
-  store i32 %124, ptr %16, align 4
-  %125 = load i32, ptr %15, align 4
-  %126 = call ptr @__errno_location() #5
-  store i32 %125, ptr %126, align 4
-  %127 = load i32, ptr %16, align 4
-  %128 = icmp ne i32 %127, 0
-  br i1 %128, label %129, label %131
+123:                                              ; preds = %117, %112, %108, %104, %90
+  %124 = phi i1 [ false, %112 ], [ false, %108 ], [ false, %104 ], [ false, %90 ], [ %122, %117 ]
+  %125 = zext i1 %124 to i32
+  store i32 %125, ptr %16, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 72, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 72, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  %126 = load i32, ptr %15, align 4, !tbaa !9
+  %127 = call ptr @__errno_location() #7
+  store i32 %126, ptr %127, align 4, !tbaa !9
+  %128 = load i32, ptr %16, align 4, !tbaa !9
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %130, label %132
 
-129:                                              ; preds = %122
-  %130 = load ptr, ptr %13, align 8
-  store ptr %130, ptr %5, align 8
-  br label %137
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %13, align 8, !tbaa !4
+  store ptr %131, ptr %5, align 8
+  store i32 1, ptr %24, align 4
+  br label %138
 
-131:                                              ; preds = %122
-  %132 = load ptr, ptr %7, align 8
-  %133 = load ptr, ptr %8, align 8
-  %134 = load i32, ptr %9, align 4
-  %135 = call i32 @_crypt_output_magic(ptr noundef %132, ptr noundef %133, i32 noundef %134)
-  %136 = call ptr @__errno_location() #5
-  store i32 22, ptr %136, align 4
+132:                                              ; preds = %123
+  %133 = load ptr, ptr %7, align 8, !tbaa !4
+  %134 = load ptr, ptr %8, align 8, !tbaa !4
+  %135 = load i32, ptr %9, align 4, !tbaa !9
+  %136 = call i32 @_crypt_output_magic(ptr noundef %133, ptr noundef %134, i32 noundef %135)
+  %137 = call ptr @__errno_location() #7
+  store i32 22, ptr %137, align 4, !tbaa !9
   store ptr null, ptr %5, align 8
-  br label %137
+  store i32 1, ptr %24, align 4
+  br label %138
 
-137:                                              ; preds = %131, %129
-  %138 = load ptr, ptr %5, align 8
-  ret ptr %138
+138:                                              ; preds = %132, %130
+  call void @llvm.lifetime.end.p0(i64 93, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %139 = load ptr, ptr %5, align 8
+  ret ptr %139
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_crypt_output_magic(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
@@ -216,10 +250,10 @@ define internal i32 @_crypt_output_magic(ptr noundef %0, ptr noundef %1, i32 nou
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load i32, ptr %7, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  %8 = load i32, ptr %7, align 4, !tbaa !9
   %9 = icmp slt i32 %8, 3
   br i1 %9, label %10, label %11
 
@@ -228,34 +262,34 @@ define internal i32 @_crypt_output_magic(ptr noundef %0, ptr noundef %1, i32 nou
   br label %33
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
   %13 = getelementptr inbounds i8, ptr %12, i64 0
-  store i8 42, ptr %13, align 1
-  %14 = load ptr, ptr %6, align 8
+  store i8 42, ptr %13, align 1, !tbaa !11
+  %14 = load ptr, ptr %6, align 8, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %14, i64 1
-  store i8 48, ptr %15, align 1
-  %16 = load ptr, ptr %6, align 8
+  store i8 48, ptr %15, align 1, !tbaa !11
+  %16 = load ptr, ptr %6, align 8, !tbaa !4
   %17 = getelementptr inbounds i8, ptr %16, i64 2
-  store i8 0, ptr %17, align 1
-  %18 = load ptr, ptr %5, align 8
+  store i8 0, ptr %17, align 1, !tbaa !11
+  %18 = load ptr, ptr %5, align 8, !tbaa !4
   %19 = getelementptr inbounds i8, ptr %18, i64 0
-  %20 = load i8, ptr %19, align 1
+  %20 = load i8, ptr %19, align 1, !tbaa !11
   %21 = sext i8 %20 to i32
   %22 = icmp eq i32 %21, 42
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %11
-  %24 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8, !tbaa !4
   %25 = getelementptr inbounds i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !11
   %27 = sext i8 %26 to i32
   %28 = icmp eq i32 %27, 48
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %6, align 8, !tbaa !4
   %31 = getelementptr inbounds i8, ptr %30, i64 1
-  store i8 49, ptr %31, align 1
+  store i8 49, ptr %31, align 1, !tbaa !11
   br label %32
 
 32:                                               ; preds = %29, %23, %11
@@ -286,7567 +320,7597 @@ define internal ptr @BF_crypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store i32 %4, ptr %11, align 4
-  %23 = load i32, ptr %10, align 4
-  %24 = icmp slt i32 %23, 61
-  br i1 %24, label %25, label %27
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !4
+  store ptr %1, ptr %8, align 8, !tbaa !4
+  store ptr %2, ptr %9, align 8, !tbaa !4
+  store i32 %3, ptr %10, align 4, !tbaa !9
+  store i32 %4, ptr %11, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4264, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %24 = load i32, ptr %10, align 4, !tbaa !9
+  %25 = icmp slt i32 %24, 61
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %5
-  %26 = call ptr @__errno_location() #5
-  store i32 34, ptr %26, align 4
+26:                                               ; preds = %5
+  %27 = call ptr @__errno_location() #7
+  store i32 34, ptr %27, align 4, !tbaa !9
   store ptr null, ptr %6, align 8
-  br label %6012
-
-27:                                               ; preds = %5
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 0
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  %32 = icmp ne i32 %31, 36
-  br i1 %32, label %109, label %33
-
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp ne i32 %37, 50
-  br i1 %38, label %109, label %39
-
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = icmp slt i32 %43, 97
-  br i1 %44, label %109, label %45
-
-45:                                               ; preds = %39
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 2
-  %48 = load i8, ptr %47, align 1
-  %49 = sext i8 %48 to i32
-  %50 = icmp sgt i32 %49, 122
-  br i1 %50, label %109, label %51
-
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 2
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = sub i32 %55, 97
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds [26 x i8], ptr @flags_by_subtype, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp ne i8 %59, 0
-  br i1 %60, label %61, label %109
-
-61:                                               ; preds = %51
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 3
-  %64 = load i8, ptr %63, align 1
-  %65 = sext i8 %64 to i32
-  %66 = icmp ne i32 %65, 36
-  br i1 %66, label %109, label %67
-
-67:                                               ; preds = %61
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
-  %70 = load i8, ptr %69, align 1
-  %71 = sext i8 %70 to i32
-  %72 = icmp slt i32 %71, 48
-  br i1 %72, label %109, label %73
-
-73:                                               ; preds = %67
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
-  %76 = load i8, ptr %75, align 1
-  %77 = sext i8 %76 to i32
-  %78 = icmp sgt i32 %77, 51
-  br i1 %78, label %109, label %79
-
-79:                                               ; preds = %73
-  %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 5
-  %82 = load i8, ptr %81, align 1
-  %83 = sext i8 %82 to i32
-  %84 = icmp slt i32 %83, 48
-  br i1 %84, label %109, label %85
-
-85:                                               ; preds = %79
-  %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 5
-  %88 = load i8, ptr %87, align 1
-  %89 = sext i8 %88 to i32
-  %90 = icmp sgt i32 %89, 57
-  br i1 %90, label %109, label %91
-
-91:                                               ; preds = %85
-  %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
-  %94 = load i8, ptr %93, align 1
-  %95 = sext i8 %94 to i32
-  %96 = icmp eq i32 %95, 51
-  br i1 %96, label %97, label %103
-
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 5
-  %100 = load i8, ptr %99, align 1
-  %101 = sext i8 %100 to i32
-  %102 = icmp sgt i32 %101, 49
-  br i1 %102, label %109, label %103
-
-103:                                              ; preds = %97, %91
-  %104 = load ptr, ptr %8, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 6
-  %106 = load i8, ptr %105, align 1
-  %107 = sext i8 %106 to i32
-  %108 = icmp ne i32 %107, 36
-  br i1 %108, label %109, label %111
-
-109:                                              ; preds = %103, %97, %85, %79, %73, %67, %61, %51, %45, %39, %33, %27
-  %110 = call ptr @__errno_location() #5
-  store i32 22, ptr %110, align 4
-  store ptr null, ptr %6, align 8
-  br label %6012
-
-111:                                              ; preds = %103
-  %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
-  %114 = load i8, ptr %113, align 1
-  %115 = sext i8 %114 to i32
-  %116 = sub nsw i32 %115, 48
-  %117 = mul nsw i32 %116, 10
-  %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 5
-  %120 = load i8, ptr %119, align 1
-  %121 = sext i8 %120 to i32
-  %122 = sub nsw i32 %121, 48
-  %123 = add nsw i32 %117, %122
-  %124 = shl i32 1, %123
-  store i32 %124, ptr %20, align 4
-  %125 = load i32, ptr %20, align 4
-  %126 = load i32, ptr %11, align 4
-  %127 = icmp ult i32 %125, %126
-  br i1 %127, label %135, label %128
-
-128:                                              ; preds = %111
-  %129 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %130 = getelementptr inbounds [4 x i32], ptr %129, i64 0, i64 0
-  %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 7
-  %133 = call i32 @BF_decode(ptr noundef %130, ptr noundef %132, i32 noundef 16)
-  %134 = icmp ne i32 %133, 0
-  br i1 %134, label %135, label %137
-
-135:                                              ; preds = %128, %111
-  %136 = call ptr @__errno_location() #5
-  store i32 22, ptr %136, align 4
-  store ptr null, ptr %6, align 8
-  br label %6012
-
-137:                                              ; preds = %128
-  %138 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %139 = getelementptr inbounds [4 x i32], ptr %138, i64 0, i64 0
-  call void @BF_swap(ptr noundef %139, i32 noundef 4)
-  %140 = load ptr, ptr %7, align 8
-  %141 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 1
-  %142 = getelementptr inbounds [18 x i32], ptr %141, i64 0, i64 0
-  %143 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %144 = getelementptr inbounds %struct.BF_ctx, ptr %143, i32 0, i32 1
-  %145 = getelementptr inbounds [18 x i32], ptr %144, i64 0, i64 0
-  %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 2
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = sub i32 %149, 97
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds [26 x i8], ptr @flags_by_subtype, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 1
-  call void @BF_set_key(ptr noundef %140, ptr noundef %142, ptr noundef %145, i8 noundef zeroext %153)
-  %154 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %155 = getelementptr inbounds %struct.BF_ctx, ptr %154, i32 0, i32 0
-  %156 = getelementptr inbounds [4 x [256 x i32]], ptr %155, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %156, ptr align 4 @BF_init_state, i64 4096, i1 false)
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %21, align 4
-  br label %157
-
-157:                                              ; preds = %1117, %137
-  %158 = load i32, ptr %21, align 4
-  %159 = icmp slt i32 %158, 18
-  br i1 %159, label %160, label %1120
-
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %162 = load i32, ptr %21, align 4
-  %163 = and i32 %162, 2
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [4 x i32], ptr %161, i64 0, i64 %164
-  %166 = load i32, ptr %165, align 4
-  %167 = load i32, ptr %13, align 4
-  %168 = xor i32 %167, %166
-  store i32 %168, ptr %13, align 4
-  %169 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %170 = load i32, ptr %21, align 4
-  %171 = and i32 %170, 2
-  %172 = add nsw i32 %171, 1
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds [4 x i32], ptr %169, i64 0, i64 %173
-  %175 = load i32, ptr %174, align 4
-  %176 = load i32, ptr %14, align 4
-  %177 = xor i32 %176, %175
-  store i32 %177, ptr %14, align 4
-  %178 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %179 = getelementptr inbounds %struct.BF_ctx, ptr %178, i32 0, i32 1
-  %180 = getelementptr inbounds [18 x i32], ptr %179, i64 0, i64 0
-  %181 = load i32, ptr %180, align 4
-  %182 = load i32, ptr %13, align 4
-  %183 = xor i32 %182, %181
-  store i32 %183, ptr %13, align 4
-  %184 = load i32, ptr %13, align 4
-  %185 = and i32 %184, 255
-  store i32 %185, ptr %15, align 4
-  %186 = load i32, ptr %13, align 4
-  %187 = lshr i32 %186, 8
-  store i32 %187, ptr %16, align 4
-  %188 = load i32, ptr %16, align 4
-  %189 = and i32 %188, 255
-  store i32 %189, ptr %16, align 4
-  %190 = load i32, ptr %13, align 4
-  %191 = lshr i32 %190, 16
-  store i32 %191, ptr %17, align 4
-  %192 = load i32, ptr %17, align 4
-  %193 = and i32 %192, 255
-  store i32 %193, ptr %17, align 4
-  %194 = load i32, ptr %13, align 4
-  %195 = lshr i32 %194, 24
-  store i32 %195, ptr %18, align 4
-  %196 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %197 = getelementptr inbounds %struct.BF_ctx, ptr %196, i32 0, i32 0
-  %198 = getelementptr inbounds [4 x [256 x i32]], ptr %197, i64 0, i64 3
-  %199 = load i32, ptr %15, align 4
-  %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds [256 x i32], ptr %198, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4
-  store i32 %202, ptr %15, align 4
-  %203 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %204 = getelementptr inbounds %struct.BF_ctx, ptr %203, i32 0, i32 0
-  %205 = getelementptr inbounds [4 x [256 x i32]], ptr %204, i64 0, i64 2
-  %206 = load i32, ptr %16, align 4
-  %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds [256 x i32], ptr %205, i64 0, i64 %207
-  %209 = load i32, ptr %208, align 4
-  store i32 %209, ptr %16, align 4
-  %210 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %211 = getelementptr inbounds %struct.BF_ctx, ptr %210, i32 0, i32 0
-  %212 = getelementptr inbounds [4 x [256 x i32]], ptr %211, i64 0, i64 1
-  %213 = load i32, ptr %17, align 4
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds [256 x i32], ptr %212, i64 0, i64 %214
-  %216 = load i32, ptr %215, align 4
-  store i32 %216, ptr %17, align 4
-  %217 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %218 = getelementptr inbounds %struct.BF_ctx, ptr %217, i32 0, i32 0
-  %219 = getelementptr inbounds [4 x [256 x i32]], ptr %218, i64 0, i64 0
-  %220 = load i32, ptr %18, align 4
-  %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds [256 x i32], ptr %219, i64 0, i64 %221
-  %223 = load i32, ptr %222, align 4
-  %224 = load i32, ptr %17, align 4
-  %225 = add i32 %224, %223
-  store i32 %225, ptr %17, align 4
-  %226 = load i32, ptr %16, align 4
-  %227 = load i32, ptr %17, align 4
-  %228 = xor i32 %227, %226
-  store i32 %228, ptr %17, align 4
-  %229 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %230 = getelementptr inbounds %struct.BF_ctx, ptr %229, i32 0, i32 1
-  %231 = getelementptr inbounds [18 x i32], ptr %230, i64 0, i64 1
-  %232 = load i32, ptr %231, align 4
-  %233 = load i32, ptr %14, align 4
-  %234 = xor i32 %233, %232
-  store i32 %234, ptr %14, align 4
-  %235 = load i32, ptr %15, align 4
-  %236 = load i32, ptr %17, align 4
-  %237 = add i32 %236, %235
-  store i32 %237, ptr %17, align 4
-  %238 = load i32, ptr %17, align 4
-  %239 = load i32, ptr %14, align 4
-  %240 = xor i32 %239, %238
-  store i32 %240, ptr %14, align 4
-  %241 = load i32, ptr %14, align 4
-  %242 = and i32 %241, 255
-  store i32 %242, ptr %15, align 4
-  %243 = load i32, ptr %14, align 4
-  %244 = lshr i32 %243, 8
-  store i32 %244, ptr %16, align 4
-  %245 = load i32, ptr %16, align 4
-  %246 = and i32 %245, 255
-  store i32 %246, ptr %16, align 4
-  %247 = load i32, ptr %14, align 4
-  %248 = lshr i32 %247, 16
-  store i32 %248, ptr %17, align 4
-  %249 = load i32, ptr %17, align 4
-  %250 = and i32 %249, 255
-  store i32 %250, ptr %17, align 4
-  %251 = load i32, ptr %14, align 4
-  %252 = lshr i32 %251, 24
-  store i32 %252, ptr %18, align 4
-  %253 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %254 = getelementptr inbounds %struct.BF_ctx, ptr %253, i32 0, i32 0
-  %255 = getelementptr inbounds [4 x [256 x i32]], ptr %254, i64 0, i64 3
-  %256 = load i32, ptr %15, align 4
-  %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds [256 x i32], ptr %255, i64 0, i64 %257
-  %259 = load i32, ptr %258, align 4
-  store i32 %259, ptr %15, align 4
-  %260 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %261 = getelementptr inbounds %struct.BF_ctx, ptr %260, i32 0, i32 0
-  %262 = getelementptr inbounds [4 x [256 x i32]], ptr %261, i64 0, i64 2
-  %263 = load i32, ptr %16, align 4
-  %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds [256 x i32], ptr %262, i64 0, i64 %264
-  %266 = load i32, ptr %265, align 4
-  store i32 %266, ptr %16, align 4
-  %267 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %268 = getelementptr inbounds %struct.BF_ctx, ptr %267, i32 0, i32 0
-  %269 = getelementptr inbounds [4 x [256 x i32]], ptr %268, i64 0, i64 1
-  %270 = load i32, ptr %17, align 4
-  %271 = zext i32 %270 to i64
-  %272 = getelementptr inbounds [256 x i32], ptr %269, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4
-  store i32 %273, ptr %17, align 4
-  %274 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %275 = getelementptr inbounds %struct.BF_ctx, ptr %274, i32 0, i32 0
-  %276 = getelementptr inbounds [4 x [256 x i32]], ptr %275, i64 0, i64 0
-  %277 = load i32, ptr %18, align 4
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds [256 x i32], ptr %276, i64 0, i64 %278
-  %280 = load i32, ptr %279, align 4
-  %281 = load i32, ptr %17, align 4
-  %282 = add i32 %281, %280
-  store i32 %282, ptr %17, align 4
-  %283 = load i32, ptr %16, align 4
-  %284 = load i32, ptr %17, align 4
-  %285 = xor i32 %284, %283
-  store i32 %285, ptr %17, align 4
-  %286 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %287 = getelementptr inbounds %struct.BF_ctx, ptr %286, i32 0, i32 1
-  %288 = getelementptr inbounds [18 x i32], ptr %287, i64 0, i64 2
-  %289 = load i32, ptr %288, align 4
-  %290 = load i32, ptr %13, align 4
-  %291 = xor i32 %290, %289
-  store i32 %291, ptr %13, align 4
-  %292 = load i32, ptr %15, align 4
-  %293 = load i32, ptr %17, align 4
-  %294 = add i32 %293, %292
-  store i32 %294, ptr %17, align 4
-  %295 = load i32, ptr %17, align 4
-  %296 = load i32, ptr %13, align 4
-  %297 = xor i32 %296, %295
-  store i32 %297, ptr %13, align 4
-  %298 = load i32, ptr %13, align 4
-  %299 = and i32 %298, 255
-  store i32 %299, ptr %15, align 4
-  %300 = load i32, ptr %13, align 4
-  %301 = lshr i32 %300, 8
-  store i32 %301, ptr %16, align 4
-  %302 = load i32, ptr %16, align 4
-  %303 = and i32 %302, 255
-  store i32 %303, ptr %16, align 4
-  %304 = load i32, ptr %13, align 4
-  %305 = lshr i32 %304, 16
-  store i32 %305, ptr %17, align 4
-  %306 = load i32, ptr %17, align 4
-  %307 = and i32 %306, 255
-  store i32 %307, ptr %17, align 4
-  %308 = load i32, ptr %13, align 4
-  %309 = lshr i32 %308, 24
-  store i32 %309, ptr %18, align 4
-  %310 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %311 = getelementptr inbounds %struct.BF_ctx, ptr %310, i32 0, i32 0
-  %312 = getelementptr inbounds [4 x [256 x i32]], ptr %311, i64 0, i64 3
-  %313 = load i32, ptr %15, align 4
-  %314 = zext i32 %313 to i64
-  %315 = getelementptr inbounds [256 x i32], ptr %312, i64 0, i64 %314
-  %316 = load i32, ptr %315, align 4
-  store i32 %316, ptr %15, align 4
-  %317 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %318 = getelementptr inbounds %struct.BF_ctx, ptr %317, i32 0, i32 0
-  %319 = getelementptr inbounds [4 x [256 x i32]], ptr %318, i64 0, i64 2
-  %320 = load i32, ptr %16, align 4
-  %321 = zext i32 %320 to i64
-  %322 = getelementptr inbounds [256 x i32], ptr %319, i64 0, i64 %321
-  %323 = load i32, ptr %322, align 4
-  store i32 %323, ptr %16, align 4
-  %324 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %325 = getelementptr inbounds %struct.BF_ctx, ptr %324, i32 0, i32 0
-  %326 = getelementptr inbounds [4 x [256 x i32]], ptr %325, i64 0, i64 1
-  %327 = load i32, ptr %17, align 4
-  %328 = zext i32 %327 to i64
-  %329 = getelementptr inbounds [256 x i32], ptr %326, i64 0, i64 %328
-  %330 = load i32, ptr %329, align 4
-  store i32 %330, ptr %17, align 4
-  %331 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %332 = getelementptr inbounds %struct.BF_ctx, ptr %331, i32 0, i32 0
-  %333 = getelementptr inbounds [4 x [256 x i32]], ptr %332, i64 0, i64 0
-  %334 = load i32, ptr %18, align 4
-  %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds [256 x i32], ptr %333, i64 0, i64 %335
-  %337 = load i32, ptr %336, align 4
-  %338 = load i32, ptr %17, align 4
-  %339 = add i32 %338, %337
-  store i32 %339, ptr %17, align 4
-  %340 = load i32, ptr %16, align 4
-  %341 = load i32, ptr %17, align 4
-  %342 = xor i32 %341, %340
-  store i32 %342, ptr %17, align 4
-  %343 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %344 = getelementptr inbounds %struct.BF_ctx, ptr %343, i32 0, i32 1
-  %345 = getelementptr inbounds [18 x i32], ptr %344, i64 0, i64 3
-  %346 = load i32, ptr %345, align 4
-  %347 = load i32, ptr %14, align 4
-  %348 = xor i32 %347, %346
-  store i32 %348, ptr %14, align 4
-  %349 = load i32, ptr %15, align 4
-  %350 = load i32, ptr %17, align 4
-  %351 = add i32 %350, %349
-  store i32 %351, ptr %17, align 4
-  %352 = load i32, ptr %17, align 4
-  %353 = load i32, ptr %14, align 4
-  %354 = xor i32 %353, %352
-  store i32 %354, ptr %14, align 4
-  %355 = load i32, ptr %14, align 4
-  %356 = and i32 %355, 255
-  store i32 %356, ptr %15, align 4
-  %357 = load i32, ptr %14, align 4
-  %358 = lshr i32 %357, 8
-  store i32 %358, ptr %16, align 4
-  %359 = load i32, ptr %16, align 4
-  %360 = and i32 %359, 255
-  store i32 %360, ptr %16, align 4
-  %361 = load i32, ptr %14, align 4
-  %362 = lshr i32 %361, 16
-  store i32 %362, ptr %17, align 4
-  %363 = load i32, ptr %17, align 4
-  %364 = and i32 %363, 255
-  store i32 %364, ptr %17, align 4
-  %365 = load i32, ptr %14, align 4
-  %366 = lshr i32 %365, 24
-  store i32 %366, ptr %18, align 4
-  %367 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %368 = getelementptr inbounds %struct.BF_ctx, ptr %367, i32 0, i32 0
-  %369 = getelementptr inbounds [4 x [256 x i32]], ptr %368, i64 0, i64 3
-  %370 = load i32, ptr %15, align 4
-  %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds [256 x i32], ptr %369, i64 0, i64 %371
-  %373 = load i32, ptr %372, align 4
-  store i32 %373, ptr %15, align 4
-  %374 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %375 = getelementptr inbounds %struct.BF_ctx, ptr %374, i32 0, i32 0
-  %376 = getelementptr inbounds [4 x [256 x i32]], ptr %375, i64 0, i64 2
-  %377 = load i32, ptr %16, align 4
-  %378 = zext i32 %377 to i64
-  %379 = getelementptr inbounds [256 x i32], ptr %376, i64 0, i64 %378
-  %380 = load i32, ptr %379, align 4
-  store i32 %380, ptr %16, align 4
-  %381 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %382 = getelementptr inbounds %struct.BF_ctx, ptr %381, i32 0, i32 0
-  %383 = getelementptr inbounds [4 x [256 x i32]], ptr %382, i64 0, i64 1
-  %384 = load i32, ptr %17, align 4
-  %385 = zext i32 %384 to i64
-  %386 = getelementptr inbounds [256 x i32], ptr %383, i64 0, i64 %385
-  %387 = load i32, ptr %386, align 4
-  store i32 %387, ptr %17, align 4
-  %388 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %389 = getelementptr inbounds %struct.BF_ctx, ptr %388, i32 0, i32 0
-  %390 = getelementptr inbounds [4 x [256 x i32]], ptr %389, i64 0, i64 0
-  %391 = load i32, ptr %18, align 4
-  %392 = zext i32 %391 to i64
-  %393 = getelementptr inbounds [256 x i32], ptr %390, i64 0, i64 %392
-  %394 = load i32, ptr %393, align 4
-  %395 = load i32, ptr %17, align 4
-  %396 = add i32 %395, %394
-  store i32 %396, ptr %17, align 4
-  %397 = load i32, ptr %16, align 4
-  %398 = load i32, ptr %17, align 4
-  %399 = xor i32 %398, %397
-  store i32 %399, ptr %17, align 4
-  %400 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %401 = getelementptr inbounds %struct.BF_ctx, ptr %400, i32 0, i32 1
-  %402 = getelementptr inbounds [18 x i32], ptr %401, i64 0, i64 4
-  %403 = load i32, ptr %402, align 4
-  %404 = load i32, ptr %13, align 4
-  %405 = xor i32 %404, %403
-  store i32 %405, ptr %13, align 4
-  %406 = load i32, ptr %15, align 4
-  %407 = load i32, ptr %17, align 4
-  %408 = add i32 %407, %406
-  store i32 %408, ptr %17, align 4
-  %409 = load i32, ptr %17, align 4
-  %410 = load i32, ptr %13, align 4
-  %411 = xor i32 %410, %409
-  store i32 %411, ptr %13, align 4
-  %412 = load i32, ptr %13, align 4
-  %413 = and i32 %412, 255
-  store i32 %413, ptr %15, align 4
-  %414 = load i32, ptr %13, align 4
-  %415 = lshr i32 %414, 8
-  store i32 %415, ptr %16, align 4
-  %416 = load i32, ptr %16, align 4
-  %417 = and i32 %416, 255
-  store i32 %417, ptr %16, align 4
-  %418 = load i32, ptr %13, align 4
-  %419 = lshr i32 %418, 16
-  store i32 %419, ptr %17, align 4
-  %420 = load i32, ptr %17, align 4
-  %421 = and i32 %420, 255
-  store i32 %421, ptr %17, align 4
-  %422 = load i32, ptr %13, align 4
-  %423 = lshr i32 %422, 24
-  store i32 %423, ptr %18, align 4
-  %424 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %425 = getelementptr inbounds %struct.BF_ctx, ptr %424, i32 0, i32 0
-  %426 = getelementptr inbounds [4 x [256 x i32]], ptr %425, i64 0, i64 3
-  %427 = load i32, ptr %15, align 4
-  %428 = zext i32 %427 to i64
-  %429 = getelementptr inbounds [256 x i32], ptr %426, i64 0, i64 %428
-  %430 = load i32, ptr %429, align 4
-  store i32 %430, ptr %15, align 4
-  %431 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %432 = getelementptr inbounds %struct.BF_ctx, ptr %431, i32 0, i32 0
-  %433 = getelementptr inbounds [4 x [256 x i32]], ptr %432, i64 0, i64 2
-  %434 = load i32, ptr %16, align 4
-  %435 = zext i32 %434 to i64
-  %436 = getelementptr inbounds [256 x i32], ptr %433, i64 0, i64 %435
-  %437 = load i32, ptr %436, align 4
-  store i32 %437, ptr %16, align 4
-  %438 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %439 = getelementptr inbounds %struct.BF_ctx, ptr %438, i32 0, i32 0
-  %440 = getelementptr inbounds [4 x [256 x i32]], ptr %439, i64 0, i64 1
-  %441 = load i32, ptr %17, align 4
-  %442 = zext i32 %441 to i64
-  %443 = getelementptr inbounds [256 x i32], ptr %440, i64 0, i64 %442
-  %444 = load i32, ptr %443, align 4
-  store i32 %444, ptr %17, align 4
-  %445 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %446 = getelementptr inbounds %struct.BF_ctx, ptr %445, i32 0, i32 0
-  %447 = getelementptr inbounds [4 x [256 x i32]], ptr %446, i64 0, i64 0
-  %448 = load i32, ptr %18, align 4
-  %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds [256 x i32], ptr %447, i64 0, i64 %449
-  %451 = load i32, ptr %450, align 4
-  %452 = load i32, ptr %17, align 4
-  %453 = add i32 %452, %451
-  store i32 %453, ptr %17, align 4
-  %454 = load i32, ptr %16, align 4
-  %455 = load i32, ptr %17, align 4
-  %456 = xor i32 %455, %454
-  store i32 %456, ptr %17, align 4
-  %457 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %458 = getelementptr inbounds %struct.BF_ctx, ptr %457, i32 0, i32 1
-  %459 = getelementptr inbounds [18 x i32], ptr %458, i64 0, i64 5
-  %460 = load i32, ptr %459, align 4
-  %461 = load i32, ptr %14, align 4
-  %462 = xor i32 %461, %460
-  store i32 %462, ptr %14, align 4
-  %463 = load i32, ptr %15, align 4
-  %464 = load i32, ptr %17, align 4
-  %465 = add i32 %464, %463
-  store i32 %465, ptr %17, align 4
-  %466 = load i32, ptr %17, align 4
-  %467 = load i32, ptr %14, align 4
-  %468 = xor i32 %467, %466
-  store i32 %468, ptr %14, align 4
-  %469 = load i32, ptr %14, align 4
-  %470 = and i32 %469, 255
-  store i32 %470, ptr %15, align 4
-  %471 = load i32, ptr %14, align 4
-  %472 = lshr i32 %471, 8
-  store i32 %472, ptr %16, align 4
-  %473 = load i32, ptr %16, align 4
-  %474 = and i32 %473, 255
-  store i32 %474, ptr %16, align 4
-  %475 = load i32, ptr %14, align 4
-  %476 = lshr i32 %475, 16
-  store i32 %476, ptr %17, align 4
-  %477 = load i32, ptr %17, align 4
-  %478 = and i32 %477, 255
-  store i32 %478, ptr %17, align 4
-  %479 = load i32, ptr %14, align 4
-  %480 = lshr i32 %479, 24
-  store i32 %480, ptr %18, align 4
-  %481 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %482 = getelementptr inbounds %struct.BF_ctx, ptr %481, i32 0, i32 0
-  %483 = getelementptr inbounds [4 x [256 x i32]], ptr %482, i64 0, i64 3
-  %484 = load i32, ptr %15, align 4
-  %485 = zext i32 %484 to i64
-  %486 = getelementptr inbounds [256 x i32], ptr %483, i64 0, i64 %485
-  %487 = load i32, ptr %486, align 4
-  store i32 %487, ptr %15, align 4
-  %488 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %489 = getelementptr inbounds %struct.BF_ctx, ptr %488, i32 0, i32 0
-  %490 = getelementptr inbounds [4 x [256 x i32]], ptr %489, i64 0, i64 2
-  %491 = load i32, ptr %16, align 4
-  %492 = zext i32 %491 to i64
-  %493 = getelementptr inbounds [256 x i32], ptr %490, i64 0, i64 %492
-  %494 = load i32, ptr %493, align 4
-  store i32 %494, ptr %16, align 4
-  %495 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %496 = getelementptr inbounds %struct.BF_ctx, ptr %495, i32 0, i32 0
-  %497 = getelementptr inbounds [4 x [256 x i32]], ptr %496, i64 0, i64 1
-  %498 = load i32, ptr %17, align 4
-  %499 = zext i32 %498 to i64
-  %500 = getelementptr inbounds [256 x i32], ptr %497, i64 0, i64 %499
-  %501 = load i32, ptr %500, align 4
-  store i32 %501, ptr %17, align 4
-  %502 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %503 = getelementptr inbounds %struct.BF_ctx, ptr %502, i32 0, i32 0
-  %504 = getelementptr inbounds [4 x [256 x i32]], ptr %503, i64 0, i64 0
-  %505 = load i32, ptr %18, align 4
-  %506 = zext i32 %505 to i64
-  %507 = getelementptr inbounds [256 x i32], ptr %504, i64 0, i64 %506
-  %508 = load i32, ptr %507, align 4
-  %509 = load i32, ptr %17, align 4
-  %510 = add i32 %509, %508
-  store i32 %510, ptr %17, align 4
-  %511 = load i32, ptr %16, align 4
-  %512 = load i32, ptr %17, align 4
-  %513 = xor i32 %512, %511
-  store i32 %513, ptr %17, align 4
-  %514 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %515 = getelementptr inbounds %struct.BF_ctx, ptr %514, i32 0, i32 1
-  %516 = getelementptr inbounds [18 x i32], ptr %515, i64 0, i64 6
-  %517 = load i32, ptr %516, align 4
-  %518 = load i32, ptr %13, align 4
-  %519 = xor i32 %518, %517
-  store i32 %519, ptr %13, align 4
-  %520 = load i32, ptr %15, align 4
-  %521 = load i32, ptr %17, align 4
-  %522 = add i32 %521, %520
-  store i32 %522, ptr %17, align 4
-  %523 = load i32, ptr %17, align 4
-  %524 = load i32, ptr %13, align 4
-  %525 = xor i32 %524, %523
-  store i32 %525, ptr %13, align 4
-  %526 = load i32, ptr %13, align 4
-  %527 = and i32 %526, 255
-  store i32 %527, ptr %15, align 4
-  %528 = load i32, ptr %13, align 4
-  %529 = lshr i32 %528, 8
-  store i32 %529, ptr %16, align 4
-  %530 = load i32, ptr %16, align 4
-  %531 = and i32 %530, 255
-  store i32 %531, ptr %16, align 4
-  %532 = load i32, ptr %13, align 4
-  %533 = lshr i32 %532, 16
-  store i32 %533, ptr %17, align 4
-  %534 = load i32, ptr %17, align 4
-  %535 = and i32 %534, 255
-  store i32 %535, ptr %17, align 4
-  %536 = load i32, ptr %13, align 4
-  %537 = lshr i32 %536, 24
-  store i32 %537, ptr %18, align 4
-  %538 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %539 = getelementptr inbounds %struct.BF_ctx, ptr %538, i32 0, i32 0
-  %540 = getelementptr inbounds [4 x [256 x i32]], ptr %539, i64 0, i64 3
-  %541 = load i32, ptr %15, align 4
-  %542 = zext i32 %541 to i64
-  %543 = getelementptr inbounds [256 x i32], ptr %540, i64 0, i64 %542
-  %544 = load i32, ptr %543, align 4
-  store i32 %544, ptr %15, align 4
-  %545 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %546 = getelementptr inbounds %struct.BF_ctx, ptr %545, i32 0, i32 0
-  %547 = getelementptr inbounds [4 x [256 x i32]], ptr %546, i64 0, i64 2
-  %548 = load i32, ptr %16, align 4
-  %549 = zext i32 %548 to i64
-  %550 = getelementptr inbounds [256 x i32], ptr %547, i64 0, i64 %549
-  %551 = load i32, ptr %550, align 4
-  store i32 %551, ptr %16, align 4
-  %552 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %553 = getelementptr inbounds %struct.BF_ctx, ptr %552, i32 0, i32 0
-  %554 = getelementptr inbounds [4 x [256 x i32]], ptr %553, i64 0, i64 1
-  %555 = load i32, ptr %17, align 4
-  %556 = zext i32 %555 to i64
-  %557 = getelementptr inbounds [256 x i32], ptr %554, i64 0, i64 %556
-  %558 = load i32, ptr %557, align 4
-  store i32 %558, ptr %17, align 4
-  %559 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %560 = getelementptr inbounds %struct.BF_ctx, ptr %559, i32 0, i32 0
-  %561 = getelementptr inbounds [4 x [256 x i32]], ptr %560, i64 0, i64 0
-  %562 = load i32, ptr %18, align 4
-  %563 = zext i32 %562 to i64
-  %564 = getelementptr inbounds [256 x i32], ptr %561, i64 0, i64 %563
-  %565 = load i32, ptr %564, align 4
-  %566 = load i32, ptr %17, align 4
-  %567 = add i32 %566, %565
-  store i32 %567, ptr %17, align 4
-  %568 = load i32, ptr %16, align 4
-  %569 = load i32, ptr %17, align 4
-  %570 = xor i32 %569, %568
-  store i32 %570, ptr %17, align 4
-  %571 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %572 = getelementptr inbounds %struct.BF_ctx, ptr %571, i32 0, i32 1
-  %573 = getelementptr inbounds [18 x i32], ptr %572, i64 0, i64 7
-  %574 = load i32, ptr %573, align 4
-  %575 = load i32, ptr %14, align 4
-  %576 = xor i32 %575, %574
-  store i32 %576, ptr %14, align 4
-  %577 = load i32, ptr %15, align 4
-  %578 = load i32, ptr %17, align 4
-  %579 = add i32 %578, %577
-  store i32 %579, ptr %17, align 4
-  %580 = load i32, ptr %17, align 4
-  %581 = load i32, ptr %14, align 4
-  %582 = xor i32 %581, %580
-  store i32 %582, ptr %14, align 4
-  %583 = load i32, ptr %14, align 4
-  %584 = and i32 %583, 255
-  store i32 %584, ptr %15, align 4
-  %585 = load i32, ptr %14, align 4
-  %586 = lshr i32 %585, 8
-  store i32 %586, ptr %16, align 4
-  %587 = load i32, ptr %16, align 4
-  %588 = and i32 %587, 255
-  store i32 %588, ptr %16, align 4
-  %589 = load i32, ptr %14, align 4
-  %590 = lshr i32 %589, 16
-  store i32 %590, ptr %17, align 4
-  %591 = load i32, ptr %17, align 4
-  %592 = and i32 %591, 255
-  store i32 %592, ptr %17, align 4
-  %593 = load i32, ptr %14, align 4
-  %594 = lshr i32 %593, 24
-  store i32 %594, ptr %18, align 4
-  %595 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %596 = getelementptr inbounds %struct.BF_ctx, ptr %595, i32 0, i32 0
-  %597 = getelementptr inbounds [4 x [256 x i32]], ptr %596, i64 0, i64 3
-  %598 = load i32, ptr %15, align 4
-  %599 = zext i32 %598 to i64
-  %600 = getelementptr inbounds [256 x i32], ptr %597, i64 0, i64 %599
-  %601 = load i32, ptr %600, align 4
-  store i32 %601, ptr %15, align 4
-  %602 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %603 = getelementptr inbounds %struct.BF_ctx, ptr %602, i32 0, i32 0
-  %604 = getelementptr inbounds [4 x [256 x i32]], ptr %603, i64 0, i64 2
-  %605 = load i32, ptr %16, align 4
-  %606 = zext i32 %605 to i64
-  %607 = getelementptr inbounds [256 x i32], ptr %604, i64 0, i64 %606
-  %608 = load i32, ptr %607, align 4
-  store i32 %608, ptr %16, align 4
-  %609 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %610 = getelementptr inbounds %struct.BF_ctx, ptr %609, i32 0, i32 0
-  %611 = getelementptr inbounds [4 x [256 x i32]], ptr %610, i64 0, i64 1
-  %612 = load i32, ptr %17, align 4
-  %613 = zext i32 %612 to i64
-  %614 = getelementptr inbounds [256 x i32], ptr %611, i64 0, i64 %613
-  %615 = load i32, ptr %614, align 4
-  store i32 %615, ptr %17, align 4
-  %616 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %617 = getelementptr inbounds %struct.BF_ctx, ptr %616, i32 0, i32 0
-  %618 = getelementptr inbounds [4 x [256 x i32]], ptr %617, i64 0, i64 0
-  %619 = load i32, ptr %18, align 4
-  %620 = zext i32 %619 to i64
-  %621 = getelementptr inbounds [256 x i32], ptr %618, i64 0, i64 %620
-  %622 = load i32, ptr %621, align 4
-  %623 = load i32, ptr %17, align 4
-  %624 = add i32 %623, %622
-  store i32 %624, ptr %17, align 4
-  %625 = load i32, ptr %16, align 4
-  %626 = load i32, ptr %17, align 4
-  %627 = xor i32 %626, %625
-  store i32 %627, ptr %17, align 4
-  %628 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %629 = getelementptr inbounds %struct.BF_ctx, ptr %628, i32 0, i32 1
-  %630 = getelementptr inbounds [18 x i32], ptr %629, i64 0, i64 8
-  %631 = load i32, ptr %630, align 4
-  %632 = load i32, ptr %13, align 4
-  %633 = xor i32 %632, %631
-  store i32 %633, ptr %13, align 4
-  %634 = load i32, ptr %15, align 4
-  %635 = load i32, ptr %17, align 4
-  %636 = add i32 %635, %634
-  store i32 %636, ptr %17, align 4
-  %637 = load i32, ptr %17, align 4
-  %638 = load i32, ptr %13, align 4
-  %639 = xor i32 %638, %637
-  store i32 %639, ptr %13, align 4
-  %640 = load i32, ptr %13, align 4
-  %641 = and i32 %640, 255
-  store i32 %641, ptr %15, align 4
-  %642 = load i32, ptr %13, align 4
-  %643 = lshr i32 %642, 8
-  store i32 %643, ptr %16, align 4
-  %644 = load i32, ptr %16, align 4
-  %645 = and i32 %644, 255
-  store i32 %645, ptr %16, align 4
-  %646 = load i32, ptr %13, align 4
-  %647 = lshr i32 %646, 16
-  store i32 %647, ptr %17, align 4
-  %648 = load i32, ptr %17, align 4
-  %649 = and i32 %648, 255
-  store i32 %649, ptr %17, align 4
-  %650 = load i32, ptr %13, align 4
-  %651 = lshr i32 %650, 24
-  store i32 %651, ptr %18, align 4
-  %652 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %653 = getelementptr inbounds %struct.BF_ctx, ptr %652, i32 0, i32 0
-  %654 = getelementptr inbounds [4 x [256 x i32]], ptr %653, i64 0, i64 3
-  %655 = load i32, ptr %15, align 4
-  %656 = zext i32 %655 to i64
-  %657 = getelementptr inbounds [256 x i32], ptr %654, i64 0, i64 %656
-  %658 = load i32, ptr %657, align 4
-  store i32 %658, ptr %15, align 4
-  %659 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %660 = getelementptr inbounds %struct.BF_ctx, ptr %659, i32 0, i32 0
-  %661 = getelementptr inbounds [4 x [256 x i32]], ptr %660, i64 0, i64 2
-  %662 = load i32, ptr %16, align 4
-  %663 = zext i32 %662 to i64
-  %664 = getelementptr inbounds [256 x i32], ptr %661, i64 0, i64 %663
-  %665 = load i32, ptr %664, align 4
-  store i32 %665, ptr %16, align 4
-  %666 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %667 = getelementptr inbounds %struct.BF_ctx, ptr %666, i32 0, i32 0
-  %668 = getelementptr inbounds [4 x [256 x i32]], ptr %667, i64 0, i64 1
-  %669 = load i32, ptr %17, align 4
-  %670 = zext i32 %669 to i64
-  %671 = getelementptr inbounds [256 x i32], ptr %668, i64 0, i64 %670
-  %672 = load i32, ptr %671, align 4
-  store i32 %672, ptr %17, align 4
-  %673 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %674 = getelementptr inbounds %struct.BF_ctx, ptr %673, i32 0, i32 0
-  %675 = getelementptr inbounds [4 x [256 x i32]], ptr %674, i64 0, i64 0
-  %676 = load i32, ptr %18, align 4
-  %677 = zext i32 %676 to i64
-  %678 = getelementptr inbounds [256 x i32], ptr %675, i64 0, i64 %677
-  %679 = load i32, ptr %678, align 4
-  %680 = load i32, ptr %17, align 4
-  %681 = add i32 %680, %679
-  store i32 %681, ptr %17, align 4
-  %682 = load i32, ptr %16, align 4
-  %683 = load i32, ptr %17, align 4
-  %684 = xor i32 %683, %682
-  store i32 %684, ptr %17, align 4
-  %685 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %686 = getelementptr inbounds %struct.BF_ctx, ptr %685, i32 0, i32 1
-  %687 = getelementptr inbounds [18 x i32], ptr %686, i64 0, i64 9
-  %688 = load i32, ptr %687, align 4
-  %689 = load i32, ptr %14, align 4
-  %690 = xor i32 %689, %688
-  store i32 %690, ptr %14, align 4
-  %691 = load i32, ptr %15, align 4
-  %692 = load i32, ptr %17, align 4
-  %693 = add i32 %692, %691
-  store i32 %693, ptr %17, align 4
-  %694 = load i32, ptr %17, align 4
-  %695 = load i32, ptr %14, align 4
-  %696 = xor i32 %695, %694
-  store i32 %696, ptr %14, align 4
-  %697 = load i32, ptr %14, align 4
-  %698 = and i32 %697, 255
-  store i32 %698, ptr %15, align 4
-  %699 = load i32, ptr %14, align 4
-  %700 = lshr i32 %699, 8
-  store i32 %700, ptr %16, align 4
-  %701 = load i32, ptr %16, align 4
-  %702 = and i32 %701, 255
-  store i32 %702, ptr %16, align 4
-  %703 = load i32, ptr %14, align 4
-  %704 = lshr i32 %703, 16
-  store i32 %704, ptr %17, align 4
-  %705 = load i32, ptr %17, align 4
-  %706 = and i32 %705, 255
-  store i32 %706, ptr %17, align 4
-  %707 = load i32, ptr %14, align 4
-  %708 = lshr i32 %707, 24
-  store i32 %708, ptr %18, align 4
-  %709 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %710 = getelementptr inbounds %struct.BF_ctx, ptr %709, i32 0, i32 0
-  %711 = getelementptr inbounds [4 x [256 x i32]], ptr %710, i64 0, i64 3
-  %712 = load i32, ptr %15, align 4
-  %713 = zext i32 %712 to i64
-  %714 = getelementptr inbounds [256 x i32], ptr %711, i64 0, i64 %713
-  %715 = load i32, ptr %714, align 4
-  store i32 %715, ptr %15, align 4
-  %716 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %717 = getelementptr inbounds %struct.BF_ctx, ptr %716, i32 0, i32 0
-  %718 = getelementptr inbounds [4 x [256 x i32]], ptr %717, i64 0, i64 2
-  %719 = load i32, ptr %16, align 4
-  %720 = zext i32 %719 to i64
-  %721 = getelementptr inbounds [256 x i32], ptr %718, i64 0, i64 %720
-  %722 = load i32, ptr %721, align 4
-  store i32 %722, ptr %16, align 4
-  %723 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %724 = getelementptr inbounds %struct.BF_ctx, ptr %723, i32 0, i32 0
-  %725 = getelementptr inbounds [4 x [256 x i32]], ptr %724, i64 0, i64 1
-  %726 = load i32, ptr %17, align 4
-  %727 = zext i32 %726 to i64
-  %728 = getelementptr inbounds [256 x i32], ptr %725, i64 0, i64 %727
-  %729 = load i32, ptr %728, align 4
-  store i32 %729, ptr %17, align 4
-  %730 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %731 = getelementptr inbounds %struct.BF_ctx, ptr %730, i32 0, i32 0
-  %732 = getelementptr inbounds [4 x [256 x i32]], ptr %731, i64 0, i64 0
-  %733 = load i32, ptr %18, align 4
-  %734 = zext i32 %733 to i64
-  %735 = getelementptr inbounds [256 x i32], ptr %732, i64 0, i64 %734
-  %736 = load i32, ptr %735, align 4
-  %737 = load i32, ptr %17, align 4
-  %738 = add i32 %737, %736
-  store i32 %738, ptr %17, align 4
-  %739 = load i32, ptr %16, align 4
-  %740 = load i32, ptr %17, align 4
-  %741 = xor i32 %740, %739
-  store i32 %741, ptr %17, align 4
-  %742 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %743 = getelementptr inbounds %struct.BF_ctx, ptr %742, i32 0, i32 1
-  %744 = getelementptr inbounds [18 x i32], ptr %743, i64 0, i64 10
-  %745 = load i32, ptr %744, align 4
-  %746 = load i32, ptr %13, align 4
-  %747 = xor i32 %746, %745
-  store i32 %747, ptr %13, align 4
-  %748 = load i32, ptr %15, align 4
-  %749 = load i32, ptr %17, align 4
-  %750 = add i32 %749, %748
-  store i32 %750, ptr %17, align 4
-  %751 = load i32, ptr %17, align 4
-  %752 = load i32, ptr %13, align 4
-  %753 = xor i32 %752, %751
-  store i32 %753, ptr %13, align 4
-  %754 = load i32, ptr %13, align 4
-  %755 = and i32 %754, 255
-  store i32 %755, ptr %15, align 4
-  %756 = load i32, ptr %13, align 4
-  %757 = lshr i32 %756, 8
-  store i32 %757, ptr %16, align 4
-  %758 = load i32, ptr %16, align 4
-  %759 = and i32 %758, 255
-  store i32 %759, ptr %16, align 4
-  %760 = load i32, ptr %13, align 4
-  %761 = lshr i32 %760, 16
-  store i32 %761, ptr %17, align 4
-  %762 = load i32, ptr %17, align 4
-  %763 = and i32 %762, 255
-  store i32 %763, ptr %17, align 4
-  %764 = load i32, ptr %13, align 4
-  %765 = lshr i32 %764, 24
-  store i32 %765, ptr %18, align 4
-  %766 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %767 = getelementptr inbounds %struct.BF_ctx, ptr %766, i32 0, i32 0
-  %768 = getelementptr inbounds [4 x [256 x i32]], ptr %767, i64 0, i64 3
-  %769 = load i32, ptr %15, align 4
-  %770 = zext i32 %769 to i64
-  %771 = getelementptr inbounds [256 x i32], ptr %768, i64 0, i64 %770
-  %772 = load i32, ptr %771, align 4
-  store i32 %772, ptr %15, align 4
-  %773 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %774 = getelementptr inbounds %struct.BF_ctx, ptr %773, i32 0, i32 0
-  %775 = getelementptr inbounds [4 x [256 x i32]], ptr %774, i64 0, i64 2
-  %776 = load i32, ptr %16, align 4
-  %777 = zext i32 %776 to i64
-  %778 = getelementptr inbounds [256 x i32], ptr %775, i64 0, i64 %777
-  %779 = load i32, ptr %778, align 4
-  store i32 %779, ptr %16, align 4
-  %780 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %781 = getelementptr inbounds %struct.BF_ctx, ptr %780, i32 0, i32 0
-  %782 = getelementptr inbounds [4 x [256 x i32]], ptr %781, i64 0, i64 1
-  %783 = load i32, ptr %17, align 4
-  %784 = zext i32 %783 to i64
-  %785 = getelementptr inbounds [256 x i32], ptr %782, i64 0, i64 %784
-  %786 = load i32, ptr %785, align 4
-  store i32 %786, ptr %17, align 4
-  %787 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %788 = getelementptr inbounds %struct.BF_ctx, ptr %787, i32 0, i32 0
-  %789 = getelementptr inbounds [4 x [256 x i32]], ptr %788, i64 0, i64 0
-  %790 = load i32, ptr %18, align 4
-  %791 = zext i32 %790 to i64
-  %792 = getelementptr inbounds [256 x i32], ptr %789, i64 0, i64 %791
-  %793 = load i32, ptr %792, align 4
-  %794 = load i32, ptr %17, align 4
-  %795 = add i32 %794, %793
-  store i32 %795, ptr %17, align 4
-  %796 = load i32, ptr %16, align 4
-  %797 = load i32, ptr %17, align 4
-  %798 = xor i32 %797, %796
-  store i32 %798, ptr %17, align 4
-  %799 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %800 = getelementptr inbounds %struct.BF_ctx, ptr %799, i32 0, i32 1
-  %801 = getelementptr inbounds [18 x i32], ptr %800, i64 0, i64 11
-  %802 = load i32, ptr %801, align 4
-  %803 = load i32, ptr %14, align 4
-  %804 = xor i32 %803, %802
-  store i32 %804, ptr %14, align 4
-  %805 = load i32, ptr %15, align 4
-  %806 = load i32, ptr %17, align 4
-  %807 = add i32 %806, %805
-  store i32 %807, ptr %17, align 4
-  %808 = load i32, ptr %17, align 4
-  %809 = load i32, ptr %14, align 4
-  %810 = xor i32 %809, %808
-  store i32 %810, ptr %14, align 4
-  %811 = load i32, ptr %14, align 4
-  %812 = and i32 %811, 255
-  store i32 %812, ptr %15, align 4
-  %813 = load i32, ptr %14, align 4
-  %814 = lshr i32 %813, 8
-  store i32 %814, ptr %16, align 4
-  %815 = load i32, ptr %16, align 4
-  %816 = and i32 %815, 255
-  store i32 %816, ptr %16, align 4
-  %817 = load i32, ptr %14, align 4
-  %818 = lshr i32 %817, 16
-  store i32 %818, ptr %17, align 4
-  %819 = load i32, ptr %17, align 4
-  %820 = and i32 %819, 255
-  store i32 %820, ptr %17, align 4
-  %821 = load i32, ptr %14, align 4
-  %822 = lshr i32 %821, 24
-  store i32 %822, ptr %18, align 4
-  %823 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %824 = getelementptr inbounds %struct.BF_ctx, ptr %823, i32 0, i32 0
-  %825 = getelementptr inbounds [4 x [256 x i32]], ptr %824, i64 0, i64 3
-  %826 = load i32, ptr %15, align 4
-  %827 = zext i32 %826 to i64
-  %828 = getelementptr inbounds [256 x i32], ptr %825, i64 0, i64 %827
-  %829 = load i32, ptr %828, align 4
-  store i32 %829, ptr %15, align 4
-  %830 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %831 = getelementptr inbounds %struct.BF_ctx, ptr %830, i32 0, i32 0
-  %832 = getelementptr inbounds [4 x [256 x i32]], ptr %831, i64 0, i64 2
-  %833 = load i32, ptr %16, align 4
-  %834 = zext i32 %833 to i64
-  %835 = getelementptr inbounds [256 x i32], ptr %832, i64 0, i64 %834
-  %836 = load i32, ptr %835, align 4
-  store i32 %836, ptr %16, align 4
-  %837 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %838 = getelementptr inbounds %struct.BF_ctx, ptr %837, i32 0, i32 0
-  %839 = getelementptr inbounds [4 x [256 x i32]], ptr %838, i64 0, i64 1
-  %840 = load i32, ptr %17, align 4
-  %841 = zext i32 %840 to i64
-  %842 = getelementptr inbounds [256 x i32], ptr %839, i64 0, i64 %841
-  %843 = load i32, ptr %842, align 4
-  store i32 %843, ptr %17, align 4
-  %844 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %845 = getelementptr inbounds %struct.BF_ctx, ptr %844, i32 0, i32 0
-  %846 = getelementptr inbounds [4 x [256 x i32]], ptr %845, i64 0, i64 0
-  %847 = load i32, ptr %18, align 4
-  %848 = zext i32 %847 to i64
-  %849 = getelementptr inbounds [256 x i32], ptr %846, i64 0, i64 %848
-  %850 = load i32, ptr %849, align 4
-  %851 = load i32, ptr %17, align 4
-  %852 = add i32 %851, %850
-  store i32 %852, ptr %17, align 4
-  %853 = load i32, ptr %16, align 4
-  %854 = load i32, ptr %17, align 4
-  %855 = xor i32 %854, %853
-  store i32 %855, ptr %17, align 4
-  %856 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %857 = getelementptr inbounds %struct.BF_ctx, ptr %856, i32 0, i32 1
-  %858 = getelementptr inbounds [18 x i32], ptr %857, i64 0, i64 12
-  %859 = load i32, ptr %858, align 4
-  %860 = load i32, ptr %13, align 4
-  %861 = xor i32 %860, %859
-  store i32 %861, ptr %13, align 4
-  %862 = load i32, ptr %15, align 4
-  %863 = load i32, ptr %17, align 4
-  %864 = add i32 %863, %862
-  store i32 %864, ptr %17, align 4
-  %865 = load i32, ptr %17, align 4
-  %866 = load i32, ptr %13, align 4
-  %867 = xor i32 %866, %865
-  store i32 %867, ptr %13, align 4
-  %868 = load i32, ptr %13, align 4
-  %869 = and i32 %868, 255
-  store i32 %869, ptr %15, align 4
-  %870 = load i32, ptr %13, align 4
-  %871 = lshr i32 %870, 8
-  store i32 %871, ptr %16, align 4
-  %872 = load i32, ptr %16, align 4
-  %873 = and i32 %872, 255
-  store i32 %873, ptr %16, align 4
-  %874 = load i32, ptr %13, align 4
-  %875 = lshr i32 %874, 16
-  store i32 %875, ptr %17, align 4
-  %876 = load i32, ptr %17, align 4
-  %877 = and i32 %876, 255
-  store i32 %877, ptr %17, align 4
-  %878 = load i32, ptr %13, align 4
-  %879 = lshr i32 %878, 24
-  store i32 %879, ptr %18, align 4
-  %880 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %881 = getelementptr inbounds %struct.BF_ctx, ptr %880, i32 0, i32 0
-  %882 = getelementptr inbounds [4 x [256 x i32]], ptr %881, i64 0, i64 3
-  %883 = load i32, ptr %15, align 4
-  %884 = zext i32 %883 to i64
-  %885 = getelementptr inbounds [256 x i32], ptr %882, i64 0, i64 %884
-  %886 = load i32, ptr %885, align 4
-  store i32 %886, ptr %15, align 4
-  %887 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %888 = getelementptr inbounds %struct.BF_ctx, ptr %887, i32 0, i32 0
-  %889 = getelementptr inbounds [4 x [256 x i32]], ptr %888, i64 0, i64 2
-  %890 = load i32, ptr %16, align 4
-  %891 = zext i32 %890 to i64
-  %892 = getelementptr inbounds [256 x i32], ptr %889, i64 0, i64 %891
-  %893 = load i32, ptr %892, align 4
-  store i32 %893, ptr %16, align 4
-  %894 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %895 = getelementptr inbounds %struct.BF_ctx, ptr %894, i32 0, i32 0
-  %896 = getelementptr inbounds [4 x [256 x i32]], ptr %895, i64 0, i64 1
-  %897 = load i32, ptr %17, align 4
-  %898 = zext i32 %897 to i64
-  %899 = getelementptr inbounds [256 x i32], ptr %896, i64 0, i64 %898
-  %900 = load i32, ptr %899, align 4
-  store i32 %900, ptr %17, align 4
-  %901 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %902 = getelementptr inbounds %struct.BF_ctx, ptr %901, i32 0, i32 0
-  %903 = getelementptr inbounds [4 x [256 x i32]], ptr %902, i64 0, i64 0
-  %904 = load i32, ptr %18, align 4
-  %905 = zext i32 %904 to i64
-  %906 = getelementptr inbounds [256 x i32], ptr %903, i64 0, i64 %905
-  %907 = load i32, ptr %906, align 4
-  %908 = load i32, ptr %17, align 4
-  %909 = add i32 %908, %907
-  store i32 %909, ptr %17, align 4
-  %910 = load i32, ptr %16, align 4
-  %911 = load i32, ptr %17, align 4
-  %912 = xor i32 %911, %910
-  store i32 %912, ptr %17, align 4
-  %913 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %914 = getelementptr inbounds %struct.BF_ctx, ptr %913, i32 0, i32 1
-  %915 = getelementptr inbounds [18 x i32], ptr %914, i64 0, i64 13
-  %916 = load i32, ptr %915, align 4
-  %917 = load i32, ptr %14, align 4
-  %918 = xor i32 %917, %916
-  store i32 %918, ptr %14, align 4
-  %919 = load i32, ptr %15, align 4
-  %920 = load i32, ptr %17, align 4
-  %921 = add i32 %920, %919
-  store i32 %921, ptr %17, align 4
-  %922 = load i32, ptr %17, align 4
-  %923 = load i32, ptr %14, align 4
-  %924 = xor i32 %923, %922
-  store i32 %924, ptr %14, align 4
-  %925 = load i32, ptr %14, align 4
-  %926 = and i32 %925, 255
-  store i32 %926, ptr %15, align 4
-  %927 = load i32, ptr %14, align 4
-  %928 = lshr i32 %927, 8
-  store i32 %928, ptr %16, align 4
-  %929 = load i32, ptr %16, align 4
-  %930 = and i32 %929, 255
-  store i32 %930, ptr %16, align 4
-  %931 = load i32, ptr %14, align 4
-  %932 = lshr i32 %931, 16
-  store i32 %932, ptr %17, align 4
-  %933 = load i32, ptr %17, align 4
-  %934 = and i32 %933, 255
-  store i32 %934, ptr %17, align 4
-  %935 = load i32, ptr %14, align 4
-  %936 = lshr i32 %935, 24
-  store i32 %936, ptr %18, align 4
-  %937 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %938 = getelementptr inbounds %struct.BF_ctx, ptr %937, i32 0, i32 0
-  %939 = getelementptr inbounds [4 x [256 x i32]], ptr %938, i64 0, i64 3
-  %940 = load i32, ptr %15, align 4
-  %941 = zext i32 %940 to i64
-  %942 = getelementptr inbounds [256 x i32], ptr %939, i64 0, i64 %941
-  %943 = load i32, ptr %942, align 4
-  store i32 %943, ptr %15, align 4
-  %944 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %945 = getelementptr inbounds %struct.BF_ctx, ptr %944, i32 0, i32 0
-  %946 = getelementptr inbounds [4 x [256 x i32]], ptr %945, i64 0, i64 2
-  %947 = load i32, ptr %16, align 4
-  %948 = zext i32 %947 to i64
-  %949 = getelementptr inbounds [256 x i32], ptr %946, i64 0, i64 %948
-  %950 = load i32, ptr %949, align 4
-  store i32 %950, ptr %16, align 4
-  %951 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %952 = getelementptr inbounds %struct.BF_ctx, ptr %951, i32 0, i32 0
-  %953 = getelementptr inbounds [4 x [256 x i32]], ptr %952, i64 0, i64 1
-  %954 = load i32, ptr %17, align 4
-  %955 = zext i32 %954 to i64
-  %956 = getelementptr inbounds [256 x i32], ptr %953, i64 0, i64 %955
-  %957 = load i32, ptr %956, align 4
-  store i32 %957, ptr %17, align 4
-  %958 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %959 = getelementptr inbounds %struct.BF_ctx, ptr %958, i32 0, i32 0
-  %960 = getelementptr inbounds [4 x [256 x i32]], ptr %959, i64 0, i64 0
-  %961 = load i32, ptr %18, align 4
-  %962 = zext i32 %961 to i64
-  %963 = getelementptr inbounds [256 x i32], ptr %960, i64 0, i64 %962
-  %964 = load i32, ptr %963, align 4
-  %965 = load i32, ptr %17, align 4
-  %966 = add i32 %965, %964
-  store i32 %966, ptr %17, align 4
-  %967 = load i32, ptr %16, align 4
-  %968 = load i32, ptr %17, align 4
-  %969 = xor i32 %968, %967
-  store i32 %969, ptr %17, align 4
-  %970 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %971 = getelementptr inbounds %struct.BF_ctx, ptr %970, i32 0, i32 1
-  %972 = getelementptr inbounds [18 x i32], ptr %971, i64 0, i64 14
-  %973 = load i32, ptr %972, align 4
-  %974 = load i32, ptr %13, align 4
-  %975 = xor i32 %974, %973
-  store i32 %975, ptr %13, align 4
-  %976 = load i32, ptr %15, align 4
-  %977 = load i32, ptr %17, align 4
-  %978 = add i32 %977, %976
-  store i32 %978, ptr %17, align 4
-  %979 = load i32, ptr %17, align 4
-  %980 = load i32, ptr %13, align 4
-  %981 = xor i32 %980, %979
-  store i32 %981, ptr %13, align 4
-  %982 = load i32, ptr %13, align 4
-  %983 = and i32 %982, 255
-  store i32 %983, ptr %15, align 4
-  %984 = load i32, ptr %13, align 4
-  %985 = lshr i32 %984, 8
-  store i32 %985, ptr %16, align 4
-  %986 = load i32, ptr %16, align 4
-  %987 = and i32 %986, 255
-  store i32 %987, ptr %16, align 4
-  %988 = load i32, ptr %13, align 4
-  %989 = lshr i32 %988, 16
-  store i32 %989, ptr %17, align 4
-  %990 = load i32, ptr %17, align 4
-  %991 = and i32 %990, 255
-  store i32 %991, ptr %17, align 4
-  %992 = load i32, ptr %13, align 4
-  %993 = lshr i32 %992, 24
-  store i32 %993, ptr %18, align 4
-  %994 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %995 = getelementptr inbounds %struct.BF_ctx, ptr %994, i32 0, i32 0
-  %996 = getelementptr inbounds [4 x [256 x i32]], ptr %995, i64 0, i64 3
-  %997 = load i32, ptr %15, align 4
-  %998 = zext i32 %997 to i64
-  %999 = getelementptr inbounds [256 x i32], ptr %996, i64 0, i64 %998
-  %1000 = load i32, ptr %999, align 4
-  store i32 %1000, ptr %15, align 4
-  %1001 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1002 = getelementptr inbounds %struct.BF_ctx, ptr %1001, i32 0, i32 0
-  %1003 = getelementptr inbounds [4 x [256 x i32]], ptr %1002, i64 0, i64 2
-  %1004 = load i32, ptr %16, align 4
-  %1005 = zext i32 %1004 to i64
-  %1006 = getelementptr inbounds [256 x i32], ptr %1003, i64 0, i64 %1005
-  %1007 = load i32, ptr %1006, align 4
-  store i32 %1007, ptr %16, align 4
-  %1008 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1009 = getelementptr inbounds %struct.BF_ctx, ptr %1008, i32 0, i32 0
-  %1010 = getelementptr inbounds [4 x [256 x i32]], ptr %1009, i64 0, i64 1
-  %1011 = load i32, ptr %17, align 4
-  %1012 = zext i32 %1011 to i64
-  %1013 = getelementptr inbounds [256 x i32], ptr %1010, i64 0, i64 %1012
-  %1014 = load i32, ptr %1013, align 4
-  store i32 %1014, ptr %17, align 4
-  %1015 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1016 = getelementptr inbounds %struct.BF_ctx, ptr %1015, i32 0, i32 0
-  %1017 = getelementptr inbounds [4 x [256 x i32]], ptr %1016, i64 0, i64 0
-  %1018 = load i32, ptr %18, align 4
-  %1019 = zext i32 %1018 to i64
-  %1020 = getelementptr inbounds [256 x i32], ptr %1017, i64 0, i64 %1019
-  %1021 = load i32, ptr %1020, align 4
-  %1022 = load i32, ptr %17, align 4
-  %1023 = add i32 %1022, %1021
-  store i32 %1023, ptr %17, align 4
-  %1024 = load i32, ptr %16, align 4
-  %1025 = load i32, ptr %17, align 4
-  %1026 = xor i32 %1025, %1024
-  store i32 %1026, ptr %17, align 4
-  %1027 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1028 = getelementptr inbounds %struct.BF_ctx, ptr %1027, i32 0, i32 1
-  %1029 = getelementptr inbounds [18 x i32], ptr %1028, i64 0, i64 15
-  %1030 = load i32, ptr %1029, align 4
-  %1031 = load i32, ptr %14, align 4
-  %1032 = xor i32 %1031, %1030
-  store i32 %1032, ptr %14, align 4
-  %1033 = load i32, ptr %15, align 4
-  %1034 = load i32, ptr %17, align 4
-  %1035 = add i32 %1034, %1033
-  store i32 %1035, ptr %17, align 4
-  %1036 = load i32, ptr %17, align 4
-  %1037 = load i32, ptr %14, align 4
-  %1038 = xor i32 %1037, %1036
-  store i32 %1038, ptr %14, align 4
-  %1039 = load i32, ptr %14, align 4
-  %1040 = and i32 %1039, 255
-  store i32 %1040, ptr %15, align 4
-  %1041 = load i32, ptr %14, align 4
-  %1042 = lshr i32 %1041, 8
-  store i32 %1042, ptr %16, align 4
-  %1043 = load i32, ptr %16, align 4
-  %1044 = and i32 %1043, 255
-  store i32 %1044, ptr %16, align 4
-  %1045 = load i32, ptr %14, align 4
-  %1046 = lshr i32 %1045, 16
-  store i32 %1046, ptr %17, align 4
-  %1047 = load i32, ptr %17, align 4
-  %1048 = and i32 %1047, 255
-  store i32 %1048, ptr %17, align 4
-  %1049 = load i32, ptr %14, align 4
-  %1050 = lshr i32 %1049, 24
-  store i32 %1050, ptr %18, align 4
-  %1051 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1052 = getelementptr inbounds %struct.BF_ctx, ptr %1051, i32 0, i32 0
-  %1053 = getelementptr inbounds [4 x [256 x i32]], ptr %1052, i64 0, i64 3
-  %1054 = load i32, ptr %15, align 4
-  %1055 = zext i32 %1054 to i64
-  %1056 = getelementptr inbounds [256 x i32], ptr %1053, i64 0, i64 %1055
-  %1057 = load i32, ptr %1056, align 4
-  store i32 %1057, ptr %15, align 4
-  %1058 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1059 = getelementptr inbounds %struct.BF_ctx, ptr %1058, i32 0, i32 0
-  %1060 = getelementptr inbounds [4 x [256 x i32]], ptr %1059, i64 0, i64 2
-  %1061 = load i32, ptr %16, align 4
-  %1062 = zext i32 %1061 to i64
-  %1063 = getelementptr inbounds [256 x i32], ptr %1060, i64 0, i64 %1062
-  %1064 = load i32, ptr %1063, align 4
-  store i32 %1064, ptr %16, align 4
-  %1065 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1066 = getelementptr inbounds %struct.BF_ctx, ptr %1065, i32 0, i32 0
-  %1067 = getelementptr inbounds [4 x [256 x i32]], ptr %1066, i64 0, i64 1
-  %1068 = load i32, ptr %17, align 4
-  %1069 = zext i32 %1068 to i64
-  %1070 = getelementptr inbounds [256 x i32], ptr %1067, i64 0, i64 %1069
-  %1071 = load i32, ptr %1070, align 4
-  store i32 %1071, ptr %17, align 4
-  %1072 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1073 = getelementptr inbounds %struct.BF_ctx, ptr %1072, i32 0, i32 0
-  %1074 = getelementptr inbounds [4 x [256 x i32]], ptr %1073, i64 0, i64 0
-  %1075 = load i32, ptr %18, align 4
-  %1076 = zext i32 %1075 to i64
-  %1077 = getelementptr inbounds [256 x i32], ptr %1074, i64 0, i64 %1076
-  %1078 = load i32, ptr %1077, align 4
-  %1079 = load i32, ptr %17, align 4
-  %1080 = add i32 %1079, %1078
-  store i32 %1080, ptr %17, align 4
-  %1081 = load i32, ptr %16, align 4
-  %1082 = load i32, ptr %17, align 4
-  %1083 = xor i32 %1082, %1081
-  store i32 %1083, ptr %17, align 4
-  %1084 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1085 = getelementptr inbounds %struct.BF_ctx, ptr %1084, i32 0, i32 1
-  %1086 = getelementptr inbounds [18 x i32], ptr %1085, i64 0, i64 16
-  %1087 = load i32, ptr %1086, align 4
-  %1088 = load i32, ptr %13, align 4
-  %1089 = xor i32 %1088, %1087
-  store i32 %1089, ptr %13, align 4
-  %1090 = load i32, ptr %15, align 4
-  %1091 = load i32, ptr %17, align 4
-  %1092 = add i32 %1091, %1090
-  store i32 %1092, ptr %17, align 4
-  %1093 = load i32, ptr %17, align 4
-  %1094 = load i32, ptr %13, align 4
-  %1095 = xor i32 %1094, %1093
-  store i32 %1095, ptr %13, align 4
-  %1096 = load i32, ptr %14, align 4
-  store i32 %1096, ptr %18, align 4
-  %1097 = load i32, ptr %13, align 4
-  store i32 %1097, ptr %14, align 4
-  %1098 = load i32, ptr %18, align 4
-  %1099 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1100 = getelementptr inbounds %struct.BF_ctx, ptr %1099, i32 0, i32 1
-  %1101 = getelementptr inbounds [18 x i32], ptr %1100, i64 0, i64 17
-  %1102 = load i32, ptr %1101, align 4
-  %1103 = xor i32 %1098, %1102
-  store i32 %1103, ptr %13, align 4
-  %1104 = load i32, ptr %13, align 4
-  %1105 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1106 = getelementptr inbounds %struct.BF_ctx, ptr %1105, i32 0, i32 1
-  %1107 = load i32, ptr %21, align 4
-  %1108 = sext i32 %1107 to i64
-  %1109 = getelementptr inbounds [18 x i32], ptr %1106, i64 0, i64 %1108
-  store i32 %1104, ptr %1109, align 4
-  %1110 = load i32, ptr %14, align 4
-  %1111 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1112 = getelementptr inbounds %struct.BF_ctx, ptr %1111, i32 0, i32 1
-  %1113 = load i32, ptr %21, align 4
-  %1114 = add nsw i32 %1113, 1
-  %1115 = sext i32 %1114 to i64
-  %1116 = getelementptr inbounds [18 x i32], ptr %1112, i64 0, i64 %1115
-  store i32 %1110, ptr %1116, align 4
-  br label %1117
-
-1117:                                             ; preds = %160
-  %1118 = load i32, ptr %21, align 4
-  %1119 = add nsw i32 %1118, 2
-  store i32 %1119, ptr %21, align 4
-  br label %157
-
-1120:                                             ; preds = %157
-  %1121 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1122 = getelementptr inbounds %struct.BF_ctx, ptr %1121, i32 0, i32 0
-  %1123 = getelementptr inbounds [4 x [256 x i32]], ptr %1122, i64 0, i64 0
-  %1124 = getelementptr inbounds [256 x i32], ptr %1123, i64 0, i64 0
-  store ptr %1124, ptr %19, align 8
-  br label %1125
-
-1125:                                             ; preds = %3012, %1120
-  %1126 = load ptr, ptr %19, align 8
-  %1127 = getelementptr inbounds i32, ptr %1126, i64 4
-  store ptr %1127, ptr %19, align 8
-  %1128 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %1129 = getelementptr inbounds [4 x i32], ptr %1128, i64 0, i64 2
-  %1130 = load i32, ptr %1129, align 4
-  %1131 = load i32, ptr %13, align 4
-  %1132 = xor i32 %1131, %1130
-  store i32 %1132, ptr %13, align 4
-  %1133 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %1134 = getelementptr inbounds [4 x i32], ptr %1133, i64 0, i64 3
-  %1135 = load i32, ptr %1134, align 4
-  %1136 = load i32, ptr %14, align 4
-  %1137 = xor i32 %1136, %1135
-  store i32 %1137, ptr %14, align 4
-  %1138 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1139 = getelementptr inbounds %struct.BF_ctx, ptr %1138, i32 0, i32 1
-  %1140 = getelementptr inbounds [18 x i32], ptr %1139, i64 0, i64 0
-  %1141 = load i32, ptr %1140, align 4
-  %1142 = load i32, ptr %13, align 4
-  %1143 = xor i32 %1142, %1141
-  store i32 %1143, ptr %13, align 4
-  %1144 = load i32, ptr %13, align 4
-  %1145 = and i32 %1144, 255
-  store i32 %1145, ptr %15, align 4
-  %1146 = load i32, ptr %13, align 4
-  %1147 = lshr i32 %1146, 8
-  store i32 %1147, ptr %16, align 4
-  %1148 = load i32, ptr %16, align 4
-  %1149 = and i32 %1148, 255
-  store i32 %1149, ptr %16, align 4
-  %1150 = load i32, ptr %13, align 4
-  %1151 = lshr i32 %1150, 16
-  store i32 %1151, ptr %17, align 4
-  %1152 = load i32, ptr %17, align 4
-  %1153 = and i32 %1152, 255
-  store i32 %1153, ptr %17, align 4
-  %1154 = load i32, ptr %13, align 4
-  %1155 = lshr i32 %1154, 24
-  store i32 %1155, ptr %18, align 4
-  %1156 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1157 = getelementptr inbounds %struct.BF_ctx, ptr %1156, i32 0, i32 0
-  %1158 = getelementptr inbounds [4 x [256 x i32]], ptr %1157, i64 0, i64 3
-  %1159 = load i32, ptr %15, align 4
-  %1160 = zext i32 %1159 to i64
-  %1161 = getelementptr inbounds [256 x i32], ptr %1158, i64 0, i64 %1160
-  %1162 = load i32, ptr %1161, align 4
-  store i32 %1162, ptr %15, align 4
-  %1163 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1164 = getelementptr inbounds %struct.BF_ctx, ptr %1163, i32 0, i32 0
-  %1165 = getelementptr inbounds [4 x [256 x i32]], ptr %1164, i64 0, i64 2
-  %1166 = load i32, ptr %16, align 4
-  %1167 = zext i32 %1166 to i64
-  %1168 = getelementptr inbounds [256 x i32], ptr %1165, i64 0, i64 %1167
-  %1169 = load i32, ptr %1168, align 4
-  store i32 %1169, ptr %16, align 4
-  %1170 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1171 = getelementptr inbounds %struct.BF_ctx, ptr %1170, i32 0, i32 0
-  %1172 = getelementptr inbounds [4 x [256 x i32]], ptr %1171, i64 0, i64 1
-  %1173 = load i32, ptr %17, align 4
-  %1174 = zext i32 %1173 to i64
-  %1175 = getelementptr inbounds [256 x i32], ptr %1172, i64 0, i64 %1174
-  %1176 = load i32, ptr %1175, align 4
-  store i32 %1176, ptr %17, align 4
-  %1177 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1178 = getelementptr inbounds %struct.BF_ctx, ptr %1177, i32 0, i32 0
-  %1179 = getelementptr inbounds [4 x [256 x i32]], ptr %1178, i64 0, i64 0
-  %1180 = load i32, ptr %18, align 4
-  %1181 = zext i32 %1180 to i64
-  %1182 = getelementptr inbounds [256 x i32], ptr %1179, i64 0, i64 %1181
-  %1183 = load i32, ptr %1182, align 4
-  %1184 = load i32, ptr %17, align 4
-  %1185 = add i32 %1184, %1183
-  store i32 %1185, ptr %17, align 4
-  %1186 = load i32, ptr %16, align 4
-  %1187 = load i32, ptr %17, align 4
-  %1188 = xor i32 %1187, %1186
-  store i32 %1188, ptr %17, align 4
-  %1189 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1190 = getelementptr inbounds %struct.BF_ctx, ptr %1189, i32 0, i32 1
-  %1191 = getelementptr inbounds [18 x i32], ptr %1190, i64 0, i64 1
-  %1192 = load i32, ptr %1191, align 4
-  %1193 = load i32, ptr %14, align 4
-  %1194 = xor i32 %1193, %1192
-  store i32 %1194, ptr %14, align 4
-  %1195 = load i32, ptr %15, align 4
-  %1196 = load i32, ptr %17, align 4
-  %1197 = add i32 %1196, %1195
-  store i32 %1197, ptr %17, align 4
-  %1198 = load i32, ptr %17, align 4
-  %1199 = load i32, ptr %14, align 4
-  %1200 = xor i32 %1199, %1198
-  store i32 %1200, ptr %14, align 4
-  %1201 = load i32, ptr %14, align 4
-  %1202 = and i32 %1201, 255
-  store i32 %1202, ptr %15, align 4
-  %1203 = load i32, ptr %14, align 4
-  %1204 = lshr i32 %1203, 8
-  store i32 %1204, ptr %16, align 4
-  %1205 = load i32, ptr %16, align 4
-  %1206 = and i32 %1205, 255
-  store i32 %1206, ptr %16, align 4
-  %1207 = load i32, ptr %14, align 4
-  %1208 = lshr i32 %1207, 16
-  store i32 %1208, ptr %17, align 4
-  %1209 = load i32, ptr %17, align 4
-  %1210 = and i32 %1209, 255
-  store i32 %1210, ptr %17, align 4
-  %1211 = load i32, ptr %14, align 4
-  %1212 = lshr i32 %1211, 24
-  store i32 %1212, ptr %18, align 4
-  %1213 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1214 = getelementptr inbounds %struct.BF_ctx, ptr %1213, i32 0, i32 0
-  %1215 = getelementptr inbounds [4 x [256 x i32]], ptr %1214, i64 0, i64 3
-  %1216 = load i32, ptr %15, align 4
-  %1217 = zext i32 %1216 to i64
-  %1218 = getelementptr inbounds [256 x i32], ptr %1215, i64 0, i64 %1217
-  %1219 = load i32, ptr %1218, align 4
-  store i32 %1219, ptr %15, align 4
-  %1220 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1221 = getelementptr inbounds %struct.BF_ctx, ptr %1220, i32 0, i32 0
-  %1222 = getelementptr inbounds [4 x [256 x i32]], ptr %1221, i64 0, i64 2
-  %1223 = load i32, ptr %16, align 4
-  %1224 = zext i32 %1223 to i64
-  %1225 = getelementptr inbounds [256 x i32], ptr %1222, i64 0, i64 %1224
-  %1226 = load i32, ptr %1225, align 4
-  store i32 %1226, ptr %16, align 4
-  %1227 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1228 = getelementptr inbounds %struct.BF_ctx, ptr %1227, i32 0, i32 0
-  %1229 = getelementptr inbounds [4 x [256 x i32]], ptr %1228, i64 0, i64 1
-  %1230 = load i32, ptr %17, align 4
-  %1231 = zext i32 %1230 to i64
-  %1232 = getelementptr inbounds [256 x i32], ptr %1229, i64 0, i64 %1231
-  %1233 = load i32, ptr %1232, align 4
-  store i32 %1233, ptr %17, align 4
-  %1234 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1235 = getelementptr inbounds %struct.BF_ctx, ptr %1234, i32 0, i32 0
-  %1236 = getelementptr inbounds [4 x [256 x i32]], ptr %1235, i64 0, i64 0
-  %1237 = load i32, ptr %18, align 4
-  %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds [256 x i32], ptr %1236, i64 0, i64 %1238
-  %1240 = load i32, ptr %1239, align 4
-  %1241 = load i32, ptr %17, align 4
-  %1242 = add i32 %1241, %1240
-  store i32 %1242, ptr %17, align 4
-  %1243 = load i32, ptr %16, align 4
-  %1244 = load i32, ptr %17, align 4
-  %1245 = xor i32 %1244, %1243
-  store i32 %1245, ptr %17, align 4
-  %1246 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1247 = getelementptr inbounds %struct.BF_ctx, ptr %1246, i32 0, i32 1
-  %1248 = getelementptr inbounds [18 x i32], ptr %1247, i64 0, i64 2
-  %1249 = load i32, ptr %1248, align 4
-  %1250 = load i32, ptr %13, align 4
-  %1251 = xor i32 %1250, %1249
-  store i32 %1251, ptr %13, align 4
-  %1252 = load i32, ptr %15, align 4
-  %1253 = load i32, ptr %17, align 4
-  %1254 = add i32 %1253, %1252
-  store i32 %1254, ptr %17, align 4
-  %1255 = load i32, ptr %17, align 4
-  %1256 = load i32, ptr %13, align 4
-  %1257 = xor i32 %1256, %1255
-  store i32 %1257, ptr %13, align 4
-  %1258 = load i32, ptr %13, align 4
-  %1259 = and i32 %1258, 255
-  store i32 %1259, ptr %15, align 4
-  %1260 = load i32, ptr %13, align 4
-  %1261 = lshr i32 %1260, 8
-  store i32 %1261, ptr %16, align 4
-  %1262 = load i32, ptr %16, align 4
-  %1263 = and i32 %1262, 255
-  store i32 %1263, ptr %16, align 4
-  %1264 = load i32, ptr %13, align 4
-  %1265 = lshr i32 %1264, 16
-  store i32 %1265, ptr %17, align 4
-  %1266 = load i32, ptr %17, align 4
-  %1267 = and i32 %1266, 255
-  store i32 %1267, ptr %17, align 4
-  %1268 = load i32, ptr %13, align 4
-  %1269 = lshr i32 %1268, 24
-  store i32 %1269, ptr %18, align 4
-  %1270 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1271 = getelementptr inbounds %struct.BF_ctx, ptr %1270, i32 0, i32 0
-  %1272 = getelementptr inbounds [4 x [256 x i32]], ptr %1271, i64 0, i64 3
-  %1273 = load i32, ptr %15, align 4
-  %1274 = zext i32 %1273 to i64
-  %1275 = getelementptr inbounds [256 x i32], ptr %1272, i64 0, i64 %1274
-  %1276 = load i32, ptr %1275, align 4
-  store i32 %1276, ptr %15, align 4
-  %1277 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1278 = getelementptr inbounds %struct.BF_ctx, ptr %1277, i32 0, i32 0
-  %1279 = getelementptr inbounds [4 x [256 x i32]], ptr %1278, i64 0, i64 2
-  %1280 = load i32, ptr %16, align 4
-  %1281 = zext i32 %1280 to i64
-  %1282 = getelementptr inbounds [256 x i32], ptr %1279, i64 0, i64 %1281
-  %1283 = load i32, ptr %1282, align 4
-  store i32 %1283, ptr %16, align 4
-  %1284 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1285 = getelementptr inbounds %struct.BF_ctx, ptr %1284, i32 0, i32 0
-  %1286 = getelementptr inbounds [4 x [256 x i32]], ptr %1285, i64 0, i64 1
-  %1287 = load i32, ptr %17, align 4
-  %1288 = zext i32 %1287 to i64
-  %1289 = getelementptr inbounds [256 x i32], ptr %1286, i64 0, i64 %1288
-  %1290 = load i32, ptr %1289, align 4
-  store i32 %1290, ptr %17, align 4
-  %1291 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1292 = getelementptr inbounds %struct.BF_ctx, ptr %1291, i32 0, i32 0
-  %1293 = getelementptr inbounds [4 x [256 x i32]], ptr %1292, i64 0, i64 0
-  %1294 = load i32, ptr %18, align 4
-  %1295 = zext i32 %1294 to i64
-  %1296 = getelementptr inbounds [256 x i32], ptr %1293, i64 0, i64 %1295
-  %1297 = load i32, ptr %1296, align 4
-  %1298 = load i32, ptr %17, align 4
-  %1299 = add i32 %1298, %1297
-  store i32 %1299, ptr %17, align 4
-  %1300 = load i32, ptr %16, align 4
-  %1301 = load i32, ptr %17, align 4
-  %1302 = xor i32 %1301, %1300
-  store i32 %1302, ptr %17, align 4
-  %1303 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1304 = getelementptr inbounds %struct.BF_ctx, ptr %1303, i32 0, i32 1
-  %1305 = getelementptr inbounds [18 x i32], ptr %1304, i64 0, i64 3
-  %1306 = load i32, ptr %1305, align 4
-  %1307 = load i32, ptr %14, align 4
-  %1308 = xor i32 %1307, %1306
-  store i32 %1308, ptr %14, align 4
-  %1309 = load i32, ptr %15, align 4
-  %1310 = load i32, ptr %17, align 4
-  %1311 = add i32 %1310, %1309
-  store i32 %1311, ptr %17, align 4
-  %1312 = load i32, ptr %17, align 4
-  %1313 = load i32, ptr %14, align 4
-  %1314 = xor i32 %1313, %1312
-  store i32 %1314, ptr %14, align 4
-  %1315 = load i32, ptr %14, align 4
-  %1316 = and i32 %1315, 255
-  store i32 %1316, ptr %15, align 4
-  %1317 = load i32, ptr %14, align 4
-  %1318 = lshr i32 %1317, 8
-  store i32 %1318, ptr %16, align 4
-  %1319 = load i32, ptr %16, align 4
-  %1320 = and i32 %1319, 255
-  store i32 %1320, ptr %16, align 4
-  %1321 = load i32, ptr %14, align 4
-  %1322 = lshr i32 %1321, 16
-  store i32 %1322, ptr %17, align 4
-  %1323 = load i32, ptr %17, align 4
-  %1324 = and i32 %1323, 255
-  store i32 %1324, ptr %17, align 4
-  %1325 = load i32, ptr %14, align 4
-  %1326 = lshr i32 %1325, 24
-  store i32 %1326, ptr %18, align 4
-  %1327 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1328 = getelementptr inbounds %struct.BF_ctx, ptr %1327, i32 0, i32 0
-  %1329 = getelementptr inbounds [4 x [256 x i32]], ptr %1328, i64 0, i64 3
-  %1330 = load i32, ptr %15, align 4
-  %1331 = zext i32 %1330 to i64
-  %1332 = getelementptr inbounds [256 x i32], ptr %1329, i64 0, i64 %1331
-  %1333 = load i32, ptr %1332, align 4
-  store i32 %1333, ptr %15, align 4
-  %1334 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1335 = getelementptr inbounds %struct.BF_ctx, ptr %1334, i32 0, i32 0
-  %1336 = getelementptr inbounds [4 x [256 x i32]], ptr %1335, i64 0, i64 2
-  %1337 = load i32, ptr %16, align 4
-  %1338 = zext i32 %1337 to i64
-  %1339 = getelementptr inbounds [256 x i32], ptr %1336, i64 0, i64 %1338
-  %1340 = load i32, ptr %1339, align 4
-  store i32 %1340, ptr %16, align 4
-  %1341 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1342 = getelementptr inbounds %struct.BF_ctx, ptr %1341, i32 0, i32 0
-  %1343 = getelementptr inbounds [4 x [256 x i32]], ptr %1342, i64 0, i64 1
-  %1344 = load i32, ptr %17, align 4
-  %1345 = zext i32 %1344 to i64
-  %1346 = getelementptr inbounds [256 x i32], ptr %1343, i64 0, i64 %1345
-  %1347 = load i32, ptr %1346, align 4
-  store i32 %1347, ptr %17, align 4
-  %1348 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1349 = getelementptr inbounds %struct.BF_ctx, ptr %1348, i32 0, i32 0
-  %1350 = getelementptr inbounds [4 x [256 x i32]], ptr %1349, i64 0, i64 0
-  %1351 = load i32, ptr %18, align 4
-  %1352 = zext i32 %1351 to i64
-  %1353 = getelementptr inbounds [256 x i32], ptr %1350, i64 0, i64 %1352
-  %1354 = load i32, ptr %1353, align 4
-  %1355 = load i32, ptr %17, align 4
-  %1356 = add i32 %1355, %1354
-  store i32 %1356, ptr %17, align 4
-  %1357 = load i32, ptr %16, align 4
-  %1358 = load i32, ptr %17, align 4
-  %1359 = xor i32 %1358, %1357
-  store i32 %1359, ptr %17, align 4
-  %1360 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1361 = getelementptr inbounds %struct.BF_ctx, ptr %1360, i32 0, i32 1
-  %1362 = getelementptr inbounds [18 x i32], ptr %1361, i64 0, i64 4
-  %1363 = load i32, ptr %1362, align 4
-  %1364 = load i32, ptr %13, align 4
-  %1365 = xor i32 %1364, %1363
-  store i32 %1365, ptr %13, align 4
-  %1366 = load i32, ptr %15, align 4
-  %1367 = load i32, ptr %17, align 4
-  %1368 = add i32 %1367, %1366
-  store i32 %1368, ptr %17, align 4
-  %1369 = load i32, ptr %17, align 4
-  %1370 = load i32, ptr %13, align 4
-  %1371 = xor i32 %1370, %1369
-  store i32 %1371, ptr %13, align 4
-  %1372 = load i32, ptr %13, align 4
-  %1373 = and i32 %1372, 255
-  store i32 %1373, ptr %15, align 4
-  %1374 = load i32, ptr %13, align 4
-  %1375 = lshr i32 %1374, 8
-  store i32 %1375, ptr %16, align 4
-  %1376 = load i32, ptr %16, align 4
-  %1377 = and i32 %1376, 255
-  store i32 %1377, ptr %16, align 4
-  %1378 = load i32, ptr %13, align 4
-  %1379 = lshr i32 %1378, 16
-  store i32 %1379, ptr %17, align 4
-  %1380 = load i32, ptr %17, align 4
-  %1381 = and i32 %1380, 255
-  store i32 %1381, ptr %17, align 4
-  %1382 = load i32, ptr %13, align 4
-  %1383 = lshr i32 %1382, 24
-  store i32 %1383, ptr %18, align 4
-  %1384 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1385 = getelementptr inbounds %struct.BF_ctx, ptr %1384, i32 0, i32 0
-  %1386 = getelementptr inbounds [4 x [256 x i32]], ptr %1385, i64 0, i64 3
-  %1387 = load i32, ptr %15, align 4
-  %1388 = zext i32 %1387 to i64
-  %1389 = getelementptr inbounds [256 x i32], ptr %1386, i64 0, i64 %1388
-  %1390 = load i32, ptr %1389, align 4
-  store i32 %1390, ptr %15, align 4
-  %1391 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1392 = getelementptr inbounds %struct.BF_ctx, ptr %1391, i32 0, i32 0
-  %1393 = getelementptr inbounds [4 x [256 x i32]], ptr %1392, i64 0, i64 2
-  %1394 = load i32, ptr %16, align 4
-  %1395 = zext i32 %1394 to i64
-  %1396 = getelementptr inbounds [256 x i32], ptr %1393, i64 0, i64 %1395
-  %1397 = load i32, ptr %1396, align 4
-  store i32 %1397, ptr %16, align 4
-  %1398 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1399 = getelementptr inbounds %struct.BF_ctx, ptr %1398, i32 0, i32 0
-  %1400 = getelementptr inbounds [4 x [256 x i32]], ptr %1399, i64 0, i64 1
-  %1401 = load i32, ptr %17, align 4
-  %1402 = zext i32 %1401 to i64
-  %1403 = getelementptr inbounds [256 x i32], ptr %1400, i64 0, i64 %1402
-  %1404 = load i32, ptr %1403, align 4
-  store i32 %1404, ptr %17, align 4
-  %1405 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1406 = getelementptr inbounds %struct.BF_ctx, ptr %1405, i32 0, i32 0
-  %1407 = getelementptr inbounds [4 x [256 x i32]], ptr %1406, i64 0, i64 0
-  %1408 = load i32, ptr %18, align 4
-  %1409 = zext i32 %1408 to i64
-  %1410 = getelementptr inbounds [256 x i32], ptr %1407, i64 0, i64 %1409
-  %1411 = load i32, ptr %1410, align 4
-  %1412 = load i32, ptr %17, align 4
-  %1413 = add i32 %1412, %1411
-  store i32 %1413, ptr %17, align 4
-  %1414 = load i32, ptr %16, align 4
-  %1415 = load i32, ptr %17, align 4
-  %1416 = xor i32 %1415, %1414
-  store i32 %1416, ptr %17, align 4
-  %1417 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1418 = getelementptr inbounds %struct.BF_ctx, ptr %1417, i32 0, i32 1
-  %1419 = getelementptr inbounds [18 x i32], ptr %1418, i64 0, i64 5
-  %1420 = load i32, ptr %1419, align 4
-  %1421 = load i32, ptr %14, align 4
-  %1422 = xor i32 %1421, %1420
-  store i32 %1422, ptr %14, align 4
-  %1423 = load i32, ptr %15, align 4
-  %1424 = load i32, ptr %17, align 4
-  %1425 = add i32 %1424, %1423
-  store i32 %1425, ptr %17, align 4
-  %1426 = load i32, ptr %17, align 4
-  %1427 = load i32, ptr %14, align 4
-  %1428 = xor i32 %1427, %1426
-  store i32 %1428, ptr %14, align 4
-  %1429 = load i32, ptr %14, align 4
-  %1430 = and i32 %1429, 255
-  store i32 %1430, ptr %15, align 4
-  %1431 = load i32, ptr %14, align 4
-  %1432 = lshr i32 %1431, 8
-  store i32 %1432, ptr %16, align 4
-  %1433 = load i32, ptr %16, align 4
-  %1434 = and i32 %1433, 255
-  store i32 %1434, ptr %16, align 4
-  %1435 = load i32, ptr %14, align 4
-  %1436 = lshr i32 %1435, 16
-  store i32 %1436, ptr %17, align 4
-  %1437 = load i32, ptr %17, align 4
-  %1438 = and i32 %1437, 255
-  store i32 %1438, ptr %17, align 4
-  %1439 = load i32, ptr %14, align 4
-  %1440 = lshr i32 %1439, 24
-  store i32 %1440, ptr %18, align 4
-  %1441 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1442 = getelementptr inbounds %struct.BF_ctx, ptr %1441, i32 0, i32 0
-  %1443 = getelementptr inbounds [4 x [256 x i32]], ptr %1442, i64 0, i64 3
-  %1444 = load i32, ptr %15, align 4
-  %1445 = zext i32 %1444 to i64
-  %1446 = getelementptr inbounds [256 x i32], ptr %1443, i64 0, i64 %1445
-  %1447 = load i32, ptr %1446, align 4
-  store i32 %1447, ptr %15, align 4
-  %1448 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1449 = getelementptr inbounds %struct.BF_ctx, ptr %1448, i32 0, i32 0
-  %1450 = getelementptr inbounds [4 x [256 x i32]], ptr %1449, i64 0, i64 2
-  %1451 = load i32, ptr %16, align 4
-  %1452 = zext i32 %1451 to i64
-  %1453 = getelementptr inbounds [256 x i32], ptr %1450, i64 0, i64 %1452
-  %1454 = load i32, ptr %1453, align 4
-  store i32 %1454, ptr %16, align 4
-  %1455 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1456 = getelementptr inbounds %struct.BF_ctx, ptr %1455, i32 0, i32 0
-  %1457 = getelementptr inbounds [4 x [256 x i32]], ptr %1456, i64 0, i64 1
-  %1458 = load i32, ptr %17, align 4
-  %1459 = zext i32 %1458 to i64
-  %1460 = getelementptr inbounds [256 x i32], ptr %1457, i64 0, i64 %1459
-  %1461 = load i32, ptr %1460, align 4
-  store i32 %1461, ptr %17, align 4
-  %1462 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1463 = getelementptr inbounds %struct.BF_ctx, ptr %1462, i32 0, i32 0
-  %1464 = getelementptr inbounds [4 x [256 x i32]], ptr %1463, i64 0, i64 0
-  %1465 = load i32, ptr %18, align 4
-  %1466 = zext i32 %1465 to i64
-  %1467 = getelementptr inbounds [256 x i32], ptr %1464, i64 0, i64 %1466
-  %1468 = load i32, ptr %1467, align 4
-  %1469 = load i32, ptr %17, align 4
-  %1470 = add i32 %1469, %1468
-  store i32 %1470, ptr %17, align 4
-  %1471 = load i32, ptr %16, align 4
-  %1472 = load i32, ptr %17, align 4
-  %1473 = xor i32 %1472, %1471
-  store i32 %1473, ptr %17, align 4
-  %1474 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1475 = getelementptr inbounds %struct.BF_ctx, ptr %1474, i32 0, i32 1
-  %1476 = getelementptr inbounds [18 x i32], ptr %1475, i64 0, i64 6
-  %1477 = load i32, ptr %1476, align 4
-  %1478 = load i32, ptr %13, align 4
-  %1479 = xor i32 %1478, %1477
-  store i32 %1479, ptr %13, align 4
-  %1480 = load i32, ptr %15, align 4
-  %1481 = load i32, ptr %17, align 4
-  %1482 = add i32 %1481, %1480
-  store i32 %1482, ptr %17, align 4
-  %1483 = load i32, ptr %17, align 4
-  %1484 = load i32, ptr %13, align 4
-  %1485 = xor i32 %1484, %1483
-  store i32 %1485, ptr %13, align 4
-  %1486 = load i32, ptr %13, align 4
-  %1487 = and i32 %1486, 255
-  store i32 %1487, ptr %15, align 4
-  %1488 = load i32, ptr %13, align 4
-  %1489 = lshr i32 %1488, 8
-  store i32 %1489, ptr %16, align 4
-  %1490 = load i32, ptr %16, align 4
-  %1491 = and i32 %1490, 255
-  store i32 %1491, ptr %16, align 4
-  %1492 = load i32, ptr %13, align 4
-  %1493 = lshr i32 %1492, 16
-  store i32 %1493, ptr %17, align 4
-  %1494 = load i32, ptr %17, align 4
-  %1495 = and i32 %1494, 255
-  store i32 %1495, ptr %17, align 4
-  %1496 = load i32, ptr %13, align 4
-  %1497 = lshr i32 %1496, 24
-  store i32 %1497, ptr %18, align 4
-  %1498 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1499 = getelementptr inbounds %struct.BF_ctx, ptr %1498, i32 0, i32 0
-  %1500 = getelementptr inbounds [4 x [256 x i32]], ptr %1499, i64 0, i64 3
-  %1501 = load i32, ptr %15, align 4
-  %1502 = zext i32 %1501 to i64
-  %1503 = getelementptr inbounds [256 x i32], ptr %1500, i64 0, i64 %1502
-  %1504 = load i32, ptr %1503, align 4
-  store i32 %1504, ptr %15, align 4
-  %1505 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1506 = getelementptr inbounds %struct.BF_ctx, ptr %1505, i32 0, i32 0
-  %1507 = getelementptr inbounds [4 x [256 x i32]], ptr %1506, i64 0, i64 2
-  %1508 = load i32, ptr %16, align 4
-  %1509 = zext i32 %1508 to i64
-  %1510 = getelementptr inbounds [256 x i32], ptr %1507, i64 0, i64 %1509
-  %1511 = load i32, ptr %1510, align 4
-  store i32 %1511, ptr %16, align 4
-  %1512 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1513 = getelementptr inbounds %struct.BF_ctx, ptr %1512, i32 0, i32 0
-  %1514 = getelementptr inbounds [4 x [256 x i32]], ptr %1513, i64 0, i64 1
-  %1515 = load i32, ptr %17, align 4
-  %1516 = zext i32 %1515 to i64
-  %1517 = getelementptr inbounds [256 x i32], ptr %1514, i64 0, i64 %1516
-  %1518 = load i32, ptr %1517, align 4
-  store i32 %1518, ptr %17, align 4
-  %1519 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1520 = getelementptr inbounds %struct.BF_ctx, ptr %1519, i32 0, i32 0
-  %1521 = getelementptr inbounds [4 x [256 x i32]], ptr %1520, i64 0, i64 0
-  %1522 = load i32, ptr %18, align 4
-  %1523 = zext i32 %1522 to i64
-  %1524 = getelementptr inbounds [256 x i32], ptr %1521, i64 0, i64 %1523
-  %1525 = load i32, ptr %1524, align 4
-  %1526 = load i32, ptr %17, align 4
-  %1527 = add i32 %1526, %1525
-  store i32 %1527, ptr %17, align 4
-  %1528 = load i32, ptr %16, align 4
-  %1529 = load i32, ptr %17, align 4
-  %1530 = xor i32 %1529, %1528
-  store i32 %1530, ptr %17, align 4
-  %1531 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1532 = getelementptr inbounds %struct.BF_ctx, ptr %1531, i32 0, i32 1
-  %1533 = getelementptr inbounds [18 x i32], ptr %1532, i64 0, i64 7
-  %1534 = load i32, ptr %1533, align 4
-  %1535 = load i32, ptr %14, align 4
-  %1536 = xor i32 %1535, %1534
-  store i32 %1536, ptr %14, align 4
-  %1537 = load i32, ptr %15, align 4
-  %1538 = load i32, ptr %17, align 4
-  %1539 = add i32 %1538, %1537
-  store i32 %1539, ptr %17, align 4
-  %1540 = load i32, ptr %17, align 4
-  %1541 = load i32, ptr %14, align 4
-  %1542 = xor i32 %1541, %1540
-  store i32 %1542, ptr %14, align 4
-  %1543 = load i32, ptr %14, align 4
-  %1544 = and i32 %1543, 255
-  store i32 %1544, ptr %15, align 4
-  %1545 = load i32, ptr %14, align 4
-  %1546 = lshr i32 %1545, 8
-  store i32 %1546, ptr %16, align 4
-  %1547 = load i32, ptr %16, align 4
-  %1548 = and i32 %1547, 255
-  store i32 %1548, ptr %16, align 4
-  %1549 = load i32, ptr %14, align 4
-  %1550 = lshr i32 %1549, 16
-  store i32 %1550, ptr %17, align 4
-  %1551 = load i32, ptr %17, align 4
-  %1552 = and i32 %1551, 255
-  store i32 %1552, ptr %17, align 4
-  %1553 = load i32, ptr %14, align 4
-  %1554 = lshr i32 %1553, 24
-  store i32 %1554, ptr %18, align 4
-  %1555 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1556 = getelementptr inbounds %struct.BF_ctx, ptr %1555, i32 0, i32 0
-  %1557 = getelementptr inbounds [4 x [256 x i32]], ptr %1556, i64 0, i64 3
-  %1558 = load i32, ptr %15, align 4
-  %1559 = zext i32 %1558 to i64
-  %1560 = getelementptr inbounds [256 x i32], ptr %1557, i64 0, i64 %1559
-  %1561 = load i32, ptr %1560, align 4
-  store i32 %1561, ptr %15, align 4
-  %1562 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1563 = getelementptr inbounds %struct.BF_ctx, ptr %1562, i32 0, i32 0
-  %1564 = getelementptr inbounds [4 x [256 x i32]], ptr %1563, i64 0, i64 2
-  %1565 = load i32, ptr %16, align 4
-  %1566 = zext i32 %1565 to i64
-  %1567 = getelementptr inbounds [256 x i32], ptr %1564, i64 0, i64 %1566
-  %1568 = load i32, ptr %1567, align 4
-  store i32 %1568, ptr %16, align 4
-  %1569 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1570 = getelementptr inbounds %struct.BF_ctx, ptr %1569, i32 0, i32 0
-  %1571 = getelementptr inbounds [4 x [256 x i32]], ptr %1570, i64 0, i64 1
-  %1572 = load i32, ptr %17, align 4
-  %1573 = zext i32 %1572 to i64
-  %1574 = getelementptr inbounds [256 x i32], ptr %1571, i64 0, i64 %1573
-  %1575 = load i32, ptr %1574, align 4
-  store i32 %1575, ptr %17, align 4
-  %1576 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1577 = getelementptr inbounds %struct.BF_ctx, ptr %1576, i32 0, i32 0
-  %1578 = getelementptr inbounds [4 x [256 x i32]], ptr %1577, i64 0, i64 0
-  %1579 = load i32, ptr %18, align 4
-  %1580 = zext i32 %1579 to i64
-  %1581 = getelementptr inbounds [256 x i32], ptr %1578, i64 0, i64 %1580
-  %1582 = load i32, ptr %1581, align 4
-  %1583 = load i32, ptr %17, align 4
-  %1584 = add i32 %1583, %1582
-  store i32 %1584, ptr %17, align 4
-  %1585 = load i32, ptr %16, align 4
-  %1586 = load i32, ptr %17, align 4
-  %1587 = xor i32 %1586, %1585
-  store i32 %1587, ptr %17, align 4
-  %1588 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1589 = getelementptr inbounds %struct.BF_ctx, ptr %1588, i32 0, i32 1
-  %1590 = getelementptr inbounds [18 x i32], ptr %1589, i64 0, i64 8
-  %1591 = load i32, ptr %1590, align 4
-  %1592 = load i32, ptr %13, align 4
-  %1593 = xor i32 %1592, %1591
-  store i32 %1593, ptr %13, align 4
-  %1594 = load i32, ptr %15, align 4
-  %1595 = load i32, ptr %17, align 4
-  %1596 = add i32 %1595, %1594
-  store i32 %1596, ptr %17, align 4
-  %1597 = load i32, ptr %17, align 4
-  %1598 = load i32, ptr %13, align 4
-  %1599 = xor i32 %1598, %1597
-  store i32 %1599, ptr %13, align 4
-  %1600 = load i32, ptr %13, align 4
-  %1601 = and i32 %1600, 255
-  store i32 %1601, ptr %15, align 4
-  %1602 = load i32, ptr %13, align 4
-  %1603 = lshr i32 %1602, 8
-  store i32 %1603, ptr %16, align 4
-  %1604 = load i32, ptr %16, align 4
-  %1605 = and i32 %1604, 255
-  store i32 %1605, ptr %16, align 4
-  %1606 = load i32, ptr %13, align 4
-  %1607 = lshr i32 %1606, 16
-  store i32 %1607, ptr %17, align 4
-  %1608 = load i32, ptr %17, align 4
-  %1609 = and i32 %1608, 255
-  store i32 %1609, ptr %17, align 4
-  %1610 = load i32, ptr %13, align 4
-  %1611 = lshr i32 %1610, 24
-  store i32 %1611, ptr %18, align 4
-  %1612 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1613 = getelementptr inbounds %struct.BF_ctx, ptr %1612, i32 0, i32 0
-  %1614 = getelementptr inbounds [4 x [256 x i32]], ptr %1613, i64 0, i64 3
-  %1615 = load i32, ptr %15, align 4
-  %1616 = zext i32 %1615 to i64
-  %1617 = getelementptr inbounds [256 x i32], ptr %1614, i64 0, i64 %1616
-  %1618 = load i32, ptr %1617, align 4
-  store i32 %1618, ptr %15, align 4
-  %1619 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1620 = getelementptr inbounds %struct.BF_ctx, ptr %1619, i32 0, i32 0
-  %1621 = getelementptr inbounds [4 x [256 x i32]], ptr %1620, i64 0, i64 2
-  %1622 = load i32, ptr %16, align 4
-  %1623 = zext i32 %1622 to i64
-  %1624 = getelementptr inbounds [256 x i32], ptr %1621, i64 0, i64 %1623
-  %1625 = load i32, ptr %1624, align 4
-  store i32 %1625, ptr %16, align 4
-  %1626 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1627 = getelementptr inbounds %struct.BF_ctx, ptr %1626, i32 0, i32 0
-  %1628 = getelementptr inbounds [4 x [256 x i32]], ptr %1627, i64 0, i64 1
-  %1629 = load i32, ptr %17, align 4
-  %1630 = zext i32 %1629 to i64
-  %1631 = getelementptr inbounds [256 x i32], ptr %1628, i64 0, i64 %1630
-  %1632 = load i32, ptr %1631, align 4
-  store i32 %1632, ptr %17, align 4
-  %1633 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1634 = getelementptr inbounds %struct.BF_ctx, ptr %1633, i32 0, i32 0
-  %1635 = getelementptr inbounds [4 x [256 x i32]], ptr %1634, i64 0, i64 0
-  %1636 = load i32, ptr %18, align 4
-  %1637 = zext i32 %1636 to i64
-  %1638 = getelementptr inbounds [256 x i32], ptr %1635, i64 0, i64 %1637
-  %1639 = load i32, ptr %1638, align 4
-  %1640 = load i32, ptr %17, align 4
-  %1641 = add i32 %1640, %1639
-  store i32 %1641, ptr %17, align 4
-  %1642 = load i32, ptr %16, align 4
-  %1643 = load i32, ptr %17, align 4
-  %1644 = xor i32 %1643, %1642
-  store i32 %1644, ptr %17, align 4
-  %1645 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1646 = getelementptr inbounds %struct.BF_ctx, ptr %1645, i32 0, i32 1
-  %1647 = getelementptr inbounds [18 x i32], ptr %1646, i64 0, i64 9
-  %1648 = load i32, ptr %1647, align 4
-  %1649 = load i32, ptr %14, align 4
-  %1650 = xor i32 %1649, %1648
-  store i32 %1650, ptr %14, align 4
-  %1651 = load i32, ptr %15, align 4
-  %1652 = load i32, ptr %17, align 4
-  %1653 = add i32 %1652, %1651
-  store i32 %1653, ptr %17, align 4
-  %1654 = load i32, ptr %17, align 4
-  %1655 = load i32, ptr %14, align 4
-  %1656 = xor i32 %1655, %1654
-  store i32 %1656, ptr %14, align 4
-  %1657 = load i32, ptr %14, align 4
-  %1658 = and i32 %1657, 255
-  store i32 %1658, ptr %15, align 4
-  %1659 = load i32, ptr %14, align 4
-  %1660 = lshr i32 %1659, 8
-  store i32 %1660, ptr %16, align 4
-  %1661 = load i32, ptr %16, align 4
-  %1662 = and i32 %1661, 255
-  store i32 %1662, ptr %16, align 4
-  %1663 = load i32, ptr %14, align 4
-  %1664 = lshr i32 %1663, 16
-  store i32 %1664, ptr %17, align 4
-  %1665 = load i32, ptr %17, align 4
-  %1666 = and i32 %1665, 255
-  store i32 %1666, ptr %17, align 4
-  %1667 = load i32, ptr %14, align 4
-  %1668 = lshr i32 %1667, 24
-  store i32 %1668, ptr %18, align 4
-  %1669 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1670 = getelementptr inbounds %struct.BF_ctx, ptr %1669, i32 0, i32 0
-  %1671 = getelementptr inbounds [4 x [256 x i32]], ptr %1670, i64 0, i64 3
-  %1672 = load i32, ptr %15, align 4
-  %1673 = zext i32 %1672 to i64
-  %1674 = getelementptr inbounds [256 x i32], ptr %1671, i64 0, i64 %1673
-  %1675 = load i32, ptr %1674, align 4
-  store i32 %1675, ptr %15, align 4
-  %1676 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1677 = getelementptr inbounds %struct.BF_ctx, ptr %1676, i32 0, i32 0
-  %1678 = getelementptr inbounds [4 x [256 x i32]], ptr %1677, i64 0, i64 2
-  %1679 = load i32, ptr %16, align 4
-  %1680 = zext i32 %1679 to i64
-  %1681 = getelementptr inbounds [256 x i32], ptr %1678, i64 0, i64 %1680
-  %1682 = load i32, ptr %1681, align 4
-  store i32 %1682, ptr %16, align 4
-  %1683 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1684 = getelementptr inbounds %struct.BF_ctx, ptr %1683, i32 0, i32 0
-  %1685 = getelementptr inbounds [4 x [256 x i32]], ptr %1684, i64 0, i64 1
-  %1686 = load i32, ptr %17, align 4
-  %1687 = zext i32 %1686 to i64
-  %1688 = getelementptr inbounds [256 x i32], ptr %1685, i64 0, i64 %1687
-  %1689 = load i32, ptr %1688, align 4
-  store i32 %1689, ptr %17, align 4
-  %1690 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1691 = getelementptr inbounds %struct.BF_ctx, ptr %1690, i32 0, i32 0
-  %1692 = getelementptr inbounds [4 x [256 x i32]], ptr %1691, i64 0, i64 0
-  %1693 = load i32, ptr %18, align 4
-  %1694 = zext i32 %1693 to i64
-  %1695 = getelementptr inbounds [256 x i32], ptr %1692, i64 0, i64 %1694
-  %1696 = load i32, ptr %1695, align 4
-  %1697 = load i32, ptr %17, align 4
-  %1698 = add i32 %1697, %1696
-  store i32 %1698, ptr %17, align 4
-  %1699 = load i32, ptr %16, align 4
-  %1700 = load i32, ptr %17, align 4
-  %1701 = xor i32 %1700, %1699
-  store i32 %1701, ptr %17, align 4
-  %1702 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1703 = getelementptr inbounds %struct.BF_ctx, ptr %1702, i32 0, i32 1
-  %1704 = getelementptr inbounds [18 x i32], ptr %1703, i64 0, i64 10
-  %1705 = load i32, ptr %1704, align 4
-  %1706 = load i32, ptr %13, align 4
-  %1707 = xor i32 %1706, %1705
-  store i32 %1707, ptr %13, align 4
-  %1708 = load i32, ptr %15, align 4
-  %1709 = load i32, ptr %17, align 4
-  %1710 = add i32 %1709, %1708
-  store i32 %1710, ptr %17, align 4
-  %1711 = load i32, ptr %17, align 4
-  %1712 = load i32, ptr %13, align 4
-  %1713 = xor i32 %1712, %1711
-  store i32 %1713, ptr %13, align 4
-  %1714 = load i32, ptr %13, align 4
-  %1715 = and i32 %1714, 255
-  store i32 %1715, ptr %15, align 4
-  %1716 = load i32, ptr %13, align 4
-  %1717 = lshr i32 %1716, 8
-  store i32 %1717, ptr %16, align 4
-  %1718 = load i32, ptr %16, align 4
-  %1719 = and i32 %1718, 255
-  store i32 %1719, ptr %16, align 4
-  %1720 = load i32, ptr %13, align 4
-  %1721 = lshr i32 %1720, 16
-  store i32 %1721, ptr %17, align 4
-  %1722 = load i32, ptr %17, align 4
-  %1723 = and i32 %1722, 255
-  store i32 %1723, ptr %17, align 4
-  %1724 = load i32, ptr %13, align 4
-  %1725 = lshr i32 %1724, 24
-  store i32 %1725, ptr %18, align 4
-  %1726 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1727 = getelementptr inbounds %struct.BF_ctx, ptr %1726, i32 0, i32 0
-  %1728 = getelementptr inbounds [4 x [256 x i32]], ptr %1727, i64 0, i64 3
-  %1729 = load i32, ptr %15, align 4
-  %1730 = zext i32 %1729 to i64
-  %1731 = getelementptr inbounds [256 x i32], ptr %1728, i64 0, i64 %1730
-  %1732 = load i32, ptr %1731, align 4
-  store i32 %1732, ptr %15, align 4
-  %1733 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1734 = getelementptr inbounds %struct.BF_ctx, ptr %1733, i32 0, i32 0
-  %1735 = getelementptr inbounds [4 x [256 x i32]], ptr %1734, i64 0, i64 2
-  %1736 = load i32, ptr %16, align 4
-  %1737 = zext i32 %1736 to i64
-  %1738 = getelementptr inbounds [256 x i32], ptr %1735, i64 0, i64 %1737
-  %1739 = load i32, ptr %1738, align 4
-  store i32 %1739, ptr %16, align 4
-  %1740 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1741 = getelementptr inbounds %struct.BF_ctx, ptr %1740, i32 0, i32 0
-  %1742 = getelementptr inbounds [4 x [256 x i32]], ptr %1741, i64 0, i64 1
-  %1743 = load i32, ptr %17, align 4
-  %1744 = zext i32 %1743 to i64
-  %1745 = getelementptr inbounds [256 x i32], ptr %1742, i64 0, i64 %1744
-  %1746 = load i32, ptr %1745, align 4
-  store i32 %1746, ptr %17, align 4
-  %1747 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1748 = getelementptr inbounds %struct.BF_ctx, ptr %1747, i32 0, i32 0
-  %1749 = getelementptr inbounds [4 x [256 x i32]], ptr %1748, i64 0, i64 0
-  %1750 = load i32, ptr %18, align 4
-  %1751 = zext i32 %1750 to i64
-  %1752 = getelementptr inbounds [256 x i32], ptr %1749, i64 0, i64 %1751
-  %1753 = load i32, ptr %1752, align 4
-  %1754 = load i32, ptr %17, align 4
-  %1755 = add i32 %1754, %1753
-  store i32 %1755, ptr %17, align 4
-  %1756 = load i32, ptr %16, align 4
-  %1757 = load i32, ptr %17, align 4
-  %1758 = xor i32 %1757, %1756
-  store i32 %1758, ptr %17, align 4
-  %1759 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1760 = getelementptr inbounds %struct.BF_ctx, ptr %1759, i32 0, i32 1
-  %1761 = getelementptr inbounds [18 x i32], ptr %1760, i64 0, i64 11
-  %1762 = load i32, ptr %1761, align 4
-  %1763 = load i32, ptr %14, align 4
-  %1764 = xor i32 %1763, %1762
-  store i32 %1764, ptr %14, align 4
-  %1765 = load i32, ptr %15, align 4
-  %1766 = load i32, ptr %17, align 4
-  %1767 = add i32 %1766, %1765
-  store i32 %1767, ptr %17, align 4
-  %1768 = load i32, ptr %17, align 4
-  %1769 = load i32, ptr %14, align 4
-  %1770 = xor i32 %1769, %1768
-  store i32 %1770, ptr %14, align 4
-  %1771 = load i32, ptr %14, align 4
-  %1772 = and i32 %1771, 255
-  store i32 %1772, ptr %15, align 4
-  %1773 = load i32, ptr %14, align 4
-  %1774 = lshr i32 %1773, 8
-  store i32 %1774, ptr %16, align 4
-  %1775 = load i32, ptr %16, align 4
-  %1776 = and i32 %1775, 255
-  store i32 %1776, ptr %16, align 4
-  %1777 = load i32, ptr %14, align 4
-  %1778 = lshr i32 %1777, 16
-  store i32 %1778, ptr %17, align 4
-  %1779 = load i32, ptr %17, align 4
-  %1780 = and i32 %1779, 255
-  store i32 %1780, ptr %17, align 4
-  %1781 = load i32, ptr %14, align 4
-  %1782 = lshr i32 %1781, 24
-  store i32 %1782, ptr %18, align 4
-  %1783 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1784 = getelementptr inbounds %struct.BF_ctx, ptr %1783, i32 0, i32 0
-  %1785 = getelementptr inbounds [4 x [256 x i32]], ptr %1784, i64 0, i64 3
-  %1786 = load i32, ptr %15, align 4
-  %1787 = zext i32 %1786 to i64
-  %1788 = getelementptr inbounds [256 x i32], ptr %1785, i64 0, i64 %1787
-  %1789 = load i32, ptr %1788, align 4
-  store i32 %1789, ptr %15, align 4
-  %1790 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1791 = getelementptr inbounds %struct.BF_ctx, ptr %1790, i32 0, i32 0
-  %1792 = getelementptr inbounds [4 x [256 x i32]], ptr %1791, i64 0, i64 2
-  %1793 = load i32, ptr %16, align 4
-  %1794 = zext i32 %1793 to i64
-  %1795 = getelementptr inbounds [256 x i32], ptr %1792, i64 0, i64 %1794
-  %1796 = load i32, ptr %1795, align 4
-  store i32 %1796, ptr %16, align 4
-  %1797 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1798 = getelementptr inbounds %struct.BF_ctx, ptr %1797, i32 0, i32 0
-  %1799 = getelementptr inbounds [4 x [256 x i32]], ptr %1798, i64 0, i64 1
-  %1800 = load i32, ptr %17, align 4
-  %1801 = zext i32 %1800 to i64
-  %1802 = getelementptr inbounds [256 x i32], ptr %1799, i64 0, i64 %1801
-  %1803 = load i32, ptr %1802, align 4
-  store i32 %1803, ptr %17, align 4
-  %1804 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1805 = getelementptr inbounds %struct.BF_ctx, ptr %1804, i32 0, i32 0
-  %1806 = getelementptr inbounds [4 x [256 x i32]], ptr %1805, i64 0, i64 0
-  %1807 = load i32, ptr %18, align 4
-  %1808 = zext i32 %1807 to i64
-  %1809 = getelementptr inbounds [256 x i32], ptr %1806, i64 0, i64 %1808
-  %1810 = load i32, ptr %1809, align 4
-  %1811 = load i32, ptr %17, align 4
-  %1812 = add i32 %1811, %1810
-  store i32 %1812, ptr %17, align 4
-  %1813 = load i32, ptr %16, align 4
-  %1814 = load i32, ptr %17, align 4
-  %1815 = xor i32 %1814, %1813
-  store i32 %1815, ptr %17, align 4
-  %1816 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1817 = getelementptr inbounds %struct.BF_ctx, ptr %1816, i32 0, i32 1
-  %1818 = getelementptr inbounds [18 x i32], ptr %1817, i64 0, i64 12
-  %1819 = load i32, ptr %1818, align 4
-  %1820 = load i32, ptr %13, align 4
-  %1821 = xor i32 %1820, %1819
-  store i32 %1821, ptr %13, align 4
-  %1822 = load i32, ptr %15, align 4
-  %1823 = load i32, ptr %17, align 4
-  %1824 = add i32 %1823, %1822
-  store i32 %1824, ptr %17, align 4
-  %1825 = load i32, ptr %17, align 4
-  %1826 = load i32, ptr %13, align 4
-  %1827 = xor i32 %1826, %1825
-  store i32 %1827, ptr %13, align 4
-  %1828 = load i32, ptr %13, align 4
-  %1829 = and i32 %1828, 255
-  store i32 %1829, ptr %15, align 4
-  %1830 = load i32, ptr %13, align 4
-  %1831 = lshr i32 %1830, 8
-  store i32 %1831, ptr %16, align 4
-  %1832 = load i32, ptr %16, align 4
-  %1833 = and i32 %1832, 255
-  store i32 %1833, ptr %16, align 4
-  %1834 = load i32, ptr %13, align 4
-  %1835 = lshr i32 %1834, 16
-  store i32 %1835, ptr %17, align 4
-  %1836 = load i32, ptr %17, align 4
-  %1837 = and i32 %1836, 255
-  store i32 %1837, ptr %17, align 4
-  %1838 = load i32, ptr %13, align 4
-  %1839 = lshr i32 %1838, 24
-  store i32 %1839, ptr %18, align 4
-  %1840 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1841 = getelementptr inbounds %struct.BF_ctx, ptr %1840, i32 0, i32 0
-  %1842 = getelementptr inbounds [4 x [256 x i32]], ptr %1841, i64 0, i64 3
-  %1843 = load i32, ptr %15, align 4
-  %1844 = zext i32 %1843 to i64
-  %1845 = getelementptr inbounds [256 x i32], ptr %1842, i64 0, i64 %1844
-  %1846 = load i32, ptr %1845, align 4
-  store i32 %1846, ptr %15, align 4
-  %1847 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1848 = getelementptr inbounds %struct.BF_ctx, ptr %1847, i32 0, i32 0
-  %1849 = getelementptr inbounds [4 x [256 x i32]], ptr %1848, i64 0, i64 2
-  %1850 = load i32, ptr %16, align 4
-  %1851 = zext i32 %1850 to i64
-  %1852 = getelementptr inbounds [256 x i32], ptr %1849, i64 0, i64 %1851
-  %1853 = load i32, ptr %1852, align 4
-  store i32 %1853, ptr %16, align 4
-  %1854 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1855 = getelementptr inbounds %struct.BF_ctx, ptr %1854, i32 0, i32 0
-  %1856 = getelementptr inbounds [4 x [256 x i32]], ptr %1855, i64 0, i64 1
-  %1857 = load i32, ptr %17, align 4
-  %1858 = zext i32 %1857 to i64
-  %1859 = getelementptr inbounds [256 x i32], ptr %1856, i64 0, i64 %1858
-  %1860 = load i32, ptr %1859, align 4
-  store i32 %1860, ptr %17, align 4
-  %1861 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1862 = getelementptr inbounds %struct.BF_ctx, ptr %1861, i32 0, i32 0
-  %1863 = getelementptr inbounds [4 x [256 x i32]], ptr %1862, i64 0, i64 0
-  %1864 = load i32, ptr %18, align 4
-  %1865 = zext i32 %1864 to i64
-  %1866 = getelementptr inbounds [256 x i32], ptr %1863, i64 0, i64 %1865
-  %1867 = load i32, ptr %1866, align 4
-  %1868 = load i32, ptr %17, align 4
-  %1869 = add i32 %1868, %1867
-  store i32 %1869, ptr %17, align 4
-  %1870 = load i32, ptr %16, align 4
-  %1871 = load i32, ptr %17, align 4
-  %1872 = xor i32 %1871, %1870
-  store i32 %1872, ptr %17, align 4
-  %1873 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1874 = getelementptr inbounds %struct.BF_ctx, ptr %1873, i32 0, i32 1
-  %1875 = getelementptr inbounds [18 x i32], ptr %1874, i64 0, i64 13
-  %1876 = load i32, ptr %1875, align 4
-  %1877 = load i32, ptr %14, align 4
-  %1878 = xor i32 %1877, %1876
-  store i32 %1878, ptr %14, align 4
-  %1879 = load i32, ptr %15, align 4
-  %1880 = load i32, ptr %17, align 4
-  %1881 = add i32 %1880, %1879
-  store i32 %1881, ptr %17, align 4
-  %1882 = load i32, ptr %17, align 4
-  %1883 = load i32, ptr %14, align 4
-  %1884 = xor i32 %1883, %1882
-  store i32 %1884, ptr %14, align 4
-  %1885 = load i32, ptr %14, align 4
-  %1886 = and i32 %1885, 255
-  store i32 %1886, ptr %15, align 4
-  %1887 = load i32, ptr %14, align 4
-  %1888 = lshr i32 %1887, 8
-  store i32 %1888, ptr %16, align 4
-  %1889 = load i32, ptr %16, align 4
-  %1890 = and i32 %1889, 255
-  store i32 %1890, ptr %16, align 4
-  %1891 = load i32, ptr %14, align 4
-  %1892 = lshr i32 %1891, 16
-  store i32 %1892, ptr %17, align 4
-  %1893 = load i32, ptr %17, align 4
-  %1894 = and i32 %1893, 255
-  store i32 %1894, ptr %17, align 4
-  %1895 = load i32, ptr %14, align 4
-  %1896 = lshr i32 %1895, 24
-  store i32 %1896, ptr %18, align 4
-  %1897 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1898 = getelementptr inbounds %struct.BF_ctx, ptr %1897, i32 0, i32 0
-  %1899 = getelementptr inbounds [4 x [256 x i32]], ptr %1898, i64 0, i64 3
-  %1900 = load i32, ptr %15, align 4
-  %1901 = zext i32 %1900 to i64
-  %1902 = getelementptr inbounds [256 x i32], ptr %1899, i64 0, i64 %1901
-  %1903 = load i32, ptr %1902, align 4
-  store i32 %1903, ptr %15, align 4
-  %1904 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1905 = getelementptr inbounds %struct.BF_ctx, ptr %1904, i32 0, i32 0
-  %1906 = getelementptr inbounds [4 x [256 x i32]], ptr %1905, i64 0, i64 2
-  %1907 = load i32, ptr %16, align 4
-  %1908 = zext i32 %1907 to i64
-  %1909 = getelementptr inbounds [256 x i32], ptr %1906, i64 0, i64 %1908
-  %1910 = load i32, ptr %1909, align 4
-  store i32 %1910, ptr %16, align 4
-  %1911 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1912 = getelementptr inbounds %struct.BF_ctx, ptr %1911, i32 0, i32 0
-  %1913 = getelementptr inbounds [4 x [256 x i32]], ptr %1912, i64 0, i64 1
-  %1914 = load i32, ptr %17, align 4
-  %1915 = zext i32 %1914 to i64
-  %1916 = getelementptr inbounds [256 x i32], ptr %1913, i64 0, i64 %1915
-  %1917 = load i32, ptr %1916, align 4
-  store i32 %1917, ptr %17, align 4
-  %1918 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1919 = getelementptr inbounds %struct.BF_ctx, ptr %1918, i32 0, i32 0
-  %1920 = getelementptr inbounds [4 x [256 x i32]], ptr %1919, i64 0, i64 0
-  %1921 = load i32, ptr %18, align 4
-  %1922 = zext i32 %1921 to i64
-  %1923 = getelementptr inbounds [256 x i32], ptr %1920, i64 0, i64 %1922
-  %1924 = load i32, ptr %1923, align 4
-  %1925 = load i32, ptr %17, align 4
-  %1926 = add i32 %1925, %1924
-  store i32 %1926, ptr %17, align 4
-  %1927 = load i32, ptr %16, align 4
-  %1928 = load i32, ptr %17, align 4
-  %1929 = xor i32 %1928, %1927
-  store i32 %1929, ptr %17, align 4
-  %1930 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1931 = getelementptr inbounds %struct.BF_ctx, ptr %1930, i32 0, i32 1
-  %1932 = getelementptr inbounds [18 x i32], ptr %1931, i64 0, i64 14
-  %1933 = load i32, ptr %1932, align 4
-  %1934 = load i32, ptr %13, align 4
-  %1935 = xor i32 %1934, %1933
-  store i32 %1935, ptr %13, align 4
-  %1936 = load i32, ptr %15, align 4
-  %1937 = load i32, ptr %17, align 4
-  %1938 = add i32 %1937, %1936
-  store i32 %1938, ptr %17, align 4
-  %1939 = load i32, ptr %17, align 4
-  %1940 = load i32, ptr %13, align 4
-  %1941 = xor i32 %1940, %1939
-  store i32 %1941, ptr %13, align 4
-  %1942 = load i32, ptr %13, align 4
-  %1943 = and i32 %1942, 255
-  store i32 %1943, ptr %15, align 4
-  %1944 = load i32, ptr %13, align 4
-  %1945 = lshr i32 %1944, 8
-  store i32 %1945, ptr %16, align 4
-  %1946 = load i32, ptr %16, align 4
-  %1947 = and i32 %1946, 255
-  store i32 %1947, ptr %16, align 4
-  %1948 = load i32, ptr %13, align 4
-  %1949 = lshr i32 %1948, 16
-  store i32 %1949, ptr %17, align 4
-  %1950 = load i32, ptr %17, align 4
-  %1951 = and i32 %1950, 255
-  store i32 %1951, ptr %17, align 4
-  %1952 = load i32, ptr %13, align 4
-  %1953 = lshr i32 %1952, 24
-  store i32 %1953, ptr %18, align 4
-  %1954 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1955 = getelementptr inbounds %struct.BF_ctx, ptr %1954, i32 0, i32 0
-  %1956 = getelementptr inbounds [4 x [256 x i32]], ptr %1955, i64 0, i64 3
-  %1957 = load i32, ptr %15, align 4
-  %1958 = zext i32 %1957 to i64
-  %1959 = getelementptr inbounds [256 x i32], ptr %1956, i64 0, i64 %1958
-  %1960 = load i32, ptr %1959, align 4
-  store i32 %1960, ptr %15, align 4
-  %1961 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1962 = getelementptr inbounds %struct.BF_ctx, ptr %1961, i32 0, i32 0
-  %1963 = getelementptr inbounds [4 x [256 x i32]], ptr %1962, i64 0, i64 2
-  %1964 = load i32, ptr %16, align 4
-  %1965 = zext i32 %1964 to i64
-  %1966 = getelementptr inbounds [256 x i32], ptr %1963, i64 0, i64 %1965
-  %1967 = load i32, ptr %1966, align 4
-  store i32 %1967, ptr %16, align 4
-  %1968 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1969 = getelementptr inbounds %struct.BF_ctx, ptr %1968, i32 0, i32 0
-  %1970 = getelementptr inbounds [4 x [256 x i32]], ptr %1969, i64 0, i64 1
-  %1971 = load i32, ptr %17, align 4
-  %1972 = zext i32 %1971 to i64
-  %1973 = getelementptr inbounds [256 x i32], ptr %1970, i64 0, i64 %1972
-  %1974 = load i32, ptr %1973, align 4
-  store i32 %1974, ptr %17, align 4
-  %1975 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1976 = getelementptr inbounds %struct.BF_ctx, ptr %1975, i32 0, i32 0
-  %1977 = getelementptr inbounds [4 x [256 x i32]], ptr %1976, i64 0, i64 0
-  %1978 = load i32, ptr %18, align 4
-  %1979 = zext i32 %1978 to i64
-  %1980 = getelementptr inbounds [256 x i32], ptr %1977, i64 0, i64 %1979
-  %1981 = load i32, ptr %1980, align 4
-  %1982 = load i32, ptr %17, align 4
-  %1983 = add i32 %1982, %1981
-  store i32 %1983, ptr %17, align 4
-  %1984 = load i32, ptr %16, align 4
-  %1985 = load i32, ptr %17, align 4
-  %1986 = xor i32 %1985, %1984
-  store i32 %1986, ptr %17, align 4
-  %1987 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %1988 = getelementptr inbounds %struct.BF_ctx, ptr %1987, i32 0, i32 1
-  %1989 = getelementptr inbounds [18 x i32], ptr %1988, i64 0, i64 15
-  %1990 = load i32, ptr %1989, align 4
-  %1991 = load i32, ptr %14, align 4
-  %1992 = xor i32 %1991, %1990
-  store i32 %1992, ptr %14, align 4
-  %1993 = load i32, ptr %15, align 4
-  %1994 = load i32, ptr %17, align 4
-  %1995 = add i32 %1994, %1993
-  store i32 %1995, ptr %17, align 4
-  %1996 = load i32, ptr %17, align 4
-  %1997 = load i32, ptr %14, align 4
-  %1998 = xor i32 %1997, %1996
-  store i32 %1998, ptr %14, align 4
-  %1999 = load i32, ptr %14, align 4
-  %2000 = and i32 %1999, 255
-  store i32 %2000, ptr %15, align 4
-  %2001 = load i32, ptr %14, align 4
-  %2002 = lshr i32 %2001, 8
-  store i32 %2002, ptr %16, align 4
-  %2003 = load i32, ptr %16, align 4
-  %2004 = and i32 %2003, 255
-  store i32 %2004, ptr %16, align 4
-  %2005 = load i32, ptr %14, align 4
-  %2006 = lshr i32 %2005, 16
-  store i32 %2006, ptr %17, align 4
-  %2007 = load i32, ptr %17, align 4
-  %2008 = and i32 %2007, 255
-  store i32 %2008, ptr %17, align 4
-  %2009 = load i32, ptr %14, align 4
-  %2010 = lshr i32 %2009, 24
-  store i32 %2010, ptr %18, align 4
-  %2011 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2012 = getelementptr inbounds %struct.BF_ctx, ptr %2011, i32 0, i32 0
-  %2013 = getelementptr inbounds [4 x [256 x i32]], ptr %2012, i64 0, i64 3
-  %2014 = load i32, ptr %15, align 4
-  %2015 = zext i32 %2014 to i64
-  %2016 = getelementptr inbounds [256 x i32], ptr %2013, i64 0, i64 %2015
-  %2017 = load i32, ptr %2016, align 4
-  store i32 %2017, ptr %15, align 4
-  %2018 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2019 = getelementptr inbounds %struct.BF_ctx, ptr %2018, i32 0, i32 0
-  %2020 = getelementptr inbounds [4 x [256 x i32]], ptr %2019, i64 0, i64 2
-  %2021 = load i32, ptr %16, align 4
-  %2022 = zext i32 %2021 to i64
-  %2023 = getelementptr inbounds [256 x i32], ptr %2020, i64 0, i64 %2022
-  %2024 = load i32, ptr %2023, align 4
-  store i32 %2024, ptr %16, align 4
-  %2025 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2026 = getelementptr inbounds %struct.BF_ctx, ptr %2025, i32 0, i32 0
-  %2027 = getelementptr inbounds [4 x [256 x i32]], ptr %2026, i64 0, i64 1
-  %2028 = load i32, ptr %17, align 4
-  %2029 = zext i32 %2028 to i64
-  %2030 = getelementptr inbounds [256 x i32], ptr %2027, i64 0, i64 %2029
-  %2031 = load i32, ptr %2030, align 4
-  store i32 %2031, ptr %17, align 4
-  %2032 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2033 = getelementptr inbounds %struct.BF_ctx, ptr %2032, i32 0, i32 0
-  %2034 = getelementptr inbounds [4 x [256 x i32]], ptr %2033, i64 0, i64 0
-  %2035 = load i32, ptr %18, align 4
-  %2036 = zext i32 %2035 to i64
-  %2037 = getelementptr inbounds [256 x i32], ptr %2034, i64 0, i64 %2036
-  %2038 = load i32, ptr %2037, align 4
-  %2039 = load i32, ptr %17, align 4
-  %2040 = add i32 %2039, %2038
-  store i32 %2040, ptr %17, align 4
-  %2041 = load i32, ptr %16, align 4
-  %2042 = load i32, ptr %17, align 4
-  %2043 = xor i32 %2042, %2041
-  store i32 %2043, ptr %17, align 4
-  %2044 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2045 = getelementptr inbounds %struct.BF_ctx, ptr %2044, i32 0, i32 1
-  %2046 = getelementptr inbounds [18 x i32], ptr %2045, i64 0, i64 16
-  %2047 = load i32, ptr %2046, align 4
-  %2048 = load i32, ptr %13, align 4
-  %2049 = xor i32 %2048, %2047
-  store i32 %2049, ptr %13, align 4
-  %2050 = load i32, ptr %15, align 4
-  %2051 = load i32, ptr %17, align 4
-  %2052 = add i32 %2051, %2050
-  store i32 %2052, ptr %17, align 4
-  %2053 = load i32, ptr %17, align 4
-  %2054 = load i32, ptr %13, align 4
-  %2055 = xor i32 %2054, %2053
-  store i32 %2055, ptr %13, align 4
-  %2056 = load i32, ptr %14, align 4
-  store i32 %2056, ptr %18, align 4
-  %2057 = load i32, ptr %13, align 4
-  store i32 %2057, ptr %14, align 4
-  %2058 = load i32, ptr %18, align 4
-  %2059 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2060 = getelementptr inbounds %struct.BF_ctx, ptr %2059, i32 0, i32 1
-  %2061 = getelementptr inbounds [18 x i32], ptr %2060, i64 0, i64 17
-  %2062 = load i32, ptr %2061, align 4
-  %2063 = xor i32 %2058, %2062
-  store i32 %2063, ptr %13, align 4
-  %2064 = load i32, ptr %13, align 4
-  %2065 = load ptr, ptr %19, align 8
-  %2066 = getelementptr inbounds i32, ptr %2065, i64 -4
-  store i32 %2064, ptr %2066, align 4
-  %2067 = load i32, ptr %14, align 4
-  %2068 = load ptr, ptr %19, align 8
-  %2069 = getelementptr inbounds i32, ptr %2068, i64 -3
-  store i32 %2067, ptr %2069, align 4
-  %2070 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %2071 = getelementptr inbounds [4 x i32], ptr %2070, i64 0, i64 0
-  %2072 = load i32, ptr %2071, align 4
-  %2073 = load i32, ptr %13, align 4
-  %2074 = xor i32 %2073, %2072
-  store i32 %2074, ptr %13, align 4
-  %2075 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %2076 = getelementptr inbounds [4 x i32], ptr %2075, i64 0, i64 1
-  %2077 = load i32, ptr %2076, align 4
-  %2078 = load i32, ptr %14, align 4
-  %2079 = xor i32 %2078, %2077
-  store i32 %2079, ptr %14, align 4
-  %2080 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2081 = getelementptr inbounds %struct.BF_ctx, ptr %2080, i32 0, i32 1
-  %2082 = getelementptr inbounds [18 x i32], ptr %2081, i64 0, i64 0
-  %2083 = load i32, ptr %2082, align 4
-  %2084 = load i32, ptr %13, align 4
-  %2085 = xor i32 %2084, %2083
-  store i32 %2085, ptr %13, align 4
-  %2086 = load i32, ptr %13, align 4
-  %2087 = and i32 %2086, 255
-  store i32 %2087, ptr %15, align 4
-  %2088 = load i32, ptr %13, align 4
-  %2089 = lshr i32 %2088, 8
-  store i32 %2089, ptr %16, align 4
-  %2090 = load i32, ptr %16, align 4
-  %2091 = and i32 %2090, 255
-  store i32 %2091, ptr %16, align 4
-  %2092 = load i32, ptr %13, align 4
-  %2093 = lshr i32 %2092, 16
-  store i32 %2093, ptr %17, align 4
-  %2094 = load i32, ptr %17, align 4
-  %2095 = and i32 %2094, 255
-  store i32 %2095, ptr %17, align 4
-  %2096 = load i32, ptr %13, align 4
-  %2097 = lshr i32 %2096, 24
-  store i32 %2097, ptr %18, align 4
-  %2098 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2099 = getelementptr inbounds %struct.BF_ctx, ptr %2098, i32 0, i32 0
-  %2100 = getelementptr inbounds [4 x [256 x i32]], ptr %2099, i64 0, i64 3
-  %2101 = load i32, ptr %15, align 4
-  %2102 = zext i32 %2101 to i64
-  %2103 = getelementptr inbounds [256 x i32], ptr %2100, i64 0, i64 %2102
-  %2104 = load i32, ptr %2103, align 4
-  store i32 %2104, ptr %15, align 4
-  %2105 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2106 = getelementptr inbounds %struct.BF_ctx, ptr %2105, i32 0, i32 0
-  %2107 = getelementptr inbounds [4 x [256 x i32]], ptr %2106, i64 0, i64 2
-  %2108 = load i32, ptr %16, align 4
-  %2109 = zext i32 %2108 to i64
-  %2110 = getelementptr inbounds [256 x i32], ptr %2107, i64 0, i64 %2109
-  %2111 = load i32, ptr %2110, align 4
-  store i32 %2111, ptr %16, align 4
-  %2112 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2113 = getelementptr inbounds %struct.BF_ctx, ptr %2112, i32 0, i32 0
-  %2114 = getelementptr inbounds [4 x [256 x i32]], ptr %2113, i64 0, i64 1
-  %2115 = load i32, ptr %17, align 4
-  %2116 = zext i32 %2115 to i64
-  %2117 = getelementptr inbounds [256 x i32], ptr %2114, i64 0, i64 %2116
-  %2118 = load i32, ptr %2117, align 4
-  store i32 %2118, ptr %17, align 4
-  %2119 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2120 = getelementptr inbounds %struct.BF_ctx, ptr %2119, i32 0, i32 0
-  %2121 = getelementptr inbounds [4 x [256 x i32]], ptr %2120, i64 0, i64 0
-  %2122 = load i32, ptr %18, align 4
-  %2123 = zext i32 %2122 to i64
-  %2124 = getelementptr inbounds [256 x i32], ptr %2121, i64 0, i64 %2123
-  %2125 = load i32, ptr %2124, align 4
-  %2126 = load i32, ptr %17, align 4
-  %2127 = add i32 %2126, %2125
-  store i32 %2127, ptr %17, align 4
-  %2128 = load i32, ptr %16, align 4
-  %2129 = load i32, ptr %17, align 4
-  %2130 = xor i32 %2129, %2128
-  store i32 %2130, ptr %17, align 4
-  %2131 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2132 = getelementptr inbounds %struct.BF_ctx, ptr %2131, i32 0, i32 1
-  %2133 = getelementptr inbounds [18 x i32], ptr %2132, i64 0, i64 1
-  %2134 = load i32, ptr %2133, align 4
-  %2135 = load i32, ptr %14, align 4
-  %2136 = xor i32 %2135, %2134
-  store i32 %2136, ptr %14, align 4
-  %2137 = load i32, ptr %15, align 4
-  %2138 = load i32, ptr %17, align 4
-  %2139 = add i32 %2138, %2137
-  store i32 %2139, ptr %17, align 4
-  %2140 = load i32, ptr %17, align 4
-  %2141 = load i32, ptr %14, align 4
-  %2142 = xor i32 %2141, %2140
-  store i32 %2142, ptr %14, align 4
-  %2143 = load i32, ptr %14, align 4
-  %2144 = and i32 %2143, 255
-  store i32 %2144, ptr %15, align 4
-  %2145 = load i32, ptr %14, align 4
-  %2146 = lshr i32 %2145, 8
-  store i32 %2146, ptr %16, align 4
-  %2147 = load i32, ptr %16, align 4
-  %2148 = and i32 %2147, 255
-  store i32 %2148, ptr %16, align 4
-  %2149 = load i32, ptr %14, align 4
-  %2150 = lshr i32 %2149, 16
-  store i32 %2150, ptr %17, align 4
-  %2151 = load i32, ptr %17, align 4
-  %2152 = and i32 %2151, 255
-  store i32 %2152, ptr %17, align 4
-  %2153 = load i32, ptr %14, align 4
-  %2154 = lshr i32 %2153, 24
-  store i32 %2154, ptr %18, align 4
-  %2155 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2156 = getelementptr inbounds %struct.BF_ctx, ptr %2155, i32 0, i32 0
-  %2157 = getelementptr inbounds [4 x [256 x i32]], ptr %2156, i64 0, i64 3
-  %2158 = load i32, ptr %15, align 4
-  %2159 = zext i32 %2158 to i64
-  %2160 = getelementptr inbounds [256 x i32], ptr %2157, i64 0, i64 %2159
-  %2161 = load i32, ptr %2160, align 4
-  store i32 %2161, ptr %15, align 4
-  %2162 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2163 = getelementptr inbounds %struct.BF_ctx, ptr %2162, i32 0, i32 0
-  %2164 = getelementptr inbounds [4 x [256 x i32]], ptr %2163, i64 0, i64 2
-  %2165 = load i32, ptr %16, align 4
-  %2166 = zext i32 %2165 to i64
-  %2167 = getelementptr inbounds [256 x i32], ptr %2164, i64 0, i64 %2166
-  %2168 = load i32, ptr %2167, align 4
-  store i32 %2168, ptr %16, align 4
-  %2169 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2170 = getelementptr inbounds %struct.BF_ctx, ptr %2169, i32 0, i32 0
-  %2171 = getelementptr inbounds [4 x [256 x i32]], ptr %2170, i64 0, i64 1
-  %2172 = load i32, ptr %17, align 4
-  %2173 = zext i32 %2172 to i64
-  %2174 = getelementptr inbounds [256 x i32], ptr %2171, i64 0, i64 %2173
-  %2175 = load i32, ptr %2174, align 4
-  store i32 %2175, ptr %17, align 4
-  %2176 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2177 = getelementptr inbounds %struct.BF_ctx, ptr %2176, i32 0, i32 0
-  %2178 = getelementptr inbounds [4 x [256 x i32]], ptr %2177, i64 0, i64 0
-  %2179 = load i32, ptr %18, align 4
-  %2180 = zext i32 %2179 to i64
-  %2181 = getelementptr inbounds [256 x i32], ptr %2178, i64 0, i64 %2180
-  %2182 = load i32, ptr %2181, align 4
-  %2183 = load i32, ptr %17, align 4
-  %2184 = add i32 %2183, %2182
-  store i32 %2184, ptr %17, align 4
-  %2185 = load i32, ptr %16, align 4
-  %2186 = load i32, ptr %17, align 4
-  %2187 = xor i32 %2186, %2185
-  store i32 %2187, ptr %17, align 4
-  %2188 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2189 = getelementptr inbounds %struct.BF_ctx, ptr %2188, i32 0, i32 1
-  %2190 = getelementptr inbounds [18 x i32], ptr %2189, i64 0, i64 2
-  %2191 = load i32, ptr %2190, align 4
-  %2192 = load i32, ptr %13, align 4
-  %2193 = xor i32 %2192, %2191
-  store i32 %2193, ptr %13, align 4
-  %2194 = load i32, ptr %15, align 4
-  %2195 = load i32, ptr %17, align 4
-  %2196 = add i32 %2195, %2194
-  store i32 %2196, ptr %17, align 4
-  %2197 = load i32, ptr %17, align 4
-  %2198 = load i32, ptr %13, align 4
-  %2199 = xor i32 %2198, %2197
-  store i32 %2199, ptr %13, align 4
-  %2200 = load i32, ptr %13, align 4
-  %2201 = and i32 %2200, 255
-  store i32 %2201, ptr %15, align 4
-  %2202 = load i32, ptr %13, align 4
-  %2203 = lshr i32 %2202, 8
-  store i32 %2203, ptr %16, align 4
-  %2204 = load i32, ptr %16, align 4
-  %2205 = and i32 %2204, 255
-  store i32 %2205, ptr %16, align 4
-  %2206 = load i32, ptr %13, align 4
-  %2207 = lshr i32 %2206, 16
-  store i32 %2207, ptr %17, align 4
-  %2208 = load i32, ptr %17, align 4
-  %2209 = and i32 %2208, 255
-  store i32 %2209, ptr %17, align 4
-  %2210 = load i32, ptr %13, align 4
-  %2211 = lshr i32 %2210, 24
-  store i32 %2211, ptr %18, align 4
-  %2212 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2213 = getelementptr inbounds %struct.BF_ctx, ptr %2212, i32 0, i32 0
-  %2214 = getelementptr inbounds [4 x [256 x i32]], ptr %2213, i64 0, i64 3
-  %2215 = load i32, ptr %15, align 4
-  %2216 = zext i32 %2215 to i64
-  %2217 = getelementptr inbounds [256 x i32], ptr %2214, i64 0, i64 %2216
-  %2218 = load i32, ptr %2217, align 4
-  store i32 %2218, ptr %15, align 4
-  %2219 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2220 = getelementptr inbounds %struct.BF_ctx, ptr %2219, i32 0, i32 0
-  %2221 = getelementptr inbounds [4 x [256 x i32]], ptr %2220, i64 0, i64 2
-  %2222 = load i32, ptr %16, align 4
-  %2223 = zext i32 %2222 to i64
-  %2224 = getelementptr inbounds [256 x i32], ptr %2221, i64 0, i64 %2223
-  %2225 = load i32, ptr %2224, align 4
-  store i32 %2225, ptr %16, align 4
-  %2226 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2227 = getelementptr inbounds %struct.BF_ctx, ptr %2226, i32 0, i32 0
-  %2228 = getelementptr inbounds [4 x [256 x i32]], ptr %2227, i64 0, i64 1
-  %2229 = load i32, ptr %17, align 4
-  %2230 = zext i32 %2229 to i64
-  %2231 = getelementptr inbounds [256 x i32], ptr %2228, i64 0, i64 %2230
-  %2232 = load i32, ptr %2231, align 4
-  store i32 %2232, ptr %17, align 4
-  %2233 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2234 = getelementptr inbounds %struct.BF_ctx, ptr %2233, i32 0, i32 0
-  %2235 = getelementptr inbounds [4 x [256 x i32]], ptr %2234, i64 0, i64 0
-  %2236 = load i32, ptr %18, align 4
-  %2237 = zext i32 %2236 to i64
-  %2238 = getelementptr inbounds [256 x i32], ptr %2235, i64 0, i64 %2237
-  %2239 = load i32, ptr %2238, align 4
-  %2240 = load i32, ptr %17, align 4
-  %2241 = add i32 %2240, %2239
-  store i32 %2241, ptr %17, align 4
-  %2242 = load i32, ptr %16, align 4
-  %2243 = load i32, ptr %17, align 4
-  %2244 = xor i32 %2243, %2242
-  store i32 %2244, ptr %17, align 4
-  %2245 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2246 = getelementptr inbounds %struct.BF_ctx, ptr %2245, i32 0, i32 1
-  %2247 = getelementptr inbounds [18 x i32], ptr %2246, i64 0, i64 3
-  %2248 = load i32, ptr %2247, align 4
-  %2249 = load i32, ptr %14, align 4
-  %2250 = xor i32 %2249, %2248
-  store i32 %2250, ptr %14, align 4
-  %2251 = load i32, ptr %15, align 4
-  %2252 = load i32, ptr %17, align 4
-  %2253 = add i32 %2252, %2251
-  store i32 %2253, ptr %17, align 4
-  %2254 = load i32, ptr %17, align 4
-  %2255 = load i32, ptr %14, align 4
-  %2256 = xor i32 %2255, %2254
-  store i32 %2256, ptr %14, align 4
-  %2257 = load i32, ptr %14, align 4
-  %2258 = and i32 %2257, 255
-  store i32 %2258, ptr %15, align 4
-  %2259 = load i32, ptr %14, align 4
-  %2260 = lshr i32 %2259, 8
-  store i32 %2260, ptr %16, align 4
-  %2261 = load i32, ptr %16, align 4
-  %2262 = and i32 %2261, 255
-  store i32 %2262, ptr %16, align 4
-  %2263 = load i32, ptr %14, align 4
-  %2264 = lshr i32 %2263, 16
-  store i32 %2264, ptr %17, align 4
-  %2265 = load i32, ptr %17, align 4
-  %2266 = and i32 %2265, 255
-  store i32 %2266, ptr %17, align 4
-  %2267 = load i32, ptr %14, align 4
-  %2268 = lshr i32 %2267, 24
-  store i32 %2268, ptr %18, align 4
-  %2269 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2270 = getelementptr inbounds %struct.BF_ctx, ptr %2269, i32 0, i32 0
-  %2271 = getelementptr inbounds [4 x [256 x i32]], ptr %2270, i64 0, i64 3
-  %2272 = load i32, ptr %15, align 4
-  %2273 = zext i32 %2272 to i64
-  %2274 = getelementptr inbounds [256 x i32], ptr %2271, i64 0, i64 %2273
-  %2275 = load i32, ptr %2274, align 4
-  store i32 %2275, ptr %15, align 4
-  %2276 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2277 = getelementptr inbounds %struct.BF_ctx, ptr %2276, i32 0, i32 0
-  %2278 = getelementptr inbounds [4 x [256 x i32]], ptr %2277, i64 0, i64 2
-  %2279 = load i32, ptr %16, align 4
-  %2280 = zext i32 %2279 to i64
-  %2281 = getelementptr inbounds [256 x i32], ptr %2278, i64 0, i64 %2280
-  %2282 = load i32, ptr %2281, align 4
-  store i32 %2282, ptr %16, align 4
-  %2283 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2284 = getelementptr inbounds %struct.BF_ctx, ptr %2283, i32 0, i32 0
-  %2285 = getelementptr inbounds [4 x [256 x i32]], ptr %2284, i64 0, i64 1
-  %2286 = load i32, ptr %17, align 4
-  %2287 = zext i32 %2286 to i64
-  %2288 = getelementptr inbounds [256 x i32], ptr %2285, i64 0, i64 %2287
-  %2289 = load i32, ptr %2288, align 4
-  store i32 %2289, ptr %17, align 4
-  %2290 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2291 = getelementptr inbounds %struct.BF_ctx, ptr %2290, i32 0, i32 0
-  %2292 = getelementptr inbounds [4 x [256 x i32]], ptr %2291, i64 0, i64 0
-  %2293 = load i32, ptr %18, align 4
-  %2294 = zext i32 %2293 to i64
-  %2295 = getelementptr inbounds [256 x i32], ptr %2292, i64 0, i64 %2294
-  %2296 = load i32, ptr %2295, align 4
-  %2297 = load i32, ptr %17, align 4
-  %2298 = add i32 %2297, %2296
-  store i32 %2298, ptr %17, align 4
-  %2299 = load i32, ptr %16, align 4
-  %2300 = load i32, ptr %17, align 4
-  %2301 = xor i32 %2300, %2299
-  store i32 %2301, ptr %17, align 4
-  %2302 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2303 = getelementptr inbounds %struct.BF_ctx, ptr %2302, i32 0, i32 1
-  %2304 = getelementptr inbounds [18 x i32], ptr %2303, i64 0, i64 4
-  %2305 = load i32, ptr %2304, align 4
-  %2306 = load i32, ptr %13, align 4
-  %2307 = xor i32 %2306, %2305
-  store i32 %2307, ptr %13, align 4
-  %2308 = load i32, ptr %15, align 4
-  %2309 = load i32, ptr %17, align 4
-  %2310 = add i32 %2309, %2308
-  store i32 %2310, ptr %17, align 4
-  %2311 = load i32, ptr %17, align 4
-  %2312 = load i32, ptr %13, align 4
-  %2313 = xor i32 %2312, %2311
-  store i32 %2313, ptr %13, align 4
-  %2314 = load i32, ptr %13, align 4
-  %2315 = and i32 %2314, 255
-  store i32 %2315, ptr %15, align 4
-  %2316 = load i32, ptr %13, align 4
-  %2317 = lshr i32 %2316, 8
-  store i32 %2317, ptr %16, align 4
-  %2318 = load i32, ptr %16, align 4
-  %2319 = and i32 %2318, 255
-  store i32 %2319, ptr %16, align 4
-  %2320 = load i32, ptr %13, align 4
-  %2321 = lshr i32 %2320, 16
-  store i32 %2321, ptr %17, align 4
-  %2322 = load i32, ptr %17, align 4
-  %2323 = and i32 %2322, 255
-  store i32 %2323, ptr %17, align 4
-  %2324 = load i32, ptr %13, align 4
-  %2325 = lshr i32 %2324, 24
-  store i32 %2325, ptr %18, align 4
-  %2326 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2327 = getelementptr inbounds %struct.BF_ctx, ptr %2326, i32 0, i32 0
-  %2328 = getelementptr inbounds [4 x [256 x i32]], ptr %2327, i64 0, i64 3
-  %2329 = load i32, ptr %15, align 4
-  %2330 = zext i32 %2329 to i64
-  %2331 = getelementptr inbounds [256 x i32], ptr %2328, i64 0, i64 %2330
-  %2332 = load i32, ptr %2331, align 4
-  store i32 %2332, ptr %15, align 4
-  %2333 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2334 = getelementptr inbounds %struct.BF_ctx, ptr %2333, i32 0, i32 0
-  %2335 = getelementptr inbounds [4 x [256 x i32]], ptr %2334, i64 0, i64 2
-  %2336 = load i32, ptr %16, align 4
-  %2337 = zext i32 %2336 to i64
-  %2338 = getelementptr inbounds [256 x i32], ptr %2335, i64 0, i64 %2337
-  %2339 = load i32, ptr %2338, align 4
-  store i32 %2339, ptr %16, align 4
-  %2340 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2341 = getelementptr inbounds %struct.BF_ctx, ptr %2340, i32 0, i32 0
-  %2342 = getelementptr inbounds [4 x [256 x i32]], ptr %2341, i64 0, i64 1
-  %2343 = load i32, ptr %17, align 4
-  %2344 = zext i32 %2343 to i64
-  %2345 = getelementptr inbounds [256 x i32], ptr %2342, i64 0, i64 %2344
-  %2346 = load i32, ptr %2345, align 4
-  store i32 %2346, ptr %17, align 4
-  %2347 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2348 = getelementptr inbounds %struct.BF_ctx, ptr %2347, i32 0, i32 0
-  %2349 = getelementptr inbounds [4 x [256 x i32]], ptr %2348, i64 0, i64 0
-  %2350 = load i32, ptr %18, align 4
-  %2351 = zext i32 %2350 to i64
-  %2352 = getelementptr inbounds [256 x i32], ptr %2349, i64 0, i64 %2351
-  %2353 = load i32, ptr %2352, align 4
-  %2354 = load i32, ptr %17, align 4
-  %2355 = add i32 %2354, %2353
-  store i32 %2355, ptr %17, align 4
-  %2356 = load i32, ptr %16, align 4
-  %2357 = load i32, ptr %17, align 4
-  %2358 = xor i32 %2357, %2356
-  store i32 %2358, ptr %17, align 4
-  %2359 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2360 = getelementptr inbounds %struct.BF_ctx, ptr %2359, i32 0, i32 1
-  %2361 = getelementptr inbounds [18 x i32], ptr %2360, i64 0, i64 5
-  %2362 = load i32, ptr %2361, align 4
-  %2363 = load i32, ptr %14, align 4
-  %2364 = xor i32 %2363, %2362
-  store i32 %2364, ptr %14, align 4
-  %2365 = load i32, ptr %15, align 4
-  %2366 = load i32, ptr %17, align 4
-  %2367 = add i32 %2366, %2365
-  store i32 %2367, ptr %17, align 4
-  %2368 = load i32, ptr %17, align 4
-  %2369 = load i32, ptr %14, align 4
-  %2370 = xor i32 %2369, %2368
-  store i32 %2370, ptr %14, align 4
-  %2371 = load i32, ptr %14, align 4
-  %2372 = and i32 %2371, 255
-  store i32 %2372, ptr %15, align 4
-  %2373 = load i32, ptr %14, align 4
-  %2374 = lshr i32 %2373, 8
-  store i32 %2374, ptr %16, align 4
-  %2375 = load i32, ptr %16, align 4
-  %2376 = and i32 %2375, 255
-  store i32 %2376, ptr %16, align 4
-  %2377 = load i32, ptr %14, align 4
-  %2378 = lshr i32 %2377, 16
-  store i32 %2378, ptr %17, align 4
-  %2379 = load i32, ptr %17, align 4
-  %2380 = and i32 %2379, 255
-  store i32 %2380, ptr %17, align 4
-  %2381 = load i32, ptr %14, align 4
-  %2382 = lshr i32 %2381, 24
-  store i32 %2382, ptr %18, align 4
-  %2383 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2384 = getelementptr inbounds %struct.BF_ctx, ptr %2383, i32 0, i32 0
-  %2385 = getelementptr inbounds [4 x [256 x i32]], ptr %2384, i64 0, i64 3
-  %2386 = load i32, ptr %15, align 4
-  %2387 = zext i32 %2386 to i64
-  %2388 = getelementptr inbounds [256 x i32], ptr %2385, i64 0, i64 %2387
-  %2389 = load i32, ptr %2388, align 4
-  store i32 %2389, ptr %15, align 4
-  %2390 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2391 = getelementptr inbounds %struct.BF_ctx, ptr %2390, i32 0, i32 0
-  %2392 = getelementptr inbounds [4 x [256 x i32]], ptr %2391, i64 0, i64 2
-  %2393 = load i32, ptr %16, align 4
-  %2394 = zext i32 %2393 to i64
-  %2395 = getelementptr inbounds [256 x i32], ptr %2392, i64 0, i64 %2394
-  %2396 = load i32, ptr %2395, align 4
-  store i32 %2396, ptr %16, align 4
-  %2397 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2398 = getelementptr inbounds %struct.BF_ctx, ptr %2397, i32 0, i32 0
-  %2399 = getelementptr inbounds [4 x [256 x i32]], ptr %2398, i64 0, i64 1
-  %2400 = load i32, ptr %17, align 4
-  %2401 = zext i32 %2400 to i64
-  %2402 = getelementptr inbounds [256 x i32], ptr %2399, i64 0, i64 %2401
-  %2403 = load i32, ptr %2402, align 4
-  store i32 %2403, ptr %17, align 4
-  %2404 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2405 = getelementptr inbounds %struct.BF_ctx, ptr %2404, i32 0, i32 0
-  %2406 = getelementptr inbounds [4 x [256 x i32]], ptr %2405, i64 0, i64 0
-  %2407 = load i32, ptr %18, align 4
-  %2408 = zext i32 %2407 to i64
-  %2409 = getelementptr inbounds [256 x i32], ptr %2406, i64 0, i64 %2408
-  %2410 = load i32, ptr %2409, align 4
-  %2411 = load i32, ptr %17, align 4
-  %2412 = add i32 %2411, %2410
-  store i32 %2412, ptr %17, align 4
-  %2413 = load i32, ptr %16, align 4
-  %2414 = load i32, ptr %17, align 4
-  %2415 = xor i32 %2414, %2413
-  store i32 %2415, ptr %17, align 4
-  %2416 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2417 = getelementptr inbounds %struct.BF_ctx, ptr %2416, i32 0, i32 1
-  %2418 = getelementptr inbounds [18 x i32], ptr %2417, i64 0, i64 6
-  %2419 = load i32, ptr %2418, align 4
-  %2420 = load i32, ptr %13, align 4
-  %2421 = xor i32 %2420, %2419
-  store i32 %2421, ptr %13, align 4
-  %2422 = load i32, ptr %15, align 4
-  %2423 = load i32, ptr %17, align 4
-  %2424 = add i32 %2423, %2422
-  store i32 %2424, ptr %17, align 4
-  %2425 = load i32, ptr %17, align 4
-  %2426 = load i32, ptr %13, align 4
-  %2427 = xor i32 %2426, %2425
-  store i32 %2427, ptr %13, align 4
-  %2428 = load i32, ptr %13, align 4
-  %2429 = and i32 %2428, 255
-  store i32 %2429, ptr %15, align 4
-  %2430 = load i32, ptr %13, align 4
-  %2431 = lshr i32 %2430, 8
-  store i32 %2431, ptr %16, align 4
-  %2432 = load i32, ptr %16, align 4
-  %2433 = and i32 %2432, 255
-  store i32 %2433, ptr %16, align 4
-  %2434 = load i32, ptr %13, align 4
-  %2435 = lshr i32 %2434, 16
-  store i32 %2435, ptr %17, align 4
-  %2436 = load i32, ptr %17, align 4
-  %2437 = and i32 %2436, 255
-  store i32 %2437, ptr %17, align 4
-  %2438 = load i32, ptr %13, align 4
-  %2439 = lshr i32 %2438, 24
-  store i32 %2439, ptr %18, align 4
-  %2440 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2441 = getelementptr inbounds %struct.BF_ctx, ptr %2440, i32 0, i32 0
-  %2442 = getelementptr inbounds [4 x [256 x i32]], ptr %2441, i64 0, i64 3
-  %2443 = load i32, ptr %15, align 4
-  %2444 = zext i32 %2443 to i64
-  %2445 = getelementptr inbounds [256 x i32], ptr %2442, i64 0, i64 %2444
-  %2446 = load i32, ptr %2445, align 4
-  store i32 %2446, ptr %15, align 4
-  %2447 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2448 = getelementptr inbounds %struct.BF_ctx, ptr %2447, i32 0, i32 0
-  %2449 = getelementptr inbounds [4 x [256 x i32]], ptr %2448, i64 0, i64 2
-  %2450 = load i32, ptr %16, align 4
-  %2451 = zext i32 %2450 to i64
-  %2452 = getelementptr inbounds [256 x i32], ptr %2449, i64 0, i64 %2451
-  %2453 = load i32, ptr %2452, align 4
-  store i32 %2453, ptr %16, align 4
-  %2454 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2455 = getelementptr inbounds %struct.BF_ctx, ptr %2454, i32 0, i32 0
-  %2456 = getelementptr inbounds [4 x [256 x i32]], ptr %2455, i64 0, i64 1
-  %2457 = load i32, ptr %17, align 4
-  %2458 = zext i32 %2457 to i64
-  %2459 = getelementptr inbounds [256 x i32], ptr %2456, i64 0, i64 %2458
-  %2460 = load i32, ptr %2459, align 4
-  store i32 %2460, ptr %17, align 4
-  %2461 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2462 = getelementptr inbounds %struct.BF_ctx, ptr %2461, i32 0, i32 0
-  %2463 = getelementptr inbounds [4 x [256 x i32]], ptr %2462, i64 0, i64 0
-  %2464 = load i32, ptr %18, align 4
-  %2465 = zext i32 %2464 to i64
-  %2466 = getelementptr inbounds [256 x i32], ptr %2463, i64 0, i64 %2465
-  %2467 = load i32, ptr %2466, align 4
-  %2468 = load i32, ptr %17, align 4
-  %2469 = add i32 %2468, %2467
-  store i32 %2469, ptr %17, align 4
-  %2470 = load i32, ptr %16, align 4
-  %2471 = load i32, ptr %17, align 4
-  %2472 = xor i32 %2471, %2470
-  store i32 %2472, ptr %17, align 4
-  %2473 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2474 = getelementptr inbounds %struct.BF_ctx, ptr %2473, i32 0, i32 1
-  %2475 = getelementptr inbounds [18 x i32], ptr %2474, i64 0, i64 7
-  %2476 = load i32, ptr %2475, align 4
-  %2477 = load i32, ptr %14, align 4
-  %2478 = xor i32 %2477, %2476
-  store i32 %2478, ptr %14, align 4
-  %2479 = load i32, ptr %15, align 4
-  %2480 = load i32, ptr %17, align 4
-  %2481 = add i32 %2480, %2479
-  store i32 %2481, ptr %17, align 4
-  %2482 = load i32, ptr %17, align 4
-  %2483 = load i32, ptr %14, align 4
-  %2484 = xor i32 %2483, %2482
-  store i32 %2484, ptr %14, align 4
-  %2485 = load i32, ptr %14, align 4
-  %2486 = and i32 %2485, 255
-  store i32 %2486, ptr %15, align 4
-  %2487 = load i32, ptr %14, align 4
-  %2488 = lshr i32 %2487, 8
-  store i32 %2488, ptr %16, align 4
-  %2489 = load i32, ptr %16, align 4
-  %2490 = and i32 %2489, 255
-  store i32 %2490, ptr %16, align 4
-  %2491 = load i32, ptr %14, align 4
-  %2492 = lshr i32 %2491, 16
-  store i32 %2492, ptr %17, align 4
-  %2493 = load i32, ptr %17, align 4
-  %2494 = and i32 %2493, 255
-  store i32 %2494, ptr %17, align 4
-  %2495 = load i32, ptr %14, align 4
-  %2496 = lshr i32 %2495, 24
-  store i32 %2496, ptr %18, align 4
-  %2497 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2498 = getelementptr inbounds %struct.BF_ctx, ptr %2497, i32 0, i32 0
-  %2499 = getelementptr inbounds [4 x [256 x i32]], ptr %2498, i64 0, i64 3
-  %2500 = load i32, ptr %15, align 4
-  %2501 = zext i32 %2500 to i64
-  %2502 = getelementptr inbounds [256 x i32], ptr %2499, i64 0, i64 %2501
-  %2503 = load i32, ptr %2502, align 4
-  store i32 %2503, ptr %15, align 4
-  %2504 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2505 = getelementptr inbounds %struct.BF_ctx, ptr %2504, i32 0, i32 0
-  %2506 = getelementptr inbounds [4 x [256 x i32]], ptr %2505, i64 0, i64 2
-  %2507 = load i32, ptr %16, align 4
-  %2508 = zext i32 %2507 to i64
-  %2509 = getelementptr inbounds [256 x i32], ptr %2506, i64 0, i64 %2508
-  %2510 = load i32, ptr %2509, align 4
-  store i32 %2510, ptr %16, align 4
-  %2511 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2512 = getelementptr inbounds %struct.BF_ctx, ptr %2511, i32 0, i32 0
-  %2513 = getelementptr inbounds [4 x [256 x i32]], ptr %2512, i64 0, i64 1
-  %2514 = load i32, ptr %17, align 4
-  %2515 = zext i32 %2514 to i64
-  %2516 = getelementptr inbounds [256 x i32], ptr %2513, i64 0, i64 %2515
-  %2517 = load i32, ptr %2516, align 4
-  store i32 %2517, ptr %17, align 4
-  %2518 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2519 = getelementptr inbounds %struct.BF_ctx, ptr %2518, i32 0, i32 0
-  %2520 = getelementptr inbounds [4 x [256 x i32]], ptr %2519, i64 0, i64 0
-  %2521 = load i32, ptr %18, align 4
-  %2522 = zext i32 %2521 to i64
-  %2523 = getelementptr inbounds [256 x i32], ptr %2520, i64 0, i64 %2522
-  %2524 = load i32, ptr %2523, align 4
-  %2525 = load i32, ptr %17, align 4
-  %2526 = add i32 %2525, %2524
-  store i32 %2526, ptr %17, align 4
-  %2527 = load i32, ptr %16, align 4
-  %2528 = load i32, ptr %17, align 4
-  %2529 = xor i32 %2528, %2527
-  store i32 %2529, ptr %17, align 4
-  %2530 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2531 = getelementptr inbounds %struct.BF_ctx, ptr %2530, i32 0, i32 1
-  %2532 = getelementptr inbounds [18 x i32], ptr %2531, i64 0, i64 8
-  %2533 = load i32, ptr %2532, align 4
-  %2534 = load i32, ptr %13, align 4
-  %2535 = xor i32 %2534, %2533
-  store i32 %2535, ptr %13, align 4
-  %2536 = load i32, ptr %15, align 4
-  %2537 = load i32, ptr %17, align 4
-  %2538 = add i32 %2537, %2536
-  store i32 %2538, ptr %17, align 4
-  %2539 = load i32, ptr %17, align 4
-  %2540 = load i32, ptr %13, align 4
-  %2541 = xor i32 %2540, %2539
-  store i32 %2541, ptr %13, align 4
-  %2542 = load i32, ptr %13, align 4
-  %2543 = and i32 %2542, 255
-  store i32 %2543, ptr %15, align 4
-  %2544 = load i32, ptr %13, align 4
-  %2545 = lshr i32 %2544, 8
-  store i32 %2545, ptr %16, align 4
-  %2546 = load i32, ptr %16, align 4
-  %2547 = and i32 %2546, 255
-  store i32 %2547, ptr %16, align 4
-  %2548 = load i32, ptr %13, align 4
-  %2549 = lshr i32 %2548, 16
-  store i32 %2549, ptr %17, align 4
-  %2550 = load i32, ptr %17, align 4
-  %2551 = and i32 %2550, 255
-  store i32 %2551, ptr %17, align 4
-  %2552 = load i32, ptr %13, align 4
-  %2553 = lshr i32 %2552, 24
-  store i32 %2553, ptr %18, align 4
-  %2554 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2555 = getelementptr inbounds %struct.BF_ctx, ptr %2554, i32 0, i32 0
-  %2556 = getelementptr inbounds [4 x [256 x i32]], ptr %2555, i64 0, i64 3
-  %2557 = load i32, ptr %15, align 4
-  %2558 = zext i32 %2557 to i64
-  %2559 = getelementptr inbounds [256 x i32], ptr %2556, i64 0, i64 %2558
-  %2560 = load i32, ptr %2559, align 4
-  store i32 %2560, ptr %15, align 4
-  %2561 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2562 = getelementptr inbounds %struct.BF_ctx, ptr %2561, i32 0, i32 0
-  %2563 = getelementptr inbounds [4 x [256 x i32]], ptr %2562, i64 0, i64 2
-  %2564 = load i32, ptr %16, align 4
-  %2565 = zext i32 %2564 to i64
-  %2566 = getelementptr inbounds [256 x i32], ptr %2563, i64 0, i64 %2565
-  %2567 = load i32, ptr %2566, align 4
-  store i32 %2567, ptr %16, align 4
-  %2568 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2569 = getelementptr inbounds %struct.BF_ctx, ptr %2568, i32 0, i32 0
-  %2570 = getelementptr inbounds [4 x [256 x i32]], ptr %2569, i64 0, i64 1
-  %2571 = load i32, ptr %17, align 4
-  %2572 = zext i32 %2571 to i64
-  %2573 = getelementptr inbounds [256 x i32], ptr %2570, i64 0, i64 %2572
-  %2574 = load i32, ptr %2573, align 4
-  store i32 %2574, ptr %17, align 4
-  %2575 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2576 = getelementptr inbounds %struct.BF_ctx, ptr %2575, i32 0, i32 0
-  %2577 = getelementptr inbounds [4 x [256 x i32]], ptr %2576, i64 0, i64 0
-  %2578 = load i32, ptr %18, align 4
-  %2579 = zext i32 %2578 to i64
-  %2580 = getelementptr inbounds [256 x i32], ptr %2577, i64 0, i64 %2579
-  %2581 = load i32, ptr %2580, align 4
-  %2582 = load i32, ptr %17, align 4
-  %2583 = add i32 %2582, %2581
-  store i32 %2583, ptr %17, align 4
-  %2584 = load i32, ptr %16, align 4
-  %2585 = load i32, ptr %17, align 4
-  %2586 = xor i32 %2585, %2584
-  store i32 %2586, ptr %17, align 4
-  %2587 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2588 = getelementptr inbounds %struct.BF_ctx, ptr %2587, i32 0, i32 1
-  %2589 = getelementptr inbounds [18 x i32], ptr %2588, i64 0, i64 9
-  %2590 = load i32, ptr %2589, align 4
-  %2591 = load i32, ptr %14, align 4
-  %2592 = xor i32 %2591, %2590
-  store i32 %2592, ptr %14, align 4
-  %2593 = load i32, ptr %15, align 4
-  %2594 = load i32, ptr %17, align 4
-  %2595 = add i32 %2594, %2593
-  store i32 %2595, ptr %17, align 4
-  %2596 = load i32, ptr %17, align 4
-  %2597 = load i32, ptr %14, align 4
-  %2598 = xor i32 %2597, %2596
-  store i32 %2598, ptr %14, align 4
-  %2599 = load i32, ptr %14, align 4
-  %2600 = and i32 %2599, 255
-  store i32 %2600, ptr %15, align 4
-  %2601 = load i32, ptr %14, align 4
-  %2602 = lshr i32 %2601, 8
-  store i32 %2602, ptr %16, align 4
-  %2603 = load i32, ptr %16, align 4
-  %2604 = and i32 %2603, 255
-  store i32 %2604, ptr %16, align 4
-  %2605 = load i32, ptr %14, align 4
-  %2606 = lshr i32 %2605, 16
-  store i32 %2606, ptr %17, align 4
-  %2607 = load i32, ptr %17, align 4
-  %2608 = and i32 %2607, 255
-  store i32 %2608, ptr %17, align 4
-  %2609 = load i32, ptr %14, align 4
-  %2610 = lshr i32 %2609, 24
-  store i32 %2610, ptr %18, align 4
-  %2611 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2612 = getelementptr inbounds %struct.BF_ctx, ptr %2611, i32 0, i32 0
-  %2613 = getelementptr inbounds [4 x [256 x i32]], ptr %2612, i64 0, i64 3
-  %2614 = load i32, ptr %15, align 4
-  %2615 = zext i32 %2614 to i64
-  %2616 = getelementptr inbounds [256 x i32], ptr %2613, i64 0, i64 %2615
-  %2617 = load i32, ptr %2616, align 4
-  store i32 %2617, ptr %15, align 4
-  %2618 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2619 = getelementptr inbounds %struct.BF_ctx, ptr %2618, i32 0, i32 0
-  %2620 = getelementptr inbounds [4 x [256 x i32]], ptr %2619, i64 0, i64 2
-  %2621 = load i32, ptr %16, align 4
-  %2622 = zext i32 %2621 to i64
-  %2623 = getelementptr inbounds [256 x i32], ptr %2620, i64 0, i64 %2622
-  %2624 = load i32, ptr %2623, align 4
-  store i32 %2624, ptr %16, align 4
-  %2625 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2626 = getelementptr inbounds %struct.BF_ctx, ptr %2625, i32 0, i32 0
-  %2627 = getelementptr inbounds [4 x [256 x i32]], ptr %2626, i64 0, i64 1
-  %2628 = load i32, ptr %17, align 4
-  %2629 = zext i32 %2628 to i64
-  %2630 = getelementptr inbounds [256 x i32], ptr %2627, i64 0, i64 %2629
-  %2631 = load i32, ptr %2630, align 4
-  store i32 %2631, ptr %17, align 4
-  %2632 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2633 = getelementptr inbounds %struct.BF_ctx, ptr %2632, i32 0, i32 0
-  %2634 = getelementptr inbounds [4 x [256 x i32]], ptr %2633, i64 0, i64 0
-  %2635 = load i32, ptr %18, align 4
-  %2636 = zext i32 %2635 to i64
-  %2637 = getelementptr inbounds [256 x i32], ptr %2634, i64 0, i64 %2636
-  %2638 = load i32, ptr %2637, align 4
-  %2639 = load i32, ptr %17, align 4
-  %2640 = add i32 %2639, %2638
-  store i32 %2640, ptr %17, align 4
-  %2641 = load i32, ptr %16, align 4
-  %2642 = load i32, ptr %17, align 4
-  %2643 = xor i32 %2642, %2641
-  store i32 %2643, ptr %17, align 4
-  %2644 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2645 = getelementptr inbounds %struct.BF_ctx, ptr %2644, i32 0, i32 1
-  %2646 = getelementptr inbounds [18 x i32], ptr %2645, i64 0, i64 10
-  %2647 = load i32, ptr %2646, align 4
-  %2648 = load i32, ptr %13, align 4
-  %2649 = xor i32 %2648, %2647
-  store i32 %2649, ptr %13, align 4
-  %2650 = load i32, ptr %15, align 4
-  %2651 = load i32, ptr %17, align 4
-  %2652 = add i32 %2651, %2650
-  store i32 %2652, ptr %17, align 4
-  %2653 = load i32, ptr %17, align 4
-  %2654 = load i32, ptr %13, align 4
-  %2655 = xor i32 %2654, %2653
-  store i32 %2655, ptr %13, align 4
-  %2656 = load i32, ptr %13, align 4
-  %2657 = and i32 %2656, 255
-  store i32 %2657, ptr %15, align 4
-  %2658 = load i32, ptr %13, align 4
-  %2659 = lshr i32 %2658, 8
-  store i32 %2659, ptr %16, align 4
-  %2660 = load i32, ptr %16, align 4
-  %2661 = and i32 %2660, 255
-  store i32 %2661, ptr %16, align 4
-  %2662 = load i32, ptr %13, align 4
-  %2663 = lshr i32 %2662, 16
-  store i32 %2663, ptr %17, align 4
-  %2664 = load i32, ptr %17, align 4
-  %2665 = and i32 %2664, 255
-  store i32 %2665, ptr %17, align 4
-  %2666 = load i32, ptr %13, align 4
-  %2667 = lshr i32 %2666, 24
-  store i32 %2667, ptr %18, align 4
-  %2668 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2669 = getelementptr inbounds %struct.BF_ctx, ptr %2668, i32 0, i32 0
-  %2670 = getelementptr inbounds [4 x [256 x i32]], ptr %2669, i64 0, i64 3
-  %2671 = load i32, ptr %15, align 4
-  %2672 = zext i32 %2671 to i64
-  %2673 = getelementptr inbounds [256 x i32], ptr %2670, i64 0, i64 %2672
-  %2674 = load i32, ptr %2673, align 4
-  store i32 %2674, ptr %15, align 4
-  %2675 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2676 = getelementptr inbounds %struct.BF_ctx, ptr %2675, i32 0, i32 0
-  %2677 = getelementptr inbounds [4 x [256 x i32]], ptr %2676, i64 0, i64 2
-  %2678 = load i32, ptr %16, align 4
-  %2679 = zext i32 %2678 to i64
-  %2680 = getelementptr inbounds [256 x i32], ptr %2677, i64 0, i64 %2679
-  %2681 = load i32, ptr %2680, align 4
-  store i32 %2681, ptr %16, align 4
-  %2682 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2683 = getelementptr inbounds %struct.BF_ctx, ptr %2682, i32 0, i32 0
-  %2684 = getelementptr inbounds [4 x [256 x i32]], ptr %2683, i64 0, i64 1
-  %2685 = load i32, ptr %17, align 4
-  %2686 = zext i32 %2685 to i64
-  %2687 = getelementptr inbounds [256 x i32], ptr %2684, i64 0, i64 %2686
-  %2688 = load i32, ptr %2687, align 4
-  store i32 %2688, ptr %17, align 4
-  %2689 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2690 = getelementptr inbounds %struct.BF_ctx, ptr %2689, i32 0, i32 0
-  %2691 = getelementptr inbounds [4 x [256 x i32]], ptr %2690, i64 0, i64 0
-  %2692 = load i32, ptr %18, align 4
-  %2693 = zext i32 %2692 to i64
-  %2694 = getelementptr inbounds [256 x i32], ptr %2691, i64 0, i64 %2693
-  %2695 = load i32, ptr %2694, align 4
-  %2696 = load i32, ptr %17, align 4
-  %2697 = add i32 %2696, %2695
-  store i32 %2697, ptr %17, align 4
-  %2698 = load i32, ptr %16, align 4
-  %2699 = load i32, ptr %17, align 4
-  %2700 = xor i32 %2699, %2698
-  store i32 %2700, ptr %17, align 4
-  %2701 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2702 = getelementptr inbounds %struct.BF_ctx, ptr %2701, i32 0, i32 1
-  %2703 = getelementptr inbounds [18 x i32], ptr %2702, i64 0, i64 11
-  %2704 = load i32, ptr %2703, align 4
-  %2705 = load i32, ptr %14, align 4
-  %2706 = xor i32 %2705, %2704
-  store i32 %2706, ptr %14, align 4
-  %2707 = load i32, ptr %15, align 4
-  %2708 = load i32, ptr %17, align 4
-  %2709 = add i32 %2708, %2707
-  store i32 %2709, ptr %17, align 4
-  %2710 = load i32, ptr %17, align 4
-  %2711 = load i32, ptr %14, align 4
-  %2712 = xor i32 %2711, %2710
-  store i32 %2712, ptr %14, align 4
-  %2713 = load i32, ptr %14, align 4
-  %2714 = and i32 %2713, 255
-  store i32 %2714, ptr %15, align 4
-  %2715 = load i32, ptr %14, align 4
-  %2716 = lshr i32 %2715, 8
-  store i32 %2716, ptr %16, align 4
-  %2717 = load i32, ptr %16, align 4
-  %2718 = and i32 %2717, 255
-  store i32 %2718, ptr %16, align 4
-  %2719 = load i32, ptr %14, align 4
-  %2720 = lshr i32 %2719, 16
-  store i32 %2720, ptr %17, align 4
-  %2721 = load i32, ptr %17, align 4
-  %2722 = and i32 %2721, 255
-  store i32 %2722, ptr %17, align 4
-  %2723 = load i32, ptr %14, align 4
-  %2724 = lshr i32 %2723, 24
-  store i32 %2724, ptr %18, align 4
-  %2725 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2726 = getelementptr inbounds %struct.BF_ctx, ptr %2725, i32 0, i32 0
-  %2727 = getelementptr inbounds [4 x [256 x i32]], ptr %2726, i64 0, i64 3
-  %2728 = load i32, ptr %15, align 4
-  %2729 = zext i32 %2728 to i64
-  %2730 = getelementptr inbounds [256 x i32], ptr %2727, i64 0, i64 %2729
-  %2731 = load i32, ptr %2730, align 4
-  store i32 %2731, ptr %15, align 4
-  %2732 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2733 = getelementptr inbounds %struct.BF_ctx, ptr %2732, i32 0, i32 0
-  %2734 = getelementptr inbounds [4 x [256 x i32]], ptr %2733, i64 0, i64 2
-  %2735 = load i32, ptr %16, align 4
-  %2736 = zext i32 %2735 to i64
-  %2737 = getelementptr inbounds [256 x i32], ptr %2734, i64 0, i64 %2736
-  %2738 = load i32, ptr %2737, align 4
-  store i32 %2738, ptr %16, align 4
-  %2739 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2740 = getelementptr inbounds %struct.BF_ctx, ptr %2739, i32 0, i32 0
-  %2741 = getelementptr inbounds [4 x [256 x i32]], ptr %2740, i64 0, i64 1
-  %2742 = load i32, ptr %17, align 4
-  %2743 = zext i32 %2742 to i64
-  %2744 = getelementptr inbounds [256 x i32], ptr %2741, i64 0, i64 %2743
-  %2745 = load i32, ptr %2744, align 4
-  store i32 %2745, ptr %17, align 4
-  %2746 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2747 = getelementptr inbounds %struct.BF_ctx, ptr %2746, i32 0, i32 0
-  %2748 = getelementptr inbounds [4 x [256 x i32]], ptr %2747, i64 0, i64 0
-  %2749 = load i32, ptr %18, align 4
-  %2750 = zext i32 %2749 to i64
-  %2751 = getelementptr inbounds [256 x i32], ptr %2748, i64 0, i64 %2750
-  %2752 = load i32, ptr %2751, align 4
-  %2753 = load i32, ptr %17, align 4
-  %2754 = add i32 %2753, %2752
-  store i32 %2754, ptr %17, align 4
-  %2755 = load i32, ptr %16, align 4
-  %2756 = load i32, ptr %17, align 4
-  %2757 = xor i32 %2756, %2755
-  store i32 %2757, ptr %17, align 4
-  %2758 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2759 = getelementptr inbounds %struct.BF_ctx, ptr %2758, i32 0, i32 1
-  %2760 = getelementptr inbounds [18 x i32], ptr %2759, i64 0, i64 12
-  %2761 = load i32, ptr %2760, align 4
-  %2762 = load i32, ptr %13, align 4
-  %2763 = xor i32 %2762, %2761
-  store i32 %2763, ptr %13, align 4
-  %2764 = load i32, ptr %15, align 4
-  %2765 = load i32, ptr %17, align 4
-  %2766 = add i32 %2765, %2764
-  store i32 %2766, ptr %17, align 4
-  %2767 = load i32, ptr %17, align 4
-  %2768 = load i32, ptr %13, align 4
-  %2769 = xor i32 %2768, %2767
-  store i32 %2769, ptr %13, align 4
-  %2770 = load i32, ptr %13, align 4
-  %2771 = and i32 %2770, 255
-  store i32 %2771, ptr %15, align 4
-  %2772 = load i32, ptr %13, align 4
-  %2773 = lshr i32 %2772, 8
-  store i32 %2773, ptr %16, align 4
-  %2774 = load i32, ptr %16, align 4
-  %2775 = and i32 %2774, 255
-  store i32 %2775, ptr %16, align 4
-  %2776 = load i32, ptr %13, align 4
-  %2777 = lshr i32 %2776, 16
-  store i32 %2777, ptr %17, align 4
-  %2778 = load i32, ptr %17, align 4
-  %2779 = and i32 %2778, 255
-  store i32 %2779, ptr %17, align 4
-  %2780 = load i32, ptr %13, align 4
-  %2781 = lshr i32 %2780, 24
-  store i32 %2781, ptr %18, align 4
-  %2782 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2783 = getelementptr inbounds %struct.BF_ctx, ptr %2782, i32 0, i32 0
-  %2784 = getelementptr inbounds [4 x [256 x i32]], ptr %2783, i64 0, i64 3
-  %2785 = load i32, ptr %15, align 4
-  %2786 = zext i32 %2785 to i64
-  %2787 = getelementptr inbounds [256 x i32], ptr %2784, i64 0, i64 %2786
-  %2788 = load i32, ptr %2787, align 4
-  store i32 %2788, ptr %15, align 4
-  %2789 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2790 = getelementptr inbounds %struct.BF_ctx, ptr %2789, i32 0, i32 0
-  %2791 = getelementptr inbounds [4 x [256 x i32]], ptr %2790, i64 0, i64 2
-  %2792 = load i32, ptr %16, align 4
-  %2793 = zext i32 %2792 to i64
-  %2794 = getelementptr inbounds [256 x i32], ptr %2791, i64 0, i64 %2793
-  %2795 = load i32, ptr %2794, align 4
-  store i32 %2795, ptr %16, align 4
-  %2796 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2797 = getelementptr inbounds %struct.BF_ctx, ptr %2796, i32 0, i32 0
-  %2798 = getelementptr inbounds [4 x [256 x i32]], ptr %2797, i64 0, i64 1
-  %2799 = load i32, ptr %17, align 4
-  %2800 = zext i32 %2799 to i64
-  %2801 = getelementptr inbounds [256 x i32], ptr %2798, i64 0, i64 %2800
-  %2802 = load i32, ptr %2801, align 4
-  store i32 %2802, ptr %17, align 4
-  %2803 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2804 = getelementptr inbounds %struct.BF_ctx, ptr %2803, i32 0, i32 0
-  %2805 = getelementptr inbounds [4 x [256 x i32]], ptr %2804, i64 0, i64 0
-  %2806 = load i32, ptr %18, align 4
-  %2807 = zext i32 %2806 to i64
-  %2808 = getelementptr inbounds [256 x i32], ptr %2805, i64 0, i64 %2807
-  %2809 = load i32, ptr %2808, align 4
-  %2810 = load i32, ptr %17, align 4
-  %2811 = add i32 %2810, %2809
-  store i32 %2811, ptr %17, align 4
-  %2812 = load i32, ptr %16, align 4
-  %2813 = load i32, ptr %17, align 4
-  %2814 = xor i32 %2813, %2812
-  store i32 %2814, ptr %17, align 4
-  %2815 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2816 = getelementptr inbounds %struct.BF_ctx, ptr %2815, i32 0, i32 1
-  %2817 = getelementptr inbounds [18 x i32], ptr %2816, i64 0, i64 13
-  %2818 = load i32, ptr %2817, align 4
-  %2819 = load i32, ptr %14, align 4
-  %2820 = xor i32 %2819, %2818
-  store i32 %2820, ptr %14, align 4
-  %2821 = load i32, ptr %15, align 4
-  %2822 = load i32, ptr %17, align 4
-  %2823 = add i32 %2822, %2821
-  store i32 %2823, ptr %17, align 4
-  %2824 = load i32, ptr %17, align 4
-  %2825 = load i32, ptr %14, align 4
-  %2826 = xor i32 %2825, %2824
-  store i32 %2826, ptr %14, align 4
-  %2827 = load i32, ptr %14, align 4
-  %2828 = and i32 %2827, 255
-  store i32 %2828, ptr %15, align 4
-  %2829 = load i32, ptr %14, align 4
-  %2830 = lshr i32 %2829, 8
-  store i32 %2830, ptr %16, align 4
-  %2831 = load i32, ptr %16, align 4
-  %2832 = and i32 %2831, 255
-  store i32 %2832, ptr %16, align 4
-  %2833 = load i32, ptr %14, align 4
-  %2834 = lshr i32 %2833, 16
-  store i32 %2834, ptr %17, align 4
-  %2835 = load i32, ptr %17, align 4
-  %2836 = and i32 %2835, 255
-  store i32 %2836, ptr %17, align 4
-  %2837 = load i32, ptr %14, align 4
-  %2838 = lshr i32 %2837, 24
-  store i32 %2838, ptr %18, align 4
-  %2839 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2840 = getelementptr inbounds %struct.BF_ctx, ptr %2839, i32 0, i32 0
-  %2841 = getelementptr inbounds [4 x [256 x i32]], ptr %2840, i64 0, i64 3
-  %2842 = load i32, ptr %15, align 4
-  %2843 = zext i32 %2842 to i64
-  %2844 = getelementptr inbounds [256 x i32], ptr %2841, i64 0, i64 %2843
-  %2845 = load i32, ptr %2844, align 4
-  store i32 %2845, ptr %15, align 4
-  %2846 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2847 = getelementptr inbounds %struct.BF_ctx, ptr %2846, i32 0, i32 0
-  %2848 = getelementptr inbounds [4 x [256 x i32]], ptr %2847, i64 0, i64 2
-  %2849 = load i32, ptr %16, align 4
-  %2850 = zext i32 %2849 to i64
-  %2851 = getelementptr inbounds [256 x i32], ptr %2848, i64 0, i64 %2850
-  %2852 = load i32, ptr %2851, align 4
-  store i32 %2852, ptr %16, align 4
-  %2853 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2854 = getelementptr inbounds %struct.BF_ctx, ptr %2853, i32 0, i32 0
-  %2855 = getelementptr inbounds [4 x [256 x i32]], ptr %2854, i64 0, i64 1
-  %2856 = load i32, ptr %17, align 4
-  %2857 = zext i32 %2856 to i64
-  %2858 = getelementptr inbounds [256 x i32], ptr %2855, i64 0, i64 %2857
-  %2859 = load i32, ptr %2858, align 4
-  store i32 %2859, ptr %17, align 4
-  %2860 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2861 = getelementptr inbounds %struct.BF_ctx, ptr %2860, i32 0, i32 0
-  %2862 = getelementptr inbounds [4 x [256 x i32]], ptr %2861, i64 0, i64 0
-  %2863 = load i32, ptr %18, align 4
-  %2864 = zext i32 %2863 to i64
-  %2865 = getelementptr inbounds [256 x i32], ptr %2862, i64 0, i64 %2864
-  %2866 = load i32, ptr %2865, align 4
-  %2867 = load i32, ptr %17, align 4
-  %2868 = add i32 %2867, %2866
-  store i32 %2868, ptr %17, align 4
-  %2869 = load i32, ptr %16, align 4
-  %2870 = load i32, ptr %17, align 4
-  %2871 = xor i32 %2870, %2869
-  store i32 %2871, ptr %17, align 4
-  %2872 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2873 = getelementptr inbounds %struct.BF_ctx, ptr %2872, i32 0, i32 1
-  %2874 = getelementptr inbounds [18 x i32], ptr %2873, i64 0, i64 14
-  %2875 = load i32, ptr %2874, align 4
-  %2876 = load i32, ptr %13, align 4
-  %2877 = xor i32 %2876, %2875
-  store i32 %2877, ptr %13, align 4
-  %2878 = load i32, ptr %15, align 4
-  %2879 = load i32, ptr %17, align 4
-  %2880 = add i32 %2879, %2878
-  store i32 %2880, ptr %17, align 4
-  %2881 = load i32, ptr %17, align 4
-  %2882 = load i32, ptr %13, align 4
-  %2883 = xor i32 %2882, %2881
-  store i32 %2883, ptr %13, align 4
-  %2884 = load i32, ptr %13, align 4
-  %2885 = and i32 %2884, 255
-  store i32 %2885, ptr %15, align 4
-  %2886 = load i32, ptr %13, align 4
-  %2887 = lshr i32 %2886, 8
-  store i32 %2887, ptr %16, align 4
-  %2888 = load i32, ptr %16, align 4
-  %2889 = and i32 %2888, 255
-  store i32 %2889, ptr %16, align 4
-  %2890 = load i32, ptr %13, align 4
-  %2891 = lshr i32 %2890, 16
-  store i32 %2891, ptr %17, align 4
-  %2892 = load i32, ptr %17, align 4
-  %2893 = and i32 %2892, 255
-  store i32 %2893, ptr %17, align 4
-  %2894 = load i32, ptr %13, align 4
-  %2895 = lshr i32 %2894, 24
-  store i32 %2895, ptr %18, align 4
-  %2896 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2897 = getelementptr inbounds %struct.BF_ctx, ptr %2896, i32 0, i32 0
-  %2898 = getelementptr inbounds [4 x [256 x i32]], ptr %2897, i64 0, i64 3
-  %2899 = load i32, ptr %15, align 4
-  %2900 = zext i32 %2899 to i64
-  %2901 = getelementptr inbounds [256 x i32], ptr %2898, i64 0, i64 %2900
-  %2902 = load i32, ptr %2901, align 4
-  store i32 %2902, ptr %15, align 4
-  %2903 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2904 = getelementptr inbounds %struct.BF_ctx, ptr %2903, i32 0, i32 0
-  %2905 = getelementptr inbounds [4 x [256 x i32]], ptr %2904, i64 0, i64 2
-  %2906 = load i32, ptr %16, align 4
-  %2907 = zext i32 %2906 to i64
-  %2908 = getelementptr inbounds [256 x i32], ptr %2905, i64 0, i64 %2907
-  %2909 = load i32, ptr %2908, align 4
-  store i32 %2909, ptr %16, align 4
-  %2910 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2911 = getelementptr inbounds %struct.BF_ctx, ptr %2910, i32 0, i32 0
-  %2912 = getelementptr inbounds [4 x [256 x i32]], ptr %2911, i64 0, i64 1
-  %2913 = load i32, ptr %17, align 4
-  %2914 = zext i32 %2913 to i64
-  %2915 = getelementptr inbounds [256 x i32], ptr %2912, i64 0, i64 %2914
-  %2916 = load i32, ptr %2915, align 4
-  store i32 %2916, ptr %17, align 4
-  %2917 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2918 = getelementptr inbounds %struct.BF_ctx, ptr %2917, i32 0, i32 0
-  %2919 = getelementptr inbounds [4 x [256 x i32]], ptr %2918, i64 0, i64 0
-  %2920 = load i32, ptr %18, align 4
-  %2921 = zext i32 %2920 to i64
-  %2922 = getelementptr inbounds [256 x i32], ptr %2919, i64 0, i64 %2921
-  %2923 = load i32, ptr %2922, align 4
-  %2924 = load i32, ptr %17, align 4
-  %2925 = add i32 %2924, %2923
-  store i32 %2925, ptr %17, align 4
-  %2926 = load i32, ptr %16, align 4
-  %2927 = load i32, ptr %17, align 4
-  %2928 = xor i32 %2927, %2926
-  store i32 %2928, ptr %17, align 4
-  %2929 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2930 = getelementptr inbounds %struct.BF_ctx, ptr %2929, i32 0, i32 1
-  %2931 = getelementptr inbounds [18 x i32], ptr %2930, i64 0, i64 15
-  %2932 = load i32, ptr %2931, align 4
-  %2933 = load i32, ptr %14, align 4
-  %2934 = xor i32 %2933, %2932
-  store i32 %2934, ptr %14, align 4
-  %2935 = load i32, ptr %15, align 4
-  %2936 = load i32, ptr %17, align 4
-  %2937 = add i32 %2936, %2935
-  store i32 %2937, ptr %17, align 4
-  %2938 = load i32, ptr %17, align 4
-  %2939 = load i32, ptr %14, align 4
-  %2940 = xor i32 %2939, %2938
-  store i32 %2940, ptr %14, align 4
-  %2941 = load i32, ptr %14, align 4
-  %2942 = and i32 %2941, 255
-  store i32 %2942, ptr %15, align 4
-  %2943 = load i32, ptr %14, align 4
-  %2944 = lshr i32 %2943, 8
-  store i32 %2944, ptr %16, align 4
-  %2945 = load i32, ptr %16, align 4
-  %2946 = and i32 %2945, 255
-  store i32 %2946, ptr %16, align 4
-  %2947 = load i32, ptr %14, align 4
-  %2948 = lshr i32 %2947, 16
-  store i32 %2948, ptr %17, align 4
-  %2949 = load i32, ptr %17, align 4
-  %2950 = and i32 %2949, 255
-  store i32 %2950, ptr %17, align 4
-  %2951 = load i32, ptr %14, align 4
-  %2952 = lshr i32 %2951, 24
-  store i32 %2952, ptr %18, align 4
-  %2953 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2954 = getelementptr inbounds %struct.BF_ctx, ptr %2953, i32 0, i32 0
-  %2955 = getelementptr inbounds [4 x [256 x i32]], ptr %2954, i64 0, i64 3
-  %2956 = load i32, ptr %15, align 4
-  %2957 = zext i32 %2956 to i64
-  %2958 = getelementptr inbounds [256 x i32], ptr %2955, i64 0, i64 %2957
-  %2959 = load i32, ptr %2958, align 4
-  store i32 %2959, ptr %15, align 4
-  %2960 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2961 = getelementptr inbounds %struct.BF_ctx, ptr %2960, i32 0, i32 0
-  %2962 = getelementptr inbounds [4 x [256 x i32]], ptr %2961, i64 0, i64 2
-  %2963 = load i32, ptr %16, align 4
-  %2964 = zext i32 %2963 to i64
-  %2965 = getelementptr inbounds [256 x i32], ptr %2962, i64 0, i64 %2964
-  %2966 = load i32, ptr %2965, align 4
-  store i32 %2966, ptr %16, align 4
-  %2967 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2968 = getelementptr inbounds %struct.BF_ctx, ptr %2967, i32 0, i32 0
-  %2969 = getelementptr inbounds [4 x [256 x i32]], ptr %2968, i64 0, i64 1
-  %2970 = load i32, ptr %17, align 4
-  %2971 = zext i32 %2970 to i64
-  %2972 = getelementptr inbounds [256 x i32], ptr %2969, i64 0, i64 %2971
-  %2973 = load i32, ptr %2972, align 4
-  store i32 %2973, ptr %17, align 4
-  %2974 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2975 = getelementptr inbounds %struct.BF_ctx, ptr %2974, i32 0, i32 0
-  %2976 = getelementptr inbounds [4 x [256 x i32]], ptr %2975, i64 0, i64 0
-  %2977 = load i32, ptr %18, align 4
-  %2978 = zext i32 %2977 to i64
-  %2979 = getelementptr inbounds [256 x i32], ptr %2976, i64 0, i64 %2978
-  %2980 = load i32, ptr %2979, align 4
-  %2981 = load i32, ptr %17, align 4
-  %2982 = add i32 %2981, %2980
-  store i32 %2982, ptr %17, align 4
-  %2983 = load i32, ptr %16, align 4
-  %2984 = load i32, ptr %17, align 4
-  %2985 = xor i32 %2984, %2983
-  store i32 %2985, ptr %17, align 4
-  %2986 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %2987 = getelementptr inbounds %struct.BF_ctx, ptr %2986, i32 0, i32 1
-  %2988 = getelementptr inbounds [18 x i32], ptr %2987, i64 0, i64 16
-  %2989 = load i32, ptr %2988, align 4
-  %2990 = load i32, ptr %13, align 4
-  %2991 = xor i32 %2990, %2989
-  store i32 %2991, ptr %13, align 4
-  %2992 = load i32, ptr %15, align 4
-  %2993 = load i32, ptr %17, align 4
-  %2994 = add i32 %2993, %2992
-  store i32 %2994, ptr %17, align 4
-  %2995 = load i32, ptr %17, align 4
-  %2996 = load i32, ptr %13, align 4
-  %2997 = xor i32 %2996, %2995
-  store i32 %2997, ptr %13, align 4
-  %2998 = load i32, ptr %14, align 4
-  store i32 %2998, ptr %18, align 4
-  %2999 = load i32, ptr %13, align 4
-  store i32 %2999, ptr %14, align 4
-  %3000 = load i32, ptr %18, align 4
-  %3001 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3002 = getelementptr inbounds %struct.BF_ctx, ptr %3001, i32 0, i32 1
-  %3003 = getelementptr inbounds [18 x i32], ptr %3002, i64 0, i64 17
-  %3004 = load i32, ptr %3003, align 4
-  %3005 = xor i32 %3000, %3004
-  store i32 %3005, ptr %13, align 4
-  %3006 = load i32, ptr %13, align 4
-  %3007 = load ptr, ptr %19, align 8
-  %3008 = getelementptr inbounds i32, ptr %3007, i64 -2
-  store i32 %3006, ptr %3008, align 4
-  %3009 = load i32, ptr %14, align 4
-  %3010 = load ptr, ptr %19, align 8
-  %3011 = getelementptr inbounds i32, ptr %3010, i64 -1
-  store i32 %3009, ptr %3011, align 4
-  br label %3012
-
-3012:                                             ; preds = %1125
-  %3013 = load ptr, ptr %19, align 8
-  %3014 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3015 = getelementptr inbounds %struct.BF_ctx, ptr %3014, i32 0, i32 0
-  %3016 = getelementptr inbounds [4 x [256 x i32]], ptr %3015, i64 0, i64 3
-  %3017 = getelementptr inbounds [256 x i32], ptr %3016, i64 0, i64 255
-  %3018 = icmp ult ptr %3013, %3017
-  br i1 %3018, label %1125, label %3019
-
-3019:                                             ; preds = %3012
-  br label %3020
-
-3020:                                             ; preds = %5021, %3019
-  store i32 0, ptr %21, align 4
-  br label %3021
-
-3021:                                             ; preds = %3051, %3020
-  %3022 = load i32, ptr %21, align 4
-  %3023 = icmp slt i32 %3022, 18
-  br i1 %3023, label %3024, label %3054
-
-3024:                                             ; preds = %3021
-  %3025 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 1
-  %3026 = load i32, ptr %21, align 4
-  %3027 = sext i32 %3026 to i64
-  %3028 = getelementptr inbounds [18 x i32], ptr %3025, i64 0, i64 %3027
-  %3029 = load i32, ptr %3028, align 4
-  %3030 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3031 = getelementptr inbounds %struct.BF_ctx, ptr %3030, i32 0, i32 1
-  %3032 = load i32, ptr %21, align 4
-  %3033 = sext i32 %3032 to i64
-  %3034 = getelementptr inbounds [18 x i32], ptr %3031, i64 0, i64 %3033
-  %3035 = load i32, ptr %3034, align 4
-  %3036 = xor i32 %3035, %3029
-  store i32 %3036, ptr %3034, align 4
-  %3037 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 1
-  %3038 = load i32, ptr %21, align 4
-  %3039 = add nsw i32 %3038, 1
-  %3040 = sext i32 %3039 to i64
-  %3041 = getelementptr inbounds [18 x i32], ptr %3037, i64 0, i64 %3040
-  %3042 = load i32, ptr %3041, align 4
-  %3043 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3044 = getelementptr inbounds %struct.BF_ctx, ptr %3043, i32 0, i32 1
-  %3045 = load i32, ptr %21, align 4
-  %3046 = add nsw i32 %3045, 1
-  %3047 = sext i32 %3046 to i64
-  %3048 = getelementptr inbounds [18 x i32], ptr %3044, i64 0, i64 %3047
-  %3049 = load i32, ptr %3048, align 4
-  %3050 = xor i32 %3049, %3042
-  store i32 %3050, ptr %3048, align 4
-  br label %3051
-
-3051:                                             ; preds = %3024
-  %3052 = load i32, ptr %21, align 4
-  %3053 = add nsw i32 %3052, 2
-  store i32 %3053, ptr %21, align 4
-  br label %3021
-
-3054:                                             ; preds = %3021
-  store i32 0, ptr %22, align 4
-  br label %3055
-
-3055:                                             ; preds = %5019, %3054
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %13, align 4
-  %3056 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3057 = getelementptr inbounds %struct.BF_ctx, ptr %3056, i32 0, i32 1
-  %3058 = getelementptr inbounds [18 x i32], ptr %3057, i64 0, i64 0
-  store ptr %3058, ptr %19, align 8
-  br label %3059
-
-3059:                                             ; preds = %3994, %3055
-  %3060 = load ptr, ptr %19, align 8
-  %3061 = getelementptr inbounds i32, ptr %3060, i64 2
-  store ptr %3061, ptr %19, align 8
-  %3062 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3063 = getelementptr inbounds %struct.BF_ctx, ptr %3062, i32 0, i32 1
-  %3064 = getelementptr inbounds [18 x i32], ptr %3063, i64 0, i64 0
-  %3065 = load i32, ptr %3064, align 4
-  %3066 = load i32, ptr %13, align 4
-  %3067 = xor i32 %3066, %3065
-  store i32 %3067, ptr %13, align 4
-  %3068 = load i32, ptr %13, align 4
-  %3069 = and i32 %3068, 255
-  store i32 %3069, ptr %15, align 4
-  %3070 = load i32, ptr %13, align 4
-  %3071 = lshr i32 %3070, 8
-  store i32 %3071, ptr %16, align 4
-  %3072 = load i32, ptr %16, align 4
-  %3073 = and i32 %3072, 255
-  store i32 %3073, ptr %16, align 4
-  %3074 = load i32, ptr %13, align 4
-  %3075 = lshr i32 %3074, 16
-  store i32 %3075, ptr %17, align 4
-  %3076 = load i32, ptr %17, align 4
-  %3077 = and i32 %3076, 255
-  store i32 %3077, ptr %17, align 4
-  %3078 = load i32, ptr %13, align 4
-  %3079 = lshr i32 %3078, 24
-  store i32 %3079, ptr %18, align 4
-  %3080 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3081 = getelementptr inbounds %struct.BF_ctx, ptr %3080, i32 0, i32 0
-  %3082 = getelementptr inbounds [4 x [256 x i32]], ptr %3081, i64 0, i64 3
-  %3083 = load i32, ptr %15, align 4
-  %3084 = zext i32 %3083 to i64
-  %3085 = getelementptr inbounds [256 x i32], ptr %3082, i64 0, i64 %3084
-  %3086 = load i32, ptr %3085, align 4
-  store i32 %3086, ptr %15, align 4
-  %3087 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3088 = getelementptr inbounds %struct.BF_ctx, ptr %3087, i32 0, i32 0
-  %3089 = getelementptr inbounds [4 x [256 x i32]], ptr %3088, i64 0, i64 2
-  %3090 = load i32, ptr %16, align 4
-  %3091 = zext i32 %3090 to i64
-  %3092 = getelementptr inbounds [256 x i32], ptr %3089, i64 0, i64 %3091
-  %3093 = load i32, ptr %3092, align 4
-  store i32 %3093, ptr %16, align 4
-  %3094 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3095 = getelementptr inbounds %struct.BF_ctx, ptr %3094, i32 0, i32 0
-  %3096 = getelementptr inbounds [4 x [256 x i32]], ptr %3095, i64 0, i64 1
-  %3097 = load i32, ptr %17, align 4
-  %3098 = zext i32 %3097 to i64
-  %3099 = getelementptr inbounds [256 x i32], ptr %3096, i64 0, i64 %3098
-  %3100 = load i32, ptr %3099, align 4
-  store i32 %3100, ptr %17, align 4
-  %3101 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3102 = getelementptr inbounds %struct.BF_ctx, ptr %3101, i32 0, i32 0
-  %3103 = getelementptr inbounds [4 x [256 x i32]], ptr %3102, i64 0, i64 0
-  %3104 = load i32, ptr %18, align 4
-  %3105 = zext i32 %3104 to i64
-  %3106 = getelementptr inbounds [256 x i32], ptr %3103, i64 0, i64 %3105
-  %3107 = load i32, ptr %3106, align 4
-  %3108 = load i32, ptr %17, align 4
-  %3109 = add i32 %3108, %3107
-  store i32 %3109, ptr %17, align 4
-  %3110 = load i32, ptr %16, align 4
-  %3111 = load i32, ptr %17, align 4
-  %3112 = xor i32 %3111, %3110
-  store i32 %3112, ptr %17, align 4
-  %3113 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3114 = getelementptr inbounds %struct.BF_ctx, ptr %3113, i32 0, i32 1
-  %3115 = getelementptr inbounds [18 x i32], ptr %3114, i64 0, i64 1
-  %3116 = load i32, ptr %3115, align 4
-  %3117 = load i32, ptr %14, align 4
-  %3118 = xor i32 %3117, %3116
-  store i32 %3118, ptr %14, align 4
-  %3119 = load i32, ptr %15, align 4
-  %3120 = load i32, ptr %17, align 4
-  %3121 = add i32 %3120, %3119
-  store i32 %3121, ptr %17, align 4
-  %3122 = load i32, ptr %17, align 4
-  %3123 = load i32, ptr %14, align 4
-  %3124 = xor i32 %3123, %3122
-  store i32 %3124, ptr %14, align 4
-  %3125 = load i32, ptr %14, align 4
-  %3126 = and i32 %3125, 255
-  store i32 %3126, ptr %15, align 4
-  %3127 = load i32, ptr %14, align 4
-  %3128 = lshr i32 %3127, 8
-  store i32 %3128, ptr %16, align 4
-  %3129 = load i32, ptr %16, align 4
-  %3130 = and i32 %3129, 255
-  store i32 %3130, ptr %16, align 4
-  %3131 = load i32, ptr %14, align 4
-  %3132 = lshr i32 %3131, 16
-  store i32 %3132, ptr %17, align 4
-  %3133 = load i32, ptr %17, align 4
-  %3134 = and i32 %3133, 255
-  store i32 %3134, ptr %17, align 4
-  %3135 = load i32, ptr %14, align 4
-  %3136 = lshr i32 %3135, 24
-  store i32 %3136, ptr %18, align 4
-  %3137 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3138 = getelementptr inbounds %struct.BF_ctx, ptr %3137, i32 0, i32 0
-  %3139 = getelementptr inbounds [4 x [256 x i32]], ptr %3138, i64 0, i64 3
-  %3140 = load i32, ptr %15, align 4
-  %3141 = zext i32 %3140 to i64
-  %3142 = getelementptr inbounds [256 x i32], ptr %3139, i64 0, i64 %3141
-  %3143 = load i32, ptr %3142, align 4
-  store i32 %3143, ptr %15, align 4
-  %3144 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3145 = getelementptr inbounds %struct.BF_ctx, ptr %3144, i32 0, i32 0
-  %3146 = getelementptr inbounds [4 x [256 x i32]], ptr %3145, i64 0, i64 2
-  %3147 = load i32, ptr %16, align 4
-  %3148 = zext i32 %3147 to i64
-  %3149 = getelementptr inbounds [256 x i32], ptr %3146, i64 0, i64 %3148
-  %3150 = load i32, ptr %3149, align 4
-  store i32 %3150, ptr %16, align 4
-  %3151 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3152 = getelementptr inbounds %struct.BF_ctx, ptr %3151, i32 0, i32 0
-  %3153 = getelementptr inbounds [4 x [256 x i32]], ptr %3152, i64 0, i64 1
-  %3154 = load i32, ptr %17, align 4
-  %3155 = zext i32 %3154 to i64
-  %3156 = getelementptr inbounds [256 x i32], ptr %3153, i64 0, i64 %3155
-  %3157 = load i32, ptr %3156, align 4
-  store i32 %3157, ptr %17, align 4
-  %3158 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3159 = getelementptr inbounds %struct.BF_ctx, ptr %3158, i32 0, i32 0
-  %3160 = getelementptr inbounds [4 x [256 x i32]], ptr %3159, i64 0, i64 0
-  %3161 = load i32, ptr %18, align 4
-  %3162 = zext i32 %3161 to i64
-  %3163 = getelementptr inbounds [256 x i32], ptr %3160, i64 0, i64 %3162
-  %3164 = load i32, ptr %3163, align 4
-  %3165 = load i32, ptr %17, align 4
-  %3166 = add i32 %3165, %3164
-  store i32 %3166, ptr %17, align 4
-  %3167 = load i32, ptr %16, align 4
-  %3168 = load i32, ptr %17, align 4
-  %3169 = xor i32 %3168, %3167
-  store i32 %3169, ptr %17, align 4
-  %3170 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3171 = getelementptr inbounds %struct.BF_ctx, ptr %3170, i32 0, i32 1
-  %3172 = getelementptr inbounds [18 x i32], ptr %3171, i64 0, i64 2
-  %3173 = load i32, ptr %3172, align 4
-  %3174 = load i32, ptr %13, align 4
-  %3175 = xor i32 %3174, %3173
-  store i32 %3175, ptr %13, align 4
-  %3176 = load i32, ptr %15, align 4
-  %3177 = load i32, ptr %17, align 4
-  %3178 = add i32 %3177, %3176
-  store i32 %3178, ptr %17, align 4
-  %3179 = load i32, ptr %17, align 4
-  %3180 = load i32, ptr %13, align 4
-  %3181 = xor i32 %3180, %3179
-  store i32 %3181, ptr %13, align 4
-  %3182 = load i32, ptr %13, align 4
-  %3183 = and i32 %3182, 255
-  store i32 %3183, ptr %15, align 4
-  %3184 = load i32, ptr %13, align 4
-  %3185 = lshr i32 %3184, 8
-  store i32 %3185, ptr %16, align 4
-  %3186 = load i32, ptr %16, align 4
-  %3187 = and i32 %3186, 255
-  store i32 %3187, ptr %16, align 4
-  %3188 = load i32, ptr %13, align 4
-  %3189 = lshr i32 %3188, 16
-  store i32 %3189, ptr %17, align 4
-  %3190 = load i32, ptr %17, align 4
-  %3191 = and i32 %3190, 255
-  store i32 %3191, ptr %17, align 4
-  %3192 = load i32, ptr %13, align 4
-  %3193 = lshr i32 %3192, 24
-  store i32 %3193, ptr %18, align 4
-  %3194 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3195 = getelementptr inbounds %struct.BF_ctx, ptr %3194, i32 0, i32 0
-  %3196 = getelementptr inbounds [4 x [256 x i32]], ptr %3195, i64 0, i64 3
-  %3197 = load i32, ptr %15, align 4
-  %3198 = zext i32 %3197 to i64
-  %3199 = getelementptr inbounds [256 x i32], ptr %3196, i64 0, i64 %3198
-  %3200 = load i32, ptr %3199, align 4
-  store i32 %3200, ptr %15, align 4
-  %3201 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3202 = getelementptr inbounds %struct.BF_ctx, ptr %3201, i32 0, i32 0
-  %3203 = getelementptr inbounds [4 x [256 x i32]], ptr %3202, i64 0, i64 2
-  %3204 = load i32, ptr %16, align 4
-  %3205 = zext i32 %3204 to i64
-  %3206 = getelementptr inbounds [256 x i32], ptr %3203, i64 0, i64 %3205
-  %3207 = load i32, ptr %3206, align 4
-  store i32 %3207, ptr %16, align 4
-  %3208 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3209 = getelementptr inbounds %struct.BF_ctx, ptr %3208, i32 0, i32 0
-  %3210 = getelementptr inbounds [4 x [256 x i32]], ptr %3209, i64 0, i64 1
-  %3211 = load i32, ptr %17, align 4
-  %3212 = zext i32 %3211 to i64
-  %3213 = getelementptr inbounds [256 x i32], ptr %3210, i64 0, i64 %3212
-  %3214 = load i32, ptr %3213, align 4
-  store i32 %3214, ptr %17, align 4
-  %3215 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3216 = getelementptr inbounds %struct.BF_ctx, ptr %3215, i32 0, i32 0
-  %3217 = getelementptr inbounds [4 x [256 x i32]], ptr %3216, i64 0, i64 0
-  %3218 = load i32, ptr %18, align 4
-  %3219 = zext i32 %3218 to i64
-  %3220 = getelementptr inbounds [256 x i32], ptr %3217, i64 0, i64 %3219
-  %3221 = load i32, ptr %3220, align 4
-  %3222 = load i32, ptr %17, align 4
-  %3223 = add i32 %3222, %3221
-  store i32 %3223, ptr %17, align 4
-  %3224 = load i32, ptr %16, align 4
-  %3225 = load i32, ptr %17, align 4
-  %3226 = xor i32 %3225, %3224
-  store i32 %3226, ptr %17, align 4
-  %3227 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3228 = getelementptr inbounds %struct.BF_ctx, ptr %3227, i32 0, i32 1
-  %3229 = getelementptr inbounds [18 x i32], ptr %3228, i64 0, i64 3
-  %3230 = load i32, ptr %3229, align 4
-  %3231 = load i32, ptr %14, align 4
-  %3232 = xor i32 %3231, %3230
-  store i32 %3232, ptr %14, align 4
-  %3233 = load i32, ptr %15, align 4
-  %3234 = load i32, ptr %17, align 4
-  %3235 = add i32 %3234, %3233
-  store i32 %3235, ptr %17, align 4
-  %3236 = load i32, ptr %17, align 4
-  %3237 = load i32, ptr %14, align 4
-  %3238 = xor i32 %3237, %3236
-  store i32 %3238, ptr %14, align 4
-  %3239 = load i32, ptr %14, align 4
-  %3240 = and i32 %3239, 255
-  store i32 %3240, ptr %15, align 4
-  %3241 = load i32, ptr %14, align 4
-  %3242 = lshr i32 %3241, 8
-  store i32 %3242, ptr %16, align 4
-  %3243 = load i32, ptr %16, align 4
-  %3244 = and i32 %3243, 255
-  store i32 %3244, ptr %16, align 4
-  %3245 = load i32, ptr %14, align 4
-  %3246 = lshr i32 %3245, 16
-  store i32 %3246, ptr %17, align 4
-  %3247 = load i32, ptr %17, align 4
-  %3248 = and i32 %3247, 255
-  store i32 %3248, ptr %17, align 4
-  %3249 = load i32, ptr %14, align 4
-  %3250 = lshr i32 %3249, 24
-  store i32 %3250, ptr %18, align 4
-  %3251 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3252 = getelementptr inbounds %struct.BF_ctx, ptr %3251, i32 0, i32 0
-  %3253 = getelementptr inbounds [4 x [256 x i32]], ptr %3252, i64 0, i64 3
-  %3254 = load i32, ptr %15, align 4
-  %3255 = zext i32 %3254 to i64
-  %3256 = getelementptr inbounds [256 x i32], ptr %3253, i64 0, i64 %3255
-  %3257 = load i32, ptr %3256, align 4
-  store i32 %3257, ptr %15, align 4
-  %3258 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3259 = getelementptr inbounds %struct.BF_ctx, ptr %3258, i32 0, i32 0
-  %3260 = getelementptr inbounds [4 x [256 x i32]], ptr %3259, i64 0, i64 2
-  %3261 = load i32, ptr %16, align 4
-  %3262 = zext i32 %3261 to i64
-  %3263 = getelementptr inbounds [256 x i32], ptr %3260, i64 0, i64 %3262
-  %3264 = load i32, ptr %3263, align 4
-  store i32 %3264, ptr %16, align 4
-  %3265 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3266 = getelementptr inbounds %struct.BF_ctx, ptr %3265, i32 0, i32 0
-  %3267 = getelementptr inbounds [4 x [256 x i32]], ptr %3266, i64 0, i64 1
-  %3268 = load i32, ptr %17, align 4
-  %3269 = zext i32 %3268 to i64
-  %3270 = getelementptr inbounds [256 x i32], ptr %3267, i64 0, i64 %3269
-  %3271 = load i32, ptr %3270, align 4
-  store i32 %3271, ptr %17, align 4
-  %3272 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3273 = getelementptr inbounds %struct.BF_ctx, ptr %3272, i32 0, i32 0
-  %3274 = getelementptr inbounds [4 x [256 x i32]], ptr %3273, i64 0, i64 0
-  %3275 = load i32, ptr %18, align 4
-  %3276 = zext i32 %3275 to i64
-  %3277 = getelementptr inbounds [256 x i32], ptr %3274, i64 0, i64 %3276
-  %3278 = load i32, ptr %3277, align 4
-  %3279 = load i32, ptr %17, align 4
-  %3280 = add i32 %3279, %3278
-  store i32 %3280, ptr %17, align 4
-  %3281 = load i32, ptr %16, align 4
-  %3282 = load i32, ptr %17, align 4
-  %3283 = xor i32 %3282, %3281
-  store i32 %3283, ptr %17, align 4
-  %3284 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3285 = getelementptr inbounds %struct.BF_ctx, ptr %3284, i32 0, i32 1
-  %3286 = getelementptr inbounds [18 x i32], ptr %3285, i64 0, i64 4
-  %3287 = load i32, ptr %3286, align 4
-  %3288 = load i32, ptr %13, align 4
-  %3289 = xor i32 %3288, %3287
-  store i32 %3289, ptr %13, align 4
-  %3290 = load i32, ptr %15, align 4
-  %3291 = load i32, ptr %17, align 4
-  %3292 = add i32 %3291, %3290
-  store i32 %3292, ptr %17, align 4
-  %3293 = load i32, ptr %17, align 4
-  %3294 = load i32, ptr %13, align 4
-  %3295 = xor i32 %3294, %3293
-  store i32 %3295, ptr %13, align 4
-  %3296 = load i32, ptr %13, align 4
-  %3297 = and i32 %3296, 255
-  store i32 %3297, ptr %15, align 4
-  %3298 = load i32, ptr %13, align 4
-  %3299 = lshr i32 %3298, 8
-  store i32 %3299, ptr %16, align 4
-  %3300 = load i32, ptr %16, align 4
-  %3301 = and i32 %3300, 255
-  store i32 %3301, ptr %16, align 4
-  %3302 = load i32, ptr %13, align 4
-  %3303 = lshr i32 %3302, 16
-  store i32 %3303, ptr %17, align 4
-  %3304 = load i32, ptr %17, align 4
-  %3305 = and i32 %3304, 255
-  store i32 %3305, ptr %17, align 4
-  %3306 = load i32, ptr %13, align 4
-  %3307 = lshr i32 %3306, 24
-  store i32 %3307, ptr %18, align 4
-  %3308 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3309 = getelementptr inbounds %struct.BF_ctx, ptr %3308, i32 0, i32 0
-  %3310 = getelementptr inbounds [4 x [256 x i32]], ptr %3309, i64 0, i64 3
-  %3311 = load i32, ptr %15, align 4
-  %3312 = zext i32 %3311 to i64
-  %3313 = getelementptr inbounds [256 x i32], ptr %3310, i64 0, i64 %3312
-  %3314 = load i32, ptr %3313, align 4
-  store i32 %3314, ptr %15, align 4
-  %3315 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3316 = getelementptr inbounds %struct.BF_ctx, ptr %3315, i32 0, i32 0
-  %3317 = getelementptr inbounds [4 x [256 x i32]], ptr %3316, i64 0, i64 2
-  %3318 = load i32, ptr %16, align 4
-  %3319 = zext i32 %3318 to i64
-  %3320 = getelementptr inbounds [256 x i32], ptr %3317, i64 0, i64 %3319
-  %3321 = load i32, ptr %3320, align 4
-  store i32 %3321, ptr %16, align 4
-  %3322 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3323 = getelementptr inbounds %struct.BF_ctx, ptr %3322, i32 0, i32 0
-  %3324 = getelementptr inbounds [4 x [256 x i32]], ptr %3323, i64 0, i64 1
-  %3325 = load i32, ptr %17, align 4
-  %3326 = zext i32 %3325 to i64
-  %3327 = getelementptr inbounds [256 x i32], ptr %3324, i64 0, i64 %3326
-  %3328 = load i32, ptr %3327, align 4
-  store i32 %3328, ptr %17, align 4
-  %3329 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3330 = getelementptr inbounds %struct.BF_ctx, ptr %3329, i32 0, i32 0
-  %3331 = getelementptr inbounds [4 x [256 x i32]], ptr %3330, i64 0, i64 0
-  %3332 = load i32, ptr %18, align 4
-  %3333 = zext i32 %3332 to i64
-  %3334 = getelementptr inbounds [256 x i32], ptr %3331, i64 0, i64 %3333
-  %3335 = load i32, ptr %3334, align 4
-  %3336 = load i32, ptr %17, align 4
-  %3337 = add i32 %3336, %3335
-  store i32 %3337, ptr %17, align 4
-  %3338 = load i32, ptr %16, align 4
-  %3339 = load i32, ptr %17, align 4
-  %3340 = xor i32 %3339, %3338
-  store i32 %3340, ptr %17, align 4
-  %3341 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3342 = getelementptr inbounds %struct.BF_ctx, ptr %3341, i32 0, i32 1
-  %3343 = getelementptr inbounds [18 x i32], ptr %3342, i64 0, i64 5
-  %3344 = load i32, ptr %3343, align 4
-  %3345 = load i32, ptr %14, align 4
-  %3346 = xor i32 %3345, %3344
-  store i32 %3346, ptr %14, align 4
-  %3347 = load i32, ptr %15, align 4
-  %3348 = load i32, ptr %17, align 4
-  %3349 = add i32 %3348, %3347
-  store i32 %3349, ptr %17, align 4
-  %3350 = load i32, ptr %17, align 4
-  %3351 = load i32, ptr %14, align 4
-  %3352 = xor i32 %3351, %3350
-  store i32 %3352, ptr %14, align 4
-  %3353 = load i32, ptr %14, align 4
-  %3354 = and i32 %3353, 255
-  store i32 %3354, ptr %15, align 4
-  %3355 = load i32, ptr %14, align 4
-  %3356 = lshr i32 %3355, 8
-  store i32 %3356, ptr %16, align 4
-  %3357 = load i32, ptr %16, align 4
-  %3358 = and i32 %3357, 255
-  store i32 %3358, ptr %16, align 4
-  %3359 = load i32, ptr %14, align 4
-  %3360 = lshr i32 %3359, 16
-  store i32 %3360, ptr %17, align 4
-  %3361 = load i32, ptr %17, align 4
-  %3362 = and i32 %3361, 255
-  store i32 %3362, ptr %17, align 4
-  %3363 = load i32, ptr %14, align 4
-  %3364 = lshr i32 %3363, 24
-  store i32 %3364, ptr %18, align 4
-  %3365 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3366 = getelementptr inbounds %struct.BF_ctx, ptr %3365, i32 0, i32 0
-  %3367 = getelementptr inbounds [4 x [256 x i32]], ptr %3366, i64 0, i64 3
-  %3368 = load i32, ptr %15, align 4
-  %3369 = zext i32 %3368 to i64
-  %3370 = getelementptr inbounds [256 x i32], ptr %3367, i64 0, i64 %3369
-  %3371 = load i32, ptr %3370, align 4
-  store i32 %3371, ptr %15, align 4
-  %3372 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3373 = getelementptr inbounds %struct.BF_ctx, ptr %3372, i32 0, i32 0
-  %3374 = getelementptr inbounds [4 x [256 x i32]], ptr %3373, i64 0, i64 2
-  %3375 = load i32, ptr %16, align 4
-  %3376 = zext i32 %3375 to i64
-  %3377 = getelementptr inbounds [256 x i32], ptr %3374, i64 0, i64 %3376
-  %3378 = load i32, ptr %3377, align 4
-  store i32 %3378, ptr %16, align 4
-  %3379 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3380 = getelementptr inbounds %struct.BF_ctx, ptr %3379, i32 0, i32 0
-  %3381 = getelementptr inbounds [4 x [256 x i32]], ptr %3380, i64 0, i64 1
-  %3382 = load i32, ptr %17, align 4
-  %3383 = zext i32 %3382 to i64
-  %3384 = getelementptr inbounds [256 x i32], ptr %3381, i64 0, i64 %3383
-  %3385 = load i32, ptr %3384, align 4
-  store i32 %3385, ptr %17, align 4
-  %3386 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3387 = getelementptr inbounds %struct.BF_ctx, ptr %3386, i32 0, i32 0
-  %3388 = getelementptr inbounds [4 x [256 x i32]], ptr %3387, i64 0, i64 0
-  %3389 = load i32, ptr %18, align 4
-  %3390 = zext i32 %3389 to i64
-  %3391 = getelementptr inbounds [256 x i32], ptr %3388, i64 0, i64 %3390
-  %3392 = load i32, ptr %3391, align 4
-  %3393 = load i32, ptr %17, align 4
-  %3394 = add i32 %3393, %3392
-  store i32 %3394, ptr %17, align 4
-  %3395 = load i32, ptr %16, align 4
-  %3396 = load i32, ptr %17, align 4
-  %3397 = xor i32 %3396, %3395
-  store i32 %3397, ptr %17, align 4
-  %3398 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3399 = getelementptr inbounds %struct.BF_ctx, ptr %3398, i32 0, i32 1
-  %3400 = getelementptr inbounds [18 x i32], ptr %3399, i64 0, i64 6
-  %3401 = load i32, ptr %3400, align 4
-  %3402 = load i32, ptr %13, align 4
-  %3403 = xor i32 %3402, %3401
-  store i32 %3403, ptr %13, align 4
-  %3404 = load i32, ptr %15, align 4
-  %3405 = load i32, ptr %17, align 4
-  %3406 = add i32 %3405, %3404
-  store i32 %3406, ptr %17, align 4
-  %3407 = load i32, ptr %17, align 4
-  %3408 = load i32, ptr %13, align 4
-  %3409 = xor i32 %3408, %3407
-  store i32 %3409, ptr %13, align 4
-  %3410 = load i32, ptr %13, align 4
-  %3411 = and i32 %3410, 255
-  store i32 %3411, ptr %15, align 4
-  %3412 = load i32, ptr %13, align 4
-  %3413 = lshr i32 %3412, 8
-  store i32 %3413, ptr %16, align 4
-  %3414 = load i32, ptr %16, align 4
-  %3415 = and i32 %3414, 255
-  store i32 %3415, ptr %16, align 4
-  %3416 = load i32, ptr %13, align 4
-  %3417 = lshr i32 %3416, 16
-  store i32 %3417, ptr %17, align 4
-  %3418 = load i32, ptr %17, align 4
-  %3419 = and i32 %3418, 255
-  store i32 %3419, ptr %17, align 4
-  %3420 = load i32, ptr %13, align 4
-  %3421 = lshr i32 %3420, 24
-  store i32 %3421, ptr %18, align 4
-  %3422 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3423 = getelementptr inbounds %struct.BF_ctx, ptr %3422, i32 0, i32 0
-  %3424 = getelementptr inbounds [4 x [256 x i32]], ptr %3423, i64 0, i64 3
-  %3425 = load i32, ptr %15, align 4
-  %3426 = zext i32 %3425 to i64
-  %3427 = getelementptr inbounds [256 x i32], ptr %3424, i64 0, i64 %3426
-  %3428 = load i32, ptr %3427, align 4
-  store i32 %3428, ptr %15, align 4
-  %3429 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3430 = getelementptr inbounds %struct.BF_ctx, ptr %3429, i32 0, i32 0
-  %3431 = getelementptr inbounds [4 x [256 x i32]], ptr %3430, i64 0, i64 2
-  %3432 = load i32, ptr %16, align 4
-  %3433 = zext i32 %3432 to i64
-  %3434 = getelementptr inbounds [256 x i32], ptr %3431, i64 0, i64 %3433
-  %3435 = load i32, ptr %3434, align 4
-  store i32 %3435, ptr %16, align 4
-  %3436 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3437 = getelementptr inbounds %struct.BF_ctx, ptr %3436, i32 0, i32 0
-  %3438 = getelementptr inbounds [4 x [256 x i32]], ptr %3437, i64 0, i64 1
-  %3439 = load i32, ptr %17, align 4
-  %3440 = zext i32 %3439 to i64
-  %3441 = getelementptr inbounds [256 x i32], ptr %3438, i64 0, i64 %3440
-  %3442 = load i32, ptr %3441, align 4
-  store i32 %3442, ptr %17, align 4
-  %3443 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3444 = getelementptr inbounds %struct.BF_ctx, ptr %3443, i32 0, i32 0
-  %3445 = getelementptr inbounds [4 x [256 x i32]], ptr %3444, i64 0, i64 0
-  %3446 = load i32, ptr %18, align 4
-  %3447 = zext i32 %3446 to i64
-  %3448 = getelementptr inbounds [256 x i32], ptr %3445, i64 0, i64 %3447
-  %3449 = load i32, ptr %3448, align 4
-  %3450 = load i32, ptr %17, align 4
-  %3451 = add i32 %3450, %3449
-  store i32 %3451, ptr %17, align 4
-  %3452 = load i32, ptr %16, align 4
-  %3453 = load i32, ptr %17, align 4
-  %3454 = xor i32 %3453, %3452
-  store i32 %3454, ptr %17, align 4
-  %3455 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3456 = getelementptr inbounds %struct.BF_ctx, ptr %3455, i32 0, i32 1
-  %3457 = getelementptr inbounds [18 x i32], ptr %3456, i64 0, i64 7
-  %3458 = load i32, ptr %3457, align 4
-  %3459 = load i32, ptr %14, align 4
-  %3460 = xor i32 %3459, %3458
-  store i32 %3460, ptr %14, align 4
-  %3461 = load i32, ptr %15, align 4
-  %3462 = load i32, ptr %17, align 4
-  %3463 = add i32 %3462, %3461
-  store i32 %3463, ptr %17, align 4
-  %3464 = load i32, ptr %17, align 4
-  %3465 = load i32, ptr %14, align 4
-  %3466 = xor i32 %3465, %3464
-  store i32 %3466, ptr %14, align 4
-  %3467 = load i32, ptr %14, align 4
-  %3468 = and i32 %3467, 255
-  store i32 %3468, ptr %15, align 4
-  %3469 = load i32, ptr %14, align 4
-  %3470 = lshr i32 %3469, 8
-  store i32 %3470, ptr %16, align 4
-  %3471 = load i32, ptr %16, align 4
-  %3472 = and i32 %3471, 255
-  store i32 %3472, ptr %16, align 4
-  %3473 = load i32, ptr %14, align 4
-  %3474 = lshr i32 %3473, 16
-  store i32 %3474, ptr %17, align 4
-  %3475 = load i32, ptr %17, align 4
-  %3476 = and i32 %3475, 255
-  store i32 %3476, ptr %17, align 4
-  %3477 = load i32, ptr %14, align 4
-  %3478 = lshr i32 %3477, 24
-  store i32 %3478, ptr %18, align 4
-  %3479 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3480 = getelementptr inbounds %struct.BF_ctx, ptr %3479, i32 0, i32 0
-  %3481 = getelementptr inbounds [4 x [256 x i32]], ptr %3480, i64 0, i64 3
-  %3482 = load i32, ptr %15, align 4
-  %3483 = zext i32 %3482 to i64
-  %3484 = getelementptr inbounds [256 x i32], ptr %3481, i64 0, i64 %3483
-  %3485 = load i32, ptr %3484, align 4
-  store i32 %3485, ptr %15, align 4
-  %3486 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3487 = getelementptr inbounds %struct.BF_ctx, ptr %3486, i32 0, i32 0
-  %3488 = getelementptr inbounds [4 x [256 x i32]], ptr %3487, i64 0, i64 2
-  %3489 = load i32, ptr %16, align 4
-  %3490 = zext i32 %3489 to i64
-  %3491 = getelementptr inbounds [256 x i32], ptr %3488, i64 0, i64 %3490
-  %3492 = load i32, ptr %3491, align 4
-  store i32 %3492, ptr %16, align 4
-  %3493 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3494 = getelementptr inbounds %struct.BF_ctx, ptr %3493, i32 0, i32 0
-  %3495 = getelementptr inbounds [4 x [256 x i32]], ptr %3494, i64 0, i64 1
-  %3496 = load i32, ptr %17, align 4
-  %3497 = zext i32 %3496 to i64
-  %3498 = getelementptr inbounds [256 x i32], ptr %3495, i64 0, i64 %3497
-  %3499 = load i32, ptr %3498, align 4
-  store i32 %3499, ptr %17, align 4
-  %3500 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3501 = getelementptr inbounds %struct.BF_ctx, ptr %3500, i32 0, i32 0
-  %3502 = getelementptr inbounds [4 x [256 x i32]], ptr %3501, i64 0, i64 0
-  %3503 = load i32, ptr %18, align 4
-  %3504 = zext i32 %3503 to i64
-  %3505 = getelementptr inbounds [256 x i32], ptr %3502, i64 0, i64 %3504
-  %3506 = load i32, ptr %3505, align 4
-  %3507 = load i32, ptr %17, align 4
-  %3508 = add i32 %3507, %3506
-  store i32 %3508, ptr %17, align 4
-  %3509 = load i32, ptr %16, align 4
-  %3510 = load i32, ptr %17, align 4
-  %3511 = xor i32 %3510, %3509
-  store i32 %3511, ptr %17, align 4
-  %3512 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3513 = getelementptr inbounds %struct.BF_ctx, ptr %3512, i32 0, i32 1
-  %3514 = getelementptr inbounds [18 x i32], ptr %3513, i64 0, i64 8
-  %3515 = load i32, ptr %3514, align 4
-  %3516 = load i32, ptr %13, align 4
-  %3517 = xor i32 %3516, %3515
-  store i32 %3517, ptr %13, align 4
-  %3518 = load i32, ptr %15, align 4
-  %3519 = load i32, ptr %17, align 4
-  %3520 = add i32 %3519, %3518
-  store i32 %3520, ptr %17, align 4
-  %3521 = load i32, ptr %17, align 4
-  %3522 = load i32, ptr %13, align 4
-  %3523 = xor i32 %3522, %3521
-  store i32 %3523, ptr %13, align 4
-  %3524 = load i32, ptr %13, align 4
-  %3525 = and i32 %3524, 255
-  store i32 %3525, ptr %15, align 4
-  %3526 = load i32, ptr %13, align 4
-  %3527 = lshr i32 %3526, 8
-  store i32 %3527, ptr %16, align 4
-  %3528 = load i32, ptr %16, align 4
-  %3529 = and i32 %3528, 255
-  store i32 %3529, ptr %16, align 4
-  %3530 = load i32, ptr %13, align 4
-  %3531 = lshr i32 %3530, 16
-  store i32 %3531, ptr %17, align 4
-  %3532 = load i32, ptr %17, align 4
-  %3533 = and i32 %3532, 255
-  store i32 %3533, ptr %17, align 4
-  %3534 = load i32, ptr %13, align 4
-  %3535 = lshr i32 %3534, 24
-  store i32 %3535, ptr %18, align 4
-  %3536 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3537 = getelementptr inbounds %struct.BF_ctx, ptr %3536, i32 0, i32 0
-  %3538 = getelementptr inbounds [4 x [256 x i32]], ptr %3537, i64 0, i64 3
-  %3539 = load i32, ptr %15, align 4
-  %3540 = zext i32 %3539 to i64
-  %3541 = getelementptr inbounds [256 x i32], ptr %3538, i64 0, i64 %3540
-  %3542 = load i32, ptr %3541, align 4
-  store i32 %3542, ptr %15, align 4
-  %3543 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3544 = getelementptr inbounds %struct.BF_ctx, ptr %3543, i32 0, i32 0
-  %3545 = getelementptr inbounds [4 x [256 x i32]], ptr %3544, i64 0, i64 2
-  %3546 = load i32, ptr %16, align 4
-  %3547 = zext i32 %3546 to i64
-  %3548 = getelementptr inbounds [256 x i32], ptr %3545, i64 0, i64 %3547
-  %3549 = load i32, ptr %3548, align 4
-  store i32 %3549, ptr %16, align 4
-  %3550 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3551 = getelementptr inbounds %struct.BF_ctx, ptr %3550, i32 0, i32 0
-  %3552 = getelementptr inbounds [4 x [256 x i32]], ptr %3551, i64 0, i64 1
-  %3553 = load i32, ptr %17, align 4
-  %3554 = zext i32 %3553 to i64
-  %3555 = getelementptr inbounds [256 x i32], ptr %3552, i64 0, i64 %3554
-  %3556 = load i32, ptr %3555, align 4
-  store i32 %3556, ptr %17, align 4
-  %3557 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3558 = getelementptr inbounds %struct.BF_ctx, ptr %3557, i32 0, i32 0
-  %3559 = getelementptr inbounds [4 x [256 x i32]], ptr %3558, i64 0, i64 0
-  %3560 = load i32, ptr %18, align 4
-  %3561 = zext i32 %3560 to i64
-  %3562 = getelementptr inbounds [256 x i32], ptr %3559, i64 0, i64 %3561
-  %3563 = load i32, ptr %3562, align 4
-  %3564 = load i32, ptr %17, align 4
-  %3565 = add i32 %3564, %3563
-  store i32 %3565, ptr %17, align 4
-  %3566 = load i32, ptr %16, align 4
-  %3567 = load i32, ptr %17, align 4
-  %3568 = xor i32 %3567, %3566
-  store i32 %3568, ptr %17, align 4
-  %3569 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3570 = getelementptr inbounds %struct.BF_ctx, ptr %3569, i32 0, i32 1
-  %3571 = getelementptr inbounds [18 x i32], ptr %3570, i64 0, i64 9
-  %3572 = load i32, ptr %3571, align 4
-  %3573 = load i32, ptr %14, align 4
-  %3574 = xor i32 %3573, %3572
-  store i32 %3574, ptr %14, align 4
-  %3575 = load i32, ptr %15, align 4
-  %3576 = load i32, ptr %17, align 4
-  %3577 = add i32 %3576, %3575
-  store i32 %3577, ptr %17, align 4
-  %3578 = load i32, ptr %17, align 4
-  %3579 = load i32, ptr %14, align 4
-  %3580 = xor i32 %3579, %3578
-  store i32 %3580, ptr %14, align 4
-  %3581 = load i32, ptr %14, align 4
-  %3582 = and i32 %3581, 255
-  store i32 %3582, ptr %15, align 4
-  %3583 = load i32, ptr %14, align 4
-  %3584 = lshr i32 %3583, 8
-  store i32 %3584, ptr %16, align 4
-  %3585 = load i32, ptr %16, align 4
-  %3586 = and i32 %3585, 255
-  store i32 %3586, ptr %16, align 4
-  %3587 = load i32, ptr %14, align 4
-  %3588 = lshr i32 %3587, 16
-  store i32 %3588, ptr %17, align 4
-  %3589 = load i32, ptr %17, align 4
-  %3590 = and i32 %3589, 255
-  store i32 %3590, ptr %17, align 4
-  %3591 = load i32, ptr %14, align 4
-  %3592 = lshr i32 %3591, 24
-  store i32 %3592, ptr %18, align 4
-  %3593 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3594 = getelementptr inbounds %struct.BF_ctx, ptr %3593, i32 0, i32 0
-  %3595 = getelementptr inbounds [4 x [256 x i32]], ptr %3594, i64 0, i64 3
-  %3596 = load i32, ptr %15, align 4
-  %3597 = zext i32 %3596 to i64
-  %3598 = getelementptr inbounds [256 x i32], ptr %3595, i64 0, i64 %3597
-  %3599 = load i32, ptr %3598, align 4
-  store i32 %3599, ptr %15, align 4
-  %3600 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3601 = getelementptr inbounds %struct.BF_ctx, ptr %3600, i32 0, i32 0
-  %3602 = getelementptr inbounds [4 x [256 x i32]], ptr %3601, i64 0, i64 2
-  %3603 = load i32, ptr %16, align 4
-  %3604 = zext i32 %3603 to i64
-  %3605 = getelementptr inbounds [256 x i32], ptr %3602, i64 0, i64 %3604
-  %3606 = load i32, ptr %3605, align 4
-  store i32 %3606, ptr %16, align 4
-  %3607 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3608 = getelementptr inbounds %struct.BF_ctx, ptr %3607, i32 0, i32 0
-  %3609 = getelementptr inbounds [4 x [256 x i32]], ptr %3608, i64 0, i64 1
-  %3610 = load i32, ptr %17, align 4
-  %3611 = zext i32 %3610 to i64
-  %3612 = getelementptr inbounds [256 x i32], ptr %3609, i64 0, i64 %3611
-  %3613 = load i32, ptr %3612, align 4
-  store i32 %3613, ptr %17, align 4
-  %3614 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3615 = getelementptr inbounds %struct.BF_ctx, ptr %3614, i32 0, i32 0
-  %3616 = getelementptr inbounds [4 x [256 x i32]], ptr %3615, i64 0, i64 0
-  %3617 = load i32, ptr %18, align 4
-  %3618 = zext i32 %3617 to i64
-  %3619 = getelementptr inbounds [256 x i32], ptr %3616, i64 0, i64 %3618
-  %3620 = load i32, ptr %3619, align 4
-  %3621 = load i32, ptr %17, align 4
-  %3622 = add i32 %3621, %3620
-  store i32 %3622, ptr %17, align 4
-  %3623 = load i32, ptr %16, align 4
-  %3624 = load i32, ptr %17, align 4
-  %3625 = xor i32 %3624, %3623
-  store i32 %3625, ptr %17, align 4
-  %3626 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3627 = getelementptr inbounds %struct.BF_ctx, ptr %3626, i32 0, i32 1
-  %3628 = getelementptr inbounds [18 x i32], ptr %3627, i64 0, i64 10
-  %3629 = load i32, ptr %3628, align 4
-  %3630 = load i32, ptr %13, align 4
-  %3631 = xor i32 %3630, %3629
-  store i32 %3631, ptr %13, align 4
-  %3632 = load i32, ptr %15, align 4
-  %3633 = load i32, ptr %17, align 4
-  %3634 = add i32 %3633, %3632
-  store i32 %3634, ptr %17, align 4
-  %3635 = load i32, ptr %17, align 4
-  %3636 = load i32, ptr %13, align 4
-  %3637 = xor i32 %3636, %3635
-  store i32 %3637, ptr %13, align 4
-  %3638 = load i32, ptr %13, align 4
-  %3639 = and i32 %3638, 255
-  store i32 %3639, ptr %15, align 4
-  %3640 = load i32, ptr %13, align 4
-  %3641 = lshr i32 %3640, 8
-  store i32 %3641, ptr %16, align 4
-  %3642 = load i32, ptr %16, align 4
-  %3643 = and i32 %3642, 255
-  store i32 %3643, ptr %16, align 4
-  %3644 = load i32, ptr %13, align 4
-  %3645 = lshr i32 %3644, 16
-  store i32 %3645, ptr %17, align 4
-  %3646 = load i32, ptr %17, align 4
-  %3647 = and i32 %3646, 255
-  store i32 %3647, ptr %17, align 4
-  %3648 = load i32, ptr %13, align 4
-  %3649 = lshr i32 %3648, 24
-  store i32 %3649, ptr %18, align 4
-  %3650 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3651 = getelementptr inbounds %struct.BF_ctx, ptr %3650, i32 0, i32 0
-  %3652 = getelementptr inbounds [4 x [256 x i32]], ptr %3651, i64 0, i64 3
-  %3653 = load i32, ptr %15, align 4
-  %3654 = zext i32 %3653 to i64
-  %3655 = getelementptr inbounds [256 x i32], ptr %3652, i64 0, i64 %3654
-  %3656 = load i32, ptr %3655, align 4
-  store i32 %3656, ptr %15, align 4
-  %3657 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3658 = getelementptr inbounds %struct.BF_ctx, ptr %3657, i32 0, i32 0
-  %3659 = getelementptr inbounds [4 x [256 x i32]], ptr %3658, i64 0, i64 2
-  %3660 = load i32, ptr %16, align 4
-  %3661 = zext i32 %3660 to i64
-  %3662 = getelementptr inbounds [256 x i32], ptr %3659, i64 0, i64 %3661
-  %3663 = load i32, ptr %3662, align 4
-  store i32 %3663, ptr %16, align 4
-  %3664 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3665 = getelementptr inbounds %struct.BF_ctx, ptr %3664, i32 0, i32 0
-  %3666 = getelementptr inbounds [4 x [256 x i32]], ptr %3665, i64 0, i64 1
-  %3667 = load i32, ptr %17, align 4
-  %3668 = zext i32 %3667 to i64
-  %3669 = getelementptr inbounds [256 x i32], ptr %3666, i64 0, i64 %3668
-  %3670 = load i32, ptr %3669, align 4
-  store i32 %3670, ptr %17, align 4
-  %3671 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3672 = getelementptr inbounds %struct.BF_ctx, ptr %3671, i32 0, i32 0
-  %3673 = getelementptr inbounds [4 x [256 x i32]], ptr %3672, i64 0, i64 0
-  %3674 = load i32, ptr %18, align 4
-  %3675 = zext i32 %3674 to i64
-  %3676 = getelementptr inbounds [256 x i32], ptr %3673, i64 0, i64 %3675
-  %3677 = load i32, ptr %3676, align 4
-  %3678 = load i32, ptr %17, align 4
-  %3679 = add i32 %3678, %3677
-  store i32 %3679, ptr %17, align 4
-  %3680 = load i32, ptr %16, align 4
-  %3681 = load i32, ptr %17, align 4
-  %3682 = xor i32 %3681, %3680
-  store i32 %3682, ptr %17, align 4
-  %3683 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3684 = getelementptr inbounds %struct.BF_ctx, ptr %3683, i32 0, i32 1
-  %3685 = getelementptr inbounds [18 x i32], ptr %3684, i64 0, i64 11
-  %3686 = load i32, ptr %3685, align 4
-  %3687 = load i32, ptr %14, align 4
-  %3688 = xor i32 %3687, %3686
-  store i32 %3688, ptr %14, align 4
-  %3689 = load i32, ptr %15, align 4
-  %3690 = load i32, ptr %17, align 4
-  %3691 = add i32 %3690, %3689
-  store i32 %3691, ptr %17, align 4
-  %3692 = load i32, ptr %17, align 4
-  %3693 = load i32, ptr %14, align 4
-  %3694 = xor i32 %3693, %3692
-  store i32 %3694, ptr %14, align 4
-  %3695 = load i32, ptr %14, align 4
-  %3696 = and i32 %3695, 255
-  store i32 %3696, ptr %15, align 4
-  %3697 = load i32, ptr %14, align 4
-  %3698 = lshr i32 %3697, 8
-  store i32 %3698, ptr %16, align 4
-  %3699 = load i32, ptr %16, align 4
-  %3700 = and i32 %3699, 255
-  store i32 %3700, ptr %16, align 4
-  %3701 = load i32, ptr %14, align 4
-  %3702 = lshr i32 %3701, 16
-  store i32 %3702, ptr %17, align 4
-  %3703 = load i32, ptr %17, align 4
-  %3704 = and i32 %3703, 255
-  store i32 %3704, ptr %17, align 4
-  %3705 = load i32, ptr %14, align 4
-  %3706 = lshr i32 %3705, 24
-  store i32 %3706, ptr %18, align 4
-  %3707 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3708 = getelementptr inbounds %struct.BF_ctx, ptr %3707, i32 0, i32 0
-  %3709 = getelementptr inbounds [4 x [256 x i32]], ptr %3708, i64 0, i64 3
-  %3710 = load i32, ptr %15, align 4
-  %3711 = zext i32 %3710 to i64
-  %3712 = getelementptr inbounds [256 x i32], ptr %3709, i64 0, i64 %3711
-  %3713 = load i32, ptr %3712, align 4
-  store i32 %3713, ptr %15, align 4
-  %3714 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3715 = getelementptr inbounds %struct.BF_ctx, ptr %3714, i32 0, i32 0
-  %3716 = getelementptr inbounds [4 x [256 x i32]], ptr %3715, i64 0, i64 2
-  %3717 = load i32, ptr %16, align 4
-  %3718 = zext i32 %3717 to i64
-  %3719 = getelementptr inbounds [256 x i32], ptr %3716, i64 0, i64 %3718
-  %3720 = load i32, ptr %3719, align 4
-  store i32 %3720, ptr %16, align 4
-  %3721 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3722 = getelementptr inbounds %struct.BF_ctx, ptr %3721, i32 0, i32 0
-  %3723 = getelementptr inbounds [4 x [256 x i32]], ptr %3722, i64 0, i64 1
-  %3724 = load i32, ptr %17, align 4
-  %3725 = zext i32 %3724 to i64
-  %3726 = getelementptr inbounds [256 x i32], ptr %3723, i64 0, i64 %3725
-  %3727 = load i32, ptr %3726, align 4
-  store i32 %3727, ptr %17, align 4
-  %3728 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3729 = getelementptr inbounds %struct.BF_ctx, ptr %3728, i32 0, i32 0
-  %3730 = getelementptr inbounds [4 x [256 x i32]], ptr %3729, i64 0, i64 0
-  %3731 = load i32, ptr %18, align 4
-  %3732 = zext i32 %3731 to i64
-  %3733 = getelementptr inbounds [256 x i32], ptr %3730, i64 0, i64 %3732
-  %3734 = load i32, ptr %3733, align 4
-  %3735 = load i32, ptr %17, align 4
-  %3736 = add i32 %3735, %3734
-  store i32 %3736, ptr %17, align 4
-  %3737 = load i32, ptr %16, align 4
-  %3738 = load i32, ptr %17, align 4
-  %3739 = xor i32 %3738, %3737
-  store i32 %3739, ptr %17, align 4
-  %3740 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3741 = getelementptr inbounds %struct.BF_ctx, ptr %3740, i32 0, i32 1
-  %3742 = getelementptr inbounds [18 x i32], ptr %3741, i64 0, i64 12
-  %3743 = load i32, ptr %3742, align 4
-  %3744 = load i32, ptr %13, align 4
-  %3745 = xor i32 %3744, %3743
-  store i32 %3745, ptr %13, align 4
-  %3746 = load i32, ptr %15, align 4
-  %3747 = load i32, ptr %17, align 4
-  %3748 = add i32 %3747, %3746
-  store i32 %3748, ptr %17, align 4
-  %3749 = load i32, ptr %17, align 4
-  %3750 = load i32, ptr %13, align 4
-  %3751 = xor i32 %3750, %3749
-  store i32 %3751, ptr %13, align 4
-  %3752 = load i32, ptr %13, align 4
-  %3753 = and i32 %3752, 255
-  store i32 %3753, ptr %15, align 4
-  %3754 = load i32, ptr %13, align 4
-  %3755 = lshr i32 %3754, 8
-  store i32 %3755, ptr %16, align 4
-  %3756 = load i32, ptr %16, align 4
-  %3757 = and i32 %3756, 255
-  store i32 %3757, ptr %16, align 4
-  %3758 = load i32, ptr %13, align 4
-  %3759 = lshr i32 %3758, 16
-  store i32 %3759, ptr %17, align 4
-  %3760 = load i32, ptr %17, align 4
-  %3761 = and i32 %3760, 255
-  store i32 %3761, ptr %17, align 4
-  %3762 = load i32, ptr %13, align 4
-  %3763 = lshr i32 %3762, 24
-  store i32 %3763, ptr %18, align 4
-  %3764 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3765 = getelementptr inbounds %struct.BF_ctx, ptr %3764, i32 0, i32 0
-  %3766 = getelementptr inbounds [4 x [256 x i32]], ptr %3765, i64 0, i64 3
-  %3767 = load i32, ptr %15, align 4
-  %3768 = zext i32 %3767 to i64
-  %3769 = getelementptr inbounds [256 x i32], ptr %3766, i64 0, i64 %3768
-  %3770 = load i32, ptr %3769, align 4
-  store i32 %3770, ptr %15, align 4
-  %3771 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3772 = getelementptr inbounds %struct.BF_ctx, ptr %3771, i32 0, i32 0
-  %3773 = getelementptr inbounds [4 x [256 x i32]], ptr %3772, i64 0, i64 2
-  %3774 = load i32, ptr %16, align 4
-  %3775 = zext i32 %3774 to i64
-  %3776 = getelementptr inbounds [256 x i32], ptr %3773, i64 0, i64 %3775
-  %3777 = load i32, ptr %3776, align 4
-  store i32 %3777, ptr %16, align 4
-  %3778 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3779 = getelementptr inbounds %struct.BF_ctx, ptr %3778, i32 0, i32 0
-  %3780 = getelementptr inbounds [4 x [256 x i32]], ptr %3779, i64 0, i64 1
-  %3781 = load i32, ptr %17, align 4
-  %3782 = zext i32 %3781 to i64
-  %3783 = getelementptr inbounds [256 x i32], ptr %3780, i64 0, i64 %3782
-  %3784 = load i32, ptr %3783, align 4
-  store i32 %3784, ptr %17, align 4
-  %3785 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3786 = getelementptr inbounds %struct.BF_ctx, ptr %3785, i32 0, i32 0
-  %3787 = getelementptr inbounds [4 x [256 x i32]], ptr %3786, i64 0, i64 0
-  %3788 = load i32, ptr %18, align 4
-  %3789 = zext i32 %3788 to i64
-  %3790 = getelementptr inbounds [256 x i32], ptr %3787, i64 0, i64 %3789
-  %3791 = load i32, ptr %3790, align 4
-  %3792 = load i32, ptr %17, align 4
-  %3793 = add i32 %3792, %3791
-  store i32 %3793, ptr %17, align 4
-  %3794 = load i32, ptr %16, align 4
-  %3795 = load i32, ptr %17, align 4
-  %3796 = xor i32 %3795, %3794
-  store i32 %3796, ptr %17, align 4
-  %3797 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3798 = getelementptr inbounds %struct.BF_ctx, ptr %3797, i32 0, i32 1
-  %3799 = getelementptr inbounds [18 x i32], ptr %3798, i64 0, i64 13
-  %3800 = load i32, ptr %3799, align 4
-  %3801 = load i32, ptr %14, align 4
-  %3802 = xor i32 %3801, %3800
-  store i32 %3802, ptr %14, align 4
-  %3803 = load i32, ptr %15, align 4
-  %3804 = load i32, ptr %17, align 4
-  %3805 = add i32 %3804, %3803
-  store i32 %3805, ptr %17, align 4
-  %3806 = load i32, ptr %17, align 4
-  %3807 = load i32, ptr %14, align 4
-  %3808 = xor i32 %3807, %3806
-  store i32 %3808, ptr %14, align 4
-  %3809 = load i32, ptr %14, align 4
-  %3810 = and i32 %3809, 255
-  store i32 %3810, ptr %15, align 4
-  %3811 = load i32, ptr %14, align 4
-  %3812 = lshr i32 %3811, 8
-  store i32 %3812, ptr %16, align 4
-  %3813 = load i32, ptr %16, align 4
-  %3814 = and i32 %3813, 255
-  store i32 %3814, ptr %16, align 4
-  %3815 = load i32, ptr %14, align 4
-  %3816 = lshr i32 %3815, 16
-  store i32 %3816, ptr %17, align 4
-  %3817 = load i32, ptr %17, align 4
-  %3818 = and i32 %3817, 255
-  store i32 %3818, ptr %17, align 4
-  %3819 = load i32, ptr %14, align 4
-  %3820 = lshr i32 %3819, 24
-  store i32 %3820, ptr %18, align 4
-  %3821 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3822 = getelementptr inbounds %struct.BF_ctx, ptr %3821, i32 0, i32 0
-  %3823 = getelementptr inbounds [4 x [256 x i32]], ptr %3822, i64 0, i64 3
-  %3824 = load i32, ptr %15, align 4
-  %3825 = zext i32 %3824 to i64
-  %3826 = getelementptr inbounds [256 x i32], ptr %3823, i64 0, i64 %3825
-  %3827 = load i32, ptr %3826, align 4
-  store i32 %3827, ptr %15, align 4
-  %3828 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3829 = getelementptr inbounds %struct.BF_ctx, ptr %3828, i32 0, i32 0
-  %3830 = getelementptr inbounds [4 x [256 x i32]], ptr %3829, i64 0, i64 2
-  %3831 = load i32, ptr %16, align 4
-  %3832 = zext i32 %3831 to i64
-  %3833 = getelementptr inbounds [256 x i32], ptr %3830, i64 0, i64 %3832
-  %3834 = load i32, ptr %3833, align 4
-  store i32 %3834, ptr %16, align 4
-  %3835 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3836 = getelementptr inbounds %struct.BF_ctx, ptr %3835, i32 0, i32 0
-  %3837 = getelementptr inbounds [4 x [256 x i32]], ptr %3836, i64 0, i64 1
-  %3838 = load i32, ptr %17, align 4
-  %3839 = zext i32 %3838 to i64
-  %3840 = getelementptr inbounds [256 x i32], ptr %3837, i64 0, i64 %3839
-  %3841 = load i32, ptr %3840, align 4
-  store i32 %3841, ptr %17, align 4
-  %3842 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3843 = getelementptr inbounds %struct.BF_ctx, ptr %3842, i32 0, i32 0
-  %3844 = getelementptr inbounds [4 x [256 x i32]], ptr %3843, i64 0, i64 0
-  %3845 = load i32, ptr %18, align 4
-  %3846 = zext i32 %3845 to i64
-  %3847 = getelementptr inbounds [256 x i32], ptr %3844, i64 0, i64 %3846
-  %3848 = load i32, ptr %3847, align 4
-  %3849 = load i32, ptr %17, align 4
-  %3850 = add i32 %3849, %3848
-  store i32 %3850, ptr %17, align 4
-  %3851 = load i32, ptr %16, align 4
-  %3852 = load i32, ptr %17, align 4
-  %3853 = xor i32 %3852, %3851
-  store i32 %3853, ptr %17, align 4
-  %3854 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3855 = getelementptr inbounds %struct.BF_ctx, ptr %3854, i32 0, i32 1
-  %3856 = getelementptr inbounds [18 x i32], ptr %3855, i64 0, i64 14
-  %3857 = load i32, ptr %3856, align 4
-  %3858 = load i32, ptr %13, align 4
-  %3859 = xor i32 %3858, %3857
-  store i32 %3859, ptr %13, align 4
-  %3860 = load i32, ptr %15, align 4
-  %3861 = load i32, ptr %17, align 4
-  %3862 = add i32 %3861, %3860
-  store i32 %3862, ptr %17, align 4
-  %3863 = load i32, ptr %17, align 4
-  %3864 = load i32, ptr %13, align 4
-  %3865 = xor i32 %3864, %3863
-  store i32 %3865, ptr %13, align 4
-  %3866 = load i32, ptr %13, align 4
-  %3867 = and i32 %3866, 255
-  store i32 %3867, ptr %15, align 4
-  %3868 = load i32, ptr %13, align 4
-  %3869 = lshr i32 %3868, 8
-  store i32 %3869, ptr %16, align 4
-  %3870 = load i32, ptr %16, align 4
-  %3871 = and i32 %3870, 255
-  store i32 %3871, ptr %16, align 4
-  %3872 = load i32, ptr %13, align 4
-  %3873 = lshr i32 %3872, 16
-  store i32 %3873, ptr %17, align 4
-  %3874 = load i32, ptr %17, align 4
-  %3875 = and i32 %3874, 255
-  store i32 %3875, ptr %17, align 4
-  %3876 = load i32, ptr %13, align 4
-  %3877 = lshr i32 %3876, 24
-  store i32 %3877, ptr %18, align 4
-  %3878 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3879 = getelementptr inbounds %struct.BF_ctx, ptr %3878, i32 0, i32 0
-  %3880 = getelementptr inbounds [4 x [256 x i32]], ptr %3879, i64 0, i64 3
-  %3881 = load i32, ptr %15, align 4
-  %3882 = zext i32 %3881 to i64
-  %3883 = getelementptr inbounds [256 x i32], ptr %3880, i64 0, i64 %3882
-  %3884 = load i32, ptr %3883, align 4
-  store i32 %3884, ptr %15, align 4
-  %3885 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3886 = getelementptr inbounds %struct.BF_ctx, ptr %3885, i32 0, i32 0
-  %3887 = getelementptr inbounds [4 x [256 x i32]], ptr %3886, i64 0, i64 2
-  %3888 = load i32, ptr %16, align 4
-  %3889 = zext i32 %3888 to i64
-  %3890 = getelementptr inbounds [256 x i32], ptr %3887, i64 0, i64 %3889
-  %3891 = load i32, ptr %3890, align 4
-  store i32 %3891, ptr %16, align 4
-  %3892 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3893 = getelementptr inbounds %struct.BF_ctx, ptr %3892, i32 0, i32 0
-  %3894 = getelementptr inbounds [4 x [256 x i32]], ptr %3893, i64 0, i64 1
-  %3895 = load i32, ptr %17, align 4
-  %3896 = zext i32 %3895 to i64
-  %3897 = getelementptr inbounds [256 x i32], ptr %3894, i64 0, i64 %3896
-  %3898 = load i32, ptr %3897, align 4
-  store i32 %3898, ptr %17, align 4
-  %3899 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3900 = getelementptr inbounds %struct.BF_ctx, ptr %3899, i32 0, i32 0
-  %3901 = getelementptr inbounds [4 x [256 x i32]], ptr %3900, i64 0, i64 0
-  %3902 = load i32, ptr %18, align 4
-  %3903 = zext i32 %3902 to i64
-  %3904 = getelementptr inbounds [256 x i32], ptr %3901, i64 0, i64 %3903
-  %3905 = load i32, ptr %3904, align 4
-  %3906 = load i32, ptr %17, align 4
-  %3907 = add i32 %3906, %3905
-  store i32 %3907, ptr %17, align 4
-  %3908 = load i32, ptr %16, align 4
-  %3909 = load i32, ptr %17, align 4
-  %3910 = xor i32 %3909, %3908
-  store i32 %3910, ptr %17, align 4
-  %3911 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3912 = getelementptr inbounds %struct.BF_ctx, ptr %3911, i32 0, i32 1
-  %3913 = getelementptr inbounds [18 x i32], ptr %3912, i64 0, i64 15
-  %3914 = load i32, ptr %3913, align 4
-  %3915 = load i32, ptr %14, align 4
-  %3916 = xor i32 %3915, %3914
-  store i32 %3916, ptr %14, align 4
-  %3917 = load i32, ptr %15, align 4
-  %3918 = load i32, ptr %17, align 4
-  %3919 = add i32 %3918, %3917
-  store i32 %3919, ptr %17, align 4
-  %3920 = load i32, ptr %17, align 4
-  %3921 = load i32, ptr %14, align 4
-  %3922 = xor i32 %3921, %3920
-  store i32 %3922, ptr %14, align 4
-  %3923 = load i32, ptr %14, align 4
-  %3924 = and i32 %3923, 255
-  store i32 %3924, ptr %15, align 4
-  %3925 = load i32, ptr %14, align 4
-  %3926 = lshr i32 %3925, 8
-  store i32 %3926, ptr %16, align 4
-  %3927 = load i32, ptr %16, align 4
-  %3928 = and i32 %3927, 255
-  store i32 %3928, ptr %16, align 4
-  %3929 = load i32, ptr %14, align 4
-  %3930 = lshr i32 %3929, 16
-  store i32 %3930, ptr %17, align 4
-  %3931 = load i32, ptr %17, align 4
-  %3932 = and i32 %3931, 255
-  store i32 %3932, ptr %17, align 4
-  %3933 = load i32, ptr %14, align 4
-  %3934 = lshr i32 %3933, 24
-  store i32 %3934, ptr %18, align 4
-  %3935 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3936 = getelementptr inbounds %struct.BF_ctx, ptr %3935, i32 0, i32 0
-  %3937 = getelementptr inbounds [4 x [256 x i32]], ptr %3936, i64 0, i64 3
-  %3938 = load i32, ptr %15, align 4
-  %3939 = zext i32 %3938 to i64
-  %3940 = getelementptr inbounds [256 x i32], ptr %3937, i64 0, i64 %3939
-  %3941 = load i32, ptr %3940, align 4
-  store i32 %3941, ptr %15, align 4
-  %3942 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3943 = getelementptr inbounds %struct.BF_ctx, ptr %3942, i32 0, i32 0
-  %3944 = getelementptr inbounds [4 x [256 x i32]], ptr %3943, i64 0, i64 2
-  %3945 = load i32, ptr %16, align 4
-  %3946 = zext i32 %3945 to i64
-  %3947 = getelementptr inbounds [256 x i32], ptr %3944, i64 0, i64 %3946
-  %3948 = load i32, ptr %3947, align 4
-  store i32 %3948, ptr %16, align 4
-  %3949 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3950 = getelementptr inbounds %struct.BF_ctx, ptr %3949, i32 0, i32 0
-  %3951 = getelementptr inbounds [4 x [256 x i32]], ptr %3950, i64 0, i64 1
-  %3952 = load i32, ptr %17, align 4
-  %3953 = zext i32 %3952 to i64
-  %3954 = getelementptr inbounds [256 x i32], ptr %3951, i64 0, i64 %3953
-  %3955 = load i32, ptr %3954, align 4
-  store i32 %3955, ptr %17, align 4
-  %3956 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3957 = getelementptr inbounds %struct.BF_ctx, ptr %3956, i32 0, i32 0
-  %3958 = getelementptr inbounds [4 x [256 x i32]], ptr %3957, i64 0, i64 0
-  %3959 = load i32, ptr %18, align 4
-  %3960 = zext i32 %3959 to i64
-  %3961 = getelementptr inbounds [256 x i32], ptr %3958, i64 0, i64 %3960
-  %3962 = load i32, ptr %3961, align 4
-  %3963 = load i32, ptr %17, align 4
-  %3964 = add i32 %3963, %3962
-  store i32 %3964, ptr %17, align 4
-  %3965 = load i32, ptr %16, align 4
-  %3966 = load i32, ptr %17, align 4
-  %3967 = xor i32 %3966, %3965
-  store i32 %3967, ptr %17, align 4
-  %3968 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3969 = getelementptr inbounds %struct.BF_ctx, ptr %3968, i32 0, i32 1
-  %3970 = getelementptr inbounds [18 x i32], ptr %3969, i64 0, i64 16
-  %3971 = load i32, ptr %3970, align 4
-  %3972 = load i32, ptr %13, align 4
-  %3973 = xor i32 %3972, %3971
-  store i32 %3973, ptr %13, align 4
-  %3974 = load i32, ptr %15, align 4
-  %3975 = load i32, ptr %17, align 4
-  %3976 = add i32 %3975, %3974
-  store i32 %3976, ptr %17, align 4
-  %3977 = load i32, ptr %17, align 4
-  %3978 = load i32, ptr %13, align 4
-  %3979 = xor i32 %3978, %3977
-  store i32 %3979, ptr %13, align 4
-  %3980 = load i32, ptr %14, align 4
-  store i32 %3980, ptr %18, align 4
-  %3981 = load i32, ptr %13, align 4
-  store i32 %3981, ptr %14, align 4
-  %3982 = load i32, ptr %18, align 4
-  %3983 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3984 = getelementptr inbounds %struct.BF_ctx, ptr %3983, i32 0, i32 1
-  %3985 = getelementptr inbounds [18 x i32], ptr %3984, i64 0, i64 17
-  %3986 = load i32, ptr %3985, align 4
-  %3987 = xor i32 %3982, %3986
-  store i32 %3987, ptr %13, align 4
-  %3988 = load i32, ptr %13, align 4
-  %3989 = load ptr, ptr %19, align 8
-  %3990 = getelementptr inbounds i32, ptr %3989, i64 -2
-  store i32 %3988, ptr %3990, align 4
-  %3991 = load i32, ptr %14, align 4
-  %3992 = load ptr, ptr %19, align 8
-  %3993 = getelementptr inbounds i32, ptr %3992, i64 -1
-  store i32 %3991, ptr %3993, align 4
-  br label %3994
-
-3994:                                             ; preds = %3059
-  %3995 = load ptr, ptr %19, align 8
-  %3996 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %3997 = getelementptr inbounds %struct.BF_ctx, ptr %3996, i32 0, i32 1
-  %3998 = getelementptr inbounds [18 x i32], ptr %3997, i64 0, i64 18
-  %3999 = icmp ult ptr %3995, %3998
-  br i1 %3999, label %3059, label %4000
-
-4000:                                             ; preds = %3994
-  %4001 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4002 = getelementptr inbounds %struct.BF_ctx, ptr %4001, i32 0, i32 0
-  %4003 = getelementptr inbounds [4 x [256 x i32]], ptr %4002, i64 0, i64 0
-  %4004 = getelementptr inbounds [256 x i32], ptr %4003, i64 0, i64 0
-  store ptr %4004, ptr %19, align 8
-  br label %4005
-
-4005:                                             ; preds = %4940, %4000
-  %4006 = load ptr, ptr %19, align 8
-  %4007 = getelementptr inbounds i32, ptr %4006, i64 2
-  store ptr %4007, ptr %19, align 8
-  %4008 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4009 = getelementptr inbounds %struct.BF_ctx, ptr %4008, i32 0, i32 1
-  %4010 = getelementptr inbounds [18 x i32], ptr %4009, i64 0, i64 0
-  %4011 = load i32, ptr %4010, align 4
-  %4012 = load i32, ptr %13, align 4
-  %4013 = xor i32 %4012, %4011
-  store i32 %4013, ptr %13, align 4
-  %4014 = load i32, ptr %13, align 4
-  %4015 = and i32 %4014, 255
-  store i32 %4015, ptr %15, align 4
-  %4016 = load i32, ptr %13, align 4
-  %4017 = lshr i32 %4016, 8
-  store i32 %4017, ptr %16, align 4
-  %4018 = load i32, ptr %16, align 4
-  %4019 = and i32 %4018, 255
-  store i32 %4019, ptr %16, align 4
-  %4020 = load i32, ptr %13, align 4
-  %4021 = lshr i32 %4020, 16
-  store i32 %4021, ptr %17, align 4
-  %4022 = load i32, ptr %17, align 4
-  %4023 = and i32 %4022, 255
-  store i32 %4023, ptr %17, align 4
-  %4024 = load i32, ptr %13, align 4
-  %4025 = lshr i32 %4024, 24
-  store i32 %4025, ptr %18, align 4
-  %4026 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4027 = getelementptr inbounds %struct.BF_ctx, ptr %4026, i32 0, i32 0
-  %4028 = getelementptr inbounds [4 x [256 x i32]], ptr %4027, i64 0, i64 3
-  %4029 = load i32, ptr %15, align 4
-  %4030 = zext i32 %4029 to i64
-  %4031 = getelementptr inbounds [256 x i32], ptr %4028, i64 0, i64 %4030
-  %4032 = load i32, ptr %4031, align 4
-  store i32 %4032, ptr %15, align 4
-  %4033 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4034 = getelementptr inbounds %struct.BF_ctx, ptr %4033, i32 0, i32 0
-  %4035 = getelementptr inbounds [4 x [256 x i32]], ptr %4034, i64 0, i64 2
-  %4036 = load i32, ptr %16, align 4
-  %4037 = zext i32 %4036 to i64
-  %4038 = getelementptr inbounds [256 x i32], ptr %4035, i64 0, i64 %4037
-  %4039 = load i32, ptr %4038, align 4
-  store i32 %4039, ptr %16, align 4
-  %4040 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4041 = getelementptr inbounds %struct.BF_ctx, ptr %4040, i32 0, i32 0
-  %4042 = getelementptr inbounds [4 x [256 x i32]], ptr %4041, i64 0, i64 1
-  %4043 = load i32, ptr %17, align 4
-  %4044 = zext i32 %4043 to i64
-  %4045 = getelementptr inbounds [256 x i32], ptr %4042, i64 0, i64 %4044
-  %4046 = load i32, ptr %4045, align 4
-  store i32 %4046, ptr %17, align 4
-  %4047 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4048 = getelementptr inbounds %struct.BF_ctx, ptr %4047, i32 0, i32 0
-  %4049 = getelementptr inbounds [4 x [256 x i32]], ptr %4048, i64 0, i64 0
-  %4050 = load i32, ptr %18, align 4
-  %4051 = zext i32 %4050 to i64
-  %4052 = getelementptr inbounds [256 x i32], ptr %4049, i64 0, i64 %4051
-  %4053 = load i32, ptr %4052, align 4
-  %4054 = load i32, ptr %17, align 4
-  %4055 = add i32 %4054, %4053
-  store i32 %4055, ptr %17, align 4
-  %4056 = load i32, ptr %16, align 4
-  %4057 = load i32, ptr %17, align 4
-  %4058 = xor i32 %4057, %4056
-  store i32 %4058, ptr %17, align 4
-  %4059 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4060 = getelementptr inbounds %struct.BF_ctx, ptr %4059, i32 0, i32 1
-  %4061 = getelementptr inbounds [18 x i32], ptr %4060, i64 0, i64 1
-  %4062 = load i32, ptr %4061, align 4
-  %4063 = load i32, ptr %14, align 4
-  %4064 = xor i32 %4063, %4062
-  store i32 %4064, ptr %14, align 4
-  %4065 = load i32, ptr %15, align 4
-  %4066 = load i32, ptr %17, align 4
-  %4067 = add i32 %4066, %4065
-  store i32 %4067, ptr %17, align 4
-  %4068 = load i32, ptr %17, align 4
-  %4069 = load i32, ptr %14, align 4
-  %4070 = xor i32 %4069, %4068
-  store i32 %4070, ptr %14, align 4
-  %4071 = load i32, ptr %14, align 4
-  %4072 = and i32 %4071, 255
-  store i32 %4072, ptr %15, align 4
-  %4073 = load i32, ptr %14, align 4
-  %4074 = lshr i32 %4073, 8
-  store i32 %4074, ptr %16, align 4
-  %4075 = load i32, ptr %16, align 4
-  %4076 = and i32 %4075, 255
-  store i32 %4076, ptr %16, align 4
-  %4077 = load i32, ptr %14, align 4
-  %4078 = lshr i32 %4077, 16
-  store i32 %4078, ptr %17, align 4
-  %4079 = load i32, ptr %17, align 4
-  %4080 = and i32 %4079, 255
-  store i32 %4080, ptr %17, align 4
-  %4081 = load i32, ptr %14, align 4
-  %4082 = lshr i32 %4081, 24
-  store i32 %4082, ptr %18, align 4
-  %4083 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4084 = getelementptr inbounds %struct.BF_ctx, ptr %4083, i32 0, i32 0
-  %4085 = getelementptr inbounds [4 x [256 x i32]], ptr %4084, i64 0, i64 3
-  %4086 = load i32, ptr %15, align 4
-  %4087 = zext i32 %4086 to i64
-  %4088 = getelementptr inbounds [256 x i32], ptr %4085, i64 0, i64 %4087
-  %4089 = load i32, ptr %4088, align 4
-  store i32 %4089, ptr %15, align 4
-  %4090 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4091 = getelementptr inbounds %struct.BF_ctx, ptr %4090, i32 0, i32 0
-  %4092 = getelementptr inbounds [4 x [256 x i32]], ptr %4091, i64 0, i64 2
-  %4093 = load i32, ptr %16, align 4
-  %4094 = zext i32 %4093 to i64
-  %4095 = getelementptr inbounds [256 x i32], ptr %4092, i64 0, i64 %4094
-  %4096 = load i32, ptr %4095, align 4
-  store i32 %4096, ptr %16, align 4
-  %4097 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4098 = getelementptr inbounds %struct.BF_ctx, ptr %4097, i32 0, i32 0
-  %4099 = getelementptr inbounds [4 x [256 x i32]], ptr %4098, i64 0, i64 1
-  %4100 = load i32, ptr %17, align 4
-  %4101 = zext i32 %4100 to i64
-  %4102 = getelementptr inbounds [256 x i32], ptr %4099, i64 0, i64 %4101
-  %4103 = load i32, ptr %4102, align 4
-  store i32 %4103, ptr %17, align 4
-  %4104 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4105 = getelementptr inbounds %struct.BF_ctx, ptr %4104, i32 0, i32 0
-  %4106 = getelementptr inbounds [4 x [256 x i32]], ptr %4105, i64 0, i64 0
-  %4107 = load i32, ptr %18, align 4
-  %4108 = zext i32 %4107 to i64
-  %4109 = getelementptr inbounds [256 x i32], ptr %4106, i64 0, i64 %4108
-  %4110 = load i32, ptr %4109, align 4
-  %4111 = load i32, ptr %17, align 4
-  %4112 = add i32 %4111, %4110
-  store i32 %4112, ptr %17, align 4
-  %4113 = load i32, ptr %16, align 4
-  %4114 = load i32, ptr %17, align 4
-  %4115 = xor i32 %4114, %4113
-  store i32 %4115, ptr %17, align 4
-  %4116 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4117 = getelementptr inbounds %struct.BF_ctx, ptr %4116, i32 0, i32 1
-  %4118 = getelementptr inbounds [18 x i32], ptr %4117, i64 0, i64 2
-  %4119 = load i32, ptr %4118, align 4
-  %4120 = load i32, ptr %13, align 4
-  %4121 = xor i32 %4120, %4119
-  store i32 %4121, ptr %13, align 4
-  %4122 = load i32, ptr %15, align 4
-  %4123 = load i32, ptr %17, align 4
-  %4124 = add i32 %4123, %4122
-  store i32 %4124, ptr %17, align 4
-  %4125 = load i32, ptr %17, align 4
-  %4126 = load i32, ptr %13, align 4
-  %4127 = xor i32 %4126, %4125
-  store i32 %4127, ptr %13, align 4
-  %4128 = load i32, ptr %13, align 4
-  %4129 = and i32 %4128, 255
-  store i32 %4129, ptr %15, align 4
-  %4130 = load i32, ptr %13, align 4
-  %4131 = lshr i32 %4130, 8
-  store i32 %4131, ptr %16, align 4
-  %4132 = load i32, ptr %16, align 4
-  %4133 = and i32 %4132, 255
-  store i32 %4133, ptr %16, align 4
-  %4134 = load i32, ptr %13, align 4
-  %4135 = lshr i32 %4134, 16
-  store i32 %4135, ptr %17, align 4
-  %4136 = load i32, ptr %17, align 4
-  %4137 = and i32 %4136, 255
-  store i32 %4137, ptr %17, align 4
-  %4138 = load i32, ptr %13, align 4
-  %4139 = lshr i32 %4138, 24
-  store i32 %4139, ptr %18, align 4
-  %4140 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4141 = getelementptr inbounds %struct.BF_ctx, ptr %4140, i32 0, i32 0
-  %4142 = getelementptr inbounds [4 x [256 x i32]], ptr %4141, i64 0, i64 3
-  %4143 = load i32, ptr %15, align 4
-  %4144 = zext i32 %4143 to i64
-  %4145 = getelementptr inbounds [256 x i32], ptr %4142, i64 0, i64 %4144
-  %4146 = load i32, ptr %4145, align 4
-  store i32 %4146, ptr %15, align 4
-  %4147 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4148 = getelementptr inbounds %struct.BF_ctx, ptr %4147, i32 0, i32 0
-  %4149 = getelementptr inbounds [4 x [256 x i32]], ptr %4148, i64 0, i64 2
-  %4150 = load i32, ptr %16, align 4
-  %4151 = zext i32 %4150 to i64
-  %4152 = getelementptr inbounds [256 x i32], ptr %4149, i64 0, i64 %4151
-  %4153 = load i32, ptr %4152, align 4
-  store i32 %4153, ptr %16, align 4
-  %4154 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4155 = getelementptr inbounds %struct.BF_ctx, ptr %4154, i32 0, i32 0
-  %4156 = getelementptr inbounds [4 x [256 x i32]], ptr %4155, i64 0, i64 1
-  %4157 = load i32, ptr %17, align 4
-  %4158 = zext i32 %4157 to i64
-  %4159 = getelementptr inbounds [256 x i32], ptr %4156, i64 0, i64 %4158
-  %4160 = load i32, ptr %4159, align 4
-  store i32 %4160, ptr %17, align 4
-  %4161 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4162 = getelementptr inbounds %struct.BF_ctx, ptr %4161, i32 0, i32 0
-  %4163 = getelementptr inbounds [4 x [256 x i32]], ptr %4162, i64 0, i64 0
-  %4164 = load i32, ptr %18, align 4
-  %4165 = zext i32 %4164 to i64
-  %4166 = getelementptr inbounds [256 x i32], ptr %4163, i64 0, i64 %4165
-  %4167 = load i32, ptr %4166, align 4
-  %4168 = load i32, ptr %17, align 4
-  %4169 = add i32 %4168, %4167
-  store i32 %4169, ptr %17, align 4
-  %4170 = load i32, ptr %16, align 4
-  %4171 = load i32, ptr %17, align 4
-  %4172 = xor i32 %4171, %4170
-  store i32 %4172, ptr %17, align 4
-  %4173 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4174 = getelementptr inbounds %struct.BF_ctx, ptr %4173, i32 0, i32 1
-  %4175 = getelementptr inbounds [18 x i32], ptr %4174, i64 0, i64 3
-  %4176 = load i32, ptr %4175, align 4
-  %4177 = load i32, ptr %14, align 4
-  %4178 = xor i32 %4177, %4176
-  store i32 %4178, ptr %14, align 4
-  %4179 = load i32, ptr %15, align 4
-  %4180 = load i32, ptr %17, align 4
-  %4181 = add i32 %4180, %4179
-  store i32 %4181, ptr %17, align 4
-  %4182 = load i32, ptr %17, align 4
-  %4183 = load i32, ptr %14, align 4
-  %4184 = xor i32 %4183, %4182
-  store i32 %4184, ptr %14, align 4
-  %4185 = load i32, ptr %14, align 4
-  %4186 = and i32 %4185, 255
-  store i32 %4186, ptr %15, align 4
-  %4187 = load i32, ptr %14, align 4
-  %4188 = lshr i32 %4187, 8
-  store i32 %4188, ptr %16, align 4
-  %4189 = load i32, ptr %16, align 4
-  %4190 = and i32 %4189, 255
-  store i32 %4190, ptr %16, align 4
-  %4191 = load i32, ptr %14, align 4
-  %4192 = lshr i32 %4191, 16
-  store i32 %4192, ptr %17, align 4
-  %4193 = load i32, ptr %17, align 4
-  %4194 = and i32 %4193, 255
-  store i32 %4194, ptr %17, align 4
-  %4195 = load i32, ptr %14, align 4
-  %4196 = lshr i32 %4195, 24
-  store i32 %4196, ptr %18, align 4
-  %4197 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4198 = getelementptr inbounds %struct.BF_ctx, ptr %4197, i32 0, i32 0
-  %4199 = getelementptr inbounds [4 x [256 x i32]], ptr %4198, i64 0, i64 3
-  %4200 = load i32, ptr %15, align 4
-  %4201 = zext i32 %4200 to i64
-  %4202 = getelementptr inbounds [256 x i32], ptr %4199, i64 0, i64 %4201
-  %4203 = load i32, ptr %4202, align 4
-  store i32 %4203, ptr %15, align 4
-  %4204 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4205 = getelementptr inbounds %struct.BF_ctx, ptr %4204, i32 0, i32 0
-  %4206 = getelementptr inbounds [4 x [256 x i32]], ptr %4205, i64 0, i64 2
-  %4207 = load i32, ptr %16, align 4
-  %4208 = zext i32 %4207 to i64
-  %4209 = getelementptr inbounds [256 x i32], ptr %4206, i64 0, i64 %4208
-  %4210 = load i32, ptr %4209, align 4
-  store i32 %4210, ptr %16, align 4
-  %4211 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4212 = getelementptr inbounds %struct.BF_ctx, ptr %4211, i32 0, i32 0
-  %4213 = getelementptr inbounds [4 x [256 x i32]], ptr %4212, i64 0, i64 1
-  %4214 = load i32, ptr %17, align 4
-  %4215 = zext i32 %4214 to i64
-  %4216 = getelementptr inbounds [256 x i32], ptr %4213, i64 0, i64 %4215
-  %4217 = load i32, ptr %4216, align 4
-  store i32 %4217, ptr %17, align 4
-  %4218 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4219 = getelementptr inbounds %struct.BF_ctx, ptr %4218, i32 0, i32 0
-  %4220 = getelementptr inbounds [4 x [256 x i32]], ptr %4219, i64 0, i64 0
-  %4221 = load i32, ptr %18, align 4
-  %4222 = zext i32 %4221 to i64
-  %4223 = getelementptr inbounds [256 x i32], ptr %4220, i64 0, i64 %4222
-  %4224 = load i32, ptr %4223, align 4
-  %4225 = load i32, ptr %17, align 4
-  %4226 = add i32 %4225, %4224
-  store i32 %4226, ptr %17, align 4
-  %4227 = load i32, ptr %16, align 4
-  %4228 = load i32, ptr %17, align 4
-  %4229 = xor i32 %4228, %4227
-  store i32 %4229, ptr %17, align 4
-  %4230 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4231 = getelementptr inbounds %struct.BF_ctx, ptr %4230, i32 0, i32 1
-  %4232 = getelementptr inbounds [18 x i32], ptr %4231, i64 0, i64 4
-  %4233 = load i32, ptr %4232, align 4
-  %4234 = load i32, ptr %13, align 4
-  %4235 = xor i32 %4234, %4233
-  store i32 %4235, ptr %13, align 4
-  %4236 = load i32, ptr %15, align 4
-  %4237 = load i32, ptr %17, align 4
-  %4238 = add i32 %4237, %4236
-  store i32 %4238, ptr %17, align 4
-  %4239 = load i32, ptr %17, align 4
-  %4240 = load i32, ptr %13, align 4
-  %4241 = xor i32 %4240, %4239
-  store i32 %4241, ptr %13, align 4
-  %4242 = load i32, ptr %13, align 4
-  %4243 = and i32 %4242, 255
-  store i32 %4243, ptr %15, align 4
-  %4244 = load i32, ptr %13, align 4
-  %4245 = lshr i32 %4244, 8
-  store i32 %4245, ptr %16, align 4
-  %4246 = load i32, ptr %16, align 4
-  %4247 = and i32 %4246, 255
-  store i32 %4247, ptr %16, align 4
-  %4248 = load i32, ptr %13, align 4
-  %4249 = lshr i32 %4248, 16
-  store i32 %4249, ptr %17, align 4
-  %4250 = load i32, ptr %17, align 4
-  %4251 = and i32 %4250, 255
-  store i32 %4251, ptr %17, align 4
-  %4252 = load i32, ptr %13, align 4
-  %4253 = lshr i32 %4252, 24
-  store i32 %4253, ptr %18, align 4
-  %4254 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4255 = getelementptr inbounds %struct.BF_ctx, ptr %4254, i32 0, i32 0
-  %4256 = getelementptr inbounds [4 x [256 x i32]], ptr %4255, i64 0, i64 3
-  %4257 = load i32, ptr %15, align 4
-  %4258 = zext i32 %4257 to i64
-  %4259 = getelementptr inbounds [256 x i32], ptr %4256, i64 0, i64 %4258
-  %4260 = load i32, ptr %4259, align 4
-  store i32 %4260, ptr %15, align 4
-  %4261 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4262 = getelementptr inbounds %struct.BF_ctx, ptr %4261, i32 0, i32 0
-  %4263 = getelementptr inbounds [4 x [256 x i32]], ptr %4262, i64 0, i64 2
-  %4264 = load i32, ptr %16, align 4
-  %4265 = zext i32 %4264 to i64
-  %4266 = getelementptr inbounds [256 x i32], ptr %4263, i64 0, i64 %4265
-  %4267 = load i32, ptr %4266, align 4
-  store i32 %4267, ptr %16, align 4
-  %4268 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4269 = getelementptr inbounds %struct.BF_ctx, ptr %4268, i32 0, i32 0
-  %4270 = getelementptr inbounds [4 x [256 x i32]], ptr %4269, i64 0, i64 1
-  %4271 = load i32, ptr %17, align 4
-  %4272 = zext i32 %4271 to i64
-  %4273 = getelementptr inbounds [256 x i32], ptr %4270, i64 0, i64 %4272
-  %4274 = load i32, ptr %4273, align 4
-  store i32 %4274, ptr %17, align 4
-  %4275 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4276 = getelementptr inbounds %struct.BF_ctx, ptr %4275, i32 0, i32 0
-  %4277 = getelementptr inbounds [4 x [256 x i32]], ptr %4276, i64 0, i64 0
-  %4278 = load i32, ptr %18, align 4
-  %4279 = zext i32 %4278 to i64
-  %4280 = getelementptr inbounds [256 x i32], ptr %4277, i64 0, i64 %4279
-  %4281 = load i32, ptr %4280, align 4
-  %4282 = load i32, ptr %17, align 4
-  %4283 = add i32 %4282, %4281
-  store i32 %4283, ptr %17, align 4
-  %4284 = load i32, ptr %16, align 4
-  %4285 = load i32, ptr %17, align 4
-  %4286 = xor i32 %4285, %4284
-  store i32 %4286, ptr %17, align 4
-  %4287 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4288 = getelementptr inbounds %struct.BF_ctx, ptr %4287, i32 0, i32 1
-  %4289 = getelementptr inbounds [18 x i32], ptr %4288, i64 0, i64 5
-  %4290 = load i32, ptr %4289, align 4
-  %4291 = load i32, ptr %14, align 4
-  %4292 = xor i32 %4291, %4290
-  store i32 %4292, ptr %14, align 4
-  %4293 = load i32, ptr %15, align 4
-  %4294 = load i32, ptr %17, align 4
-  %4295 = add i32 %4294, %4293
-  store i32 %4295, ptr %17, align 4
-  %4296 = load i32, ptr %17, align 4
-  %4297 = load i32, ptr %14, align 4
-  %4298 = xor i32 %4297, %4296
-  store i32 %4298, ptr %14, align 4
-  %4299 = load i32, ptr %14, align 4
-  %4300 = and i32 %4299, 255
-  store i32 %4300, ptr %15, align 4
-  %4301 = load i32, ptr %14, align 4
-  %4302 = lshr i32 %4301, 8
-  store i32 %4302, ptr %16, align 4
-  %4303 = load i32, ptr %16, align 4
-  %4304 = and i32 %4303, 255
-  store i32 %4304, ptr %16, align 4
-  %4305 = load i32, ptr %14, align 4
-  %4306 = lshr i32 %4305, 16
-  store i32 %4306, ptr %17, align 4
-  %4307 = load i32, ptr %17, align 4
-  %4308 = and i32 %4307, 255
-  store i32 %4308, ptr %17, align 4
-  %4309 = load i32, ptr %14, align 4
-  %4310 = lshr i32 %4309, 24
-  store i32 %4310, ptr %18, align 4
-  %4311 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4312 = getelementptr inbounds %struct.BF_ctx, ptr %4311, i32 0, i32 0
-  %4313 = getelementptr inbounds [4 x [256 x i32]], ptr %4312, i64 0, i64 3
-  %4314 = load i32, ptr %15, align 4
-  %4315 = zext i32 %4314 to i64
-  %4316 = getelementptr inbounds [256 x i32], ptr %4313, i64 0, i64 %4315
-  %4317 = load i32, ptr %4316, align 4
-  store i32 %4317, ptr %15, align 4
-  %4318 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4319 = getelementptr inbounds %struct.BF_ctx, ptr %4318, i32 0, i32 0
-  %4320 = getelementptr inbounds [4 x [256 x i32]], ptr %4319, i64 0, i64 2
-  %4321 = load i32, ptr %16, align 4
-  %4322 = zext i32 %4321 to i64
-  %4323 = getelementptr inbounds [256 x i32], ptr %4320, i64 0, i64 %4322
-  %4324 = load i32, ptr %4323, align 4
-  store i32 %4324, ptr %16, align 4
-  %4325 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4326 = getelementptr inbounds %struct.BF_ctx, ptr %4325, i32 0, i32 0
-  %4327 = getelementptr inbounds [4 x [256 x i32]], ptr %4326, i64 0, i64 1
-  %4328 = load i32, ptr %17, align 4
-  %4329 = zext i32 %4328 to i64
-  %4330 = getelementptr inbounds [256 x i32], ptr %4327, i64 0, i64 %4329
-  %4331 = load i32, ptr %4330, align 4
-  store i32 %4331, ptr %17, align 4
-  %4332 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4333 = getelementptr inbounds %struct.BF_ctx, ptr %4332, i32 0, i32 0
-  %4334 = getelementptr inbounds [4 x [256 x i32]], ptr %4333, i64 0, i64 0
-  %4335 = load i32, ptr %18, align 4
-  %4336 = zext i32 %4335 to i64
-  %4337 = getelementptr inbounds [256 x i32], ptr %4334, i64 0, i64 %4336
-  %4338 = load i32, ptr %4337, align 4
-  %4339 = load i32, ptr %17, align 4
-  %4340 = add i32 %4339, %4338
-  store i32 %4340, ptr %17, align 4
-  %4341 = load i32, ptr %16, align 4
-  %4342 = load i32, ptr %17, align 4
-  %4343 = xor i32 %4342, %4341
-  store i32 %4343, ptr %17, align 4
-  %4344 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4345 = getelementptr inbounds %struct.BF_ctx, ptr %4344, i32 0, i32 1
-  %4346 = getelementptr inbounds [18 x i32], ptr %4345, i64 0, i64 6
-  %4347 = load i32, ptr %4346, align 4
-  %4348 = load i32, ptr %13, align 4
-  %4349 = xor i32 %4348, %4347
-  store i32 %4349, ptr %13, align 4
-  %4350 = load i32, ptr %15, align 4
-  %4351 = load i32, ptr %17, align 4
-  %4352 = add i32 %4351, %4350
-  store i32 %4352, ptr %17, align 4
-  %4353 = load i32, ptr %17, align 4
-  %4354 = load i32, ptr %13, align 4
-  %4355 = xor i32 %4354, %4353
-  store i32 %4355, ptr %13, align 4
-  %4356 = load i32, ptr %13, align 4
-  %4357 = and i32 %4356, 255
-  store i32 %4357, ptr %15, align 4
-  %4358 = load i32, ptr %13, align 4
-  %4359 = lshr i32 %4358, 8
-  store i32 %4359, ptr %16, align 4
-  %4360 = load i32, ptr %16, align 4
-  %4361 = and i32 %4360, 255
-  store i32 %4361, ptr %16, align 4
-  %4362 = load i32, ptr %13, align 4
-  %4363 = lshr i32 %4362, 16
-  store i32 %4363, ptr %17, align 4
-  %4364 = load i32, ptr %17, align 4
-  %4365 = and i32 %4364, 255
-  store i32 %4365, ptr %17, align 4
-  %4366 = load i32, ptr %13, align 4
-  %4367 = lshr i32 %4366, 24
-  store i32 %4367, ptr %18, align 4
-  %4368 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4369 = getelementptr inbounds %struct.BF_ctx, ptr %4368, i32 0, i32 0
-  %4370 = getelementptr inbounds [4 x [256 x i32]], ptr %4369, i64 0, i64 3
-  %4371 = load i32, ptr %15, align 4
-  %4372 = zext i32 %4371 to i64
-  %4373 = getelementptr inbounds [256 x i32], ptr %4370, i64 0, i64 %4372
-  %4374 = load i32, ptr %4373, align 4
-  store i32 %4374, ptr %15, align 4
-  %4375 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4376 = getelementptr inbounds %struct.BF_ctx, ptr %4375, i32 0, i32 0
-  %4377 = getelementptr inbounds [4 x [256 x i32]], ptr %4376, i64 0, i64 2
-  %4378 = load i32, ptr %16, align 4
-  %4379 = zext i32 %4378 to i64
-  %4380 = getelementptr inbounds [256 x i32], ptr %4377, i64 0, i64 %4379
-  %4381 = load i32, ptr %4380, align 4
-  store i32 %4381, ptr %16, align 4
-  %4382 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4383 = getelementptr inbounds %struct.BF_ctx, ptr %4382, i32 0, i32 0
-  %4384 = getelementptr inbounds [4 x [256 x i32]], ptr %4383, i64 0, i64 1
-  %4385 = load i32, ptr %17, align 4
-  %4386 = zext i32 %4385 to i64
-  %4387 = getelementptr inbounds [256 x i32], ptr %4384, i64 0, i64 %4386
-  %4388 = load i32, ptr %4387, align 4
-  store i32 %4388, ptr %17, align 4
-  %4389 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4390 = getelementptr inbounds %struct.BF_ctx, ptr %4389, i32 0, i32 0
-  %4391 = getelementptr inbounds [4 x [256 x i32]], ptr %4390, i64 0, i64 0
-  %4392 = load i32, ptr %18, align 4
-  %4393 = zext i32 %4392 to i64
-  %4394 = getelementptr inbounds [256 x i32], ptr %4391, i64 0, i64 %4393
-  %4395 = load i32, ptr %4394, align 4
-  %4396 = load i32, ptr %17, align 4
-  %4397 = add i32 %4396, %4395
-  store i32 %4397, ptr %17, align 4
-  %4398 = load i32, ptr %16, align 4
-  %4399 = load i32, ptr %17, align 4
-  %4400 = xor i32 %4399, %4398
-  store i32 %4400, ptr %17, align 4
-  %4401 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4402 = getelementptr inbounds %struct.BF_ctx, ptr %4401, i32 0, i32 1
-  %4403 = getelementptr inbounds [18 x i32], ptr %4402, i64 0, i64 7
-  %4404 = load i32, ptr %4403, align 4
-  %4405 = load i32, ptr %14, align 4
-  %4406 = xor i32 %4405, %4404
-  store i32 %4406, ptr %14, align 4
-  %4407 = load i32, ptr %15, align 4
-  %4408 = load i32, ptr %17, align 4
-  %4409 = add i32 %4408, %4407
-  store i32 %4409, ptr %17, align 4
-  %4410 = load i32, ptr %17, align 4
-  %4411 = load i32, ptr %14, align 4
-  %4412 = xor i32 %4411, %4410
-  store i32 %4412, ptr %14, align 4
-  %4413 = load i32, ptr %14, align 4
-  %4414 = and i32 %4413, 255
-  store i32 %4414, ptr %15, align 4
-  %4415 = load i32, ptr %14, align 4
-  %4416 = lshr i32 %4415, 8
-  store i32 %4416, ptr %16, align 4
-  %4417 = load i32, ptr %16, align 4
-  %4418 = and i32 %4417, 255
-  store i32 %4418, ptr %16, align 4
-  %4419 = load i32, ptr %14, align 4
-  %4420 = lshr i32 %4419, 16
-  store i32 %4420, ptr %17, align 4
-  %4421 = load i32, ptr %17, align 4
-  %4422 = and i32 %4421, 255
-  store i32 %4422, ptr %17, align 4
-  %4423 = load i32, ptr %14, align 4
-  %4424 = lshr i32 %4423, 24
-  store i32 %4424, ptr %18, align 4
-  %4425 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4426 = getelementptr inbounds %struct.BF_ctx, ptr %4425, i32 0, i32 0
-  %4427 = getelementptr inbounds [4 x [256 x i32]], ptr %4426, i64 0, i64 3
-  %4428 = load i32, ptr %15, align 4
-  %4429 = zext i32 %4428 to i64
-  %4430 = getelementptr inbounds [256 x i32], ptr %4427, i64 0, i64 %4429
-  %4431 = load i32, ptr %4430, align 4
-  store i32 %4431, ptr %15, align 4
-  %4432 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4433 = getelementptr inbounds %struct.BF_ctx, ptr %4432, i32 0, i32 0
-  %4434 = getelementptr inbounds [4 x [256 x i32]], ptr %4433, i64 0, i64 2
-  %4435 = load i32, ptr %16, align 4
-  %4436 = zext i32 %4435 to i64
-  %4437 = getelementptr inbounds [256 x i32], ptr %4434, i64 0, i64 %4436
-  %4438 = load i32, ptr %4437, align 4
-  store i32 %4438, ptr %16, align 4
-  %4439 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4440 = getelementptr inbounds %struct.BF_ctx, ptr %4439, i32 0, i32 0
-  %4441 = getelementptr inbounds [4 x [256 x i32]], ptr %4440, i64 0, i64 1
-  %4442 = load i32, ptr %17, align 4
-  %4443 = zext i32 %4442 to i64
-  %4444 = getelementptr inbounds [256 x i32], ptr %4441, i64 0, i64 %4443
-  %4445 = load i32, ptr %4444, align 4
-  store i32 %4445, ptr %17, align 4
-  %4446 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4447 = getelementptr inbounds %struct.BF_ctx, ptr %4446, i32 0, i32 0
-  %4448 = getelementptr inbounds [4 x [256 x i32]], ptr %4447, i64 0, i64 0
-  %4449 = load i32, ptr %18, align 4
-  %4450 = zext i32 %4449 to i64
-  %4451 = getelementptr inbounds [256 x i32], ptr %4448, i64 0, i64 %4450
-  %4452 = load i32, ptr %4451, align 4
-  %4453 = load i32, ptr %17, align 4
-  %4454 = add i32 %4453, %4452
-  store i32 %4454, ptr %17, align 4
-  %4455 = load i32, ptr %16, align 4
-  %4456 = load i32, ptr %17, align 4
-  %4457 = xor i32 %4456, %4455
-  store i32 %4457, ptr %17, align 4
-  %4458 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4459 = getelementptr inbounds %struct.BF_ctx, ptr %4458, i32 0, i32 1
-  %4460 = getelementptr inbounds [18 x i32], ptr %4459, i64 0, i64 8
-  %4461 = load i32, ptr %4460, align 4
-  %4462 = load i32, ptr %13, align 4
-  %4463 = xor i32 %4462, %4461
-  store i32 %4463, ptr %13, align 4
-  %4464 = load i32, ptr %15, align 4
-  %4465 = load i32, ptr %17, align 4
-  %4466 = add i32 %4465, %4464
-  store i32 %4466, ptr %17, align 4
-  %4467 = load i32, ptr %17, align 4
-  %4468 = load i32, ptr %13, align 4
-  %4469 = xor i32 %4468, %4467
-  store i32 %4469, ptr %13, align 4
-  %4470 = load i32, ptr %13, align 4
-  %4471 = and i32 %4470, 255
-  store i32 %4471, ptr %15, align 4
-  %4472 = load i32, ptr %13, align 4
-  %4473 = lshr i32 %4472, 8
-  store i32 %4473, ptr %16, align 4
-  %4474 = load i32, ptr %16, align 4
-  %4475 = and i32 %4474, 255
-  store i32 %4475, ptr %16, align 4
-  %4476 = load i32, ptr %13, align 4
-  %4477 = lshr i32 %4476, 16
-  store i32 %4477, ptr %17, align 4
-  %4478 = load i32, ptr %17, align 4
-  %4479 = and i32 %4478, 255
-  store i32 %4479, ptr %17, align 4
-  %4480 = load i32, ptr %13, align 4
-  %4481 = lshr i32 %4480, 24
-  store i32 %4481, ptr %18, align 4
-  %4482 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4483 = getelementptr inbounds %struct.BF_ctx, ptr %4482, i32 0, i32 0
-  %4484 = getelementptr inbounds [4 x [256 x i32]], ptr %4483, i64 0, i64 3
-  %4485 = load i32, ptr %15, align 4
-  %4486 = zext i32 %4485 to i64
-  %4487 = getelementptr inbounds [256 x i32], ptr %4484, i64 0, i64 %4486
-  %4488 = load i32, ptr %4487, align 4
-  store i32 %4488, ptr %15, align 4
-  %4489 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4490 = getelementptr inbounds %struct.BF_ctx, ptr %4489, i32 0, i32 0
-  %4491 = getelementptr inbounds [4 x [256 x i32]], ptr %4490, i64 0, i64 2
-  %4492 = load i32, ptr %16, align 4
-  %4493 = zext i32 %4492 to i64
-  %4494 = getelementptr inbounds [256 x i32], ptr %4491, i64 0, i64 %4493
-  %4495 = load i32, ptr %4494, align 4
-  store i32 %4495, ptr %16, align 4
-  %4496 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4497 = getelementptr inbounds %struct.BF_ctx, ptr %4496, i32 0, i32 0
-  %4498 = getelementptr inbounds [4 x [256 x i32]], ptr %4497, i64 0, i64 1
-  %4499 = load i32, ptr %17, align 4
-  %4500 = zext i32 %4499 to i64
-  %4501 = getelementptr inbounds [256 x i32], ptr %4498, i64 0, i64 %4500
-  %4502 = load i32, ptr %4501, align 4
-  store i32 %4502, ptr %17, align 4
-  %4503 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4504 = getelementptr inbounds %struct.BF_ctx, ptr %4503, i32 0, i32 0
-  %4505 = getelementptr inbounds [4 x [256 x i32]], ptr %4504, i64 0, i64 0
-  %4506 = load i32, ptr %18, align 4
-  %4507 = zext i32 %4506 to i64
-  %4508 = getelementptr inbounds [256 x i32], ptr %4505, i64 0, i64 %4507
-  %4509 = load i32, ptr %4508, align 4
-  %4510 = load i32, ptr %17, align 4
-  %4511 = add i32 %4510, %4509
-  store i32 %4511, ptr %17, align 4
-  %4512 = load i32, ptr %16, align 4
-  %4513 = load i32, ptr %17, align 4
-  %4514 = xor i32 %4513, %4512
-  store i32 %4514, ptr %17, align 4
-  %4515 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4516 = getelementptr inbounds %struct.BF_ctx, ptr %4515, i32 0, i32 1
-  %4517 = getelementptr inbounds [18 x i32], ptr %4516, i64 0, i64 9
-  %4518 = load i32, ptr %4517, align 4
-  %4519 = load i32, ptr %14, align 4
-  %4520 = xor i32 %4519, %4518
-  store i32 %4520, ptr %14, align 4
-  %4521 = load i32, ptr %15, align 4
-  %4522 = load i32, ptr %17, align 4
-  %4523 = add i32 %4522, %4521
-  store i32 %4523, ptr %17, align 4
-  %4524 = load i32, ptr %17, align 4
-  %4525 = load i32, ptr %14, align 4
-  %4526 = xor i32 %4525, %4524
-  store i32 %4526, ptr %14, align 4
-  %4527 = load i32, ptr %14, align 4
-  %4528 = and i32 %4527, 255
-  store i32 %4528, ptr %15, align 4
-  %4529 = load i32, ptr %14, align 4
-  %4530 = lshr i32 %4529, 8
-  store i32 %4530, ptr %16, align 4
-  %4531 = load i32, ptr %16, align 4
-  %4532 = and i32 %4531, 255
-  store i32 %4532, ptr %16, align 4
-  %4533 = load i32, ptr %14, align 4
-  %4534 = lshr i32 %4533, 16
-  store i32 %4534, ptr %17, align 4
-  %4535 = load i32, ptr %17, align 4
-  %4536 = and i32 %4535, 255
-  store i32 %4536, ptr %17, align 4
-  %4537 = load i32, ptr %14, align 4
-  %4538 = lshr i32 %4537, 24
-  store i32 %4538, ptr %18, align 4
-  %4539 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4540 = getelementptr inbounds %struct.BF_ctx, ptr %4539, i32 0, i32 0
-  %4541 = getelementptr inbounds [4 x [256 x i32]], ptr %4540, i64 0, i64 3
-  %4542 = load i32, ptr %15, align 4
-  %4543 = zext i32 %4542 to i64
-  %4544 = getelementptr inbounds [256 x i32], ptr %4541, i64 0, i64 %4543
-  %4545 = load i32, ptr %4544, align 4
-  store i32 %4545, ptr %15, align 4
-  %4546 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4547 = getelementptr inbounds %struct.BF_ctx, ptr %4546, i32 0, i32 0
-  %4548 = getelementptr inbounds [4 x [256 x i32]], ptr %4547, i64 0, i64 2
-  %4549 = load i32, ptr %16, align 4
-  %4550 = zext i32 %4549 to i64
-  %4551 = getelementptr inbounds [256 x i32], ptr %4548, i64 0, i64 %4550
-  %4552 = load i32, ptr %4551, align 4
-  store i32 %4552, ptr %16, align 4
-  %4553 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4554 = getelementptr inbounds %struct.BF_ctx, ptr %4553, i32 0, i32 0
-  %4555 = getelementptr inbounds [4 x [256 x i32]], ptr %4554, i64 0, i64 1
-  %4556 = load i32, ptr %17, align 4
-  %4557 = zext i32 %4556 to i64
-  %4558 = getelementptr inbounds [256 x i32], ptr %4555, i64 0, i64 %4557
-  %4559 = load i32, ptr %4558, align 4
-  store i32 %4559, ptr %17, align 4
-  %4560 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4561 = getelementptr inbounds %struct.BF_ctx, ptr %4560, i32 0, i32 0
-  %4562 = getelementptr inbounds [4 x [256 x i32]], ptr %4561, i64 0, i64 0
-  %4563 = load i32, ptr %18, align 4
-  %4564 = zext i32 %4563 to i64
-  %4565 = getelementptr inbounds [256 x i32], ptr %4562, i64 0, i64 %4564
-  %4566 = load i32, ptr %4565, align 4
-  %4567 = load i32, ptr %17, align 4
-  %4568 = add i32 %4567, %4566
-  store i32 %4568, ptr %17, align 4
-  %4569 = load i32, ptr %16, align 4
-  %4570 = load i32, ptr %17, align 4
-  %4571 = xor i32 %4570, %4569
-  store i32 %4571, ptr %17, align 4
-  %4572 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4573 = getelementptr inbounds %struct.BF_ctx, ptr %4572, i32 0, i32 1
-  %4574 = getelementptr inbounds [18 x i32], ptr %4573, i64 0, i64 10
-  %4575 = load i32, ptr %4574, align 4
-  %4576 = load i32, ptr %13, align 4
-  %4577 = xor i32 %4576, %4575
-  store i32 %4577, ptr %13, align 4
-  %4578 = load i32, ptr %15, align 4
-  %4579 = load i32, ptr %17, align 4
-  %4580 = add i32 %4579, %4578
-  store i32 %4580, ptr %17, align 4
-  %4581 = load i32, ptr %17, align 4
-  %4582 = load i32, ptr %13, align 4
-  %4583 = xor i32 %4582, %4581
-  store i32 %4583, ptr %13, align 4
-  %4584 = load i32, ptr %13, align 4
-  %4585 = and i32 %4584, 255
-  store i32 %4585, ptr %15, align 4
-  %4586 = load i32, ptr %13, align 4
-  %4587 = lshr i32 %4586, 8
-  store i32 %4587, ptr %16, align 4
-  %4588 = load i32, ptr %16, align 4
-  %4589 = and i32 %4588, 255
-  store i32 %4589, ptr %16, align 4
-  %4590 = load i32, ptr %13, align 4
-  %4591 = lshr i32 %4590, 16
-  store i32 %4591, ptr %17, align 4
-  %4592 = load i32, ptr %17, align 4
-  %4593 = and i32 %4592, 255
-  store i32 %4593, ptr %17, align 4
-  %4594 = load i32, ptr %13, align 4
-  %4595 = lshr i32 %4594, 24
-  store i32 %4595, ptr %18, align 4
-  %4596 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4597 = getelementptr inbounds %struct.BF_ctx, ptr %4596, i32 0, i32 0
-  %4598 = getelementptr inbounds [4 x [256 x i32]], ptr %4597, i64 0, i64 3
-  %4599 = load i32, ptr %15, align 4
-  %4600 = zext i32 %4599 to i64
-  %4601 = getelementptr inbounds [256 x i32], ptr %4598, i64 0, i64 %4600
-  %4602 = load i32, ptr %4601, align 4
-  store i32 %4602, ptr %15, align 4
-  %4603 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4604 = getelementptr inbounds %struct.BF_ctx, ptr %4603, i32 0, i32 0
-  %4605 = getelementptr inbounds [4 x [256 x i32]], ptr %4604, i64 0, i64 2
-  %4606 = load i32, ptr %16, align 4
-  %4607 = zext i32 %4606 to i64
-  %4608 = getelementptr inbounds [256 x i32], ptr %4605, i64 0, i64 %4607
-  %4609 = load i32, ptr %4608, align 4
-  store i32 %4609, ptr %16, align 4
-  %4610 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4611 = getelementptr inbounds %struct.BF_ctx, ptr %4610, i32 0, i32 0
-  %4612 = getelementptr inbounds [4 x [256 x i32]], ptr %4611, i64 0, i64 1
-  %4613 = load i32, ptr %17, align 4
-  %4614 = zext i32 %4613 to i64
-  %4615 = getelementptr inbounds [256 x i32], ptr %4612, i64 0, i64 %4614
-  %4616 = load i32, ptr %4615, align 4
-  store i32 %4616, ptr %17, align 4
-  %4617 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4618 = getelementptr inbounds %struct.BF_ctx, ptr %4617, i32 0, i32 0
-  %4619 = getelementptr inbounds [4 x [256 x i32]], ptr %4618, i64 0, i64 0
-  %4620 = load i32, ptr %18, align 4
-  %4621 = zext i32 %4620 to i64
-  %4622 = getelementptr inbounds [256 x i32], ptr %4619, i64 0, i64 %4621
-  %4623 = load i32, ptr %4622, align 4
-  %4624 = load i32, ptr %17, align 4
-  %4625 = add i32 %4624, %4623
-  store i32 %4625, ptr %17, align 4
-  %4626 = load i32, ptr %16, align 4
-  %4627 = load i32, ptr %17, align 4
-  %4628 = xor i32 %4627, %4626
-  store i32 %4628, ptr %17, align 4
-  %4629 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4630 = getelementptr inbounds %struct.BF_ctx, ptr %4629, i32 0, i32 1
-  %4631 = getelementptr inbounds [18 x i32], ptr %4630, i64 0, i64 11
-  %4632 = load i32, ptr %4631, align 4
-  %4633 = load i32, ptr %14, align 4
-  %4634 = xor i32 %4633, %4632
-  store i32 %4634, ptr %14, align 4
-  %4635 = load i32, ptr %15, align 4
-  %4636 = load i32, ptr %17, align 4
-  %4637 = add i32 %4636, %4635
-  store i32 %4637, ptr %17, align 4
-  %4638 = load i32, ptr %17, align 4
-  %4639 = load i32, ptr %14, align 4
-  %4640 = xor i32 %4639, %4638
-  store i32 %4640, ptr %14, align 4
-  %4641 = load i32, ptr %14, align 4
-  %4642 = and i32 %4641, 255
-  store i32 %4642, ptr %15, align 4
-  %4643 = load i32, ptr %14, align 4
-  %4644 = lshr i32 %4643, 8
-  store i32 %4644, ptr %16, align 4
-  %4645 = load i32, ptr %16, align 4
-  %4646 = and i32 %4645, 255
-  store i32 %4646, ptr %16, align 4
-  %4647 = load i32, ptr %14, align 4
-  %4648 = lshr i32 %4647, 16
-  store i32 %4648, ptr %17, align 4
-  %4649 = load i32, ptr %17, align 4
-  %4650 = and i32 %4649, 255
-  store i32 %4650, ptr %17, align 4
-  %4651 = load i32, ptr %14, align 4
-  %4652 = lshr i32 %4651, 24
-  store i32 %4652, ptr %18, align 4
-  %4653 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4654 = getelementptr inbounds %struct.BF_ctx, ptr %4653, i32 0, i32 0
-  %4655 = getelementptr inbounds [4 x [256 x i32]], ptr %4654, i64 0, i64 3
-  %4656 = load i32, ptr %15, align 4
-  %4657 = zext i32 %4656 to i64
-  %4658 = getelementptr inbounds [256 x i32], ptr %4655, i64 0, i64 %4657
-  %4659 = load i32, ptr %4658, align 4
-  store i32 %4659, ptr %15, align 4
-  %4660 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4661 = getelementptr inbounds %struct.BF_ctx, ptr %4660, i32 0, i32 0
-  %4662 = getelementptr inbounds [4 x [256 x i32]], ptr %4661, i64 0, i64 2
-  %4663 = load i32, ptr %16, align 4
-  %4664 = zext i32 %4663 to i64
-  %4665 = getelementptr inbounds [256 x i32], ptr %4662, i64 0, i64 %4664
-  %4666 = load i32, ptr %4665, align 4
-  store i32 %4666, ptr %16, align 4
-  %4667 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4668 = getelementptr inbounds %struct.BF_ctx, ptr %4667, i32 0, i32 0
-  %4669 = getelementptr inbounds [4 x [256 x i32]], ptr %4668, i64 0, i64 1
-  %4670 = load i32, ptr %17, align 4
-  %4671 = zext i32 %4670 to i64
-  %4672 = getelementptr inbounds [256 x i32], ptr %4669, i64 0, i64 %4671
-  %4673 = load i32, ptr %4672, align 4
-  store i32 %4673, ptr %17, align 4
-  %4674 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4675 = getelementptr inbounds %struct.BF_ctx, ptr %4674, i32 0, i32 0
-  %4676 = getelementptr inbounds [4 x [256 x i32]], ptr %4675, i64 0, i64 0
-  %4677 = load i32, ptr %18, align 4
-  %4678 = zext i32 %4677 to i64
-  %4679 = getelementptr inbounds [256 x i32], ptr %4676, i64 0, i64 %4678
-  %4680 = load i32, ptr %4679, align 4
-  %4681 = load i32, ptr %17, align 4
-  %4682 = add i32 %4681, %4680
-  store i32 %4682, ptr %17, align 4
-  %4683 = load i32, ptr %16, align 4
-  %4684 = load i32, ptr %17, align 4
-  %4685 = xor i32 %4684, %4683
-  store i32 %4685, ptr %17, align 4
-  %4686 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4687 = getelementptr inbounds %struct.BF_ctx, ptr %4686, i32 0, i32 1
-  %4688 = getelementptr inbounds [18 x i32], ptr %4687, i64 0, i64 12
-  %4689 = load i32, ptr %4688, align 4
-  %4690 = load i32, ptr %13, align 4
-  %4691 = xor i32 %4690, %4689
-  store i32 %4691, ptr %13, align 4
-  %4692 = load i32, ptr %15, align 4
-  %4693 = load i32, ptr %17, align 4
-  %4694 = add i32 %4693, %4692
-  store i32 %4694, ptr %17, align 4
-  %4695 = load i32, ptr %17, align 4
-  %4696 = load i32, ptr %13, align 4
-  %4697 = xor i32 %4696, %4695
-  store i32 %4697, ptr %13, align 4
-  %4698 = load i32, ptr %13, align 4
-  %4699 = and i32 %4698, 255
-  store i32 %4699, ptr %15, align 4
-  %4700 = load i32, ptr %13, align 4
-  %4701 = lshr i32 %4700, 8
-  store i32 %4701, ptr %16, align 4
-  %4702 = load i32, ptr %16, align 4
-  %4703 = and i32 %4702, 255
-  store i32 %4703, ptr %16, align 4
-  %4704 = load i32, ptr %13, align 4
-  %4705 = lshr i32 %4704, 16
-  store i32 %4705, ptr %17, align 4
-  %4706 = load i32, ptr %17, align 4
-  %4707 = and i32 %4706, 255
-  store i32 %4707, ptr %17, align 4
-  %4708 = load i32, ptr %13, align 4
-  %4709 = lshr i32 %4708, 24
-  store i32 %4709, ptr %18, align 4
-  %4710 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4711 = getelementptr inbounds %struct.BF_ctx, ptr %4710, i32 0, i32 0
-  %4712 = getelementptr inbounds [4 x [256 x i32]], ptr %4711, i64 0, i64 3
-  %4713 = load i32, ptr %15, align 4
-  %4714 = zext i32 %4713 to i64
-  %4715 = getelementptr inbounds [256 x i32], ptr %4712, i64 0, i64 %4714
-  %4716 = load i32, ptr %4715, align 4
-  store i32 %4716, ptr %15, align 4
-  %4717 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4718 = getelementptr inbounds %struct.BF_ctx, ptr %4717, i32 0, i32 0
-  %4719 = getelementptr inbounds [4 x [256 x i32]], ptr %4718, i64 0, i64 2
-  %4720 = load i32, ptr %16, align 4
-  %4721 = zext i32 %4720 to i64
-  %4722 = getelementptr inbounds [256 x i32], ptr %4719, i64 0, i64 %4721
-  %4723 = load i32, ptr %4722, align 4
-  store i32 %4723, ptr %16, align 4
-  %4724 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4725 = getelementptr inbounds %struct.BF_ctx, ptr %4724, i32 0, i32 0
-  %4726 = getelementptr inbounds [4 x [256 x i32]], ptr %4725, i64 0, i64 1
-  %4727 = load i32, ptr %17, align 4
-  %4728 = zext i32 %4727 to i64
-  %4729 = getelementptr inbounds [256 x i32], ptr %4726, i64 0, i64 %4728
-  %4730 = load i32, ptr %4729, align 4
-  store i32 %4730, ptr %17, align 4
-  %4731 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4732 = getelementptr inbounds %struct.BF_ctx, ptr %4731, i32 0, i32 0
-  %4733 = getelementptr inbounds [4 x [256 x i32]], ptr %4732, i64 0, i64 0
-  %4734 = load i32, ptr %18, align 4
-  %4735 = zext i32 %4734 to i64
-  %4736 = getelementptr inbounds [256 x i32], ptr %4733, i64 0, i64 %4735
-  %4737 = load i32, ptr %4736, align 4
-  %4738 = load i32, ptr %17, align 4
-  %4739 = add i32 %4738, %4737
-  store i32 %4739, ptr %17, align 4
-  %4740 = load i32, ptr %16, align 4
-  %4741 = load i32, ptr %17, align 4
-  %4742 = xor i32 %4741, %4740
-  store i32 %4742, ptr %17, align 4
-  %4743 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4744 = getelementptr inbounds %struct.BF_ctx, ptr %4743, i32 0, i32 1
-  %4745 = getelementptr inbounds [18 x i32], ptr %4744, i64 0, i64 13
-  %4746 = load i32, ptr %4745, align 4
-  %4747 = load i32, ptr %14, align 4
-  %4748 = xor i32 %4747, %4746
-  store i32 %4748, ptr %14, align 4
-  %4749 = load i32, ptr %15, align 4
-  %4750 = load i32, ptr %17, align 4
-  %4751 = add i32 %4750, %4749
-  store i32 %4751, ptr %17, align 4
-  %4752 = load i32, ptr %17, align 4
-  %4753 = load i32, ptr %14, align 4
-  %4754 = xor i32 %4753, %4752
-  store i32 %4754, ptr %14, align 4
-  %4755 = load i32, ptr %14, align 4
-  %4756 = and i32 %4755, 255
-  store i32 %4756, ptr %15, align 4
-  %4757 = load i32, ptr %14, align 4
-  %4758 = lshr i32 %4757, 8
-  store i32 %4758, ptr %16, align 4
-  %4759 = load i32, ptr %16, align 4
-  %4760 = and i32 %4759, 255
-  store i32 %4760, ptr %16, align 4
-  %4761 = load i32, ptr %14, align 4
-  %4762 = lshr i32 %4761, 16
-  store i32 %4762, ptr %17, align 4
-  %4763 = load i32, ptr %17, align 4
-  %4764 = and i32 %4763, 255
-  store i32 %4764, ptr %17, align 4
-  %4765 = load i32, ptr %14, align 4
-  %4766 = lshr i32 %4765, 24
-  store i32 %4766, ptr %18, align 4
-  %4767 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4768 = getelementptr inbounds %struct.BF_ctx, ptr %4767, i32 0, i32 0
-  %4769 = getelementptr inbounds [4 x [256 x i32]], ptr %4768, i64 0, i64 3
-  %4770 = load i32, ptr %15, align 4
-  %4771 = zext i32 %4770 to i64
-  %4772 = getelementptr inbounds [256 x i32], ptr %4769, i64 0, i64 %4771
-  %4773 = load i32, ptr %4772, align 4
-  store i32 %4773, ptr %15, align 4
-  %4774 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4775 = getelementptr inbounds %struct.BF_ctx, ptr %4774, i32 0, i32 0
-  %4776 = getelementptr inbounds [4 x [256 x i32]], ptr %4775, i64 0, i64 2
-  %4777 = load i32, ptr %16, align 4
-  %4778 = zext i32 %4777 to i64
-  %4779 = getelementptr inbounds [256 x i32], ptr %4776, i64 0, i64 %4778
-  %4780 = load i32, ptr %4779, align 4
-  store i32 %4780, ptr %16, align 4
-  %4781 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4782 = getelementptr inbounds %struct.BF_ctx, ptr %4781, i32 0, i32 0
-  %4783 = getelementptr inbounds [4 x [256 x i32]], ptr %4782, i64 0, i64 1
-  %4784 = load i32, ptr %17, align 4
-  %4785 = zext i32 %4784 to i64
-  %4786 = getelementptr inbounds [256 x i32], ptr %4783, i64 0, i64 %4785
-  %4787 = load i32, ptr %4786, align 4
-  store i32 %4787, ptr %17, align 4
-  %4788 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4789 = getelementptr inbounds %struct.BF_ctx, ptr %4788, i32 0, i32 0
-  %4790 = getelementptr inbounds [4 x [256 x i32]], ptr %4789, i64 0, i64 0
-  %4791 = load i32, ptr %18, align 4
-  %4792 = zext i32 %4791 to i64
-  %4793 = getelementptr inbounds [256 x i32], ptr %4790, i64 0, i64 %4792
-  %4794 = load i32, ptr %4793, align 4
-  %4795 = load i32, ptr %17, align 4
-  %4796 = add i32 %4795, %4794
-  store i32 %4796, ptr %17, align 4
-  %4797 = load i32, ptr %16, align 4
-  %4798 = load i32, ptr %17, align 4
-  %4799 = xor i32 %4798, %4797
-  store i32 %4799, ptr %17, align 4
-  %4800 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4801 = getelementptr inbounds %struct.BF_ctx, ptr %4800, i32 0, i32 1
-  %4802 = getelementptr inbounds [18 x i32], ptr %4801, i64 0, i64 14
-  %4803 = load i32, ptr %4802, align 4
-  %4804 = load i32, ptr %13, align 4
-  %4805 = xor i32 %4804, %4803
-  store i32 %4805, ptr %13, align 4
-  %4806 = load i32, ptr %15, align 4
-  %4807 = load i32, ptr %17, align 4
-  %4808 = add i32 %4807, %4806
-  store i32 %4808, ptr %17, align 4
-  %4809 = load i32, ptr %17, align 4
-  %4810 = load i32, ptr %13, align 4
-  %4811 = xor i32 %4810, %4809
-  store i32 %4811, ptr %13, align 4
-  %4812 = load i32, ptr %13, align 4
-  %4813 = and i32 %4812, 255
-  store i32 %4813, ptr %15, align 4
-  %4814 = load i32, ptr %13, align 4
-  %4815 = lshr i32 %4814, 8
-  store i32 %4815, ptr %16, align 4
-  %4816 = load i32, ptr %16, align 4
-  %4817 = and i32 %4816, 255
-  store i32 %4817, ptr %16, align 4
-  %4818 = load i32, ptr %13, align 4
-  %4819 = lshr i32 %4818, 16
-  store i32 %4819, ptr %17, align 4
-  %4820 = load i32, ptr %17, align 4
-  %4821 = and i32 %4820, 255
-  store i32 %4821, ptr %17, align 4
-  %4822 = load i32, ptr %13, align 4
-  %4823 = lshr i32 %4822, 24
-  store i32 %4823, ptr %18, align 4
-  %4824 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4825 = getelementptr inbounds %struct.BF_ctx, ptr %4824, i32 0, i32 0
-  %4826 = getelementptr inbounds [4 x [256 x i32]], ptr %4825, i64 0, i64 3
-  %4827 = load i32, ptr %15, align 4
-  %4828 = zext i32 %4827 to i64
-  %4829 = getelementptr inbounds [256 x i32], ptr %4826, i64 0, i64 %4828
-  %4830 = load i32, ptr %4829, align 4
-  store i32 %4830, ptr %15, align 4
-  %4831 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4832 = getelementptr inbounds %struct.BF_ctx, ptr %4831, i32 0, i32 0
-  %4833 = getelementptr inbounds [4 x [256 x i32]], ptr %4832, i64 0, i64 2
-  %4834 = load i32, ptr %16, align 4
-  %4835 = zext i32 %4834 to i64
-  %4836 = getelementptr inbounds [256 x i32], ptr %4833, i64 0, i64 %4835
-  %4837 = load i32, ptr %4836, align 4
-  store i32 %4837, ptr %16, align 4
-  %4838 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4839 = getelementptr inbounds %struct.BF_ctx, ptr %4838, i32 0, i32 0
-  %4840 = getelementptr inbounds [4 x [256 x i32]], ptr %4839, i64 0, i64 1
-  %4841 = load i32, ptr %17, align 4
-  %4842 = zext i32 %4841 to i64
-  %4843 = getelementptr inbounds [256 x i32], ptr %4840, i64 0, i64 %4842
-  %4844 = load i32, ptr %4843, align 4
-  store i32 %4844, ptr %17, align 4
-  %4845 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4846 = getelementptr inbounds %struct.BF_ctx, ptr %4845, i32 0, i32 0
-  %4847 = getelementptr inbounds [4 x [256 x i32]], ptr %4846, i64 0, i64 0
-  %4848 = load i32, ptr %18, align 4
-  %4849 = zext i32 %4848 to i64
-  %4850 = getelementptr inbounds [256 x i32], ptr %4847, i64 0, i64 %4849
-  %4851 = load i32, ptr %4850, align 4
-  %4852 = load i32, ptr %17, align 4
-  %4853 = add i32 %4852, %4851
-  store i32 %4853, ptr %17, align 4
-  %4854 = load i32, ptr %16, align 4
-  %4855 = load i32, ptr %17, align 4
-  %4856 = xor i32 %4855, %4854
-  store i32 %4856, ptr %17, align 4
-  %4857 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4858 = getelementptr inbounds %struct.BF_ctx, ptr %4857, i32 0, i32 1
-  %4859 = getelementptr inbounds [18 x i32], ptr %4858, i64 0, i64 15
-  %4860 = load i32, ptr %4859, align 4
-  %4861 = load i32, ptr %14, align 4
-  %4862 = xor i32 %4861, %4860
-  store i32 %4862, ptr %14, align 4
-  %4863 = load i32, ptr %15, align 4
-  %4864 = load i32, ptr %17, align 4
-  %4865 = add i32 %4864, %4863
-  store i32 %4865, ptr %17, align 4
-  %4866 = load i32, ptr %17, align 4
-  %4867 = load i32, ptr %14, align 4
-  %4868 = xor i32 %4867, %4866
-  store i32 %4868, ptr %14, align 4
-  %4869 = load i32, ptr %14, align 4
-  %4870 = and i32 %4869, 255
-  store i32 %4870, ptr %15, align 4
-  %4871 = load i32, ptr %14, align 4
-  %4872 = lshr i32 %4871, 8
-  store i32 %4872, ptr %16, align 4
-  %4873 = load i32, ptr %16, align 4
-  %4874 = and i32 %4873, 255
-  store i32 %4874, ptr %16, align 4
-  %4875 = load i32, ptr %14, align 4
-  %4876 = lshr i32 %4875, 16
-  store i32 %4876, ptr %17, align 4
-  %4877 = load i32, ptr %17, align 4
-  %4878 = and i32 %4877, 255
-  store i32 %4878, ptr %17, align 4
-  %4879 = load i32, ptr %14, align 4
-  %4880 = lshr i32 %4879, 24
-  store i32 %4880, ptr %18, align 4
-  %4881 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4882 = getelementptr inbounds %struct.BF_ctx, ptr %4881, i32 0, i32 0
-  %4883 = getelementptr inbounds [4 x [256 x i32]], ptr %4882, i64 0, i64 3
-  %4884 = load i32, ptr %15, align 4
-  %4885 = zext i32 %4884 to i64
-  %4886 = getelementptr inbounds [256 x i32], ptr %4883, i64 0, i64 %4885
-  %4887 = load i32, ptr %4886, align 4
-  store i32 %4887, ptr %15, align 4
-  %4888 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4889 = getelementptr inbounds %struct.BF_ctx, ptr %4888, i32 0, i32 0
-  %4890 = getelementptr inbounds [4 x [256 x i32]], ptr %4889, i64 0, i64 2
-  %4891 = load i32, ptr %16, align 4
-  %4892 = zext i32 %4891 to i64
-  %4893 = getelementptr inbounds [256 x i32], ptr %4890, i64 0, i64 %4892
-  %4894 = load i32, ptr %4893, align 4
-  store i32 %4894, ptr %16, align 4
-  %4895 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4896 = getelementptr inbounds %struct.BF_ctx, ptr %4895, i32 0, i32 0
-  %4897 = getelementptr inbounds [4 x [256 x i32]], ptr %4896, i64 0, i64 1
-  %4898 = load i32, ptr %17, align 4
-  %4899 = zext i32 %4898 to i64
-  %4900 = getelementptr inbounds [256 x i32], ptr %4897, i64 0, i64 %4899
-  %4901 = load i32, ptr %4900, align 4
-  store i32 %4901, ptr %17, align 4
-  %4902 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4903 = getelementptr inbounds %struct.BF_ctx, ptr %4902, i32 0, i32 0
-  %4904 = getelementptr inbounds [4 x [256 x i32]], ptr %4903, i64 0, i64 0
-  %4905 = load i32, ptr %18, align 4
-  %4906 = zext i32 %4905 to i64
-  %4907 = getelementptr inbounds [256 x i32], ptr %4904, i64 0, i64 %4906
-  %4908 = load i32, ptr %4907, align 4
-  %4909 = load i32, ptr %17, align 4
-  %4910 = add i32 %4909, %4908
-  store i32 %4910, ptr %17, align 4
-  %4911 = load i32, ptr %16, align 4
-  %4912 = load i32, ptr %17, align 4
-  %4913 = xor i32 %4912, %4911
-  store i32 %4913, ptr %17, align 4
-  %4914 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4915 = getelementptr inbounds %struct.BF_ctx, ptr %4914, i32 0, i32 1
-  %4916 = getelementptr inbounds [18 x i32], ptr %4915, i64 0, i64 16
-  %4917 = load i32, ptr %4916, align 4
-  %4918 = load i32, ptr %13, align 4
-  %4919 = xor i32 %4918, %4917
-  store i32 %4919, ptr %13, align 4
-  %4920 = load i32, ptr %15, align 4
-  %4921 = load i32, ptr %17, align 4
-  %4922 = add i32 %4921, %4920
-  store i32 %4922, ptr %17, align 4
-  %4923 = load i32, ptr %17, align 4
-  %4924 = load i32, ptr %13, align 4
-  %4925 = xor i32 %4924, %4923
-  store i32 %4925, ptr %13, align 4
-  %4926 = load i32, ptr %14, align 4
-  store i32 %4926, ptr %18, align 4
-  %4927 = load i32, ptr %13, align 4
-  store i32 %4927, ptr %14, align 4
-  %4928 = load i32, ptr %18, align 4
-  %4929 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4930 = getelementptr inbounds %struct.BF_ctx, ptr %4929, i32 0, i32 1
-  %4931 = getelementptr inbounds [18 x i32], ptr %4930, i64 0, i64 17
-  %4932 = load i32, ptr %4931, align 4
-  %4933 = xor i32 %4928, %4932
-  store i32 %4933, ptr %13, align 4
-  %4934 = load i32, ptr %13, align 4
-  %4935 = load ptr, ptr %19, align 8
-  %4936 = getelementptr inbounds i32, ptr %4935, i64 -2
-  store i32 %4934, ptr %4936, align 4
-  %4937 = load i32, ptr %14, align 4
-  %4938 = load ptr, ptr %19, align 8
-  %4939 = getelementptr inbounds i32, ptr %4938, i64 -1
-  store i32 %4937, ptr %4939, align 4
-  br label %4940
-
-4940:                                             ; preds = %4005
-  %4941 = load ptr, ptr %19, align 8
-  %4942 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4943 = getelementptr inbounds %struct.BF_ctx, ptr %4942, i32 0, i32 0
-  %4944 = getelementptr inbounds [4 x [256 x i32]], ptr %4943, i64 0, i64 3
-  %4945 = getelementptr inbounds [256 x i32], ptr %4944, i64 0, i64 255
-  %4946 = icmp ult ptr %4941, %4945
-  br i1 %4946, label %4005, label %4947
-
-4947:                                             ; preds = %4940
-  %4948 = load i32, ptr %22, align 4
-  %4949 = icmp ne i32 %4948, 0
-  br i1 %4949, label %4950, label %4951
-
-4950:                                             ; preds = %4947
-  br label %5020
-
-4951:                                             ; preds = %4947
   store i32 1, ptr %22, align 4
-  %4952 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %4953 = getelementptr inbounds [4 x i32], ptr %4952, i64 0, i64 0
-  %4954 = load i32, ptr %4953, align 4
-  store i32 %4954, ptr %15, align 4
-  %4955 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %4956 = getelementptr inbounds [4 x i32], ptr %4955, i64 0, i64 1
-  %4957 = load i32, ptr %4956, align 4
-  store i32 %4957, ptr %16, align 4
-  %4958 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %4959 = getelementptr inbounds [4 x i32], ptr %4958, i64 0, i64 2
-  %4960 = load i32, ptr %4959, align 4
-  store i32 %4960, ptr %17, align 4
-  %4961 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %4962 = getelementptr inbounds [4 x i32], ptr %4961, i64 0, i64 3
-  %4963 = load i32, ptr %4962, align 4
-  store i32 %4963, ptr %18, align 4
-  store i32 0, ptr %21, align 4
-  br label %4964
+  br label %6013
 
-4964:                                             ; preds = %5003, %4951
-  %4965 = load i32, ptr %21, align 4
-  %4966 = icmp slt i32 %4965, 16
-  br i1 %4966, label %4967, label %5006
+28:                                               ; preds = %5
+  %29 = load ptr, ptr %8, align 8, !tbaa !4
+  %30 = getelementptr inbounds i8, ptr %29, i64 0
+  %31 = load i8, ptr %30, align 1, !tbaa !11
+  %32 = sext i8 %31 to i32
+  %33 = icmp ne i32 %32, 36
+  br i1 %33, label %110, label %34
 
-4967:                                             ; preds = %4964
-  %4968 = load i32, ptr %15, align 4
-  %4969 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4970 = getelementptr inbounds %struct.BF_ctx, ptr %4969, i32 0, i32 1
-  %4971 = load i32, ptr %21, align 4
-  %4972 = sext i32 %4971 to i64
-  %4973 = getelementptr inbounds [18 x i32], ptr %4970, i64 0, i64 %4972
-  %4974 = load i32, ptr %4973, align 4
-  %4975 = xor i32 %4974, %4968
-  store i32 %4975, ptr %4973, align 4
-  %4976 = load i32, ptr %16, align 4
-  %4977 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4978 = getelementptr inbounds %struct.BF_ctx, ptr %4977, i32 0, i32 1
-  %4979 = load i32, ptr %21, align 4
-  %4980 = add nsw i32 %4979, 1
-  %4981 = sext i32 %4980 to i64
-  %4982 = getelementptr inbounds [18 x i32], ptr %4978, i64 0, i64 %4981
-  %4983 = load i32, ptr %4982, align 4
-  %4984 = xor i32 %4983, %4976
-  store i32 %4984, ptr %4982, align 4
-  %4985 = load i32, ptr %17, align 4
-  %4986 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4987 = getelementptr inbounds %struct.BF_ctx, ptr %4986, i32 0, i32 1
-  %4988 = load i32, ptr %21, align 4
-  %4989 = add nsw i32 %4988, 2
-  %4990 = sext i32 %4989 to i64
-  %4991 = getelementptr inbounds [18 x i32], ptr %4987, i64 0, i64 %4990
-  %4992 = load i32, ptr %4991, align 4
-  %4993 = xor i32 %4992, %4985
-  store i32 %4993, ptr %4991, align 4
-  %4994 = load i32, ptr %18, align 4
-  %4995 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %4996 = getelementptr inbounds %struct.BF_ctx, ptr %4995, i32 0, i32 1
-  %4997 = load i32, ptr %21, align 4
-  %4998 = add nsw i32 %4997, 3
-  %4999 = sext i32 %4998 to i64
-  %5000 = getelementptr inbounds [18 x i32], ptr %4996, i64 0, i64 %4999
-  %5001 = load i32, ptr %5000, align 4
-  %5002 = xor i32 %5001, %4994
-  store i32 %5002, ptr %5000, align 4
-  br label %5003
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %8, align 8, !tbaa !4
+  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %38 = sext i8 %37 to i32
+  %39 = icmp ne i32 %38, 50
+  br i1 %39, label %110, label %40
 
-5003:                                             ; preds = %4967
-  %5004 = load i32, ptr %21, align 4
-  %5005 = add nsw i32 %5004, 4
-  store i32 %5005, ptr %21, align 4
-  br label %4964
+40:                                               ; preds = %34
+  %41 = load ptr, ptr %8, align 8, !tbaa !4
+  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %43 = load i8, ptr %42, align 1, !tbaa !11
+  %44 = sext i8 %43 to i32
+  %45 = icmp slt i32 %44, 97
+  br i1 %45, label %110, label %46
 
-5006:                                             ; preds = %4964
-  %5007 = load i32, ptr %15, align 4
-  %5008 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5009 = getelementptr inbounds %struct.BF_ctx, ptr %5008, i32 0, i32 1
-  %5010 = getelementptr inbounds [18 x i32], ptr %5009, i64 0, i64 16
-  %5011 = load i32, ptr %5010, align 4
-  %5012 = xor i32 %5011, %5007
-  store i32 %5012, ptr %5010, align 4
-  %5013 = load i32, ptr %16, align 4
-  %5014 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5015 = getelementptr inbounds %struct.BF_ctx, ptr %5014, i32 0, i32 1
-  %5016 = getelementptr inbounds [18 x i32], ptr %5015, i64 0, i64 17
-  %5017 = load i32, ptr %5016, align 4
-  %5018 = xor i32 %5017, %5013
-  store i32 %5018, ptr %5016, align 4
-  br label %5019
+46:                                               ; preds = %40
+  %47 = load ptr, ptr %8, align 8, !tbaa !4
+  %48 = getelementptr inbounds i8, ptr %47, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !11
+  %50 = sext i8 %49 to i32
+  %51 = icmp sgt i32 %50, 122
+  br i1 %51, label %110, label %52
 
-5019:                                             ; preds = %5006
-  br i1 true, label %3055, label %5020
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %8, align 8, !tbaa !4
+  %54 = getelementptr inbounds i8, ptr %53, i64 2
+  %55 = load i8, ptr %54, align 1, !tbaa !11
+  %56 = zext i8 %55 to i32
+  %57 = sub i32 %56, 97
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw [26 x i8], ptr @flags_by_subtype, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !11
+  %61 = icmp ne i8 %60, 0
+  br i1 %61, label %62, label %110
 
-5020:                                             ; preds = %5019, %4950
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %8, align 8, !tbaa !4
+  %64 = getelementptr inbounds i8, ptr %63, i64 3
+  %65 = load i8, ptr %64, align 1, !tbaa !11
+  %66 = sext i8 %65 to i32
+  %67 = icmp ne i32 %66, 36
+  br i1 %67, label %110, label %68
+
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %8, align 8, !tbaa !4
+  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = load i8, ptr %70, align 1, !tbaa !11
+  %72 = sext i8 %71 to i32
+  %73 = icmp slt i32 %72, 48
+  br i1 %73, label %110, label %74
+
+74:                                               ; preds = %68
+  %75 = load ptr, ptr %8, align 8, !tbaa !4
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = load i8, ptr %76, align 1, !tbaa !11
+  %78 = sext i8 %77 to i32
+  %79 = icmp sgt i32 %78, 51
+  br i1 %79, label %110, label %80
+
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %8, align 8, !tbaa !4
+  %82 = getelementptr inbounds i8, ptr %81, i64 5
+  %83 = load i8, ptr %82, align 1, !tbaa !11
+  %84 = sext i8 %83 to i32
+  %85 = icmp slt i32 %84, 48
+  br i1 %85, label %110, label %86
+
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %8, align 8, !tbaa !4
+  %88 = getelementptr inbounds i8, ptr %87, i64 5
+  %89 = load i8, ptr %88, align 1, !tbaa !11
+  %90 = sext i8 %89 to i32
+  %91 = icmp sgt i32 %90, 57
+  br i1 %91, label %110, label %92
+
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %8, align 8, !tbaa !4
+  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = load i8, ptr %94, align 1, !tbaa !11
+  %96 = sext i8 %95 to i32
+  %97 = icmp eq i32 %96, 51
+  br i1 %97, label %98, label %104
+
+98:                                               ; preds = %92
+  %99 = load ptr, ptr %8, align 8, !tbaa !4
+  %100 = getelementptr inbounds i8, ptr %99, i64 5
+  %101 = load i8, ptr %100, align 1, !tbaa !11
+  %102 = sext i8 %101 to i32
+  %103 = icmp sgt i32 %102, 49
+  br i1 %103, label %110, label %104
+
+104:                                              ; preds = %98, %92
+  %105 = load ptr, ptr %8, align 8, !tbaa !4
+  %106 = getelementptr inbounds i8, ptr %105, i64 6
+  %107 = load i8, ptr %106, align 1, !tbaa !11
+  %108 = sext i8 %107 to i32
+  %109 = icmp ne i32 %108, 36
+  br i1 %109, label %110, label %112
+
+110:                                              ; preds = %104, %98, %86, %80, %74, %68, %62, %52, %46, %40, %34, %28
+  %111 = call ptr @__errno_location() #7
+  store i32 22, ptr %111, align 4, !tbaa !9
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %6013
+
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %8, align 8, !tbaa !4
+  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %115 = load i8, ptr %114, align 1, !tbaa !11
+  %116 = sext i8 %115 to i32
+  %117 = sub nsw i32 %116, 48
+  %118 = mul nsw i32 %117, 10
+  %119 = load ptr, ptr %8, align 8, !tbaa !4
+  %120 = getelementptr inbounds i8, ptr %119, i64 5
+  %121 = load i8, ptr %120, align 1, !tbaa !11
+  %122 = sext i8 %121 to i32
+  %123 = sub nsw i32 %122, 48
+  %124 = add nsw i32 %118, %123
+  %125 = shl i32 1, %124
+  store i32 %125, ptr %20, align 4, !tbaa !9
+  %126 = load i32, ptr %20, align 4, !tbaa !9
+  %127 = load i32, ptr %11, align 4, !tbaa !9
+  %128 = icmp ult i32 %126, %127
+  br i1 %128, label %136, label %129
+
+129:                                              ; preds = %112
+  %130 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %131 = getelementptr inbounds [4 x i32], ptr %130, i64 0, i64 0
+  %132 = load ptr, ptr %8, align 8, !tbaa !4
+  %133 = getelementptr inbounds i8, ptr %132, i64 7
+  %134 = call i32 @BF_decode(ptr noundef %131, ptr noundef %133, i32 noundef 16)
+  %135 = icmp ne i32 %134, 0
+  br i1 %135, label %136, label %138
+
+136:                                              ; preds = %129, %112
+  %137 = call ptr @__errno_location() #7
+  store i32 22, ptr %137, align 4, !tbaa !9
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %6013
+
+138:                                              ; preds = %129
+  %139 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %140 = getelementptr inbounds [4 x i32], ptr %139, i64 0, i64 0
+  call void @BF_swap(ptr noundef %140, i32 noundef 4)
+  %141 = load ptr, ptr %7, align 8, !tbaa !4
+  %142 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 1
+  %143 = getelementptr inbounds [18 x i32], ptr %142, i64 0, i64 0
+  %144 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %145 = getelementptr inbounds nuw %struct.BF_ctx, ptr %144, i32 0, i32 1
+  %146 = getelementptr inbounds [18 x i32], ptr %145, i64 0, i64 0
+  %147 = load ptr, ptr %8, align 8, !tbaa !4
+  %148 = getelementptr inbounds i8, ptr %147, i64 2
+  %149 = load i8, ptr %148, align 1, !tbaa !11
+  %150 = zext i8 %149 to i32
+  %151 = sub i32 %150, 97
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw [26 x i8], ptr @flags_by_subtype, i64 0, i64 %152
+  %154 = load i8, ptr %153, align 1, !tbaa !11
+  call void @BF_set_key(ptr noundef %141, ptr noundef %143, ptr noundef %146, i8 noundef zeroext %154)
+  %155 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %156 = getelementptr inbounds nuw %struct.BF_ctx, ptr %155, i32 0, i32 0
+  %157 = getelementptr inbounds [4 x [256 x i32]], ptr %156, i64 0, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %157, ptr align 4 @BF_init_state, i64 4096, i1 false)
+  store i32 0, ptr %14, align 4, !tbaa !9
+  store i32 0, ptr %13, align 4, !tbaa !9
+  store i32 0, ptr %21, align 4, !tbaa !9
+  br label %158
+
+158:                                              ; preds = %1118, %138
+  %159 = load i32, ptr %21, align 4, !tbaa !9
+  %160 = icmp slt i32 %159, 18
+  br i1 %160, label %161, label %1121
+
+161:                                              ; preds = %158
+  %162 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %163 = load i32, ptr %21, align 4, !tbaa !9
+  %164 = and i32 %163, 2
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds [4 x i32], ptr %162, i64 0, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !11
+  %168 = load i32, ptr %13, align 4, !tbaa !9
+  %169 = xor i32 %168, %167
+  store i32 %169, ptr %13, align 4, !tbaa !9
+  %170 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %171 = load i32, ptr %21, align 4, !tbaa !9
+  %172 = and i32 %171, 2
+  %173 = add nsw i32 %172, 1
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds [4 x i32], ptr %170, i64 0, i64 %174
+  %176 = load i32, ptr %175, align 4, !tbaa !11
+  %177 = load i32, ptr %14, align 4, !tbaa !9
+  %178 = xor i32 %177, %176
+  store i32 %178, ptr %14, align 4, !tbaa !9
+  %179 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %180 = getelementptr inbounds nuw %struct.BF_ctx, ptr %179, i32 0, i32 1
+  %181 = getelementptr inbounds [18 x i32], ptr %180, i64 0, i64 0
+  %182 = load i32, ptr %181, align 4, !tbaa !9
+  %183 = load i32, ptr %13, align 4, !tbaa !9
+  %184 = xor i32 %183, %182
+  store i32 %184, ptr %13, align 4, !tbaa !9
+  %185 = load i32, ptr %13, align 4, !tbaa !9
+  %186 = and i32 %185, 255
+  store i32 %186, ptr %15, align 4, !tbaa !9
+  %187 = load i32, ptr %13, align 4, !tbaa !9
+  %188 = lshr i32 %187, 8
+  store i32 %188, ptr %16, align 4, !tbaa !9
+  %189 = load i32, ptr %16, align 4, !tbaa !9
+  %190 = and i32 %189, 255
+  store i32 %190, ptr %16, align 4, !tbaa !9
+  %191 = load i32, ptr %13, align 4, !tbaa !9
+  %192 = lshr i32 %191, 16
+  store i32 %192, ptr %17, align 4, !tbaa !9
+  %193 = load i32, ptr %17, align 4, !tbaa !9
+  %194 = and i32 %193, 255
+  store i32 %194, ptr %17, align 4, !tbaa !9
+  %195 = load i32, ptr %13, align 4, !tbaa !9
+  %196 = lshr i32 %195, 24
+  store i32 %196, ptr %18, align 4, !tbaa !9
+  %197 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %struct.BF_ctx, ptr %197, i32 0, i32 0
+  %199 = getelementptr inbounds [4 x [256 x i32]], ptr %198, i64 0, i64 3
+  %200 = load i32, ptr %15, align 4, !tbaa !9
+  %201 = zext i32 %200 to i64
+  %202 = getelementptr inbounds nuw [256 x i32], ptr %199, i64 0, i64 %201
+  %203 = load i32, ptr %202, align 4, !tbaa !9
+  store i32 %203, ptr %15, align 4, !tbaa !9
+  %204 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %205 = getelementptr inbounds nuw %struct.BF_ctx, ptr %204, i32 0, i32 0
+  %206 = getelementptr inbounds [4 x [256 x i32]], ptr %205, i64 0, i64 2
+  %207 = load i32, ptr %16, align 4, !tbaa !9
+  %208 = zext i32 %207 to i64
+  %209 = getelementptr inbounds nuw [256 x i32], ptr %206, i64 0, i64 %208
+  %210 = load i32, ptr %209, align 4, !tbaa !9
+  store i32 %210, ptr %16, align 4, !tbaa !9
+  %211 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %struct.BF_ctx, ptr %211, i32 0, i32 0
+  %213 = getelementptr inbounds [4 x [256 x i32]], ptr %212, i64 0, i64 1
+  %214 = load i32, ptr %17, align 4, !tbaa !9
+  %215 = zext i32 %214 to i64
+  %216 = getelementptr inbounds nuw [256 x i32], ptr %213, i64 0, i64 %215
+  %217 = load i32, ptr %216, align 4, !tbaa !9
+  store i32 %217, ptr %17, align 4, !tbaa !9
+  %218 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %219 = getelementptr inbounds nuw %struct.BF_ctx, ptr %218, i32 0, i32 0
+  %220 = getelementptr inbounds [4 x [256 x i32]], ptr %219, i64 0, i64 0
+  %221 = load i32, ptr %18, align 4, !tbaa !9
+  %222 = zext i32 %221 to i64
+  %223 = getelementptr inbounds nuw [256 x i32], ptr %220, i64 0, i64 %222
+  %224 = load i32, ptr %223, align 4, !tbaa !9
+  %225 = load i32, ptr %17, align 4, !tbaa !9
+  %226 = add i32 %225, %224
+  store i32 %226, ptr %17, align 4, !tbaa !9
+  %227 = load i32, ptr %16, align 4, !tbaa !9
+  %228 = load i32, ptr %17, align 4, !tbaa !9
+  %229 = xor i32 %228, %227
+  store i32 %229, ptr %17, align 4, !tbaa !9
+  %230 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %231 = getelementptr inbounds nuw %struct.BF_ctx, ptr %230, i32 0, i32 1
+  %232 = getelementptr inbounds [18 x i32], ptr %231, i64 0, i64 1
+  %233 = load i32, ptr %232, align 4, !tbaa !9
+  %234 = load i32, ptr %14, align 4, !tbaa !9
+  %235 = xor i32 %234, %233
+  store i32 %235, ptr %14, align 4, !tbaa !9
+  %236 = load i32, ptr %15, align 4, !tbaa !9
+  %237 = load i32, ptr %17, align 4, !tbaa !9
+  %238 = add i32 %237, %236
+  store i32 %238, ptr %17, align 4, !tbaa !9
+  %239 = load i32, ptr %17, align 4, !tbaa !9
+  %240 = load i32, ptr %14, align 4, !tbaa !9
+  %241 = xor i32 %240, %239
+  store i32 %241, ptr %14, align 4, !tbaa !9
+  %242 = load i32, ptr %14, align 4, !tbaa !9
+  %243 = and i32 %242, 255
+  store i32 %243, ptr %15, align 4, !tbaa !9
+  %244 = load i32, ptr %14, align 4, !tbaa !9
+  %245 = lshr i32 %244, 8
+  store i32 %245, ptr %16, align 4, !tbaa !9
+  %246 = load i32, ptr %16, align 4, !tbaa !9
+  %247 = and i32 %246, 255
+  store i32 %247, ptr %16, align 4, !tbaa !9
+  %248 = load i32, ptr %14, align 4, !tbaa !9
+  %249 = lshr i32 %248, 16
+  store i32 %249, ptr %17, align 4, !tbaa !9
+  %250 = load i32, ptr %17, align 4, !tbaa !9
+  %251 = and i32 %250, 255
+  store i32 %251, ptr %17, align 4, !tbaa !9
+  %252 = load i32, ptr %14, align 4, !tbaa !9
+  %253 = lshr i32 %252, 24
+  store i32 %253, ptr %18, align 4, !tbaa !9
+  %254 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %255 = getelementptr inbounds nuw %struct.BF_ctx, ptr %254, i32 0, i32 0
+  %256 = getelementptr inbounds [4 x [256 x i32]], ptr %255, i64 0, i64 3
+  %257 = load i32, ptr %15, align 4, !tbaa !9
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr inbounds nuw [256 x i32], ptr %256, i64 0, i64 %258
+  %260 = load i32, ptr %259, align 4, !tbaa !9
+  store i32 %260, ptr %15, align 4, !tbaa !9
+  %261 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %262 = getelementptr inbounds nuw %struct.BF_ctx, ptr %261, i32 0, i32 0
+  %263 = getelementptr inbounds [4 x [256 x i32]], ptr %262, i64 0, i64 2
+  %264 = load i32, ptr %16, align 4, !tbaa !9
+  %265 = zext i32 %264 to i64
+  %266 = getelementptr inbounds nuw [256 x i32], ptr %263, i64 0, i64 %265
+  %267 = load i32, ptr %266, align 4, !tbaa !9
+  store i32 %267, ptr %16, align 4, !tbaa !9
+  %268 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %269 = getelementptr inbounds nuw %struct.BF_ctx, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds [4 x [256 x i32]], ptr %269, i64 0, i64 1
+  %271 = load i32, ptr %17, align 4, !tbaa !9
+  %272 = zext i32 %271 to i64
+  %273 = getelementptr inbounds nuw [256 x i32], ptr %270, i64 0, i64 %272
+  %274 = load i32, ptr %273, align 4, !tbaa !9
+  store i32 %274, ptr %17, align 4, !tbaa !9
+  %275 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %276 = getelementptr inbounds nuw %struct.BF_ctx, ptr %275, i32 0, i32 0
+  %277 = getelementptr inbounds [4 x [256 x i32]], ptr %276, i64 0, i64 0
+  %278 = load i32, ptr %18, align 4, !tbaa !9
+  %279 = zext i32 %278 to i64
+  %280 = getelementptr inbounds nuw [256 x i32], ptr %277, i64 0, i64 %279
+  %281 = load i32, ptr %280, align 4, !tbaa !9
+  %282 = load i32, ptr %17, align 4, !tbaa !9
+  %283 = add i32 %282, %281
+  store i32 %283, ptr %17, align 4, !tbaa !9
+  %284 = load i32, ptr %16, align 4, !tbaa !9
+  %285 = load i32, ptr %17, align 4, !tbaa !9
+  %286 = xor i32 %285, %284
+  store i32 %286, ptr %17, align 4, !tbaa !9
+  %287 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %288 = getelementptr inbounds nuw %struct.BF_ctx, ptr %287, i32 0, i32 1
+  %289 = getelementptr inbounds [18 x i32], ptr %288, i64 0, i64 2
+  %290 = load i32, ptr %289, align 4, !tbaa !9
+  %291 = load i32, ptr %13, align 4, !tbaa !9
+  %292 = xor i32 %291, %290
+  store i32 %292, ptr %13, align 4, !tbaa !9
+  %293 = load i32, ptr %15, align 4, !tbaa !9
+  %294 = load i32, ptr %17, align 4, !tbaa !9
+  %295 = add i32 %294, %293
+  store i32 %295, ptr %17, align 4, !tbaa !9
+  %296 = load i32, ptr %17, align 4, !tbaa !9
+  %297 = load i32, ptr %13, align 4, !tbaa !9
+  %298 = xor i32 %297, %296
+  store i32 %298, ptr %13, align 4, !tbaa !9
+  %299 = load i32, ptr %13, align 4, !tbaa !9
+  %300 = and i32 %299, 255
+  store i32 %300, ptr %15, align 4, !tbaa !9
+  %301 = load i32, ptr %13, align 4, !tbaa !9
+  %302 = lshr i32 %301, 8
+  store i32 %302, ptr %16, align 4, !tbaa !9
+  %303 = load i32, ptr %16, align 4, !tbaa !9
+  %304 = and i32 %303, 255
+  store i32 %304, ptr %16, align 4, !tbaa !9
+  %305 = load i32, ptr %13, align 4, !tbaa !9
+  %306 = lshr i32 %305, 16
+  store i32 %306, ptr %17, align 4, !tbaa !9
+  %307 = load i32, ptr %17, align 4, !tbaa !9
+  %308 = and i32 %307, 255
+  store i32 %308, ptr %17, align 4, !tbaa !9
+  %309 = load i32, ptr %13, align 4, !tbaa !9
+  %310 = lshr i32 %309, 24
+  store i32 %310, ptr %18, align 4, !tbaa !9
+  %311 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %312 = getelementptr inbounds nuw %struct.BF_ctx, ptr %311, i32 0, i32 0
+  %313 = getelementptr inbounds [4 x [256 x i32]], ptr %312, i64 0, i64 3
+  %314 = load i32, ptr %15, align 4, !tbaa !9
+  %315 = zext i32 %314 to i64
+  %316 = getelementptr inbounds nuw [256 x i32], ptr %313, i64 0, i64 %315
+  %317 = load i32, ptr %316, align 4, !tbaa !9
+  store i32 %317, ptr %15, align 4, !tbaa !9
+  %318 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %319 = getelementptr inbounds nuw %struct.BF_ctx, ptr %318, i32 0, i32 0
+  %320 = getelementptr inbounds [4 x [256 x i32]], ptr %319, i64 0, i64 2
+  %321 = load i32, ptr %16, align 4, !tbaa !9
+  %322 = zext i32 %321 to i64
+  %323 = getelementptr inbounds nuw [256 x i32], ptr %320, i64 0, i64 %322
+  %324 = load i32, ptr %323, align 4, !tbaa !9
+  store i32 %324, ptr %16, align 4, !tbaa !9
+  %325 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %326 = getelementptr inbounds nuw %struct.BF_ctx, ptr %325, i32 0, i32 0
+  %327 = getelementptr inbounds [4 x [256 x i32]], ptr %326, i64 0, i64 1
+  %328 = load i32, ptr %17, align 4, !tbaa !9
+  %329 = zext i32 %328 to i64
+  %330 = getelementptr inbounds nuw [256 x i32], ptr %327, i64 0, i64 %329
+  %331 = load i32, ptr %330, align 4, !tbaa !9
+  store i32 %331, ptr %17, align 4, !tbaa !9
+  %332 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %333 = getelementptr inbounds nuw %struct.BF_ctx, ptr %332, i32 0, i32 0
+  %334 = getelementptr inbounds [4 x [256 x i32]], ptr %333, i64 0, i64 0
+  %335 = load i32, ptr %18, align 4, !tbaa !9
+  %336 = zext i32 %335 to i64
+  %337 = getelementptr inbounds nuw [256 x i32], ptr %334, i64 0, i64 %336
+  %338 = load i32, ptr %337, align 4, !tbaa !9
+  %339 = load i32, ptr %17, align 4, !tbaa !9
+  %340 = add i32 %339, %338
+  store i32 %340, ptr %17, align 4, !tbaa !9
+  %341 = load i32, ptr %16, align 4, !tbaa !9
+  %342 = load i32, ptr %17, align 4, !tbaa !9
+  %343 = xor i32 %342, %341
+  store i32 %343, ptr %17, align 4, !tbaa !9
+  %344 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %345 = getelementptr inbounds nuw %struct.BF_ctx, ptr %344, i32 0, i32 1
+  %346 = getelementptr inbounds [18 x i32], ptr %345, i64 0, i64 3
+  %347 = load i32, ptr %346, align 4, !tbaa !9
+  %348 = load i32, ptr %14, align 4, !tbaa !9
+  %349 = xor i32 %348, %347
+  store i32 %349, ptr %14, align 4, !tbaa !9
+  %350 = load i32, ptr %15, align 4, !tbaa !9
+  %351 = load i32, ptr %17, align 4, !tbaa !9
+  %352 = add i32 %351, %350
+  store i32 %352, ptr %17, align 4, !tbaa !9
+  %353 = load i32, ptr %17, align 4, !tbaa !9
+  %354 = load i32, ptr %14, align 4, !tbaa !9
+  %355 = xor i32 %354, %353
+  store i32 %355, ptr %14, align 4, !tbaa !9
+  %356 = load i32, ptr %14, align 4, !tbaa !9
+  %357 = and i32 %356, 255
+  store i32 %357, ptr %15, align 4, !tbaa !9
+  %358 = load i32, ptr %14, align 4, !tbaa !9
+  %359 = lshr i32 %358, 8
+  store i32 %359, ptr %16, align 4, !tbaa !9
+  %360 = load i32, ptr %16, align 4, !tbaa !9
+  %361 = and i32 %360, 255
+  store i32 %361, ptr %16, align 4, !tbaa !9
+  %362 = load i32, ptr %14, align 4, !tbaa !9
+  %363 = lshr i32 %362, 16
+  store i32 %363, ptr %17, align 4, !tbaa !9
+  %364 = load i32, ptr %17, align 4, !tbaa !9
+  %365 = and i32 %364, 255
+  store i32 %365, ptr %17, align 4, !tbaa !9
+  %366 = load i32, ptr %14, align 4, !tbaa !9
+  %367 = lshr i32 %366, 24
+  store i32 %367, ptr %18, align 4, !tbaa !9
+  %368 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %369 = getelementptr inbounds nuw %struct.BF_ctx, ptr %368, i32 0, i32 0
+  %370 = getelementptr inbounds [4 x [256 x i32]], ptr %369, i64 0, i64 3
+  %371 = load i32, ptr %15, align 4, !tbaa !9
+  %372 = zext i32 %371 to i64
+  %373 = getelementptr inbounds nuw [256 x i32], ptr %370, i64 0, i64 %372
+  %374 = load i32, ptr %373, align 4, !tbaa !9
+  store i32 %374, ptr %15, align 4, !tbaa !9
+  %375 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %376 = getelementptr inbounds nuw %struct.BF_ctx, ptr %375, i32 0, i32 0
+  %377 = getelementptr inbounds [4 x [256 x i32]], ptr %376, i64 0, i64 2
+  %378 = load i32, ptr %16, align 4, !tbaa !9
+  %379 = zext i32 %378 to i64
+  %380 = getelementptr inbounds nuw [256 x i32], ptr %377, i64 0, i64 %379
+  %381 = load i32, ptr %380, align 4, !tbaa !9
+  store i32 %381, ptr %16, align 4, !tbaa !9
+  %382 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %383 = getelementptr inbounds nuw %struct.BF_ctx, ptr %382, i32 0, i32 0
+  %384 = getelementptr inbounds [4 x [256 x i32]], ptr %383, i64 0, i64 1
+  %385 = load i32, ptr %17, align 4, !tbaa !9
+  %386 = zext i32 %385 to i64
+  %387 = getelementptr inbounds nuw [256 x i32], ptr %384, i64 0, i64 %386
+  %388 = load i32, ptr %387, align 4, !tbaa !9
+  store i32 %388, ptr %17, align 4, !tbaa !9
+  %389 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %390 = getelementptr inbounds nuw %struct.BF_ctx, ptr %389, i32 0, i32 0
+  %391 = getelementptr inbounds [4 x [256 x i32]], ptr %390, i64 0, i64 0
+  %392 = load i32, ptr %18, align 4, !tbaa !9
+  %393 = zext i32 %392 to i64
+  %394 = getelementptr inbounds nuw [256 x i32], ptr %391, i64 0, i64 %393
+  %395 = load i32, ptr %394, align 4, !tbaa !9
+  %396 = load i32, ptr %17, align 4, !tbaa !9
+  %397 = add i32 %396, %395
+  store i32 %397, ptr %17, align 4, !tbaa !9
+  %398 = load i32, ptr %16, align 4, !tbaa !9
+  %399 = load i32, ptr %17, align 4, !tbaa !9
+  %400 = xor i32 %399, %398
+  store i32 %400, ptr %17, align 4, !tbaa !9
+  %401 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %402 = getelementptr inbounds nuw %struct.BF_ctx, ptr %401, i32 0, i32 1
+  %403 = getelementptr inbounds [18 x i32], ptr %402, i64 0, i64 4
+  %404 = load i32, ptr %403, align 4, !tbaa !9
+  %405 = load i32, ptr %13, align 4, !tbaa !9
+  %406 = xor i32 %405, %404
+  store i32 %406, ptr %13, align 4, !tbaa !9
+  %407 = load i32, ptr %15, align 4, !tbaa !9
+  %408 = load i32, ptr %17, align 4, !tbaa !9
+  %409 = add i32 %408, %407
+  store i32 %409, ptr %17, align 4, !tbaa !9
+  %410 = load i32, ptr %17, align 4, !tbaa !9
+  %411 = load i32, ptr %13, align 4, !tbaa !9
+  %412 = xor i32 %411, %410
+  store i32 %412, ptr %13, align 4, !tbaa !9
+  %413 = load i32, ptr %13, align 4, !tbaa !9
+  %414 = and i32 %413, 255
+  store i32 %414, ptr %15, align 4, !tbaa !9
+  %415 = load i32, ptr %13, align 4, !tbaa !9
+  %416 = lshr i32 %415, 8
+  store i32 %416, ptr %16, align 4, !tbaa !9
+  %417 = load i32, ptr %16, align 4, !tbaa !9
+  %418 = and i32 %417, 255
+  store i32 %418, ptr %16, align 4, !tbaa !9
+  %419 = load i32, ptr %13, align 4, !tbaa !9
+  %420 = lshr i32 %419, 16
+  store i32 %420, ptr %17, align 4, !tbaa !9
+  %421 = load i32, ptr %17, align 4, !tbaa !9
+  %422 = and i32 %421, 255
+  store i32 %422, ptr %17, align 4, !tbaa !9
+  %423 = load i32, ptr %13, align 4, !tbaa !9
+  %424 = lshr i32 %423, 24
+  store i32 %424, ptr %18, align 4, !tbaa !9
+  %425 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %426 = getelementptr inbounds nuw %struct.BF_ctx, ptr %425, i32 0, i32 0
+  %427 = getelementptr inbounds [4 x [256 x i32]], ptr %426, i64 0, i64 3
+  %428 = load i32, ptr %15, align 4, !tbaa !9
+  %429 = zext i32 %428 to i64
+  %430 = getelementptr inbounds nuw [256 x i32], ptr %427, i64 0, i64 %429
+  %431 = load i32, ptr %430, align 4, !tbaa !9
+  store i32 %431, ptr %15, align 4, !tbaa !9
+  %432 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %433 = getelementptr inbounds nuw %struct.BF_ctx, ptr %432, i32 0, i32 0
+  %434 = getelementptr inbounds [4 x [256 x i32]], ptr %433, i64 0, i64 2
+  %435 = load i32, ptr %16, align 4, !tbaa !9
+  %436 = zext i32 %435 to i64
+  %437 = getelementptr inbounds nuw [256 x i32], ptr %434, i64 0, i64 %436
+  %438 = load i32, ptr %437, align 4, !tbaa !9
+  store i32 %438, ptr %16, align 4, !tbaa !9
+  %439 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %440 = getelementptr inbounds nuw %struct.BF_ctx, ptr %439, i32 0, i32 0
+  %441 = getelementptr inbounds [4 x [256 x i32]], ptr %440, i64 0, i64 1
+  %442 = load i32, ptr %17, align 4, !tbaa !9
+  %443 = zext i32 %442 to i64
+  %444 = getelementptr inbounds nuw [256 x i32], ptr %441, i64 0, i64 %443
+  %445 = load i32, ptr %444, align 4, !tbaa !9
+  store i32 %445, ptr %17, align 4, !tbaa !9
+  %446 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %447 = getelementptr inbounds nuw %struct.BF_ctx, ptr %446, i32 0, i32 0
+  %448 = getelementptr inbounds [4 x [256 x i32]], ptr %447, i64 0, i64 0
+  %449 = load i32, ptr %18, align 4, !tbaa !9
+  %450 = zext i32 %449 to i64
+  %451 = getelementptr inbounds nuw [256 x i32], ptr %448, i64 0, i64 %450
+  %452 = load i32, ptr %451, align 4, !tbaa !9
+  %453 = load i32, ptr %17, align 4, !tbaa !9
+  %454 = add i32 %453, %452
+  store i32 %454, ptr %17, align 4, !tbaa !9
+  %455 = load i32, ptr %16, align 4, !tbaa !9
+  %456 = load i32, ptr %17, align 4, !tbaa !9
+  %457 = xor i32 %456, %455
+  store i32 %457, ptr %17, align 4, !tbaa !9
+  %458 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %459 = getelementptr inbounds nuw %struct.BF_ctx, ptr %458, i32 0, i32 1
+  %460 = getelementptr inbounds [18 x i32], ptr %459, i64 0, i64 5
+  %461 = load i32, ptr %460, align 4, !tbaa !9
+  %462 = load i32, ptr %14, align 4, !tbaa !9
+  %463 = xor i32 %462, %461
+  store i32 %463, ptr %14, align 4, !tbaa !9
+  %464 = load i32, ptr %15, align 4, !tbaa !9
+  %465 = load i32, ptr %17, align 4, !tbaa !9
+  %466 = add i32 %465, %464
+  store i32 %466, ptr %17, align 4, !tbaa !9
+  %467 = load i32, ptr %17, align 4, !tbaa !9
+  %468 = load i32, ptr %14, align 4, !tbaa !9
+  %469 = xor i32 %468, %467
+  store i32 %469, ptr %14, align 4, !tbaa !9
+  %470 = load i32, ptr %14, align 4, !tbaa !9
+  %471 = and i32 %470, 255
+  store i32 %471, ptr %15, align 4, !tbaa !9
+  %472 = load i32, ptr %14, align 4, !tbaa !9
+  %473 = lshr i32 %472, 8
+  store i32 %473, ptr %16, align 4, !tbaa !9
+  %474 = load i32, ptr %16, align 4, !tbaa !9
+  %475 = and i32 %474, 255
+  store i32 %475, ptr %16, align 4, !tbaa !9
+  %476 = load i32, ptr %14, align 4, !tbaa !9
+  %477 = lshr i32 %476, 16
+  store i32 %477, ptr %17, align 4, !tbaa !9
+  %478 = load i32, ptr %17, align 4, !tbaa !9
+  %479 = and i32 %478, 255
+  store i32 %479, ptr %17, align 4, !tbaa !9
+  %480 = load i32, ptr %14, align 4, !tbaa !9
+  %481 = lshr i32 %480, 24
+  store i32 %481, ptr %18, align 4, !tbaa !9
+  %482 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %483 = getelementptr inbounds nuw %struct.BF_ctx, ptr %482, i32 0, i32 0
+  %484 = getelementptr inbounds [4 x [256 x i32]], ptr %483, i64 0, i64 3
+  %485 = load i32, ptr %15, align 4, !tbaa !9
+  %486 = zext i32 %485 to i64
+  %487 = getelementptr inbounds nuw [256 x i32], ptr %484, i64 0, i64 %486
+  %488 = load i32, ptr %487, align 4, !tbaa !9
+  store i32 %488, ptr %15, align 4, !tbaa !9
+  %489 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %490 = getelementptr inbounds nuw %struct.BF_ctx, ptr %489, i32 0, i32 0
+  %491 = getelementptr inbounds [4 x [256 x i32]], ptr %490, i64 0, i64 2
+  %492 = load i32, ptr %16, align 4, !tbaa !9
+  %493 = zext i32 %492 to i64
+  %494 = getelementptr inbounds nuw [256 x i32], ptr %491, i64 0, i64 %493
+  %495 = load i32, ptr %494, align 4, !tbaa !9
+  store i32 %495, ptr %16, align 4, !tbaa !9
+  %496 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %497 = getelementptr inbounds nuw %struct.BF_ctx, ptr %496, i32 0, i32 0
+  %498 = getelementptr inbounds [4 x [256 x i32]], ptr %497, i64 0, i64 1
+  %499 = load i32, ptr %17, align 4, !tbaa !9
+  %500 = zext i32 %499 to i64
+  %501 = getelementptr inbounds nuw [256 x i32], ptr %498, i64 0, i64 %500
+  %502 = load i32, ptr %501, align 4, !tbaa !9
+  store i32 %502, ptr %17, align 4, !tbaa !9
+  %503 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %504 = getelementptr inbounds nuw %struct.BF_ctx, ptr %503, i32 0, i32 0
+  %505 = getelementptr inbounds [4 x [256 x i32]], ptr %504, i64 0, i64 0
+  %506 = load i32, ptr %18, align 4, !tbaa !9
+  %507 = zext i32 %506 to i64
+  %508 = getelementptr inbounds nuw [256 x i32], ptr %505, i64 0, i64 %507
+  %509 = load i32, ptr %508, align 4, !tbaa !9
+  %510 = load i32, ptr %17, align 4, !tbaa !9
+  %511 = add i32 %510, %509
+  store i32 %511, ptr %17, align 4, !tbaa !9
+  %512 = load i32, ptr %16, align 4, !tbaa !9
+  %513 = load i32, ptr %17, align 4, !tbaa !9
+  %514 = xor i32 %513, %512
+  store i32 %514, ptr %17, align 4, !tbaa !9
+  %515 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %516 = getelementptr inbounds nuw %struct.BF_ctx, ptr %515, i32 0, i32 1
+  %517 = getelementptr inbounds [18 x i32], ptr %516, i64 0, i64 6
+  %518 = load i32, ptr %517, align 4, !tbaa !9
+  %519 = load i32, ptr %13, align 4, !tbaa !9
+  %520 = xor i32 %519, %518
+  store i32 %520, ptr %13, align 4, !tbaa !9
+  %521 = load i32, ptr %15, align 4, !tbaa !9
+  %522 = load i32, ptr %17, align 4, !tbaa !9
+  %523 = add i32 %522, %521
+  store i32 %523, ptr %17, align 4, !tbaa !9
+  %524 = load i32, ptr %17, align 4, !tbaa !9
+  %525 = load i32, ptr %13, align 4, !tbaa !9
+  %526 = xor i32 %525, %524
+  store i32 %526, ptr %13, align 4, !tbaa !9
+  %527 = load i32, ptr %13, align 4, !tbaa !9
+  %528 = and i32 %527, 255
+  store i32 %528, ptr %15, align 4, !tbaa !9
+  %529 = load i32, ptr %13, align 4, !tbaa !9
+  %530 = lshr i32 %529, 8
+  store i32 %530, ptr %16, align 4, !tbaa !9
+  %531 = load i32, ptr %16, align 4, !tbaa !9
+  %532 = and i32 %531, 255
+  store i32 %532, ptr %16, align 4, !tbaa !9
+  %533 = load i32, ptr %13, align 4, !tbaa !9
+  %534 = lshr i32 %533, 16
+  store i32 %534, ptr %17, align 4, !tbaa !9
+  %535 = load i32, ptr %17, align 4, !tbaa !9
+  %536 = and i32 %535, 255
+  store i32 %536, ptr %17, align 4, !tbaa !9
+  %537 = load i32, ptr %13, align 4, !tbaa !9
+  %538 = lshr i32 %537, 24
+  store i32 %538, ptr %18, align 4, !tbaa !9
+  %539 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %540 = getelementptr inbounds nuw %struct.BF_ctx, ptr %539, i32 0, i32 0
+  %541 = getelementptr inbounds [4 x [256 x i32]], ptr %540, i64 0, i64 3
+  %542 = load i32, ptr %15, align 4, !tbaa !9
+  %543 = zext i32 %542 to i64
+  %544 = getelementptr inbounds nuw [256 x i32], ptr %541, i64 0, i64 %543
+  %545 = load i32, ptr %544, align 4, !tbaa !9
+  store i32 %545, ptr %15, align 4, !tbaa !9
+  %546 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %547 = getelementptr inbounds nuw %struct.BF_ctx, ptr %546, i32 0, i32 0
+  %548 = getelementptr inbounds [4 x [256 x i32]], ptr %547, i64 0, i64 2
+  %549 = load i32, ptr %16, align 4, !tbaa !9
+  %550 = zext i32 %549 to i64
+  %551 = getelementptr inbounds nuw [256 x i32], ptr %548, i64 0, i64 %550
+  %552 = load i32, ptr %551, align 4, !tbaa !9
+  store i32 %552, ptr %16, align 4, !tbaa !9
+  %553 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %554 = getelementptr inbounds nuw %struct.BF_ctx, ptr %553, i32 0, i32 0
+  %555 = getelementptr inbounds [4 x [256 x i32]], ptr %554, i64 0, i64 1
+  %556 = load i32, ptr %17, align 4, !tbaa !9
+  %557 = zext i32 %556 to i64
+  %558 = getelementptr inbounds nuw [256 x i32], ptr %555, i64 0, i64 %557
+  %559 = load i32, ptr %558, align 4, !tbaa !9
+  store i32 %559, ptr %17, align 4, !tbaa !9
+  %560 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %561 = getelementptr inbounds nuw %struct.BF_ctx, ptr %560, i32 0, i32 0
+  %562 = getelementptr inbounds [4 x [256 x i32]], ptr %561, i64 0, i64 0
+  %563 = load i32, ptr %18, align 4, !tbaa !9
+  %564 = zext i32 %563 to i64
+  %565 = getelementptr inbounds nuw [256 x i32], ptr %562, i64 0, i64 %564
+  %566 = load i32, ptr %565, align 4, !tbaa !9
+  %567 = load i32, ptr %17, align 4, !tbaa !9
+  %568 = add i32 %567, %566
+  store i32 %568, ptr %17, align 4, !tbaa !9
+  %569 = load i32, ptr %16, align 4, !tbaa !9
+  %570 = load i32, ptr %17, align 4, !tbaa !9
+  %571 = xor i32 %570, %569
+  store i32 %571, ptr %17, align 4, !tbaa !9
+  %572 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %573 = getelementptr inbounds nuw %struct.BF_ctx, ptr %572, i32 0, i32 1
+  %574 = getelementptr inbounds [18 x i32], ptr %573, i64 0, i64 7
+  %575 = load i32, ptr %574, align 4, !tbaa !9
+  %576 = load i32, ptr %14, align 4, !tbaa !9
+  %577 = xor i32 %576, %575
+  store i32 %577, ptr %14, align 4, !tbaa !9
+  %578 = load i32, ptr %15, align 4, !tbaa !9
+  %579 = load i32, ptr %17, align 4, !tbaa !9
+  %580 = add i32 %579, %578
+  store i32 %580, ptr %17, align 4, !tbaa !9
+  %581 = load i32, ptr %17, align 4, !tbaa !9
+  %582 = load i32, ptr %14, align 4, !tbaa !9
+  %583 = xor i32 %582, %581
+  store i32 %583, ptr %14, align 4, !tbaa !9
+  %584 = load i32, ptr %14, align 4, !tbaa !9
+  %585 = and i32 %584, 255
+  store i32 %585, ptr %15, align 4, !tbaa !9
+  %586 = load i32, ptr %14, align 4, !tbaa !9
+  %587 = lshr i32 %586, 8
+  store i32 %587, ptr %16, align 4, !tbaa !9
+  %588 = load i32, ptr %16, align 4, !tbaa !9
+  %589 = and i32 %588, 255
+  store i32 %589, ptr %16, align 4, !tbaa !9
+  %590 = load i32, ptr %14, align 4, !tbaa !9
+  %591 = lshr i32 %590, 16
+  store i32 %591, ptr %17, align 4, !tbaa !9
+  %592 = load i32, ptr %17, align 4, !tbaa !9
+  %593 = and i32 %592, 255
+  store i32 %593, ptr %17, align 4, !tbaa !9
+  %594 = load i32, ptr %14, align 4, !tbaa !9
+  %595 = lshr i32 %594, 24
+  store i32 %595, ptr %18, align 4, !tbaa !9
+  %596 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %597 = getelementptr inbounds nuw %struct.BF_ctx, ptr %596, i32 0, i32 0
+  %598 = getelementptr inbounds [4 x [256 x i32]], ptr %597, i64 0, i64 3
+  %599 = load i32, ptr %15, align 4, !tbaa !9
+  %600 = zext i32 %599 to i64
+  %601 = getelementptr inbounds nuw [256 x i32], ptr %598, i64 0, i64 %600
+  %602 = load i32, ptr %601, align 4, !tbaa !9
+  store i32 %602, ptr %15, align 4, !tbaa !9
+  %603 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %604 = getelementptr inbounds nuw %struct.BF_ctx, ptr %603, i32 0, i32 0
+  %605 = getelementptr inbounds [4 x [256 x i32]], ptr %604, i64 0, i64 2
+  %606 = load i32, ptr %16, align 4, !tbaa !9
+  %607 = zext i32 %606 to i64
+  %608 = getelementptr inbounds nuw [256 x i32], ptr %605, i64 0, i64 %607
+  %609 = load i32, ptr %608, align 4, !tbaa !9
+  store i32 %609, ptr %16, align 4, !tbaa !9
+  %610 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %611 = getelementptr inbounds nuw %struct.BF_ctx, ptr %610, i32 0, i32 0
+  %612 = getelementptr inbounds [4 x [256 x i32]], ptr %611, i64 0, i64 1
+  %613 = load i32, ptr %17, align 4, !tbaa !9
+  %614 = zext i32 %613 to i64
+  %615 = getelementptr inbounds nuw [256 x i32], ptr %612, i64 0, i64 %614
+  %616 = load i32, ptr %615, align 4, !tbaa !9
+  store i32 %616, ptr %17, align 4, !tbaa !9
+  %617 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %618 = getelementptr inbounds nuw %struct.BF_ctx, ptr %617, i32 0, i32 0
+  %619 = getelementptr inbounds [4 x [256 x i32]], ptr %618, i64 0, i64 0
+  %620 = load i32, ptr %18, align 4, !tbaa !9
+  %621 = zext i32 %620 to i64
+  %622 = getelementptr inbounds nuw [256 x i32], ptr %619, i64 0, i64 %621
+  %623 = load i32, ptr %622, align 4, !tbaa !9
+  %624 = load i32, ptr %17, align 4, !tbaa !9
+  %625 = add i32 %624, %623
+  store i32 %625, ptr %17, align 4, !tbaa !9
+  %626 = load i32, ptr %16, align 4, !tbaa !9
+  %627 = load i32, ptr %17, align 4, !tbaa !9
+  %628 = xor i32 %627, %626
+  store i32 %628, ptr %17, align 4, !tbaa !9
+  %629 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %630 = getelementptr inbounds nuw %struct.BF_ctx, ptr %629, i32 0, i32 1
+  %631 = getelementptr inbounds [18 x i32], ptr %630, i64 0, i64 8
+  %632 = load i32, ptr %631, align 4, !tbaa !9
+  %633 = load i32, ptr %13, align 4, !tbaa !9
+  %634 = xor i32 %633, %632
+  store i32 %634, ptr %13, align 4, !tbaa !9
+  %635 = load i32, ptr %15, align 4, !tbaa !9
+  %636 = load i32, ptr %17, align 4, !tbaa !9
+  %637 = add i32 %636, %635
+  store i32 %637, ptr %17, align 4, !tbaa !9
+  %638 = load i32, ptr %17, align 4, !tbaa !9
+  %639 = load i32, ptr %13, align 4, !tbaa !9
+  %640 = xor i32 %639, %638
+  store i32 %640, ptr %13, align 4, !tbaa !9
+  %641 = load i32, ptr %13, align 4, !tbaa !9
+  %642 = and i32 %641, 255
+  store i32 %642, ptr %15, align 4, !tbaa !9
+  %643 = load i32, ptr %13, align 4, !tbaa !9
+  %644 = lshr i32 %643, 8
+  store i32 %644, ptr %16, align 4, !tbaa !9
+  %645 = load i32, ptr %16, align 4, !tbaa !9
+  %646 = and i32 %645, 255
+  store i32 %646, ptr %16, align 4, !tbaa !9
+  %647 = load i32, ptr %13, align 4, !tbaa !9
+  %648 = lshr i32 %647, 16
+  store i32 %648, ptr %17, align 4, !tbaa !9
+  %649 = load i32, ptr %17, align 4, !tbaa !9
+  %650 = and i32 %649, 255
+  store i32 %650, ptr %17, align 4, !tbaa !9
+  %651 = load i32, ptr %13, align 4, !tbaa !9
+  %652 = lshr i32 %651, 24
+  store i32 %652, ptr %18, align 4, !tbaa !9
+  %653 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %654 = getelementptr inbounds nuw %struct.BF_ctx, ptr %653, i32 0, i32 0
+  %655 = getelementptr inbounds [4 x [256 x i32]], ptr %654, i64 0, i64 3
+  %656 = load i32, ptr %15, align 4, !tbaa !9
+  %657 = zext i32 %656 to i64
+  %658 = getelementptr inbounds nuw [256 x i32], ptr %655, i64 0, i64 %657
+  %659 = load i32, ptr %658, align 4, !tbaa !9
+  store i32 %659, ptr %15, align 4, !tbaa !9
+  %660 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %661 = getelementptr inbounds nuw %struct.BF_ctx, ptr %660, i32 0, i32 0
+  %662 = getelementptr inbounds [4 x [256 x i32]], ptr %661, i64 0, i64 2
+  %663 = load i32, ptr %16, align 4, !tbaa !9
+  %664 = zext i32 %663 to i64
+  %665 = getelementptr inbounds nuw [256 x i32], ptr %662, i64 0, i64 %664
+  %666 = load i32, ptr %665, align 4, !tbaa !9
+  store i32 %666, ptr %16, align 4, !tbaa !9
+  %667 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %668 = getelementptr inbounds nuw %struct.BF_ctx, ptr %667, i32 0, i32 0
+  %669 = getelementptr inbounds [4 x [256 x i32]], ptr %668, i64 0, i64 1
+  %670 = load i32, ptr %17, align 4, !tbaa !9
+  %671 = zext i32 %670 to i64
+  %672 = getelementptr inbounds nuw [256 x i32], ptr %669, i64 0, i64 %671
+  %673 = load i32, ptr %672, align 4, !tbaa !9
+  store i32 %673, ptr %17, align 4, !tbaa !9
+  %674 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %675 = getelementptr inbounds nuw %struct.BF_ctx, ptr %674, i32 0, i32 0
+  %676 = getelementptr inbounds [4 x [256 x i32]], ptr %675, i64 0, i64 0
+  %677 = load i32, ptr %18, align 4, !tbaa !9
+  %678 = zext i32 %677 to i64
+  %679 = getelementptr inbounds nuw [256 x i32], ptr %676, i64 0, i64 %678
+  %680 = load i32, ptr %679, align 4, !tbaa !9
+  %681 = load i32, ptr %17, align 4, !tbaa !9
+  %682 = add i32 %681, %680
+  store i32 %682, ptr %17, align 4, !tbaa !9
+  %683 = load i32, ptr %16, align 4, !tbaa !9
+  %684 = load i32, ptr %17, align 4, !tbaa !9
+  %685 = xor i32 %684, %683
+  store i32 %685, ptr %17, align 4, !tbaa !9
+  %686 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %687 = getelementptr inbounds nuw %struct.BF_ctx, ptr %686, i32 0, i32 1
+  %688 = getelementptr inbounds [18 x i32], ptr %687, i64 0, i64 9
+  %689 = load i32, ptr %688, align 4, !tbaa !9
+  %690 = load i32, ptr %14, align 4, !tbaa !9
+  %691 = xor i32 %690, %689
+  store i32 %691, ptr %14, align 4, !tbaa !9
+  %692 = load i32, ptr %15, align 4, !tbaa !9
+  %693 = load i32, ptr %17, align 4, !tbaa !9
+  %694 = add i32 %693, %692
+  store i32 %694, ptr %17, align 4, !tbaa !9
+  %695 = load i32, ptr %17, align 4, !tbaa !9
+  %696 = load i32, ptr %14, align 4, !tbaa !9
+  %697 = xor i32 %696, %695
+  store i32 %697, ptr %14, align 4, !tbaa !9
+  %698 = load i32, ptr %14, align 4, !tbaa !9
+  %699 = and i32 %698, 255
+  store i32 %699, ptr %15, align 4, !tbaa !9
+  %700 = load i32, ptr %14, align 4, !tbaa !9
+  %701 = lshr i32 %700, 8
+  store i32 %701, ptr %16, align 4, !tbaa !9
+  %702 = load i32, ptr %16, align 4, !tbaa !9
+  %703 = and i32 %702, 255
+  store i32 %703, ptr %16, align 4, !tbaa !9
+  %704 = load i32, ptr %14, align 4, !tbaa !9
+  %705 = lshr i32 %704, 16
+  store i32 %705, ptr %17, align 4, !tbaa !9
+  %706 = load i32, ptr %17, align 4, !tbaa !9
+  %707 = and i32 %706, 255
+  store i32 %707, ptr %17, align 4, !tbaa !9
+  %708 = load i32, ptr %14, align 4, !tbaa !9
+  %709 = lshr i32 %708, 24
+  store i32 %709, ptr %18, align 4, !tbaa !9
+  %710 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %711 = getelementptr inbounds nuw %struct.BF_ctx, ptr %710, i32 0, i32 0
+  %712 = getelementptr inbounds [4 x [256 x i32]], ptr %711, i64 0, i64 3
+  %713 = load i32, ptr %15, align 4, !tbaa !9
+  %714 = zext i32 %713 to i64
+  %715 = getelementptr inbounds nuw [256 x i32], ptr %712, i64 0, i64 %714
+  %716 = load i32, ptr %715, align 4, !tbaa !9
+  store i32 %716, ptr %15, align 4, !tbaa !9
+  %717 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %718 = getelementptr inbounds nuw %struct.BF_ctx, ptr %717, i32 0, i32 0
+  %719 = getelementptr inbounds [4 x [256 x i32]], ptr %718, i64 0, i64 2
+  %720 = load i32, ptr %16, align 4, !tbaa !9
+  %721 = zext i32 %720 to i64
+  %722 = getelementptr inbounds nuw [256 x i32], ptr %719, i64 0, i64 %721
+  %723 = load i32, ptr %722, align 4, !tbaa !9
+  store i32 %723, ptr %16, align 4, !tbaa !9
+  %724 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %725 = getelementptr inbounds nuw %struct.BF_ctx, ptr %724, i32 0, i32 0
+  %726 = getelementptr inbounds [4 x [256 x i32]], ptr %725, i64 0, i64 1
+  %727 = load i32, ptr %17, align 4, !tbaa !9
+  %728 = zext i32 %727 to i64
+  %729 = getelementptr inbounds nuw [256 x i32], ptr %726, i64 0, i64 %728
+  %730 = load i32, ptr %729, align 4, !tbaa !9
+  store i32 %730, ptr %17, align 4, !tbaa !9
+  %731 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %732 = getelementptr inbounds nuw %struct.BF_ctx, ptr %731, i32 0, i32 0
+  %733 = getelementptr inbounds [4 x [256 x i32]], ptr %732, i64 0, i64 0
+  %734 = load i32, ptr %18, align 4, !tbaa !9
+  %735 = zext i32 %734 to i64
+  %736 = getelementptr inbounds nuw [256 x i32], ptr %733, i64 0, i64 %735
+  %737 = load i32, ptr %736, align 4, !tbaa !9
+  %738 = load i32, ptr %17, align 4, !tbaa !9
+  %739 = add i32 %738, %737
+  store i32 %739, ptr %17, align 4, !tbaa !9
+  %740 = load i32, ptr %16, align 4, !tbaa !9
+  %741 = load i32, ptr %17, align 4, !tbaa !9
+  %742 = xor i32 %741, %740
+  store i32 %742, ptr %17, align 4, !tbaa !9
+  %743 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %744 = getelementptr inbounds nuw %struct.BF_ctx, ptr %743, i32 0, i32 1
+  %745 = getelementptr inbounds [18 x i32], ptr %744, i64 0, i64 10
+  %746 = load i32, ptr %745, align 4, !tbaa !9
+  %747 = load i32, ptr %13, align 4, !tbaa !9
+  %748 = xor i32 %747, %746
+  store i32 %748, ptr %13, align 4, !tbaa !9
+  %749 = load i32, ptr %15, align 4, !tbaa !9
+  %750 = load i32, ptr %17, align 4, !tbaa !9
+  %751 = add i32 %750, %749
+  store i32 %751, ptr %17, align 4, !tbaa !9
+  %752 = load i32, ptr %17, align 4, !tbaa !9
+  %753 = load i32, ptr %13, align 4, !tbaa !9
+  %754 = xor i32 %753, %752
+  store i32 %754, ptr %13, align 4, !tbaa !9
+  %755 = load i32, ptr %13, align 4, !tbaa !9
+  %756 = and i32 %755, 255
+  store i32 %756, ptr %15, align 4, !tbaa !9
+  %757 = load i32, ptr %13, align 4, !tbaa !9
+  %758 = lshr i32 %757, 8
+  store i32 %758, ptr %16, align 4, !tbaa !9
+  %759 = load i32, ptr %16, align 4, !tbaa !9
+  %760 = and i32 %759, 255
+  store i32 %760, ptr %16, align 4, !tbaa !9
+  %761 = load i32, ptr %13, align 4, !tbaa !9
+  %762 = lshr i32 %761, 16
+  store i32 %762, ptr %17, align 4, !tbaa !9
+  %763 = load i32, ptr %17, align 4, !tbaa !9
+  %764 = and i32 %763, 255
+  store i32 %764, ptr %17, align 4, !tbaa !9
+  %765 = load i32, ptr %13, align 4, !tbaa !9
+  %766 = lshr i32 %765, 24
+  store i32 %766, ptr %18, align 4, !tbaa !9
+  %767 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %768 = getelementptr inbounds nuw %struct.BF_ctx, ptr %767, i32 0, i32 0
+  %769 = getelementptr inbounds [4 x [256 x i32]], ptr %768, i64 0, i64 3
+  %770 = load i32, ptr %15, align 4, !tbaa !9
+  %771 = zext i32 %770 to i64
+  %772 = getelementptr inbounds nuw [256 x i32], ptr %769, i64 0, i64 %771
+  %773 = load i32, ptr %772, align 4, !tbaa !9
+  store i32 %773, ptr %15, align 4, !tbaa !9
+  %774 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %775 = getelementptr inbounds nuw %struct.BF_ctx, ptr %774, i32 0, i32 0
+  %776 = getelementptr inbounds [4 x [256 x i32]], ptr %775, i64 0, i64 2
+  %777 = load i32, ptr %16, align 4, !tbaa !9
+  %778 = zext i32 %777 to i64
+  %779 = getelementptr inbounds nuw [256 x i32], ptr %776, i64 0, i64 %778
+  %780 = load i32, ptr %779, align 4, !tbaa !9
+  store i32 %780, ptr %16, align 4, !tbaa !9
+  %781 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %782 = getelementptr inbounds nuw %struct.BF_ctx, ptr %781, i32 0, i32 0
+  %783 = getelementptr inbounds [4 x [256 x i32]], ptr %782, i64 0, i64 1
+  %784 = load i32, ptr %17, align 4, !tbaa !9
+  %785 = zext i32 %784 to i64
+  %786 = getelementptr inbounds nuw [256 x i32], ptr %783, i64 0, i64 %785
+  %787 = load i32, ptr %786, align 4, !tbaa !9
+  store i32 %787, ptr %17, align 4, !tbaa !9
+  %788 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %789 = getelementptr inbounds nuw %struct.BF_ctx, ptr %788, i32 0, i32 0
+  %790 = getelementptr inbounds [4 x [256 x i32]], ptr %789, i64 0, i64 0
+  %791 = load i32, ptr %18, align 4, !tbaa !9
+  %792 = zext i32 %791 to i64
+  %793 = getelementptr inbounds nuw [256 x i32], ptr %790, i64 0, i64 %792
+  %794 = load i32, ptr %793, align 4, !tbaa !9
+  %795 = load i32, ptr %17, align 4, !tbaa !9
+  %796 = add i32 %795, %794
+  store i32 %796, ptr %17, align 4, !tbaa !9
+  %797 = load i32, ptr %16, align 4, !tbaa !9
+  %798 = load i32, ptr %17, align 4, !tbaa !9
+  %799 = xor i32 %798, %797
+  store i32 %799, ptr %17, align 4, !tbaa !9
+  %800 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %801 = getelementptr inbounds nuw %struct.BF_ctx, ptr %800, i32 0, i32 1
+  %802 = getelementptr inbounds [18 x i32], ptr %801, i64 0, i64 11
+  %803 = load i32, ptr %802, align 4, !tbaa !9
+  %804 = load i32, ptr %14, align 4, !tbaa !9
+  %805 = xor i32 %804, %803
+  store i32 %805, ptr %14, align 4, !tbaa !9
+  %806 = load i32, ptr %15, align 4, !tbaa !9
+  %807 = load i32, ptr %17, align 4, !tbaa !9
+  %808 = add i32 %807, %806
+  store i32 %808, ptr %17, align 4, !tbaa !9
+  %809 = load i32, ptr %17, align 4, !tbaa !9
+  %810 = load i32, ptr %14, align 4, !tbaa !9
+  %811 = xor i32 %810, %809
+  store i32 %811, ptr %14, align 4, !tbaa !9
+  %812 = load i32, ptr %14, align 4, !tbaa !9
+  %813 = and i32 %812, 255
+  store i32 %813, ptr %15, align 4, !tbaa !9
+  %814 = load i32, ptr %14, align 4, !tbaa !9
+  %815 = lshr i32 %814, 8
+  store i32 %815, ptr %16, align 4, !tbaa !9
+  %816 = load i32, ptr %16, align 4, !tbaa !9
+  %817 = and i32 %816, 255
+  store i32 %817, ptr %16, align 4, !tbaa !9
+  %818 = load i32, ptr %14, align 4, !tbaa !9
+  %819 = lshr i32 %818, 16
+  store i32 %819, ptr %17, align 4, !tbaa !9
+  %820 = load i32, ptr %17, align 4, !tbaa !9
+  %821 = and i32 %820, 255
+  store i32 %821, ptr %17, align 4, !tbaa !9
+  %822 = load i32, ptr %14, align 4, !tbaa !9
+  %823 = lshr i32 %822, 24
+  store i32 %823, ptr %18, align 4, !tbaa !9
+  %824 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %825 = getelementptr inbounds nuw %struct.BF_ctx, ptr %824, i32 0, i32 0
+  %826 = getelementptr inbounds [4 x [256 x i32]], ptr %825, i64 0, i64 3
+  %827 = load i32, ptr %15, align 4, !tbaa !9
+  %828 = zext i32 %827 to i64
+  %829 = getelementptr inbounds nuw [256 x i32], ptr %826, i64 0, i64 %828
+  %830 = load i32, ptr %829, align 4, !tbaa !9
+  store i32 %830, ptr %15, align 4, !tbaa !9
+  %831 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %832 = getelementptr inbounds nuw %struct.BF_ctx, ptr %831, i32 0, i32 0
+  %833 = getelementptr inbounds [4 x [256 x i32]], ptr %832, i64 0, i64 2
+  %834 = load i32, ptr %16, align 4, !tbaa !9
+  %835 = zext i32 %834 to i64
+  %836 = getelementptr inbounds nuw [256 x i32], ptr %833, i64 0, i64 %835
+  %837 = load i32, ptr %836, align 4, !tbaa !9
+  store i32 %837, ptr %16, align 4, !tbaa !9
+  %838 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %839 = getelementptr inbounds nuw %struct.BF_ctx, ptr %838, i32 0, i32 0
+  %840 = getelementptr inbounds [4 x [256 x i32]], ptr %839, i64 0, i64 1
+  %841 = load i32, ptr %17, align 4, !tbaa !9
+  %842 = zext i32 %841 to i64
+  %843 = getelementptr inbounds nuw [256 x i32], ptr %840, i64 0, i64 %842
+  %844 = load i32, ptr %843, align 4, !tbaa !9
+  store i32 %844, ptr %17, align 4, !tbaa !9
+  %845 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %846 = getelementptr inbounds nuw %struct.BF_ctx, ptr %845, i32 0, i32 0
+  %847 = getelementptr inbounds [4 x [256 x i32]], ptr %846, i64 0, i64 0
+  %848 = load i32, ptr %18, align 4, !tbaa !9
+  %849 = zext i32 %848 to i64
+  %850 = getelementptr inbounds nuw [256 x i32], ptr %847, i64 0, i64 %849
+  %851 = load i32, ptr %850, align 4, !tbaa !9
+  %852 = load i32, ptr %17, align 4, !tbaa !9
+  %853 = add i32 %852, %851
+  store i32 %853, ptr %17, align 4, !tbaa !9
+  %854 = load i32, ptr %16, align 4, !tbaa !9
+  %855 = load i32, ptr %17, align 4, !tbaa !9
+  %856 = xor i32 %855, %854
+  store i32 %856, ptr %17, align 4, !tbaa !9
+  %857 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %858 = getelementptr inbounds nuw %struct.BF_ctx, ptr %857, i32 0, i32 1
+  %859 = getelementptr inbounds [18 x i32], ptr %858, i64 0, i64 12
+  %860 = load i32, ptr %859, align 4, !tbaa !9
+  %861 = load i32, ptr %13, align 4, !tbaa !9
+  %862 = xor i32 %861, %860
+  store i32 %862, ptr %13, align 4, !tbaa !9
+  %863 = load i32, ptr %15, align 4, !tbaa !9
+  %864 = load i32, ptr %17, align 4, !tbaa !9
+  %865 = add i32 %864, %863
+  store i32 %865, ptr %17, align 4, !tbaa !9
+  %866 = load i32, ptr %17, align 4, !tbaa !9
+  %867 = load i32, ptr %13, align 4, !tbaa !9
+  %868 = xor i32 %867, %866
+  store i32 %868, ptr %13, align 4, !tbaa !9
+  %869 = load i32, ptr %13, align 4, !tbaa !9
+  %870 = and i32 %869, 255
+  store i32 %870, ptr %15, align 4, !tbaa !9
+  %871 = load i32, ptr %13, align 4, !tbaa !9
+  %872 = lshr i32 %871, 8
+  store i32 %872, ptr %16, align 4, !tbaa !9
+  %873 = load i32, ptr %16, align 4, !tbaa !9
+  %874 = and i32 %873, 255
+  store i32 %874, ptr %16, align 4, !tbaa !9
+  %875 = load i32, ptr %13, align 4, !tbaa !9
+  %876 = lshr i32 %875, 16
+  store i32 %876, ptr %17, align 4, !tbaa !9
+  %877 = load i32, ptr %17, align 4, !tbaa !9
+  %878 = and i32 %877, 255
+  store i32 %878, ptr %17, align 4, !tbaa !9
+  %879 = load i32, ptr %13, align 4, !tbaa !9
+  %880 = lshr i32 %879, 24
+  store i32 %880, ptr %18, align 4, !tbaa !9
+  %881 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %882 = getelementptr inbounds nuw %struct.BF_ctx, ptr %881, i32 0, i32 0
+  %883 = getelementptr inbounds [4 x [256 x i32]], ptr %882, i64 0, i64 3
+  %884 = load i32, ptr %15, align 4, !tbaa !9
+  %885 = zext i32 %884 to i64
+  %886 = getelementptr inbounds nuw [256 x i32], ptr %883, i64 0, i64 %885
+  %887 = load i32, ptr %886, align 4, !tbaa !9
+  store i32 %887, ptr %15, align 4, !tbaa !9
+  %888 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %889 = getelementptr inbounds nuw %struct.BF_ctx, ptr %888, i32 0, i32 0
+  %890 = getelementptr inbounds [4 x [256 x i32]], ptr %889, i64 0, i64 2
+  %891 = load i32, ptr %16, align 4, !tbaa !9
+  %892 = zext i32 %891 to i64
+  %893 = getelementptr inbounds nuw [256 x i32], ptr %890, i64 0, i64 %892
+  %894 = load i32, ptr %893, align 4, !tbaa !9
+  store i32 %894, ptr %16, align 4, !tbaa !9
+  %895 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %896 = getelementptr inbounds nuw %struct.BF_ctx, ptr %895, i32 0, i32 0
+  %897 = getelementptr inbounds [4 x [256 x i32]], ptr %896, i64 0, i64 1
+  %898 = load i32, ptr %17, align 4, !tbaa !9
+  %899 = zext i32 %898 to i64
+  %900 = getelementptr inbounds nuw [256 x i32], ptr %897, i64 0, i64 %899
+  %901 = load i32, ptr %900, align 4, !tbaa !9
+  store i32 %901, ptr %17, align 4, !tbaa !9
+  %902 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %903 = getelementptr inbounds nuw %struct.BF_ctx, ptr %902, i32 0, i32 0
+  %904 = getelementptr inbounds [4 x [256 x i32]], ptr %903, i64 0, i64 0
+  %905 = load i32, ptr %18, align 4, !tbaa !9
+  %906 = zext i32 %905 to i64
+  %907 = getelementptr inbounds nuw [256 x i32], ptr %904, i64 0, i64 %906
+  %908 = load i32, ptr %907, align 4, !tbaa !9
+  %909 = load i32, ptr %17, align 4, !tbaa !9
+  %910 = add i32 %909, %908
+  store i32 %910, ptr %17, align 4, !tbaa !9
+  %911 = load i32, ptr %16, align 4, !tbaa !9
+  %912 = load i32, ptr %17, align 4, !tbaa !9
+  %913 = xor i32 %912, %911
+  store i32 %913, ptr %17, align 4, !tbaa !9
+  %914 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %915 = getelementptr inbounds nuw %struct.BF_ctx, ptr %914, i32 0, i32 1
+  %916 = getelementptr inbounds [18 x i32], ptr %915, i64 0, i64 13
+  %917 = load i32, ptr %916, align 4, !tbaa !9
+  %918 = load i32, ptr %14, align 4, !tbaa !9
+  %919 = xor i32 %918, %917
+  store i32 %919, ptr %14, align 4, !tbaa !9
+  %920 = load i32, ptr %15, align 4, !tbaa !9
+  %921 = load i32, ptr %17, align 4, !tbaa !9
+  %922 = add i32 %921, %920
+  store i32 %922, ptr %17, align 4, !tbaa !9
+  %923 = load i32, ptr %17, align 4, !tbaa !9
+  %924 = load i32, ptr %14, align 4, !tbaa !9
+  %925 = xor i32 %924, %923
+  store i32 %925, ptr %14, align 4, !tbaa !9
+  %926 = load i32, ptr %14, align 4, !tbaa !9
+  %927 = and i32 %926, 255
+  store i32 %927, ptr %15, align 4, !tbaa !9
+  %928 = load i32, ptr %14, align 4, !tbaa !9
+  %929 = lshr i32 %928, 8
+  store i32 %929, ptr %16, align 4, !tbaa !9
+  %930 = load i32, ptr %16, align 4, !tbaa !9
+  %931 = and i32 %930, 255
+  store i32 %931, ptr %16, align 4, !tbaa !9
+  %932 = load i32, ptr %14, align 4, !tbaa !9
+  %933 = lshr i32 %932, 16
+  store i32 %933, ptr %17, align 4, !tbaa !9
+  %934 = load i32, ptr %17, align 4, !tbaa !9
+  %935 = and i32 %934, 255
+  store i32 %935, ptr %17, align 4, !tbaa !9
+  %936 = load i32, ptr %14, align 4, !tbaa !9
+  %937 = lshr i32 %936, 24
+  store i32 %937, ptr %18, align 4, !tbaa !9
+  %938 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %939 = getelementptr inbounds nuw %struct.BF_ctx, ptr %938, i32 0, i32 0
+  %940 = getelementptr inbounds [4 x [256 x i32]], ptr %939, i64 0, i64 3
+  %941 = load i32, ptr %15, align 4, !tbaa !9
+  %942 = zext i32 %941 to i64
+  %943 = getelementptr inbounds nuw [256 x i32], ptr %940, i64 0, i64 %942
+  %944 = load i32, ptr %943, align 4, !tbaa !9
+  store i32 %944, ptr %15, align 4, !tbaa !9
+  %945 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %946 = getelementptr inbounds nuw %struct.BF_ctx, ptr %945, i32 0, i32 0
+  %947 = getelementptr inbounds [4 x [256 x i32]], ptr %946, i64 0, i64 2
+  %948 = load i32, ptr %16, align 4, !tbaa !9
+  %949 = zext i32 %948 to i64
+  %950 = getelementptr inbounds nuw [256 x i32], ptr %947, i64 0, i64 %949
+  %951 = load i32, ptr %950, align 4, !tbaa !9
+  store i32 %951, ptr %16, align 4, !tbaa !9
+  %952 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %953 = getelementptr inbounds nuw %struct.BF_ctx, ptr %952, i32 0, i32 0
+  %954 = getelementptr inbounds [4 x [256 x i32]], ptr %953, i64 0, i64 1
+  %955 = load i32, ptr %17, align 4, !tbaa !9
+  %956 = zext i32 %955 to i64
+  %957 = getelementptr inbounds nuw [256 x i32], ptr %954, i64 0, i64 %956
+  %958 = load i32, ptr %957, align 4, !tbaa !9
+  store i32 %958, ptr %17, align 4, !tbaa !9
+  %959 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %960 = getelementptr inbounds nuw %struct.BF_ctx, ptr %959, i32 0, i32 0
+  %961 = getelementptr inbounds [4 x [256 x i32]], ptr %960, i64 0, i64 0
+  %962 = load i32, ptr %18, align 4, !tbaa !9
+  %963 = zext i32 %962 to i64
+  %964 = getelementptr inbounds nuw [256 x i32], ptr %961, i64 0, i64 %963
+  %965 = load i32, ptr %964, align 4, !tbaa !9
+  %966 = load i32, ptr %17, align 4, !tbaa !9
+  %967 = add i32 %966, %965
+  store i32 %967, ptr %17, align 4, !tbaa !9
+  %968 = load i32, ptr %16, align 4, !tbaa !9
+  %969 = load i32, ptr %17, align 4, !tbaa !9
+  %970 = xor i32 %969, %968
+  store i32 %970, ptr %17, align 4, !tbaa !9
+  %971 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %972 = getelementptr inbounds nuw %struct.BF_ctx, ptr %971, i32 0, i32 1
+  %973 = getelementptr inbounds [18 x i32], ptr %972, i64 0, i64 14
+  %974 = load i32, ptr %973, align 4, !tbaa !9
+  %975 = load i32, ptr %13, align 4, !tbaa !9
+  %976 = xor i32 %975, %974
+  store i32 %976, ptr %13, align 4, !tbaa !9
+  %977 = load i32, ptr %15, align 4, !tbaa !9
+  %978 = load i32, ptr %17, align 4, !tbaa !9
+  %979 = add i32 %978, %977
+  store i32 %979, ptr %17, align 4, !tbaa !9
+  %980 = load i32, ptr %17, align 4, !tbaa !9
+  %981 = load i32, ptr %13, align 4, !tbaa !9
+  %982 = xor i32 %981, %980
+  store i32 %982, ptr %13, align 4, !tbaa !9
+  %983 = load i32, ptr %13, align 4, !tbaa !9
+  %984 = and i32 %983, 255
+  store i32 %984, ptr %15, align 4, !tbaa !9
+  %985 = load i32, ptr %13, align 4, !tbaa !9
+  %986 = lshr i32 %985, 8
+  store i32 %986, ptr %16, align 4, !tbaa !9
+  %987 = load i32, ptr %16, align 4, !tbaa !9
+  %988 = and i32 %987, 255
+  store i32 %988, ptr %16, align 4, !tbaa !9
+  %989 = load i32, ptr %13, align 4, !tbaa !9
+  %990 = lshr i32 %989, 16
+  store i32 %990, ptr %17, align 4, !tbaa !9
+  %991 = load i32, ptr %17, align 4, !tbaa !9
+  %992 = and i32 %991, 255
+  store i32 %992, ptr %17, align 4, !tbaa !9
+  %993 = load i32, ptr %13, align 4, !tbaa !9
+  %994 = lshr i32 %993, 24
+  store i32 %994, ptr %18, align 4, !tbaa !9
+  %995 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %996 = getelementptr inbounds nuw %struct.BF_ctx, ptr %995, i32 0, i32 0
+  %997 = getelementptr inbounds [4 x [256 x i32]], ptr %996, i64 0, i64 3
+  %998 = load i32, ptr %15, align 4, !tbaa !9
+  %999 = zext i32 %998 to i64
+  %1000 = getelementptr inbounds nuw [256 x i32], ptr %997, i64 0, i64 %999
+  %1001 = load i32, ptr %1000, align 4, !tbaa !9
+  store i32 %1001, ptr %15, align 4, !tbaa !9
+  %1002 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1003 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1002, i32 0, i32 0
+  %1004 = getelementptr inbounds [4 x [256 x i32]], ptr %1003, i64 0, i64 2
+  %1005 = load i32, ptr %16, align 4, !tbaa !9
+  %1006 = zext i32 %1005 to i64
+  %1007 = getelementptr inbounds nuw [256 x i32], ptr %1004, i64 0, i64 %1006
+  %1008 = load i32, ptr %1007, align 4, !tbaa !9
+  store i32 %1008, ptr %16, align 4, !tbaa !9
+  %1009 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1010 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1009, i32 0, i32 0
+  %1011 = getelementptr inbounds [4 x [256 x i32]], ptr %1010, i64 0, i64 1
+  %1012 = load i32, ptr %17, align 4, !tbaa !9
+  %1013 = zext i32 %1012 to i64
+  %1014 = getelementptr inbounds nuw [256 x i32], ptr %1011, i64 0, i64 %1013
+  %1015 = load i32, ptr %1014, align 4, !tbaa !9
+  store i32 %1015, ptr %17, align 4, !tbaa !9
+  %1016 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1017 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1016, i32 0, i32 0
+  %1018 = getelementptr inbounds [4 x [256 x i32]], ptr %1017, i64 0, i64 0
+  %1019 = load i32, ptr %18, align 4, !tbaa !9
+  %1020 = zext i32 %1019 to i64
+  %1021 = getelementptr inbounds nuw [256 x i32], ptr %1018, i64 0, i64 %1020
+  %1022 = load i32, ptr %1021, align 4, !tbaa !9
+  %1023 = load i32, ptr %17, align 4, !tbaa !9
+  %1024 = add i32 %1023, %1022
+  store i32 %1024, ptr %17, align 4, !tbaa !9
+  %1025 = load i32, ptr %16, align 4, !tbaa !9
+  %1026 = load i32, ptr %17, align 4, !tbaa !9
+  %1027 = xor i32 %1026, %1025
+  store i32 %1027, ptr %17, align 4, !tbaa !9
+  %1028 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1029 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1028, i32 0, i32 1
+  %1030 = getelementptr inbounds [18 x i32], ptr %1029, i64 0, i64 15
+  %1031 = load i32, ptr %1030, align 4, !tbaa !9
+  %1032 = load i32, ptr %14, align 4, !tbaa !9
+  %1033 = xor i32 %1032, %1031
+  store i32 %1033, ptr %14, align 4, !tbaa !9
+  %1034 = load i32, ptr %15, align 4, !tbaa !9
+  %1035 = load i32, ptr %17, align 4, !tbaa !9
+  %1036 = add i32 %1035, %1034
+  store i32 %1036, ptr %17, align 4, !tbaa !9
+  %1037 = load i32, ptr %17, align 4, !tbaa !9
+  %1038 = load i32, ptr %14, align 4, !tbaa !9
+  %1039 = xor i32 %1038, %1037
+  store i32 %1039, ptr %14, align 4, !tbaa !9
+  %1040 = load i32, ptr %14, align 4, !tbaa !9
+  %1041 = and i32 %1040, 255
+  store i32 %1041, ptr %15, align 4, !tbaa !9
+  %1042 = load i32, ptr %14, align 4, !tbaa !9
+  %1043 = lshr i32 %1042, 8
+  store i32 %1043, ptr %16, align 4, !tbaa !9
+  %1044 = load i32, ptr %16, align 4, !tbaa !9
+  %1045 = and i32 %1044, 255
+  store i32 %1045, ptr %16, align 4, !tbaa !9
+  %1046 = load i32, ptr %14, align 4, !tbaa !9
+  %1047 = lshr i32 %1046, 16
+  store i32 %1047, ptr %17, align 4, !tbaa !9
+  %1048 = load i32, ptr %17, align 4, !tbaa !9
+  %1049 = and i32 %1048, 255
+  store i32 %1049, ptr %17, align 4, !tbaa !9
+  %1050 = load i32, ptr %14, align 4, !tbaa !9
+  %1051 = lshr i32 %1050, 24
+  store i32 %1051, ptr %18, align 4, !tbaa !9
+  %1052 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1053 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1052, i32 0, i32 0
+  %1054 = getelementptr inbounds [4 x [256 x i32]], ptr %1053, i64 0, i64 3
+  %1055 = load i32, ptr %15, align 4, !tbaa !9
+  %1056 = zext i32 %1055 to i64
+  %1057 = getelementptr inbounds nuw [256 x i32], ptr %1054, i64 0, i64 %1056
+  %1058 = load i32, ptr %1057, align 4, !tbaa !9
+  store i32 %1058, ptr %15, align 4, !tbaa !9
+  %1059 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1060 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1059, i32 0, i32 0
+  %1061 = getelementptr inbounds [4 x [256 x i32]], ptr %1060, i64 0, i64 2
+  %1062 = load i32, ptr %16, align 4, !tbaa !9
+  %1063 = zext i32 %1062 to i64
+  %1064 = getelementptr inbounds nuw [256 x i32], ptr %1061, i64 0, i64 %1063
+  %1065 = load i32, ptr %1064, align 4, !tbaa !9
+  store i32 %1065, ptr %16, align 4, !tbaa !9
+  %1066 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1067 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1066, i32 0, i32 0
+  %1068 = getelementptr inbounds [4 x [256 x i32]], ptr %1067, i64 0, i64 1
+  %1069 = load i32, ptr %17, align 4, !tbaa !9
+  %1070 = zext i32 %1069 to i64
+  %1071 = getelementptr inbounds nuw [256 x i32], ptr %1068, i64 0, i64 %1070
+  %1072 = load i32, ptr %1071, align 4, !tbaa !9
+  store i32 %1072, ptr %17, align 4, !tbaa !9
+  %1073 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1074 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1073, i32 0, i32 0
+  %1075 = getelementptr inbounds [4 x [256 x i32]], ptr %1074, i64 0, i64 0
+  %1076 = load i32, ptr %18, align 4, !tbaa !9
+  %1077 = zext i32 %1076 to i64
+  %1078 = getelementptr inbounds nuw [256 x i32], ptr %1075, i64 0, i64 %1077
+  %1079 = load i32, ptr %1078, align 4, !tbaa !9
+  %1080 = load i32, ptr %17, align 4, !tbaa !9
+  %1081 = add i32 %1080, %1079
+  store i32 %1081, ptr %17, align 4, !tbaa !9
+  %1082 = load i32, ptr %16, align 4, !tbaa !9
+  %1083 = load i32, ptr %17, align 4, !tbaa !9
+  %1084 = xor i32 %1083, %1082
+  store i32 %1084, ptr %17, align 4, !tbaa !9
+  %1085 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1086 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1085, i32 0, i32 1
+  %1087 = getelementptr inbounds [18 x i32], ptr %1086, i64 0, i64 16
+  %1088 = load i32, ptr %1087, align 4, !tbaa !9
+  %1089 = load i32, ptr %13, align 4, !tbaa !9
+  %1090 = xor i32 %1089, %1088
+  store i32 %1090, ptr %13, align 4, !tbaa !9
+  %1091 = load i32, ptr %15, align 4, !tbaa !9
+  %1092 = load i32, ptr %17, align 4, !tbaa !9
+  %1093 = add i32 %1092, %1091
+  store i32 %1093, ptr %17, align 4, !tbaa !9
+  %1094 = load i32, ptr %17, align 4, !tbaa !9
+  %1095 = load i32, ptr %13, align 4, !tbaa !9
+  %1096 = xor i32 %1095, %1094
+  store i32 %1096, ptr %13, align 4, !tbaa !9
+  %1097 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %1097, ptr %18, align 4, !tbaa !9
+  %1098 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %1098, ptr %14, align 4, !tbaa !9
+  %1099 = load i32, ptr %18, align 4, !tbaa !9
+  %1100 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1101 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1100, i32 0, i32 1
+  %1102 = getelementptr inbounds [18 x i32], ptr %1101, i64 0, i64 17
+  %1103 = load i32, ptr %1102, align 4, !tbaa !9
+  %1104 = xor i32 %1099, %1103
+  store i32 %1104, ptr %13, align 4, !tbaa !9
+  %1105 = load i32, ptr %13, align 4, !tbaa !9
+  %1106 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1107 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1106, i32 0, i32 1
+  %1108 = load i32, ptr %21, align 4, !tbaa !9
+  %1109 = sext i32 %1108 to i64
+  %1110 = getelementptr inbounds [18 x i32], ptr %1107, i64 0, i64 %1109
+  store i32 %1105, ptr %1110, align 4, !tbaa !9
+  %1111 = load i32, ptr %14, align 4, !tbaa !9
+  %1112 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1113 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1112, i32 0, i32 1
+  %1114 = load i32, ptr %21, align 4, !tbaa !9
+  %1115 = add nsw i32 %1114, 1
+  %1116 = sext i32 %1115 to i64
+  %1117 = getelementptr inbounds [18 x i32], ptr %1113, i64 0, i64 %1116
+  store i32 %1111, ptr %1117, align 4, !tbaa !9
+  br label %1118
+
+1118:                                             ; preds = %161
+  %1119 = load i32, ptr %21, align 4, !tbaa !9
+  %1120 = add nsw i32 %1119, 2
+  store i32 %1120, ptr %21, align 4, !tbaa !9
+  br label %158
+
+1121:                                             ; preds = %158
+  %1122 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1123 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1122, i32 0, i32 0
+  %1124 = getelementptr inbounds [4 x [256 x i32]], ptr %1123, i64 0, i64 0
+  %1125 = getelementptr inbounds [256 x i32], ptr %1124, i64 0, i64 0
+  store ptr %1125, ptr %19, align 8, !tbaa !12
+  br label %1126
+
+1126:                                             ; preds = %3013, %1121
+  %1127 = load ptr, ptr %19, align 8, !tbaa !12
+  %1128 = getelementptr inbounds i32, ptr %1127, i64 4
+  store ptr %1128, ptr %19, align 8, !tbaa !12
+  %1129 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %1130 = getelementptr inbounds [4 x i32], ptr %1129, i64 0, i64 2
+  %1131 = load i32, ptr %1130, align 4, !tbaa !11
+  %1132 = load i32, ptr %13, align 4, !tbaa !9
+  %1133 = xor i32 %1132, %1131
+  store i32 %1133, ptr %13, align 4, !tbaa !9
+  %1134 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %1135 = getelementptr inbounds [4 x i32], ptr %1134, i64 0, i64 3
+  %1136 = load i32, ptr %1135, align 4, !tbaa !11
+  %1137 = load i32, ptr %14, align 4, !tbaa !9
+  %1138 = xor i32 %1137, %1136
+  store i32 %1138, ptr %14, align 4, !tbaa !9
+  %1139 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1140 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1139, i32 0, i32 1
+  %1141 = getelementptr inbounds [18 x i32], ptr %1140, i64 0, i64 0
+  %1142 = load i32, ptr %1141, align 4, !tbaa !9
+  %1143 = load i32, ptr %13, align 4, !tbaa !9
+  %1144 = xor i32 %1143, %1142
+  store i32 %1144, ptr %13, align 4, !tbaa !9
+  %1145 = load i32, ptr %13, align 4, !tbaa !9
+  %1146 = and i32 %1145, 255
+  store i32 %1146, ptr %15, align 4, !tbaa !9
+  %1147 = load i32, ptr %13, align 4, !tbaa !9
+  %1148 = lshr i32 %1147, 8
+  store i32 %1148, ptr %16, align 4, !tbaa !9
+  %1149 = load i32, ptr %16, align 4, !tbaa !9
+  %1150 = and i32 %1149, 255
+  store i32 %1150, ptr %16, align 4, !tbaa !9
+  %1151 = load i32, ptr %13, align 4, !tbaa !9
+  %1152 = lshr i32 %1151, 16
+  store i32 %1152, ptr %17, align 4, !tbaa !9
+  %1153 = load i32, ptr %17, align 4, !tbaa !9
+  %1154 = and i32 %1153, 255
+  store i32 %1154, ptr %17, align 4, !tbaa !9
+  %1155 = load i32, ptr %13, align 4, !tbaa !9
+  %1156 = lshr i32 %1155, 24
+  store i32 %1156, ptr %18, align 4, !tbaa !9
+  %1157 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1158 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1157, i32 0, i32 0
+  %1159 = getelementptr inbounds [4 x [256 x i32]], ptr %1158, i64 0, i64 3
+  %1160 = load i32, ptr %15, align 4, !tbaa !9
+  %1161 = zext i32 %1160 to i64
+  %1162 = getelementptr inbounds nuw [256 x i32], ptr %1159, i64 0, i64 %1161
+  %1163 = load i32, ptr %1162, align 4, !tbaa !9
+  store i32 %1163, ptr %15, align 4, !tbaa !9
+  %1164 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1165 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1164, i32 0, i32 0
+  %1166 = getelementptr inbounds [4 x [256 x i32]], ptr %1165, i64 0, i64 2
+  %1167 = load i32, ptr %16, align 4, !tbaa !9
+  %1168 = zext i32 %1167 to i64
+  %1169 = getelementptr inbounds nuw [256 x i32], ptr %1166, i64 0, i64 %1168
+  %1170 = load i32, ptr %1169, align 4, !tbaa !9
+  store i32 %1170, ptr %16, align 4, !tbaa !9
+  %1171 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1172 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1171, i32 0, i32 0
+  %1173 = getelementptr inbounds [4 x [256 x i32]], ptr %1172, i64 0, i64 1
+  %1174 = load i32, ptr %17, align 4, !tbaa !9
+  %1175 = zext i32 %1174 to i64
+  %1176 = getelementptr inbounds nuw [256 x i32], ptr %1173, i64 0, i64 %1175
+  %1177 = load i32, ptr %1176, align 4, !tbaa !9
+  store i32 %1177, ptr %17, align 4, !tbaa !9
+  %1178 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1179 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1178, i32 0, i32 0
+  %1180 = getelementptr inbounds [4 x [256 x i32]], ptr %1179, i64 0, i64 0
+  %1181 = load i32, ptr %18, align 4, !tbaa !9
+  %1182 = zext i32 %1181 to i64
+  %1183 = getelementptr inbounds nuw [256 x i32], ptr %1180, i64 0, i64 %1182
+  %1184 = load i32, ptr %1183, align 4, !tbaa !9
+  %1185 = load i32, ptr %17, align 4, !tbaa !9
+  %1186 = add i32 %1185, %1184
+  store i32 %1186, ptr %17, align 4, !tbaa !9
+  %1187 = load i32, ptr %16, align 4, !tbaa !9
+  %1188 = load i32, ptr %17, align 4, !tbaa !9
+  %1189 = xor i32 %1188, %1187
+  store i32 %1189, ptr %17, align 4, !tbaa !9
+  %1190 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1191 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1190, i32 0, i32 1
+  %1192 = getelementptr inbounds [18 x i32], ptr %1191, i64 0, i64 1
+  %1193 = load i32, ptr %1192, align 4, !tbaa !9
+  %1194 = load i32, ptr %14, align 4, !tbaa !9
+  %1195 = xor i32 %1194, %1193
+  store i32 %1195, ptr %14, align 4, !tbaa !9
+  %1196 = load i32, ptr %15, align 4, !tbaa !9
+  %1197 = load i32, ptr %17, align 4, !tbaa !9
+  %1198 = add i32 %1197, %1196
+  store i32 %1198, ptr %17, align 4, !tbaa !9
+  %1199 = load i32, ptr %17, align 4, !tbaa !9
+  %1200 = load i32, ptr %14, align 4, !tbaa !9
+  %1201 = xor i32 %1200, %1199
+  store i32 %1201, ptr %14, align 4, !tbaa !9
+  %1202 = load i32, ptr %14, align 4, !tbaa !9
+  %1203 = and i32 %1202, 255
+  store i32 %1203, ptr %15, align 4, !tbaa !9
+  %1204 = load i32, ptr %14, align 4, !tbaa !9
+  %1205 = lshr i32 %1204, 8
+  store i32 %1205, ptr %16, align 4, !tbaa !9
+  %1206 = load i32, ptr %16, align 4, !tbaa !9
+  %1207 = and i32 %1206, 255
+  store i32 %1207, ptr %16, align 4, !tbaa !9
+  %1208 = load i32, ptr %14, align 4, !tbaa !9
+  %1209 = lshr i32 %1208, 16
+  store i32 %1209, ptr %17, align 4, !tbaa !9
+  %1210 = load i32, ptr %17, align 4, !tbaa !9
+  %1211 = and i32 %1210, 255
+  store i32 %1211, ptr %17, align 4, !tbaa !9
+  %1212 = load i32, ptr %14, align 4, !tbaa !9
+  %1213 = lshr i32 %1212, 24
+  store i32 %1213, ptr %18, align 4, !tbaa !9
+  %1214 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1215 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1214, i32 0, i32 0
+  %1216 = getelementptr inbounds [4 x [256 x i32]], ptr %1215, i64 0, i64 3
+  %1217 = load i32, ptr %15, align 4, !tbaa !9
+  %1218 = zext i32 %1217 to i64
+  %1219 = getelementptr inbounds nuw [256 x i32], ptr %1216, i64 0, i64 %1218
+  %1220 = load i32, ptr %1219, align 4, !tbaa !9
+  store i32 %1220, ptr %15, align 4, !tbaa !9
+  %1221 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1222 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1221, i32 0, i32 0
+  %1223 = getelementptr inbounds [4 x [256 x i32]], ptr %1222, i64 0, i64 2
+  %1224 = load i32, ptr %16, align 4, !tbaa !9
+  %1225 = zext i32 %1224 to i64
+  %1226 = getelementptr inbounds nuw [256 x i32], ptr %1223, i64 0, i64 %1225
+  %1227 = load i32, ptr %1226, align 4, !tbaa !9
+  store i32 %1227, ptr %16, align 4, !tbaa !9
+  %1228 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1229 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1228, i32 0, i32 0
+  %1230 = getelementptr inbounds [4 x [256 x i32]], ptr %1229, i64 0, i64 1
+  %1231 = load i32, ptr %17, align 4, !tbaa !9
+  %1232 = zext i32 %1231 to i64
+  %1233 = getelementptr inbounds nuw [256 x i32], ptr %1230, i64 0, i64 %1232
+  %1234 = load i32, ptr %1233, align 4, !tbaa !9
+  store i32 %1234, ptr %17, align 4, !tbaa !9
+  %1235 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1236 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1235, i32 0, i32 0
+  %1237 = getelementptr inbounds [4 x [256 x i32]], ptr %1236, i64 0, i64 0
+  %1238 = load i32, ptr %18, align 4, !tbaa !9
+  %1239 = zext i32 %1238 to i64
+  %1240 = getelementptr inbounds nuw [256 x i32], ptr %1237, i64 0, i64 %1239
+  %1241 = load i32, ptr %1240, align 4, !tbaa !9
+  %1242 = load i32, ptr %17, align 4, !tbaa !9
+  %1243 = add i32 %1242, %1241
+  store i32 %1243, ptr %17, align 4, !tbaa !9
+  %1244 = load i32, ptr %16, align 4, !tbaa !9
+  %1245 = load i32, ptr %17, align 4, !tbaa !9
+  %1246 = xor i32 %1245, %1244
+  store i32 %1246, ptr %17, align 4, !tbaa !9
+  %1247 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1248 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1247, i32 0, i32 1
+  %1249 = getelementptr inbounds [18 x i32], ptr %1248, i64 0, i64 2
+  %1250 = load i32, ptr %1249, align 4, !tbaa !9
+  %1251 = load i32, ptr %13, align 4, !tbaa !9
+  %1252 = xor i32 %1251, %1250
+  store i32 %1252, ptr %13, align 4, !tbaa !9
+  %1253 = load i32, ptr %15, align 4, !tbaa !9
+  %1254 = load i32, ptr %17, align 4, !tbaa !9
+  %1255 = add i32 %1254, %1253
+  store i32 %1255, ptr %17, align 4, !tbaa !9
+  %1256 = load i32, ptr %17, align 4, !tbaa !9
+  %1257 = load i32, ptr %13, align 4, !tbaa !9
+  %1258 = xor i32 %1257, %1256
+  store i32 %1258, ptr %13, align 4, !tbaa !9
+  %1259 = load i32, ptr %13, align 4, !tbaa !9
+  %1260 = and i32 %1259, 255
+  store i32 %1260, ptr %15, align 4, !tbaa !9
+  %1261 = load i32, ptr %13, align 4, !tbaa !9
+  %1262 = lshr i32 %1261, 8
+  store i32 %1262, ptr %16, align 4, !tbaa !9
+  %1263 = load i32, ptr %16, align 4, !tbaa !9
+  %1264 = and i32 %1263, 255
+  store i32 %1264, ptr %16, align 4, !tbaa !9
+  %1265 = load i32, ptr %13, align 4, !tbaa !9
+  %1266 = lshr i32 %1265, 16
+  store i32 %1266, ptr %17, align 4, !tbaa !9
+  %1267 = load i32, ptr %17, align 4, !tbaa !9
+  %1268 = and i32 %1267, 255
+  store i32 %1268, ptr %17, align 4, !tbaa !9
+  %1269 = load i32, ptr %13, align 4, !tbaa !9
+  %1270 = lshr i32 %1269, 24
+  store i32 %1270, ptr %18, align 4, !tbaa !9
+  %1271 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1272 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1271, i32 0, i32 0
+  %1273 = getelementptr inbounds [4 x [256 x i32]], ptr %1272, i64 0, i64 3
+  %1274 = load i32, ptr %15, align 4, !tbaa !9
+  %1275 = zext i32 %1274 to i64
+  %1276 = getelementptr inbounds nuw [256 x i32], ptr %1273, i64 0, i64 %1275
+  %1277 = load i32, ptr %1276, align 4, !tbaa !9
+  store i32 %1277, ptr %15, align 4, !tbaa !9
+  %1278 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1279 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1278, i32 0, i32 0
+  %1280 = getelementptr inbounds [4 x [256 x i32]], ptr %1279, i64 0, i64 2
+  %1281 = load i32, ptr %16, align 4, !tbaa !9
+  %1282 = zext i32 %1281 to i64
+  %1283 = getelementptr inbounds nuw [256 x i32], ptr %1280, i64 0, i64 %1282
+  %1284 = load i32, ptr %1283, align 4, !tbaa !9
+  store i32 %1284, ptr %16, align 4, !tbaa !9
+  %1285 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1286 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1285, i32 0, i32 0
+  %1287 = getelementptr inbounds [4 x [256 x i32]], ptr %1286, i64 0, i64 1
+  %1288 = load i32, ptr %17, align 4, !tbaa !9
+  %1289 = zext i32 %1288 to i64
+  %1290 = getelementptr inbounds nuw [256 x i32], ptr %1287, i64 0, i64 %1289
+  %1291 = load i32, ptr %1290, align 4, !tbaa !9
+  store i32 %1291, ptr %17, align 4, !tbaa !9
+  %1292 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1293 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1292, i32 0, i32 0
+  %1294 = getelementptr inbounds [4 x [256 x i32]], ptr %1293, i64 0, i64 0
+  %1295 = load i32, ptr %18, align 4, !tbaa !9
+  %1296 = zext i32 %1295 to i64
+  %1297 = getelementptr inbounds nuw [256 x i32], ptr %1294, i64 0, i64 %1296
+  %1298 = load i32, ptr %1297, align 4, !tbaa !9
+  %1299 = load i32, ptr %17, align 4, !tbaa !9
+  %1300 = add i32 %1299, %1298
+  store i32 %1300, ptr %17, align 4, !tbaa !9
+  %1301 = load i32, ptr %16, align 4, !tbaa !9
+  %1302 = load i32, ptr %17, align 4, !tbaa !9
+  %1303 = xor i32 %1302, %1301
+  store i32 %1303, ptr %17, align 4, !tbaa !9
+  %1304 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1305 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1304, i32 0, i32 1
+  %1306 = getelementptr inbounds [18 x i32], ptr %1305, i64 0, i64 3
+  %1307 = load i32, ptr %1306, align 4, !tbaa !9
+  %1308 = load i32, ptr %14, align 4, !tbaa !9
+  %1309 = xor i32 %1308, %1307
+  store i32 %1309, ptr %14, align 4, !tbaa !9
+  %1310 = load i32, ptr %15, align 4, !tbaa !9
+  %1311 = load i32, ptr %17, align 4, !tbaa !9
+  %1312 = add i32 %1311, %1310
+  store i32 %1312, ptr %17, align 4, !tbaa !9
+  %1313 = load i32, ptr %17, align 4, !tbaa !9
+  %1314 = load i32, ptr %14, align 4, !tbaa !9
+  %1315 = xor i32 %1314, %1313
+  store i32 %1315, ptr %14, align 4, !tbaa !9
+  %1316 = load i32, ptr %14, align 4, !tbaa !9
+  %1317 = and i32 %1316, 255
+  store i32 %1317, ptr %15, align 4, !tbaa !9
+  %1318 = load i32, ptr %14, align 4, !tbaa !9
+  %1319 = lshr i32 %1318, 8
+  store i32 %1319, ptr %16, align 4, !tbaa !9
+  %1320 = load i32, ptr %16, align 4, !tbaa !9
+  %1321 = and i32 %1320, 255
+  store i32 %1321, ptr %16, align 4, !tbaa !9
+  %1322 = load i32, ptr %14, align 4, !tbaa !9
+  %1323 = lshr i32 %1322, 16
+  store i32 %1323, ptr %17, align 4, !tbaa !9
+  %1324 = load i32, ptr %17, align 4, !tbaa !9
+  %1325 = and i32 %1324, 255
+  store i32 %1325, ptr %17, align 4, !tbaa !9
+  %1326 = load i32, ptr %14, align 4, !tbaa !9
+  %1327 = lshr i32 %1326, 24
+  store i32 %1327, ptr %18, align 4, !tbaa !9
+  %1328 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1329 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1328, i32 0, i32 0
+  %1330 = getelementptr inbounds [4 x [256 x i32]], ptr %1329, i64 0, i64 3
+  %1331 = load i32, ptr %15, align 4, !tbaa !9
+  %1332 = zext i32 %1331 to i64
+  %1333 = getelementptr inbounds nuw [256 x i32], ptr %1330, i64 0, i64 %1332
+  %1334 = load i32, ptr %1333, align 4, !tbaa !9
+  store i32 %1334, ptr %15, align 4, !tbaa !9
+  %1335 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1336 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1335, i32 0, i32 0
+  %1337 = getelementptr inbounds [4 x [256 x i32]], ptr %1336, i64 0, i64 2
+  %1338 = load i32, ptr %16, align 4, !tbaa !9
+  %1339 = zext i32 %1338 to i64
+  %1340 = getelementptr inbounds nuw [256 x i32], ptr %1337, i64 0, i64 %1339
+  %1341 = load i32, ptr %1340, align 4, !tbaa !9
+  store i32 %1341, ptr %16, align 4, !tbaa !9
+  %1342 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1343 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1342, i32 0, i32 0
+  %1344 = getelementptr inbounds [4 x [256 x i32]], ptr %1343, i64 0, i64 1
+  %1345 = load i32, ptr %17, align 4, !tbaa !9
+  %1346 = zext i32 %1345 to i64
+  %1347 = getelementptr inbounds nuw [256 x i32], ptr %1344, i64 0, i64 %1346
+  %1348 = load i32, ptr %1347, align 4, !tbaa !9
+  store i32 %1348, ptr %17, align 4, !tbaa !9
+  %1349 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1350 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1349, i32 0, i32 0
+  %1351 = getelementptr inbounds [4 x [256 x i32]], ptr %1350, i64 0, i64 0
+  %1352 = load i32, ptr %18, align 4, !tbaa !9
+  %1353 = zext i32 %1352 to i64
+  %1354 = getelementptr inbounds nuw [256 x i32], ptr %1351, i64 0, i64 %1353
+  %1355 = load i32, ptr %1354, align 4, !tbaa !9
+  %1356 = load i32, ptr %17, align 4, !tbaa !9
+  %1357 = add i32 %1356, %1355
+  store i32 %1357, ptr %17, align 4, !tbaa !9
+  %1358 = load i32, ptr %16, align 4, !tbaa !9
+  %1359 = load i32, ptr %17, align 4, !tbaa !9
+  %1360 = xor i32 %1359, %1358
+  store i32 %1360, ptr %17, align 4, !tbaa !9
+  %1361 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1362 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1361, i32 0, i32 1
+  %1363 = getelementptr inbounds [18 x i32], ptr %1362, i64 0, i64 4
+  %1364 = load i32, ptr %1363, align 4, !tbaa !9
+  %1365 = load i32, ptr %13, align 4, !tbaa !9
+  %1366 = xor i32 %1365, %1364
+  store i32 %1366, ptr %13, align 4, !tbaa !9
+  %1367 = load i32, ptr %15, align 4, !tbaa !9
+  %1368 = load i32, ptr %17, align 4, !tbaa !9
+  %1369 = add i32 %1368, %1367
+  store i32 %1369, ptr %17, align 4, !tbaa !9
+  %1370 = load i32, ptr %17, align 4, !tbaa !9
+  %1371 = load i32, ptr %13, align 4, !tbaa !9
+  %1372 = xor i32 %1371, %1370
+  store i32 %1372, ptr %13, align 4, !tbaa !9
+  %1373 = load i32, ptr %13, align 4, !tbaa !9
+  %1374 = and i32 %1373, 255
+  store i32 %1374, ptr %15, align 4, !tbaa !9
+  %1375 = load i32, ptr %13, align 4, !tbaa !9
+  %1376 = lshr i32 %1375, 8
+  store i32 %1376, ptr %16, align 4, !tbaa !9
+  %1377 = load i32, ptr %16, align 4, !tbaa !9
+  %1378 = and i32 %1377, 255
+  store i32 %1378, ptr %16, align 4, !tbaa !9
+  %1379 = load i32, ptr %13, align 4, !tbaa !9
+  %1380 = lshr i32 %1379, 16
+  store i32 %1380, ptr %17, align 4, !tbaa !9
+  %1381 = load i32, ptr %17, align 4, !tbaa !9
+  %1382 = and i32 %1381, 255
+  store i32 %1382, ptr %17, align 4, !tbaa !9
+  %1383 = load i32, ptr %13, align 4, !tbaa !9
+  %1384 = lshr i32 %1383, 24
+  store i32 %1384, ptr %18, align 4, !tbaa !9
+  %1385 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1386 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1385, i32 0, i32 0
+  %1387 = getelementptr inbounds [4 x [256 x i32]], ptr %1386, i64 0, i64 3
+  %1388 = load i32, ptr %15, align 4, !tbaa !9
+  %1389 = zext i32 %1388 to i64
+  %1390 = getelementptr inbounds nuw [256 x i32], ptr %1387, i64 0, i64 %1389
+  %1391 = load i32, ptr %1390, align 4, !tbaa !9
+  store i32 %1391, ptr %15, align 4, !tbaa !9
+  %1392 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1393 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1392, i32 0, i32 0
+  %1394 = getelementptr inbounds [4 x [256 x i32]], ptr %1393, i64 0, i64 2
+  %1395 = load i32, ptr %16, align 4, !tbaa !9
+  %1396 = zext i32 %1395 to i64
+  %1397 = getelementptr inbounds nuw [256 x i32], ptr %1394, i64 0, i64 %1396
+  %1398 = load i32, ptr %1397, align 4, !tbaa !9
+  store i32 %1398, ptr %16, align 4, !tbaa !9
+  %1399 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1400 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1399, i32 0, i32 0
+  %1401 = getelementptr inbounds [4 x [256 x i32]], ptr %1400, i64 0, i64 1
+  %1402 = load i32, ptr %17, align 4, !tbaa !9
+  %1403 = zext i32 %1402 to i64
+  %1404 = getelementptr inbounds nuw [256 x i32], ptr %1401, i64 0, i64 %1403
+  %1405 = load i32, ptr %1404, align 4, !tbaa !9
+  store i32 %1405, ptr %17, align 4, !tbaa !9
+  %1406 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1407 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1406, i32 0, i32 0
+  %1408 = getelementptr inbounds [4 x [256 x i32]], ptr %1407, i64 0, i64 0
+  %1409 = load i32, ptr %18, align 4, !tbaa !9
+  %1410 = zext i32 %1409 to i64
+  %1411 = getelementptr inbounds nuw [256 x i32], ptr %1408, i64 0, i64 %1410
+  %1412 = load i32, ptr %1411, align 4, !tbaa !9
+  %1413 = load i32, ptr %17, align 4, !tbaa !9
+  %1414 = add i32 %1413, %1412
+  store i32 %1414, ptr %17, align 4, !tbaa !9
+  %1415 = load i32, ptr %16, align 4, !tbaa !9
+  %1416 = load i32, ptr %17, align 4, !tbaa !9
+  %1417 = xor i32 %1416, %1415
+  store i32 %1417, ptr %17, align 4, !tbaa !9
+  %1418 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1419 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1418, i32 0, i32 1
+  %1420 = getelementptr inbounds [18 x i32], ptr %1419, i64 0, i64 5
+  %1421 = load i32, ptr %1420, align 4, !tbaa !9
+  %1422 = load i32, ptr %14, align 4, !tbaa !9
+  %1423 = xor i32 %1422, %1421
+  store i32 %1423, ptr %14, align 4, !tbaa !9
+  %1424 = load i32, ptr %15, align 4, !tbaa !9
+  %1425 = load i32, ptr %17, align 4, !tbaa !9
+  %1426 = add i32 %1425, %1424
+  store i32 %1426, ptr %17, align 4, !tbaa !9
+  %1427 = load i32, ptr %17, align 4, !tbaa !9
+  %1428 = load i32, ptr %14, align 4, !tbaa !9
+  %1429 = xor i32 %1428, %1427
+  store i32 %1429, ptr %14, align 4, !tbaa !9
+  %1430 = load i32, ptr %14, align 4, !tbaa !9
+  %1431 = and i32 %1430, 255
+  store i32 %1431, ptr %15, align 4, !tbaa !9
+  %1432 = load i32, ptr %14, align 4, !tbaa !9
+  %1433 = lshr i32 %1432, 8
+  store i32 %1433, ptr %16, align 4, !tbaa !9
+  %1434 = load i32, ptr %16, align 4, !tbaa !9
+  %1435 = and i32 %1434, 255
+  store i32 %1435, ptr %16, align 4, !tbaa !9
+  %1436 = load i32, ptr %14, align 4, !tbaa !9
+  %1437 = lshr i32 %1436, 16
+  store i32 %1437, ptr %17, align 4, !tbaa !9
+  %1438 = load i32, ptr %17, align 4, !tbaa !9
+  %1439 = and i32 %1438, 255
+  store i32 %1439, ptr %17, align 4, !tbaa !9
+  %1440 = load i32, ptr %14, align 4, !tbaa !9
+  %1441 = lshr i32 %1440, 24
+  store i32 %1441, ptr %18, align 4, !tbaa !9
+  %1442 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1443 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1442, i32 0, i32 0
+  %1444 = getelementptr inbounds [4 x [256 x i32]], ptr %1443, i64 0, i64 3
+  %1445 = load i32, ptr %15, align 4, !tbaa !9
+  %1446 = zext i32 %1445 to i64
+  %1447 = getelementptr inbounds nuw [256 x i32], ptr %1444, i64 0, i64 %1446
+  %1448 = load i32, ptr %1447, align 4, !tbaa !9
+  store i32 %1448, ptr %15, align 4, !tbaa !9
+  %1449 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1450 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1449, i32 0, i32 0
+  %1451 = getelementptr inbounds [4 x [256 x i32]], ptr %1450, i64 0, i64 2
+  %1452 = load i32, ptr %16, align 4, !tbaa !9
+  %1453 = zext i32 %1452 to i64
+  %1454 = getelementptr inbounds nuw [256 x i32], ptr %1451, i64 0, i64 %1453
+  %1455 = load i32, ptr %1454, align 4, !tbaa !9
+  store i32 %1455, ptr %16, align 4, !tbaa !9
+  %1456 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1457 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1456, i32 0, i32 0
+  %1458 = getelementptr inbounds [4 x [256 x i32]], ptr %1457, i64 0, i64 1
+  %1459 = load i32, ptr %17, align 4, !tbaa !9
+  %1460 = zext i32 %1459 to i64
+  %1461 = getelementptr inbounds nuw [256 x i32], ptr %1458, i64 0, i64 %1460
+  %1462 = load i32, ptr %1461, align 4, !tbaa !9
+  store i32 %1462, ptr %17, align 4, !tbaa !9
+  %1463 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1464 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1463, i32 0, i32 0
+  %1465 = getelementptr inbounds [4 x [256 x i32]], ptr %1464, i64 0, i64 0
+  %1466 = load i32, ptr %18, align 4, !tbaa !9
+  %1467 = zext i32 %1466 to i64
+  %1468 = getelementptr inbounds nuw [256 x i32], ptr %1465, i64 0, i64 %1467
+  %1469 = load i32, ptr %1468, align 4, !tbaa !9
+  %1470 = load i32, ptr %17, align 4, !tbaa !9
+  %1471 = add i32 %1470, %1469
+  store i32 %1471, ptr %17, align 4, !tbaa !9
+  %1472 = load i32, ptr %16, align 4, !tbaa !9
+  %1473 = load i32, ptr %17, align 4, !tbaa !9
+  %1474 = xor i32 %1473, %1472
+  store i32 %1474, ptr %17, align 4, !tbaa !9
+  %1475 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1476 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1475, i32 0, i32 1
+  %1477 = getelementptr inbounds [18 x i32], ptr %1476, i64 0, i64 6
+  %1478 = load i32, ptr %1477, align 4, !tbaa !9
+  %1479 = load i32, ptr %13, align 4, !tbaa !9
+  %1480 = xor i32 %1479, %1478
+  store i32 %1480, ptr %13, align 4, !tbaa !9
+  %1481 = load i32, ptr %15, align 4, !tbaa !9
+  %1482 = load i32, ptr %17, align 4, !tbaa !9
+  %1483 = add i32 %1482, %1481
+  store i32 %1483, ptr %17, align 4, !tbaa !9
+  %1484 = load i32, ptr %17, align 4, !tbaa !9
+  %1485 = load i32, ptr %13, align 4, !tbaa !9
+  %1486 = xor i32 %1485, %1484
+  store i32 %1486, ptr %13, align 4, !tbaa !9
+  %1487 = load i32, ptr %13, align 4, !tbaa !9
+  %1488 = and i32 %1487, 255
+  store i32 %1488, ptr %15, align 4, !tbaa !9
+  %1489 = load i32, ptr %13, align 4, !tbaa !9
+  %1490 = lshr i32 %1489, 8
+  store i32 %1490, ptr %16, align 4, !tbaa !9
+  %1491 = load i32, ptr %16, align 4, !tbaa !9
+  %1492 = and i32 %1491, 255
+  store i32 %1492, ptr %16, align 4, !tbaa !9
+  %1493 = load i32, ptr %13, align 4, !tbaa !9
+  %1494 = lshr i32 %1493, 16
+  store i32 %1494, ptr %17, align 4, !tbaa !9
+  %1495 = load i32, ptr %17, align 4, !tbaa !9
+  %1496 = and i32 %1495, 255
+  store i32 %1496, ptr %17, align 4, !tbaa !9
+  %1497 = load i32, ptr %13, align 4, !tbaa !9
+  %1498 = lshr i32 %1497, 24
+  store i32 %1498, ptr %18, align 4, !tbaa !9
+  %1499 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1500 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1499, i32 0, i32 0
+  %1501 = getelementptr inbounds [4 x [256 x i32]], ptr %1500, i64 0, i64 3
+  %1502 = load i32, ptr %15, align 4, !tbaa !9
+  %1503 = zext i32 %1502 to i64
+  %1504 = getelementptr inbounds nuw [256 x i32], ptr %1501, i64 0, i64 %1503
+  %1505 = load i32, ptr %1504, align 4, !tbaa !9
+  store i32 %1505, ptr %15, align 4, !tbaa !9
+  %1506 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1507 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1506, i32 0, i32 0
+  %1508 = getelementptr inbounds [4 x [256 x i32]], ptr %1507, i64 0, i64 2
+  %1509 = load i32, ptr %16, align 4, !tbaa !9
+  %1510 = zext i32 %1509 to i64
+  %1511 = getelementptr inbounds nuw [256 x i32], ptr %1508, i64 0, i64 %1510
+  %1512 = load i32, ptr %1511, align 4, !tbaa !9
+  store i32 %1512, ptr %16, align 4, !tbaa !9
+  %1513 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1514 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1513, i32 0, i32 0
+  %1515 = getelementptr inbounds [4 x [256 x i32]], ptr %1514, i64 0, i64 1
+  %1516 = load i32, ptr %17, align 4, !tbaa !9
+  %1517 = zext i32 %1516 to i64
+  %1518 = getelementptr inbounds nuw [256 x i32], ptr %1515, i64 0, i64 %1517
+  %1519 = load i32, ptr %1518, align 4, !tbaa !9
+  store i32 %1519, ptr %17, align 4, !tbaa !9
+  %1520 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1521 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1520, i32 0, i32 0
+  %1522 = getelementptr inbounds [4 x [256 x i32]], ptr %1521, i64 0, i64 0
+  %1523 = load i32, ptr %18, align 4, !tbaa !9
+  %1524 = zext i32 %1523 to i64
+  %1525 = getelementptr inbounds nuw [256 x i32], ptr %1522, i64 0, i64 %1524
+  %1526 = load i32, ptr %1525, align 4, !tbaa !9
+  %1527 = load i32, ptr %17, align 4, !tbaa !9
+  %1528 = add i32 %1527, %1526
+  store i32 %1528, ptr %17, align 4, !tbaa !9
+  %1529 = load i32, ptr %16, align 4, !tbaa !9
+  %1530 = load i32, ptr %17, align 4, !tbaa !9
+  %1531 = xor i32 %1530, %1529
+  store i32 %1531, ptr %17, align 4, !tbaa !9
+  %1532 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1533 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1532, i32 0, i32 1
+  %1534 = getelementptr inbounds [18 x i32], ptr %1533, i64 0, i64 7
+  %1535 = load i32, ptr %1534, align 4, !tbaa !9
+  %1536 = load i32, ptr %14, align 4, !tbaa !9
+  %1537 = xor i32 %1536, %1535
+  store i32 %1537, ptr %14, align 4, !tbaa !9
+  %1538 = load i32, ptr %15, align 4, !tbaa !9
+  %1539 = load i32, ptr %17, align 4, !tbaa !9
+  %1540 = add i32 %1539, %1538
+  store i32 %1540, ptr %17, align 4, !tbaa !9
+  %1541 = load i32, ptr %17, align 4, !tbaa !9
+  %1542 = load i32, ptr %14, align 4, !tbaa !9
+  %1543 = xor i32 %1542, %1541
+  store i32 %1543, ptr %14, align 4, !tbaa !9
+  %1544 = load i32, ptr %14, align 4, !tbaa !9
+  %1545 = and i32 %1544, 255
+  store i32 %1545, ptr %15, align 4, !tbaa !9
+  %1546 = load i32, ptr %14, align 4, !tbaa !9
+  %1547 = lshr i32 %1546, 8
+  store i32 %1547, ptr %16, align 4, !tbaa !9
+  %1548 = load i32, ptr %16, align 4, !tbaa !9
+  %1549 = and i32 %1548, 255
+  store i32 %1549, ptr %16, align 4, !tbaa !9
+  %1550 = load i32, ptr %14, align 4, !tbaa !9
+  %1551 = lshr i32 %1550, 16
+  store i32 %1551, ptr %17, align 4, !tbaa !9
+  %1552 = load i32, ptr %17, align 4, !tbaa !9
+  %1553 = and i32 %1552, 255
+  store i32 %1553, ptr %17, align 4, !tbaa !9
+  %1554 = load i32, ptr %14, align 4, !tbaa !9
+  %1555 = lshr i32 %1554, 24
+  store i32 %1555, ptr %18, align 4, !tbaa !9
+  %1556 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1557 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1556, i32 0, i32 0
+  %1558 = getelementptr inbounds [4 x [256 x i32]], ptr %1557, i64 0, i64 3
+  %1559 = load i32, ptr %15, align 4, !tbaa !9
+  %1560 = zext i32 %1559 to i64
+  %1561 = getelementptr inbounds nuw [256 x i32], ptr %1558, i64 0, i64 %1560
+  %1562 = load i32, ptr %1561, align 4, !tbaa !9
+  store i32 %1562, ptr %15, align 4, !tbaa !9
+  %1563 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1564 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1563, i32 0, i32 0
+  %1565 = getelementptr inbounds [4 x [256 x i32]], ptr %1564, i64 0, i64 2
+  %1566 = load i32, ptr %16, align 4, !tbaa !9
+  %1567 = zext i32 %1566 to i64
+  %1568 = getelementptr inbounds nuw [256 x i32], ptr %1565, i64 0, i64 %1567
+  %1569 = load i32, ptr %1568, align 4, !tbaa !9
+  store i32 %1569, ptr %16, align 4, !tbaa !9
+  %1570 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1571 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1570, i32 0, i32 0
+  %1572 = getelementptr inbounds [4 x [256 x i32]], ptr %1571, i64 0, i64 1
+  %1573 = load i32, ptr %17, align 4, !tbaa !9
+  %1574 = zext i32 %1573 to i64
+  %1575 = getelementptr inbounds nuw [256 x i32], ptr %1572, i64 0, i64 %1574
+  %1576 = load i32, ptr %1575, align 4, !tbaa !9
+  store i32 %1576, ptr %17, align 4, !tbaa !9
+  %1577 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1578 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1577, i32 0, i32 0
+  %1579 = getelementptr inbounds [4 x [256 x i32]], ptr %1578, i64 0, i64 0
+  %1580 = load i32, ptr %18, align 4, !tbaa !9
+  %1581 = zext i32 %1580 to i64
+  %1582 = getelementptr inbounds nuw [256 x i32], ptr %1579, i64 0, i64 %1581
+  %1583 = load i32, ptr %1582, align 4, !tbaa !9
+  %1584 = load i32, ptr %17, align 4, !tbaa !9
+  %1585 = add i32 %1584, %1583
+  store i32 %1585, ptr %17, align 4, !tbaa !9
+  %1586 = load i32, ptr %16, align 4, !tbaa !9
+  %1587 = load i32, ptr %17, align 4, !tbaa !9
+  %1588 = xor i32 %1587, %1586
+  store i32 %1588, ptr %17, align 4, !tbaa !9
+  %1589 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1590 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1589, i32 0, i32 1
+  %1591 = getelementptr inbounds [18 x i32], ptr %1590, i64 0, i64 8
+  %1592 = load i32, ptr %1591, align 4, !tbaa !9
+  %1593 = load i32, ptr %13, align 4, !tbaa !9
+  %1594 = xor i32 %1593, %1592
+  store i32 %1594, ptr %13, align 4, !tbaa !9
+  %1595 = load i32, ptr %15, align 4, !tbaa !9
+  %1596 = load i32, ptr %17, align 4, !tbaa !9
+  %1597 = add i32 %1596, %1595
+  store i32 %1597, ptr %17, align 4, !tbaa !9
+  %1598 = load i32, ptr %17, align 4, !tbaa !9
+  %1599 = load i32, ptr %13, align 4, !tbaa !9
+  %1600 = xor i32 %1599, %1598
+  store i32 %1600, ptr %13, align 4, !tbaa !9
+  %1601 = load i32, ptr %13, align 4, !tbaa !9
+  %1602 = and i32 %1601, 255
+  store i32 %1602, ptr %15, align 4, !tbaa !9
+  %1603 = load i32, ptr %13, align 4, !tbaa !9
+  %1604 = lshr i32 %1603, 8
+  store i32 %1604, ptr %16, align 4, !tbaa !9
+  %1605 = load i32, ptr %16, align 4, !tbaa !9
+  %1606 = and i32 %1605, 255
+  store i32 %1606, ptr %16, align 4, !tbaa !9
+  %1607 = load i32, ptr %13, align 4, !tbaa !9
+  %1608 = lshr i32 %1607, 16
+  store i32 %1608, ptr %17, align 4, !tbaa !9
+  %1609 = load i32, ptr %17, align 4, !tbaa !9
+  %1610 = and i32 %1609, 255
+  store i32 %1610, ptr %17, align 4, !tbaa !9
+  %1611 = load i32, ptr %13, align 4, !tbaa !9
+  %1612 = lshr i32 %1611, 24
+  store i32 %1612, ptr %18, align 4, !tbaa !9
+  %1613 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1614 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1613, i32 0, i32 0
+  %1615 = getelementptr inbounds [4 x [256 x i32]], ptr %1614, i64 0, i64 3
+  %1616 = load i32, ptr %15, align 4, !tbaa !9
+  %1617 = zext i32 %1616 to i64
+  %1618 = getelementptr inbounds nuw [256 x i32], ptr %1615, i64 0, i64 %1617
+  %1619 = load i32, ptr %1618, align 4, !tbaa !9
+  store i32 %1619, ptr %15, align 4, !tbaa !9
+  %1620 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1621 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1620, i32 0, i32 0
+  %1622 = getelementptr inbounds [4 x [256 x i32]], ptr %1621, i64 0, i64 2
+  %1623 = load i32, ptr %16, align 4, !tbaa !9
+  %1624 = zext i32 %1623 to i64
+  %1625 = getelementptr inbounds nuw [256 x i32], ptr %1622, i64 0, i64 %1624
+  %1626 = load i32, ptr %1625, align 4, !tbaa !9
+  store i32 %1626, ptr %16, align 4, !tbaa !9
+  %1627 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1628 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1627, i32 0, i32 0
+  %1629 = getelementptr inbounds [4 x [256 x i32]], ptr %1628, i64 0, i64 1
+  %1630 = load i32, ptr %17, align 4, !tbaa !9
+  %1631 = zext i32 %1630 to i64
+  %1632 = getelementptr inbounds nuw [256 x i32], ptr %1629, i64 0, i64 %1631
+  %1633 = load i32, ptr %1632, align 4, !tbaa !9
+  store i32 %1633, ptr %17, align 4, !tbaa !9
+  %1634 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1635 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1634, i32 0, i32 0
+  %1636 = getelementptr inbounds [4 x [256 x i32]], ptr %1635, i64 0, i64 0
+  %1637 = load i32, ptr %18, align 4, !tbaa !9
+  %1638 = zext i32 %1637 to i64
+  %1639 = getelementptr inbounds nuw [256 x i32], ptr %1636, i64 0, i64 %1638
+  %1640 = load i32, ptr %1639, align 4, !tbaa !9
+  %1641 = load i32, ptr %17, align 4, !tbaa !9
+  %1642 = add i32 %1641, %1640
+  store i32 %1642, ptr %17, align 4, !tbaa !9
+  %1643 = load i32, ptr %16, align 4, !tbaa !9
+  %1644 = load i32, ptr %17, align 4, !tbaa !9
+  %1645 = xor i32 %1644, %1643
+  store i32 %1645, ptr %17, align 4, !tbaa !9
+  %1646 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1647 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1646, i32 0, i32 1
+  %1648 = getelementptr inbounds [18 x i32], ptr %1647, i64 0, i64 9
+  %1649 = load i32, ptr %1648, align 4, !tbaa !9
+  %1650 = load i32, ptr %14, align 4, !tbaa !9
+  %1651 = xor i32 %1650, %1649
+  store i32 %1651, ptr %14, align 4, !tbaa !9
+  %1652 = load i32, ptr %15, align 4, !tbaa !9
+  %1653 = load i32, ptr %17, align 4, !tbaa !9
+  %1654 = add i32 %1653, %1652
+  store i32 %1654, ptr %17, align 4, !tbaa !9
+  %1655 = load i32, ptr %17, align 4, !tbaa !9
+  %1656 = load i32, ptr %14, align 4, !tbaa !9
+  %1657 = xor i32 %1656, %1655
+  store i32 %1657, ptr %14, align 4, !tbaa !9
+  %1658 = load i32, ptr %14, align 4, !tbaa !9
+  %1659 = and i32 %1658, 255
+  store i32 %1659, ptr %15, align 4, !tbaa !9
+  %1660 = load i32, ptr %14, align 4, !tbaa !9
+  %1661 = lshr i32 %1660, 8
+  store i32 %1661, ptr %16, align 4, !tbaa !9
+  %1662 = load i32, ptr %16, align 4, !tbaa !9
+  %1663 = and i32 %1662, 255
+  store i32 %1663, ptr %16, align 4, !tbaa !9
+  %1664 = load i32, ptr %14, align 4, !tbaa !9
+  %1665 = lshr i32 %1664, 16
+  store i32 %1665, ptr %17, align 4, !tbaa !9
+  %1666 = load i32, ptr %17, align 4, !tbaa !9
+  %1667 = and i32 %1666, 255
+  store i32 %1667, ptr %17, align 4, !tbaa !9
+  %1668 = load i32, ptr %14, align 4, !tbaa !9
+  %1669 = lshr i32 %1668, 24
+  store i32 %1669, ptr %18, align 4, !tbaa !9
+  %1670 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1671 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1670, i32 0, i32 0
+  %1672 = getelementptr inbounds [4 x [256 x i32]], ptr %1671, i64 0, i64 3
+  %1673 = load i32, ptr %15, align 4, !tbaa !9
+  %1674 = zext i32 %1673 to i64
+  %1675 = getelementptr inbounds nuw [256 x i32], ptr %1672, i64 0, i64 %1674
+  %1676 = load i32, ptr %1675, align 4, !tbaa !9
+  store i32 %1676, ptr %15, align 4, !tbaa !9
+  %1677 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1678 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1677, i32 0, i32 0
+  %1679 = getelementptr inbounds [4 x [256 x i32]], ptr %1678, i64 0, i64 2
+  %1680 = load i32, ptr %16, align 4, !tbaa !9
+  %1681 = zext i32 %1680 to i64
+  %1682 = getelementptr inbounds nuw [256 x i32], ptr %1679, i64 0, i64 %1681
+  %1683 = load i32, ptr %1682, align 4, !tbaa !9
+  store i32 %1683, ptr %16, align 4, !tbaa !9
+  %1684 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1685 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1684, i32 0, i32 0
+  %1686 = getelementptr inbounds [4 x [256 x i32]], ptr %1685, i64 0, i64 1
+  %1687 = load i32, ptr %17, align 4, !tbaa !9
+  %1688 = zext i32 %1687 to i64
+  %1689 = getelementptr inbounds nuw [256 x i32], ptr %1686, i64 0, i64 %1688
+  %1690 = load i32, ptr %1689, align 4, !tbaa !9
+  store i32 %1690, ptr %17, align 4, !tbaa !9
+  %1691 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1692 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1691, i32 0, i32 0
+  %1693 = getelementptr inbounds [4 x [256 x i32]], ptr %1692, i64 0, i64 0
+  %1694 = load i32, ptr %18, align 4, !tbaa !9
+  %1695 = zext i32 %1694 to i64
+  %1696 = getelementptr inbounds nuw [256 x i32], ptr %1693, i64 0, i64 %1695
+  %1697 = load i32, ptr %1696, align 4, !tbaa !9
+  %1698 = load i32, ptr %17, align 4, !tbaa !9
+  %1699 = add i32 %1698, %1697
+  store i32 %1699, ptr %17, align 4, !tbaa !9
+  %1700 = load i32, ptr %16, align 4, !tbaa !9
+  %1701 = load i32, ptr %17, align 4, !tbaa !9
+  %1702 = xor i32 %1701, %1700
+  store i32 %1702, ptr %17, align 4, !tbaa !9
+  %1703 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1704 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1703, i32 0, i32 1
+  %1705 = getelementptr inbounds [18 x i32], ptr %1704, i64 0, i64 10
+  %1706 = load i32, ptr %1705, align 4, !tbaa !9
+  %1707 = load i32, ptr %13, align 4, !tbaa !9
+  %1708 = xor i32 %1707, %1706
+  store i32 %1708, ptr %13, align 4, !tbaa !9
+  %1709 = load i32, ptr %15, align 4, !tbaa !9
+  %1710 = load i32, ptr %17, align 4, !tbaa !9
+  %1711 = add i32 %1710, %1709
+  store i32 %1711, ptr %17, align 4, !tbaa !9
+  %1712 = load i32, ptr %17, align 4, !tbaa !9
+  %1713 = load i32, ptr %13, align 4, !tbaa !9
+  %1714 = xor i32 %1713, %1712
+  store i32 %1714, ptr %13, align 4, !tbaa !9
+  %1715 = load i32, ptr %13, align 4, !tbaa !9
+  %1716 = and i32 %1715, 255
+  store i32 %1716, ptr %15, align 4, !tbaa !9
+  %1717 = load i32, ptr %13, align 4, !tbaa !9
+  %1718 = lshr i32 %1717, 8
+  store i32 %1718, ptr %16, align 4, !tbaa !9
+  %1719 = load i32, ptr %16, align 4, !tbaa !9
+  %1720 = and i32 %1719, 255
+  store i32 %1720, ptr %16, align 4, !tbaa !9
+  %1721 = load i32, ptr %13, align 4, !tbaa !9
+  %1722 = lshr i32 %1721, 16
+  store i32 %1722, ptr %17, align 4, !tbaa !9
+  %1723 = load i32, ptr %17, align 4, !tbaa !9
+  %1724 = and i32 %1723, 255
+  store i32 %1724, ptr %17, align 4, !tbaa !9
+  %1725 = load i32, ptr %13, align 4, !tbaa !9
+  %1726 = lshr i32 %1725, 24
+  store i32 %1726, ptr %18, align 4, !tbaa !9
+  %1727 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1728 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1727, i32 0, i32 0
+  %1729 = getelementptr inbounds [4 x [256 x i32]], ptr %1728, i64 0, i64 3
+  %1730 = load i32, ptr %15, align 4, !tbaa !9
+  %1731 = zext i32 %1730 to i64
+  %1732 = getelementptr inbounds nuw [256 x i32], ptr %1729, i64 0, i64 %1731
+  %1733 = load i32, ptr %1732, align 4, !tbaa !9
+  store i32 %1733, ptr %15, align 4, !tbaa !9
+  %1734 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1735 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1734, i32 0, i32 0
+  %1736 = getelementptr inbounds [4 x [256 x i32]], ptr %1735, i64 0, i64 2
+  %1737 = load i32, ptr %16, align 4, !tbaa !9
+  %1738 = zext i32 %1737 to i64
+  %1739 = getelementptr inbounds nuw [256 x i32], ptr %1736, i64 0, i64 %1738
+  %1740 = load i32, ptr %1739, align 4, !tbaa !9
+  store i32 %1740, ptr %16, align 4, !tbaa !9
+  %1741 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1742 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1741, i32 0, i32 0
+  %1743 = getelementptr inbounds [4 x [256 x i32]], ptr %1742, i64 0, i64 1
+  %1744 = load i32, ptr %17, align 4, !tbaa !9
+  %1745 = zext i32 %1744 to i64
+  %1746 = getelementptr inbounds nuw [256 x i32], ptr %1743, i64 0, i64 %1745
+  %1747 = load i32, ptr %1746, align 4, !tbaa !9
+  store i32 %1747, ptr %17, align 4, !tbaa !9
+  %1748 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1749 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1748, i32 0, i32 0
+  %1750 = getelementptr inbounds [4 x [256 x i32]], ptr %1749, i64 0, i64 0
+  %1751 = load i32, ptr %18, align 4, !tbaa !9
+  %1752 = zext i32 %1751 to i64
+  %1753 = getelementptr inbounds nuw [256 x i32], ptr %1750, i64 0, i64 %1752
+  %1754 = load i32, ptr %1753, align 4, !tbaa !9
+  %1755 = load i32, ptr %17, align 4, !tbaa !9
+  %1756 = add i32 %1755, %1754
+  store i32 %1756, ptr %17, align 4, !tbaa !9
+  %1757 = load i32, ptr %16, align 4, !tbaa !9
+  %1758 = load i32, ptr %17, align 4, !tbaa !9
+  %1759 = xor i32 %1758, %1757
+  store i32 %1759, ptr %17, align 4, !tbaa !9
+  %1760 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1761 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1760, i32 0, i32 1
+  %1762 = getelementptr inbounds [18 x i32], ptr %1761, i64 0, i64 11
+  %1763 = load i32, ptr %1762, align 4, !tbaa !9
+  %1764 = load i32, ptr %14, align 4, !tbaa !9
+  %1765 = xor i32 %1764, %1763
+  store i32 %1765, ptr %14, align 4, !tbaa !9
+  %1766 = load i32, ptr %15, align 4, !tbaa !9
+  %1767 = load i32, ptr %17, align 4, !tbaa !9
+  %1768 = add i32 %1767, %1766
+  store i32 %1768, ptr %17, align 4, !tbaa !9
+  %1769 = load i32, ptr %17, align 4, !tbaa !9
+  %1770 = load i32, ptr %14, align 4, !tbaa !9
+  %1771 = xor i32 %1770, %1769
+  store i32 %1771, ptr %14, align 4, !tbaa !9
+  %1772 = load i32, ptr %14, align 4, !tbaa !9
+  %1773 = and i32 %1772, 255
+  store i32 %1773, ptr %15, align 4, !tbaa !9
+  %1774 = load i32, ptr %14, align 4, !tbaa !9
+  %1775 = lshr i32 %1774, 8
+  store i32 %1775, ptr %16, align 4, !tbaa !9
+  %1776 = load i32, ptr %16, align 4, !tbaa !9
+  %1777 = and i32 %1776, 255
+  store i32 %1777, ptr %16, align 4, !tbaa !9
+  %1778 = load i32, ptr %14, align 4, !tbaa !9
+  %1779 = lshr i32 %1778, 16
+  store i32 %1779, ptr %17, align 4, !tbaa !9
+  %1780 = load i32, ptr %17, align 4, !tbaa !9
+  %1781 = and i32 %1780, 255
+  store i32 %1781, ptr %17, align 4, !tbaa !9
+  %1782 = load i32, ptr %14, align 4, !tbaa !9
+  %1783 = lshr i32 %1782, 24
+  store i32 %1783, ptr %18, align 4, !tbaa !9
+  %1784 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1785 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1784, i32 0, i32 0
+  %1786 = getelementptr inbounds [4 x [256 x i32]], ptr %1785, i64 0, i64 3
+  %1787 = load i32, ptr %15, align 4, !tbaa !9
+  %1788 = zext i32 %1787 to i64
+  %1789 = getelementptr inbounds nuw [256 x i32], ptr %1786, i64 0, i64 %1788
+  %1790 = load i32, ptr %1789, align 4, !tbaa !9
+  store i32 %1790, ptr %15, align 4, !tbaa !9
+  %1791 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1792 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1791, i32 0, i32 0
+  %1793 = getelementptr inbounds [4 x [256 x i32]], ptr %1792, i64 0, i64 2
+  %1794 = load i32, ptr %16, align 4, !tbaa !9
+  %1795 = zext i32 %1794 to i64
+  %1796 = getelementptr inbounds nuw [256 x i32], ptr %1793, i64 0, i64 %1795
+  %1797 = load i32, ptr %1796, align 4, !tbaa !9
+  store i32 %1797, ptr %16, align 4, !tbaa !9
+  %1798 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1799 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1798, i32 0, i32 0
+  %1800 = getelementptr inbounds [4 x [256 x i32]], ptr %1799, i64 0, i64 1
+  %1801 = load i32, ptr %17, align 4, !tbaa !9
+  %1802 = zext i32 %1801 to i64
+  %1803 = getelementptr inbounds nuw [256 x i32], ptr %1800, i64 0, i64 %1802
+  %1804 = load i32, ptr %1803, align 4, !tbaa !9
+  store i32 %1804, ptr %17, align 4, !tbaa !9
+  %1805 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1806 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1805, i32 0, i32 0
+  %1807 = getelementptr inbounds [4 x [256 x i32]], ptr %1806, i64 0, i64 0
+  %1808 = load i32, ptr %18, align 4, !tbaa !9
+  %1809 = zext i32 %1808 to i64
+  %1810 = getelementptr inbounds nuw [256 x i32], ptr %1807, i64 0, i64 %1809
+  %1811 = load i32, ptr %1810, align 4, !tbaa !9
+  %1812 = load i32, ptr %17, align 4, !tbaa !9
+  %1813 = add i32 %1812, %1811
+  store i32 %1813, ptr %17, align 4, !tbaa !9
+  %1814 = load i32, ptr %16, align 4, !tbaa !9
+  %1815 = load i32, ptr %17, align 4, !tbaa !9
+  %1816 = xor i32 %1815, %1814
+  store i32 %1816, ptr %17, align 4, !tbaa !9
+  %1817 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1818 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1817, i32 0, i32 1
+  %1819 = getelementptr inbounds [18 x i32], ptr %1818, i64 0, i64 12
+  %1820 = load i32, ptr %1819, align 4, !tbaa !9
+  %1821 = load i32, ptr %13, align 4, !tbaa !9
+  %1822 = xor i32 %1821, %1820
+  store i32 %1822, ptr %13, align 4, !tbaa !9
+  %1823 = load i32, ptr %15, align 4, !tbaa !9
+  %1824 = load i32, ptr %17, align 4, !tbaa !9
+  %1825 = add i32 %1824, %1823
+  store i32 %1825, ptr %17, align 4, !tbaa !9
+  %1826 = load i32, ptr %17, align 4, !tbaa !9
+  %1827 = load i32, ptr %13, align 4, !tbaa !9
+  %1828 = xor i32 %1827, %1826
+  store i32 %1828, ptr %13, align 4, !tbaa !9
+  %1829 = load i32, ptr %13, align 4, !tbaa !9
+  %1830 = and i32 %1829, 255
+  store i32 %1830, ptr %15, align 4, !tbaa !9
+  %1831 = load i32, ptr %13, align 4, !tbaa !9
+  %1832 = lshr i32 %1831, 8
+  store i32 %1832, ptr %16, align 4, !tbaa !9
+  %1833 = load i32, ptr %16, align 4, !tbaa !9
+  %1834 = and i32 %1833, 255
+  store i32 %1834, ptr %16, align 4, !tbaa !9
+  %1835 = load i32, ptr %13, align 4, !tbaa !9
+  %1836 = lshr i32 %1835, 16
+  store i32 %1836, ptr %17, align 4, !tbaa !9
+  %1837 = load i32, ptr %17, align 4, !tbaa !9
+  %1838 = and i32 %1837, 255
+  store i32 %1838, ptr %17, align 4, !tbaa !9
+  %1839 = load i32, ptr %13, align 4, !tbaa !9
+  %1840 = lshr i32 %1839, 24
+  store i32 %1840, ptr %18, align 4, !tbaa !9
+  %1841 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1842 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1841, i32 0, i32 0
+  %1843 = getelementptr inbounds [4 x [256 x i32]], ptr %1842, i64 0, i64 3
+  %1844 = load i32, ptr %15, align 4, !tbaa !9
+  %1845 = zext i32 %1844 to i64
+  %1846 = getelementptr inbounds nuw [256 x i32], ptr %1843, i64 0, i64 %1845
+  %1847 = load i32, ptr %1846, align 4, !tbaa !9
+  store i32 %1847, ptr %15, align 4, !tbaa !9
+  %1848 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1849 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1848, i32 0, i32 0
+  %1850 = getelementptr inbounds [4 x [256 x i32]], ptr %1849, i64 0, i64 2
+  %1851 = load i32, ptr %16, align 4, !tbaa !9
+  %1852 = zext i32 %1851 to i64
+  %1853 = getelementptr inbounds nuw [256 x i32], ptr %1850, i64 0, i64 %1852
+  %1854 = load i32, ptr %1853, align 4, !tbaa !9
+  store i32 %1854, ptr %16, align 4, !tbaa !9
+  %1855 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1856 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1855, i32 0, i32 0
+  %1857 = getelementptr inbounds [4 x [256 x i32]], ptr %1856, i64 0, i64 1
+  %1858 = load i32, ptr %17, align 4, !tbaa !9
+  %1859 = zext i32 %1858 to i64
+  %1860 = getelementptr inbounds nuw [256 x i32], ptr %1857, i64 0, i64 %1859
+  %1861 = load i32, ptr %1860, align 4, !tbaa !9
+  store i32 %1861, ptr %17, align 4, !tbaa !9
+  %1862 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1863 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1862, i32 0, i32 0
+  %1864 = getelementptr inbounds [4 x [256 x i32]], ptr %1863, i64 0, i64 0
+  %1865 = load i32, ptr %18, align 4, !tbaa !9
+  %1866 = zext i32 %1865 to i64
+  %1867 = getelementptr inbounds nuw [256 x i32], ptr %1864, i64 0, i64 %1866
+  %1868 = load i32, ptr %1867, align 4, !tbaa !9
+  %1869 = load i32, ptr %17, align 4, !tbaa !9
+  %1870 = add i32 %1869, %1868
+  store i32 %1870, ptr %17, align 4, !tbaa !9
+  %1871 = load i32, ptr %16, align 4, !tbaa !9
+  %1872 = load i32, ptr %17, align 4, !tbaa !9
+  %1873 = xor i32 %1872, %1871
+  store i32 %1873, ptr %17, align 4, !tbaa !9
+  %1874 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1875 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1874, i32 0, i32 1
+  %1876 = getelementptr inbounds [18 x i32], ptr %1875, i64 0, i64 13
+  %1877 = load i32, ptr %1876, align 4, !tbaa !9
+  %1878 = load i32, ptr %14, align 4, !tbaa !9
+  %1879 = xor i32 %1878, %1877
+  store i32 %1879, ptr %14, align 4, !tbaa !9
+  %1880 = load i32, ptr %15, align 4, !tbaa !9
+  %1881 = load i32, ptr %17, align 4, !tbaa !9
+  %1882 = add i32 %1881, %1880
+  store i32 %1882, ptr %17, align 4, !tbaa !9
+  %1883 = load i32, ptr %17, align 4, !tbaa !9
+  %1884 = load i32, ptr %14, align 4, !tbaa !9
+  %1885 = xor i32 %1884, %1883
+  store i32 %1885, ptr %14, align 4, !tbaa !9
+  %1886 = load i32, ptr %14, align 4, !tbaa !9
+  %1887 = and i32 %1886, 255
+  store i32 %1887, ptr %15, align 4, !tbaa !9
+  %1888 = load i32, ptr %14, align 4, !tbaa !9
+  %1889 = lshr i32 %1888, 8
+  store i32 %1889, ptr %16, align 4, !tbaa !9
+  %1890 = load i32, ptr %16, align 4, !tbaa !9
+  %1891 = and i32 %1890, 255
+  store i32 %1891, ptr %16, align 4, !tbaa !9
+  %1892 = load i32, ptr %14, align 4, !tbaa !9
+  %1893 = lshr i32 %1892, 16
+  store i32 %1893, ptr %17, align 4, !tbaa !9
+  %1894 = load i32, ptr %17, align 4, !tbaa !9
+  %1895 = and i32 %1894, 255
+  store i32 %1895, ptr %17, align 4, !tbaa !9
+  %1896 = load i32, ptr %14, align 4, !tbaa !9
+  %1897 = lshr i32 %1896, 24
+  store i32 %1897, ptr %18, align 4, !tbaa !9
+  %1898 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1899 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1898, i32 0, i32 0
+  %1900 = getelementptr inbounds [4 x [256 x i32]], ptr %1899, i64 0, i64 3
+  %1901 = load i32, ptr %15, align 4, !tbaa !9
+  %1902 = zext i32 %1901 to i64
+  %1903 = getelementptr inbounds nuw [256 x i32], ptr %1900, i64 0, i64 %1902
+  %1904 = load i32, ptr %1903, align 4, !tbaa !9
+  store i32 %1904, ptr %15, align 4, !tbaa !9
+  %1905 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1906 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1905, i32 0, i32 0
+  %1907 = getelementptr inbounds [4 x [256 x i32]], ptr %1906, i64 0, i64 2
+  %1908 = load i32, ptr %16, align 4, !tbaa !9
+  %1909 = zext i32 %1908 to i64
+  %1910 = getelementptr inbounds nuw [256 x i32], ptr %1907, i64 0, i64 %1909
+  %1911 = load i32, ptr %1910, align 4, !tbaa !9
+  store i32 %1911, ptr %16, align 4, !tbaa !9
+  %1912 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1913 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1912, i32 0, i32 0
+  %1914 = getelementptr inbounds [4 x [256 x i32]], ptr %1913, i64 0, i64 1
+  %1915 = load i32, ptr %17, align 4, !tbaa !9
+  %1916 = zext i32 %1915 to i64
+  %1917 = getelementptr inbounds nuw [256 x i32], ptr %1914, i64 0, i64 %1916
+  %1918 = load i32, ptr %1917, align 4, !tbaa !9
+  store i32 %1918, ptr %17, align 4, !tbaa !9
+  %1919 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1920 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1919, i32 0, i32 0
+  %1921 = getelementptr inbounds [4 x [256 x i32]], ptr %1920, i64 0, i64 0
+  %1922 = load i32, ptr %18, align 4, !tbaa !9
+  %1923 = zext i32 %1922 to i64
+  %1924 = getelementptr inbounds nuw [256 x i32], ptr %1921, i64 0, i64 %1923
+  %1925 = load i32, ptr %1924, align 4, !tbaa !9
+  %1926 = load i32, ptr %17, align 4, !tbaa !9
+  %1927 = add i32 %1926, %1925
+  store i32 %1927, ptr %17, align 4, !tbaa !9
+  %1928 = load i32, ptr %16, align 4, !tbaa !9
+  %1929 = load i32, ptr %17, align 4, !tbaa !9
+  %1930 = xor i32 %1929, %1928
+  store i32 %1930, ptr %17, align 4, !tbaa !9
+  %1931 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1932 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1931, i32 0, i32 1
+  %1933 = getelementptr inbounds [18 x i32], ptr %1932, i64 0, i64 14
+  %1934 = load i32, ptr %1933, align 4, !tbaa !9
+  %1935 = load i32, ptr %13, align 4, !tbaa !9
+  %1936 = xor i32 %1935, %1934
+  store i32 %1936, ptr %13, align 4, !tbaa !9
+  %1937 = load i32, ptr %15, align 4, !tbaa !9
+  %1938 = load i32, ptr %17, align 4, !tbaa !9
+  %1939 = add i32 %1938, %1937
+  store i32 %1939, ptr %17, align 4, !tbaa !9
+  %1940 = load i32, ptr %17, align 4, !tbaa !9
+  %1941 = load i32, ptr %13, align 4, !tbaa !9
+  %1942 = xor i32 %1941, %1940
+  store i32 %1942, ptr %13, align 4, !tbaa !9
+  %1943 = load i32, ptr %13, align 4, !tbaa !9
+  %1944 = and i32 %1943, 255
+  store i32 %1944, ptr %15, align 4, !tbaa !9
+  %1945 = load i32, ptr %13, align 4, !tbaa !9
+  %1946 = lshr i32 %1945, 8
+  store i32 %1946, ptr %16, align 4, !tbaa !9
+  %1947 = load i32, ptr %16, align 4, !tbaa !9
+  %1948 = and i32 %1947, 255
+  store i32 %1948, ptr %16, align 4, !tbaa !9
+  %1949 = load i32, ptr %13, align 4, !tbaa !9
+  %1950 = lshr i32 %1949, 16
+  store i32 %1950, ptr %17, align 4, !tbaa !9
+  %1951 = load i32, ptr %17, align 4, !tbaa !9
+  %1952 = and i32 %1951, 255
+  store i32 %1952, ptr %17, align 4, !tbaa !9
+  %1953 = load i32, ptr %13, align 4, !tbaa !9
+  %1954 = lshr i32 %1953, 24
+  store i32 %1954, ptr %18, align 4, !tbaa !9
+  %1955 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1956 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1955, i32 0, i32 0
+  %1957 = getelementptr inbounds [4 x [256 x i32]], ptr %1956, i64 0, i64 3
+  %1958 = load i32, ptr %15, align 4, !tbaa !9
+  %1959 = zext i32 %1958 to i64
+  %1960 = getelementptr inbounds nuw [256 x i32], ptr %1957, i64 0, i64 %1959
+  %1961 = load i32, ptr %1960, align 4, !tbaa !9
+  store i32 %1961, ptr %15, align 4, !tbaa !9
+  %1962 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1963 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1962, i32 0, i32 0
+  %1964 = getelementptr inbounds [4 x [256 x i32]], ptr %1963, i64 0, i64 2
+  %1965 = load i32, ptr %16, align 4, !tbaa !9
+  %1966 = zext i32 %1965 to i64
+  %1967 = getelementptr inbounds nuw [256 x i32], ptr %1964, i64 0, i64 %1966
+  %1968 = load i32, ptr %1967, align 4, !tbaa !9
+  store i32 %1968, ptr %16, align 4, !tbaa !9
+  %1969 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1970 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1969, i32 0, i32 0
+  %1971 = getelementptr inbounds [4 x [256 x i32]], ptr %1970, i64 0, i64 1
+  %1972 = load i32, ptr %17, align 4, !tbaa !9
+  %1973 = zext i32 %1972 to i64
+  %1974 = getelementptr inbounds nuw [256 x i32], ptr %1971, i64 0, i64 %1973
+  %1975 = load i32, ptr %1974, align 4, !tbaa !9
+  store i32 %1975, ptr %17, align 4, !tbaa !9
+  %1976 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1977 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1976, i32 0, i32 0
+  %1978 = getelementptr inbounds [4 x [256 x i32]], ptr %1977, i64 0, i64 0
+  %1979 = load i32, ptr %18, align 4, !tbaa !9
+  %1980 = zext i32 %1979 to i64
+  %1981 = getelementptr inbounds nuw [256 x i32], ptr %1978, i64 0, i64 %1980
+  %1982 = load i32, ptr %1981, align 4, !tbaa !9
+  %1983 = load i32, ptr %17, align 4, !tbaa !9
+  %1984 = add i32 %1983, %1982
+  store i32 %1984, ptr %17, align 4, !tbaa !9
+  %1985 = load i32, ptr %16, align 4, !tbaa !9
+  %1986 = load i32, ptr %17, align 4, !tbaa !9
+  %1987 = xor i32 %1986, %1985
+  store i32 %1987, ptr %17, align 4, !tbaa !9
+  %1988 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %1989 = getelementptr inbounds nuw %struct.BF_ctx, ptr %1988, i32 0, i32 1
+  %1990 = getelementptr inbounds [18 x i32], ptr %1989, i64 0, i64 15
+  %1991 = load i32, ptr %1990, align 4, !tbaa !9
+  %1992 = load i32, ptr %14, align 4, !tbaa !9
+  %1993 = xor i32 %1992, %1991
+  store i32 %1993, ptr %14, align 4, !tbaa !9
+  %1994 = load i32, ptr %15, align 4, !tbaa !9
+  %1995 = load i32, ptr %17, align 4, !tbaa !9
+  %1996 = add i32 %1995, %1994
+  store i32 %1996, ptr %17, align 4, !tbaa !9
+  %1997 = load i32, ptr %17, align 4, !tbaa !9
+  %1998 = load i32, ptr %14, align 4, !tbaa !9
+  %1999 = xor i32 %1998, %1997
+  store i32 %1999, ptr %14, align 4, !tbaa !9
+  %2000 = load i32, ptr %14, align 4, !tbaa !9
+  %2001 = and i32 %2000, 255
+  store i32 %2001, ptr %15, align 4, !tbaa !9
+  %2002 = load i32, ptr %14, align 4, !tbaa !9
+  %2003 = lshr i32 %2002, 8
+  store i32 %2003, ptr %16, align 4, !tbaa !9
+  %2004 = load i32, ptr %16, align 4, !tbaa !9
+  %2005 = and i32 %2004, 255
+  store i32 %2005, ptr %16, align 4, !tbaa !9
+  %2006 = load i32, ptr %14, align 4, !tbaa !9
+  %2007 = lshr i32 %2006, 16
+  store i32 %2007, ptr %17, align 4, !tbaa !9
+  %2008 = load i32, ptr %17, align 4, !tbaa !9
+  %2009 = and i32 %2008, 255
+  store i32 %2009, ptr %17, align 4, !tbaa !9
+  %2010 = load i32, ptr %14, align 4, !tbaa !9
+  %2011 = lshr i32 %2010, 24
+  store i32 %2011, ptr %18, align 4, !tbaa !9
+  %2012 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2013 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2012, i32 0, i32 0
+  %2014 = getelementptr inbounds [4 x [256 x i32]], ptr %2013, i64 0, i64 3
+  %2015 = load i32, ptr %15, align 4, !tbaa !9
+  %2016 = zext i32 %2015 to i64
+  %2017 = getelementptr inbounds nuw [256 x i32], ptr %2014, i64 0, i64 %2016
+  %2018 = load i32, ptr %2017, align 4, !tbaa !9
+  store i32 %2018, ptr %15, align 4, !tbaa !9
+  %2019 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2020 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2019, i32 0, i32 0
+  %2021 = getelementptr inbounds [4 x [256 x i32]], ptr %2020, i64 0, i64 2
+  %2022 = load i32, ptr %16, align 4, !tbaa !9
+  %2023 = zext i32 %2022 to i64
+  %2024 = getelementptr inbounds nuw [256 x i32], ptr %2021, i64 0, i64 %2023
+  %2025 = load i32, ptr %2024, align 4, !tbaa !9
+  store i32 %2025, ptr %16, align 4, !tbaa !9
+  %2026 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2027 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2026, i32 0, i32 0
+  %2028 = getelementptr inbounds [4 x [256 x i32]], ptr %2027, i64 0, i64 1
+  %2029 = load i32, ptr %17, align 4, !tbaa !9
+  %2030 = zext i32 %2029 to i64
+  %2031 = getelementptr inbounds nuw [256 x i32], ptr %2028, i64 0, i64 %2030
+  %2032 = load i32, ptr %2031, align 4, !tbaa !9
+  store i32 %2032, ptr %17, align 4, !tbaa !9
+  %2033 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2034 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2033, i32 0, i32 0
+  %2035 = getelementptr inbounds [4 x [256 x i32]], ptr %2034, i64 0, i64 0
+  %2036 = load i32, ptr %18, align 4, !tbaa !9
+  %2037 = zext i32 %2036 to i64
+  %2038 = getelementptr inbounds nuw [256 x i32], ptr %2035, i64 0, i64 %2037
+  %2039 = load i32, ptr %2038, align 4, !tbaa !9
+  %2040 = load i32, ptr %17, align 4, !tbaa !9
+  %2041 = add i32 %2040, %2039
+  store i32 %2041, ptr %17, align 4, !tbaa !9
+  %2042 = load i32, ptr %16, align 4, !tbaa !9
+  %2043 = load i32, ptr %17, align 4, !tbaa !9
+  %2044 = xor i32 %2043, %2042
+  store i32 %2044, ptr %17, align 4, !tbaa !9
+  %2045 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2046 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2045, i32 0, i32 1
+  %2047 = getelementptr inbounds [18 x i32], ptr %2046, i64 0, i64 16
+  %2048 = load i32, ptr %2047, align 4, !tbaa !9
+  %2049 = load i32, ptr %13, align 4, !tbaa !9
+  %2050 = xor i32 %2049, %2048
+  store i32 %2050, ptr %13, align 4, !tbaa !9
+  %2051 = load i32, ptr %15, align 4, !tbaa !9
+  %2052 = load i32, ptr %17, align 4, !tbaa !9
+  %2053 = add i32 %2052, %2051
+  store i32 %2053, ptr %17, align 4, !tbaa !9
+  %2054 = load i32, ptr %17, align 4, !tbaa !9
+  %2055 = load i32, ptr %13, align 4, !tbaa !9
+  %2056 = xor i32 %2055, %2054
+  store i32 %2056, ptr %13, align 4, !tbaa !9
+  %2057 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %2057, ptr %18, align 4, !tbaa !9
+  %2058 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %2058, ptr %14, align 4, !tbaa !9
+  %2059 = load i32, ptr %18, align 4, !tbaa !9
+  %2060 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2061 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2060, i32 0, i32 1
+  %2062 = getelementptr inbounds [18 x i32], ptr %2061, i64 0, i64 17
+  %2063 = load i32, ptr %2062, align 4, !tbaa !9
+  %2064 = xor i32 %2059, %2063
+  store i32 %2064, ptr %13, align 4, !tbaa !9
+  %2065 = load i32, ptr %13, align 4, !tbaa !9
+  %2066 = load ptr, ptr %19, align 8, !tbaa !12
+  %2067 = getelementptr inbounds i32, ptr %2066, i64 -4
+  store i32 %2065, ptr %2067, align 4, !tbaa !9
+  %2068 = load i32, ptr %14, align 4, !tbaa !9
+  %2069 = load ptr, ptr %19, align 8, !tbaa !12
+  %2070 = getelementptr inbounds i32, ptr %2069, i64 -3
+  store i32 %2068, ptr %2070, align 4, !tbaa !9
+  %2071 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %2072 = getelementptr inbounds [4 x i32], ptr %2071, i64 0, i64 0
+  %2073 = load i32, ptr %2072, align 4, !tbaa !11
+  %2074 = load i32, ptr %13, align 4, !tbaa !9
+  %2075 = xor i32 %2074, %2073
+  store i32 %2075, ptr %13, align 4, !tbaa !9
+  %2076 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %2077 = getelementptr inbounds [4 x i32], ptr %2076, i64 0, i64 1
+  %2078 = load i32, ptr %2077, align 4, !tbaa !11
+  %2079 = load i32, ptr %14, align 4, !tbaa !9
+  %2080 = xor i32 %2079, %2078
+  store i32 %2080, ptr %14, align 4, !tbaa !9
+  %2081 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2082 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2081, i32 0, i32 1
+  %2083 = getelementptr inbounds [18 x i32], ptr %2082, i64 0, i64 0
+  %2084 = load i32, ptr %2083, align 4, !tbaa !9
+  %2085 = load i32, ptr %13, align 4, !tbaa !9
+  %2086 = xor i32 %2085, %2084
+  store i32 %2086, ptr %13, align 4, !tbaa !9
+  %2087 = load i32, ptr %13, align 4, !tbaa !9
+  %2088 = and i32 %2087, 255
+  store i32 %2088, ptr %15, align 4, !tbaa !9
+  %2089 = load i32, ptr %13, align 4, !tbaa !9
+  %2090 = lshr i32 %2089, 8
+  store i32 %2090, ptr %16, align 4, !tbaa !9
+  %2091 = load i32, ptr %16, align 4, !tbaa !9
+  %2092 = and i32 %2091, 255
+  store i32 %2092, ptr %16, align 4, !tbaa !9
+  %2093 = load i32, ptr %13, align 4, !tbaa !9
+  %2094 = lshr i32 %2093, 16
+  store i32 %2094, ptr %17, align 4, !tbaa !9
+  %2095 = load i32, ptr %17, align 4, !tbaa !9
+  %2096 = and i32 %2095, 255
+  store i32 %2096, ptr %17, align 4, !tbaa !9
+  %2097 = load i32, ptr %13, align 4, !tbaa !9
+  %2098 = lshr i32 %2097, 24
+  store i32 %2098, ptr %18, align 4, !tbaa !9
+  %2099 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2100 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2099, i32 0, i32 0
+  %2101 = getelementptr inbounds [4 x [256 x i32]], ptr %2100, i64 0, i64 3
+  %2102 = load i32, ptr %15, align 4, !tbaa !9
+  %2103 = zext i32 %2102 to i64
+  %2104 = getelementptr inbounds nuw [256 x i32], ptr %2101, i64 0, i64 %2103
+  %2105 = load i32, ptr %2104, align 4, !tbaa !9
+  store i32 %2105, ptr %15, align 4, !tbaa !9
+  %2106 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2107 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2106, i32 0, i32 0
+  %2108 = getelementptr inbounds [4 x [256 x i32]], ptr %2107, i64 0, i64 2
+  %2109 = load i32, ptr %16, align 4, !tbaa !9
+  %2110 = zext i32 %2109 to i64
+  %2111 = getelementptr inbounds nuw [256 x i32], ptr %2108, i64 0, i64 %2110
+  %2112 = load i32, ptr %2111, align 4, !tbaa !9
+  store i32 %2112, ptr %16, align 4, !tbaa !9
+  %2113 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2114 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2113, i32 0, i32 0
+  %2115 = getelementptr inbounds [4 x [256 x i32]], ptr %2114, i64 0, i64 1
+  %2116 = load i32, ptr %17, align 4, !tbaa !9
+  %2117 = zext i32 %2116 to i64
+  %2118 = getelementptr inbounds nuw [256 x i32], ptr %2115, i64 0, i64 %2117
+  %2119 = load i32, ptr %2118, align 4, !tbaa !9
+  store i32 %2119, ptr %17, align 4, !tbaa !9
+  %2120 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2121 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2120, i32 0, i32 0
+  %2122 = getelementptr inbounds [4 x [256 x i32]], ptr %2121, i64 0, i64 0
+  %2123 = load i32, ptr %18, align 4, !tbaa !9
+  %2124 = zext i32 %2123 to i64
+  %2125 = getelementptr inbounds nuw [256 x i32], ptr %2122, i64 0, i64 %2124
+  %2126 = load i32, ptr %2125, align 4, !tbaa !9
+  %2127 = load i32, ptr %17, align 4, !tbaa !9
+  %2128 = add i32 %2127, %2126
+  store i32 %2128, ptr %17, align 4, !tbaa !9
+  %2129 = load i32, ptr %16, align 4, !tbaa !9
+  %2130 = load i32, ptr %17, align 4, !tbaa !9
+  %2131 = xor i32 %2130, %2129
+  store i32 %2131, ptr %17, align 4, !tbaa !9
+  %2132 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2133 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2132, i32 0, i32 1
+  %2134 = getelementptr inbounds [18 x i32], ptr %2133, i64 0, i64 1
+  %2135 = load i32, ptr %2134, align 4, !tbaa !9
+  %2136 = load i32, ptr %14, align 4, !tbaa !9
+  %2137 = xor i32 %2136, %2135
+  store i32 %2137, ptr %14, align 4, !tbaa !9
+  %2138 = load i32, ptr %15, align 4, !tbaa !9
+  %2139 = load i32, ptr %17, align 4, !tbaa !9
+  %2140 = add i32 %2139, %2138
+  store i32 %2140, ptr %17, align 4, !tbaa !9
+  %2141 = load i32, ptr %17, align 4, !tbaa !9
+  %2142 = load i32, ptr %14, align 4, !tbaa !9
+  %2143 = xor i32 %2142, %2141
+  store i32 %2143, ptr %14, align 4, !tbaa !9
+  %2144 = load i32, ptr %14, align 4, !tbaa !9
+  %2145 = and i32 %2144, 255
+  store i32 %2145, ptr %15, align 4, !tbaa !9
+  %2146 = load i32, ptr %14, align 4, !tbaa !9
+  %2147 = lshr i32 %2146, 8
+  store i32 %2147, ptr %16, align 4, !tbaa !9
+  %2148 = load i32, ptr %16, align 4, !tbaa !9
+  %2149 = and i32 %2148, 255
+  store i32 %2149, ptr %16, align 4, !tbaa !9
+  %2150 = load i32, ptr %14, align 4, !tbaa !9
+  %2151 = lshr i32 %2150, 16
+  store i32 %2151, ptr %17, align 4, !tbaa !9
+  %2152 = load i32, ptr %17, align 4, !tbaa !9
+  %2153 = and i32 %2152, 255
+  store i32 %2153, ptr %17, align 4, !tbaa !9
+  %2154 = load i32, ptr %14, align 4, !tbaa !9
+  %2155 = lshr i32 %2154, 24
+  store i32 %2155, ptr %18, align 4, !tbaa !9
+  %2156 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2157 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2156, i32 0, i32 0
+  %2158 = getelementptr inbounds [4 x [256 x i32]], ptr %2157, i64 0, i64 3
+  %2159 = load i32, ptr %15, align 4, !tbaa !9
+  %2160 = zext i32 %2159 to i64
+  %2161 = getelementptr inbounds nuw [256 x i32], ptr %2158, i64 0, i64 %2160
+  %2162 = load i32, ptr %2161, align 4, !tbaa !9
+  store i32 %2162, ptr %15, align 4, !tbaa !9
+  %2163 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2164 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2163, i32 0, i32 0
+  %2165 = getelementptr inbounds [4 x [256 x i32]], ptr %2164, i64 0, i64 2
+  %2166 = load i32, ptr %16, align 4, !tbaa !9
+  %2167 = zext i32 %2166 to i64
+  %2168 = getelementptr inbounds nuw [256 x i32], ptr %2165, i64 0, i64 %2167
+  %2169 = load i32, ptr %2168, align 4, !tbaa !9
+  store i32 %2169, ptr %16, align 4, !tbaa !9
+  %2170 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2171 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2170, i32 0, i32 0
+  %2172 = getelementptr inbounds [4 x [256 x i32]], ptr %2171, i64 0, i64 1
+  %2173 = load i32, ptr %17, align 4, !tbaa !9
+  %2174 = zext i32 %2173 to i64
+  %2175 = getelementptr inbounds nuw [256 x i32], ptr %2172, i64 0, i64 %2174
+  %2176 = load i32, ptr %2175, align 4, !tbaa !9
+  store i32 %2176, ptr %17, align 4, !tbaa !9
+  %2177 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2178 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2177, i32 0, i32 0
+  %2179 = getelementptr inbounds [4 x [256 x i32]], ptr %2178, i64 0, i64 0
+  %2180 = load i32, ptr %18, align 4, !tbaa !9
+  %2181 = zext i32 %2180 to i64
+  %2182 = getelementptr inbounds nuw [256 x i32], ptr %2179, i64 0, i64 %2181
+  %2183 = load i32, ptr %2182, align 4, !tbaa !9
+  %2184 = load i32, ptr %17, align 4, !tbaa !9
+  %2185 = add i32 %2184, %2183
+  store i32 %2185, ptr %17, align 4, !tbaa !9
+  %2186 = load i32, ptr %16, align 4, !tbaa !9
+  %2187 = load i32, ptr %17, align 4, !tbaa !9
+  %2188 = xor i32 %2187, %2186
+  store i32 %2188, ptr %17, align 4, !tbaa !9
+  %2189 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2190 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2189, i32 0, i32 1
+  %2191 = getelementptr inbounds [18 x i32], ptr %2190, i64 0, i64 2
+  %2192 = load i32, ptr %2191, align 4, !tbaa !9
+  %2193 = load i32, ptr %13, align 4, !tbaa !9
+  %2194 = xor i32 %2193, %2192
+  store i32 %2194, ptr %13, align 4, !tbaa !9
+  %2195 = load i32, ptr %15, align 4, !tbaa !9
+  %2196 = load i32, ptr %17, align 4, !tbaa !9
+  %2197 = add i32 %2196, %2195
+  store i32 %2197, ptr %17, align 4, !tbaa !9
+  %2198 = load i32, ptr %17, align 4, !tbaa !9
+  %2199 = load i32, ptr %13, align 4, !tbaa !9
+  %2200 = xor i32 %2199, %2198
+  store i32 %2200, ptr %13, align 4, !tbaa !9
+  %2201 = load i32, ptr %13, align 4, !tbaa !9
+  %2202 = and i32 %2201, 255
+  store i32 %2202, ptr %15, align 4, !tbaa !9
+  %2203 = load i32, ptr %13, align 4, !tbaa !9
+  %2204 = lshr i32 %2203, 8
+  store i32 %2204, ptr %16, align 4, !tbaa !9
+  %2205 = load i32, ptr %16, align 4, !tbaa !9
+  %2206 = and i32 %2205, 255
+  store i32 %2206, ptr %16, align 4, !tbaa !9
+  %2207 = load i32, ptr %13, align 4, !tbaa !9
+  %2208 = lshr i32 %2207, 16
+  store i32 %2208, ptr %17, align 4, !tbaa !9
+  %2209 = load i32, ptr %17, align 4, !tbaa !9
+  %2210 = and i32 %2209, 255
+  store i32 %2210, ptr %17, align 4, !tbaa !9
+  %2211 = load i32, ptr %13, align 4, !tbaa !9
+  %2212 = lshr i32 %2211, 24
+  store i32 %2212, ptr %18, align 4, !tbaa !9
+  %2213 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2214 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2213, i32 0, i32 0
+  %2215 = getelementptr inbounds [4 x [256 x i32]], ptr %2214, i64 0, i64 3
+  %2216 = load i32, ptr %15, align 4, !tbaa !9
+  %2217 = zext i32 %2216 to i64
+  %2218 = getelementptr inbounds nuw [256 x i32], ptr %2215, i64 0, i64 %2217
+  %2219 = load i32, ptr %2218, align 4, !tbaa !9
+  store i32 %2219, ptr %15, align 4, !tbaa !9
+  %2220 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2221 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2220, i32 0, i32 0
+  %2222 = getelementptr inbounds [4 x [256 x i32]], ptr %2221, i64 0, i64 2
+  %2223 = load i32, ptr %16, align 4, !tbaa !9
+  %2224 = zext i32 %2223 to i64
+  %2225 = getelementptr inbounds nuw [256 x i32], ptr %2222, i64 0, i64 %2224
+  %2226 = load i32, ptr %2225, align 4, !tbaa !9
+  store i32 %2226, ptr %16, align 4, !tbaa !9
+  %2227 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2228 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2227, i32 0, i32 0
+  %2229 = getelementptr inbounds [4 x [256 x i32]], ptr %2228, i64 0, i64 1
+  %2230 = load i32, ptr %17, align 4, !tbaa !9
+  %2231 = zext i32 %2230 to i64
+  %2232 = getelementptr inbounds nuw [256 x i32], ptr %2229, i64 0, i64 %2231
+  %2233 = load i32, ptr %2232, align 4, !tbaa !9
+  store i32 %2233, ptr %17, align 4, !tbaa !9
+  %2234 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2235 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2234, i32 0, i32 0
+  %2236 = getelementptr inbounds [4 x [256 x i32]], ptr %2235, i64 0, i64 0
+  %2237 = load i32, ptr %18, align 4, !tbaa !9
+  %2238 = zext i32 %2237 to i64
+  %2239 = getelementptr inbounds nuw [256 x i32], ptr %2236, i64 0, i64 %2238
+  %2240 = load i32, ptr %2239, align 4, !tbaa !9
+  %2241 = load i32, ptr %17, align 4, !tbaa !9
+  %2242 = add i32 %2241, %2240
+  store i32 %2242, ptr %17, align 4, !tbaa !9
+  %2243 = load i32, ptr %16, align 4, !tbaa !9
+  %2244 = load i32, ptr %17, align 4, !tbaa !9
+  %2245 = xor i32 %2244, %2243
+  store i32 %2245, ptr %17, align 4, !tbaa !9
+  %2246 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2247 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2246, i32 0, i32 1
+  %2248 = getelementptr inbounds [18 x i32], ptr %2247, i64 0, i64 3
+  %2249 = load i32, ptr %2248, align 4, !tbaa !9
+  %2250 = load i32, ptr %14, align 4, !tbaa !9
+  %2251 = xor i32 %2250, %2249
+  store i32 %2251, ptr %14, align 4, !tbaa !9
+  %2252 = load i32, ptr %15, align 4, !tbaa !9
+  %2253 = load i32, ptr %17, align 4, !tbaa !9
+  %2254 = add i32 %2253, %2252
+  store i32 %2254, ptr %17, align 4, !tbaa !9
+  %2255 = load i32, ptr %17, align 4, !tbaa !9
+  %2256 = load i32, ptr %14, align 4, !tbaa !9
+  %2257 = xor i32 %2256, %2255
+  store i32 %2257, ptr %14, align 4, !tbaa !9
+  %2258 = load i32, ptr %14, align 4, !tbaa !9
+  %2259 = and i32 %2258, 255
+  store i32 %2259, ptr %15, align 4, !tbaa !9
+  %2260 = load i32, ptr %14, align 4, !tbaa !9
+  %2261 = lshr i32 %2260, 8
+  store i32 %2261, ptr %16, align 4, !tbaa !9
+  %2262 = load i32, ptr %16, align 4, !tbaa !9
+  %2263 = and i32 %2262, 255
+  store i32 %2263, ptr %16, align 4, !tbaa !9
+  %2264 = load i32, ptr %14, align 4, !tbaa !9
+  %2265 = lshr i32 %2264, 16
+  store i32 %2265, ptr %17, align 4, !tbaa !9
+  %2266 = load i32, ptr %17, align 4, !tbaa !9
+  %2267 = and i32 %2266, 255
+  store i32 %2267, ptr %17, align 4, !tbaa !9
+  %2268 = load i32, ptr %14, align 4, !tbaa !9
+  %2269 = lshr i32 %2268, 24
+  store i32 %2269, ptr %18, align 4, !tbaa !9
+  %2270 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2271 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2270, i32 0, i32 0
+  %2272 = getelementptr inbounds [4 x [256 x i32]], ptr %2271, i64 0, i64 3
+  %2273 = load i32, ptr %15, align 4, !tbaa !9
+  %2274 = zext i32 %2273 to i64
+  %2275 = getelementptr inbounds nuw [256 x i32], ptr %2272, i64 0, i64 %2274
+  %2276 = load i32, ptr %2275, align 4, !tbaa !9
+  store i32 %2276, ptr %15, align 4, !tbaa !9
+  %2277 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2278 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2277, i32 0, i32 0
+  %2279 = getelementptr inbounds [4 x [256 x i32]], ptr %2278, i64 0, i64 2
+  %2280 = load i32, ptr %16, align 4, !tbaa !9
+  %2281 = zext i32 %2280 to i64
+  %2282 = getelementptr inbounds nuw [256 x i32], ptr %2279, i64 0, i64 %2281
+  %2283 = load i32, ptr %2282, align 4, !tbaa !9
+  store i32 %2283, ptr %16, align 4, !tbaa !9
+  %2284 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2285 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2284, i32 0, i32 0
+  %2286 = getelementptr inbounds [4 x [256 x i32]], ptr %2285, i64 0, i64 1
+  %2287 = load i32, ptr %17, align 4, !tbaa !9
+  %2288 = zext i32 %2287 to i64
+  %2289 = getelementptr inbounds nuw [256 x i32], ptr %2286, i64 0, i64 %2288
+  %2290 = load i32, ptr %2289, align 4, !tbaa !9
+  store i32 %2290, ptr %17, align 4, !tbaa !9
+  %2291 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2292 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2291, i32 0, i32 0
+  %2293 = getelementptr inbounds [4 x [256 x i32]], ptr %2292, i64 0, i64 0
+  %2294 = load i32, ptr %18, align 4, !tbaa !9
+  %2295 = zext i32 %2294 to i64
+  %2296 = getelementptr inbounds nuw [256 x i32], ptr %2293, i64 0, i64 %2295
+  %2297 = load i32, ptr %2296, align 4, !tbaa !9
+  %2298 = load i32, ptr %17, align 4, !tbaa !9
+  %2299 = add i32 %2298, %2297
+  store i32 %2299, ptr %17, align 4, !tbaa !9
+  %2300 = load i32, ptr %16, align 4, !tbaa !9
+  %2301 = load i32, ptr %17, align 4, !tbaa !9
+  %2302 = xor i32 %2301, %2300
+  store i32 %2302, ptr %17, align 4, !tbaa !9
+  %2303 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2304 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2303, i32 0, i32 1
+  %2305 = getelementptr inbounds [18 x i32], ptr %2304, i64 0, i64 4
+  %2306 = load i32, ptr %2305, align 4, !tbaa !9
+  %2307 = load i32, ptr %13, align 4, !tbaa !9
+  %2308 = xor i32 %2307, %2306
+  store i32 %2308, ptr %13, align 4, !tbaa !9
+  %2309 = load i32, ptr %15, align 4, !tbaa !9
+  %2310 = load i32, ptr %17, align 4, !tbaa !9
+  %2311 = add i32 %2310, %2309
+  store i32 %2311, ptr %17, align 4, !tbaa !9
+  %2312 = load i32, ptr %17, align 4, !tbaa !9
+  %2313 = load i32, ptr %13, align 4, !tbaa !9
+  %2314 = xor i32 %2313, %2312
+  store i32 %2314, ptr %13, align 4, !tbaa !9
+  %2315 = load i32, ptr %13, align 4, !tbaa !9
+  %2316 = and i32 %2315, 255
+  store i32 %2316, ptr %15, align 4, !tbaa !9
+  %2317 = load i32, ptr %13, align 4, !tbaa !9
+  %2318 = lshr i32 %2317, 8
+  store i32 %2318, ptr %16, align 4, !tbaa !9
+  %2319 = load i32, ptr %16, align 4, !tbaa !9
+  %2320 = and i32 %2319, 255
+  store i32 %2320, ptr %16, align 4, !tbaa !9
+  %2321 = load i32, ptr %13, align 4, !tbaa !9
+  %2322 = lshr i32 %2321, 16
+  store i32 %2322, ptr %17, align 4, !tbaa !9
+  %2323 = load i32, ptr %17, align 4, !tbaa !9
+  %2324 = and i32 %2323, 255
+  store i32 %2324, ptr %17, align 4, !tbaa !9
+  %2325 = load i32, ptr %13, align 4, !tbaa !9
+  %2326 = lshr i32 %2325, 24
+  store i32 %2326, ptr %18, align 4, !tbaa !9
+  %2327 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2328 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2327, i32 0, i32 0
+  %2329 = getelementptr inbounds [4 x [256 x i32]], ptr %2328, i64 0, i64 3
+  %2330 = load i32, ptr %15, align 4, !tbaa !9
+  %2331 = zext i32 %2330 to i64
+  %2332 = getelementptr inbounds nuw [256 x i32], ptr %2329, i64 0, i64 %2331
+  %2333 = load i32, ptr %2332, align 4, !tbaa !9
+  store i32 %2333, ptr %15, align 4, !tbaa !9
+  %2334 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2335 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2334, i32 0, i32 0
+  %2336 = getelementptr inbounds [4 x [256 x i32]], ptr %2335, i64 0, i64 2
+  %2337 = load i32, ptr %16, align 4, !tbaa !9
+  %2338 = zext i32 %2337 to i64
+  %2339 = getelementptr inbounds nuw [256 x i32], ptr %2336, i64 0, i64 %2338
+  %2340 = load i32, ptr %2339, align 4, !tbaa !9
+  store i32 %2340, ptr %16, align 4, !tbaa !9
+  %2341 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2342 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2341, i32 0, i32 0
+  %2343 = getelementptr inbounds [4 x [256 x i32]], ptr %2342, i64 0, i64 1
+  %2344 = load i32, ptr %17, align 4, !tbaa !9
+  %2345 = zext i32 %2344 to i64
+  %2346 = getelementptr inbounds nuw [256 x i32], ptr %2343, i64 0, i64 %2345
+  %2347 = load i32, ptr %2346, align 4, !tbaa !9
+  store i32 %2347, ptr %17, align 4, !tbaa !9
+  %2348 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2349 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2348, i32 0, i32 0
+  %2350 = getelementptr inbounds [4 x [256 x i32]], ptr %2349, i64 0, i64 0
+  %2351 = load i32, ptr %18, align 4, !tbaa !9
+  %2352 = zext i32 %2351 to i64
+  %2353 = getelementptr inbounds nuw [256 x i32], ptr %2350, i64 0, i64 %2352
+  %2354 = load i32, ptr %2353, align 4, !tbaa !9
+  %2355 = load i32, ptr %17, align 4, !tbaa !9
+  %2356 = add i32 %2355, %2354
+  store i32 %2356, ptr %17, align 4, !tbaa !9
+  %2357 = load i32, ptr %16, align 4, !tbaa !9
+  %2358 = load i32, ptr %17, align 4, !tbaa !9
+  %2359 = xor i32 %2358, %2357
+  store i32 %2359, ptr %17, align 4, !tbaa !9
+  %2360 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2361 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2360, i32 0, i32 1
+  %2362 = getelementptr inbounds [18 x i32], ptr %2361, i64 0, i64 5
+  %2363 = load i32, ptr %2362, align 4, !tbaa !9
+  %2364 = load i32, ptr %14, align 4, !tbaa !9
+  %2365 = xor i32 %2364, %2363
+  store i32 %2365, ptr %14, align 4, !tbaa !9
+  %2366 = load i32, ptr %15, align 4, !tbaa !9
+  %2367 = load i32, ptr %17, align 4, !tbaa !9
+  %2368 = add i32 %2367, %2366
+  store i32 %2368, ptr %17, align 4, !tbaa !9
+  %2369 = load i32, ptr %17, align 4, !tbaa !9
+  %2370 = load i32, ptr %14, align 4, !tbaa !9
+  %2371 = xor i32 %2370, %2369
+  store i32 %2371, ptr %14, align 4, !tbaa !9
+  %2372 = load i32, ptr %14, align 4, !tbaa !9
+  %2373 = and i32 %2372, 255
+  store i32 %2373, ptr %15, align 4, !tbaa !9
+  %2374 = load i32, ptr %14, align 4, !tbaa !9
+  %2375 = lshr i32 %2374, 8
+  store i32 %2375, ptr %16, align 4, !tbaa !9
+  %2376 = load i32, ptr %16, align 4, !tbaa !9
+  %2377 = and i32 %2376, 255
+  store i32 %2377, ptr %16, align 4, !tbaa !9
+  %2378 = load i32, ptr %14, align 4, !tbaa !9
+  %2379 = lshr i32 %2378, 16
+  store i32 %2379, ptr %17, align 4, !tbaa !9
+  %2380 = load i32, ptr %17, align 4, !tbaa !9
+  %2381 = and i32 %2380, 255
+  store i32 %2381, ptr %17, align 4, !tbaa !9
+  %2382 = load i32, ptr %14, align 4, !tbaa !9
+  %2383 = lshr i32 %2382, 24
+  store i32 %2383, ptr %18, align 4, !tbaa !9
+  %2384 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2385 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2384, i32 0, i32 0
+  %2386 = getelementptr inbounds [4 x [256 x i32]], ptr %2385, i64 0, i64 3
+  %2387 = load i32, ptr %15, align 4, !tbaa !9
+  %2388 = zext i32 %2387 to i64
+  %2389 = getelementptr inbounds nuw [256 x i32], ptr %2386, i64 0, i64 %2388
+  %2390 = load i32, ptr %2389, align 4, !tbaa !9
+  store i32 %2390, ptr %15, align 4, !tbaa !9
+  %2391 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2392 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2391, i32 0, i32 0
+  %2393 = getelementptr inbounds [4 x [256 x i32]], ptr %2392, i64 0, i64 2
+  %2394 = load i32, ptr %16, align 4, !tbaa !9
+  %2395 = zext i32 %2394 to i64
+  %2396 = getelementptr inbounds nuw [256 x i32], ptr %2393, i64 0, i64 %2395
+  %2397 = load i32, ptr %2396, align 4, !tbaa !9
+  store i32 %2397, ptr %16, align 4, !tbaa !9
+  %2398 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2399 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2398, i32 0, i32 0
+  %2400 = getelementptr inbounds [4 x [256 x i32]], ptr %2399, i64 0, i64 1
+  %2401 = load i32, ptr %17, align 4, !tbaa !9
+  %2402 = zext i32 %2401 to i64
+  %2403 = getelementptr inbounds nuw [256 x i32], ptr %2400, i64 0, i64 %2402
+  %2404 = load i32, ptr %2403, align 4, !tbaa !9
+  store i32 %2404, ptr %17, align 4, !tbaa !9
+  %2405 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2406 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2405, i32 0, i32 0
+  %2407 = getelementptr inbounds [4 x [256 x i32]], ptr %2406, i64 0, i64 0
+  %2408 = load i32, ptr %18, align 4, !tbaa !9
+  %2409 = zext i32 %2408 to i64
+  %2410 = getelementptr inbounds nuw [256 x i32], ptr %2407, i64 0, i64 %2409
+  %2411 = load i32, ptr %2410, align 4, !tbaa !9
+  %2412 = load i32, ptr %17, align 4, !tbaa !9
+  %2413 = add i32 %2412, %2411
+  store i32 %2413, ptr %17, align 4, !tbaa !9
+  %2414 = load i32, ptr %16, align 4, !tbaa !9
+  %2415 = load i32, ptr %17, align 4, !tbaa !9
+  %2416 = xor i32 %2415, %2414
+  store i32 %2416, ptr %17, align 4, !tbaa !9
+  %2417 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2418 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2417, i32 0, i32 1
+  %2419 = getelementptr inbounds [18 x i32], ptr %2418, i64 0, i64 6
+  %2420 = load i32, ptr %2419, align 4, !tbaa !9
+  %2421 = load i32, ptr %13, align 4, !tbaa !9
+  %2422 = xor i32 %2421, %2420
+  store i32 %2422, ptr %13, align 4, !tbaa !9
+  %2423 = load i32, ptr %15, align 4, !tbaa !9
+  %2424 = load i32, ptr %17, align 4, !tbaa !9
+  %2425 = add i32 %2424, %2423
+  store i32 %2425, ptr %17, align 4, !tbaa !9
+  %2426 = load i32, ptr %17, align 4, !tbaa !9
+  %2427 = load i32, ptr %13, align 4, !tbaa !9
+  %2428 = xor i32 %2427, %2426
+  store i32 %2428, ptr %13, align 4, !tbaa !9
+  %2429 = load i32, ptr %13, align 4, !tbaa !9
+  %2430 = and i32 %2429, 255
+  store i32 %2430, ptr %15, align 4, !tbaa !9
+  %2431 = load i32, ptr %13, align 4, !tbaa !9
+  %2432 = lshr i32 %2431, 8
+  store i32 %2432, ptr %16, align 4, !tbaa !9
+  %2433 = load i32, ptr %16, align 4, !tbaa !9
+  %2434 = and i32 %2433, 255
+  store i32 %2434, ptr %16, align 4, !tbaa !9
+  %2435 = load i32, ptr %13, align 4, !tbaa !9
+  %2436 = lshr i32 %2435, 16
+  store i32 %2436, ptr %17, align 4, !tbaa !9
+  %2437 = load i32, ptr %17, align 4, !tbaa !9
+  %2438 = and i32 %2437, 255
+  store i32 %2438, ptr %17, align 4, !tbaa !9
+  %2439 = load i32, ptr %13, align 4, !tbaa !9
+  %2440 = lshr i32 %2439, 24
+  store i32 %2440, ptr %18, align 4, !tbaa !9
+  %2441 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2442 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2441, i32 0, i32 0
+  %2443 = getelementptr inbounds [4 x [256 x i32]], ptr %2442, i64 0, i64 3
+  %2444 = load i32, ptr %15, align 4, !tbaa !9
+  %2445 = zext i32 %2444 to i64
+  %2446 = getelementptr inbounds nuw [256 x i32], ptr %2443, i64 0, i64 %2445
+  %2447 = load i32, ptr %2446, align 4, !tbaa !9
+  store i32 %2447, ptr %15, align 4, !tbaa !9
+  %2448 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2449 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2448, i32 0, i32 0
+  %2450 = getelementptr inbounds [4 x [256 x i32]], ptr %2449, i64 0, i64 2
+  %2451 = load i32, ptr %16, align 4, !tbaa !9
+  %2452 = zext i32 %2451 to i64
+  %2453 = getelementptr inbounds nuw [256 x i32], ptr %2450, i64 0, i64 %2452
+  %2454 = load i32, ptr %2453, align 4, !tbaa !9
+  store i32 %2454, ptr %16, align 4, !tbaa !9
+  %2455 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2456 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2455, i32 0, i32 0
+  %2457 = getelementptr inbounds [4 x [256 x i32]], ptr %2456, i64 0, i64 1
+  %2458 = load i32, ptr %17, align 4, !tbaa !9
+  %2459 = zext i32 %2458 to i64
+  %2460 = getelementptr inbounds nuw [256 x i32], ptr %2457, i64 0, i64 %2459
+  %2461 = load i32, ptr %2460, align 4, !tbaa !9
+  store i32 %2461, ptr %17, align 4, !tbaa !9
+  %2462 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2463 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2462, i32 0, i32 0
+  %2464 = getelementptr inbounds [4 x [256 x i32]], ptr %2463, i64 0, i64 0
+  %2465 = load i32, ptr %18, align 4, !tbaa !9
+  %2466 = zext i32 %2465 to i64
+  %2467 = getelementptr inbounds nuw [256 x i32], ptr %2464, i64 0, i64 %2466
+  %2468 = load i32, ptr %2467, align 4, !tbaa !9
+  %2469 = load i32, ptr %17, align 4, !tbaa !9
+  %2470 = add i32 %2469, %2468
+  store i32 %2470, ptr %17, align 4, !tbaa !9
+  %2471 = load i32, ptr %16, align 4, !tbaa !9
+  %2472 = load i32, ptr %17, align 4, !tbaa !9
+  %2473 = xor i32 %2472, %2471
+  store i32 %2473, ptr %17, align 4, !tbaa !9
+  %2474 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2475 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2474, i32 0, i32 1
+  %2476 = getelementptr inbounds [18 x i32], ptr %2475, i64 0, i64 7
+  %2477 = load i32, ptr %2476, align 4, !tbaa !9
+  %2478 = load i32, ptr %14, align 4, !tbaa !9
+  %2479 = xor i32 %2478, %2477
+  store i32 %2479, ptr %14, align 4, !tbaa !9
+  %2480 = load i32, ptr %15, align 4, !tbaa !9
+  %2481 = load i32, ptr %17, align 4, !tbaa !9
+  %2482 = add i32 %2481, %2480
+  store i32 %2482, ptr %17, align 4, !tbaa !9
+  %2483 = load i32, ptr %17, align 4, !tbaa !9
+  %2484 = load i32, ptr %14, align 4, !tbaa !9
+  %2485 = xor i32 %2484, %2483
+  store i32 %2485, ptr %14, align 4, !tbaa !9
+  %2486 = load i32, ptr %14, align 4, !tbaa !9
+  %2487 = and i32 %2486, 255
+  store i32 %2487, ptr %15, align 4, !tbaa !9
+  %2488 = load i32, ptr %14, align 4, !tbaa !9
+  %2489 = lshr i32 %2488, 8
+  store i32 %2489, ptr %16, align 4, !tbaa !9
+  %2490 = load i32, ptr %16, align 4, !tbaa !9
+  %2491 = and i32 %2490, 255
+  store i32 %2491, ptr %16, align 4, !tbaa !9
+  %2492 = load i32, ptr %14, align 4, !tbaa !9
+  %2493 = lshr i32 %2492, 16
+  store i32 %2493, ptr %17, align 4, !tbaa !9
+  %2494 = load i32, ptr %17, align 4, !tbaa !9
+  %2495 = and i32 %2494, 255
+  store i32 %2495, ptr %17, align 4, !tbaa !9
+  %2496 = load i32, ptr %14, align 4, !tbaa !9
+  %2497 = lshr i32 %2496, 24
+  store i32 %2497, ptr %18, align 4, !tbaa !9
+  %2498 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2499 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2498, i32 0, i32 0
+  %2500 = getelementptr inbounds [4 x [256 x i32]], ptr %2499, i64 0, i64 3
+  %2501 = load i32, ptr %15, align 4, !tbaa !9
+  %2502 = zext i32 %2501 to i64
+  %2503 = getelementptr inbounds nuw [256 x i32], ptr %2500, i64 0, i64 %2502
+  %2504 = load i32, ptr %2503, align 4, !tbaa !9
+  store i32 %2504, ptr %15, align 4, !tbaa !9
+  %2505 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2506 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2505, i32 0, i32 0
+  %2507 = getelementptr inbounds [4 x [256 x i32]], ptr %2506, i64 0, i64 2
+  %2508 = load i32, ptr %16, align 4, !tbaa !9
+  %2509 = zext i32 %2508 to i64
+  %2510 = getelementptr inbounds nuw [256 x i32], ptr %2507, i64 0, i64 %2509
+  %2511 = load i32, ptr %2510, align 4, !tbaa !9
+  store i32 %2511, ptr %16, align 4, !tbaa !9
+  %2512 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2513 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2512, i32 0, i32 0
+  %2514 = getelementptr inbounds [4 x [256 x i32]], ptr %2513, i64 0, i64 1
+  %2515 = load i32, ptr %17, align 4, !tbaa !9
+  %2516 = zext i32 %2515 to i64
+  %2517 = getelementptr inbounds nuw [256 x i32], ptr %2514, i64 0, i64 %2516
+  %2518 = load i32, ptr %2517, align 4, !tbaa !9
+  store i32 %2518, ptr %17, align 4, !tbaa !9
+  %2519 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2520 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2519, i32 0, i32 0
+  %2521 = getelementptr inbounds [4 x [256 x i32]], ptr %2520, i64 0, i64 0
+  %2522 = load i32, ptr %18, align 4, !tbaa !9
+  %2523 = zext i32 %2522 to i64
+  %2524 = getelementptr inbounds nuw [256 x i32], ptr %2521, i64 0, i64 %2523
+  %2525 = load i32, ptr %2524, align 4, !tbaa !9
+  %2526 = load i32, ptr %17, align 4, !tbaa !9
+  %2527 = add i32 %2526, %2525
+  store i32 %2527, ptr %17, align 4, !tbaa !9
+  %2528 = load i32, ptr %16, align 4, !tbaa !9
+  %2529 = load i32, ptr %17, align 4, !tbaa !9
+  %2530 = xor i32 %2529, %2528
+  store i32 %2530, ptr %17, align 4, !tbaa !9
+  %2531 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2532 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2531, i32 0, i32 1
+  %2533 = getelementptr inbounds [18 x i32], ptr %2532, i64 0, i64 8
+  %2534 = load i32, ptr %2533, align 4, !tbaa !9
+  %2535 = load i32, ptr %13, align 4, !tbaa !9
+  %2536 = xor i32 %2535, %2534
+  store i32 %2536, ptr %13, align 4, !tbaa !9
+  %2537 = load i32, ptr %15, align 4, !tbaa !9
+  %2538 = load i32, ptr %17, align 4, !tbaa !9
+  %2539 = add i32 %2538, %2537
+  store i32 %2539, ptr %17, align 4, !tbaa !9
+  %2540 = load i32, ptr %17, align 4, !tbaa !9
+  %2541 = load i32, ptr %13, align 4, !tbaa !9
+  %2542 = xor i32 %2541, %2540
+  store i32 %2542, ptr %13, align 4, !tbaa !9
+  %2543 = load i32, ptr %13, align 4, !tbaa !9
+  %2544 = and i32 %2543, 255
+  store i32 %2544, ptr %15, align 4, !tbaa !9
+  %2545 = load i32, ptr %13, align 4, !tbaa !9
+  %2546 = lshr i32 %2545, 8
+  store i32 %2546, ptr %16, align 4, !tbaa !9
+  %2547 = load i32, ptr %16, align 4, !tbaa !9
+  %2548 = and i32 %2547, 255
+  store i32 %2548, ptr %16, align 4, !tbaa !9
+  %2549 = load i32, ptr %13, align 4, !tbaa !9
+  %2550 = lshr i32 %2549, 16
+  store i32 %2550, ptr %17, align 4, !tbaa !9
+  %2551 = load i32, ptr %17, align 4, !tbaa !9
+  %2552 = and i32 %2551, 255
+  store i32 %2552, ptr %17, align 4, !tbaa !9
+  %2553 = load i32, ptr %13, align 4, !tbaa !9
+  %2554 = lshr i32 %2553, 24
+  store i32 %2554, ptr %18, align 4, !tbaa !9
+  %2555 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2556 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2555, i32 0, i32 0
+  %2557 = getelementptr inbounds [4 x [256 x i32]], ptr %2556, i64 0, i64 3
+  %2558 = load i32, ptr %15, align 4, !tbaa !9
+  %2559 = zext i32 %2558 to i64
+  %2560 = getelementptr inbounds nuw [256 x i32], ptr %2557, i64 0, i64 %2559
+  %2561 = load i32, ptr %2560, align 4, !tbaa !9
+  store i32 %2561, ptr %15, align 4, !tbaa !9
+  %2562 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2563 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2562, i32 0, i32 0
+  %2564 = getelementptr inbounds [4 x [256 x i32]], ptr %2563, i64 0, i64 2
+  %2565 = load i32, ptr %16, align 4, !tbaa !9
+  %2566 = zext i32 %2565 to i64
+  %2567 = getelementptr inbounds nuw [256 x i32], ptr %2564, i64 0, i64 %2566
+  %2568 = load i32, ptr %2567, align 4, !tbaa !9
+  store i32 %2568, ptr %16, align 4, !tbaa !9
+  %2569 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2570 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2569, i32 0, i32 0
+  %2571 = getelementptr inbounds [4 x [256 x i32]], ptr %2570, i64 0, i64 1
+  %2572 = load i32, ptr %17, align 4, !tbaa !9
+  %2573 = zext i32 %2572 to i64
+  %2574 = getelementptr inbounds nuw [256 x i32], ptr %2571, i64 0, i64 %2573
+  %2575 = load i32, ptr %2574, align 4, !tbaa !9
+  store i32 %2575, ptr %17, align 4, !tbaa !9
+  %2576 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2577 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2576, i32 0, i32 0
+  %2578 = getelementptr inbounds [4 x [256 x i32]], ptr %2577, i64 0, i64 0
+  %2579 = load i32, ptr %18, align 4, !tbaa !9
+  %2580 = zext i32 %2579 to i64
+  %2581 = getelementptr inbounds nuw [256 x i32], ptr %2578, i64 0, i64 %2580
+  %2582 = load i32, ptr %2581, align 4, !tbaa !9
+  %2583 = load i32, ptr %17, align 4, !tbaa !9
+  %2584 = add i32 %2583, %2582
+  store i32 %2584, ptr %17, align 4, !tbaa !9
+  %2585 = load i32, ptr %16, align 4, !tbaa !9
+  %2586 = load i32, ptr %17, align 4, !tbaa !9
+  %2587 = xor i32 %2586, %2585
+  store i32 %2587, ptr %17, align 4, !tbaa !9
+  %2588 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2589 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2588, i32 0, i32 1
+  %2590 = getelementptr inbounds [18 x i32], ptr %2589, i64 0, i64 9
+  %2591 = load i32, ptr %2590, align 4, !tbaa !9
+  %2592 = load i32, ptr %14, align 4, !tbaa !9
+  %2593 = xor i32 %2592, %2591
+  store i32 %2593, ptr %14, align 4, !tbaa !9
+  %2594 = load i32, ptr %15, align 4, !tbaa !9
+  %2595 = load i32, ptr %17, align 4, !tbaa !9
+  %2596 = add i32 %2595, %2594
+  store i32 %2596, ptr %17, align 4, !tbaa !9
+  %2597 = load i32, ptr %17, align 4, !tbaa !9
+  %2598 = load i32, ptr %14, align 4, !tbaa !9
+  %2599 = xor i32 %2598, %2597
+  store i32 %2599, ptr %14, align 4, !tbaa !9
+  %2600 = load i32, ptr %14, align 4, !tbaa !9
+  %2601 = and i32 %2600, 255
+  store i32 %2601, ptr %15, align 4, !tbaa !9
+  %2602 = load i32, ptr %14, align 4, !tbaa !9
+  %2603 = lshr i32 %2602, 8
+  store i32 %2603, ptr %16, align 4, !tbaa !9
+  %2604 = load i32, ptr %16, align 4, !tbaa !9
+  %2605 = and i32 %2604, 255
+  store i32 %2605, ptr %16, align 4, !tbaa !9
+  %2606 = load i32, ptr %14, align 4, !tbaa !9
+  %2607 = lshr i32 %2606, 16
+  store i32 %2607, ptr %17, align 4, !tbaa !9
+  %2608 = load i32, ptr %17, align 4, !tbaa !9
+  %2609 = and i32 %2608, 255
+  store i32 %2609, ptr %17, align 4, !tbaa !9
+  %2610 = load i32, ptr %14, align 4, !tbaa !9
+  %2611 = lshr i32 %2610, 24
+  store i32 %2611, ptr %18, align 4, !tbaa !9
+  %2612 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2613 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2612, i32 0, i32 0
+  %2614 = getelementptr inbounds [4 x [256 x i32]], ptr %2613, i64 0, i64 3
+  %2615 = load i32, ptr %15, align 4, !tbaa !9
+  %2616 = zext i32 %2615 to i64
+  %2617 = getelementptr inbounds nuw [256 x i32], ptr %2614, i64 0, i64 %2616
+  %2618 = load i32, ptr %2617, align 4, !tbaa !9
+  store i32 %2618, ptr %15, align 4, !tbaa !9
+  %2619 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2620 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2619, i32 0, i32 0
+  %2621 = getelementptr inbounds [4 x [256 x i32]], ptr %2620, i64 0, i64 2
+  %2622 = load i32, ptr %16, align 4, !tbaa !9
+  %2623 = zext i32 %2622 to i64
+  %2624 = getelementptr inbounds nuw [256 x i32], ptr %2621, i64 0, i64 %2623
+  %2625 = load i32, ptr %2624, align 4, !tbaa !9
+  store i32 %2625, ptr %16, align 4, !tbaa !9
+  %2626 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2627 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2626, i32 0, i32 0
+  %2628 = getelementptr inbounds [4 x [256 x i32]], ptr %2627, i64 0, i64 1
+  %2629 = load i32, ptr %17, align 4, !tbaa !9
+  %2630 = zext i32 %2629 to i64
+  %2631 = getelementptr inbounds nuw [256 x i32], ptr %2628, i64 0, i64 %2630
+  %2632 = load i32, ptr %2631, align 4, !tbaa !9
+  store i32 %2632, ptr %17, align 4, !tbaa !9
+  %2633 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2634 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2633, i32 0, i32 0
+  %2635 = getelementptr inbounds [4 x [256 x i32]], ptr %2634, i64 0, i64 0
+  %2636 = load i32, ptr %18, align 4, !tbaa !9
+  %2637 = zext i32 %2636 to i64
+  %2638 = getelementptr inbounds nuw [256 x i32], ptr %2635, i64 0, i64 %2637
+  %2639 = load i32, ptr %2638, align 4, !tbaa !9
+  %2640 = load i32, ptr %17, align 4, !tbaa !9
+  %2641 = add i32 %2640, %2639
+  store i32 %2641, ptr %17, align 4, !tbaa !9
+  %2642 = load i32, ptr %16, align 4, !tbaa !9
+  %2643 = load i32, ptr %17, align 4, !tbaa !9
+  %2644 = xor i32 %2643, %2642
+  store i32 %2644, ptr %17, align 4, !tbaa !9
+  %2645 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2646 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2645, i32 0, i32 1
+  %2647 = getelementptr inbounds [18 x i32], ptr %2646, i64 0, i64 10
+  %2648 = load i32, ptr %2647, align 4, !tbaa !9
+  %2649 = load i32, ptr %13, align 4, !tbaa !9
+  %2650 = xor i32 %2649, %2648
+  store i32 %2650, ptr %13, align 4, !tbaa !9
+  %2651 = load i32, ptr %15, align 4, !tbaa !9
+  %2652 = load i32, ptr %17, align 4, !tbaa !9
+  %2653 = add i32 %2652, %2651
+  store i32 %2653, ptr %17, align 4, !tbaa !9
+  %2654 = load i32, ptr %17, align 4, !tbaa !9
+  %2655 = load i32, ptr %13, align 4, !tbaa !9
+  %2656 = xor i32 %2655, %2654
+  store i32 %2656, ptr %13, align 4, !tbaa !9
+  %2657 = load i32, ptr %13, align 4, !tbaa !9
+  %2658 = and i32 %2657, 255
+  store i32 %2658, ptr %15, align 4, !tbaa !9
+  %2659 = load i32, ptr %13, align 4, !tbaa !9
+  %2660 = lshr i32 %2659, 8
+  store i32 %2660, ptr %16, align 4, !tbaa !9
+  %2661 = load i32, ptr %16, align 4, !tbaa !9
+  %2662 = and i32 %2661, 255
+  store i32 %2662, ptr %16, align 4, !tbaa !9
+  %2663 = load i32, ptr %13, align 4, !tbaa !9
+  %2664 = lshr i32 %2663, 16
+  store i32 %2664, ptr %17, align 4, !tbaa !9
+  %2665 = load i32, ptr %17, align 4, !tbaa !9
+  %2666 = and i32 %2665, 255
+  store i32 %2666, ptr %17, align 4, !tbaa !9
+  %2667 = load i32, ptr %13, align 4, !tbaa !9
+  %2668 = lshr i32 %2667, 24
+  store i32 %2668, ptr %18, align 4, !tbaa !9
+  %2669 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2670 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2669, i32 0, i32 0
+  %2671 = getelementptr inbounds [4 x [256 x i32]], ptr %2670, i64 0, i64 3
+  %2672 = load i32, ptr %15, align 4, !tbaa !9
+  %2673 = zext i32 %2672 to i64
+  %2674 = getelementptr inbounds nuw [256 x i32], ptr %2671, i64 0, i64 %2673
+  %2675 = load i32, ptr %2674, align 4, !tbaa !9
+  store i32 %2675, ptr %15, align 4, !tbaa !9
+  %2676 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2677 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2676, i32 0, i32 0
+  %2678 = getelementptr inbounds [4 x [256 x i32]], ptr %2677, i64 0, i64 2
+  %2679 = load i32, ptr %16, align 4, !tbaa !9
+  %2680 = zext i32 %2679 to i64
+  %2681 = getelementptr inbounds nuw [256 x i32], ptr %2678, i64 0, i64 %2680
+  %2682 = load i32, ptr %2681, align 4, !tbaa !9
+  store i32 %2682, ptr %16, align 4, !tbaa !9
+  %2683 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2684 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2683, i32 0, i32 0
+  %2685 = getelementptr inbounds [4 x [256 x i32]], ptr %2684, i64 0, i64 1
+  %2686 = load i32, ptr %17, align 4, !tbaa !9
+  %2687 = zext i32 %2686 to i64
+  %2688 = getelementptr inbounds nuw [256 x i32], ptr %2685, i64 0, i64 %2687
+  %2689 = load i32, ptr %2688, align 4, !tbaa !9
+  store i32 %2689, ptr %17, align 4, !tbaa !9
+  %2690 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2691 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2690, i32 0, i32 0
+  %2692 = getelementptr inbounds [4 x [256 x i32]], ptr %2691, i64 0, i64 0
+  %2693 = load i32, ptr %18, align 4, !tbaa !9
+  %2694 = zext i32 %2693 to i64
+  %2695 = getelementptr inbounds nuw [256 x i32], ptr %2692, i64 0, i64 %2694
+  %2696 = load i32, ptr %2695, align 4, !tbaa !9
+  %2697 = load i32, ptr %17, align 4, !tbaa !9
+  %2698 = add i32 %2697, %2696
+  store i32 %2698, ptr %17, align 4, !tbaa !9
+  %2699 = load i32, ptr %16, align 4, !tbaa !9
+  %2700 = load i32, ptr %17, align 4, !tbaa !9
+  %2701 = xor i32 %2700, %2699
+  store i32 %2701, ptr %17, align 4, !tbaa !9
+  %2702 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2703 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2702, i32 0, i32 1
+  %2704 = getelementptr inbounds [18 x i32], ptr %2703, i64 0, i64 11
+  %2705 = load i32, ptr %2704, align 4, !tbaa !9
+  %2706 = load i32, ptr %14, align 4, !tbaa !9
+  %2707 = xor i32 %2706, %2705
+  store i32 %2707, ptr %14, align 4, !tbaa !9
+  %2708 = load i32, ptr %15, align 4, !tbaa !9
+  %2709 = load i32, ptr %17, align 4, !tbaa !9
+  %2710 = add i32 %2709, %2708
+  store i32 %2710, ptr %17, align 4, !tbaa !9
+  %2711 = load i32, ptr %17, align 4, !tbaa !9
+  %2712 = load i32, ptr %14, align 4, !tbaa !9
+  %2713 = xor i32 %2712, %2711
+  store i32 %2713, ptr %14, align 4, !tbaa !9
+  %2714 = load i32, ptr %14, align 4, !tbaa !9
+  %2715 = and i32 %2714, 255
+  store i32 %2715, ptr %15, align 4, !tbaa !9
+  %2716 = load i32, ptr %14, align 4, !tbaa !9
+  %2717 = lshr i32 %2716, 8
+  store i32 %2717, ptr %16, align 4, !tbaa !9
+  %2718 = load i32, ptr %16, align 4, !tbaa !9
+  %2719 = and i32 %2718, 255
+  store i32 %2719, ptr %16, align 4, !tbaa !9
+  %2720 = load i32, ptr %14, align 4, !tbaa !9
+  %2721 = lshr i32 %2720, 16
+  store i32 %2721, ptr %17, align 4, !tbaa !9
+  %2722 = load i32, ptr %17, align 4, !tbaa !9
+  %2723 = and i32 %2722, 255
+  store i32 %2723, ptr %17, align 4, !tbaa !9
+  %2724 = load i32, ptr %14, align 4, !tbaa !9
+  %2725 = lshr i32 %2724, 24
+  store i32 %2725, ptr %18, align 4, !tbaa !9
+  %2726 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2727 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2726, i32 0, i32 0
+  %2728 = getelementptr inbounds [4 x [256 x i32]], ptr %2727, i64 0, i64 3
+  %2729 = load i32, ptr %15, align 4, !tbaa !9
+  %2730 = zext i32 %2729 to i64
+  %2731 = getelementptr inbounds nuw [256 x i32], ptr %2728, i64 0, i64 %2730
+  %2732 = load i32, ptr %2731, align 4, !tbaa !9
+  store i32 %2732, ptr %15, align 4, !tbaa !9
+  %2733 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2734 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2733, i32 0, i32 0
+  %2735 = getelementptr inbounds [4 x [256 x i32]], ptr %2734, i64 0, i64 2
+  %2736 = load i32, ptr %16, align 4, !tbaa !9
+  %2737 = zext i32 %2736 to i64
+  %2738 = getelementptr inbounds nuw [256 x i32], ptr %2735, i64 0, i64 %2737
+  %2739 = load i32, ptr %2738, align 4, !tbaa !9
+  store i32 %2739, ptr %16, align 4, !tbaa !9
+  %2740 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2741 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2740, i32 0, i32 0
+  %2742 = getelementptr inbounds [4 x [256 x i32]], ptr %2741, i64 0, i64 1
+  %2743 = load i32, ptr %17, align 4, !tbaa !9
+  %2744 = zext i32 %2743 to i64
+  %2745 = getelementptr inbounds nuw [256 x i32], ptr %2742, i64 0, i64 %2744
+  %2746 = load i32, ptr %2745, align 4, !tbaa !9
+  store i32 %2746, ptr %17, align 4, !tbaa !9
+  %2747 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2748 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2747, i32 0, i32 0
+  %2749 = getelementptr inbounds [4 x [256 x i32]], ptr %2748, i64 0, i64 0
+  %2750 = load i32, ptr %18, align 4, !tbaa !9
+  %2751 = zext i32 %2750 to i64
+  %2752 = getelementptr inbounds nuw [256 x i32], ptr %2749, i64 0, i64 %2751
+  %2753 = load i32, ptr %2752, align 4, !tbaa !9
+  %2754 = load i32, ptr %17, align 4, !tbaa !9
+  %2755 = add i32 %2754, %2753
+  store i32 %2755, ptr %17, align 4, !tbaa !9
+  %2756 = load i32, ptr %16, align 4, !tbaa !9
+  %2757 = load i32, ptr %17, align 4, !tbaa !9
+  %2758 = xor i32 %2757, %2756
+  store i32 %2758, ptr %17, align 4, !tbaa !9
+  %2759 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2760 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2759, i32 0, i32 1
+  %2761 = getelementptr inbounds [18 x i32], ptr %2760, i64 0, i64 12
+  %2762 = load i32, ptr %2761, align 4, !tbaa !9
+  %2763 = load i32, ptr %13, align 4, !tbaa !9
+  %2764 = xor i32 %2763, %2762
+  store i32 %2764, ptr %13, align 4, !tbaa !9
+  %2765 = load i32, ptr %15, align 4, !tbaa !9
+  %2766 = load i32, ptr %17, align 4, !tbaa !9
+  %2767 = add i32 %2766, %2765
+  store i32 %2767, ptr %17, align 4, !tbaa !9
+  %2768 = load i32, ptr %17, align 4, !tbaa !9
+  %2769 = load i32, ptr %13, align 4, !tbaa !9
+  %2770 = xor i32 %2769, %2768
+  store i32 %2770, ptr %13, align 4, !tbaa !9
+  %2771 = load i32, ptr %13, align 4, !tbaa !9
+  %2772 = and i32 %2771, 255
+  store i32 %2772, ptr %15, align 4, !tbaa !9
+  %2773 = load i32, ptr %13, align 4, !tbaa !9
+  %2774 = lshr i32 %2773, 8
+  store i32 %2774, ptr %16, align 4, !tbaa !9
+  %2775 = load i32, ptr %16, align 4, !tbaa !9
+  %2776 = and i32 %2775, 255
+  store i32 %2776, ptr %16, align 4, !tbaa !9
+  %2777 = load i32, ptr %13, align 4, !tbaa !9
+  %2778 = lshr i32 %2777, 16
+  store i32 %2778, ptr %17, align 4, !tbaa !9
+  %2779 = load i32, ptr %17, align 4, !tbaa !9
+  %2780 = and i32 %2779, 255
+  store i32 %2780, ptr %17, align 4, !tbaa !9
+  %2781 = load i32, ptr %13, align 4, !tbaa !9
+  %2782 = lshr i32 %2781, 24
+  store i32 %2782, ptr %18, align 4, !tbaa !9
+  %2783 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2784 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2783, i32 0, i32 0
+  %2785 = getelementptr inbounds [4 x [256 x i32]], ptr %2784, i64 0, i64 3
+  %2786 = load i32, ptr %15, align 4, !tbaa !9
+  %2787 = zext i32 %2786 to i64
+  %2788 = getelementptr inbounds nuw [256 x i32], ptr %2785, i64 0, i64 %2787
+  %2789 = load i32, ptr %2788, align 4, !tbaa !9
+  store i32 %2789, ptr %15, align 4, !tbaa !9
+  %2790 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2791 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2790, i32 0, i32 0
+  %2792 = getelementptr inbounds [4 x [256 x i32]], ptr %2791, i64 0, i64 2
+  %2793 = load i32, ptr %16, align 4, !tbaa !9
+  %2794 = zext i32 %2793 to i64
+  %2795 = getelementptr inbounds nuw [256 x i32], ptr %2792, i64 0, i64 %2794
+  %2796 = load i32, ptr %2795, align 4, !tbaa !9
+  store i32 %2796, ptr %16, align 4, !tbaa !9
+  %2797 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2798 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2797, i32 0, i32 0
+  %2799 = getelementptr inbounds [4 x [256 x i32]], ptr %2798, i64 0, i64 1
+  %2800 = load i32, ptr %17, align 4, !tbaa !9
+  %2801 = zext i32 %2800 to i64
+  %2802 = getelementptr inbounds nuw [256 x i32], ptr %2799, i64 0, i64 %2801
+  %2803 = load i32, ptr %2802, align 4, !tbaa !9
+  store i32 %2803, ptr %17, align 4, !tbaa !9
+  %2804 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2805 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2804, i32 0, i32 0
+  %2806 = getelementptr inbounds [4 x [256 x i32]], ptr %2805, i64 0, i64 0
+  %2807 = load i32, ptr %18, align 4, !tbaa !9
+  %2808 = zext i32 %2807 to i64
+  %2809 = getelementptr inbounds nuw [256 x i32], ptr %2806, i64 0, i64 %2808
+  %2810 = load i32, ptr %2809, align 4, !tbaa !9
+  %2811 = load i32, ptr %17, align 4, !tbaa !9
+  %2812 = add i32 %2811, %2810
+  store i32 %2812, ptr %17, align 4, !tbaa !9
+  %2813 = load i32, ptr %16, align 4, !tbaa !9
+  %2814 = load i32, ptr %17, align 4, !tbaa !9
+  %2815 = xor i32 %2814, %2813
+  store i32 %2815, ptr %17, align 4, !tbaa !9
+  %2816 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2817 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2816, i32 0, i32 1
+  %2818 = getelementptr inbounds [18 x i32], ptr %2817, i64 0, i64 13
+  %2819 = load i32, ptr %2818, align 4, !tbaa !9
+  %2820 = load i32, ptr %14, align 4, !tbaa !9
+  %2821 = xor i32 %2820, %2819
+  store i32 %2821, ptr %14, align 4, !tbaa !9
+  %2822 = load i32, ptr %15, align 4, !tbaa !9
+  %2823 = load i32, ptr %17, align 4, !tbaa !9
+  %2824 = add i32 %2823, %2822
+  store i32 %2824, ptr %17, align 4, !tbaa !9
+  %2825 = load i32, ptr %17, align 4, !tbaa !9
+  %2826 = load i32, ptr %14, align 4, !tbaa !9
+  %2827 = xor i32 %2826, %2825
+  store i32 %2827, ptr %14, align 4, !tbaa !9
+  %2828 = load i32, ptr %14, align 4, !tbaa !9
+  %2829 = and i32 %2828, 255
+  store i32 %2829, ptr %15, align 4, !tbaa !9
+  %2830 = load i32, ptr %14, align 4, !tbaa !9
+  %2831 = lshr i32 %2830, 8
+  store i32 %2831, ptr %16, align 4, !tbaa !9
+  %2832 = load i32, ptr %16, align 4, !tbaa !9
+  %2833 = and i32 %2832, 255
+  store i32 %2833, ptr %16, align 4, !tbaa !9
+  %2834 = load i32, ptr %14, align 4, !tbaa !9
+  %2835 = lshr i32 %2834, 16
+  store i32 %2835, ptr %17, align 4, !tbaa !9
+  %2836 = load i32, ptr %17, align 4, !tbaa !9
+  %2837 = and i32 %2836, 255
+  store i32 %2837, ptr %17, align 4, !tbaa !9
+  %2838 = load i32, ptr %14, align 4, !tbaa !9
+  %2839 = lshr i32 %2838, 24
+  store i32 %2839, ptr %18, align 4, !tbaa !9
+  %2840 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2841 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2840, i32 0, i32 0
+  %2842 = getelementptr inbounds [4 x [256 x i32]], ptr %2841, i64 0, i64 3
+  %2843 = load i32, ptr %15, align 4, !tbaa !9
+  %2844 = zext i32 %2843 to i64
+  %2845 = getelementptr inbounds nuw [256 x i32], ptr %2842, i64 0, i64 %2844
+  %2846 = load i32, ptr %2845, align 4, !tbaa !9
+  store i32 %2846, ptr %15, align 4, !tbaa !9
+  %2847 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2848 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2847, i32 0, i32 0
+  %2849 = getelementptr inbounds [4 x [256 x i32]], ptr %2848, i64 0, i64 2
+  %2850 = load i32, ptr %16, align 4, !tbaa !9
+  %2851 = zext i32 %2850 to i64
+  %2852 = getelementptr inbounds nuw [256 x i32], ptr %2849, i64 0, i64 %2851
+  %2853 = load i32, ptr %2852, align 4, !tbaa !9
+  store i32 %2853, ptr %16, align 4, !tbaa !9
+  %2854 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2855 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2854, i32 0, i32 0
+  %2856 = getelementptr inbounds [4 x [256 x i32]], ptr %2855, i64 0, i64 1
+  %2857 = load i32, ptr %17, align 4, !tbaa !9
+  %2858 = zext i32 %2857 to i64
+  %2859 = getelementptr inbounds nuw [256 x i32], ptr %2856, i64 0, i64 %2858
+  %2860 = load i32, ptr %2859, align 4, !tbaa !9
+  store i32 %2860, ptr %17, align 4, !tbaa !9
+  %2861 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2862 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2861, i32 0, i32 0
+  %2863 = getelementptr inbounds [4 x [256 x i32]], ptr %2862, i64 0, i64 0
+  %2864 = load i32, ptr %18, align 4, !tbaa !9
+  %2865 = zext i32 %2864 to i64
+  %2866 = getelementptr inbounds nuw [256 x i32], ptr %2863, i64 0, i64 %2865
+  %2867 = load i32, ptr %2866, align 4, !tbaa !9
+  %2868 = load i32, ptr %17, align 4, !tbaa !9
+  %2869 = add i32 %2868, %2867
+  store i32 %2869, ptr %17, align 4, !tbaa !9
+  %2870 = load i32, ptr %16, align 4, !tbaa !9
+  %2871 = load i32, ptr %17, align 4, !tbaa !9
+  %2872 = xor i32 %2871, %2870
+  store i32 %2872, ptr %17, align 4, !tbaa !9
+  %2873 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2874 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2873, i32 0, i32 1
+  %2875 = getelementptr inbounds [18 x i32], ptr %2874, i64 0, i64 14
+  %2876 = load i32, ptr %2875, align 4, !tbaa !9
+  %2877 = load i32, ptr %13, align 4, !tbaa !9
+  %2878 = xor i32 %2877, %2876
+  store i32 %2878, ptr %13, align 4, !tbaa !9
+  %2879 = load i32, ptr %15, align 4, !tbaa !9
+  %2880 = load i32, ptr %17, align 4, !tbaa !9
+  %2881 = add i32 %2880, %2879
+  store i32 %2881, ptr %17, align 4, !tbaa !9
+  %2882 = load i32, ptr %17, align 4, !tbaa !9
+  %2883 = load i32, ptr %13, align 4, !tbaa !9
+  %2884 = xor i32 %2883, %2882
+  store i32 %2884, ptr %13, align 4, !tbaa !9
+  %2885 = load i32, ptr %13, align 4, !tbaa !9
+  %2886 = and i32 %2885, 255
+  store i32 %2886, ptr %15, align 4, !tbaa !9
+  %2887 = load i32, ptr %13, align 4, !tbaa !9
+  %2888 = lshr i32 %2887, 8
+  store i32 %2888, ptr %16, align 4, !tbaa !9
+  %2889 = load i32, ptr %16, align 4, !tbaa !9
+  %2890 = and i32 %2889, 255
+  store i32 %2890, ptr %16, align 4, !tbaa !9
+  %2891 = load i32, ptr %13, align 4, !tbaa !9
+  %2892 = lshr i32 %2891, 16
+  store i32 %2892, ptr %17, align 4, !tbaa !9
+  %2893 = load i32, ptr %17, align 4, !tbaa !9
+  %2894 = and i32 %2893, 255
+  store i32 %2894, ptr %17, align 4, !tbaa !9
+  %2895 = load i32, ptr %13, align 4, !tbaa !9
+  %2896 = lshr i32 %2895, 24
+  store i32 %2896, ptr %18, align 4, !tbaa !9
+  %2897 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2898 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2897, i32 0, i32 0
+  %2899 = getelementptr inbounds [4 x [256 x i32]], ptr %2898, i64 0, i64 3
+  %2900 = load i32, ptr %15, align 4, !tbaa !9
+  %2901 = zext i32 %2900 to i64
+  %2902 = getelementptr inbounds nuw [256 x i32], ptr %2899, i64 0, i64 %2901
+  %2903 = load i32, ptr %2902, align 4, !tbaa !9
+  store i32 %2903, ptr %15, align 4, !tbaa !9
+  %2904 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2905 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2904, i32 0, i32 0
+  %2906 = getelementptr inbounds [4 x [256 x i32]], ptr %2905, i64 0, i64 2
+  %2907 = load i32, ptr %16, align 4, !tbaa !9
+  %2908 = zext i32 %2907 to i64
+  %2909 = getelementptr inbounds nuw [256 x i32], ptr %2906, i64 0, i64 %2908
+  %2910 = load i32, ptr %2909, align 4, !tbaa !9
+  store i32 %2910, ptr %16, align 4, !tbaa !9
+  %2911 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2912 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2911, i32 0, i32 0
+  %2913 = getelementptr inbounds [4 x [256 x i32]], ptr %2912, i64 0, i64 1
+  %2914 = load i32, ptr %17, align 4, !tbaa !9
+  %2915 = zext i32 %2914 to i64
+  %2916 = getelementptr inbounds nuw [256 x i32], ptr %2913, i64 0, i64 %2915
+  %2917 = load i32, ptr %2916, align 4, !tbaa !9
+  store i32 %2917, ptr %17, align 4, !tbaa !9
+  %2918 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2919 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2918, i32 0, i32 0
+  %2920 = getelementptr inbounds [4 x [256 x i32]], ptr %2919, i64 0, i64 0
+  %2921 = load i32, ptr %18, align 4, !tbaa !9
+  %2922 = zext i32 %2921 to i64
+  %2923 = getelementptr inbounds nuw [256 x i32], ptr %2920, i64 0, i64 %2922
+  %2924 = load i32, ptr %2923, align 4, !tbaa !9
+  %2925 = load i32, ptr %17, align 4, !tbaa !9
+  %2926 = add i32 %2925, %2924
+  store i32 %2926, ptr %17, align 4, !tbaa !9
+  %2927 = load i32, ptr %16, align 4, !tbaa !9
+  %2928 = load i32, ptr %17, align 4, !tbaa !9
+  %2929 = xor i32 %2928, %2927
+  store i32 %2929, ptr %17, align 4, !tbaa !9
+  %2930 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2931 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2930, i32 0, i32 1
+  %2932 = getelementptr inbounds [18 x i32], ptr %2931, i64 0, i64 15
+  %2933 = load i32, ptr %2932, align 4, !tbaa !9
+  %2934 = load i32, ptr %14, align 4, !tbaa !9
+  %2935 = xor i32 %2934, %2933
+  store i32 %2935, ptr %14, align 4, !tbaa !9
+  %2936 = load i32, ptr %15, align 4, !tbaa !9
+  %2937 = load i32, ptr %17, align 4, !tbaa !9
+  %2938 = add i32 %2937, %2936
+  store i32 %2938, ptr %17, align 4, !tbaa !9
+  %2939 = load i32, ptr %17, align 4, !tbaa !9
+  %2940 = load i32, ptr %14, align 4, !tbaa !9
+  %2941 = xor i32 %2940, %2939
+  store i32 %2941, ptr %14, align 4, !tbaa !9
+  %2942 = load i32, ptr %14, align 4, !tbaa !9
+  %2943 = and i32 %2942, 255
+  store i32 %2943, ptr %15, align 4, !tbaa !9
+  %2944 = load i32, ptr %14, align 4, !tbaa !9
+  %2945 = lshr i32 %2944, 8
+  store i32 %2945, ptr %16, align 4, !tbaa !9
+  %2946 = load i32, ptr %16, align 4, !tbaa !9
+  %2947 = and i32 %2946, 255
+  store i32 %2947, ptr %16, align 4, !tbaa !9
+  %2948 = load i32, ptr %14, align 4, !tbaa !9
+  %2949 = lshr i32 %2948, 16
+  store i32 %2949, ptr %17, align 4, !tbaa !9
+  %2950 = load i32, ptr %17, align 4, !tbaa !9
+  %2951 = and i32 %2950, 255
+  store i32 %2951, ptr %17, align 4, !tbaa !9
+  %2952 = load i32, ptr %14, align 4, !tbaa !9
+  %2953 = lshr i32 %2952, 24
+  store i32 %2953, ptr %18, align 4, !tbaa !9
+  %2954 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2955 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2954, i32 0, i32 0
+  %2956 = getelementptr inbounds [4 x [256 x i32]], ptr %2955, i64 0, i64 3
+  %2957 = load i32, ptr %15, align 4, !tbaa !9
+  %2958 = zext i32 %2957 to i64
+  %2959 = getelementptr inbounds nuw [256 x i32], ptr %2956, i64 0, i64 %2958
+  %2960 = load i32, ptr %2959, align 4, !tbaa !9
+  store i32 %2960, ptr %15, align 4, !tbaa !9
+  %2961 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2962 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2961, i32 0, i32 0
+  %2963 = getelementptr inbounds [4 x [256 x i32]], ptr %2962, i64 0, i64 2
+  %2964 = load i32, ptr %16, align 4, !tbaa !9
+  %2965 = zext i32 %2964 to i64
+  %2966 = getelementptr inbounds nuw [256 x i32], ptr %2963, i64 0, i64 %2965
+  %2967 = load i32, ptr %2966, align 4, !tbaa !9
+  store i32 %2967, ptr %16, align 4, !tbaa !9
+  %2968 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2969 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2968, i32 0, i32 0
+  %2970 = getelementptr inbounds [4 x [256 x i32]], ptr %2969, i64 0, i64 1
+  %2971 = load i32, ptr %17, align 4, !tbaa !9
+  %2972 = zext i32 %2971 to i64
+  %2973 = getelementptr inbounds nuw [256 x i32], ptr %2970, i64 0, i64 %2972
+  %2974 = load i32, ptr %2973, align 4, !tbaa !9
+  store i32 %2974, ptr %17, align 4, !tbaa !9
+  %2975 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2976 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2975, i32 0, i32 0
+  %2977 = getelementptr inbounds [4 x [256 x i32]], ptr %2976, i64 0, i64 0
+  %2978 = load i32, ptr %18, align 4, !tbaa !9
+  %2979 = zext i32 %2978 to i64
+  %2980 = getelementptr inbounds nuw [256 x i32], ptr %2977, i64 0, i64 %2979
+  %2981 = load i32, ptr %2980, align 4, !tbaa !9
+  %2982 = load i32, ptr %17, align 4, !tbaa !9
+  %2983 = add i32 %2982, %2981
+  store i32 %2983, ptr %17, align 4, !tbaa !9
+  %2984 = load i32, ptr %16, align 4, !tbaa !9
+  %2985 = load i32, ptr %17, align 4, !tbaa !9
+  %2986 = xor i32 %2985, %2984
+  store i32 %2986, ptr %17, align 4, !tbaa !9
+  %2987 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %2988 = getelementptr inbounds nuw %struct.BF_ctx, ptr %2987, i32 0, i32 1
+  %2989 = getelementptr inbounds [18 x i32], ptr %2988, i64 0, i64 16
+  %2990 = load i32, ptr %2989, align 4, !tbaa !9
+  %2991 = load i32, ptr %13, align 4, !tbaa !9
+  %2992 = xor i32 %2991, %2990
+  store i32 %2992, ptr %13, align 4, !tbaa !9
+  %2993 = load i32, ptr %15, align 4, !tbaa !9
+  %2994 = load i32, ptr %17, align 4, !tbaa !9
+  %2995 = add i32 %2994, %2993
+  store i32 %2995, ptr %17, align 4, !tbaa !9
+  %2996 = load i32, ptr %17, align 4, !tbaa !9
+  %2997 = load i32, ptr %13, align 4, !tbaa !9
+  %2998 = xor i32 %2997, %2996
+  store i32 %2998, ptr %13, align 4, !tbaa !9
+  %2999 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %2999, ptr %18, align 4, !tbaa !9
+  %3000 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %3000, ptr %14, align 4, !tbaa !9
+  %3001 = load i32, ptr %18, align 4, !tbaa !9
+  %3002 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3003 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3002, i32 0, i32 1
+  %3004 = getelementptr inbounds [18 x i32], ptr %3003, i64 0, i64 17
+  %3005 = load i32, ptr %3004, align 4, !tbaa !9
+  %3006 = xor i32 %3001, %3005
+  store i32 %3006, ptr %13, align 4, !tbaa !9
+  %3007 = load i32, ptr %13, align 4, !tbaa !9
+  %3008 = load ptr, ptr %19, align 8, !tbaa !12
+  %3009 = getelementptr inbounds i32, ptr %3008, i64 -2
+  store i32 %3007, ptr %3009, align 4, !tbaa !9
+  %3010 = load i32, ptr %14, align 4, !tbaa !9
+  %3011 = load ptr, ptr %19, align 8, !tbaa !12
+  %3012 = getelementptr inbounds i32, ptr %3011, i64 -1
+  store i32 %3010, ptr %3012, align 4, !tbaa !9
+  br label %3013
+
+3013:                                             ; preds = %1126
+  %3014 = load ptr, ptr %19, align 8, !tbaa !12
+  %3015 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3016 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3015, i32 0, i32 0
+  %3017 = getelementptr inbounds [4 x [256 x i32]], ptr %3016, i64 0, i64 3
+  %3018 = getelementptr inbounds [256 x i32], ptr %3017, i64 0, i64 255
+  %3019 = icmp ult ptr %3014, %3018
+  br i1 %3019, label %1126, label %3020
+
+3020:                                             ; preds = %3013
+  br label %3021
+
+3021:                                             ; preds = %5022, %3020
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  store i32 0, ptr %21, align 4, !tbaa !9
+  br label %3022
+
+3022:                                             ; preds = %3052, %3021
+  %3023 = load i32, ptr %21, align 4, !tbaa !9
+  %3024 = icmp slt i32 %3023, 18
+  br i1 %3024, label %3025, label %3055
+
+3025:                                             ; preds = %3022
+  %3026 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 1
+  %3027 = load i32, ptr %21, align 4, !tbaa !9
+  %3028 = sext i32 %3027 to i64
+  %3029 = getelementptr inbounds [18 x i32], ptr %3026, i64 0, i64 %3028
+  %3030 = load i32, ptr %3029, align 4, !tbaa !9
+  %3031 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3032 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3031, i32 0, i32 1
+  %3033 = load i32, ptr %21, align 4, !tbaa !9
+  %3034 = sext i32 %3033 to i64
+  %3035 = getelementptr inbounds [18 x i32], ptr %3032, i64 0, i64 %3034
+  %3036 = load i32, ptr %3035, align 4, !tbaa !9
+  %3037 = xor i32 %3036, %3030
+  store i32 %3037, ptr %3035, align 4, !tbaa !9
+  %3038 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 1
+  %3039 = load i32, ptr %21, align 4, !tbaa !9
+  %3040 = add nsw i32 %3039, 1
+  %3041 = sext i32 %3040 to i64
+  %3042 = getelementptr inbounds [18 x i32], ptr %3038, i64 0, i64 %3041
+  %3043 = load i32, ptr %3042, align 4, !tbaa !9
+  %3044 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3045 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3044, i32 0, i32 1
+  %3046 = load i32, ptr %21, align 4, !tbaa !9
+  %3047 = add nsw i32 %3046, 1
+  %3048 = sext i32 %3047 to i64
+  %3049 = getelementptr inbounds [18 x i32], ptr %3045, i64 0, i64 %3048
+  %3050 = load i32, ptr %3049, align 4, !tbaa !9
+  %3051 = xor i32 %3050, %3043
+  store i32 %3051, ptr %3049, align 4, !tbaa !9
+  br label %3052
+
+3052:                                             ; preds = %3025
+  %3053 = load i32, ptr %21, align 4, !tbaa !9
+  %3054 = add nsw i32 %3053, 2
+  store i32 %3054, ptr %21, align 4, !tbaa !9
+  br label %3022
+
+3055:                                             ; preds = %3022
+  store i32 0, ptr %23, align 4, !tbaa !9
+  br label %3056
+
+3056:                                             ; preds = %5020, %3055
+  store i32 0, ptr %14, align 4, !tbaa !9
+  store i32 0, ptr %13, align 4, !tbaa !9
+  %3057 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3058 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3057, i32 0, i32 1
+  %3059 = getelementptr inbounds [18 x i32], ptr %3058, i64 0, i64 0
+  store ptr %3059, ptr %19, align 8, !tbaa !12
+  br label %3060
+
+3060:                                             ; preds = %3995, %3056
+  %3061 = load ptr, ptr %19, align 8, !tbaa !12
+  %3062 = getelementptr inbounds i32, ptr %3061, i64 2
+  store ptr %3062, ptr %19, align 8, !tbaa !12
+  %3063 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3064 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3063, i32 0, i32 1
+  %3065 = getelementptr inbounds [18 x i32], ptr %3064, i64 0, i64 0
+  %3066 = load i32, ptr %3065, align 4, !tbaa !9
+  %3067 = load i32, ptr %13, align 4, !tbaa !9
+  %3068 = xor i32 %3067, %3066
+  store i32 %3068, ptr %13, align 4, !tbaa !9
+  %3069 = load i32, ptr %13, align 4, !tbaa !9
+  %3070 = and i32 %3069, 255
+  store i32 %3070, ptr %15, align 4, !tbaa !9
+  %3071 = load i32, ptr %13, align 4, !tbaa !9
+  %3072 = lshr i32 %3071, 8
+  store i32 %3072, ptr %16, align 4, !tbaa !9
+  %3073 = load i32, ptr %16, align 4, !tbaa !9
+  %3074 = and i32 %3073, 255
+  store i32 %3074, ptr %16, align 4, !tbaa !9
+  %3075 = load i32, ptr %13, align 4, !tbaa !9
+  %3076 = lshr i32 %3075, 16
+  store i32 %3076, ptr %17, align 4, !tbaa !9
+  %3077 = load i32, ptr %17, align 4, !tbaa !9
+  %3078 = and i32 %3077, 255
+  store i32 %3078, ptr %17, align 4, !tbaa !9
+  %3079 = load i32, ptr %13, align 4, !tbaa !9
+  %3080 = lshr i32 %3079, 24
+  store i32 %3080, ptr %18, align 4, !tbaa !9
+  %3081 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3082 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3081, i32 0, i32 0
+  %3083 = getelementptr inbounds [4 x [256 x i32]], ptr %3082, i64 0, i64 3
+  %3084 = load i32, ptr %15, align 4, !tbaa !9
+  %3085 = zext i32 %3084 to i64
+  %3086 = getelementptr inbounds nuw [256 x i32], ptr %3083, i64 0, i64 %3085
+  %3087 = load i32, ptr %3086, align 4, !tbaa !9
+  store i32 %3087, ptr %15, align 4, !tbaa !9
+  %3088 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3089 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3088, i32 0, i32 0
+  %3090 = getelementptr inbounds [4 x [256 x i32]], ptr %3089, i64 0, i64 2
+  %3091 = load i32, ptr %16, align 4, !tbaa !9
+  %3092 = zext i32 %3091 to i64
+  %3093 = getelementptr inbounds nuw [256 x i32], ptr %3090, i64 0, i64 %3092
+  %3094 = load i32, ptr %3093, align 4, !tbaa !9
+  store i32 %3094, ptr %16, align 4, !tbaa !9
+  %3095 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3096 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3095, i32 0, i32 0
+  %3097 = getelementptr inbounds [4 x [256 x i32]], ptr %3096, i64 0, i64 1
+  %3098 = load i32, ptr %17, align 4, !tbaa !9
+  %3099 = zext i32 %3098 to i64
+  %3100 = getelementptr inbounds nuw [256 x i32], ptr %3097, i64 0, i64 %3099
+  %3101 = load i32, ptr %3100, align 4, !tbaa !9
+  store i32 %3101, ptr %17, align 4, !tbaa !9
+  %3102 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3103 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3102, i32 0, i32 0
+  %3104 = getelementptr inbounds [4 x [256 x i32]], ptr %3103, i64 0, i64 0
+  %3105 = load i32, ptr %18, align 4, !tbaa !9
+  %3106 = zext i32 %3105 to i64
+  %3107 = getelementptr inbounds nuw [256 x i32], ptr %3104, i64 0, i64 %3106
+  %3108 = load i32, ptr %3107, align 4, !tbaa !9
+  %3109 = load i32, ptr %17, align 4, !tbaa !9
+  %3110 = add i32 %3109, %3108
+  store i32 %3110, ptr %17, align 4, !tbaa !9
+  %3111 = load i32, ptr %16, align 4, !tbaa !9
+  %3112 = load i32, ptr %17, align 4, !tbaa !9
+  %3113 = xor i32 %3112, %3111
+  store i32 %3113, ptr %17, align 4, !tbaa !9
+  %3114 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3115 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3114, i32 0, i32 1
+  %3116 = getelementptr inbounds [18 x i32], ptr %3115, i64 0, i64 1
+  %3117 = load i32, ptr %3116, align 4, !tbaa !9
+  %3118 = load i32, ptr %14, align 4, !tbaa !9
+  %3119 = xor i32 %3118, %3117
+  store i32 %3119, ptr %14, align 4, !tbaa !9
+  %3120 = load i32, ptr %15, align 4, !tbaa !9
+  %3121 = load i32, ptr %17, align 4, !tbaa !9
+  %3122 = add i32 %3121, %3120
+  store i32 %3122, ptr %17, align 4, !tbaa !9
+  %3123 = load i32, ptr %17, align 4, !tbaa !9
+  %3124 = load i32, ptr %14, align 4, !tbaa !9
+  %3125 = xor i32 %3124, %3123
+  store i32 %3125, ptr %14, align 4, !tbaa !9
+  %3126 = load i32, ptr %14, align 4, !tbaa !9
+  %3127 = and i32 %3126, 255
+  store i32 %3127, ptr %15, align 4, !tbaa !9
+  %3128 = load i32, ptr %14, align 4, !tbaa !9
+  %3129 = lshr i32 %3128, 8
+  store i32 %3129, ptr %16, align 4, !tbaa !9
+  %3130 = load i32, ptr %16, align 4, !tbaa !9
+  %3131 = and i32 %3130, 255
+  store i32 %3131, ptr %16, align 4, !tbaa !9
+  %3132 = load i32, ptr %14, align 4, !tbaa !9
+  %3133 = lshr i32 %3132, 16
+  store i32 %3133, ptr %17, align 4, !tbaa !9
+  %3134 = load i32, ptr %17, align 4, !tbaa !9
+  %3135 = and i32 %3134, 255
+  store i32 %3135, ptr %17, align 4, !tbaa !9
+  %3136 = load i32, ptr %14, align 4, !tbaa !9
+  %3137 = lshr i32 %3136, 24
+  store i32 %3137, ptr %18, align 4, !tbaa !9
+  %3138 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3139 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3138, i32 0, i32 0
+  %3140 = getelementptr inbounds [4 x [256 x i32]], ptr %3139, i64 0, i64 3
+  %3141 = load i32, ptr %15, align 4, !tbaa !9
+  %3142 = zext i32 %3141 to i64
+  %3143 = getelementptr inbounds nuw [256 x i32], ptr %3140, i64 0, i64 %3142
+  %3144 = load i32, ptr %3143, align 4, !tbaa !9
+  store i32 %3144, ptr %15, align 4, !tbaa !9
+  %3145 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3146 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3145, i32 0, i32 0
+  %3147 = getelementptr inbounds [4 x [256 x i32]], ptr %3146, i64 0, i64 2
+  %3148 = load i32, ptr %16, align 4, !tbaa !9
+  %3149 = zext i32 %3148 to i64
+  %3150 = getelementptr inbounds nuw [256 x i32], ptr %3147, i64 0, i64 %3149
+  %3151 = load i32, ptr %3150, align 4, !tbaa !9
+  store i32 %3151, ptr %16, align 4, !tbaa !9
+  %3152 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3153 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3152, i32 0, i32 0
+  %3154 = getelementptr inbounds [4 x [256 x i32]], ptr %3153, i64 0, i64 1
+  %3155 = load i32, ptr %17, align 4, !tbaa !9
+  %3156 = zext i32 %3155 to i64
+  %3157 = getelementptr inbounds nuw [256 x i32], ptr %3154, i64 0, i64 %3156
+  %3158 = load i32, ptr %3157, align 4, !tbaa !9
+  store i32 %3158, ptr %17, align 4, !tbaa !9
+  %3159 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3160 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3159, i32 0, i32 0
+  %3161 = getelementptr inbounds [4 x [256 x i32]], ptr %3160, i64 0, i64 0
+  %3162 = load i32, ptr %18, align 4, !tbaa !9
+  %3163 = zext i32 %3162 to i64
+  %3164 = getelementptr inbounds nuw [256 x i32], ptr %3161, i64 0, i64 %3163
+  %3165 = load i32, ptr %3164, align 4, !tbaa !9
+  %3166 = load i32, ptr %17, align 4, !tbaa !9
+  %3167 = add i32 %3166, %3165
+  store i32 %3167, ptr %17, align 4, !tbaa !9
+  %3168 = load i32, ptr %16, align 4, !tbaa !9
+  %3169 = load i32, ptr %17, align 4, !tbaa !9
+  %3170 = xor i32 %3169, %3168
+  store i32 %3170, ptr %17, align 4, !tbaa !9
+  %3171 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3172 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3171, i32 0, i32 1
+  %3173 = getelementptr inbounds [18 x i32], ptr %3172, i64 0, i64 2
+  %3174 = load i32, ptr %3173, align 4, !tbaa !9
+  %3175 = load i32, ptr %13, align 4, !tbaa !9
+  %3176 = xor i32 %3175, %3174
+  store i32 %3176, ptr %13, align 4, !tbaa !9
+  %3177 = load i32, ptr %15, align 4, !tbaa !9
+  %3178 = load i32, ptr %17, align 4, !tbaa !9
+  %3179 = add i32 %3178, %3177
+  store i32 %3179, ptr %17, align 4, !tbaa !9
+  %3180 = load i32, ptr %17, align 4, !tbaa !9
+  %3181 = load i32, ptr %13, align 4, !tbaa !9
+  %3182 = xor i32 %3181, %3180
+  store i32 %3182, ptr %13, align 4, !tbaa !9
+  %3183 = load i32, ptr %13, align 4, !tbaa !9
+  %3184 = and i32 %3183, 255
+  store i32 %3184, ptr %15, align 4, !tbaa !9
+  %3185 = load i32, ptr %13, align 4, !tbaa !9
+  %3186 = lshr i32 %3185, 8
+  store i32 %3186, ptr %16, align 4, !tbaa !9
+  %3187 = load i32, ptr %16, align 4, !tbaa !9
+  %3188 = and i32 %3187, 255
+  store i32 %3188, ptr %16, align 4, !tbaa !9
+  %3189 = load i32, ptr %13, align 4, !tbaa !9
+  %3190 = lshr i32 %3189, 16
+  store i32 %3190, ptr %17, align 4, !tbaa !9
+  %3191 = load i32, ptr %17, align 4, !tbaa !9
+  %3192 = and i32 %3191, 255
+  store i32 %3192, ptr %17, align 4, !tbaa !9
+  %3193 = load i32, ptr %13, align 4, !tbaa !9
+  %3194 = lshr i32 %3193, 24
+  store i32 %3194, ptr %18, align 4, !tbaa !9
+  %3195 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3196 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3195, i32 0, i32 0
+  %3197 = getelementptr inbounds [4 x [256 x i32]], ptr %3196, i64 0, i64 3
+  %3198 = load i32, ptr %15, align 4, !tbaa !9
+  %3199 = zext i32 %3198 to i64
+  %3200 = getelementptr inbounds nuw [256 x i32], ptr %3197, i64 0, i64 %3199
+  %3201 = load i32, ptr %3200, align 4, !tbaa !9
+  store i32 %3201, ptr %15, align 4, !tbaa !9
+  %3202 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3203 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3202, i32 0, i32 0
+  %3204 = getelementptr inbounds [4 x [256 x i32]], ptr %3203, i64 0, i64 2
+  %3205 = load i32, ptr %16, align 4, !tbaa !9
+  %3206 = zext i32 %3205 to i64
+  %3207 = getelementptr inbounds nuw [256 x i32], ptr %3204, i64 0, i64 %3206
+  %3208 = load i32, ptr %3207, align 4, !tbaa !9
+  store i32 %3208, ptr %16, align 4, !tbaa !9
+  %3209 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3210 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3209, i32 0, i32 0
+  %3211 = getelementptr inbounds [4 x [256 x i32]], ptr %3210, i64 0, i64 1
+  %3212 = load i32, ptr %17, align 4, !tbaa !9
+  %3213 = zext i32 %3212 to i64
+  %3214 = getelementptr inbounds nuw [256 x i32], ptr %3211, i64 0, i64 %3213
+  %3215 = load i32, ptr %3214, align 4, !tbaa !9
+  store i32 %3215, ptr %17, align 4, !tbaa !9
+  %3216 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3217 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3216, i32 0, i32 0
+  %3218 = getelementptr inbounds [4 x [256 x i32]], ptr %3217, i64 0, i64 0
+  %3219 = load i32, ptr %18, align 4, !tbaa !9
+  %3220 = zext i32 %3219 to i64
+  %3221 = getelementptr inbounds nuw [256 x i32], ptr %3218, i64 0, i64 %3220
+  %3222 = load i32, ptr %3221, align 4, !tbaa !9
+  %3223 = load i32, ptr %17, align 4, !tbaa !9
+  %3224 = add i32 %3223, %3222
+  store i32 %3224, ptr %17, align 4, !tbaa !9
+  %3225 = load i32, ptr %16, align 4, !tbaa !9
+  %3226 = load i32, ptr %17, align 4, !tbaa !9
+  %3227 = xor i32 %3226, %3225
+  store i32 %3227, ptr %17, align 4, !tbaa !9
+  %3228 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3229 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3228, i32 0, i32 1
+  %3230 = getelementptr inbounds [18 x i32], ptr %3229, i64 0, i64 3
+  %3231 = load i32, ptr %3230, align 4, !tbaa !9
+  %3232 = load i32, ptr %14, align 4, !tbaa !9
+  %3233 = xor i32 %3232, %3231
+  store i32 %3233, ptr %14, align 4, !tbaa !9
+  %3234 = load i32, ptr %15, align 4, !tbaa !9
+  %3235 = load i32, ptr %17, align 4, !tbaa !9
+  %3236 = add i32 %3235, %3234
+  store i32 %3236, ptr %17, align 4, !tbaa !9
+  %3237 = load i32, ptr %17, align 4, !tbaa !9
+  %3238 = load i32, ptr %14, align 4, !tbaa !9
+  %3239 = xor i32 %3238, %3237
+  store i32 %3239, ptr %14, align 4, !tbaa !9
+  %3240 = load i32, ptr %14, align 4, !tbaa !9
+  %3241 = and i32 %3240, 255
+  store i32 %3241, ptr %15, align 4, !tbaa !9
+  %3242 = load i32, ptr %14, align 4, !tbaa !9
+  %3243 = lshr i32 %3242, 8
+  store i32 %3243, ptr %16, align 4, !tbaa !9
+  %3244 = load i32, ptr %16, align 4, !tbaa !9
+  %3245 = and i32 %3244, 255
+  store i32 %3245, ptr %16, align 4, !tbaa !9
+  %3246 = load i32, ptr %14, align 4, !tbaa !9
+  %3247 = lshr i32 %3246, 16
+  store i32 %3247, ptr %17, align 4, !tbaa !9
+  %3248 = load i32, ptr %17, align 4, !tbaa !9
+  %3249 = and i32 %3248, 255
+  store i32 %3249, ptr %17, align 4, !tbaa !9
+  %3250 = load i32, ptr %14, align 4, !tbaa !9
+  %3251 = lshr i32 %3250, 24
+  store i32 %3251, ptr %18, align 4, !tbaa !9
+  %3252 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3253 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3252, i32 0, i32 0
+  %3254 = getelementptr inbounds [4 x [256 x i32]], ptr %3253, i64 0, i64 3
+  %3255 = load i32, ptr %15, align 4, !tbaa !9
+  %3256 = zext i32 %3255 to i64
+  %3257 = getelementptr inbounds nuw [256 x i32], ptr %3254, i64 0, i64 %3256
+  %3258 = load i32, ptr %3257, align 4, !tbaa !9
+  store i32 %3258, ptr %15, align 4, !tbaa !9
+  %3259 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3260 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3259, i32 0, i32 0
+  %3261 = getelementptr inbounds [4 x [256 x i32]], ptr %3260, i64 0, i64 2
+  %3262 = load i32, ptr %16, align 4, !tbaa !9
+  %3263 = zext i32 %3262 to i64
+  %3264 = getelementptr inbounds nuw [256 x i32], ptr %3261, i64 0, i64 %3263
+  %3265 = load i32, ptr %3264, align 4, !tbaa !9
+  store i32 %3265, ptr %16, align 4, !tbaa !9
+  %3266 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3267 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3266, i32 0, i32 0
+  %3268 = getelementptr inbounds [4 x [256 x i32]], ptr %3267, i64 0, i64 1
+  %3269 = load i32, ptr %17, align 4, !tbaa !9
+  %3270 = zext i32 %3269 to i64
+  %3271 = getelementptr inbounds nuw [256 x i32], ptr %3268, i64 0, i64 %3270
+  %3272 = load i32, ptr %3271, align 4, !tbaa !9
+  store i32 %3272, ptr %17, align 4, !tbaa !9
+  %3273 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3274 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3273, i32 0, i32 0
+  %3275 = getelementptr inbounds [4 x [256 x i32]], ptr %3274, i64 0, i64 0
+  %3276 = load i32, ptr %18, align 4, !tbaa !9
+  %3277 = zext i32 %3276 to i64
+  %3278 = getelementptr inbounds nuw [256 x i32], ptr %3275, i64 0, i64 %3277
+  %3279 = load i32, ptr %3278, align 4, !tbaa !9
+  %3280 = load i32, ptr %17, align 4, !tbaa !9
+  %3281 = add i32 %3280, %3279
+  store i32 %3281, ptr %17, align 4, !tbaa !9
+  %3282 = load i32, ptr %16, align 4, !tbaa !9
+  %3283 = load i32, ptr %17, align 4, !tbaa !9
+  %3284 = xor i32 %3283, %3282
+  store i32 %3284, ptr %17, align 4, !tbaa !9
+  %3285 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3286 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3285, i32 0, i32 1
+  %3287 = getelementptr inbounds [18 x i32], ptr %3286, i64 0, i64 4
+  %3288 = load i32, ptr %3287, align 4, !tbaa !9
+  %3289 = load i32, ptr %13, align 4, !tbaa !9
+  %3290 = xor i32 %3289, %3288
+  store i32 %3290, ptr %13, align 4, !tbaa !9
+  %3291 = load i32, ptr %15, align 4, !tbaa !9
+  %3292 = load i32, ptr %17, align 4, !tbaa !9
+  %3293 = add i32 %3292, %3291
+  store i32 %3293, ptr %17, align 4, !tbaa !9
+  %3294 = load i32, ptr %17, align 4, !tbaa !9
+  %3295 = load i32, ptr %13, align 4, !tbaa !9
+  %3296 = xor i32 %3295, %3294
+  store i32 %3296, ptr %13, align 4, !tbaa !9
+  %3297 = load i32, ptr %13, align 4, !tbaa !9
+  %3298 = and i32 %3297, 255
+  store i32 %3298, ptr %15, align 4, !tbaa !9
+  %3299 = load i32, ptr %13, align 4, !tbaa !9
+  %3300 = lshr i32 %3299, 8
+  store i32 %3300, ptr %16, align 4, !tbaa !9
+  %3301 = load i32, ptr %16, align 4, !tbaa !9
+  %3302 = and i32 %3301, 255
+  store i32 %3302, ptr %16, align 4, !tbaa !9
+  %3303 = load i32, ptr %13, align 4, !tbaa !9
+  %3304 = lshr i32 %3303, 16
+  store i32 %3304, ptr %17, align 4, !tbaa !9
+  %3305 = load i32, ptr %17, align 4, !tbaa !9
+  %3306 = and i32 %3305, 255
+  store i32 %3306, ptr %17, align 4, !tbaa !9
+  %3307 = load i32, ptr %13, align 4, !tbaa !9
+  %3308 = lshr i32 %3307, 24
+  store i32 %3308, ptr %18, align 4, !tbaa !9
+  %3309 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3310 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3309, i32 0, i32 0
+  %3311 = getelementptr inbounds [4 x [256 x i32]], ptr %3310, i64 0, i64 3
+  %3312 = load i32, ptr %15, align 4, !tbaa !9
+  %3313 = zext i32 %3312 to i64
+  %3314 = getelementptr inbounds nuw [256 x i32], ptr %3311, i64 0, i64 %3313
+  %3315 = load i32, ptr %3314, align 4, !tbaa !9
+  store i32 %3315, ptr %15, align 4, !tbaa !9
+  %3316 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3317 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3316, i32 0, i32 0
+  %3318 = getelementptr inbounds [4 x [256 x i32]], ptr %3317, i64 0, i64 2
+  %3319 = load i32, ptr %16, align 4, !tbaa !9
+  %3320 = zext i32 %3319 to i64
+  %3321 = getelementptr inbounds nuw [256 x i32], ptr %3318, i64 0, i64 %3320
+  %3322 = load i32, ptr %3321, align 4, !tbaa !9
+  store i32 %3322, ptr %16, align 4, !tbaa !9
+  %3323 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3324 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3323, i32 0, i32 0
+  %3325 = getelementptr inbounds [4 x [256 x i32]], ptr %3324, i64 0, i64 1
+  %3326 = load i32, ptr %17, align 4, !tbaa !9
+  %3327 = zext i32 %3326 to i64
+  %3328 = getelementptr inbounds nuw [256 x i32], ptr %3325, i64 0, i64 %3327
+  %3329 = load i32, ptr %3328, align 4, !tbaa !9
+  store i32 %3329, ptr %17, align 4, !tbaa !9
+  %3330 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3331 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3330, i32 0, i32 0
+  %3332 = getelementptr inbounds [4 x [256 x i32]], ptr %3331, i64 0, i64 0
+  %3333 = load i32, ptr %18, align 4, !tbaa !9
+  %3334 = zext i32 %3333 to i64
+  %3335 = getelementptr inbounds nuw [256 x i32], ptr %3332, i64 0, i64 %3334
+  %3336 = load i32, ptr %3335, align 4, !tbaa !9
+  %3337 = load i32, ptr %17, align 4, !tbaa !9
+  %3338 = add i32 %3337, %3336
+  store i32 %3338, ptr %17, align 4, !tbaa !9
+  %3339 = load i32, ptr %16, align 4, !tbaa !9
+  %3340 = load i32, ptr %17, align 4, !tbaa !9
+  %3341 = xor i32 %3340, %3339
+  store i32 %3341, ptr %17, align 4, !tbaa !9
+  %3342 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3343 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3342, i32 0, i32 1
+  %3344 = getelementptr inbounds [18 x i32], ptr %3343, i64 0, i64 5
+  %3345 = load i32, ptr %3344, align 4, !tbaa !9
+  %3346 = load i32, ptr %14, align 4, !tbaa !9
+  %3347 = xor i32 %3346, %3345
+  store i32 %3347, ptr %14, align 4, !tbaa !9
+  %3348 = load i32, ptr %15, align 4, !tbaa !9
+  %3349 = load i32, ptr %17, align 4, !tbaa !9
+  %3350 = add i32 %3349, %3348
+  store i32 %3350, ptr %17, align 4, !tbaa !9
+  %3351 = load i32, ptr %17, align 4, !tbaa !9
+  %3352 = load i32, ptr %14, align 4, !tbaa !9
+  %3353 = xor i32 %3352, %3351
+  store i32 %3353, ptr %14, align 4, !tbaa !9
+  %3354 = load i32, ptr %14, align 4, !tbaa !9
+  %3355 = and i32 %3354, 255
+  store i32 %3355, ptr %15, align 4, !tbaa !9
+  %3356 = load i32, ptr %14, align 4, !tbaa !9
+  %3357 = lshr i32 %3356, 8
+  store i32 %3357, ptr %16, align 4, !tbaa !9
+  %3358 = load i32, ptr %16, align 4, !tbaa !9
+  %3359 = and i32 %3358, 255
+  store i32 %3359, ptr %16, align 4, !tbaa !9
+  %3360 = load i32, ptr %14, align 4, !tbaa !9
+  %3361 = lshr i32 %3360, 16
+  store i32 %3361, ptr %17, align 4, !tbaa !9
+  %3362 = load i32, ptr %17, align 4, !tbaa !9
+  %3363 = and i32 %3362, 255
+  store i32 %3363, ptr %17, align 4, !tbaa !9
+  %3364 = load i32, ptr %14, align 4, !tbaa !9
+  %3365 = lshr i32 %3364, 24
+  store i32 %3365, ptr %18, align 4, !tbaa !9
+  %3366 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3367 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3366, i32 0, i32 0
+  %3368 = getelementptr inbounds [4 x [256 x i32]], ptr %3367, i64 0, i64 3
+  %3369 = load i32, ptr %15, align 4, !tbaa !9
+  %3370 = zext i32 %3369 to i64
+  %3371 = getelementptr inbounds nuw [256 x i32], ptr %3368, i64 0, i64 %3370
+  %3372 = load i32, ptr %3371, align 4, !tbaa !9
+  store i32 %3372, ptr %15, align 4, !tbaa !9
+  %3373 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3374 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3373, i32 0, i32 0
+  %3375 = getelementptr inbounds [4 x [256 x i32]], ptr %3374, i64 0, i64 2
+  %3376 = load i32, ptr %16, align 4, !tbaa !9
+  %3377 = zext i32 %3376 to i64
+  %3378 = getelementptr inbounds nuw [256 x i32], ptr %3375, i64 0, i64 %3377
+  %3379 = load i32, ptr %3378, align 4, !tbaa !9
+  store i32 %3379, ptr %16, align 4, !tbaa !9
+  %3380 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3381 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3380, i32 0, i32 0
+  %3382 = getelementptr inbounds [4 x [256 x i32]], ptr %3381, i64 0, i64 1
+  %3383 = load i32, ptr %17, align 4, !tbaa !9
+  %3384 = zext i32 %3383 to i64
+  %3385 = getelementptr inbounds nuw [256 x i32], ptr %3382, i64 0, i64 %3384
+  %3386 = load i32, ptr %3385, align 4, !tbaa !9
+  store i32 %3386, ptr %17, align 4, !tbaa !9
+  %3387 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3388 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3387, i32 0, i32 0
+  %3389 = getelementptr inbounds [4 x [256 x i32]], ptr %3388, i64 0, i64 0
+  %3390 = load i32, ptr %18, align 4, !tbaa !9
+  %3391 = zext i32 %3390 to i64
+  %3392 = getelementptr inbounds nuw [256 x i32], ptr %3389, i64 0, i64 %3391
+  %3393 = load i32, ptr %3392, align 4, !tbaa !9
+  %3394 = load i32, ptr %17, align 4, !tbaa !9
+  %3395 = add i32 %3394, %3393
+  store i32 %3395, ptr %17, align 4, !tbaa !9
+  %3396 = load i32, ptr %16, align 4, !tbaa !9
+  %3397 = load i32, ptr %17, align 4, !tbaa !9
+  %3398 = xor i32 %3397, %3396
+  store i32 %3398, ptr %17, align 4, !tbaa !9
+  %3399 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3400 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3399, i32 0, i32 1
+  %3401 = getelementptr inbounds [18 x i32], ptr %3400, i64 0, i64 6
+  %3402 = load i32, ptr %3401, align 4, !tbaa !9
+  %3403 = load i32, ptr %13, align 4, !tbaa !9
+  %3404 = xor i32 %3403, %3402
+  store i32 %3404, ptr %13, align 4, !tbaa !9
+  %3405 = load i32, ptr %15, align 4, !tbaa !9
+  %3406 = load i32, ptr %17, align 4, !tbaa !9
+  %3407 = add i32 %3406, %3405
+  store i32 %3407, ptr %17, align 4, !tbaa !9
+  %3408 = load i32, ptr %17, align 4, !tbaa !9
+  %3409 = load i32, ptr %13, align 4, !tbaa !9
+  %3410 = xor i32 %3409, %3408
+  store i32 %3410, ptr %13, align 4, !tbaa !9
+  %3411 = load i32, ptr %13, align 4, !tbaa !9
+  %3412 = and i32 %3411, 255
+  store i32 %3412, ptr %15, align 4, !tbaa !9
+  %3413 = load i32, ptr %13, align 4, !tbaa !9
+  %3414 = lshr i32 %3413, 8
+  store i32 %3414, ptr %16, align 4, !tbaa !9
+  %3415 = load i32, ptr %16, align 4, !tbaa !9
+  %3416 = and i32 %3415, 255
+  store i32 %3416, ptr %16, align 4, !tbaa !9
+  %3417 = load i32, ptr %13, align 4, !tbaa !9
+  %3418 = lshr i32 %3417, 16
+  store i32 %3418, ptr %17, align 4, !tbaa !9
+  %3419 = load i32, ptr %17, align 4, !tbaa !9
+  %3420 = and i32 %3419, 255
+  store i32 %3420, ptr %17, align 4, !tbaa !9
+  %3421 = load i32, ptr %13, align 4, !tbaa !9
+  %3422 = lshr i32 %3421, 24
+  store i32 %3422, ptr %18, align 4, !tbaa !9
+  %3423 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3424 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3423, i32 0, i32 0
+  %3425 = getelementptr inbounds [4 x [256 x i32]], ptr %3424, i64 0, i64 3
+  %3426 = load i32, ptr %15, align 4, !tbaa !9
+  %3427 = zext i32 %3426 to i64
+  %3428 = getelementptr inbounds nuw [256 x i32], ptr %3425, i64 0, i64 %3427
+  %3429 = load i32, ptr %3428, align 4, !tbaa !9
+  store i32 %3429, ptr %15, align 4, !tbaa !9
+  %3430 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3431 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3430, i32 0, i32 0
+  %3432 = getelementptr inbounds [4 x [256 x i32]], ptr %3431, i64 0, i64 2
+  %3433 = load i32, ptr %16, align 4, !tbaa !9
+  %3434 = zext i32 %3433 to i64
+  %3435 = getelementptr inbounds nuw [256 x i32], ptr %3432, i64 0, i64 %3434
+  %3436 = load i32, ptr %3435, align 4, !tbaa !9
+  store i32 %3436, ptr %16, align 4, !tbaa !9
+  %3437 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3438 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3437, i32 0, i32 0
+  %3439 = getelementptr inbounds [4 x [256 x i32]], ptr %3438, i64 0, i64 1
+  %3440 = load i32, ptr %17, align 4, !tbaa !9
+  %3441 = zext i32 %3440 to i64
+  %3442 = getelementptr inbounds nuw [256 x i32], ptr %3439, i64 0, i64 %3441
+  %3443 = load i32, ptr %3442, align 4, !tbaa !9
+  store i32 %3443, ptr %17, align 4, !tbaa !9
+  %3444 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3445 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3444, i32 0, i32 0
+  %3446 = getelementptr inbounds [4 x [256 x i32]], ptr %3445, i64 0, i64 0
+  %3447 = load i32, ptr %18, align 4, !tbaa !9
+  %3448 = zext i32 %3447 to i64
+  %3449 = getelementptr inbounds nuw [256 x i32], ptr %3446, i64 0, i64 %3448
+  %3450 = load i32, ptr %3449, align 4, !tbaa !9
+  %3451 = load i32, ptr %17, align 4, !tbaa !9
+  %3452 = add i32 %3451, %3450
+  store i32 %3452, ptr %17, align 4, !tbaa !9
+  %3453 = load i32, ptr %16, align 4, !tbaa !9
+  %3454 = load i32, ptr %17, align 4, !tbaa !9
+  %3455 = xor i32 %3454, %3453
+  store i32 %3455, ptr %17, align 4, !tbaa !9
+  %3456 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3457 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3456, i32 0, i32 1
+  %3458 = getelementptr inbounds [18 x i32], ptr %3457, i64 0, i64 7
+  %3459 = load i32, ptr %3458, align 4, !tbaa !9
+  %3460 = load i32, ptr %14, align 4, !tbaa !9
+  %3461 = xor i32 %3460, %3459
+  store i32 %3461, ptr %14, align 4, !tbaa !9
+  %3462 = load i32, ptr %15, align 4, !tbaa !9
+  %3463 = load i32, ptr %17, align 4, !tbaa !9
+  %3464 = add i32 %3463, %3462
+  store i32 %3464, ptr %17, align 4, !tbaa !9
+  %3465 = load i32, ptr %17, align 4, !tbaa !9
+  %3466 = load i32, ptr %14, align 4, !tbaa !9
+  %3467 = xor i32 %3466, %3465
+  store i32 %3467, ptr %14, align 4, !tbaa !9
+  %3468 = load i32, ptr %14, align 4, !tbaa !9
+  %3469 = and i32 %3468, 255
+  store i32 %3469, ptr %15, align 4, !tbaa !9
+  %3470 = load i32, ptr %14, align 4, !tbaa !9
+  %3471 = lshr i32 %3470, 8
+  store i32 %3471, ptr %16, align 4, !tbaa !9
+  %3472 = load i32, ptr %16, align 4, !tbaa !9
+  %3473 = and i32 %3472, 255
+  store i32 %3473, ptr %16, align 4, !tbaa !9
+  %3474 = load i32, ptr %14, align 4, !tbaa !9
+  %3475 = lshr i32 %3474, 16
+  store i32 %3475, ptr %17, align 4, !tbaa !9
+  %3476 = load i32, ptr %17, align 4, !tbaa !9
+  %3477 = and i32 %3476, 255
+  store i32 %3477, ptr %17, align 4, !tbaa !9
+  %3478 = load i32, ptr %14, align 4, !tbaa !9
+  %3479 = lshr i32 %3478, 24
+  store i32 %3479, ptr %18, align 4, !tbaa !9
+  %3480 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3481 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3480, i32 0, i32 0
+  %3482 = getelementptr inbounds [4 x [256 x i32]], ptr %3481, i64 0, i64 3
+  %3483 = load i32, ptr %15, align 4, !tbaa !9
+  %3484 = zext i32 %3483 to i64
+  %3485 = getelementptr inbounds nuw [256 x i32], ptr %3482, i64 0, i64 %3484
+  %3486 = load i32, ptr %3485, align 4, !tbaa !9
+  store i32 %3486, ptr %15, align 4, !tbaa !9
+  %3487 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3488 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3487, i32 0, i32 0
+  %3489 = getelementptr inbounds [4 x [256 x i32]], ptr %3488, i64 0, i64 2
+  %3490 = load i32, ptr %16, align 4, !tbaa !9
+  %3491 = zext i32 %3490 to i64
+  %3492 = getelementptr inbounds nuw [256 x i32], ptr %3489, i64 0, i64 %3491
+  %3493 = load i32, ptr %3492, align 4, !tbaa !9
+  store i32 %3493, ptr %16, align 4, !tbaa !9
+  %3494 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3495 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3494, i32 0, i32 0
+  %3496 = getelementptr inbounds [4 x [256 x i32]], ptr %3495, i64 0, i64 1
+  %3497 = load i32, ptr %17, align 4, !tbaa !9
+  %3498 = zext i32 %3497 to i64
+  %3499 = getelementptr inbounds nuw [256 x i32], ptr %3496, i64 0, i64 %3498
+  %3500 = load i32, ptr %3499, align 4, !tbaa !9
+  store i32 %3500, ptr %17, align 4, !tbaa !9
+  %3501 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3502 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3501, i32 0, i32 0
+  %3503 = getelementptr inbounds [4 x [256 x i32]], ptr %3502, i64 0, i64 0
+  %3504 = load i32, ptr %18, align 4, !tbaa !9
+  %3505 = zext i32 %3504 to i64
+  %3506 = getelementptr inbounds nuw [256 x i32], ptr %3503, i64 0, i64 %3505
+  %3507 = load i32, ptr %3506, align 4, !tbaa !9
+  %3508 = load i32, ptr %17, align 4, !tbaa !9
+  %3509 = add i32 %3508, %3507
+  store i32 %3509, ptr %17, align 4, !tbaa !9
+  %3510 = load i32, ptr %16, align 4, !tbaa !9
+  %3511 = load i32, ptr %17, align 4, !tbaa !9
+  %3512 = xor i32 %3511, %3510
+  store i32 %3512, ptr %17, align 4, !tbaa !9
+  %3513 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3514 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3513, i32 0, i32 1
+  %3515 = getelementptr inbounds [18 x i32], ptr %3514, i64 0, i64 8
+  %3516 = load i32, ptr %3515, align 4, !tbaa !9
+  %3517 = load i32, ptr %13, align 4, !tbaa !9
+  %3518 = xor i32 %3517, %3516
+  store i32 %3518, ptr %13, align 4, !tbaa !9
+  %3519 = load i32, ptr %15, align 4, !tbaa !9
+  %3520 = load i32, ptr %17, align 4, !tbaa !9
+  %3521 = add i32 %3520, %3519
+  store i32 %3521, ptr %17, align 4, !tbaa !9
+  %3522 = load i32, ptr %17, align 4, !tbaa !9
+  %3523 = load i32, ptr %13, align 4, !tbaa !9
+  %3524 = xor i32 %3523, %3522
+  store i32 %3524, ptr %13, align 4, !tbaa !9
+  %3525 = load i32, ptr %13, align 4, !tbaa !9
+  %3526 = and i32 %3525, 255
+  store i32 %3526, ptr %15, align 4, !tbaa !9
+  %3527 = load i32, ptr %13, align 4, !tbaa !9
+  %3528 = lshr i32 %3527, 8
+  store i32 %3528, ptr %16, align 4, !tbaa !9
+  %3529 = load i32, ptr %16, align 4, !tbaa !9
+  %3530 = and i32 %3529, 255
+  store i32 %3530, ptr %16, align 4, !tbaa !9
+  %3531 = load i32, ptr %13, align 4, !tbaa !9
+  %3532 = lshr i32 %3531, 16
+  store i32 %3532, ptr %17, align 4, !tbaa !9
+  %3533 = load i32, ptr %17, align 4, !tbaa !9
+  %3534 = and i32 %3533, 255
+  store i32 %3534, ptr %17, align 4, !tbaa !9
+  %3535 = load i32, ptr %13, align 4, !tbaa !9
+  %3536 = lshr i32 %3535, 24
+  store i32 %3536, ptr %18, align 4, !tbaa !9
+  %3537 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3538 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3537, i32 0, i32 0
+  %3539 = getelementptr inbounds [4 x [256 x i32]], ptr %3538, i64 0, i64 3
+  %3540 = load i32, ptr %15, align 4, !tbaa !9
+  %3541 = zext i32 %3540 to i64
+  %3542 = getelementptr inbounds nuw [256 x i32], ptr %3539, i64 0, i64 %3541
+  %3543 = load i32, ptr %3542, align 4, !tbaa !9
+  store i32 %3543, ptr %15, align 4, !tbaa !9
+  %3544 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3545 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3544, i32 0, i32 0
+  %3546 = getelementptr inbounds [4 x [256 x i32]], ptr %3545, i64 0, i64 2
+  %3547 = load i32, ptr %16, align 4, !tbaa !9
+  %3548 = zext i32 %3547 to i64
+  %3549 = getelementptr inbounds nuw [256 x i32], ptr %3546, i64 0, i64 %3548
+  %3550 = load i32, ptr %3549, align 4, !tbaa !9
+  store i32 %3550, ptr %16, align 4, !tbaa !9
+  %3551 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3552 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3551, i32 0, i32 0
+  %3553 = getelementptr inbounds [4 x [256 x i32]], ptr %3552, i64 0, i64 1
+  %3554 = load i32, ptr %17, align 4, !tbaa !9
+  %3555 = zext i32 %3554 to i64
+  %3556 = getelementptr inbounds nuw [256 x i32], ptr %3553, i64 0, i64 %3555
+  %3557 = load i32, ptr %3556, align 4, !tbaa !9
+  store i32 %3557, ptr %17, align 4, !tbaa !9
+  %3558 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3559 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3558, i32 0, i32 0
+  %3560 = getelementptr inbounds [4 x [256 x i32]], ptr %3559, i64 0, i64 0
+  %3561 = load i32, ptr %18, align 4, !tbaa !9
+  %3562 = zext i32 %3561 to i64
+  %3563 = getelementptr inbounds nuw [256 x i32], ptr %3560, i64 0, i64 %3562
+  %3564 = load i32, ptr %3563, align 4, !tbaa !9
+  %3565 = load i32, ptr %17, align 4, !tbaa !9
+  %3566 = add i32 %3565, %3564
+  store i32 %3566, ptr %17, align 4, !tbaa !9
+  %3567 = load i32, ptr %16, align 4, !tbaa !9
+  %3568 = load i32, ptr %17, align 4, !tbaa !9
+  %3569 = xor i32 %3568, %3567
+  store i32 %3569, ptr %17, align 4, !tbaa !9
+  %3570 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3571 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3570, i32 0, i32 1
+  %3572 = getelementptr inbounds [18 x i32], ptr %3571, i64 0, i64 9
+  %3573 = load i32, ptr %3572, align 4, !tbaa !9
+  %3574 = load i32, ptr %14, align 4, !tbaa !9
+  %3575 = xor i32 %3574, %3573
+  store i32 %3575, ptr %14, align 4, !tbaa !9
+  %3576 = load i32, ptr %15, align 4, !tbaa !9
+  %3577 = load i32, ptr %17, align 4, !tbaa !9
+  %3578 = add i32 %3577, %3576
+  store i32 %3578, ptr %17, align 4, !tbaa !9
+  %3579 = load i32, ptr %17, align 4, !tbaa !9
+  %3580 = load i32, ptr %14, align 4, !tbaa !9
+  %3581 = xor i32 %3580, %3579
+  store i32 %3581, ptr %14, align 4, !tbaa !9
+  %3582 = load i32, ptr %14, align 4, !tbaa !9
+  %3583 = and i32 %3582, 255
+  store i32 %3583, ptr %15, align 4, !tbaa !9
+  %3584 = load i32, ptr %14, align 4, !tbaa !9
+  %3585 = lshr i32 %3584, 8
+  store i32 %3585, ptr %16, align 4, !tbaa !9
+  %3586 = load i32, ptr %16, align 4, !tbaa !9
+  %3587 = and i32 %3586, 255
+  store i32 %3587, ptr %16, align 4, !tbaa !9
+  %3588 = load i32, ptr %14, align 4, !tbaa !9
+  %3589 = lshr i32 %3588, 16
+  store i32 %3589, ptr %17, align 4, !tbaa !9
+  %3590 = load i32, ptr %17, align 4, !tbaa !9
+  %3591 = and i32 %3590, 255
+  store i32 %3591, ptr %17, align 4, !tbaa !9
+  %3592 = load i32, ptr %14, align 4, !tbaa !9
+  %3593 = lshr i32 %3592, 24
+  store i32 %3593, ptr %18, align 4, !tbaa !9
+  %3594 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3595 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3594, i32 0, i32 0
+  %3596 = getelementptr inbounds [4 x [256 x i32]], ptr %3595, i64 0, i64 3
+  %3597 = load i32, ptr %15, align 4, !tbaa !9
+  %3598 = zext i32 %3597 to i64
+  %3599 = getelementptr inbounds nuw [256 x i32], ptr %3596, i64 0, i64 %3598
+  %3600 = load i32, ptr %3599, align 4, !tbaa !9
+  store i32 %3600, ptr %15, align 4, !tbaa !9
+  %3601 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3602 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3601, i32 0, i32 0
+  %3603 = getelementptr inbounds [4 x [256 x i32]], ptr %3602, i64 0, i64 2
+  %3604 = load i32, ptr %16, align 4, !tbaa !9
+  %3605 = zext i32 %3604 to i64
+  %3606 = getelementptr inbounds nuw [256 x i32], ptr %3603, i64 0, i64 %3605
+  %3607 = load i32, ptr %3606, align 4, !tbaa !9
+  store i32 %3607, ptr %16, align 4, !tbaa !9
+  %3608 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3609 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3608, i32 0, i32 0
+  %3610 = getelementptr inbounds [4 x [256 x i32]], ptr %3609, i64 0, i64 1
+  %3611 = load i32, ptr %17, align 4, !tbaa !9
+  %3612 = zext i32 %3611 to i64
+  %3613 = getelementptr inbounds nuw [256 x i32], ptr %3610, i64 0, i64 %3612
+  %3614 = load i32, ptr %3613, align 4, !tbaa !9
+  store i32 %3614, ptr %17, align 4, !tbaa !9
+  %3615 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3616 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3615, i32 0, i32 0
+  %3617 = getelementptr inbounds [4 x [256 x i32]], ptr %3616, i64 0, i64 0
+  %3618 = load i32, ptr %18, align 4, !tbaa !9
+  %3619 = zext i32 %3618 to i64
+  %3620 = getelementptr inbounds nuw [256 x i32], ptr %3617, i64 0, i64 %3619
+  %3621 = load i32, ptr %3620, align 4, !tbaa !9
+  %3622 = load i32, ptr %17, align 4, !tbaa !9
+  %3623 = add i32 %3622, %3621
+  store i32 %3623, ptr %17, align 4, !tbaa !9
+  %3624 = load i32, ptr %16, align 4, !tbaa !9
+  %3625 = load i32, ptr %17, align 4, !tbaa !9
+  %3626 = xor i32 %3625, %3624
+  store i32 %3626, ptr %17, align 4, !tbaa !9
+  %3627 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3628 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3627, i32 0, i32 1
+  %3629 = getelementptr inbounds [18 x i32], ptr %3628, i64 0, i64 10
+  %3630 = load i32, ptr %3629, align 4, !tbaa !9
+  %3631 = load i32, ptr %13, align 4, !tbaa !9
+  %3632 = xor i32 %3631, %3630
+  store i32 %3632, ptr %13, align 4, !tbaa !9
+  %3633 = load i32, ptr %15, align 4, !tbaa !9
+  %3634 = load i32, ptr %17, align 4, !tbaa !9
+  %3635 = add i32 %3634, %3633
+  store i32 %3635, ptr %17, align 4, !tbaa !9
+  %3636 = load i32, ptr %17, align 4, !tbaa !9
+  %3637 = load i32, ptr %13, align 4, !tbaa !9
+  %3638 = xor i32 %3637, %3636
+  store i32 %3638, ptr %13, align 4, !tbaa !9
+  %3639 = load i32, ptr %13, align 4, !tbaa !9
+  %3640 = and i32 %3639, 255
+  store i32 %3640, ptr %15, align 4, !tbaa !9
+  %3641 = load i32, ptr %13, align 4, !tbaa !9
+  %3642 = lshr i32 %3641, 8
+  store i32 %3642, ptr %16, align 4, !tbaa !9
+  %3643 = load i32, ptr %16, align 4, !tbaa !9
+  %3644 = and i32 %3643, 255
+  store i32 %3644, ptr %16, align 4, !tbaa !9
+  %3645 = load i32, ptr %13, align 4, !tbaa !9
+  %3646 = lshr i32 %3645, 16
+  store i32 %3646, ptr %17, align 4, !tbaa !9
+  %3647 = load i32, ptr %17, align 4, !tbaa !9
+  %3648 = and i32 %3647, 255
+  store i32 %3648, ptr %17, align 4, !tbaa !9
+  %3649 = load i32, ptr %13, align 4, !tbaa !9
+  %3650 = lshr i32 %3649, 24
+  store i32 %3650, ptr %18, align 4, !tbaa !9
+  %3651 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3652 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3651, i32 0, i32 0
+  %3653 = getelementptr inbounds [4 x [256 x i32]], ptr %3652, i64 0, i64 3
+  %3654 = load i32, ptr %15, align 4, !tbaa !9
+  %3655 = zext i32 %3654 to i64
+  %3656 = getelementptr inbounds nuw [256 x i32], ptr %3653, i64 0, i64 %3655
+  %3657 = load i32, ptr %3656, align 4, !tbaa !9
+  store i32 %3657, ptr %15, align 4, !tbaa !9
+  %3658 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3659 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3658, i32 0, i32 0
+  %3660 = getelementptr inbounds [4 x [256 x i32]], ptr %3659, i64 0, i64 2
+  %3661 = load i32, ptr %16, align 4, !tbaa !9
+  %3662 = zext i32 %3661 to i64
+  %3663 = getelementptr inbounds nuw [256 x i32], ptr %3660, i64 0, i64 %3662
+  %3664 = load i32, ptr %3663, align 4, !tbaa !9
+  store i32 %3664, ptr %16, align 4, !tbaa !9
+  %3665 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3666 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3665, i32 0, i32 0
+  %3667 = getelementptr inbounds [4 x [256 x i32]], ptr %3666, i64 0, i64 1
+  %3668 = load i32, ptr %17, align 4, !tbaa !9
+  %3669 = zext i32 %3668 to i64
+  %3670 = getelementptr inbounds nuw [256 x i32], ptr %3667, i64 0, i64 %3669
+  %3671 = load i32, ptr %3670, align 4, !tbaa !9
+  store i32 %3671, ptr %17, align 4, !tbaa !9
+  %3672 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3673 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3672, i32 0, i32 0
+  %3674 = getelementptr inbounds [4 x [256 x i32]], ptr %3673, i64 0, i64 0
+  %3675 = load i32, ptr %18, align 4, !tbaa !9
+  %3676 = zext i32 %3675 to i64
+  %3677 = getelementptr inbounds nuw [256 x i32], ptr %3674, i64 0, i64 %3676
+  %3678 = load i32, ptr %3677, align 4, !tbaa !9
+  %3679 = load i32, ptr %17, align 4, !tbaa !9
+  %3680 = add i32 %3679, %3678
+  store i32 %3680, ptr %17, align 4, !tbaa !9
+  %3681 = load i32, ptr %16, align 4, !tbaa !9
+  %3682 = load i32, ptr %17, align 4, !tbaa !9
+  %3683 = xor i32 %3682, %3681
+  store i32 %3683, ptr %17, align 4, !tbaa !9
+  %3684 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3685 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3684, i32 0, i32 1
+  %3686 = getelementptr inbounds [18 x i32], ptr %3685, i64 0, i64 11
+  %3687 = load i32, ptr %3686, align 4, !tbaa !9
+  %3688 = load i32, ptr %14, align 4, !tbaa !9
+  %3689 = xor i32 %3688, %3687
+  store i32 %3689, ptr %14, align 4, !tbaa !9
+  %3690 = load i32, ptr %15, align 4, !tbaa !9
+  %3691 = load i32, ptr %17, align 4, !tbaa !9
+  %3692 = add i32 %3691, %3690
+  store i32 %3692, ptr %17, align 4, !tbaa !9
+  %3693 = load i32, ptr %17, align 4, !tbaa !9
+  %3694 = load i32, ptr %14, align 4, !tbaa !9
+  %3695 = xor i32 %3694, %3693
+  store i32 %3695, ptr %14, align 4, !tbaa !9
+  %3696 = load i32, ptr %14, align 4, !tbaa !9
+  %3697 = and i32 %3696, 255
+  store i32 %3697, ptr %15, align 4, !tbaa !9
+  %3698 = load i32, ptr %14, align 4, !tbaa !9
+  %3699 = lshr i32 %3698, 8
+  store i32 %3699, ptr %16, align 4, !tbaa !9
+  %3700 = load i32, ptr %16, align 4, !tbaa !9
+  %3701 = and i32 %3700, 255
+  store i32 %3701, ptr %16, align 4, !tbaa !9
+  %3702 = load i32, ptr %14, align 4, !tbaa !9
+  %3703 = lshr i32 %3702, 16
+  store i32 %3703, ptr %17, align 4, !tbaa !9
+  %3704 = load i32, ptr %17, align 4, !tbaa !9
+  %3705 = and i32 %3704, 255
+  store i32 %3705, ptr %17, align 4, !tbaa !9
+  %3706 = load i32, ptr %14, align 4, !tbaa !9
+  %3707 = lshr i32 %3706, 24
+  store i32 %3707, ptr %18, align 4, !tbaa !9
+  %3708 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3709 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3708, i32 0, i32 0
+  %3710 = getelementptr inbounds [4 x [256 x i32]], ptr %3709, i64 0, i64 3
+  %3711 = load i32, ptr %15, align 4, !tbaa !9
+  %3712 = zext i32 %3711 to i64
+  %3713 = getelementptr inbounds nuw [256 x i32], ptr %3710, i64 0, i64 %3712
+  %3714 = load i32, ptr %3713, align 4, !tbaa !9
+  store i32 %3714, ptr %15, align 4, !tbaa !9
+  %3715 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3716 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3715, i32 0, i32 0
+  %3717 = getelementptr inbounds [4 x [256 x i32]], ptr %3716, i64 0, i64 2
+  %3718 = load i32, ptr %16, align 4, !tbaa !9
+  %3719 = zext i32 %3718 to i64
+  %3720 = getelementptr inbounds nuw [256 x i32], ptr %3717, i64 0, i64 %3719
+  %3721 = load i32, ptr %3720, align 4, !tbaa !9
+  store i32 %3721, ptr %16, align 4, !tbaa !9
+  %3722 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3723 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3722, i32 0, i32 0
+  %3724 = getelementptr inbounds [4 x [256 x i32]], ptr %3723, i64 0, i64 1
+  %3725 = load i32, ptr %17, align 4, !tbaa !9
+  %3726 = zext i32 %3725 to i64
+  %3727 = getelementptr inbounds nuw [256 x i32], ptr %3724, i64 0, i64 %3726
+  %3728 = load i32, ptr %3727, align 4, !tbaa !9
+  store i32 %3728, ptr %17, align 4, !tbaa !9
+  %3729 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3730 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3729, i32 0, i32 0
+  %3731 = getelementptr inbounds [4 x [256 x i32]], ptr %3730, i64 0, i64 0
+  %3732 = load i32, ptr %18, align 4, !tbaa !9
+  %3733 = zext i32 %3732 to i64
+  %3734 = getelementptr inbounds nuw [256 x i32], ptr %3731, i64 0, i64 %3733
+  %3735 = load i32, ptr %3734, align 4, !tbaa !9
+  %3736 = load i32, ptr %17, align 4, !tbaa !9
+  %3737 = add i32 %3736, %3735
+  store i32 %3737, ptr %17, align 4, !tbaa !9
+  %3738 = load i32, ptr %16, align 4, !tbaa !9
+  %3739 = load i32, ptr %17, align 4, !tbaa !9
+  %3740 = xor i32 %3739, %3738
+  store i32 %3740, ptr %17, align 4, !tbaa !9
+  %3741 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3742 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3741, i32 0, i32 1
+  %3743 = getelementptr inbounds [18 x i32], ptr %3742, i64 0, i64 12
+  %3744 = load i32, ptr %3743, align 4, !tbaa !9
+  %3745 = load i32, ptr %13, align 4, !tbaa !9
+  %3746 = xor i32 %3745, %3744
+  store i32 %3746, ptr %13, align 4, !tbaa !9
+  %3747 = load i32, ptr %15, align 4, !tbaa !9
+  %3748 = load i32, ptr %17, align 4, !tbaa !9
+  %3749 = add i32 %3748, %3747
+  store i32 %3749, ptr %17, align 4, !tbaa !9
+  %3750 = load i32, ptr %17, align 4, !tbaa !9
+  %3751 = load i32, ptr %13, align 4, !tbaa !9
+  %3752 = xor i32 %3751, %3750
+  store i32 %3752, ptr %13, align 4, !tbaa !9
+  %3753 = load i32, ptr %13, align 4, !tbaa !9
+  %3754 = and i32 %3753, 255
+  store i32 %3754, ptr %15, align 4, !tbaa !9
+  %3755 = load i32, ptr %13, align 4, !tbaa !9
+  %3756 = lshr i32 %3755, 8
+  store i32 %3756, ptr %16, align 4, !tbaa !9
+  %3757 = load i32, ptr %16, align 4, !tbaa !9
+  %3758 = and i32 %3757, 255
+  store i32 %3758, ptr %16, align 4, !tbaa !9
+  %3759 = load i32, ptr %13, align 4, !tbaa !9
+  %3760 = lshr i32 %3759, 16
+  store i32 %3760, ptr %17, align 4, !tbaa !9
+  %3761 = load i32, ptr %17, align 4, !tbaa !9
+  %3762 = and i32 %3761, 255
+  store i32 %3762, ptr %17, align 4, !tbaa !9
+  %3763 = load i32, ptr %13, align 4, !tbaa !9
+  %3764 = lshr i32 %3763, 24
+  store i32 %3764, ptr %18, align 4, !tbaa !9
+  %3765 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3766 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3765, i32 0, i32 0
+  %3767 = getelementptr inbounds [4 x [256 x i32]], ptr %3766, i64 0, i64 3
+  %3768 = load i32, ptr %15, align 4, !tbaa !9
+  %3769 = zext i32 %3768 to i64
+  %3770 = getelementptr inbounds nuw [256 x i32], ptr %3767, i64 0, i64 %3769
+  %3771 = load i32, ptr %3770, align 4, !tbaa !9
+  store i32 %3771, ptr %15, align 4, !tbaa !9
+  %3772 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3773 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3772, i32 0, i32 0
+  %3774 = getelementptr inbounds [4 x [256 x i32]], ptr %3773, i64 0, i64 2
+  %3775 = load i32, ptr %16, align 4, !tbaa !9
+  %3776 = zext i32 %3775 to i64
+  %3777 = getelementptr inbounds nuw [256 x i32], ptr %3774, i64 0, i64 %3776
+  %3778 = load i32, ptr %3777, align 4, !tbaa !9
+  store i32 %3778, ptr %16, align 4, !tbaa !9
+  %3779 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3780 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3779, i32 0, i32 0
+  %3781 = getelementptr inbounds [4 x [256 x i32]], ptr %3780, i64 0, i64 1
+  %3782 = load i32, ptr %17, align 4, !tbaa !9
+  %3783 = zext i32 %3782 to i64
+  %3784 = getelementptr inbounds nuw [256 x i32], ptr %3781, i64 0, i64 %3783
+  %3785 = load i32, ptr %3784, align 4, !tbaa !9
+  store i32 %3785, ptr %17, align 4, !tbaa !9
+  %3786 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3787 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3786, i32 0, i32 0
+  %3788 = getelementptr inbounds [4 x [256 x i32]], ptr %3787, i64 0, i64 0
+  %3789 = load i32, ptr %18, align 4, !tbaa !9
+  %3790 = zext i32 %3789 to i64
+  %3791 = getelementptr inbounds nuw [256 x i32], ptr %3788, i64 0, i64 %3790
+  %3792 = load i32, ptr %3791, align 4, !tbaa !9
+  %3793 = load i32, ptr %17, align 4, !tbaa !9
+  %3794 = add i32 %3793, %3792
+  store i32 %3794, ptr %17, align 4, !tbaa !9
+  %3795 = load i32, ptr %16, align 4, !tbaa !9
+  %3796 = load i32, ptr %17, align 4, !tbaa !9
+  %3797 = xor i32 %3796, %3795
+  store i32 %3797, ptr %17, align 4, !tbaa !9
+  %3798 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3799 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3798, i32 0, i32 1
+  %3800 = getelementptr inbounds [18 x i32], ptr %3799, i64 0, i64 13
+  %3801 = load i32, ptr %3800, align 4, !tbaa !9
+  %3802 = load i32, ptr %14, align 4, !tbaa !9
+  %3803 = xor i32 %3802, %3801
+  store i32 %3803, ptr %14, align 4, !tbaa !9
+  %3804 = load i32, ptr %15, align 4, !tbaa !9
+  %3805 = load i32, ptr %17, align 4, !tbaa !9
+  %3806 = add i32 %3805, %3804
+  store i32 %3806, ptr %17, align 4, !tbaa !9
+  %3807 = load i32, ptr %17, align 4, !tbaa !9
+  %3808 = load i32, ptr %14, align 4, !tbaa !9
+  %3809 = xor i32 %3808, %3807
+  store i32 %3809, ptr %14, align 4, !tbaa !9
+  %3810 = load i32, ptr %14, align 4, !tbaa !9
+  %3811 = and i32 %3810, 255
+  store i32 %3811, ptr %15, align 4, !tbaa !9
+  %3812 = load i32, ptr %14, align 4, !tbaa !9
+  %3813 = lshr i32 %3812, 8
+  store i32 %3813, ptr %16, align 4, !tbaa !9
+  %3814 = load i32, ptr %16, align 4, !tbaa !9
+  %3815 = and i32 %3814, 255
+  store i32 %3815, ptr %16, align 4, !tbaa !9
+  %3816 = load i32, ptr %14, align 4, !tbaa !9
+  %3817 = lshr i32 %3816, 16
+  store i32 %3817, ptr %17, align 4, !tbaa !9
+  %3818 = load i32, ptr %17, align 4, !tbaa !9
+  %3819 = and i32 %3818, 255
+  store i32 %3819, ptr %17, align 4, !tbaa !9
+  %3820 = load i32, ptr %14, align 4, !tbaa !9
+  %3821 = lshr i32 %3820, 24
+  store i32 %3821, ptr %18, align 4, !tbaa !9
+  %3822 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3823 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3822, i32 0, i32 0
+  %3824 = getelementptr inbounds [4 x [256 x i32]], ptr %3823, i64 0, i64 3
+  %3825 = load i32, ptr %15, align 4, !tbaa !9
+  %3826 = zext i32 %3825 to i64
+  %3827 = getelementptr inbounds nuw [256 x i32], ptr %3824, i64 0, i64 %3826
+  %3828 = load i32, ptr %3827, align 4, !tbaa !9
+  store i32 %3828, ptr %15, align 4, !tbaa !9
+  %3829 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3830 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3829, i32 0, i32 0
+  %3831 = getelementptr inbounds [4 x [256 x i32]], ptr %3830, i64 0, i64 2
+  %3832 = load i32, ptr %16, align 4, !tbaa !9
+  %3833 = zext i32 %3832 to i64
+  %3834 = getelementptr inbounds nuw [256 x i32], ptr %3831, i64 0, i64 %3833
+  %3835 = load i32, ptr %3834, align 4, !tbaa !9
+  store i32 %3835, ptr %16, align 4, !tbaa !9
+  %3836 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3837 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3836, i32 0, i32 0
+  %3838 = getelementptr inbounds [4 x [256 x i32]], ptr %3837, i64 0, i64 1
+  %3839 = load i32, ptr %17, align 4, !tbaa !9
+  %3840 = zext i32 %3839 to i64
+  %3841 = getelementptr inbounds nuw [256 x i32], ptr %3838, i64 0, i64 %3840
+  %3842 = load i32, ptr %3841, align 4, !tbaa !9
+  store i32 %3842, ptr %17, align 4, !tbaa !9
+  %3843 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3844 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3843, i32 0, i32 0
+  %3845 = getelementptr inbounds [4 x [256 x i32]], ptr %3844, i64 0, i64 0
+  %3846 = load i32, ptr %18, align 4, !tbaa !9
+  %3847 = zext i32 %3846 to i64
+  %3848 = getelementptr inbounds nuw [256 x i32], ptr %3845, i64 0, i64 %3847
+  %3849 = load i32, ptr %3848, align 4, !tbaa !9
+  %3850 = load i32, ptr %17, align 4, !tbaa !9
+  %3851 = add i32 %3850, %3849
+  store i32 %3851, ptr %17, align 4, !tbaa !9
+  %3852 = load i32, ptr %16, align 4, !tbaa !9
+  %3853 = load i32, ptr %17, align 4, !tbaa !9
+  %3854 = xor i32 %3853, %3852
+  store i32 %3854, ptr %17, align 4, !tbaa !9
+  %3855 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3856 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3855, i32 0, i32 1
+  %3857 = getelementptr inbounds [18 x i32], ptr %3856, i64 0, i64 14
+  %3858 = load i32, ptr %3857, align 4, !tbaa !9
+  %3859 = load i32, ptr %13, align 4, !tbaa !9
+  %3860 = xor i32 %3859, %3858
+  store i32 %3860, ptr %13, align 4, !tbaa !9
+  %3861 = load i32, ptr %15, align 4, !tbaa !9
+  %3862 = load i32, ptr %17, align 4, !tbaa !9
+  %3863 = add i32 %3862, %3861
+  store i32 %3863, ptr %17, align 4, !tbaa !9
+  %3864 = load i32, ptr %17, align 4, !tbaa !9
+  %3865 = load i32, ptr %13, align 4, !tbaa !9
+  %3866 = xor i32 %3865, %3864
+  store i32 %3866, ptr %13, align 4, !tbaa !9
+  %3867 = load i32, ptr %13, align 4, !tbaa !9
+  %3868 = and i32 %3867, 255
+  store i32 %3868, ptr %15, align 4, !tbaa !9
+  %3869 = load i32, ptr %13, align 4, !tbaa !9
+  %3870 = lshr i32 %3869, 8
+  store i32 %3870, ptr %16, align 4, !tbaa !9
+  %3871 = load i32, ptr %16, align 4, !tbaa !9
+  %3872 = and i32 %3871, 255
+  store i32 %3872, ptr %16, align 4, !tbaa !9
+  %3873 = load i32, ptr %13, align 4, !tbaa !9
+  %3874 = lshr i32 %3873, 16
+  store i32 %3874, ptr %17, align 4, !tbaa !9
+  %3875 = load i32, ptr %17, align 4, !tbaa !9
+  %3876 = and i32 %3875, 255
+  store i32 %3876, ptr %17, align 4, !tbaa !9
+  %3877 = load i32, ptr %13, align 4, !tbaa !9
+  %3878 = lshr i32 %3877, 24
+  store i32 %3878, ptr %18, align 4, !tbaa !9
+  %3879 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3880 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3879, i32 0, i32 0
+  %3881 = getelementptr inbounds [4 x [256 x i32]], ptr %3880, i64 0, i64 3
+  %3882 = load i32, ptr %15, align 4, !tbaa !9
+  %3883 = zext i32 %3882 to i64
+  %3884 = getelementptr inbounds nuw [256 x i32], ptr %3881, i64 0, i64 %3883
+  %3885 = load i32, ptr %3884, align 4, !tbaa !9
+  store i32 %3885, ptr %15, align 4, !tbaa !9
+  %3886 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3887 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3886, i32 0, i32 0
+  %3888 = getelementptr inbounds [4 x [256 x i32]], ptr %3887, i64 0, i64 2
+  %3889 = load i32, ptr %16, align 4, !tbaa !9
+  %3890 = zext i32 %3889 to i64
+  %3891 = getelementptr inbounds nuw [256 x i32], ptr %3888, i64 0, i64 %3890
+  %3892 = load i32, ptr %3891, align 4, !tbaa !9
+  store i32 %3892, ptr %16, align 4, !tbaa !9
+  %3893 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3894 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3893, i32 0, i32 0
+  %3895 = getelementptr inbounds [4 x [256 x i32]], ptr %3894, i64 0, i64 1
+  %3896 = load i32, ptr %17, align 4, !tbaa !9
+  %3897 = zext i32 %3896 to i64
+  %3898 = getelementptr inbounds nuw [256 x i32], ptr %3895, i64 0, i64 %3897
+  %3899 = load i32, ptr %3898, align 4, !tbaa !9
+  store i32 %3899, ptr %17, align 4, !tbaa !9
+  %3900 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3901 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3900, i32 0, i32 0
+  %3902 = getelementptr inbounds [4 x [256 x i32]], ptr %3901, i64 0, i64 0
+  %3903 = load i32, ptr %18, align 4, !tbaa !9
+  %3904 = zext i32 %3903 to i64
+  %3905 = getelementptr inbounds nuw [256 x i32], ptr %3902, i64 0, i64 %3904
+  %3906 = load i32, ptr %3905, align 4, !tbaa !9
+  %3907 = load i32, ptr %17, align 4, !tbaa !9
+  %3908 = add i32 %3907, %3906
+  store i32 %3908, ptr %17, align 4, !tbaa !9
+  %3909 = load i32, ptr %16, align 4, !tbaa !9
+  %3910 = load i32, ptr %17, align 4, !tbaa !9
+  %3911 = xor i32 %3910, %3909
+  store i32 %3911, ptr %17, align 4, !tbaa !9
+  %3912 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3913 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3912, i32 0, i32 1
+  %3914 = getelementptr inbounds [18 x i32], ptr %3913, i64 0, i64 15
+  %3915 = load i32, ptr %3914, align 4, !tbaa !9
+  %3916 = load i32, ptr %14, align 4, !tbaa !9
+  %3917 = xor i32 %3916, %3915
+  store i32 %3917, ptr %14, align 4, !tbaa !9
+  %3918 = load i32, ptr %15, align 4, !tbaa !9
+  %3919 = load i32, ptr %17, align 4, !tbaa !9
+  %3920 = add i32 %3919, %3918
+  store i32 %3920, ptr %17, align 4, !tbaa !9
+  %3921 = load i32, ptr %17, align 4, !tbaa !9
+  %3922 = load i32, ptr %14, align 4, !tbaa !9
+  %3923 = xor i32 %3922, %3921
+  store i32 %3923, ptr %14, align 4, !tbaa !9
+  %3924 = load i32, ptr %14, align 4, !tbaa !9
+  %3925 = and i32 %3924, 255
+  store i32 %3925, ptr %15, align 4, !tbaa !9
+  %3926 = load i32, ptr %14, align 4, !tbaa !9
+  %3927 = lshr i32 %3926, 8
+  store i32 %3927, ptr %16, align 4, !tbaa !9
+  %3928 = load i32, ptr %16, align 4, !tbaa !9
+  %3929 = and i32 %3928, 255
+  store i32 %3929, ptr %16, align 4, !tbaa !9
+  %3930 = load i32, ptr %14, align 4, !tbaa !9
+  %3931 = lshr i32 %3930, 16
+  store i32 %3931, ptr %17, align 4, !tbaa !9
+  %3932 = load i32, ptr %17, align 4, !tbaa !9
+  %3933 = and i32 %3932, 255
+  store i32 %3933, ptr %17, align 4, !tbaa !9
+  %3934 = load i32, ptr %14, align 4, !tbaa !9
+  %3935 = lshr i32 %3934, 24
+  store i32 %3935, ptr %18, align 4, !tbaa !9
+  %3936 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3937 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3936, i32 0, i32 0
+  %3938 = getelementptr inbounds [4 x [256 x i32]], ptr %3937, i64 0, i64 3
+  %3939 = load i32, ptr %15, align 4, !tbaa !9
+  %3940 = zext i32 %3939 to i64
+  %3941 = getelementptr inbounds nuw [256 x i32], ptr %3938, i64 0, i64 %3940
+  %3942 = load i32, ptr %3941, align 4, !tbaa !9
+  store i32 %3942, ptr %15, align 4, !tbaa !9
+  %3943 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3944 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3943, i32 0, i32 0
+  %3945 = getelementptr inbounds [4 x [256 x i32]], ptr %3944, i64 0, i64 2
+  %3946 = load i32, ptr %16, align 4, !tbaa !9
+  %3947 = zext i32 %3946 to i64
+  %3948 = getelementptr inbounds nuw [256 x i32], ptr %3945, i64 0, i64 %3947
+  %3949 = load i32, ptr %3948, align 4, !tbaa !9
+  store i32 %3949, ptr %16, align 4, !tbaa !9
+  %3950 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3951 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3950, i32 0, i32 0
+  %3952 = getelementptr inbounds [4 x [256 x i32]], ptr %3951, i64 0, i64 1
+  %3953 = load i32, ptr %17, align 4, !tbaa !9
+  %3954 = zext i32 %3953 to i64
+  %3955 = getelementptr inbounds nuw [256 x i32], ptr %3952, i64 0, i64 %3954
+  %3956 = load i32, ptr %3955, align 4, !tbaa !9
+  store i32 %3956, ptr %17, align 4, !tbaa !9
+  %3957 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3958 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3957, i32 0, i32 0
+  %3959 = getelementptr inbounds [4 x [256 x i32]], ptr %3958, i64 0, i64 0
+  %3960 = load i32, ptr %18, align 4, !tbaa !9
+  %3961 = zext i32 %3960 to i64
+  %3962 = getelementptr inbounds nuw [256 x i32], ptr %3959, i64 0, i64 %3961
+  %3963 = load i32, ptr %3962, align 4, !tbaa !9
+  %3964 = load i32, ptr %17, align 4, !tbaa !9
+  %3965 = add i32 %3964, %3963
+  store i32 %3965, ptr %17, align 4, !tbaa !9
+  %3966 = load i32, ptr %16, align 4, !tbaa !9
+  %3967 = load i32, ptr %17, align 4, !tbaa !9
+  %3968 = xor i32 %3967, %3966
+  store i32 %3968, ptr %17, align 4, !tbaa !9
+  %3969 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3970 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3969, i32 0, i32 1
+  %3971 = getelementptr inbounds [18 x i32], ptr %3970, i64 0, i64 16
+  %3972 = load i32, ptr %3971, align 4, !tbaa !9
+  %3973 = load i32, ptr %13, align 4, !tbaa !9
+  %3974 = xor i32 %3973, %3972
+  store i32 %3974, ptr %13, align 4, !tbaa !9
+  %3975 = load i32, ptr %15, align 4, !tbaa !9
+  %3976 = load i32, ptr %17, align 4, !tbaa !9
+  %3977 = add i32 %3976, %3975
+  store i32 %3977, ptr %17, align 4, !tbaa !9
+  %3978 = load i32, ptr %17, align 4, !tbaa !9
+  %3979 = load i32, ptr %13, align 4, !tbaa !9
+  %3980 = xor i32 %3979, %3978
+  store i32 %3980, ptr %13, align 4, !tbaa !9
+  %3981 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %3981, ptr %18, align 4, !tbaa !9
+  %3982 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %3982, ptr %14, align 4, !tbaa !9
+  %3983 = load i32, ptr %18, align 4, !tbaa !9
+  %3984 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3985 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3984, i32 0, i32 1
+  %3986 = getelementptr inbounds [18 x i32], ptr %3985, i64 0, i64 17
+  %3987 = load i32, ptr %3986, align 4, !tbaa !9
+  %3988 = xor i32 %3983, %3987
+  store i32 %3988, ptr %13, align 4, !tbaa !9
+  %3989 = load i32, ptr %13, align 4, !tbaa !9
+  %3990 = load ptr, ptr %19, align 8, !tbaa !12
+  %3991 = getelementptr inbounds i32, ptr %3990, i64 -2
+  store i32 %3989, ptr %3991, align 4, !tbaa !9
+  %3992 = load i32, ptr %14, align 4, !tbaa !9
+  %3993 = load ptr, ptr %19, align 8, !tbaa !12
+  %3994 = getelementptr inbounds i32, ptr %3993, i64 -1
+  store i32 %3992, ptr %3994, align 4, !tbaa !9
+  br label %3995
+
+3995:                                             ; preds = %3060
+  %3996 = load ptr, ptr %19, align 8, !tbaa !12
+  %3997 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %3998 = getelementptr inbounds nuw %struct.BF_ctx, ptr %3997, i32 0, i32 1
+  %3999 = getelementptr inbounds [18 x i32], ptr %3998, i64 0, i64 18
+  %4000 = icmp ult ptr %3996, %3999
+  br i1 %4000, label %3060, label %4001
+
+4001:                                             ; preds = %3995
+  %4002 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4003 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4002, i32 0, i32 0
+  %4004 = getelementptr inbounds [4 x [256 x i32]], ptr %4003, i64 0, i64 0
+  %4005 = getelementptr inbounds [256 x i32], ptr %4004, i64 0, i64 0
+  store ptr %4005, ptr %19, align 8, !tbaa !12
+  br label %4006
+
+4006:                                             ; preds = %4941, %4001
+  %4007 = load ptr, ptr %19, align 8, !tbaa !12
+  %4008 = getelementptr inbounds i32, ptr %4007, i64 2
+  store ptr %4008, ptr %19, align 8, !tbaa !12
+  %4009 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4010 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4009, i32 0, i32 1
+  %4011 = getelementptr inbounds [18 x i32], ptr %4010, i64 0, i64 0
+  %4012 = load i32, ptr %4011, align 4, !tbaa !9
+  %4013 = load i32, ptr %13, align 4, !tbaa !9
+  %4014 = xor i32 %4013, %4012
+  store i32 %4014, ptr %13, align 4, !tbaa !9
+  %4015 = load i32, ptr %13, align 4, !tbaa !9
+  %4016 = and i32 %4015, 255
+  store i32 %4016, ptr %15, align 4, !tbaa !9
+  %4017 = load i32, ptr %13, align 4, !tbaa !9
+  %4018 = lshr i32 %4017, 8
+  store i32 %4018, ptr %16, align 4, !tbaa !9
+  %4019 = load i32, ptr %16, align 4, !tbaa !9
+  %4020 = and i32 %4019, 255
+  store i32 %4020, ptr %16, align 4, !tbaa !9
+  %4021 = load i32, ptr %13, align 4, !tbaa !9
+  %4022 = lshr i32 %4021, 16
+  store i32 %4022, ptr %17, align 4, !tbaa !9
+  %4023 = load i32, ptr %17, align 4, !tbaa !9
+  %4024 = and i32 %4023, 255
+  store i32 %4024, ptr %17, align 4, !tbaa !9
+  %4025 = load i32, ptr %13, align 4, !tbaa !9
+  %4026 = lshr i32 %4025, 24
+  store i32 %4026, ptr %18, align 4, !tbaa !9
+  %4027 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4028 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4027, i32 0, i32 0
+  %4029 = getelementptr inbounds [4 x [256 x i32]], ptr %4028, i64 0, i64 3
+  %4030 = load i32, ptr %15, align 4, !tbaa !9
+  %4031 = zext i32 %4030 to i64
+  %4032 = getelementptr inbounds nuw [256 x i32], ptr %4029, i64 0, i64 %4031
+  %4033 = load i32, ptr %4032, align 4, !tbaa !9
+  store i32 %4033, ptr %15, align 4, !tbaa !9
+  %4034 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4035 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4034, i32 0, i32 0
+  %4036 = getelementptr inbounds [4 x [256 x i32]], ptr %4035, i64 0, i64 2
+  %4037 = load i32, ptr %16, align 4, !tbaa !9
+  %4038 = zext i32 %4037 to i64
+  %4039 = getelementptr inbounds nuw [256 x i32], ptr %4036, i64 0, i64 %4038
+  %4040 = load i32, ptr %4039, align 4, !tbaa !9
+  store i32 %4040, ptr %16, align 4, !tbaa !9
+  %4041 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4042 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4041, i32 0, i32 0
+  %4043 = getelementptr inbounds [4 x [256 x i32]], ptr %4042, i64 0, i64 1
+  %4044 = load i32, ptr %17, align 4, !tbaa !9
+  %4045 = zext i32 %4044 to i64
+  %4046 = getelementptr inbounds nuw [256 x i32], ptr %4043, i64 0, i64 %4045
+  %4047 = load i32, ptr %4046, align 4, !tbaa !9
+  store i32 %4047, ptr %17, align 4, !tbaa !9
+  %4048 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4049 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4048, i32 0, i32 0
+  %4050 = getelementptr inbounds [4 x [256 x i32]], ptr %4049, i64 0, i64 0
+  %4051 = load i32, ptr %18, align 4, !tbaa !9
+  %4052 = zext i32 %4051 to i64
+  %4053 = getelementptr inbounds nuw [256 x i32], ptr %4050, i64 0, i64 %4052
+  %4054 = load i32, ptr %4053, align 4, !tbaa !9
+  %4055 = load i32, ptr %17, align 4, !tbaa !9
+  %4056 = add i32 %4055, %4054
+  store i32 %4056, ptr %17, align 4, !tbaa !9
+  %4057 = load i32, ptr %16, align 4, !tbaa !9
+  %4058 = load i32, ptr %17, align 4, !tbaa !9
+  %4059 = xor i32 %4058, %4057
+  store i32 %4059, ptr %17, align 4, !tbaa !9
+  %4060 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4061 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4060, i32 0, i32 1
+  %4062 = getelementptr inbounds [18 x i32], ptr %4061, i64 0, i64 1
+  %4063 = load i32, ptr %4062, align 4, !tbaa !9
+  %4064 = load i32, ptr %14, align 4, !tbaa !9
+  %4065 = xor i32 %4064, %4063
+  store i32 %4065, ptr %14, align 4, !tbaa !9
+  %4066 = load i32, ptr %15, align 4, !tbaa !9
+  %4067 = load i32, ptr %17, align 4, !tbaa !9
+  %4068 = add i32 %4067, %4066
+  store i32 %4068, ptr %17, align 4, !tbaa !9
+  %4069 = load i32, ptr %17, align 4, !tbaa !9
+  %4070 = load i32, ptr %14, align 4, !tbaa !9
+  %4071 = xor i32 %4070, %4069
+  store i32 %4071, ptr %14, align 4, !tbaa !9
+  %4072 = load i32, ptr %14, align 4, !tbaa !9
+  %4073 = and i32 %4072, 255
+  store i32 %4073, ptr %15, align 4, !tbaa !9
+  %4074 = load i32, ptr %14, align 4, !tbaa !9
+  %4075 = lshr i32 %4074, 8
+  store i32 %4075, ptr %16, align 4, !tbaa !9
+  %4076 = load i32, ptr %16, align 4, !tbaa !9
+  %4077 = and i32 %4076, 255
+  store i32 %4077, ptr %16, align 4, !tbaa !9
+  %4078 = load i32, ptr %14, align 4, !tbaa !9
+  %4079 = lshr i32 %4078, 16
+  store i32 %4079, ptr %17, align 4, !tbaa !9
+  %4080 = load i32, ptr %17, align 4, !tbaa !9
+  %4081 = and i32 %4080, 255
+  store i32 %4081, ptr %17, align 4, !tbaa !9
+  %4082 = load i32, ptr %14, align 4, !tbaa !9
+  %4083 = lshr i32 %4082, 24
+  store i32 %4083, ptr %18, align 4, !tbaa !9
+  %4084 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4085 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4084, i32 0, i32 0
+  %4086 = getelementptr inbounds [4 x [256 x i32]], ptr %4085, i64 0, i64 3
+  %4087 = load i32, ptr %15, align 4, !tbaa !9
+  %4088 = zext i32 %4087 to i64
+  %4089 = getelementptr inbounds nuw [256 x i32], ptr %4086, i64 0, i64 %4088
+  %4090 = load i32, ptr %4089, align 4, !tbaa !9
+  store i32 %4090, ptr %15, align 4, !tbaa !9
+  %4091 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4092 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4091, i32 0, i32 0
+  %4093 = getelementptr inbounds [4 x [256 x i32]], ptr %4092, i64 0, i64 2
+  %4094 = load i32, ptr %16, align 4, !tbaa !9
+  %4095 = zext i32 %4094 to i64
+  %4096 = getelementptr inbounds nuw [256 x i32], ptr %4093, i64 0, i64 %4095
+  %4097 = load i32, ptr %4096, align 4, !tbaa !9
+  store i32 %4097, ptr %16, align 4, !tbaa !9
+  %4098 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4099 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4098, i32 0, i32 0
+  %4100 = getelementptr inbounds [4 x [256 x i32]], ptr %4099, i64 0, i64 1
+  %4101 = load i32, ptr %17, align 4, !tbaa !9
+  %4102 = zext i32 %4101 to i64
+  %4103 = getelementptr inbounds nuw [256 x i32], ptr %4100, i64 0, i64 %4102
+  %4104 = load i32, ptr %4103, align 4, !tbaa !9
+  store i32 %4104, ptr %17, align 4, !tbaa !9
+  %4105 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4106 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4105, i32 0, i32 0
+  %4107 = getelementptr inbounds [4 x [256 x i32]], ptr %4106, i64 0, i64 0
+  %4108 = load i32, ptr %18, align 4, !tbaa !9
+  %4109 = zext i32 %4108 to i64
+  %4110 = getelementptr inbounds nuw [256 x i32], ptr %4107, i64 0, i64 %4109
+  %4111 = load i32, ptr %4110, align 4, !tbaa !9
+  %4112 = load i32, ptr %17, align 4, !tbaa !9
+  %4113 = add i32 %4112, %4111
+  store i32 %4113, ptr %17, align 4, !tbaa !9
+  %4114 = load i32, ptr %16, align 4, !tbaa !9
+  %4115 = load i32, ptr %17, align 4, !tbaa !9
+  %4116 = xor i32 %4115, %4114
+  store i32 %4116, ptr %17, align 4, !tbaa !9
+  %4117 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4118 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4117, i32 0, i32 1
+  %4119 = getelementptr inbounds [18 x i32], ptr %4118, i64 0, i64 2
+  %4120 = load i32, ptr %4119, align 4, !tbaa !9
+  %4121 = load i32, ptr %13, align 4, !tbaa !9
+  %4122 = xor i32 %4121, %4120
+  store i32 %4122, ptr %13, align 4, !tbaa !9
+  %4123 = load i32, ptr %15, align 4, !tbaa !9
+  %4124 = load i32, ptr %17, align 4, !tbaa !9
+  %4125 = add i32 %4124, %4123
+  store i32 %4125, ptr %17, align 4, !tbaa !9
+  %4126 = load i32, ptr %17, align 4, !tbaa !9
+  %4127 = load i32, ptr %13, align 4, !tbaa !9
+  %4128 = xor i32 %4127, %4126
+  store i32 %4128, ptr %13, align 4, !tbaa !9
+  %4129 = load i32, ptr %13, align 4, !tbaa !9
+  %4130 = and i32 %4129, 255
+  store i32 %4130, ptr %15, align 4, !tbaa !9
+  %4131 = load i32, ptr %13, align 4, !tbaa !9
+  %4132 = lshr i32 %4131, 8
+  store i32 %4132, ptr %16, align 4, !tbaa !9
+  %4133 = load i32, ptr %16, align 4, !tbaa !9
+  %4134 = and i32 %4133, 255
+  store i32 %4134, ptr %16, align 4, !tbaa !9
+  %4135 = load i32, ptr %13, align 4, !tbaa !9
+  %4136 = lshr i32 %4135, 16
+  store i32 %4136, ptr %17, align 4, !tbaa !9
+  %4137 = load i32, ptr %17, align 4, !tbaa !9
+  %4138 = and i32 %4137, 255
+  store i32 %4138, ptr %17, align 4, !tbaa !9
+  %4139 = load i32, ptr %13, align 4, !tbaa !9
+  %4140 = lshr i32 %4139, 24
+  store i32 %4140, ptr %18, align 4, !tbaa !9
+  %4141 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4142 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4141, i32 0, i32 0
+  %4143 = getelementptr inbounds [4 x [256 x i32]], ptr %4142, i64 0, i64 3
+  %4144 = load i32, ptr %15, align 4, !tbaa !9
+  %4145 = zext i32 %4144 to i64
+  %4146 = getelementptr inbounds nuw [256 x i32], ptr %4143, i64 0, i64 %4145
+  %4147 = load i32, ptr %4146, align 4, !tbaa !9
+  store i32 %4147, ptr %15, align 4, !tbaa !9
+  %4148 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4149 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4148, i32 0, i32 0
+  %4150 = getelementptr inbounds [4 x [256 x i32]], ptr %4149, i64 0, i64 2
+  %4151 = load i32, ptr %16, align 4, !tbaa !9
+  %4152 = zext i32 %4151 to i64
+  %4153 = getelementptr inbounds nuw [256 x i32], ptr %4150, i64 0, i64 %4152
+  %4154 = load i32, ptr %4153, align 4, !tbaa !9
+  store i32 %4154, ptr %16, align 4, !tbaa !9
+  %4155 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4156 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4155, i32 0, i32 0
+  %4157 = getelementptr inbounds [4 x [256 x i32]], ptr %4156, i64 0, i64 1
+  %4158 = load i32, ptr %17, align 4, !tbaa !9
+  %4159 = zext i32 %4158 to i64
+  %4160 = getelementptr inbounds nuw [256 x i32], ptr %4157, i64 0, i64 %4159
+  %4161 = load i32, ptr %4160, align 4, !tbaa !9
+  store i32 %4161, ptr %17, align 4, !tbaa !9
+  %4162 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4163 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4162, i32 0, i32 0
+  %4164 = getelementptr inbounds [4 x [256 x i32]], ptr %4163, i64 0, i64 0
+  %4165 = load i32, ptr %18, align 4, !tbaa !9
+  %4166 = zext i32 %4165 to i64
+  %4167 = getelementptr inbounds nuw [256 x i32], ptr %4164, i64 0, i64 %4166
+  %4168 = load i32, ptr %4167, align 4, !tbaa !9
+  %4169 = load i32, ptr %17, align 4, !tbaa !9
+  %4170 = add i32 %4169, %4168
+  store i32 %4170, ptr %17, align 4, !tbaa !9
+  %4171 = load i32, ptr %16, align 4, !tbaa !9
+  %4172 = load i32, ptr %17, align 4, !tbaa !9
+  %4173 = xor i32 %4172, %4171
+  store i32 %4173, ptr %17, align 4, !tbaa !9
+  %4174 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4175 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4174, i32 0, i32 1
+  %4176 = getelementptr inbounds [18 x i32], ptr %4175, i64 0, i64 3
+  %4177 = load i32, ptr %4176, align 4, !tbaa !9
+  %4178 = load i32, ptr %14, align 4, !tbaa !9
+  %4179 = xor i32 %4178, %4177
+  store i32 %4179, ptr %14, align 4, !tbaa !9
+  %4180 = load i32, ptr %15, align 4, !tbaa !9
+  %4181 = load i32, ptr %17, align 4, !tbaa !9
+  %4182 = add i32 %4181, %4180
+  store i32 %4182, ptr %17, align 4, !tbaa !9
+  %4183 = load i32, ptr %17, align 4, !tbaa !9
+  %4184 = load i32, ptr %14, align 4, !tbaa !9
+  %4185 = xor i32 %4184, %4183
+  store i32 %4185, ptr %14, align 4, !tbaa !9
+  %4186 = load i32, ptr %14, align 4, !tbaa !9
+  %4187 = and i32 %4186, 255
+  store i32 %4187, ptr %15, align 4, !tbaa !9
+  %4188 = load i32, ptr %14, align 4, !tbaa !9
+  %4189 = lshr i32 %4188, 8
+  store i32 %4189, ptr %16, align 4, !tbaa !9
+  %4190 = load i32, ptr %16, align 4, !tbaa !9
+  %4191 = and i32 %4190, 255
+  store i32 %4191, ptr %16, align 4, !tbaa !9
+  %4192 = load i32, ptr %14, align 4, !tbaa !9
+  %4193 = lshr i32 %4192, 16
+  store i32 %4193, ptr %17, align 4, !tbaa !9
+  %4194 = load i32, ptr %17, align 4, !tbaa !9
+  %4195 = and i32 %4194, 255
+  store i32 %4195, ptr %17, align 4, !tbaa !9
+  %4196 = load i32, ptr %14, align 4, !tbaa !9
+  %4197 = lshr i32 %4196, 24
+  store i32 %4197, ptr %18, align 4, !tbaa !9
+  %4198 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4199 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4198, i32 0, i32 0
+  %4200 = getelementptr inbounds [4 x [256 x i32]], ptr %4199, i64 0, i64 3
+  %4201 = load i32, ptr %15, align 4, !tbaa !9
+  %4202 = zext i32 %4201 to i64
+  %4203 = getelementptr inbounds nuw [256 x i32], ptr %4200, i64 0, i64 %4202
+  %4204 = load i32, ptr %4203, align 4, !tbaa !9
+  store i32 %4204, ptr %15, align 4, !tbaa !9
+  %4205 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4206 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4205, i32 0, i32 0
+  %4207 = getelementptr inbounds [4 x [256 x i32]], ptr %4206, i64 0, i64 2
+  %4208 = load i32, ptr %16, align 4, !tbaa !9
+  %4209 = zext i32 %4208 to i64
+  %4210 = getelementptr inbounds nuw [256 x i32], ptr %4207, i64 0, i64 %4209
+  %4211 = load i32, ptr %4210, align 4, !tbaa !9
+  store i32 %4211, ptr %16, align 4, !tbaa !9
+  %4212 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4213 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4212, i32 0, i32 0
+  %4214 = getelementptr inbounds [4 x [256 x i32]], ptr %4213, i64 0, i64 1
+  %4215 = load i32, ptr %17, align 4, !tbaa !9
+  %4216 = zext i32 %4215 to i64
+  %4217 = getelementptr inbounds nuw [256 x i32], ptr %4214, i64 0, i64 %4216
+  %4218 = load i32, ptr %4217, align 4, !tbaa !9
+  store i32 %4218, ptr %17, align 4, !tbaa !9
+  %4219 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4220 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4219, i32 0, i32 0
+  %4221 = getelementptr inbounds [4 x [256 x i32]], ptr %4220, i64 0, i64 0
+  %4222 = load i32, ptr %18, align 4, !tbaa !9
+  %4223 = zext i32 %4222 to i64
+  %4224 = getelementptr inbounds nuw [256 x i32], ptr %4221, i64 0, i64 %4223
+  %4225 = load i32, ptr %4224, align 4, !tbaa !9
+  %4226 = load i32, ptr %17, align 4, !tbaa !9
+  %4227 = add i32 %4226, %4225
+  store i32 %4227, ptr %17, align 4, !tbaa !9
+  %4228 = load i32, ptr %16, align 4, !tbaa !9
+  %4229 = load i32, ptr %17, align 4, !tbaa !9
+  %4230 = xor i32 %4229, %4228
+  store i32 %4230, ptr %17, align 4, !tbaa !9
+  %4231 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4232 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4231, i32 0, i32 1
+  %4233 = getelementptr inbounds [18 x i32], ptr %4232, i64 0, i64 4
+  %4234 = load i32, ptr %4233, align 4, !tbaa !9
+  %4235 = load i32, ptr %13, align 4, !tbaa !9
+  %4236 = xor i32 %4235, %4234
+  store i32 %4236, ptr %13, align 4, !tbaa !9
+  %4237 = load i32, ptr %15, align 4, !tbaa !9
+  %4238 = load i32, ptr %17, align 4, !tbaa !9
+  %4239 = add i32 %4238, %4237
+  store i32 %4239, ptr %17, align 4, !tbaa !9
+  %4240 = load i32, ptr %17, align 4, !tbaa !9
+  %4241 = load i32, ptr %13, align 4, !tbaa !9
+  %4242 = xor i32 %4241, %4240
+  store i32 %4242, ptr %13, align 4, !tbaa !9
+  %4243 = load i32, ptr %13, align 4, !tbaa !9
+  %4244 = and i32 %4243, 255
+  store i32 %4244, ptr %15, align 4, !tbaa !9
+  %4245 = load i32, ptr %13, align 4, !tbaa !9
+  %4246 = lshr i32 %4245, 8
+  store i32 %4246, ptr %16, align 4, !tbaa !9
+  %4247 = load i32, ptr %16, align 4, !tbaa !9
+  %4248 = and i32 %4247, 255
+  store i32 %4248, ptr %16, align 4, !tbaa !9
+  %4249 = load i32, ptr %13, align 4, !tbaa !9
+  %4250 = lshr i32 %4249, 16
+  store i32 %4250, ptr %17, align 4, !tbaa !9
+  %4251 = load i32, ptr %17, align 4, !tbaa !9
+  %4252 = and i32 %4251, 255
+  store i32 %4252, ptr %17, align 4, !tbaa !9
+  %4253 = load i32, ptr %13, align 4, !tbaa !9
+  %4254 = lshr i32 %4253, 24
+  store i32 %4254, ptr %18, align 4, !tbaa !9
+  %4255 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4256 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4255, i32 0, i32 0
+  %4257 = getelementptr inbounds [4 x [256 x i32]], ptr %4256, i64 0, i64 3
+  %4258 = load i32, ptr %15, align 4, !tbaa !9
+  %4259 = zext i32 %4258 to i64
+  %4260 = getelementptr inbounds nuw [256 x i32], ptr %4257, i64 0, i64 %4259
+  %4261 = load i32, ptr %4260, align 4, !tbaa !9
+  store i32 %4261, ptr %15, align 4, !tbaa !9
+  %4262 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4263 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4262, i32 0, i32 0
+  %4264 = getelementptr inbounds [4 x [256 x i32]], ptr %4263, i64 0, i64 2
+  %4265 = load i32, ptr %16, align 4, !tbaa !9
+  %4266 = zext i32 %4265 to i64
+  %4267 = getelementptr inbounds nuw [256 x i32], ptr %4264, i64 0, i64 %4266
+  %4268 = load i32, ptr %4267, align 4, !tbaa !9
+  store i32 %4268, ptr %16, align 4, !tbaa !9
+  %4269 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4270 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4269, i32 0, i32 0
+  %4271 = getelementptr inbounds [4 x [256 x i32]], ptr %4270, i64 0, i64 1
+  %4272 = load i32, ptr %17, align 4, !tbaa !9
+  %4273 = zext i32 %4272 to i64
+  %4274 = getelementptr inbounds nuw [256 x i32], ptr %4271, i64 0, i64 %4273
+  %4275 = load i32, ptr %4274, align 4, !tbaa !9
+  store i32 %4275, ptr %17, align 4, !tbaa !9
+  %4276 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4277 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4276, i32 0, i32 0
+  %4278 = getelementptr inbounds [4 x [256 x i32]], ptr %4277, i64 0, i64 0
+  %4279 = load i32, ptr %18, align 4, !tbaa !9
+  %4280 = zext i32 %4279 to i64
+  %4281 = getelementptr inbounds nuw [256 x i32], ptr %4278, i64 0, i64 %4280
+  %4282 = load i32, ptr %4281, align 4, !tbaa !9
+  %4283 = load i32, ptr %17, align 4, !tbaa !9
+  %4284 = add i32 %4283, %4282
+  store i32 %4284, ptr %17, align 4, !tbaa !9
+  %4285 = load i32, ptr %16, align 4, !tbaa !9
+  %4286 = load i32, ptr %17, align 4, !tbaa !9
+  %4287 = xor i32 %4286, %4285
+  store i32 %4287, ptr %17, align 4, !tbaa !9
+  %4288 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4289 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4288, i32 0, i32 1
+  %4290 = getelementptr inbounds [18 x i32], ptr %4289, i64 0, i64 5
+  %4291 = load i32, ptr %4290, align 4, !tbaa !9
+  %4292 = load i32, ptr %14, align 4, !tbaa !9
+  %4293 = xor i32 %4292, %4291
+  store i32 %4293, ptr %14, align 4, !tbaa !9
+  %4294 = load i32, ptr %15, align 4, !tbaa !9
+  %4295 = load i32, ptr %17, align 4, !tbaa !9
+  %4296 = add i32 %4295, %4294
+  store i32 %4296, ptr %17, align 4, !tbaa !9
+  %4297 = load i32, ptr %17, align 4, !tbaa !9
+  %4298 = load i32, ptr %14, align 4, !tbaa !9
+  %4299 = xor i32 %4298, %4297
+  store i32 %4299, ptr %14, align 4, !tbaa !9
+  %4300 = load i32, ptr %14, align 4, !tbaa !9
+  %4301 = and i32 %4300, 255
+  store i32 %4301, ptr %15, align 4, !tbaa !9
+  %4302 = load i32, ptr %14, align 4, !tbaa !9
+  %4303 = lshr i32 %4302, 8
+  store i32 %4303, ptr %16, align 4, !tbaa !9
+  %4304 = load i32, ptr %16, align 4, !tbaa !9
+  %4305 = and i32 %4304, 255
+  store i32 %4305, ptr %16, align 4, !tbaa !9
+  %4306 = load i32, ptr %14, align 4, !tbaa !9
+  %4307 = lshr i32 %4306, 16
+  store i32 %4307, ptr %17, align 4, !tbaa !9
+  %4308 = load i32, ptr %17, align 4, !tbaa !9
+  %4309 = and i32 %4308, 255
+  store i32 %4309, ptr %17, align 4, !tbaa !9
+  %4310 = load i32, ptr %14, align 4, !tbaa !9
+  %4311 = lshr i32 %4310, 24
+  store i32 %4311, ptr %18, align 4, !tbaa !9
+  %4312 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4313 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4312, i32 0, i32 0
+  %4314 = getelementptr inbounds [4 x [256 x i32]], ptr %4313, i64 0, i64 3
+  %4315 = load i32, ptr %15, align 4, !tbaa !9
+  %4316 = zext i32 %4315 to i64
+  %4317 = getelementptr inbounds nuw [256 x i32], ptr %4314, i64 0, i64 %4316
+  %4318 = load i32, ptr %4317, align 4, !tbaa !9
+  store i32 %4318, ptr %15, align 4, !tbaa !9
+  %4319 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4320 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4319, i32 0, i32 0
+  %4321 = getelementptr inbounds [4 x [256 x i32]], ptr %4320, i64 0, i64 2
+  %4322 = load i32, ptr %16, align 4, !tbaa !9
+  %4323 = zext i32 %4322 to i64
+  %4324 = getelementptr inbounds nuw [256 x i32], ptr %4321, i64 0, i64 %4323
+  %4325 = load i32, ptr %4324, align 4, !tbaa !9
+  store i32 %4325, ptr %16, align 4, !tbaa !9
+  %4326 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4327 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4326, i32 0, i32 0
+  %4328 = getelementptr inbounds [4 x [256 x i32]], ptr %4327, i64 0, i64 1
+  %4329 = load i32, ptr %17, align 4, !tbaa !9
+  %4330 = zext i32 %4329 to i64
+  %4331 = getelementptr inbounds nuw [256 x i32], ptr %4328, i64 0, i64 %4330
+  %4332 = load i32, ptr %4331, align 4, !tbaa !9
+  store i32 %4332, ptr %17, align 4, !tbaa !9
+  %4333 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4334 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4333, i32 0, i32 0
+  %4335 = getelementptr inbounds [4 x [256 x i32]], ptr %4334, i64 0, i64 0
+  %4336 = load i32, ptr %18, align 4, !tbaa !9
+  %4337 = zext i32 %4336 to i64
+  %4338 = getelementptr inbounds nuw [256 x i32], ptr %4335, i64 0, i64 %4337
+  %4339 = load i32, ptr %4338, align 4, !tbaa !9
+  %4340 = load i32, ptr %17, align 4, !tbaa !9
+  %4341 = add i32 %4340, %4339
+  store i32 %4341, ptr %17, align 4, !tbaa !9
+  %4342 = load i32, ptr %16, align 4, !tbaa !9
+  %4343 = load i32, ptr %17, align 4, !tbaa !9
+  %4344 = xor i32 %4343, %4342
+  store i32 %4344, ptr %17, align 4, !tbaa !9
+  %4345 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4346 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4345, i32 0, i32 1
+  %4347 = getelementptr inbounds [18 x i32], ptr %4346, i64 0, i64 6
+  %4348 = load i32, ptr %4347, align 4, !tbaa !9
+  %4349 = load i32, ptr %13, align 4, !tbaa !9
+  %4350 = xor i32 %4349, %4348
+  store i32 %4350, ptr %13, align 4, !tbaa !9
+  %4351 = load i32, ptr %15, align 4, !tbaa !9
+  %4352 = load i32, ptr %17, align 4, !tbaa !9
+  %4353 = add i32 %4352, %4351
+  store i32 %4353, ptr %17, align 4, !tbaa !9
+  %4354 = load i32, ptr %17, align 4, !tbaa !9
+  %4355 = load i32, ptr %13, align 4, !tbaa !9
+  %4356 = xor i32 %4355, %4354
+  store i32 %4356, ptr %13, align 4, !tbaa !9
+  %4357 = load i32, ptr %13, align 4, !tbaa !9
+  %4358 = and i32 %4357, 255
+  store i32 %4358, ptr %15, align 4, !tbaa !9
+  %4359 = load i32, ptr %13, align 4, !tbaa !9
+  %4360 = lshr i32 %4359, 8
+  store i32 %4360, ptr %16, align 4, !tbaa !9
+  %4361 = load i32, ptr %16, align 4, !tbaa !9
+  %4362 = and i32 %4361, 255
+  store i32 %4362, ptr %16, align 4, !tbaa !9
+  %4363 = load i32, ptr %13, align 4, !tbaa !9
+  %4364 = lshr i32 %4363, 16
+  store i32 %4364, ptr %17, align 4, !tbaa !9
+  %4365 = load i32, ptr %17, align 4, !tbaa !9
+  %4366 = and i32 %4365, 255
+  store i32 %4366, ptr %17, align 4, !tbaa !9
+  %4367 = load i32, ptr %13, align 4, !tbaa !9
+  %4368 = lshr i32 %4367, 24
+  store i32 %4368, ptr %18, align 4, !tbaa !9
+  %4369 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4370 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4369, i32 0, i32 0
+  %4371 = getelementptr inbounds [4 x [256 x i32]], ptr %4370, i64 0, i64 3
+  %4372 = load i32, ptr %15, align 4, !tbaa !9
+  %4373 = zext i32 %4372 to i64
+  %4374 = getelementptr inbounds nuw [256 x i32], ptr %4371, i64 0, i64 %4373
+  %4375 = load i32, ptr %4374, align 4, !tbaa !9
+  store i32 %4375, ptr %15, align 4, !tbaa !9
+  %4376 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4377 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4376, i32 0, i32 0
+  %4378 = getelementptr inbounds [4 x [256 x i32]], ptr %4377, i64 0, i64 2
+  %4379 = load i32, ptr %16, align 4, !tbaa !9
+  %4380 = zext i32 %4379 to i64
+  %4381 = getelementptr inbounds nuw [256 x i32], ptr %4378, i64 0, i64 %4380
+  %4382 = load i32, ptr %4381, align 4, !tbaa !9
+  store i32 %4382, ptr %16, align 4, !tbaa !9
+  %4383 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4384 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4383, i32 0, i32 0
+  %4385 = getelementptr inbounds [4 x [256 x i32]], ptr %4384, i64 0, i64 1
+  %4386 = load i32, ptr %17, align 4, !tbaa !9
+  %4387 = zext i32 %4386 to i64
+  %4388 = getelementptr inbounds nuw [256 x i32], ptr %4385, i64 0, i64 %4387
+  %4389 = load i32, ptr %4388, align 4, !tbaa !9
+  store i32 %4389, ptr %17, align 4, !tbaa !9
+  %4390 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4391 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4390, i32 0, i32 0
+  %4392 = getelementptr inbounds [4 x [256 x i32]], ptr %4391, i64 0, i64 0
+  %4393 = load i32, ptr %18, align 4, !tbaa !9
+  %4394 = zext i32 %4393 to i64
+  %4395 = getelementptr inbounds nuw [256 x i32], ptr %4392, i64 0, i64 %4394
+  %4396 = load i32, ptr %4395, align 4, !tbaa !9
+  %4397 = load i32, ptr %17, align 4, !tbaa !9
+  %4398 = add i32 %4397, %4396
+  store i32 %4398, ptr %17, align 4, !tbaa !9
+  %4399 = load i32, ptr %16, align 4, !tbaa !9
+  %4400 = load i32, ptr %17, align 4, !tbaa !9
+  %4401 = xor i32 %4400, %4399
+  store i32 %4401, ptr %17, align 4, !tbaa !9
+  %4402 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4403 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4402, i32 0, i32 1
+  %4404 = getelementptr inbounds [18 x i32], ptr %4403, i64 0, i64 7
+  %4405 = load i32, ptr %4404, align 4, !tbaa !9
+  %4406 = load i32, ptr %14, align 4, !tbaa !9
+  %4407 = xor i32 %4406, %4405
+  store i32 %4407, ptr %14, align 4, !tbaa !9
+  %4408 = load i32, ptr %15, align 4, !tbaa !9
+  %4409 = load i32, ptr %17, align 4, !tbaa !9
+  %4410 = add i32 %4409, %4408
+  store i32 %4410, ptr %17, align 4, !tbaa !9
+  %4411 = load i32, ptr %17, align 4, !tbaa !9
+  %4412 = load i32, ptr %14, align 4, !tbaa !9
+  %4413 = xor i32 %4412, %4411
+  store i32 %4413, ptr %14, align 4, !tbaa !9
+  %4414 = load i32, ptr %14, align 4, !tbaa !9
+  %4415 = and i32 %4414, 255
+  store i32 %4415, ptr %15, align 4, !tbaa !9
+  %4416 = load i32, ptr %14, align 4, !tbaa !9
+  %4417 = lshr i32 %4416, 8
+  store i32 %4417, ptr %16, align 4, !tbaa !9
+  %4418 = load i32, ptr %16, align 4, !tbaa !9
+  %4419 = and i32 %4418, 255
+  store i32 %4419, ptr %16, align 4, !tbaa !9
+  %4420 = load i32, ptr %14, align 4, !tbaa !9
+  %4421 = lshr i32 %4420, 16
+  store i32 %4421, ptr %17, align 4, !tbaa !9
+  %4422 = load i32, ptr %17, align 4, !tbaa !9
+  %4423 = and i32 %4422, 255
+  store i32 %4423, ptr %17, align 4, !tbaa !9
+  %4424 = load i32, ptr %14, align 4, !tbaa !9
+  %4425 = lshr i32 %4424, 24
+  store i32 %4425, ptr %18, align 4, !tbaa !9
+  %4426 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4427 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4426, i32 0, i32 0
+  %4428 = getelementptr inbounds [4 x [256 x i32]], ptr %4427, i64 0, i64 3
+  %4429 = load i32, ptr %15, align 4, !tbaa !9
+  %4430 = zext i32 %4429 to i64
+  %4431 = getelementptr inbounds nuw [256 x i32], ptr %4428, i64 0, i64 %4430
+  %4432 = load i32, ptr %4431, align 4, !tbaa !9
+  store i32 %4432, ptr %15, align 4, !tbaa !9
+  %4433 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4434 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4433, i32 0, i32 0
+  %4435 = getelementptr inbounds [4 x [256 x i32]], ptr %4434, i64 0, i64 2
+  %4436 = load i32, ptr %16, align 4, !tbaa !9
+  %4437 = zext i32 %4436 to i64
+  %4438 = getelementptr inbounds nuw [256 x i32], ptr %4435, i64 0, i64 %4437
+  %4439 = load i32, ptr %4438, align 4, !tbaa !9
+  store i32 %4439, ptr %16, align 4, !tbaa !9
+  %4440 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4441 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4440, i32 0, i32 0
+  %4442 = getelementptr inbounds [4 x [256 x i32]], ptr %4441, i64 0, i64 1
+  %4443 = load i32, ptr %17, align 4, !tbaa !9
+  %4444 = zext i32 %4443 to i64
+  %4445 = getelementptr inbounds nuw [256 x i32], ptr %4442, i64 0, i64 %4444
+  %4446 = load i32, ptr %4445, align 4, !tbaa !9
+  store i32 %4446, ptr %17, align 4, !tbaa !9
+  %4447 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4448 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4447, i32 0, i32 0
+  %4449 = getelementptr inbounds [4 x [256 x i32]], ptr %4448, i64 0, i64 0
+  %4450 = load i32, ptr %18, align 4, !tbaa !9
+  %4451 = zext i32 %4450 to i64
+  %4452 = getelementptr inbounds nuw [256 x i32], ptr %4449, i64 0, i64 %4451
+  %4453 = load i32, ptr %4452, align 4, !tbaa !9
+  %4454 = load i32, ptr %17, align 4, !tbaa !9
+  %4455 = add i32 %4454, %4453
+  store i32 %4455, ptr %17, align 4, !tbaa !9
+  %4456 = load i32, ptr %16, align 4, !tbaa !9
+  %4457 = load i32, ptr %17, align 4, !tbaa !9
+  %4458 = xor i32 %4457, %4456
+  store i32 %4458, ptr %17, align 4, !tbaa !9
+  %4459 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4460 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4459, i32 0, i32 1
+  %4461 = getelementptr inbounds [18 x i32], ptr %4460, i64 0, i64 8
+  %4462 = load i32, ptr %4461, align 4, !tbaa !9
+  %4463 = load i32, ptr %13, align 4, !tbaa !9
+  %4464 = xor i32 %4463, %4462
+  store i32 %4464, ptr %13, align 4, !tbaa !9
+  %4465 = load i32, ptr %15, align 4, !tbaa !9
+  %4466 = load i32, ptr %17, align 4, !tbaa !9
+  %4467 = add i32 %4466, %4465
+  store i32 %4467, ptr %17, align 4, !tbaa !9
+  %4468 = load i32, ptr %17, align 4, !tbaa !9
+  %4469 = load i32, ptr %13, align 4, !tbaa !9
+  %4470 = xor i32 %4469, %4468
+  store i32 %4470, ptr %13, align 4, !tbaa !9
+  %4471 = load i32, ptr %13, align 4, !tbaa !9
+  %4472 = and i32 %4471, 255
+  store i32 %4472, ptr %15, align 4, !tbaa !9
+  %4473 = load i32, ptr %13, align 4, !tbaa !9
+  %4474 = lshr i32 %4473, 8
+  store i32 %4474, ptr %16, align 4, !tbaa !9
+  %4475 = load i32, ptr %16, align 4, !tbaa !9
+  %4476 = and i32 %4475, 255
+  store i32 %4476, ptr %16, align 4, !tbaa !9
+  %4477 = load i32, ptr %13, align 4, !tbaa !9
+  %4478 = lshr i32 %4477, 16
+  store i32 %4478, ptr %17, align 4, !tbaa !9
+  %4479 = load i32, ptr %17, align 4, !tbaa !9
+  %4480 = and i32 %4479, 255
+  store i32 %4480, ptr %17, align 4, !tbaa !9
+  %4481 = load i32, ptr %13, align 4, !tbaa !9
+  %4482 = lshr i32 %4481, 24
+  store i32 %4482, ptr %18, align 4, !tbaa !9
+  %4483 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4484 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4483, i32 0, i32 0
+  %4485 = getelementptr inbounds [4 x [256 x i32]], ptr %4484, i64 0, i64 3
+  %4486 = load i32, ptr %15, align 4, !tbaa !9
+  %4487 = zext i32 %4486 to i64
+  %4488 = getelementptr inbounds nuw [256 x i32], ptr %4485, i64 0, i64 %4487
+  %4489 = load i32, ptr %4488, align 4, !tbaa !9
+  store i32 %4489, ptr %15, align 4, !tbaa !9
+  %4490 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4491 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4490, i32 0, i32 0
+  %4492 = getelementptr inbounds [4 x [256 x i32]], ptr %4491, i64 0, i64 2
+  %4493 = load i32, ptr %16, align 4, !tbaa !9
+  %4494 = zext i32 %4493 to i64
+  %4495 = getelementptr inbounds nuw [256 x i32], ptr %4492, i64 0, i64 %4494
+  %4496 = load i32, ptr %4495, align 4, !tbaa !9
+  store i32 %4496, ptr %16, align 4, !tbaa !9
+  %4497 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4498 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4497, i32 0, i32 0
+  %4499 = getelementptr inbounds [4 x [256 x i32]], ptr %4498, i64 0, i64 1
+  %4500 = load i32, ptr %17, align 4, !tbaa !9
+  %4501 = zext i32 %4500 to i64
+  %4502 = getelementptr inbounds nuw [256 x i32], ptr %4499, i64 0, i64 %4501
+  %4503 = load i32, ptr %4502, align 4, !tbaa !9
+  store i32 %4503, ptr %17, align 4, !tbaa !9
+  %4504 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4505 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4504, i32 0, i32 0
+  %4506 = getelementptr inbounds [4 x [256 x i32]], ptr %4505, i64 0, i64 0
+  %4507 = load i32, ptr %18, align 4, !tbaa !9
+  %4508 = zext i32 %4507 to i64
+  %4509 = getelementptr inbounds nuw [256 x i32], ptr %4506, i64 0, i64 %4508
+  %4510 = load i32, ptr %4509, align 4, !tbaa !9
+  %4511 = load i32, ptr %17, align 4, !tbaa !9
+  %4512 = add i32 %4511, %4510
+  store i32 %4512, ptr %17, align 4, !tbaa !9
+  %4513 = load i32, ptr %16, align 4, !tbaa !9
+  %4514 = load i32, ptr %17, align 4, !tbaa !9
+  %4515 = xor i32 %4514, %4513
+  store i32 %4515, ptr %17, align 4, !tbaa !9
+  %4516 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4517 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4516, i32 0, i32 1
+  %4518 = getelementptr inbounds [18 x i32], ptr %4517, i64 0, i64 9
+  %4519 = load i32, ptr %4518, align 4, !tbaa !9
+  %4520 = load i32, ptr %14, align 4, !tbaa !9
+  %4521 = xor i32 %4520, %4519
+  store i32 %4521, ptr %14, align 4, !tbaa !9
+  %4522 = load i32, ptr %15, align 4, !tbaa !9
+  %4523 = load i32, ptr %17, align 4, !tbaa !9
+  %4524 = add i32 %4523, %4522
+  store i32 %4524, ptr %17, align 4, !tbaa !9
+  %4525 = load i32, ptr %17, align 4, !tbaa !9
+  %4526 = load i32, ptr %14, align 4, !tbaa !9
+  %4527 = xor i32 %4526, %4525
+  store i32 %4527, ptr %14, align 4, !tbaa !9
+  %4528 = load i32, ptr %14, align 4, !tbaa !9
+  %4529 = and i32 %4528, 255
+  store i32 %4529, ptr %15, align 4, !tbaa !9
+  %4530 = load i32, ptr %14, align 4, !tbaa !9
+  %4531 = lshr i32 %4530, 8
+  store i32 %4531, ptr %16, align 4, !tbaa !9
+  %4532 = load i32, ptr %16, align 4, !tbaa !9
+  %4533 = and i32 %4532, 255
+  store i32 %4533, ptr %16, align 4, !tbaa !9
+  %4534 = load i32, ptr %14, align 4, !tbaa !9
+  %4535 = lshr i32 %4534, 16
+  store i32 %4535, ptr %17, align 4, !tbaa !9
+  %4536 = load i32, ptr %17, align 4, !tbaa !9
+  %4537 = and i32 %4536, 255
+  store i32 %4537, ptr %17, align 4, !tbaa !9
+  %4538 = load i32, ptr %14, align 4, !tbaa !9
+  %4539 = lshr i32 %4538, 24
+  store i32 %4539, ptr %18, align 4, !tbaa !9
+  %4540 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4541 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4540, i32 0, i32 0
+  %4542 = getelementptr inbounds [4 x [256 x i32]], ptr %4541, i64 0, i64 3
+  %4543 = load i32, ptr %15, align 4, !tbaa !9
+  %4544 = zext i32 %4543 to i64
+  %4545 = getelementptr inbounds nuw [256 x i32], ptr %4542, i64 0, i64 %4544
+  %4546 = load i32, ptr %4545, align 4, !tbaa !9
+  store i32 %4546, ptr %15, align 4, !tbaa !9
+  %4547 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4548 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4547, i32 0, i32 0
+  %4549 = getelementptr inbounds [4 x [256 x i32]], ptr %4548, i64 0, i64 2
+  %4550 = load i32, ptr %16, align 4, !tbaa !9
+  %4551 = zext i32 %4550 to i64
+  %4552 = getelementptr inbounds nuw [256 x i32], ptr %4549, i64 0, i64 %4551
+  %4553 = load i32, ptr %4552, align 4, !tbaa !9
+  store i32 %4553, ptr %16, align 4, !tbaa !9
+  %4554 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4555 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4554, i32 0, i32 0
+  %4556 = getelementptr inbounds [4 x [256 x i32]], ptr %4555, i64 0, i64 1
+  %4557 = load i32, ptr %17, align 4, !tbaa !9
+  %4558 = zext i32 %4557 to i64
+  %4559 = getelementptr inbounds nuw [256 x i32], ptr %4556, i64 0, i64 %4558
+  %4560 = load i32, ptr %4559, align 4, !tbaa !9
+  store i32 %4560, ptr %17, align 4, !tbaa !9
+  %4561 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4562 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4561, i32 0, i32 0
+  %4563 = getelementptr inbounds [4 x [256 x i32]], ptr %4562, i64 0, i64 0
+  %4564 = load i32, ptr %18, align 4, !tbaa !9
+  %4565 = zext i32 %4564 to i64
+  %4566 = getelementptr inbounds nuw [256 x i32], ptr %4563, i64 0, i64 %4565
+  %4567 = load i32, ptr %4566, align 4, !tbaa !9
+  %4568 = load i32, ptr %17, align 4, !tbaa !9
+  %4569 = add i32 %4568, %4567
+  store i32 %4569, ptr %17, align 4, !tbaa !9
+  %4570 = load i32, ptr %16, align 4, !tbaa !9
+  %4571 = load i32, ptr %17, align 4, !tbaa !9
+  %4572 = xor i32 %4571, %4570
+  store i32 %4572, ptr %17, align 4, !tbaa !9
+  %4573 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4574 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4573, i32 0, i32 1
+  %4575 = getelementptr inbounds [18 x i32], ptr %4574, i64 0, i64 10
+  %4576 = load i32, ptr %4575, align 4, !tbaa !9
+  %4577 = load i32, ptr %13, align 4, !tbaa !9
+  %4578 = xor i32 %4577, %4576
+  store i32 %4578, ptr %13, align 4, !tbaa !9
+  %4579 = load i32, ptr %15, align 4, !tbaa !9
+  %4580 = load i32, ptr %17, align 4, !tbaa !9
+  %4581 = add i32 %4580, %4579
+  store i32 %4581, ptr %17, align 4, !tbaa !9
+  %4582 = load i32, ptr %17, align 4, !tbaa !9
+  %4583 = load i32, ptr %13, align 4, !tbaa !9
+  %4584 = xor i32 %4583, %4582
+  store i32 %4584, ptr %13, align 4, !tbaa !9
+  %4585 = load i32, ptr %13, align 4, !tbaa !9
+  %4586 = and i32 %4585, 255
+  store i32 %4586, ptr %15, align 4, !tbaa !9
+  %4587 = load i32, ptr %13, align 4, !tbaa !9
+  %4588 = lshr i32 %4587, 8
+  store i32 %4588, ptr %16, align 4, !tbaa !9
+  %4589 = load i32, ptr %16, align 4, !tbaa !9
+  %4590 = and i32 %4589, 255
+  store i32 %4590, ptr %16, align 4, !tbaa !9
+  %4591 = load i32, ptr %13, align 4, !tbaa !9
+  %4592 = lshr i32 %4591, 16
+  store i32 %4592, ptr %17, align 4, !tbaa !9
+  %4593 = load i32, ptr %17, align 4, !tbaa !9
+  %4594 = and i32 %4593, 255
+  store i32 %4594, ptr %17, align 4, !tbaa !9
+  %4595 = load i32, ptr %13, align 4, !tbaa !9
+  %4596 = lshr i32 %4595, 24
+  store i32 %4596, ptr %18, align 4, !tbaa !9
+  %4597 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4598 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4597, i32 0, i32 0
+  %4599 = getelementptr inbounds [4 x [256 x i32]], ptr %4598, i64 0, i64 3
+  %4600 = load i32, ptr %15, align 4, !tbaa !9
+  %4601 = zext i32 %4600 to i64
+  %4602 = getelementptr inbounds nuw [256 x i32], ptr %4599, i64 0, i64 %4601
+  %4603 = load i32, ptr %4602, align 4, !tbaa !9
+  store i32 %4603, ptr %15, align 4, !tbaa !9
+  %4604 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4605 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4604, i32 0, i32 0
+  %4606 = getelementptr inbounds [4 x [256 x i32]], ptr %4605, i64 0, i64 2
+  %4607 = load i32, ptr %16, align 4, !tbaa !9
+  %4608 = zext i32 %4607 to i64
+  %4609 = getelementptr inbounds nuw [256 x i32], ptr %4606, i64 0, i64 %4608
+  %4610 = load i32, ptr %4609, align 4, !tbaa !9
+  store i32 %4610, ptr %16, align 4, !tbaa !9
+  %4611 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4612 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4611, i32 0, i32 0
+  %4613 = getelementptr inbounds [4 x [256 x i32]], ptr %4612, i64 0, i64 1
+  %4614 = load i32, ptr %17, align 4, !tbaa !9
+  %4615 = zext i32 %4614 to i64
+  %4616 = getelementptr inbounds nuw [256 x i32], ptr %4613, i64 0, i64 %4615
+  %4617 = load i32, ptr %4616, align 4, !tbaa !9
+  store i32 %4617, ptr %17, align 4, !tbaa !9
+  %4618 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4619 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4618, i32 0, i32 0
+  %4620 = getelementptr inbounds [4 x [256 x i32]], ptr %4619, i64 0, i64 0
+  %4621 = load i32, ptr %18, align 4, !tbaa !9
+  %4622 = zext i32 %4621 to i64
+  %4623 = getelementptr inbounds nuw [256 x i32], ptr %4620, i64 0, i64 %4622
+  %4624 = load i32, ptr %4623, align 4, !tbaa !9
+  %4625 = load i32, ptr %17, align 4, !tbaa !9
+  %4626 = add i32 %4625, %4624
+  store i32 %4626, ptr %17, align 4, !tbaa !9
+  %4627 = load i32, ptr %16, align 4, !tbaa !9
+  %4628 = load i32, ptr %17, align 4, !tbaa !9
+  %4629 = xor i32 %4628, %4627
+  store i32 %4629, ptr %17, align 4, !tbaa !9
+  %4630 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4631 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4630, i32 0, i32 1
+  %4632 = getelementptr inbounds [18 x i32], ptr %4631, i64 0, i64 11
+  %4633 = load i32, ptr %4632, align 4, !tbaa !9
+  %4634 = load i32, ptr %14, align 4, !tbaa !9
+  %4635 = xor i32 %4634, %4633
+  store i32 %4635, ptr %14, align 4, !tbaa !9
+  %4636 = load i32, ptr %15, align 4, !tbaa !9
+  %4637 = load i32, ptr %17, align 4, !tbaa !9
+  %4638 = add i32 %4637, %4636
+  store i32 %4638, ptr %17, align 4, !tbaa !9
+  %4639 = load i32, ptr %17, align 4, !tbaa !9
+  %4640 = load i32, ptr %14, align 4, !tbaa !9
+  %4641 = xor i32 %4640, %4639
+  store i32 %4641, ptr %14, align 4, !tbaa !9
+  %4642 = load i32, ptr %14, align 4, !tbaa !9
+  %4643 = and i32 %4642, 255
+  store i32 %4643, ptr %15, align 4, !tbaa !9
+  %4644 = load i32, ptr %14, align 4, !tbaa !9
+  %4645 = lshr i32 %4644, 8
+  store i32 %4645, ptr %16, align 4, !tbaa !9
+  %4646 = load i32, ptr %16, align 4, !tbaa !9
+  %4647 = and i32 %4646, 255
+  store i32 %4647, ptr %16, align 4, !tbaa !9
+  %4648 = load i32, ptr %14, align 4, !tbaa !9
+  %4649 = lshr i32 %4648, 16
+  store i32 %4649, ptr %17, align 4, !tbaa !9
+  %4650 = load i32, ptr %17, align 4, !tbaa !9
+  %4651 = and i32 %4650, 255
+  store i32 %4651, ptr %17, align 4, !tbaa !9
+  %4652 = load i32, ptr %14, align 4, !tbaa !9
+  %4653 = lshr i32 %4652, 24
+  store i32 %4653, ptr %18, align 4, !tbaa !9
+  %4654 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4655 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4654, i32 0, i32 0
+  %4656 = getelementptr inbounds [4 x [256 x i32]], ptr %4655, i64 0, i64 3
+  %4657 = load i32, ptr %15, align 4, !tbaa !9
+  %4658 = zext i32 %4657 to i64
+  %4659 = getelementptr inbounds nuw [256 x i32], ptr %4656, i64 0, i64 %4658
+  %4660 = load i32, ptr %4659, align 4, !tbaa !9
+  store i32 %4660, ptr %15, align 4, !tbaa !9
+  %4661 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4662 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4661, i32 0, i32 0
+  %4663 = getelementptr inbounds [4 x [256 x i32]], ptr %4662, i64 0, i64 2
+  %4664 = load i32, ptr %16, align 4, !tbaa !9
+  %4665 = zext i32 %4664 to i64
+  %4666 = getelementptr inbounds nuw [256 x i32], ptr %4663, i64 0, i64 %4665
+  %4667 = load i32, ptr %4666, align 4, !tbaa !9
+  store i32 %4667, ptr %16, align 4, !tbaa !9
+  %4668 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4669 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4668, i32 0, i32 0
+  %4670 = getelementptr inbounds [4 x [256 x i32]], ptr %4669, i64 0, i64 1
+  %4671 = load i32, ptr %17, align 4, !tbaa !9
+  %4672 = zext i32 %4671 to i64
+  %4673 = getelementptr inbounds nuw [256 x i32], ptr %4670, i64 0, i64 %4672
+  %4674 = load i32, ptr %4673, align 4, !tbaa !9
+  store i32 %4674, ptr %17, align 4, !tbaa !9
+  %4675 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4676 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4675, i32 0, i32 0
+  %4677 = getelementptr inbounds [4 x [256 x i32]], ptr %4676, i64 0, i64 0
+  %4678 = load i32, ptr %18, align 4, !tbaa !9
+  %4679 = zext i32 %4678 to i64
+  %4680 = getelementptr inbounds nuw [256 x i32], ptr %4677, i64 0, i64 %4679
+  %4681 = load i32, ptr %4680, align 4, !tbaa !9
+  %4682 = load i32, ptr %17, align 4, !tbaa !9
+  %4683 = add i32 %4682, %4681
+  store i32 %4683, ptr %17, align 4, !tbaa !9
+  %4684 = load i32, ptr %16, align 4, !tbaa !9
+  %4685 = load i32, ptr %17, align 4, !tbaa !9
+  %4686 = xor i32 %4685, %4684
+  store i32 %4686, ptr %17, align 4, !tbaa !9
+  %4687 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4688 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4687, i32 0, i32 1
+  %4689 = getelementptr inbounds [18 x i32], ptr %4688, i64 0, i64 12
+  %4690 = load i32, ptr %4689, align 4, !tbaa !9
+  %4691 = load i32, ptr %13, align 4, !tbaa !9
+  %4692 = xor i32 %4691, %4690
+  store i32 %4692, ptr %13, align 4, !tbaa !9
+  %4693 = load i32, ptr %15, align 4, !tbaa !9
+  %4694 = load i32, ptr %17, align 4, !tbaa !9
+  %4695 = add i32 %4694, %4693
+  store i32 %4695, ptr %17, align 4, !tbaa !9
+  %4696 = load i32, ptr %17, align 4, !tbaa !9
+  %4697 = load i32, ptr %13, align 4, !tbaa !9
+  %4698 = xor i32 %4697, %4696
+  store i32 %4698, ptr %13, align 4, !tbaa !9
+  %4699 = load i32, ptr %13, align 4, !tbaa !9
+  %4700 = and i32 %4699, 255
+  store i32 %4700, ptr %15, align 4, !tbaa !9
+  %4701 = load i32, ptr %13, align 4, !tbaa !9
+  %4702 = lshr i32 %4701, 8
+  store i32 %4702, ptr %16, align 4, !tbaa !9
+  %4703 = load i32, ptr %16, align 4, !tbaa !9
+  %4704 = and i32 %4703, 255
+  store i32 %4704, ptr %16, align 4, !tbaa !9
+  %4705 = load i32, ptr %13, align 4, !tbaa !9
+  %4706 = lshr i32 %4705, 16
+  store i32 %4706, ptr %17, align 4, !tbaa !9
+  %4707 = load i32, ptr %17, align 4, !tbaa !9
+  %4708 = and i32 %4707, 255
+  store i32 %4708, ptr %17, align 4, !tbaa !9
+  %4709 = load i32, ptr %13, align 4, !tbaa !9
+  %4710 = lshr i32 %4709, 24
+  store i32 %4710, ptr %18, align 4, !tbaa !9
+  %4711 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4712 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4711, i32 0, i32 0
+  %4713 = getelementptr inbounds [4 x [256 x i32]], ptr %4712, i64 0, i64 3
+  %4714 = load i32, ptr %15, align 4, !tbaa !9
+  %4715 = zext i32 %4714 to i64
+  %4716 = getelementptr inbounds nuw [256 x i32], ptr %4713, i64 0, i64 %4715
+  %4717 = load i32, ptr %4716, align 4, !tbaa !9
+  store i32 %4717, ptr %15, align 4, !tbaa !9
+  %4718 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4719 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4718, i32 0, i32 0
+  %4720 = getelementptr inbounds [4 x [256 x i32]], ptr %4719, i64 0, i64 2
+  %4721 = load i32, ptr %16, align 4, !tbaa !9
+  %4722 = zext i32 %4721 to i64
+  %4723 = getelementptr inbounds nuw [256 x i32], ptr %4720, i64 0, i64 %4722
+  %4724 = load i32, ptr %4723, align 4, !tbaa !9
+  store i32 %4724, ptr %16, align 4, !tbaa !9
+  %4725 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4726 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4725, i32 0, i32 0
+  %4727 = getelementptr inbounds [4 x [256 x i32]], ptr %4726, i64 0, i64 1
+  %4728 = load i32, ptr %17, align 4, !tbaa !9
+  %4729 = zext i32 %4728 to i64
+  %4730 = getelementptr inbounds nuw [256 x i32], ptr %4727, i64 0, i64 %4729
+  %4731 = load i32, ptr %4730, align 4, !tbaa !9
+  store i32 %4731, ptr %17, align 4, !tbaa !9
+  %4732 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4733 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4732, i32 0, i32 0
+  %4734 = getelementptr inbounds [4 x [256 x i32]], ptr %4733, i64 0, i64 0
+  %4735 = load i32, ptr %18, align 4, !tbaa !9
+  %4736 = zext i32 %4735 to i64
+  %4737 = getelementptr inbounds nuw [256 x i32], ptr %4734, i64 0, i64 %4736
+  %4738 = load i32, ptr %4737, align 4, !tbaa !9
+  %4739 = load i32, ptr %17, align 4, !tbaa !9
+  %4740 = add i32 %4739, %4738
+  store i32 %4740, ptr %17, align 4, !tbaa !9
+  %4741 = load i32, ptr %16, align 4, !tbaa !9
+  %4742 = load i32, ptr %17, align 4, !tbaa !9
+  %4743 = xor i32 %4742, %4741
+  store i32 %4743, ptr %17, align 4, !tbaa !9
+  %4744 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4745 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4744, i32 0, i32 1
+  %4746 = getelementptr inbounds [18 x i32], ptr %4745, i64 0, i64 13
+  %4747 = load i32, ptr %4746, align 4, !tbaa !9
+  %4748 = load i32, ptr %14, align 4, !tbaa !9
+  %4749 = xor i32 %4748, %4747
+  store i32 %4749, ptr %14, align 4, !tbaa !9
+  %4750 = load i32, ptr %15, align 4, !tbaa !9
+  %4751 = load i32, ptr %17, align 4, !tbaa !9
+  %4752 = add i32 %4751, %4750
+  store i32 %4752, ptr %17, align 4, !tbaa !9
+  %4753 = load i32, ptr %17, align 4, !tbaa !9
+  %4754 = load i32, ptr %14, align 4, !tbaa !9
+  %4755 = xor i32 %4754, %4753
+  store i32 %4755, ptr %14, align 4, !tbaa !9
+  %4756 = load i32, ptr %14, align 4, !tbaa !9
+  %4757 = and i32 %4756, 255
+  store i32 %4757, ptr %15, align 4, !tbaa !9
+  %4758 = load i32, ptr %14, align 4, !tbaa !9
+  %4759 = lshr i32 %4758, 8
+  store i32 %4759, ptr %16, align 4, !tbaa !9
+  %4760 = load i32, ptr %16, align 4, !tbaa !9
+  %4761 = and i32 %4760, 255
+  store i32 %4761, ptr %16, align 4, !tbaa !9
+  %4762 = load i32, ptr %14, align 4, !tbaa !9
+  %4763 = lshr i32 %4762, 16
+  store i32 %4763, ptr %17, align 4, !tbaa !9
+  %4764 = load i32, ptr %17, align 4, !tbaa !9
+  %4765 = and i32 %4764, 255
+  store i32 %4765, ptr %17, align 4, !tbaa !9
+  %4766 = load i32, ptr %14, align 4, !tbaa !9
+  %4767 = lshr i32 %4766, 24
+  store i32 %4767, ptr %18, align 4, !tbaa !9
+  %4768 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4769 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4768, i32 0, i32 0
+  %4770 = getelementptr inbounds [4 x [256 x i32]], ptr %4769, i64 0, i64 3
+  %4771 = load i32, ptr %15, align 4, !tbaa !9
+  %4772 = zext i32 %4771 to i64
+  %4773 = getelementptr inbounds nuw [256 x i32], ptr %4770, i64 0, i64 %4772
+  %4774 = load i32, ptr %4773, align 4, !tbaa !9
+  store i32 %4774, ptr %15, align 4, !tbaa !9
+  %4775 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4776 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4775, i32 0, i32 0
+  %4777 = getelementptr inbounds [4 x [256 x i32]], ptr %4776, i64 0, i64 2
+  %4778 = load i32, ptr %16, align 4, !tbaa !9
+  %4779 = zext i32 %4778 to i64
+  %4780 = getelementptr inbounds nuw [256 x i32], ptr %4777, i64 0, i64 %4779
+  %4781 = load i32, ptr %4780, align 4, !tbaa !9
+  store i32 %4781, ptr %16, align 4, !tbaa !9
+  %4782 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4783 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4782, i32 0, i32 0
+  %4784 = getelementptr inbounds [4 x [256 x i32]], ptr %4783, i64 0, i64 1
+  %4785 = load i32, ptr %17, align 4, !tbaa !9
+  %4786 = zext i32 %4785 to i64
+  %4787 = getelementptr inbounds nuw [256 x i32], ptr %4784, i64 0, i64 %4786
+  %4788 = load i32, ptr %4787, align 4, !tbaa !9
+  store i32 %4788, ptr %17, align 4, !tbaa !9
+  %4789 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4790 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4789, i32 0, i32 0
+  %4791 = getelementptr inbounds [4 x [256 x i32]], ptr %4790, i64 0, i64 0
+  %4792 = load i32, ptr %18, align 4, !tbaa !9
+  %4793 = zext i32 %4792 to i64
+  %4794 = getelementptr inbounds nuw [256 x i32], ptr %4791, i64 0, i64 %4793
+  %4795 = load i32, ptr %4794, align 4, !tbaa !9
+  %4796 = load i32, ptr %17, align 4, !tbaa !9
+  %4797 = add i32 %4796, %4795
+  store i32 %4797, ptr %17, align 4, !tbaa !9
+  %4798 = load i32, ptr %16, align 4, !tbaa !9
+  %4799 = load i32, ptr %17, align 4, !tbaa !9
+  %4800 = xor i32 %4799, %4798
+  store i32 %4800, ptr %17, align 4, !tbaa !9
+  %4801 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4802 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4801, i32 0, i32 1
+  %4803 = getelementptr inbounds [18 x i32], ptr %4802, i64 0, i64 14
+  %4804 = load i32, ptr %4803, align 4, !tbaa !9
+  %4805 = load i32, ptr %13, align 4, !tbaa !9
+  %4806 = xor i32 %4805, %4804
+  store i32 %4806, ptr %13, align 4, !tbaa !9
+  %4807 = load i32, ptr %15, align 4, !tbaa !9
+  %4808 = load i32, ptr %17, align 4, !tbaa !9
+  %4809 = add i32 %4808, %4807
+  store i32 %4809, ptr %17, align 4, !tbaa !9
+  %4810 = load i32, ptr %17, align 4, !tbaa !9
+  %4811 = load i32, ptr %13, align 4, !tbaa !9
+  %4812 = xor i32 %4811, %4810
+  store i32 %4812, ptr %13, align 4, !tbaa !9
+  %4813 = load i32, ptr %13, align 4, !tbaa !9
+  %4814 = and i32 %4813, 255
+  store i32 %4814, ptr %15, align 4, !tbaa !9
+  %4815 = load i32, ptr %13, align 4, !tbaa !9
+  %4816 = lshr i32 %4815, 8
+  store i32 %4816, ptr %16, align 4, !tbaa !9
+  %4817 = load i32, ptr %16, align 4, !tbaa !9
+  %4818 = and i32 %4817, 255
+  store i32 %4818, ptr %16, align 4, !tbaa !9
+  %4819 = load i32, ptr %13, align 4, !tbaa !9
+  %4820 = lshr i32 %4819, 16
+  store i32 %4820, ptr %17, align 4, !tbaa !9
+  %4821 = load i32, ptr %17, align 4, !tbaa !9
+  %4822 = and i32 %4821, 255
+  store i32 %4822, ptr %17, align 4, !tbaa !9
+  %4823 = load i32, ptr %13, align 4, !tbaa !9
+  %4824 = lshr i32 %4823, 24
+  store i32 %4824, ptr %18, align 4, !tbaa !9
+  %4825 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4826 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4825, i32 0, i32 0
+  %4827 = getelementptr inbounds [4 x [256 x i32]], ptr %4826, i64 0, i64 3
+  %4828 = load i32, ptr %15, align 4, !tbaa !9
+  %4829 = zext i32 %4828 to i64
+  %4830 = getelementptr inbounds nuw [256 x i32], ptr %4827, i64 0, i64 %4829
+  %4831 = load i32, ptr %4830, align 4, !tbaa !9
+  store i32 %4831, ptr %15, align 4, !tbaa !9
+  %4832 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4833 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4832, i32 0, i32 0
+  %4834 = getelementptr inbounds [4 x [256 x i32]], ptr %4833, i64 0, i64 2
+  %4835 = load i32, ptr %16, align 4, !tbaa !9
+  %4836 = zext i32 %4835 to i64
+  %4837 = getelementptr inbounds nuw [256 x i32], ptr %4834, i64 0, i64 %4836
+  %4838 = load i32, ptr %4837, align 4, !tbaa !9
+  store i32 %4838, ptr %16, align 4, !tbaa !9
+  %4839 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4840 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4839, i32 0, i32 0
+  %4841 = getelementptr inbounds [4 x [256 x i32]], ptr %4840, i64 0, i64 1
+  %4842 = load i32, ptr %17, align 4, !tbaa !9
+  %4843 = zext i32 %4842 to i64
+  %4844 = getelementptr inbounds nuw [256 x i32], ptr %4841, i64 0, i64 %4843
+  %4845 = load i32, ptr %4844, align 4, !tbaa !9
+  store i32 %4845, ptr %17, align 4, !tbaa !9
+  %4846 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4847 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4846, i32 0, i32 0
+  %4848 = getelementptr inbounds [4 x [256 x i32]], ptr %4847, i64 0, i64 0
+  %4849 = load i32, ptr %18, align 4, !tbaa !9
+  %4850 = zext i32 %4849 to i64
+  %4851 = getelementptr inbounds nuw [256 x i32], ptr %4848, i64 0, i64 %4850
+  %4852 = load i32, ptr %4851, align 4, !tbaa !9
+  %4853 = load i32, ptr %17, align 4, !tbaa !9
+  %4854 = add i32 %4853, %4852
+  store i32 %4854, ptr %17, align 4, !tbaa !9
+  %4855 = load i32, ptr %16, align 4, !tbaa !9
+  %4856 = load i32, ptr %17, align 4, !tbaa !9
+  %4857 = xor i32 %4856, %4855
+  store i32 %4857, ptr %17, align 4, !tbaa !9
+  %4858 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4859 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4858, i32 0, i32 1
+  %4860 = getelementptr inbounds [18 x i32], ptr %4859, i64 0, i64 15
+  %4861 = load i32, ptr %4860, align 4, !tbaa !9
+  %4862 = load i32, ptr %14, align 4, !tbaa !9
+  %4863 = xor i32 %4862, %4861
+  store i32 %4863, ptr %14, align 4, !tbaa !9
+  %4864 = load i32, ptr %15, align 4, !tbaa !9
+  %4865 = load i32, ptr %17, align 4, !tbaa !9
+  %4866 = add i32 %4865, %4864
+  store i32 %4866, ptr %17, align 4, !tbaa !9
+  %4867 = load i32, ptr %17, align 4, !tbaa !9
+  %4868 = load i32, ptr %14, align 4, !tbaa !9
+  %4869 = xor i32 %4868, %4867
+  store i32 %4869, ptr %14, align 4, !tbaa !9
+  %4870 = load i32, ptr %14, align 4, !tbaa !9
+  %4871 = and i32 %4870, 255
+  store i32 %4871, ptr %15, align 4, !tbaa !9
+  %4872 = load i32, ptr %14, align 4, !tbaa !9
+  %4873 = lshr i32 %4872, 8
+  store i32 %4873, ptr %16, align 4, !tbaa !9
+  %4874 = load i32, ptr %16, align 4, !tbaa !9
+  %4875 = and i32 %4874, 255
+  store i32 %4875, ptr %16, align 4, !tbaa !9
+  %4876 = load i32, ptr %14, align 4, !tbaa !9
+  %4877 = lshr i32 %4876, 16
+  store i32 %4877, ptr %17, align 4, !tbaa !9
+  %4878 = load i32, ptr %17, align 4, !tbaa !9
+  %4879 = and i32 %4878, 255
+  store i32 %4879, ptr %17, align 4, !tbaa !9
+  %4880 = load i32, ptr %14, align 4, !tbaa !9
+  %4881 = lshr i32 %4880, 24
+  store i32 %4881, ptr %18, align 4, !tbaa !9
+  %4882 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4883 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4882, i32 0, i32 0
+  %4884 = getelementptr inbounds [4 x [256 x i32]], ptr %4883, i64 0, i64 3
+  %4885 = load i32, ptr %15, align 4, !tbaa !9
+  %4886 = zext i32 %4885 to i64
+  %4887 = getelementptr inbounds nuw [256 x i32], ptr %4884, i64 0, i64 %4886
+  %4888 = load i32, ptr %4887, align 4, !tbaa !9
+  store i32 %4888, ptr %15, align 4, !tbaa !9
+  %4889 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4890 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4889, i32 0, i32 0
+  %4891 = getelementptr inbounds [4 x [256 x i32]], ptr %4890, i64 0, i64 2
+  %4892 = load i32, ptr %16, align 4, !tbaa !9
+  %4893 = zext i32 %4892 to i64
+  %4894 = getelementptr inbounds nuw [256 x i32], ptr %4891, i64 0, i64 %4893
+  %4895 = load i32, ptr %4894, align 4, !tbaa !9
+  store i32 %4895, ptr %16, align 4, !tbaa !9
+  %4896 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4897 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4896, i32 0, i32 0
+  %4898 = getelementptr inbounds [4 x [256 x i32]], ptr %4897, i64 0, i64 1
+  %4899 = load i32, ptr %17, align 4, !tbaa !9
+  %4900 = zext i32 %4899 to i64
+  %4901 = getelementptr inbounds nuw [256 x i32], ptr %4898, i64 0, i64 %4900
+  %4902 = load i32, ptr %4901, align 4, !tbaa !9
+  store i32 %4902, ptr %17, align 4, !tbaa !9
+  %4903 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4904 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4903, i32 0, i32 0
+  %4905 = getelementptr inbounds [4 x [256 x i32]], ptr %4904, i64 0, i64 0
+  %4906 = load i32, ptr %18, align 4, !tbaa !9
+  %4907 = zext i32 %4906 to i64
+  %4908 = getelementptr inbounds nuw [256 x i32], ptr %4905, i64 0, i64 %4907
+  %4909 = load i32, ptr %4908, align 4, !tbaa !9
+  %4910 = load i32, ptr %17, align 4, !tbaa !9
+  %4911 = add i32 %4910, %4909
+  store i32 %4911, ptr %17, align 4, !tbaa !9
+  %4912 = load i32, ptr %16, align 4, !tbaa !9
+  %4913 = load i32, ptr %17, align 4, !tbaa !9
+  %4914 = xor i32 %4913, %4912
+  store i32 %4914, ptr %17, align 4, !tbaa !9
+  %4915 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4916 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4915, i32 0, i32 1
+  %4917 = getelementptr inbounds [18 x i32], ptr %4916, i64 0, i64 16
+  %4918 = load i32, ptr %4917, align 4, !tbaa !9
+  %4919 = load i32, ptr %13, align 4, !tbaa !9
+  %4920 = xor i32 %4919, %4918
+  store i32 %4920, ptr %13, align 4, !tbaa !9
+  %4921 = load i32, ptr %15, align 4, !tbaa !9
+  %4922 = load i32, ptr %17, align 4, !tbaa !9
+  %4923 = add i32 %4922, %4921
+  store i32 %4923, ptr %17, align 4, !tbaa !9
+  %4924 = load i32, ptr %17, align 4, !tbaa !9
+  %4925 = load i32, ptr %13, align 4, !tbaa !9
+  %4926 = xor i32 %4925, %4924
+  store i32 %4926, ptr %13, align 4, !tbaa !9
+  %4927 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %4927, ptr %18, align 4, !tbaa !9
+  %4928 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %4928, ptr %14, align 4, !tbaa !9
+  %4929 = load i32, ptr %18, align 4, !tbaa !9
+  %4930 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4931 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4930, i32 0, i32 1
+  %4932 = getelementptr inbounds [18 x i32], ptr %4931, i64 0, i64 17
+  %4933 = load i32, ptr %4932, align 4, !tbaa !9
+  %4934 = xor i32 %4929, %4933
+  store i32 %4934, ptr %13, align 4, !tbaa !9
+  %4935 = load i32, ptr %13, align 4, !tbaa !9
+  %4936 = load ptr, ptr %19, align 8, !tbaa !12
+  %4937 = getelementptr inbounds i32, ptr %4936, i64 -2
+  store i32 %4935, ptr %4937, align 4, !tbaa !9
+  %4938 = load i32, ptr %14, align 4, !tbaa !9
+  %4939 = load ptr, ptr %19, align 8, !tbaa !12
+  %4940 = getelementptr inbounds i32, ptr %4939, i64 -1
+  store i32 %4938, ptr %4940, align 4, !tbaa !9
+  br label %4941
+
+4941:                                             ; preds = %4006
+  %4942 = load ptr, ptr %19, align 8, !tbaa !12
+  %4943 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4944 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4943, i32 0, i32 0
+  %4945 = getelementptr inbounds [4 x [256 x i32]], ptr %4944, i64 0, i64 3
+  %4946 = getelementptr inbounds [256 x i32], ptr %4945, i64 0, i64 255
+  %4947 = icmp ult ptr %4942, %4946
+  br i1 %4947, label %4006, label %4948
+
+4948:                                             ; preds = %4941
+  %4949 = load i32, ptr %23, align 4, !tbaa !9
+  %4950 = icmp ne i32 %4949, 0
+  br i1 %4950, label %4951, label %4952
+
+4951:                                             ; preds = %4948
   br label %5021
 
-5021:                                             ; preds = %5020
-  %5022 = load i32, ptr %20, align 4
-  %5023 = add i32 %5022, -1
-  store i32 %5023, ptr %20, align 4
-  %5024 = icmp ne i32 %5023, 0
-  br i1 %5024, label %3020, label %5025
+4952:                                             ; preds = %4948
+  store i32 1, ptr %23, align 4, !tbaa !9
+  %4953 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %4954 = getelementptr inbounds [4 x i32], ptr %4953, i64 0, i64 0
+  %4955 = load i32, ptr %4954, align 4, !tbaa !11
+  store i32 %4955, ptr %15, align 4, !tbaa !9
+  %4956 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %4957 = getelementptr inbounds [4 x i32], ptr %4956, i64 0, i64 1
+  %4958 = load i32, ptr %4957, align 4, !tbaa !11
+  store i32 %4958, ptr %16, align 4, !tbaa !9
+  %4959 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %4960 = getelementptr inbounds [4 x i32], ptr %4959, i64 0, i64 2
+  %4961 = load i32, ptr %4960, align 4, !tbaa !11
+  store i32 %4961, ptr %17, align 4, !tbaa !9
+  %4962 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %4963 = getelementptr inbounds [4 x i32], ptr %4962, i64 0, i64 3
+  %4964 = load i32, ptr %4963, align 4, !tbaa !11
+  store i32 %4964, ptr %18, align 4, !tbaa !9
+  store i32 0, ptr %21, align 4, !tbaa !9
+  br label %4965
 
-5025:                                             ; preds = %5021
-  store i32 0, ptr %21, align 4
-  br label %5026
+4965:                                             ; preds = %5004, %4952
+  %4966 = load i32, ptr %21, align 4, !tbaa !9
+  %4967 = icmp slt i32 %4966, 16
+  br i1 %4967, label %4968, label %5007
 
-5026:                                             ; preds = %5982, %5025
-  %5027 = load i32, ptr %21, align 4
-  %5028 = icmp slt i32 %5027, 6
-  br i1 %5028, label %5029, label %5985
+4968:                                             ; preds = %4965
+  %4969 = load i32, ptr %15, align 4, !tbaa !9
+  %4970 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4971 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4970, i32 0, i32 1
+  %4972 = load i32, ptr %21, align 4, !tbaa !9
+  %4973 = sext i32 %4972 to i64
+  %4974 = getelementptr inbounds [18 x i32], ptr %4971, i64 0, i64 %4973
+  %4975 = load i32, ptr %4974, align 4, !tbaa !9
+  %4976 = xor i32 %4975, %4969
+  store i32 %4976, ptr %4974, align 4, !tbaa !9
+  %4977 = load i32, ptr %16, align 4, !tbaa !9
+  %4978 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4979 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4978, i32 0, i32 1
+  %4980 = load i32, ptr %21, align 4, !tbaa !9
+  %4981 = add nsw i32 %4980, 1
+  %4982 = sext i32 %4981 to i64
+  %4983 = getelementptr inbounds [18 x i32], ptr %4979, i64 0, i64 %4982
+  %4984 = load i32, ptr %4983, align 4, !tbaa !9
+  %4985 = xor i32 %4984, %4977
+  store i32 %4985, ptr %4983, align 4, !tbaa !9
+  %4986 = load i32, ptr %17, align 4, !tbaa !9
+  %4987 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4988 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4987, i32 0, i32 1
+  %4989 = load i32, ptr %21, align 4, !tbaa !9
+  %4990 = add nsw i32 %4989, 2
+  %4991 = sext i32 %4990 to i64
+  %4992 = getelementptr inbounds [18 x i32], ptr %4988, i64 0, i64 %4991
+  %4993 = load i32, ptr %4992, align 4, !tbaa !9
+  %4994 = xor i32 %4993, %4986
+  store i32 %4994, ptr %4992, align 4, !tbaa !9
+  %4995 = load i32, ptr %18, align 4, !tbaa !9
+  %4996 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %4997 = getelementptr inbounds nuw %struct.BF_ctx, ptr %4996, i32 0, i32 1
+  %4998 = load i32, ptr %21, align 4, !tbaa !9
+  %4999 = add nsw i32 %4998, 3
+  %5000 = sext i32 %4999 to i64
+  %5001 = getelementptr inbounds [18 x i32], ptr %4997, i64 0, i64 %5000
+  %5002 = load i32, ptr %5001, align 4, !tbaa !9
+  %5003 = xor i32 %5002, %4995
+  store i32 %5003, ptr %5001, align 4, !tbaa !9
+  br label %5004
 
-5029:                                             ; preds = %5026
-  %5030 = load i32, ptr %21, align 4
-  %5031 = sext i32 %5030 to i64
-  %5032 = getelementptr inbounds [6 x i32], ptr @BF_magic_w, i64 0, i64 %5031
-  %5033 = load i32, ptr %5032, align 4
-  store i32 %5033, ptr %13, align 4
-  %5034 = load i32, ptr %21, align 4
-  %5035 = add nsw i32 %5034, 1
-  %5036 = sext i32 %5035 to i64
-  %5037 = getelementptr inbounds [6 x i32], ptr @BF_magic_w, i64 0, i64 %5036
-  %5038 = load i32, ptr %5037, align 4
-  store i32 %5038, ptr %14, align 4
-  store i32 64, ptr %20, align 4
-  br label %5039
+5004:                                             ; preds = %4968
+  %5005 = load i32, ptr %21, align 4, !tbaa !9
+  %5006 = add nsw i32 %5005, 4
+  store i32 %5006, ptr %21, align 4, !tbaa !9
+  br label %4965
 
-5039:                                             ; preds = %5966, %5029
-  %5040 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5041 = getelementptr inbounds %struct.BF_ctx, ptr %5040, i32 0, i32 1
-  %5042 = getelementptr inbounds [18 x i32], ptr %5041, i64 0, i64 0
-  %5043 = load i32, ptr %5042, align 4
-  %5044 = load i32, ptr %13, align 4
-  %5045 = xor i32 %5044, %5043
-  store i32 %5045, ptr %13, align 4
-  %5046 = load i32, ptr %13, align 4
-  %5047 = and i32 %5046, 255
-  store i32 %5047, ptr %15, align 4
-  %5048 = load i32, ptr %13, align 4
-  %5049 = lshr i32 %5048, 8
-  store i32 %5049, ptr %16, align 4
-  %5050 = load i32, ptr %16, align 4
-  %5051 = and i32 %5050, 255
-  store i32 %5051, ptr %16, align 4
-  %5052 = load i32, ptr %13, align 4
-  %5053 = lshr i32 %5052, 16
-  store i32 %5053, ptr %17, align 4
-  %5054 = load i32, ptr %17, align 4
-  %5055 = and i32 %5054, 255
-  store i32 %5055, ptr %17, align 4
-  %5056 = load i32, ptr %13, align 4
-  %5057 = lshr i32 %5056, 24
-  store i32 %5057, ptr %18, align 4
-  %5058 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5059 = getelementptr inbounds %struct.BF_ctx, ptr %5058, i32 0, i32 0
-  %5060 = getelementptr inbounds [4 x [256 x i32]], ptr %5059, i64 0, i64 3
-  %5061 = load i32, ptr %15, align 4
-  %5062 = zext i32 %5061 to i64
-  %5063 = getelementptr inbounds [256 x i32], ptr %5060, i64 0, i64 %5062
-  %5064 = load i32, ptr %5063, align 4
-  store i32 %5064, ptr %15, align 4
-  %5065 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5066 = getelementptr inbounds %struct.BF_ctx, ptr %5065, i32 0, i32 0
-  %5067 = getelementptr inbounds [4 x [256 x i32]], ptr %5066, i64 0, i64 2
-  %5068 = load i32, ptr %16, align 4
-  %5069 = zext i32 %5068 to i64
-  %5070 = getelementptr inbounds [256 x i32], ptr %5067, i64 0, i64 %5069
-  %5071 = load i32, ptr %5070, align 4
-  store i32 %5071, ptr %16, align 4
-  %5072 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5073 = getelementptr inbounds %struct.BF_ctx, ptr %5072, i32 0, i32 0
-  %5074 = getelementptr inbounds [4 x [256 x i32]], ptr %5073, i64 0, i64 1
-  %5075 = load i32, ptr %17, align 4
-  %5076 = zext i32 %5075 to i64
-  %5077 = getelementptr inbounds [256 x i32], ptr %5074, i64 0, i64 %5076
-  %5078 = load i32, ptr %5077, align 4
-  store i32 %5078, ptr %17, align 4
-  %5079 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5080 = getelementptr inbounds %struct.BF_ctx, ptr %5079, i32 0, i32 0
-  %5081 = getelementptr inbounds [4 x [256 x i32]], ptr %5080, i64 0, i64 0
-  %5082 = load i32, ptr %18, align 4
-  %5083 = zext i32 %5082 to i64
-  %5084 = getelementptr inbounds [256 x i32], ptr %5081, i64 0, i64 %5083
-  %5085 = load i32, ptr %5084, align 4
-  %5086 = load i32, ptr %17, align 4
-  %5087 = add i32 %5086, %5085
-  store i32 %5087, ptr %17, align 4
-  %5088 = load i32, ptr %16, align 4
-  %5089 = load i32, ptr %17, align 4
-  %5090 = xor i32 %5089, %5088
-  store i32 %5090, ptr %17, align 4
-  %5091 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5092 = getelementptr inbounds %struct.BF_ctx, ptr %5091, i32 0, i32 1
-  %5093 = getelementptr inbounds [18 x i32], ptr %5092, i64 0, i64 1
-  %5094 = load i32, ptr %5093, align 4
-  %5095 = load i32, ptr %14, align 4
-  %5096 = xor i32 %5095, %5094
-  store i32 %5096, ptr %14, align 4
-  %5097 = load i32, ptr %15, align 4
-  %5098 = load i32, ptr %17, align 4
-  %5099 = add i32 %5098, %5097
-  store i32 %5099, ptr %17, align 4
-  %5100 = load i32, ptr %17, align 4
-  %5101 = load i32, ptr %14, align 4
-  %5102 = xor i32 %5101, %5100
-  store i32 %5102, ptr %14, align 4
-  %5103 = load i32, ptr %14, align 4
-  %5104 = and i32 %5103, 255
-  store i32 %5104, ptr %15, align 4
-  %5105 = load i32, ptr %14, align 4
-  %5106 = lshr i32 %5105, 8
-  store i32 %5106, ptr %16, align 4
-  %5107 = load i32, ptr %16, align 4
-  %5108 = and i32 %5107, 255
-  store i32 %5108, ptr %16, align 4
-  %5109 = load i32, ptr %14, align 4
-  %5110 = lshr i32 %5109, 16
-  store i32 %5110, ptr %17, align 4
-  %5111 = load i32, ptr %17, align 4
-  %5112 = and i32 %5111, 255
-  store i32 %5112, ptr %17, align 4
-  %5113 = load i32, ptr %14, align 4
-  %5114 = lshr i32 %5113, 24
-  store i32 %5114, ptr %18, align 4
-  %5115 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5116 = getelementptr inbounds %struct.BF_ctx, ptr %5115, i32 0, i32 0
-  %5117 = getelementptr inbounds [4 x [256 x i32]], ptr %5116, i64 0, i64 3
-  %5118 = load i32, ptr %15, align 4
-  %5119 = zext i32 %5118 to i64
-  %5120 = getelementptr inbounds [256 x i32], ptr %5117, i64 0, i64 %5119
-  %5121 = load i32, ptr %5120, align 4
-  store i32 %5121, ptr %15, align 4
-  %5122 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5123 = getelementptr inbounds %struct.BF_ctx, ptr %5122, i32 0, i32 0
-  %5124 = getelementptr inbounds [4 x [256 x i32]], ptr %5123, i64 0, i64 2
-  %5125 = load i32, ptr %16, align 4
-  %5126 = zext i32 %5125 to i64
-  %5127 = getelementptr inbounds [256 x i32], ptr %5124, i64 0, i64 %5126
-  %5128 = load i32, ptr %5127, align 4
-  store i32 %5128, ptr %16, align 4
-  %5129 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5130 = getelementptr inbounds %struct.BF_ctx, ptr %5129, i32 0, i32 0
-  %5131 = getelementptr inbounds [4 x [256 x i32]], ptr %5130, i64 0, i64 1
-  %5132 = load i32, ptr %17, align 4
-  %5133 = zext i32 %5132 to i64
-  %5134 = getelementptr inbounds [256 x i32], ptr %5131, i64 0, i64 %5133
-  %5135 = load i32, ptr %5134, align 4
-  store i32 %5135, ptr %17, align 4
-  %5136 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5137 = getelementptr inbounds %struct.BF_ctx, ptr %5136, i32 0, i32 0
-  %5138 = getelementptr inbounds [4 x [256 x i32]], ptr %5137, i64 0, i64 0
-  %5139 = load i32, ptr %18, align 4
-  %5140 = zext i32 %5139 to i64
-  %5141 = getelementptr inbounds [256 x i32], ptr %5138, i64 0, i64 %5140
-  %5142 = load i32, ptr %5141, align 4
-  %5143 = load i32, ptr %17, align 4
-  %5144 = add i32 %5143, %5142
-  store i32 %5144, ptr %17, align 4
-  %5145 = load i32, ptr %16, align 4
-  %5146 = load i32, ptr %17, align 4
-  %5147 = xor i32 %5146, %5145
-  store i32 %5147, ptr %17, align 4
-  %5148 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5149 = getelementptr inbounds %struct.BF_ctx, ptr %5148, i32 0, i32 1
-  %5150 = getelementptr inbounds [18 x i32], ptr %5149, i64 0, i64 2
-  %5151 = load i32, ptr %5150, align 4
-  %5152 = load i32, ptr %13, align 4
-  %5153 = xor i32 %5152, %5151
-  store i32 %5153, ptr %13, align 4
-  %5154 = load i32, ptr %15, align 4
-  %5155 = load i32, ptr %17, align 4
-  %5156 = add i32 %5155, %5154
-  store i32 %5156, ptr %17, align 4
-  %5157 = load i32, ptr %17, align 4
-  %5158 = load i32, ptr %13, align 4
-  %5159 = xor i32 %5158, %5157
-  store i32 %5159, ptr %13, align 4
-  %5160 = load i32, ptr %13, align 4
-  %5161 = and i32 %5160, 255
-  store i32 %5161, ptr %15, align 4
-  %5162 = load i32, ptr %13, align 4
-  %5163 = lshr i32 %5162, 8
-  store i32 %5163, ptr %16, align 4
-  %5164 = load i32, ptr %16, align 4
-  %5165 = and i32 %5164, 255
-  store i32 %5165, ptr %16, align 4
-  %5166 = load i32, ptr %13, align 4
-  %5167 = lshr i32 %5166, 16
-  store i32 %5167, ptr %17, align 4
-  %5168 = load i32, ptr %17, align 4
-  %5169 = and i32 %5168, 255
-  store i32 %5169, ptr %17, align 4
-  %5170 = load i32, ptr %13, align 4
-  %5171 = lshr i32 %5170, 24
-  store i32 %5171, ptr %18, align 4
-  %5172 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5173 = getelementptr inbounds %struct.BF_ctx, ptr %5172, i32 0, i32 0
-  %5174 = getelementptr inbounds [4 x [256 x i32]], ptr %5173, i64 0, i64 3
-  %5175 = load i32, ptr %15, align 4
-  %5176 = zext i32 %5175 to i64
-  %5177 = getelementptr inbounds [256 x i32], ptr %5174, i64 0, i64 %5176
-  %5178 = load i32, ptr %5177, align 4
-  store i32 %5178, ptr %15, align 4
-  %5179 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5180 = getelementptr inbounds %struct.BF_ctx, ptr %5179, i32 0, i32 0
-  %5181 = getelementptr inbounds [4 x [256 x i32]], ptr %5180, i64 0, i64 2
-  %5182 = load i32, ptr %16, align 4
-  %5183 = zext i32 %5182 to i64
-  %5184 = getelementptr inbounds [256 x i32], ptr %5181, i64 0, i64 %5183
-  %5185 = load i32, ptr %5184, align 4
-  store i32 %5185, ptr %16, align 4
-  %5186 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5187 = getelementptr inbounds %struct.BF_ctx, ptr %5186, i32 0, i32 0
-  %5188 = getelementptr inbounds [4 x [256 x i32]], ptr %5187, i64 0, i64 1
-  %5189 = load i32, ptr %17, align 4
-  %5190 = zext i32 %5189 to i64
-  %5191 = getelementptr inbounds [256 x i32], ptr %5188, i64 0, i64 %5190
-  %5192 = load i32, ptr %5191, align 4
-  store i32 %5192, ptr %17, align 4
-  %5193 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5194 = getelementptr inbounds %struct.BF_ctx, ptr %5193, i32 0, i32 0
-  %5195 = getelementptr inbounds [4 x [256 x i32]], ptr %5194, i64 0, i64 0
-  %5196 = load i32, ptr %18, align 4
-  %5197 = zext i32 %5196 to i64
-  %5198 = getelementptr inbounds [256 x i32], ptr %5195, i64 0, i64 %5197
-  %5199 = load i32, ptr %5198, align 4
-  %5200 = load i32, ptr %17, align 4
-  %5201 = add i32 %5200, %5199
-  store i32 %5201, ptr %17, align 4
-  %5202 = load i32, ptr %16, align 4
-  %5203 = load i32, ptr %17, align 4
-  %5204 = xor i32 %5203, %5202
-  store i32 %5204, ptr %17, align 4
-  %5205 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5206 = getelementptr inbounds %struct.BF_ctx, ptr %5205, i32 0, i32 1
-  %5207 = getelementptr inbounds [18 x i32], ptr %5206, i64 0, i64 3
-  %5208 = load i32, ptr %5207, align 4
-  %5209 = load i32, ptr %14, align 4
-  %5210 = xor i32 %5209, %5208
-  store i32 %5210, ptr %14, align 4
-  %5211 = load i32, ptr %15, align 4
-  %5212 = load i32, ptr %17, align 4
-  %5213 = add i32 %5212, %5211
-  store i32 %5213, ptr %17, align 4
-  %5214 = load i32, ptr %17, align 4
-  %5215 = load i32, ptr %14, align 4
-  %5216 = xor i32 %5215, %5214
-  store i32 %5216, ptr %14, align 4
-  %5217 = load i32, ptr %14, align 4
-  %5218 = and i32 %5217, 255
-  store i32 %5218, ptr %15, align 4
-  %5219 = load i32, ptr %14, align 4
-  %5220 = lshr i32 %5219, 8
-  store i32 %5220, ptr %16, align 4
-  %5221 = load i32, ptr %16, align 4
-  %5222 = and i32 %5221, 255
-  store i32 %5222, ptr %16, align 4
-  %5223 = load i32, ptr %14, align 4
-  %5224 = lshr i32 %5223, 16
-  store i32 %5224, ptr %17, align 4
-  %5225 = load i32, ptr %17, align 4
-  %5226 = and i32 %5225, 255
-  store i32 %5226, ptr %17, align 4
-  %5227 = load i32, ptr %14, align 4
-  %5228 = lshr i32 %5227, 24
-  store i32 %5228, ptr %18, align 4
-  %5229 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5230 = getelementptr inbounds %struct.BF_ctx, ptr %5229, i32 0, i32 0
-  %5231 = getelementptr inbounds [4 x [256 x i32]], ptr %5230, i64 0, i64 3
-  %5232 = load i32, ptr %15, align 4
-  %5233 = zext i32 %5232 to i64
-  %5234 = getelementptr inbounds [256 x i32], ptr %5231, i64 0, i64 %5233
-  %5235 = load i32, ptr %5234, align 4
-  store i32 %5235, ptr %15, align 4
-  %5236 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5237 = getelementptr inbounds %struct.BF_ctx, ptr %5236, i32 0, i32 0
-  %5238 = getelementptr inbounds [4 x [256 x i32]], ptr %5237, i64 0, i64 2
-  %5239 = load i32, ptr %16, align 4
-  %5240 = zext i32 %5239 to i64
-  %5241 = getelementptr inbounds [256 x i32], ptr %5238, i64 0, i64 %5240
-  %5242 = load i32, ptr %5241, align 4
-  store i32 %5242, ptr %16, align 4
-  %5243 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5244 = getelementptr inbounds %struct.BF_ctx, ptr %5243, i32 0, i32 0
-  %5245 = getelementptr inbounds [4 x [256 x i32]], ptr %5244, i64 0, i64 1
-  %5246 = load i32, ptr %17, align 4
-  %5247 = zext i32 %5246 to i64
-  %5248 = getelementptr inbounds [256 x i32], ptr %5245, i64 0, i64 %5247
-  %5249 = load i32, ptr %5248, align 4
-  store i32 %5249, ptr %17, align 4
-  %5250 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5251 = getelementptr inbounds %struct.BF_ctx, ptr %5250, i32 0, i32 0
-  %5252 = getelementptr inbounds [4 x [256 x i32]], ptr %5251, i64 0, i64 0
-  %5253 = load i32, ptr %18, align 4
-  %5254 = zext i32 %5253 to i64
-  %5255 = getelementptr inbounds [256 x i32], ptr %5252, i64 0, i64 %5254
-  %5256 = load i32, ptr %5255, align 4
-  %5257 = load i32, ptr %17, align 4
-  %5258 = add i32 %5257, %5256
-  store i32 %5258, ptr %17, align 4
-  %5259 = load i32, ptr %16, align 4
-  %5260 = load i32, ptr %17, align 4
-  %5261 = xor i32 %5260, %5259
-  store i32 %5261, ptr %17, align 4
-  %5262 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5263 = getelementptr inbounds %struct.BF_ctx, ptr %5262, i32 0, i32 1
-  %5264 = getelementptr inbounds [18 x i32], ptr %5263, i64 0, i64 4
-  %5265 = load i32, ptr %5264, align 4
-  %5266 = load i32, ptr %13, align 4
-  %5267 = xor i32 %5266, %5265
-  store i32 %5267, ptr %13, align 4
-  %5268 = load i32, ptr %15, align 4
-  %5269 = load i32, ptr %17, align 4
-  %5270 = add i32 %5269, %5268
-  store i32 %5270, ptr %17, align 4
-  %5271 = load i32, ptr %17, align 4
-  %5272 = load i32, ptr %13, align 4
-  %5273 = xor i32 %5272, %5271
-  store i32 %5273, ptr %13, align 4
-  %5274 = load i32, ptr %13, align 4
-  %5275 = and i32 %5274, 255
-  store i32 %5275, ptr %15, align 4
-  %5276 = load i32, ptr %13, align 4
-  %5277 = lshr i32 %5276, 8
-  store i32 %5277, ptr %16, align 4
-  %5278 = load i32, ptr %16, align 4
-  %5279 = and i32 %5278, 255
-  store i32 %5279, ptr %16, align 4
-  %5280 = load i32, ptr %13, align 4
-  %5281 = lshr i32 %5280, 16
-  store i32 %5281, ptr %17, align 4
-  %5282 = load i32, ptr %17, align 4
-  %5283 = and i32 %5282, 255
-  store i32 %5283, ptr %17, align 4
-  %5284 = load i32, ptr %13, align 4
-  %5285 = lshr i32 %5284, 24
-  store i32 %5285, ptr %18, align 4
-  %5286 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5287 = getelementptr inbounds %struct.BF_ctx, ptr %5286, i32 0, i32 0
-  %5288 = getelementptr inbounds [4 x [256 x i32]], ptr %5287, i64 0, i64 3
-  %5289 = load i32, ptr %15, align 4
-  %5290 = zext i32 %5289 to i64
-  %5291 = getelementptr inbounds [256 x i32], ptr %5288, i64 0, i64 %5290
-  %5292 = load i32, ptr %5291, align 4
-  store i32 %5292, ptr %15, align 4
-  %5293 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5294 = getelementptr inbounds %struct.BF_ctx, ptr %5293, i32 0, i32 0
-  %5295 = getelementptr inbounds [4 x [256 x i32]], ptr %5294, i64 0, i64 2
-  %5296 = load i32, ptr %16, align 4
-  %5297 = zext i32 %5296 to i64
-  %5298 = getelementptr inbounds [256 x i32], ptr %5295, i64 0, i64 %5297
-  %5299 = load i32, ptr %5298, align 4
-  store i32 %5299, ptr %16, align 4
-  %5300 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5301 = getelementptr inbounds %struct.BF_ctx, ptr %5300, i32 0, i32 0
-  %5302 = getelementptr inbounds [4 x [256 x i32]], ptr %5301, i64 0, i64 1
-  %5303 = load i32, ptr %17, align 4
-  %5304 = zext i32 %5303 to i64
-  %5305 = getelementptr inbounds [256 x i32], ptr %5302, i64 0, i64 %5304
-  %5306 = load i32, ptr %5305, align 4
-  store i32 %5306, ptr %17, align 4
-  %5307 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5308 = getelementptr inbounds %struct.BF_ctx, ptr %5307, i32 0, i32 0
-  %5309 = getelementptr inbounds [4 x [256 x i32]], ptr %5308, i64 0, i64 0
-  %5310 = load i32, ptr %18, align 4
-  %5311 = zext i32 %5310 to i64
-  %5312 = getelementptr inbounds [256 x i32], ptr %5309, i64 0, i64 %5311
-  %5313 = load i32, ptr %5312, align 4
-  %5314 = load i32, ptr %17, align 4
-  %5315 = add i32 %5314, %5313
-  store i32 %5315, ptr %17, align 4
-  %5316 = load i32, ptr %16, align 4
-  %5317 = load i32, ptr %17, align 4
-  %5318 = xor i32 %5317, %5316
-  store i32 %5318, ptr %17, align 4
-  %5319 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5320 = getelementptr inbounds %struct.BF_ctx, ptr %5319, i32 0, i32 1
-  %5321 = getelementptr inbounds [18 x i32], ptr %5320, i64 0, i64 5
-  %5322 = load i32, ptr %5321, align 4
-  %5323 = load i32, ptr %14, align 4
-  %5324 = xor i32 %5323, %5322
-  store i32 %5324, ptr %14, align 4
-  %5325 = load i32, ptr %15, align 4
-  %5326 = load i32, ptr %17, align 4
-  %5327 = add i32 %5326, %5325
-  store i32 %5327, ptr %17, align 4
-  %5328 = load i32, ptr %17, align 4
-  %5329 = load i32, ptr %14, align 4
-  %5330 = xor i32 %5329, %5328
-  store i32 %5330, ptr %14, align 4
-  %5331 = load i32, ptr %14, align 4
-  %5332 = and i32 %5331, 255
-  store i32 %5332, ptr %15, align 4
-  %5333 = load i32, ptr %14, align 4
-  %5334 = lshr i32 %5333, 8
-  store i32 %5334, ptr %16, align 4
-  %5335 = load i32, ptr %16, align 4
-  %5336 = and i32 %5335, 255
-  store i32 %5336, ptr %16, align 4
-  %5337 = load i32, ptr %14, align 4
-  %5338 = lshr i32 %5337, 16
-  store i32 %5338, ptr %17, align 4
-  %5339 = load i32, ptr %17, align 4
-  %5340 = and i32 %5339, 255
-  store i32 %5340, ptr %17, align 4
-  %5341 = load i32, ptr %14, align 4
-  %5342 = lshr i32 %5341, 24
-  store i32 %5342, ptr %18, align 4
-  %5343 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5344 = getelementptr inbounds %struct.BF_ctx, ptr %5343, i32 0, i32 0
-  %5345 = getelementptr inbounds [4 x [256 x i32]], ptr %5344, i64 0, i64 3
-  %5346 = load i32, ptr %15, align 4
-  %5347 = zext i32 %5346 to i64
-  %5348 = getelementptr inbounds [256 x i32], ptr %5345, i64 0, i64 %5347
-  %5349 = load i32, ptr %5348, align 4
-  store i32 %5349, ptr %15, align 4
-  %5350 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5351 = getelementptr inbounds %struct.BF_ctx, ptr %5350, i32 0, i32 0
-  %5352 = getelementptr inbounds [4 x [256 x i32]], ptr %5351, i64 0, i64 2
-  %5353 = load i32, ptr %16, align 4
-  %5354 = zext i32 %5353 to i64
-  %5355 = getelementptr inbounds [256 x i32], ptr %5352, i64 0, i64 %5354
-  %5356 = load i32, ptr %5355, align 4
-  store i32 %5356, ptr %16, align 4
-  %5357 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5358 = getelementptr inbounds %struct.BF_ctx, ptr %5357, i32 0, i32 0
-  %5359 = getelementptr inbounds [4 x [256 x i32]], ptr %5358, i64 0, i64 1
-  %5360 = load i32, ptr %17, align 4
-  %5361 = zext i32 %5360 to i64
-  %5362 = getelementptr inbounds [256 x i32], ptr %5359, i64 0, i64 %5361
-  %5363 = load i32, ptr %5362, align 4
-  store i32 %5363, ptr %17, align 4
-  %5364 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5365 = getelementptr inbounds %struct.BF_ctx, ptr %5364, i32 0, i32 0
-  %5366 = getelementptr inbounds [4 x [256 x i32]], ptr %5365, i64 0, i64 0
-  %5367 = load i32, ptr %18, align 4
-  %5368 = zext i32 %5367 to i64
-  %5369 = getelementptr inbounds [256 x i32], ptr %5366, i64 0, i64 %5368
-  %5370 = load i32, ptr %5369, align 4
-  %5371 = load i32, ptr %17, align 4
-  %5372 = add i32 %5371, %5370
-  store i32 %5372, ptr %17, align 4
-  %5373 = load i32, ptr %16, align 4
-  %5374 = load i32, ptr %17, align 4
-  %5375 = xor i32 %5374, %5373
-  store i32 %5375, ptr %17, align 4
-  %5376 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5377 = getelementptr inbounds %struct.BF_ctx, ptr %5376, i32 0, i32 1
-  %5378 = getelementptr inbounds [18 x i32], ptr %5377, i64 0, i64 6
-  %5379 = load i32, ptr %5378, align 4
-  %5380 = load i32, ptr %13, align 4
-  %5381 = xor i32 %5380, %5379
-  store i32 %5381, ptr %13, align 4
-  %5382 = load i32, ptr %15, align 4
-  %5383 = load i32, ptr %17, align 4
-  %5384 = add i32 %5383, %5382
-  store i32 %5384, ptr %17, align 4
-  %5385 = load i32, ptr %17, align 4
-  %5386 = load i32, ptr %13, align 4
-  %5387 = xor i32 %5386, %5385
-  store i32 %5387, ptr %13, align 4
-  %5388 = load i32, ptr %13, align 4
-  %5389 = and i32 %5388, 255
-  store i32 %5389, ptr %15, align 4
-  %5390 = load i32, ptr %13, align 4
-  %5391 = lshr i32 %5390, 8
-  store i32 %5391, ptr %16, align 4
-  %5392 = load i32, ptr %16, align 4
-  %5393 = and i32 %5392, 255
-  store i32 %5393, ptr %16, align 4
-  %5394 = load i32, ptr %13, align 4
-  %5395 = lshr i32 %5394, 16
-  store i32 %5395, ptr %17, align 4
-  %5396 = load i32, ptr %17, align 4
-  %5397 = and i32 %5396, 255
-  store i32 %5397, ptr %17, align 4
-  %5398 = load i32, ptr %13, align 4
-  %5399 = lshr i32 %5398, 24
-  store i32 %5399, ptr %18, align 4
-  %5400 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5401 = getelementptr inbounds %struct.BF_ctx, ptr %5400, i32 0, i32 0
-  %5402 = getelementptr inbounds [4 x [256 x i32]], ptr %5401, i64 0, i64 3
-  %5403 = load i32, ptr %15, align 4
-  %5404 = zext i32 %5403 to i64
-  %5405 = getelementptr inbounds [256 x i32], ptr %5402, i64 0, i64 %5404
-  %5406 = load i32, ptr %5405, align 4
-  store i32 %5406, ptr %15, align 4
-  %5407 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5408 = getelementptr inbounds %struct.BF_ctx, ptr %5407, i32 0, i32 0
-  %5409 = getelementptr inbounds [4 x [256 x i32]], ptr %5408, i64 0, i64 2
-  %5410 = load i32, ptr %16, align 4
-  %5411 = zext i32 %5410 to i64
-  %5412 = getelementptr inbounds [256 x i32], ptr %5409, i64 0, i64 %5411
-  %5413 = load i32, ptr %5412, align 4
-  store i32 %5413, ptr %16, align 4
-  %5414 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5415 = getelementptr inbounds %struct.BF_ctx, ptr %5414, i32 0, i32 0
-  %5416 = getelementptr inbounds [4 x [256 x i32]], ptr %5415, i64 0, i64 1
-  %5417 = load i32, ptr %17, align 4
-  %5418 = zext i32 %5417 to i64
-  %5419 = getelementptr inbounds [256 x i32], ptr %5416, i64 0, i64 %5418
-  %5420 = load i32, ptr %5419, align 4
-  store i32 %5420, ptr %17, align 4
-  %5421 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5422 = getelementptr inbounds %struct.BF_ctx, ptr %5421, i32 0, i32 0
-  %5423 = getelementptr inbounds [4 x [256 x i32]], ptr %5422, i64 0, i64 0
-  %5424 = load i32, ptr %18, align 4
-  %5425 = zext i32 %5424 to i64
-  %5426 = getelementptr inbounds [256 x i32], ptr %5423, i64 0, i64 %5425
-  %5427 = load i32, ptr %5426, align 4
-  %5428 = load i32, ptr %17, align 4
-  %5429 = add i32 %5428, %5427
-  store i32 %5429, ptr %17, align 4
-  %5430 = load i32, ptr %16, align 4
-  %5431 = load i32, ptr %17, align 4
-  %5432 = xor i32 %5431, %5430
-  store i32 %5432, ptr %17, align 4
-  %5433 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5434 = getelementptr inbounds %struct.BF_ctx, ptr %5433, i32 0, i32 1
-  %5435 = getelementptr inbounds [18 x i32], ptr %5434, i64 0, i64 7
-  %5436 = load i32, ptr %5435, align 4
-  %5437 = load i32, ptr %14, align 4
-  %5438 = xor i32 %5437, %5436
-  store i32 %5438, ptr %14, align 4
-  %5439 = load i32, ptr %15, align 4
-  %5440 = load i32, ptr %17, align 4
-  %5441 = add i32 %5440, %5439
-  store i32 %5441, ptr %17, align 4
-  %5442 = load i32, ptr %17, align 4
-  %5443 = load i32, ptr %14, align 4
-  %5444 = xor i32 %5443, %5442
-  store i32 %5444, ptr %14, align 4
-  %5445 = load i32, ptr %14, align 4
-  %5446 = and i32 %5445, 255
-  store i32 %5446, ptr %15, align 4
-  %5447 = load i32, ptr %14, align 4
-  %5448 = lshr i32 %5447, 8
-  store i32 %5448, ptr %16, align 4
-  %5449 = load i32, ptr %16, align 4
-  %5450 = and i32 %5449, 255
-  store i32 %5450, ptr %16, align 4
-  %5451 = load i32, ptr %14, align 4
-  %5452 = lshr i32 %5451, 16
-  store i32 %5452, ptr %17, align 4
-  %5453 = load i32, ptr %17, align 4
-  %5454 = and i32 %5453, 255
-  store i32 %5454, ptr %17, align 4
-  %5455 = load i32, ptr %14, align 4
-  %5456 = lshr i32 %5455, 24
-  store i32 %5456, ptr %18, align 4
-  %5457 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5458 = getelementptr inbounds %struct.BF_ctx, ptr %5457, i32 0, i32 0
-  %5459 = getelementptr inbounds [4 x [256 x i32]], ptr %5458, i64 0, i64 3
-  %5460 = load i32, ptr %15, align 4
-  %5461 = zext i32 %5460 to i64
-  %5462 = getelementptr inbounds [256 x i32], ptr %5459, i64 0, i64 %5461
-  %5463 = load i32, ptr %5462, align 4
-  store i32 %5463, ptr %15, align 4
-  %5464 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5465 = getelementptr inbounds %struct.BF_ctx, ptr %5464, i32 0, i32 0
-  %5466 = getelementptr inbounds [4 x [256 x i32]], ptr %5465, i64 0, i64 2
-  %5467 = load i32, ptr %16, align 4
-  %5468 = zext i32 %5467 to i64
-  %5469 = getelementptr inbounds [256 x i32], ptr %5466, i64 0, i64 %5468
-  %5470 = load i32, ptr %5469, align 4
-  store i32 %5470, ptr %16, align 4
-  %5471 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5472 = getelementptr inbounds %struct.BF_ctx, ptr %5471, i32 0, i32 0
-  %5473 = getelementptr inbounds [4 x [256 x i32]], ptr %5472, i64 0, i64 1
-  %5474 = load i32, ptr %17, align 4
-  %5475 = zext i32 %5474 to i64
-  %5476 = getelementptr inbounds [256 x i32], ptr %5473, i64 0, i64 %5475
-  %5477 = load i32, ptr %5476, align 4
-  store i32 %5477, ptr %17, align 4
-  %5478 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5479 = getelementptr inbounds %struct.BF_ctx, ptr %5478, i32 0, i32 0
-  %5480 = getelementptr inbounds [4 x [256 x i32]], ptr %5479, i64 0, i64 0
-  %5481 = load i32, ptr %18, align 4
-  %5482 = zext i32 %5481 to i64
-  %5483 = getelementptr inbounds [256 x i32], ptr %5480, i64 0, i64 %5482
-  %5484 = load i32, ptr %5483, align 4
-  %5485 = load i32, ptr %17, align 4
-  %5486 = add i32 %5485, %5484
-  store i32 %5486, ptr %17, align 4
-  %5487 = load i32, ptr %16, align 4
-  %5488 = load i32, ptr %17, align 4
-  %5489 = xor i32 %5488, %5487
-  store i32 %5489, ptr %17, align 4
-  %5490 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5491 = getelementptr inbounds %struct.BF_ctx, ptr %5490, i32 0, i32 1
-  %5492 = getelementptr inbounds [18 x i32], ptr %5491, i64 0, i64 8
-  %5493 = load i32, ptr %5492, align 4
-  %5494 = load i32, ptr %13, align 4
-  %5495 = xor i32 %5494, %5493
-  store i32 %5495, ptr %13, align 4
-  %5496 = load i32, ptr %15, align 4
-  %5497 = load i32, ptr %17, align 4
-  %5498 = add i32 %5497, %5496
-  store i32 %5498, ptr %17, align 4
-  %5499 = load i32, ptr %17, align 4
-  %5500 = load i32, ptr %13, align 4
-  %5501 = xor i32 %5500, %5499
-  store i32 %5501, ptr %13, align 4
-  %5502 = load i32, ptr %13, align 4
-  %5503 = and i32 %5502, 255
-  store i32 %5503, ptr %15, align 4
-  %5504 = load i32, ptr %13, align 4
-  %5505 = lshr i32 %5504, 8
-  store i32 %5505, ptr %16, align 4
-  %5506 = load i32, ptr %16, align 4
-  %5507 = and i32 %5506, 255
-  store i32 %5507, ptr %16, align 4
-  %5508 = load i32, ptr %13, align 4
-  %5509 = lshr i32 %5508, 16
-  store i32 %5509, ptr %17, align 4
-  %5510 = load i32, ptr %17, align 4
-  %5511 = and i32 %5510, 255
-  store i32 %5511, ptr %17, align 4
-  %5512 = load i32, ptr %13, align 4
-  %5513 = lshr i32 %5512, 24
-  store i32 %5513, ptr %18, align 4
-  %5514 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5515 = getelementptr inbounds %struct.BF_ctx, ptr %5514, i32 0, i32 0
-  %5516 = getelementptr inbounds [4 x [256 x i32]], ptr %5515, i64 0, i64 3
-  %5517 = load i32, ptr %15, align 4
-  %5518 = zext i32 %5517 to i64
-  %5519 = getelementptr inbounds [256 x i32], ptr %5516, i64 0, i64 %5518
-  %5520 = load i32, ptr %5519, align 4
-  store i32 %5520, ptr %15, align 4
-  %5521 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5522 = getelementptr inbounds %struct.BF_ctx, ptr %5521, i32 0, i32 0
-  %5523 = getelementptr inbounds [4 x [256 x i32]], ptr %5522, i64 0, i64 2
-  %5524 = load i32, ptr %16, align 4
-  %5525 = zext i32 %5524 to i64
-  %5526 = getelementptr inbounds [256 x i32], ptr %5523, i64 0, i64 %5525
-  %5527 = load i32, ptr %5526, align 4
-  store i32 %5527, ptr %16, align 4
-  %5528 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5529 = getelementptr inbounds %struct.BF_ctx, ptr %5528, i32 0, i32 0
-  %5530 = getelementptr inbounds [4 x [256 x i32]], ptr %5529, i64 0, i64 1
-  %5531 = load i32, ptr %17, align 4
-  %5532 = zext i32 %5531 to i64
-  %5533 = getelementptr inbounds [256 x i32], ptr %5530, i64 0, i64 %5532
-  %5534 = load i32, ptr %5533, align 4
-  store i32 %5534, ptr %17, align 4
-  %5535 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5536 = getelementptr inbounds %struct.BF_ctx, ptr %5535, i32 0, i32 0
-  %5537 = getelementptr inbounds [4 x [256 x i32]], ptr %5536, i64 0, i64 0
-  %5538 = load i32, ptr %18, align 4
-  %5539 = zext i32 %5538 to i64
-  %5540 = getelementptr inbounds [256 x i32], ptr %5537, i64 0, i64 %5539
-  %5541 = load i32, ptr %5540, align 4
-  %5542 = load i32, ptr %17, align 4
-  %5543 = add i32 %5542, %5541
-  store i32 %5543, ptr %17, align 4
-  %5544 = load i32, ptr %16, align 4
-  %5545 = load i32, ptr %17, align 4
-  %5546 = xor i32 %5545, %5544
-  store i32 %5546, ptr %17, align 4
-  %5547 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5548 = getelementptr inbounds %struct.BF_ctx, ptr %5547, i32 0, i32 1
-  %5549 = getelementptr inbounds [18 x i32], ptr %5548, i64 0, i64 9
-  %5550 = load i32, ptr %5549, align 4
-  %5551 = load i32, ptr %14, align 4
-  %5552 = xor i32 %5551, %5550
-  store i32 %5552, ptr %14, align 4
-  %5553 = load i32, ptr %15, align 4
-  %5554 = load i32, ptr %17, align 4
-  %5555 = add i32 %5554, %5553
-  store i32 %5555, ptr %17, align 4
-  %5556 = load i32, ptr %17, align 4
-  %5557 = load i32, ptr %14, align 4
-  %5558 = xor i32 %5557, %5556
-  store i32 %5558, ptr %14, align 4
-  %5559 = load i32, ptr %14, align 4
-  %5560 = and i32 %5559, 255
-  store i32 %5560, ptr %15, align 4
-  %5561 = load i32, ptr %14, align 4
-  %5562 = lshr i32 %5561, 8
-  store i32 %5562, ptr %16, align 4
-  %5563 = load i32, ptr %16, align 4
-  %5564 = and i32 %5563, 255
-  store i32 %5564, ptr %16, align 4
-  %5565 = load i32, ptr %14, align 4
-  %5566 = lshr i32 %5565, 16
-  store i32 %5566, ptr %17, align 4
-  %5567 = load i32, ptr %17, align 4
-  %5568 = and i32 %5567, 255
-  store i32 %5568, ptr %17, align 4
-  %5569 = load i32, ptr %14, align 4
-  %5570 = lshr i32 %5569, 24
-  store i32 %5570, ptr %18, align 4
-  %5571 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5572 = getelementptr inbounds %struct.BF_ctx, ptr %5571, i32 0, i32 0
-  %5573 = getelementptr inbounds [4 x [256 x i32]], ptr %5572, i64 0, i64 3
-  %5574 = load i32, ptr %15, align 4
-  %5575 = zext i32 %5574 to i64
-  %5576 = getelementptr inbounds [256 x i32], ptr %5573, i64 0, i64 %5575
-  %5577 = load i32, ptr %5576, align 4
-  store i32 %5577, ptr %15, align 4
-  %5578 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5579 = getelementptr inbounds %struct.BF_ctx, ptr %5578, i32 0, i32 0
-  %5580 = getelementptr inbounds [4 x [256 x i32]], ptr %5579, i64 0, i64 2
-  %5581 = load i32, ptr %16, align 4
-  %5582 = zext i32 %5581 to i64
-  %5583 = getelementptr inbounds [256 x i32], ptr %5580, i64 0, i64 %5582
-  %5584 = load i32, ptr %5583, align 4
-  store i32 %5584, ptr %16, align 4
-  %5585 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5586 = getelementptr inbounds %struct.BF_ctx, ptr %5585, i32 0, i32 0
-  %5587 = getelementptr inbounds [4 x [256 x i32]], ptr %5586, i64 0, i64 1
-  %5588 = load i32, ptr %17, align 4
-  %5589 = zext i32 %5588 to i64
-  %5590 = getelementptr inbounds [256 x i32], ptr %5587, i64 0, i64 %5589
-  %5591 = load i32, ptr %5590, align 4
-  store i32 %5591, ptr %17, align 4
-  %5592 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5593 = getelementptr inbounds %struct.BF_ctx, ptr %5592, i32 0, i32 0
-  %5594 = getelementptr inbounds [4 x [256 x i32]], ptr %5593, i64 0, i64 0
-  %5595 = load i32, ptr %18, align 4
-  %5596 = zext i32 %5595 to i64
-  %5597 = getelementptr inbounds [256 x i32], ptr %5594, i64 0, i64 %5596
-  %5598 = load i32, ptr %5597, align 4
-  %5599 = load i32, ptr %17, align 4
-  %5600 = add i32 %5599, %5598
-  store i32 %5600, ptr %17, align 4
-  %5601 = load i32, ptr %16, align 4
-  %5602 = load i32, ptr %17, align 4
-  %5603 = xor i32 %5602, %5601
-  store i32 %5603, ptr %17, align 4
-  %5604 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5605 = getelementptr inbounds %struct.BF_ctx, ptr %5604, i32 0, i32 1
-  %5606 = getelementptr inbounds [18 x i32], ptr %5605, i64 0, i64 10
-  %5607 = load i32, ptr %5606, align 4
-  %5608 = load i32, ptr %13, align 4
-  %5609 = xor i32 %5608, %5607
-  store i32 %5609, ptr %13, align 4
-  %5610 = load i32, ptr %15, align 4
-  %5611 = load i32, ptr %17, align 4
-  %5612 = add i32 %5611, %5610
-  store i32 %5612, ptr %17, align 4
-  %5613 = load i32, ptr %17, align 4
-  %5614 = load i32, ptr %13, align 4
-  %5615 = xor i32 %5614, %5613
-  store i32 %5615, ptr %13, align 4
-  %5616 = load i32, ptr %13, align 4
-  %5617 = and i32 %5616, 255
-  store i32 %5617, ptr %15, align 4
-  %5618 = load i32, ptr %13, align 4
-  %5619 = lshr i32 %5618, 8
-  store i32 %5619, ptr %16, align 4
-  %5620 = load i32, ptr %16, align 4
-  %5621 = and i32 %5620, 255
-  store i32 %5621, ptr %16, align 4
-  %5622 = load i32, ptr %13, align 4
-  %5623 = lshr i32 %5622, 16
-  store i32 %5623, ptr %17, align 4
-  %5624 = load i32, ptr %17, align 4
-  %5625 = and i32 %5624, 255
-  store i32 %5625, ptr %17, align 4
-  %5626 = load i32, ptr %13, align 4
-  %5627 = lshr i32 %5626, 24
-  store i32 %5627, ptr %18, align 4
-  %5628 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5629 = getelementptr inbounds %struct.BF_ctx, ptr %5628, i32 0, i32 0
-  %5630 = getelementptr inbounds [4 x [256 x i32]], ptr %5629, i64 0, i64 3
-  %5631 = load i32, ptr %15, align 4
-  %5632 = zext i32 %5631 to i64
-  %5633 = getelementptr inbounds [256 x i32], ptr %5630, i64 0, i64 %5632
-  %5634 = load i32, ptr %5633, align 4
-  store i32 %5634, ptr %15, align 4
-  %5635 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5636 = getelementptr inbounds %struct.BF_ctx, ptr %5635, i32 0, i32 0
-  %5637 = getelementptr inbounds [4 x [256 x i32]], ptr %5636, i64 0, i64 2
-  %5638 = load i32, ptr %16, align 4
-  %5639 = zext i32 %5638 to i64
-  %5640 = getelementptr inbounds [256 x i32], ptr %5637, i64 0, i64 %5639
-  %5641 = load i32, ptr %5640, align 4
-  store i32 %5641, ptr %16, align 4
-  %5642 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5643 = getelementptr inbounds %struct.BF_ctx, ptr %5642, i32 0, i32 0
-  %5644 = getelementptr inbounds [4 x [256 x i32]], ptr %5643, i64 0, i64 1
-  %5645 = load i32, ptr %17, align 4
-  %5646 = zext i32 %5645 to i64
-  %5647 = getelementptr inbounds [256 x i32], ptr %5644, i64 0, i64 %5646
-  %5648 = load i32, ptr %5647, align 4
-  store i32 %5648, ptr %17, align 4
-  %5649 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5650 = getelementptr inbounds %struct.BF_ctx, ptr %5649, i32 0, i32 0
-  %5651 = getelementptr inbounds [4 x [256 x i32]], ptr %5650, i64 0, i64 0
-  %5652 = load i32, ptr %18, align 4
-  %5653 = zext i32 %5652 to i64
-  %5654 = getelementptr inbounds [256 x i32], ptr %5651, i64 0, i64 %5653
-  %5655 = load i32, ptr %5654, align 4
-  %5656 = load i32, ptr %17, align 4
-  %5657 = add i32 %5656, %5655
-  store i32 %5657, ptr %17, align 4
-  %5658 = load i32, ptr %16, align 4
-  %5659 = load i32, ptr %17, align 4
-  %5660 = xor i32 %5659, %5658
-  store i32 %5660, ptr %17, align 4
-  %5661 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5662 = getelementptr inbounds %struct.BF_ctx, ptr %5661, i32 0, i32 1
-  %5663 = getelementptr inbounds [18 x i32], ptr %5662, i64 0, i64 11
-  %5664 = load i32, ptr %5663, align 4
-  %5665 = load i32, ptr %14, align 4
-  %5666 = xor i32 %5665, %5664
-  store i32 %5666, ptr %14, align 4
-  %5667 = load i32, ptr %15, align 4
-  %5668 = load i32, ptr %17, align 4
-  %5669 = add i32 %5668, %5667
-  store i32 %5669, ptr %17, align 4
-  %5670 = load i32, ptr %17, align 4
-  %5671 = load i32, ptr %14, align 4
-  %5672 = xor i32 %5671, %5670
-  store i32 %5672, ptr %14, align 4
-  %5673 = load i32, ptr %14, align 4
-  %5674 = and i32 %5673, 255
-  store i32 %5674, ptr %15, align 4
-  %5675 = load i32, ptr %14, align 4
-  %5676 = lshr i32 %5675, 8
-  store i32 %5676, ptr %16, align 4
-  %5677 = load i32, ptr %16, align 4
-  %5678 = and i32 %5677, 255
-  store i32 %5678, ptr %16, align 4
-  %5679 = load i32, ptr %14, align 4
-  %5680 = lshr i32 %5679, 16
-  store i32 %5680, ptr %17, align 4
-  %5681 = load i32, ptr %17, align 4
-  %5682 = and i32 %5681, 255
-  store i32 %5682, ptr %17, align 4
-  %5683 = load i32, ptr %14, align 4
-  %5684 = lshr i32 %5683, 24
-  store i32 %5684, ptr %18, align 4
-  %5685 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5686 = getelementptr inbounds %struct.BF_ctx, ptr %5685, i32 0, i32 0
-  %5687 = getelementptr inbounds [4 x [256 x i32]], ptr %5686, i64 0, i64 3
-  %5688 = load i32, ptr %15, align 4
-  %5689 = zext i32 %5688 to i64
-  %5690 = getelementptr inbounds [256 x i32], ptr %5687, i64 0, i64 %5689
-  %5691 = load i32, ptr %5690, align 4
-  store i32 %5691, ptr %15, align 4
-  %5692 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5693 = getelementptr inbounds %struct.BF_ctx, ptr %5692, i32 0, i32 0
-  %5694 = getelementptr inbounds [4 x [256 x i32]], ptr %5693, i64 0, i64 2
-  %5695 = load i32, ptr %16, align 4
-  %5696 = zext i32 %5695 to i64
-  %5697 = getelementptr inbounds [256 x i32], ptr %5694, i64 0, i64 %5696
-  %5698 = load i32, ptr %5697, align 4
-  store i32 %5698, ptr %16, align 4
-  %5699 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5700 = getelementptr inbounds %struct.BF_ctx, ptr %5699, i32 0, i32 0
-  %5701 = getelementptr inbounds [4 x [256 x i32]], ptr %5700, i64 0, i64 1
-  %5702 = load i32, ptr %17, align 4
-  %5703 = zext i32 %5702 to i64
-  %5704 = getelementptr inbounds [256 x i32], ptr %5701, i64 0, i64 %5703
-  %5705 = load i32, ptr %5704, align 4
-  store i32 %5705, ptr %17, align 4
-  %5706 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5707 = getelementptr inbounds %struct.BF_ctx, ptr %5706, i32 0, i32 0
-  %5708 = getelementptr inbounds [4 x [256 x i32]], ptr %5707, i64 0, i64 0
-  %5709 = load i32, ptr %18, align 4
-  %5710 = zext i32 %5709 to i64
-  %5711 = getelementptr inbounds [256 x i32], ptr %5708, i64 0, i64 %5710
-  %5712 = load i32, ptr %5711, align 4
-  %5713 = load i32, ptr %17, align 4
-  %5714 = add i32 %5713, %5712
-  store i32 %5714, ptr %17, align 4
-  %5715 = load i32, ptr %16, align 4
-  %5716 = load i32, ptr %17, align 4
-  %5717 = xor i32 %5716, %5715
-  store i32 %5717, ptr %17, align 4
-  %5718 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5719 = getelementptr inbounds %struct.BF_ctx, ptr %5718, i32 0, i32 1
-  %5720 = getelementptr inbounds [18 x i32], ptr %5719, i64 0, i64 12
-  %5721 = load i32, ptr %5720, align 4
-  %5722 = load i32, ptr %13, align 4
-  %5723 = xor i32 %5722, %5721
-  store i32 %5723, ptr %13, align 4
-  %5724 = load i32, ptr %15, align 4
-  %5725 = load i32, ptr %17, align 4
-  %5726 = add i32 %5725, %5724
-  store i32 %5726, ptr %17, align 4
-  %5727 = load i32, ptr %17, align 4
-  %5728 = load i32, ptr %13, align 4
-  %5729 = xor i32 %5728, %5727
-  store i32 %5729, ptr %13, align 4
-  %5730 = load i32, ptr %13, align 4
-  %5731 = and i32 %5730, 255
-  store i32 %5731, ptr %15, align 4
-  %5732 = load i32, ptr %13, align 4
-  %5733 = lshr i32 %5732, 8
-  store i32 %5733, ptr %16, align 4
-  %5734 = load i32, ptr %16, align 4
-  %5735 = and i32 %5734, 255
-  store i32 %5735, ptr %16, align 4
-  %5736 = load i32, ptr %13, align 4
-  %5737 = lshr i32 %5736, 16
-  store i32 %5737, ptr %17, align 4
-  %5738 = load i32, ptr %17, align 4
-  %5739 = and i32 %5738, 255
-  store i32 %5739, ptr %17, align 4
-  %5740 = load i32, ptr %13, align 4
-  %5741 = lshr i32 %5740, 24
-  store i32 %5741, ptr %18, align 4
-  %5742 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5743 = getelementptr inbounds %struct.BF_ctx, ptr %5742, i32 0, i32 0
-  %5744 = getelementptr inbounds [4 x [256 x i32]], ptr %5743, i64 0, i64 3
-  %5745 = load i32, ptr %15, align 4
-  %5746 = zext i32 %5745 to i64
-  %5747 = getelementptr inbounds [256 x i32], ptr %5744, i64 0, i64 %5746
-  %5748 = load i32, ptr %5747, align 4
-  store i32 %5748, ptr %15, align 4
-  %5749 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5750 = getelementptr inbounds %struct.BF_ctx, ptr %5749, i32 0, i32 0
-  %5751 = getelementptr inbounds [4 x [256 x i32]], ptr %5750, i64 0, i64 2
-  %5752 = load i32, ptr %16, align 4
-  %5753 = zext i32 %5752 to i64
-  %5754 = getelementptr inbounds [256 x i32], ptr %5751, i64 0, i64 %5753
-  %5755 = load i32, ptr %5754, align 4
-  store i32 %5755, ptr %16, align 4
-  %5756 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5757 = getelementptr inbounds %struct.BF_ctx, ptr %5756, i32 0, i32 0
-  %5758 = getelementptr inbounds [4 x [256 x i32]], ptr %5757, i64 0, i64 1
-  %5759 = load i32, ptr %17, align 4
-  %5760 = zext i32 %5759 to i64
-  %5761 = getelementptr inbounds [256 x i32], ptr %5758, i64 0, i64 %5760
-  %5762 = load i32, ptr %5761, align 4
-  store i32 %5762, ptr %17, align 4
-  %5763 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5764 = getelementptr inbounds %struct.BF_ctx, ptr %5763, i32 0, i32 0
-  %5765 = getelementptr inbounds [4 x [256 x i32]], ptr %5764, i64 0, i64 0
-  %5766 = load i32, ptr %18, align 4
-  %5767 = zext i32 %5766 to i64
-  %5768 = getelementptr inbounds [256 x i32], ptr %5765, i64 0, i64 %5767
-  %5769 = load i32, ptr %5768, align 4
-  %5770 = load i32, ptr %17, align 4
-  %5771 = add i32 %5770, %5769
-  store i32 %5771, ptr %17, align 4
-  %5772 = load i32, ptr %16, align 4
-  %5773 = load i32, ptr %17, align 4
-  %5774 = xor i32 %5773, %5772
-  store i32 %5774, ptr %17, align 4
-  %5775 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5776 = getelementptr inbounds %struct.BF_ctx, ptr %5775, i32 0, i32 1
-  %5777 = getelementptr inbounds [18 x i32], ptr %5776, i64 0, i64 13
-  %5778 = load i32, ptr %5777, align 4
-  %5779 = load i32, ptr %14, align 4
-  %5780 = xor i32 %5779, %5778
-  store i32 %5780, ptr %14, align 4
-  %5781 = load i32, ptr %15, align 4
-  %5782 = load i32, ptr %17, align 4
-  %5783 = add i32 %5782, %5781
-  store i32 %5783, ptr %17, align 4
-  %5784 = load i32, ptr %17, align 4
-  %5785 = load i32, ptr %14, align 4
-  %5786 = xor i32 %5785, %5784
-  store i32 %5786, ptr %14, align 4
-  %5787 = load i32, ptr %14, align 4
-  %5788 = and i32 %5787, 255
-  store i32 %5788, ptr %15, align 4
-  %5789 = load i32, ptr %14, align 4
-  %5790 = lshr i32 %5789, 8
-  store i32 %5790, ptr %16, align 4
-  %5791 = load i32, ptr %16, align 4
-  %5792 = and i32 %5791, 255
-  store i32 %5792, ptr %16, align 4
-  %5793 = load i32, ptr %14, align 4
-  %5794 = lshr i32 %5793, 16
-  store i32 %5794, ptr %17, align 4
-  %5795 = load i32, ptr %17, align 4
-  %5796 = and i32 %5795, 255
-  store i32 %5796, ptr %17, align 4
-  %5797 = load i32, ptr %14, align 4
-  %5798 = lshr i32 %5797, 24
-  store i32 %5798, ptr %18, align 4
-  %5799 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5800 = getelementptr inbounds %struct.BF_ctx, ptr %5799, i32 0, i32 0
-  %5801 = getelementptr inbounds [4 x [256 x i32]], ptr %5800, i64 0, i64 3
-  %5802 = load i32, ptr %15, align 4
-  %5803 = zext i32 %5802 to i64
-  %5804 = getelementptr inbounds [256 x i32], ptr %5801, i64 0, i64 %5803
-  %5805 = load i32, ptr %5804, align 4
-  store i32 %5805, ptr %15, align 4
-  %5806 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5807 = getelementptr inbounds %struct.BF_ctx, ptr %5806, i32 0, i32 0
-  %5808 = getelementptr inbounds [4 x [256 x i32]], ptr %5807, i64 0, i64 2
-  %5809 = load i32, ptr %16, align 4
-  %5810 = zext i32 %5809 to i64
-  %5811 = getelementptr inbounds [256 x i32], ptr %5808, i64 0, i64 %5810
-  %5812 = load i32, ptr %5811, align 4
-  store i32 %5812, ptr %16, align 4
-  %5813 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5814 = getelementptr inbounds %struct.BF_ctx, ptr %5813, i32 0, i32 0
-  %5815 = getelementptr inbounds [4 x [256 x i32]], ptr %5814, i64 0, i64 1
-  %5816 = load i32, ptr %17, align 4
-  %5817 = zext i32 %5816 to i64
-  %5818 = getelementptr inbounds [256 x i32], ptr %5815, i64 0, i64 %5817
-  %5819 = load i32, ptr %5818, align 4
-  store i32 %5819, ptr %17, align 4
-  %5820 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5821 = getelementptr inbounds %struct.BF_ctx, ptr %5820, i32 0, i32 0
-  %5822 = getelementptr inbounds [4 x [256 x i32]], ptr %5821, i64 0, i64 0
-  %5823 = load i32, ptr %18, align 4
-  %5824 = zext i32 %5823 to i64
-  %5825 = getelementptr inbounds [256 x i32], ptr %5822, i64 0, i64 %5824
-  %5826 = load i32, ptr %5825, align 4
-  %5827 = load i32, ptr %17, align 4
-  %5828 = add i32 %5827, %5826
-  store i32 %5828, ptr %17, align 4
-  %5829 = load i32, ptr %16, align 4
-  %5830 = load i32, ptr %17, align 4
-  %5831 = xor i32 %5830, %5829
-  store i32 %5831, ptr %17, align 4
-  %5832 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5833 = getelementptr inbounds %struct.BF_ctx, ptr %5832, i32 0, i32 1
-  %5834 = getelementptr inbounds [18 x i32], ptr %5833, i64 0, i64 14
-  %5835 = load i32, ptr %5834, align 4
-  %5836 = load i32, ptr %13, align 4
-  %5837 = xor i32 %5836, %5835
-  store i32 %5837, ptr %13, align 4
-  %5838 = load i32, ptr %15, align 4
-  %5839 = load i32, ptr %17, align 4
-  %5840 = add i32 %5839, %5838
-  store i32 %5840, ptr %17, align 4
-  %5841 = load i32, ptr %17, align 4
-  %5842 = load i32, ptr %13, align 4
-  %5843 = xor i32 %5842, %5841
-  store i32 %5843, ptr %13, align 4
-  %5844 = load i32, ptr %13, align 4
-  %5845 = and i32 %5844, 255
-  store i32 %5845, ptr %15, align 4
-  %5846 = load i32, ptr %13, align 4
-  %5847 = lshr i32 %5846, 8
-  store i32 %5847, ptr %16, align 4
-  %5848 = load i32, ptr %16, align 4
-  %5849 = and i32 %5848, 255
-  store i32 %5849, ptr %16, align 4
-  %5850 = load i32, ptr %13, align 4
-  %5851 = lshr i32 %5850, 16
-  store i32 %5851, ptr %17, align 4
-  %5852 = load i32, ptr %17, align 4
-  %5853 = and i32 %5852, 255
-  store i32 %5853, ptr %17, align 4
-  %5854 = load i32, ptr %13, align 4
-  %5855 = lshr i32 %5854, 24
-  store i32 %5855, ptr %18, align 4
-  %5856 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5857 = getelementptr inbounds %struct.BF_ctx, ptr %5856, i32 0, i32 0
-  %5858 = getelementptr inbounds [4 x [256 x i32]], ptr %5857, i64 0, i64 3
-  %5859 = load i32, ptr %15, align 4
-  %5860 = zext i32 %5859 to i64
-  %5861 = getelementptr inbounds [256 x i32], ptr %5858, i64 0, i64 %5860
-  %5862 = load i32, ptr %5861, align 4
-  store i32 %5862, ptr %15, align 4
-  %5863 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5864 = getelementptr inbounds %struct.BF_ctx, ptr %5863, i32 0, i32 0
-  %5865 = getelementptr inbounds [4 x [256 x i32]], ptr %5864, i64 0, i64 2
-  %5866 = load i32, ptr %16, align 4
-  %5867 = zext i32 %5866 to i64
-  %5868 = getelementptr inbounds [256 x i32], ptr %5865, i64 0, i64 %5867
-  %5869 = load i32, ptr %5868, align 4
-  store i32 %5869, ptr %16, align 4
-  %5870 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5871 = getelementptr inbounds %struct.BF_ctx, ptr %5870, i32 0, i32 0
-  %5872 = getelementptr inbounds [4 x [256 x i32]], ptr %5871, i64 0, i64 1
-  %5873 = load i32, ptr %17, align 4
-  %5874 = zext i32 %5873 to i64
-  %5875 = getelementptr inbounds [256 x i32], ptr %5872, i64 0, i64 %5874
-  %5876 = load i32, ptr %5875, align 4
-  store i32 %5876, ptr %17, align 4
-  %5877 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5878 = getelementptr inbounds %struct.BF_ctx, ptr %5877, i32 0, i32 0
-  %5879 = getelementptr inbounds [4 x [256 x i32]], ptr %5878, i64 0, i64 0
-  %5880 = load i32, ptr %18, align 4
-  %5881 = zext i32 %5880 to i64
-  %5882 = getelementptr inbounds [256 x i32], ptr %5879, i64 0, i64 %5881
-  %5883 = load i32, ptr %5882, align 4
-  %5884 = load i32, ptr %17, align 4
-  %5885 = add i32 %5884, %5883
-  store i32 %5885, ptr %17, align 4
-  %5886 = load i32, ptr %16, align 4
-  %5887 = load i32, ptr %17, align 4
-  %5888 = xor i32 %5887, %5886
-  store i32 %5888, ptr %17, align 4
-  %5889 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5890 = getelementptr inbounds %struct.BF_ctx, ptr %5889, i32 0, i32 1
-  %5891 = getelementptr inbounds [18 x i32], ptr %5890, i64 0, i64 15
-  %5892 = load i32, ptr %5891, align 4
-  %5893 = load i32, ptr %14, align 4
-  %5894 = xor i32 %5893, %5892
-  store i32 %5894, ptr %14, align 4
-  %5895 = load i32, ptr %15, align 4
-  %5896 = load i32, ptr %17, align 4
-  %5897 = add i32 %5896, %5895
-  store i32 %5897, ptr %17, align 4
-  %5898 = load i32, ptr %17, align 4
-  %5899 = load i32, ptr %14, align 4
-  %5900 = xor i32 %5899, %5898
-  store i32 %5900, ptr %14, align 4
-  %5901 = load i32, ptr %14, align 4
-  %5902 = and i32 %5901, 255
-  store i32 %5902, ptr %15, align 4
-  %5903 = load i32, ptr %14, align 4
-  %5904 = lshr i32 %5903, 8
-  store i32 %5904, ptr %16, align 4
-  %5905 = load i32, ptr %16, align 4
-  %5906 = and i32 %5905, 255
-  store i32 %5906, ptr %16, align 4
-  %5907 = load i32, ptr %14, align 4
-  %5908 = lshr i32 %5907, 16
-  store i32 %5908, ptr %17, align 4
-  %5909 = load i32, ptr %17, align 4
-  %5910 = and i32 %5909, 255
-  store i32 %5910, ptr %17, align 4
-  %5911 = load i32, ptr %14, align 4
-  %5912 = lshr i32 %5911, 24
-  store i32 %5912, ptr %18, align 4
-  %5913 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5914 = getelementptr inbounds %struct.BF_ctx, ptr %5913, i32 0, i32 0
-  %5915 = getelementptr inbounds [4 x [256 x i32]], ptr %5914, i64 0, i64 3
-  %5916 = load i32, ptr %15, align 4
-  %5917 = zext i32 %5916 to i64
-  %5918 = getelementptr inbounds [256 x i32], ptr %5915, i64 0, i64 %5917
-  %5919 = load i32, ptr %5918, align 4
-  store i32 %5919, ptr %15, align 4
-  %5920 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5921 = getelementptr inbounds %struct.BF_ctx, ptr %5920, i32 0, i32 0
-  %5922 = getelementptr inbounds [4 x [256 x i32]], ptr %5921, i64 0, i64 2
-  %5923 = load i32, ptr %16, align 4
-  %5924 = zext i32 %5923 to i64
-  %5925 = getelementptr inbounds [256 x i32], ptr %5922, i64 0, i64 %5924
-  %5926 = load i32, ptr %5925, align 4
-  store i32 %5926, ptr %16, align 4
-  %5927 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5928 = getelementptr inbounds %struct.BF_ctx, ptr %5927, i32 0, i32 0
-  %5929 = getelementptr inbounds [4 x [256 x i32]], ptr %5928, i64 0, i64 1
-  %5930 = load i32, ptr %17, align 4
-  %5931 = zext i32 %5930 to i64
-  %5932 = getelementptr inbounds [256 x i32], ptr %5929, i64 0, i64 %5931
-  %5933 = load i32, ptr %5932, align 4
-  store i32 %5933, ptr %17, align 4
-  %5934 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5935 = getelementptr inbounds %struct.BF_ctx, ptr %5934, i32 0, i32 0
-  %5936 = getelementptr inbounds [4 x [256 x i32]], ptr %5935, i64 0, i64 0
-  %5937 = load i32, ptr %18, align 4
-  %5938 = zext i32 %5937 to i64
-  %5939 = getelementptr inbounds [256 x i32], ptr %5936, i64 0, i64 %5938
-  %5940 = load i32, ptr %5939, align 4
-  %5941 = load i32, ptr %17, align 4
-  %5942 = add i32 %5941, %5940
-  store i32 %5942, ptr %17, align 4
-  %5943 = load i32, ptr %16, align 4
-  %5944 = load i32, ptr %17, align 4
-  %5945 = xor i32 %5944, %5943
-  store i32 %5945, ptr %17, align 4
-  %5946 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5947 = getelementptr inbounds %struct.BF_ctx, ptr %5946, i32 0, i32 1
-  %5948 = getelementptr inbounds [18 x i32], ptr %5947, i64 0, i64 16
-  %5949 = load i32, ptr %5948, align 4
-  %5950 = load i32, ptr %13, align 4
-  %5951 = xor i32 %5950, %5949
-  store i32 %5951, ptr %13, align 4
-  %5952 = load i32, ptr %15, align 4
-  %5953 = load i32, ptr %17, align 4
-  %5954 = add i32 %5953, %5952
-  store i32 %5954, ptr %17, align 4
-  %5955 = load i32, ptr %17, align 4
-  %5956 = load i32, ptr %13, align 4
-  %5957 = xor i32 %5956, %5955
-  store i32 %5957, ptr %13, align 4
-  %5958 = load i32, ptr %14, align 4
-  store i32 %5958, ptr %18, align 4
-  %5959 = load i32, ptr %13, align 4
-  store i32 %5959, ptr %14, align 4
-  %5960 = load i32, ptr %18, align 4
-  %5961 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 0
-  %5962 = getelementptr inbounds %struct.BF_ctx, ptr %5961, i32 0, i32 1
-  %5963 = getelementptr inbounds [18 x i32], ptr %5962, i64 0, i64 17
-  %5964 = load i32, ptr %5963, align 4
-  %5965 = xor i32 %5960, %5964
-  store i32 %5965, ptr %13, align 4
-  br label %5966
+5007:                                             ; preds = %4965
+  %5008 = load i32, ptr %15, align 4, !tbaa !9
+  %5009 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5010 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5009, i32 0, i32 1
+  %5011 = getelementptr inbounds [18 x i32], ptr %5010, i64 0, i64 16
+  %5012 = load i32, ptr %5011, align 4, !tbaa !9
+  %5013 = xor i32 %5012, %5008
+  store i32 %5013, ptr %5011, align 4, !tbaa !9
+  %5014 = load i32, ptr %16, align 4, !tbaa !9
+  %5015 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5016 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5015, i32 0, i32 1
+  %5017 = getelementptr inbounds [18 x i32], ptr %5016, i64 0, i64 17
+  %5018 = load i32, ptr %5017, align 4, !tbaa !9
+  %5019 = xor i32 %5018, %5014
+  store i32 %5019, ptr %5017, align 4, !tbaa !9
+  br label %5020
 
-5966:                                             ; preds = %5039
-  %5967 = load i32, ptr %20, align 4
-  %5968 = add i32 %5967, -1
-  store i32 %5968, ptr %20, align 4
-  %5969 = icmp ne i32 %5968, 0
-  br i1 %5969, label %5039, label %5970
+5020:                                             ; preds = %5007
+  br i1 true, label %3056, label %5021
 
-5970:                                             ; preds = %5966
-  %5971 = load i32, ptr %13, align 4
-  %5972 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %5973 = load i32, ptr %21, align 4
-  %5974 = sext i32 %5973 to i64
-  %5975 = getelementptr inbounds [6 x i32], ptr %5972, i64 0, i64 %5974
-  store i32 %5971, ptr %5975, align 4
-  %5976 = load i32, ptr %14, align 4
-  %5977 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %5978 = load i32, ptr %21, align 4
-  %5979 = add nsw i32 %5978, 1
-  %5980 = sext i32 %5979 to i64
-  %5981 = getelementptr inbounds [6 x i32], ptr %5977, i64 0, i64 %5980
-  store i32 %5976, ptr %5981, align 4
-  br label %5982
+5021:                                             ; preds = %5020, %4951
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  br label %5022
 
-5982:                                             ; preds = %5970
-  %5983 = load i32, ptr %21, align 4
-  %5984 = add nsw i32 %5983, 2
-  store i32 %5984, ptr %21, align 4
-  br label %5026
+5022:                                             ; preds = %5021
+  %5023 = load i32, ptr %20, align 4, !tbaa !9
+  %5024 = add i32 %5023, -1
+  store i32 %5024, ptr %20, align 4, !tbaa !9
+  %5025 = icmp ne i32 %5024, 0
+  br i1 %5025, label %3021, label %5026
 
-5985:                                             ; preds = %5026
-  %5986 = load ptr, ptr %9, align 8
-  %5987 = load ptr, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5986, ptr align 1 %5987, i64 28, i1 false)
-  %5988 = load ptr, ptr %8, align 8
-  %5989 = getelementptr inbounds i8, ptr %5988, i64 28
-  %5990 = load i8, ptr %5989, align 1
-  %5991 = sext i8 %5990 to i32
-  %5992 = sub nsw i32 %5991, 32
-  %5993 = sext i32 %5992 to i64
-  %5994 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %5993
-  %5995 = load i8, ptr %5994, align 1
-  %5996 = zext i8 %5995 to i32
-  %5997 = and i32 %5996, 48
-  %5998 = sext i32 %5997 to i64
-  %5999 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %5998
-  %6000 = load i8, ptr %5999, align 1
-  %6001 = load ptr, ptr %9, align 8
-  %6002 = getelementptr inbounds i8, ptr %6001, i64 28
-  store i8 %6000, ptr %6002, align 1
-  %6003 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %6004 = getelementptr inbounds [6 x i32], ptr %6003, i64 0, i64 0
-  call void @BF_swap(ptr noundef %6004, i32 noundef 6)
-  %6005 = load ptr, ptr %9, align 8
-  %6006 = getelementptr inbounds i8, ptr %6005, i64 29
-  %6007 = getelementptr inbounds %struct.anon.0, ptr %12, i32 0, i32 2
-  %6008 = getelementptr inbounds [6 x i32], ptr %6007, i64 0, i64 0
-  call void @BF_encode(ptr noundef %6006, ptr noundef %6008, i32 noundef 23)
-  %6009 = load ptr, ptr %9, align 8
-  %6010 = getelementptr inbounds i8, ptr %6009, i64 60
-  store i8 0, ptr %6010, align 1
-  %6011 = load ptr, ptr %9, align 8
-  store ptr %6011, ptr %6, align 8
-  br label %6012
+5026:                                             ; preds = %5022
+  store i32 0, ptr %21, align 4, !tbaa !9
+  br label %5027
 
-6012:                                             ; preds = %5985, %135, %109, %25
-  %6013 = load ptr, ptr %6, align 8
-  ret ptr %6013
+5027:                                             ; preds = %5983, %5026
+  %5028 = load i32, ptr %21, align 4, !tbaa !9
+  %5029 = icmp slt i32 %5028, 6
+  br i1 %5029, label %5030, label %5986
+
+5030:                                             ; preds = %5027
+  %5031 = load i32, ptr %21, align 4, !tbaa !9
+  %5032 = sext i32 %5031 to i64
+  %5033 = getelementptr inbounds [6 x i32], ptr @BF_magic_w, i64 0, i64 %5032
+  %5034 = load i32, ptr %5033, align 4, !tbaa !9
+  store i32 %5034, ptr %13, align 4, !tbaa !9
+  %5035 = load i32, ptr %21, align 4, !tbaa !9
+  %5036 = add nsw i32 %5035, 1
+  %5037 = sext i32 %5036 to i64
+  %5038 = getelementptr inbounds [6 x i32], ptr @BF_magic_w, i64 0, i64 %5037
+  %5039 = load i32, ptr %5038, align 4, !tbaa !9
+  store i32 %5039, ptr %14, align 4, !tbaa !9
+  store i32 64, ptr %20, align 4, !tbaa !9
+  br label %5040
+
+5040:                                             ; preds = %5967, %5030
+  %5041 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5042 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5041, i32 0, i32 1
+  %5043 = getelementptr inbounds [18 x i32], ptr %5042, i64 0, i64 0
+  %5044 = load i32, ptr %5043, align 4, !tbaa !9
+  %5045 = load i32, ptr %13, align 4, !tbaa !9
+  %5046 = xor i32 %5045, %5044
+  store i32 %5046, ptr %13, align 4, !tbaa !9
+  %5047 = load i32, ptr %13, align 4, !tbaa !9
+  %5048 = and i32 %5047, 255
+  store i32 %5048, ptr %15, align 4, !tbaa !9
+  %5049 = load i32, ptr %13, align 4, !tbaa !9
+  %5050 = lshr i32 %5049, 8
+  store i32 %5050, ptr %16, align 4, !tbaa !9
+  %5051 = load i32, ptr %16, align 4, !tbaa !9
+  %5052 = and i32 %5051, 255
+  store i32 %5052, ptr %16, align 4, !tbaa !9
+  %5053 = load i32, ptr %13, align 4, !tbaa !9
+  %5054 = lshr i32 %5053, 16
+  store i32 %5054, ptr %17, align 4, !tbaa !9
+  %5055 = load i32, ptr %17, align 4, !tbaa !9
+  %5056 = and i32 %5055, 255
+  store i32 %5056, ptr %17, align 4, !tbaa !9
+  %5057 = load i32, ptr %13, align 4, !tbaa !9
+  %5058 = lshr i32 %5057, 24
+  store i32 %5058, ptr %18, align 4, !tbaa !9
+  %5059 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5060 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5059, i32 0, i32 0
+  %5061 = getelementptr inbounds [4 x [256 x i32]], ptr %5060, i64 0, i64 3
+  %5062 = load i32, ptr %15, align 4, !tbaa !9
+  %5063 = zext i32 %5062 to i64
+  %5064 = getelementptr inbounds nuw [256 x i32], ptr %5061, i64 0, i64 %5063
+  %5065 = load i32, ptr %5064, align 4, !tbaa !9
+  store i32 %5065, ptr %15, align 4, !tbaa !9
+  %5066 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5067 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5066, i32 0, i32 0
+  %5068 = getelementptr inbounds [4 x [256 x i32]], ptr %5067, i64 0, i64 2
+  %5069 = load i32, ptr %16, align 4, !tbaa !9
+  %5070 = zext i32 %5069 to i64
+  %5071 = getelementptr inbounds nuw [256 x i32], ptr %5068, i64 0, i64 %5070
+  %5072 = load i32, ptr %5071, align 4, !tbaa !9
+  store i32 %5072, ptr %16, align 4, !tbaa !9
+  %5073 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5074 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5073, i32 0, i32 0
+  %5075 = getelementptr inbounds [4 x [256 x i32]], ptr %5074, i64 0, i64 1
+  %5076 = load i32, ptr %17, align 4, !tbaa !9
+  %5077 = zext i32 %5076 to i64
+  %5078 = getelementptr inbounds nuw [256 x i32], ptr %5075, i64 0, i64 %5077
+  %5079 = load i32, ptr %5078, align 4, !tbaa !9
+  store i32 %5079, ptr %17, align 4, !tbaa !9
+  %5080 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5081 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5080, i32 0, i32 0
+  %5082 = getelementptr inbounds [4 x [256 x i32]], ptr %5081, i64 0, i64 0
+  %5083 = load i32, ptr %18, align 4, !tbaa !9
+  %5084 = zext i32 %5083 to i64
+  %5085 = getelementptr inbounds nuw [256 x i32], ptr %5082, i64 0, i64 %5084
+  %5086 = load i32, ptr %5085, align 4, !tbaa !9
+  %5087 = load i32, ptr %17, align 4, !tbaa !9
+  %5088 = add i32 %5087, %5086
+  store i32 %5088, ptr %17, align 4, !tbaa !9
+  %5089 = load i32, ptr %16, align 4, !tbaa !9
+  %5090 = load i32, ptr %17, align 4, !tbaa !9
+  %5091 = xor i32 %5090, %5089
+  store i32 %5091, ptr %17, align 4, !tbaa !9
+  %5092 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5093 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5092, i32 0, i32 1
+  %5094 = getelementptr inbounds [18 x i32], ptr %5093, i64 0, i64 1
+  %5095 = load i32, ptr %5094, align 4, !tbaa !9
+  %5096 = load i32, ptr %14, align 4, !tbaa !9
+  %5097 = xor i32 %5096, %5095
+  store i32 %5097, ptr %14, align 4, !tbaa !9
+  %5098 = load i32, ptr %15, align 4, !tbaa !9
+  %5099 = load i32, ptr %17, align 4, !tbaa !9
+  %5100 = add i32 %5099, %5098
+  store i32 %5100, ptr %17, align 4, !tbaa !9
+  %5101 = load i32, ptr %17, align 4, !tbaa !9
+  %5102 = load i32, ptr %14, align 4, !tbaa !9
+  %5103 = xor i32 %5102, %5101
+  store i32 %5103, ptr %14, align 4, !tbaa !9
+  %5104 = load i32, ptr %14, align 4, !tbaa !9
+  %5105 = and i32 %5104, 255
+  store i32 %5105, ptr %15, align 4, !tbaa !9
+  %5106 = load i32, ptr %14, align 4, !tbaa !9
+  %5107 = lshr i32 %5106, 8
+  store i32 %5107, ptr %16, align 4, !tbaa !9
+  %5108 = load i32, ptr %16, align 4, !tbaa !9
+  %5109 = and i32 %5108, 255
+  store i32 %5109, ptr %16, align 4, !tbaa !9
+  %5110 = load i32, ptr %14, align 4, !tbaa !9
+  %5111 = lshr i32 %5110, 16
+  store i32 %5111, ptr %17, align 4, !tbaa !9
+  %5112 = load i32, ptr %17, align 4, !tbaa !9
+  %5113 = and i32 %5112, 255
+  store i32 %5113, ptr %17, align 4, !tbaa !9
+  %5114 = load i32, ptr %14, align 4, !tbaa !9
+  %5115 = lshr i32 %5114, 24
+  store i32 %5115, ptr %18, align 4, !tbaa !9
+  %5116 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5117 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5116, i32 0, i32 0
+  %5118 = getelementptr inbounds [4 x [256 x i32]], ptr %5117, i64 0, i64 3
+  %5119 = load i32, ptr %15, align 4, !tbaa !9
+  %5120 = zext i32 %5119 to i64
+  %5121 = getelementptr inbounds nuw [256 x i32], ptr %5118, i64 0, i64 %5120
+  %5122 = load i32, ptr %5121, align 4, !tbaa !9
+  store i32 %5122, ptr %15, align 4, !tbaa !9
+  %5123 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5124 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5123, i32 0, i32 0
+  %5125 = getelementptr inbounds [4 x [256 x i32]], ptr %5124, i64 0, i64 2
+  %5126 = load i32, ptr %16, align 4, !tbaa !9
+  %5127 = zext i32 %5126 to i64
+  %5128 = getelementptr inbounds nuw [256 x i32], ptr %5125, i64 0, i64 %5127
+  %5129 = load i32, ptr %5128, align 4, !tbaa !9
+  store i32 %5129, ptr %16, align 4, !tbaa !9
+  %5130 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5131 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5130, i32 0, i32 0
+  %5132 = getelementptr inbounds [4 x [256 x i32]], ptr %5131, i64 0, i64 1
+  %5133 = load i32, ptr %17, align 4, !tbaa !9
+  %5134 = zext i32 %5133 to i64
+  %5135 = getelementptr inbounds nuw [256 x i32], ptr %5132, i64 0, i64 %5134
+  %5136 = load i32, ptr %5135, align 4, !tbaa !9
+  store i32 %5136, ptr %17, align 4, !tbaa !9
+  %5137 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5138 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5137, i32 0, i32 0
+  %5139 = getelementptr inbounds [4 x [256 x i32]], ptr %5138, i64 0, i64 0
+  %5140 = load i32, ptr %18, align 4, !tbaa !9
+  %5141 = zext i32 %5140 to i64
+  %5142 = getelementptr inbounds nuw [256 x i32], ptr %5139, i64 0, i64 %5141
+  %5143 = load i32, ptr %5142, align 4, !tbaa !9
+  %5144 = load i32, ptr %17, align 4, !tbaa !9
+  %5145 = add i32 %5144, %5143
+  store i32 %5145, ptr %17, align 4, !tbaa !9
+  %5146 = load i32, ptr %16, align 4, !tbaa !9
+  %5147 = load i32, ptr %17, align 4, !tbaa !9
+  %5148 = xor i32 %5147, %5146
+  store i32 %5148, ptr %17, align 4, !tbaa !9
+  %5149 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5150 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5149, i32 0, i32 1
+  %5151 = getelementptr inbounds [18 x i32], ptr %5150, i64 0, i64 2
+  %5152 = load i32, ptr %5151, align 4, !tbaa !9
+  %5153 = load i32, ptr %13, align 4, !tbaa !9
+  %5154 = xor i32 %5153, %5152
+  store i32 %5154, ptr %13, align 4, !tbaa !9
+  %5155 = load i32, ptr %15, align 4, !tbaa !9
+  %5156 = load i32, ptr %17, align 4, !tbaa !9
+  %5157 = add i32 %5156, %5155
+  store i32 %5157, ptr %17, align 4, !tbaa !9
+  %5158 = load i32, ptr %17, align 4, !tbaa !9
+  %5159 = load i32, ptr %13, align 4, !tbaa !9
+  %5160 = xor i32 %5159, %5158
+  store i32 %5160, ptr %13, align 4, !tbaa !9
+  %5161 = load i32, ptr %13, align 4, !tbaa !9
+  %5162 = and i32 %5161, 255
+  store i32 %5162, ptr %15, align 4, !tbaa !9
+  %5163 = load i32, ptr %13, align 4, !tbaa !9
+  %5164 = lshr i32 %5163, 8
+  store i32 %5164, ptr %16, align 4, !tbaa !9
+  %5165 = load i32, ptr %16, align 4, !tbaa !9
+  %5166 = and i32 %5165, 255
+  store i32 %5166, ptr %16, align 4, !tbaa !9
+  %5167 = load i32, ptr %13, align 4, !tbaa !9
+  %5168 = lshr i32 %5167, 16
+  store i32 %5168, ptr %17, align 4, !tbaa !9
+  %5169 = load i32, ptr %17, align 4, !tbaa !9
+  %5170 = and i32 %5169, 255
+  store i32 %5170, ptr %17, align 4, !tbaa !9
+  %5171 = load i32, ptr %13, align 4, !tbaa !9
+  %5172 = lshr i32 %5171, 24
+  store i32 %5172, ptr %18, align 4, !tbaa !9
+  %5173 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5174 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5173, i32 0, i32 0
+  %5175 = getelementptr inbounds [4 x [256 x i32]], ptr %5174, i64 0, i64 3
+  %5176 = load i32, ptr %15, align 4, !tbaa !9
+  %5177 = zext i32 %5176 to i64
+  %5178 = getelementptr inbounds nuw [256 x i32], ptr %5175, i64 0, i64 %5177
+  %5179 = load i32, ptr %5178, align 4, !tbaa !9
+  store i32 %5179, ptr %15, align 4, !tbaa !9
+  %5180 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5181 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5180, i32 0, i32 0
+  %5182 = getelementptr inbounds [4 x [256 x i32]], ptr %5181, i64 0, i64 2
+  %5183 = load i32, ptr %16, align 4, !tbaa !9
+  %5184 = zext i32 %5183 to i64
+  %5185 = getelementptr inbounds nuw [256 x i32], ptr %5182, i64 0, i64 %5184
+  %5186 = load i32, ptr %5185, align 4, !tbaa !9
+  store i32 %5186, ptr %16, align 4, !tbaa !9
+  %5187 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5188 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5187, i32 0, i32 0
+  %5189 = getelementptr inbounds [4 x [256 x i32]], ptr %5188, i64 0, i64 1
+  %5190 = load i32, ptr %17, align 4, !tbaa !9
+  %5191 = zext i32 %5190 to i64
+  %5192 = getelementptr inbounds nuw [256 x i32], ptr %5189, i64 0, i64 %5191
+  %5193 = load i32, ptr %5192, align 4, !tbaa !9
+  store i32 %5193, ptr %17, align 4, !tbaa !9
+  %5194 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5195 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5194, i32 0, i32 0
+  %5196 = getelementptr inbounds [4 x [256 x i32]], ptr %5195, i64 0, i64 0
+  %5197 = load i32, ptr %18, align 4, !tbaa !9
+  %5198 = zext i32 %5197 to i64
+  %5199 = getelementptr inbounds nuw [256 x i32], ptr %5196, i64 0, i64 %5198
+  %5200 = load i32, ptr %5199, align 4, !tbaa !9
+  %5201 = load i32, ptr %17, align 4, !tbaa !9
+  %5202 = add i32 %5201, %5200
+  store i32 %5202, ptr %17, align 4, !tbaa !9
+  %5203 = load i32, ptr %16, align 4, !tbaa !9
+  %5204 = load i32, ptr %17, align 4, !tbaa !9
+  %5205 = xor i32 %5204, %5203
+  store i32 %5205, ptr %17, align 4, !tbaa !9
+  %5206 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5207 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5206, i32 0, i32 1
+  %5208 = getelementptr inbounds [18 x i32], ptr %5207, i64 0, i64 3
+  %5209 = load i32, ptr %5208, align 4, !tbaa !9
+  %5210 = load i32, ptr %14, align 4, !tbaa !9
+  %5211 = xor i32 %5210, %5209
+  store i32 %5211, ptr %14, align 4, !tbaa !9
+  %5212 = load i32, ptr %15, align 4, !tbaa !9
+  %5213 = load i32, ptr %17, align 4, !tbaa !9
+  %5214 = add i32 %5213, %5212
+  store i32 %5214, ptr %17, align 4, !tbaa !9
+  %5215 = load i32, ptr %17, align 4, !tbaa !9
+  %5216 = load i32, ptr %14, align 4, !tbaa !9
+  %5217 = xor i32 %5216, %5215
+  store i32 %5217, ptr %14, align 4, !tbaa !9
+  %5218 = load i32, ptr %14, align 4, !tbaa !9
+  %5219 = and i32 %5218, 255
+  store i32 %5219, ptr %15, align 4, !tbaa !9
+  %5220 = load i32, ptr %14, align 4, !tbaa !9
+  %5221 = lshr i32 %5220, 8
+  store i32 %5221, ptr %16, align 4, !tbaa !9
+  %5222 = load i32, ptr %16, align 4, !tbaa !9
+  %5223 = and i32 %5222, 255
+  store i32 %5223, ptr %16, align 4, !tbaa !9
+  %5224 = load i32, ptr %14, align 4, !tbaa !9
+  %5225 = lshr i32 %5224, 16
+  store i32 %5225, ptr %17, align 4, !tbaa !9
+  %5226 = load i32, ptr %17, align 4, !tbaa !9
+  %5227 = and i32 %5226, 255
+  store i32 %5227, ptr %17, align 4, !tbaa !9
+  %5228 = load i32, ptr %14, align 4, !tbaa !9
+  %5229 = lshr i32 %5228, 24
+  store i32 %5229, ptr %18, align 4, !tbaa !9
+  %5230 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5231 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5230, i32 0, i32 0
+  %5232 = getelementptr inbounds [4 x [256 x i32]], ptr %5231, i64 0, i64 3
+  %5233 = load i32, ptr %15, align 4, !tbaa !9
+  %5234 = zext i32 %5233 to i64
+  %5235 = getelementptr inbounds nuw [256 x i32], ptr %5232, i64 0, i64 %5234
+  %5236 = load i32, ptr %5235, align 4, !tbaa !9
+  store i32 %5236, ptr %15, align 4, !tbaa !9
+  %5237 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5238 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5237, i32 0, i32 0
+  %5239 = getelementptr inbounds [4 x [256 x i32]], ptr %5238, i64 0, i64 2
+  %5240 = load i32, ptr %16, align 4, !tbaa !9
+  %5241 = zext i32 %5240 to i64
+  %5242 = getelementptr inbounds nuw [256 x i32], ptr %5239, i64 0, i64 %5241
+  %5243 = load i32, ptr %5242, align 4, !tbaa !9
+  store i32 %5243, ptr %16, align 4, !tbaa !9
+  %5244 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5245 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5244, i32 0, i32 0
+  %5246 = getelementptr inbounds [4 x [256 x i32]], ptr %5245, i64 0, i64 1
+  %5247 = load i32, ptr %17, align 4, !tbaa !9
+  %5248 = zext i32 %5247 to i64
+  %5249 = getelementptr inbounds nuw [256 x i32], ptr %5246, i64 0, i64 %5248
+  %5250 = load i32, ptr %5249, align 4, !tbaa !9
+  store i32 %5250, ptr %17, align 4, !tbaa !9
+  %5251 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5252 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5251, i32 0, i32 0
+  %5253 = getelementptr inbounds [4 x [256 x i32]], ptr %5252, i64 0, i64 0
+  %5254 = load i32, ptr %18, align 4, !tbaa !9
+  %5255 = zext i32 %5254 to i64
+  %5256 = getelementptr inbounds nuw [256 x i32], ptr %5253, i64 0, i64 %5255
+  %5257 = load i32, ptr %5256, align 4, !tbaa !9
+  %5258 = load i32, ptr %17, align 4, !tbaa !9
+  %5259 = add i32 %5258, %5257
+  store i32 %5259, ptr %17, align 4, !tbaa !9
+  %5260 = load i32, ptr %16, align 4, !tbaa !9
+  %5261 = load i32, ptr %17, align 4, !tbaa !9
+  %5262 = xor i32 %5261, %5260
+  store i32 %5262, ptr %17, align 4, !tbaa !9
+  %5263 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5264 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5263, i32 0, i32 1
+  %5265 = getelementptr inbounds [18 x i32], ptr %5264, i64 0, i64 4
+  %5266 = load i32, ptr %5265, align 4, !tbaa !9
+  %5267 = load i32, ptr %13, align 4, !tbaa !9
+  %5268 = xor i32 %5267, %5266
+  store i32 %5268, ptr %13, align 4, !tbaa !9
+  %5269 = load i32, ptr %15, align 4, !tbaa !9
+  %5270 = load i32, ptr %17, align 4, !tbaa !9
+  %5271 = add i32 %5270, %5269
+  store i32 %5271, ptr %17, align 4, !tbaa !9
+  %5272 = load i32, ptr %17, align 4, !tbaa !9
+  %5273 = load i32, ptr %13, align 4, !tbaa !9
+  %5274 = xor i32 %5273, %5272
+  store i32 %5274, ptr %13, align 4, !tbaa !9
+  %5275 = load i32, ptr %13, align 4, !tbaa !9
+  %5276 = and i32 %5275, 255
+  store i32 %5276, ptr %15, align 4, !tbaa !9
+  %5277 = load i32, ptr %13, align 4, !tbaa !9
+  %5278 = lshr i32 %5277, 8
+  store i32 %5278, ptr %16, align 4, !tbaa !9
+  %5279 = load i32, ptr %16, align 4, !tbaa !9
+  %5280 = and i32 %5279, 255
+  store i32 %5280, ptr %16, align 4, !tbaa !9
+  %5281 = load i32, ptr %13, align 4, !tbaa !9
+  %5282 = lshr i32 %5281, 16
+  store i32 %5282, ptr %17, align 4, !tbaa !9
+  %5283 = load i32, ptr %17, align 4, !tbaa !9
+  %5284 = and i32 %5283, 255
+  store i32 %5284, ptr %17, align 4, !tbaa !9
+  %5285 = load i32, ptr %13, align 4, !tbaa !9
+  %5286 = lshr i32 %5285, 24
+  store i32 %5286, ptr %18, align 4, !tbaa !9
+  %5287 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5288 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5287, i32 0, i32 0
+  %5289 = getelementptr inbounds [4 x [256 x i32]], ptr %5288, i64 0, i64 3
+  %5290 = load i32, ptr %15, align 4, !tbaa !9
+  %5291 = zext i32 %5290 to i64
+  %5292 = getelementptr inbounds nuw [256 x i32], ptr %5289, i64 0, i64 %5291
+  %5293 = load i32, ptr %5292, align 4, !tbaa !9
+  store i32 %5293, ptr %15, align 4, !tbaa !9
+  %5294 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5295 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5294, i32 0, i32 0
+  %5296 = getelementptr inbounds [4 x [256 x i32]], ptr %5295, i64 0, i64 2
+  %5297 = load i32, ptr %16, align 4, !tbaa !9
+  %5298 = zext i32 %5297 to i64
+  %5299 = getelementptr inbounds nuw [256 x i32], ptr %5296, i64 0, i64 %5298
+  %5300 = load i32, ptr %5299, align 4, !tbaa !9
+  store i32 %5300, ptr %16, align 4, !tbaa !9
+  %5301 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5302 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5301, i32 0, i32 0
+  %5303 = getelementptr inbounds [4 x [256 x i32]], ptr %5302, i64 0, i64 1
+  %5304 = load i32, ptr %17, align 4, !tbaa !9
+  %5305 = zext i32 %5304 to i64
+  %5306 = getelementptr inbounds nuw [256 x i32], ptr %5303, i64 0, i64 %5305
+  %5307 = load i32, ptr %5306, align 4, !tbaa !9
+  store i32 %5307, ptr %17, align 4, !tbaa !9
+  %5308 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5309 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5308, i32 0, i32 0
+  %5310 = getelementptr inbounds [4 x [256 x i32]], ptr %5309, i64 0, i64 0
+  %5311 = load i32, ptr %18, align 4, !tbaa !9
+  %5312 = zext i32 %5311 to i64
+  %5313 = getelementptr inbounds nuw [256 x i32], ptr %5310, i64 0, i64 %5312
+  %5314 = load i32, ptr %5313, align 4, !tbaa !9
+  %5315 = load i32, ptr %17, align 4, !tbaa !9
+  %5316 = add i32 %5315, %5314
+  store i32 %5316, ptr %17, align 4, !tbaa !9
+  %5317 = load i32, ptr %16, align 4, !tbaa !9
+  %5318 = load i32, ptr %17, align 4, !tbaa !9
+  %5319 = xor i32 %5318, %5317
+  store i32 %5319, ptr %17, align 4, !tbaa !9
+  %5320 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5321 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5320, i32 0, i32 1
+  %5322 = getelementptr inbounds [18 x i32], ptr %5321, i64 0, i64 5
+  %5323 = load i32, ptr %5322, align 4, !tbaa !9
+  %5324 = load i32, ptr %14, align 4, !tbaa !9
+  %5325 = xor i32 %5324, %5323
+  store i32 %5325, ptr %14, align 4, !tbaa !9
+  %5326 = load i32, ptr %15, align 4, !tbaa !9
+  %5327 = load i32, ptr %17, align 4, !tbaa !9
+  %5328 = add i32 %5327, %5326
+  store i32 %5328, ptr %17, align 4, !tbaa !9
+  %5329 = load i32, ptr %17, align 4, !tbaa !9
+  %5330 = load i32, ptr %14, align 4, !tbaa !9
+  %5331 = xor i32 %5330, %5329
+  store i32 %5331, ptr %14, align 4, !tbaa !9
+  %5332 = load i32, ptr %14, align 4, !tbaa !9
+  %5333 = and i32 %5332, 255
+  store i32 %5333, ptr %15, align 4, !tbaa !9
+  %5334 = load i32, ptr %14, align 4, !tbaa !9
+  %5335 = lshr i32 %5334, 8
+  store i32 %5335, ptr %16, align 4, !tbaa !9
+  %5336 = load i32, ptr %16, align 4, !tbaa !9
+  %5337 = and i32 %5336, 255
+  store i32 %5337, ptr %16, align 4, !tbaa !9
+  %5338 = load i32, ptr %14, align 4, !tbaa !9
+  %5339 = lshr i32 %5338, 16
+  store i32 %5339, ptr %17, align 4, !tbaa !9
+  %5340 = load i32, ptr %17, align 4, !tbaa !9
+  %5341 = and i32 %5340, 255
+  store i32 %5341, ptr %17, align 4, !tbaa !9
+  %5342 = load i32, ptr %14, align 4, !tbaa !9
+  %5343 = lshr i32 %5342, 24
+  store i32 %5343, ptr %18, align 4, !tbaa !9
+  %5344 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5345 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5344, i32 0, i32 0
+  %5346 = getelementptr inbounds [4 x [256 x i32]], ptr %5345, i64 0, i64 3
+  %5347 = load i32, ptr %15, align 4, !tbaa !9
+  %5348 = zext i32 %5347 to i64
+  %5349 = getelementptr inbounds nuw [256 x i32], ptr %5346, i64 0, i64 %5348
+  %5350 = load i32, ptr %5349, align 4, !tbaa !9
+  store i32 %5350, ptr %15, align 4, !tbaa !9
+  %5351 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5352 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5351, i32 0, i32 0
+  %5353 = getelementptr inbounds [4 x [256 x i32]], ptr %5352, i64 0, i64 2
+  %5354 = load i32, ptr %16, align 4, !tbaa !9
+  %5355 = zext i32 %5354 to i64
+  %5356 = getelementptr inbounds nuw [256 x i32], ptr %5353, i64 0, i64 %5355
+  %5357 = load i32, ptr %5356, align 4, !tbaa !9
+  store i32 %5357, ptr %16, align 4, !tbaa !9
+  %5358 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5359 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5358, i32 0, i32 0
+  %5360 = getelementptr inbounds [4 x [256 x i32]], ptr %5359, i64 0, i64 1
+  %5361 = load i32, ptr %17, align 4, !tbaa !9
+  %5362 = zext i32 %5361 to i64
+  %5363 = getelementptr inbounds nuw [256 x i32], ptr %5360, i64 0, i64 %5362
+  %5364 = load i32, ptr %5363, align 4, !tbaa !9
+  store i32 %5364, ptr %17, align 4, !tbaa !9
+  %5365 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5366 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5365, i32 0, i32 0
+  %5367 = getelementptr inbounds [4 x [256 x i32]], ptr %5366, i64 0, i64 0
+  %5368 = load i32, ptr %18, align 4, !tbaa !9
+  %5369 = zext i32 %5368 to i64
+  %5370 = getelementptr inbounds nuw [256 x i32], ptr %5367, i64 0, i64 %5369
+  %5371 = load i32, ptr %5370, align 4, !tbaa !9
+  %5372 = load i32, ptr %17, align 4, !tbaa !9
+  %5373 = add i32 %5372, %5371
+  store i32 %5373, ptr %17, align 4, !tbaa !9
+  %5374 = load i32, ptr %16, align 4, !tbaa !9
+  %5375 = load i32, ptr %17, align 4, !tbaa !9
+  %5376 = xor i32 %5375, %5374
+  store i32 %5376, ptr %17, align 4, !tbaa !9
+  %5377 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5378 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5377, i32 0, i32 1
+  %5379 = getelementptr inbounds [18 x i32], ptr %5378, i64 0, i64 6
+  %5380 = load i32, ptr %5379, align 4, !tbaa !9
+  %5381 = load i32, ptr %13, align 4, !tbaa !9
+  %5382 = xor i32 %5381, %5380
+  store i32 %5382, ptr %13, align 4, !tbaa !9
+  %5383 = load i32, ptr %15, align 4, !tbaa !9
+  %5384 = load i32, ptr %17, align 4, !tbaa !9
+  %5385 = add i32 %5384, %5383
+  store i32 %5385, ptr %17, align 4, !tbaa !9
+  %5386 = load i32, ptr %17, align 4, !tbaa !9
+  %5387 = load i32, ptr %13, align 4, !tbaa !9
+  %5388 = xor i32 %5387, %5386
+  store i32 %5388, ptr %13, align 4, !tbaa !9
+  %5389 = load i32, ptr %13, align 4, !tbaa !9
+  %5390 = and i32 %5389, 255
+  store i32 %5390, ptr %15, align 4, !tbaa !9
+  %5391 = load i32, ptr %13, align 4, !tbaa !9
+  %5392 = lshr i32 %5391, 8
+  store i32 %5392, ptr %16, align 4, !tbaa !9
+  %5393 = load i32, ptr %16, align 4, !tbaa !9
+  %5394 = and i32 %5393, 255
+  store i32 %5394, ptr %16, align 4, !tbaa !9
+  %5395 = load i32, ptr %13, align 4, !tbaa !9
+  %5396 = lshr i32 %5395, 16
+  store i32 %5396, ptr %17, align 4, !tbaa !9
+  %5397 = load i32, ptr %17, align 4, !tbaa !9
+  %5398 = and i32 %5397, 255
+  store i32 %5398, ptr %17, align 4, !tbaa !9
+  %5399 = load i32, ptr %13, align 4, !tbaa !9
+  %5400 = lshr i32 %5399, 24
+  store i32 %5400, ptr %18, align 4, !tbaa !9
+  %5401 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5402 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5401, i32 0, i32 0
+  %5403 = getelementptr inbounds [4 x [256 x i32]], ptr %5402, i64 0, i64 3
+  %5404 = load i32, ptr %15, align 4, !tbaa !9
+  %5405 = zext i32 %5404 to i64
+  %5406 = getelementptr inbounds nuw [256 x i32], ptr %5403, i64 0, i64 %5405
+  %5407 = load i32, ptr %5406, align 4, !tbaa !9
+  store i32 %5407, ptr %15, align 4, !tbaa !9
+  %5408 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5409 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5408, i32 0, i32 0
+  %5410 = getelementptr inbounds [4 x [256 x i32]], ptr %5409, i64 0, i64 2
+  %5411 = load i32, ptr %16, align 4, !tbaa !9
+  %5412 = zext i32 %5411 to i64
+  %5413 = getelementptr inbounds nuw [256 x i32], ptr %5410, i64 0, i64 %5412
+  %5414 = load i32, ptr %5413, align 4, !tbaa !9
+  store i32 %5414, ptr %16, align 4, !tbaa !9
+  %5415 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5416 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5415, i32 0, i32 0
+  %5417 = getelementptr inbounds [4 x [256 x i32]], ptr %5416, i64 0, i64 1
+  %5418 = load i32, ptr %17, align 4, !tbaa !9
+  %5419 = zext i32 %5418 to i64
+  %5420 = getelementptr inbounds nuw [256 x i32], ptr %5417, i64 0, i64 %5419
+  %5421 = load i32, ptr %5420, align 4, !tbaa !9
+  store i32 %5421, ptr %17, align 4, !tbaa !9
+  %5422 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5423 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5422, i32 0, i32 0
+  %5424 = getelementptr inbounds [4 x [256 x i32]], ptr %5423, i64 0, i64 0
+  %5425 = load i32, ptr %18, align 4, !tbaa !9
+  %5426 = zext i32 %5425 to i64
+  %5427 = getelementptr inbounds nuw [256 x i32], ptr %5424, i64 0, i64 %5426
+  %5428 = load i32, ptr %5427, align 4, !tbaa !9
+  %5429 = load i32, ptr %17, align 4, !tbaa !9
+  %5430 = add i32 %5429, %5428
+  store i32 %5430, ptr %17, align 4, !tbaa !9
+  %5431 = load i32, ptr %16, align 4, !tbaa !9
+  %5432 = load i32, ptr %17, align 4, !tbaa !9
+  %5433 = xor i32 %5432, %5431
+  store i32 %5433, ptr %17, align 4, !tbaa !9
+  %5434 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5435 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5434, i32 0, i32 1
+  %5436 = getelementptr inbounds [18 x i32], ptr %5435, i64 0, i64 7
+  %5437 = load i32, ptr %5436, align 4, !tbaa !9
+  %5438 = load i32, ptr %14, align 4, !tbaa !9
+  %5439 = xor i32 %5438, %5437
+  store i32 %5439, ptr %14, align 4, !tbaa !9
+  %5440 = load i32, ptr %15, align 4, !tbaa !9
+  %5441 = load i32, ptr %17, align 4, !tbaa !9
+  %5442 = add i32 %5441, %5440
+  store i32 %5442, ptr %17, align 4, !tbaa !9
+  %5443 = load i32, ptr %17, align 4, !tbaa !9
+  %5444 = load i32, ptr %14, align 4, !tbaa !9
+  %5445 = xor i32 %5444, %5443
+  store i32 %5445, ptr %14, align 4, !tbaa !9
+  %5446 = load i32, ptr %14, align 4, !tbaa !9
+  %5447 = and i32 %5446, 255
+  store i32 %5447, ptr %15, align 4, !tbaa !9
+  %5448 = load i32, ptr %14, align 4, !tbaa !9
+  %5449 = lshr i32 %5448, 8
+  store i32 %5449, ptr %16, align 4, !tbaa !9
+  %5450 = load i32, ptr %16, align 4, !tbaa !9
+  %5451 = and i32 %5450, 255
+  store i32 %5451, ptr %16, align 4, !tbaa !9
+  %5452 = load i32, ptr %14, align 4, !tbaa !9
+  %5453 = lshr i32 %5452, 16
+  store i32 %5453, ptr %17, align 4, !tbaa !9
+  %5454 = load i32, ptr %17, align 4, !tbaa !9
+  %5455 = and i32 %5454, 255
+  store i32 %5455, ptr %17, align 4, !tbaa !9
+  %5456 = load i32, ptr %14, align 4, !tbaa !9
+  %5457 = lshr i32 %5456, 24
+  store i32 %5457, ptr %18, align 4, !tbaa !9
+  %5458 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5459 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5458, i32 0, i32 0
+  %5460 = getelementptr inbounds [4 x [256 x i32]], ptr %5459, i64 0, i64 3
+  %5461 = load i32, ptr %15, align 4, !tbaa !9
+  %5462 = zext i32 %5461 to i64
+  %5463 = getelementptr inbounds nuw [256 x i32], ptr %5460, i64 0, i64 %5462
+  %5464 = load i32, ptr %5463, align 4, !tbaa !9
+  store i32 %5464, ptr %15, align 4, !tbaa !9
+  %5465 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5466 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5465, i32 0, i32 0
+  %5467 = getelementptr inbounds [4 x [256 x i32]], ptr %5466, i64 0, i64 2
+  %5468 = load i32, ptr %16, align 4, !tbaa !9
+  %5469 = zext i32 %5468 to i64
+  %5470 = getelementptr inbounds nuw [256 x i32], ptr %5467, i64 0, i64 %5469
+  %5471 = load i32, ptr %5470, align 4, !tbaa !9
+  store i32 %5471, ptr %16, align 4, !tbaa !9
+  %5472 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5473 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5472, i32 0, i32 0
+  %5474 = getelementptr inbounds [4 x [256 x i32]], ptr %5473, i64 0, i64 1
+  %5475 = load i32, ptr %17, align 4, !tbaa !9
+  %5476 = zext i32 %5475 to i64
+  %5477 = getelementptr inbounds nuw [256 x i32], ptr %5474, i64 0, i64 %5476
+  %5478 = load i32, ptr %5477, align 4, !tbaa !9
+  store i32 %5478, ptr %17, align 4, !tbaa !9
+  %5479 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5480 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5479, i32 0, i32 0
+  %5481 = getelementptr inbounds [4 x [256 x i32]], ptr %5480, i64 0, i64 0
+  %5482 = load i32, ptr %18, align 4, !tbaa !9
+  %5483 = zext i32 %5482 to i64
+  %5484 = getelementptr inbounds nuw [256 x i32], ptr %5481, i64 0, i64 %5483
+  %5485 = load i32, ptr %5484, align 4, !tbaa !9
+  %5486 = load i32, ptr %17, align 4, !tbaa !9
+  %5487 = add i32 %5486, %5485
+  store i32 %5487, ptr %17, align 4, !tbaa !9
+  %5488 = load i32, ptr %16, align 4, !tbaa !9
+  %5489 = load i32, ptr %17, align 4, !tbaa !9
+  %5490 = xor i32 %5489, %5488
+  store i32 %5490, ptr %17, align 4, !tbaa !9
+  %5491 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5492 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5491, i32 0, i32 1
+  %5493 = getelementptr inbounds [18 x i32], ptr %5492, i64 0, i64 8
+  %5494 = load i32, ptr %5493, align 4, !tbaa !9
+  %5495 = load i32, ptr %13, align 4, !tbaa !9
+  %5496 = xor i32 %5495, %5494
+  store i32 %5496, ptr %13, align 4, !tbaa !9
+  %5497 = load i32, ptr %15, align 4, !tbaa !9
+  %5498 = load i32, ptr %17, align 4, !tbaa !9
+  %5499 = add i32 %5498, %5497
+  store i32 %5499, ptr %17, align 4, !tbaa !9
+  %5500 = load i32, ptr %17, align 4, !tbaa !9
+  %5501 = load i32, ptr %13, align 4, !tbaa !9
+  %5502 = xor i32 %5501, %5500
+  store i32 %5502, ptr %13, align 4, !tbaa !9
+  %5503 = load i32, ptr %13, align 4, !tbaa !9
+  %5504 = and i32 %5503, 255
+  store i32 %5504, ptr %15, align 4, !tbaa !9
+  %5505 = load i32, ptr %13, align 4, !tbaa !9
+  %5506 = lshr i32 %5505, 8
+  store i32 %5506, ptr %16, align 4, !tbaa !9
+  %5507 = load i32, ptr %16, align 4, !tbaa !9
+  %5508 = and i32 %5507, 255
+  store i32 %5508, ptr %16, align 4, !tbaa !9
+  %5509 = load i32, ptr %13, align 4, !tbaa !9
+  %5510 = lshr i32 %5509, 16
+  store i32 %5510, ptr %17, align 4, !tbaa !9
+  %5511 = load i32, ptr %17, align 4, !tbaa !9
+  %5512 = and i32 %5511, 255
+  store i32 %5512, ptr %17, align 4, !tbaa !9
+  %5513 = load i32, ptr %13, align 4, !tbaa !9
+  %5514 = lshr i32 %5513, 24
+  store i32 %5514, ptr %18, align 4, !tbaa !9
+  %5515 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5516 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5515, i32 0, i32 0
+  %5517 = getelementptr inbounds [4 x [256 x i32]], ptr %5516, i64 0, i64 3
+  %5518 = load i32, ptr %15, align 4, !tbaa !9
+  %5519 = zext i32 %5518 to i64
+  %5520 = getelementptr inbounds nuw [256 x i32], ptr %5517, i64 0, i64 %5519
+  %5521 = load i32, ptr %5520, align 4, !tbaa !9
+  store i32 %5521, ptr %15, align 4, !tbaa !9
+  %5522 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5523 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5522, i32 0, i32 0
+  %5524 = getelementptr inbounds [4 x [256 x i32]], ptr %5523, i64 0, i64 2
+  %5525 = load i32, ptr %16, align 4, !tbaa !9
+  %5526 = zext i32 %5525 to i64
+  %5527 = getelementptr inbounds nuw [256 x i32], ptr %5524, i64 0, i64 %5526
+  %5528 = load i32, ptr %5527, align 4, !tbaa !9
+  store i32 %5528, ptr %16, align 4, !tbaa !9
+  %5529 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5530 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5529, i32 0, i32 0
+  %5531 = getelementptr inbounds [4 x [256 x i32]], ptr %5530, i64 0, i64 1
+  %5532 = load i32, ptr %17, align 4, !tbaa !9
+  %5533 = zext i32 %5532 to i64
+  %5534 = getelementptr inbounds nuw [256 x i32], ptr %5531, i64 0, i64 %5533
+  %5535 = load i32, ptr %5534, align 4, !tbaa !9
+  store i32 %5535, ptr %17, align 4, !tbaa !9
+  %5536 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5537 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5536, i32 0, i32 0
+  %5538 = getelementptr inbounds [4 x [256 x i32]], ptr %5537, i64 0, i64 0
+  %5539 = load i32, ptr %18, align 4, !tbaa !9
+  %5540 = zext i32 %5539 to i64
+  %5541 = getelementptr inbounds nuw [256 x i32], ptr %5538, i64 0, i64 %5540
+  %5542 = load i32, ptr %5541, align 4, !tbaa !9
+  %5543 = load i32, ptr %17, align 4, !tbaa !9
+  %5544 = add i32 %5543, %5542
+  store i32 %5544, ptr %17, align 4, !tbaa !9
+  %5545 = load i32, ptr %16, align 4, !tbaa !9
+  %5546 = load i32, ptr %17, align 4, !tbaa !9
+  %5547 = xor i32 %5546, %5545
+  store i32 %5547, ptr %17, align 4, !tbaa !9
+  %5548 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5549 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5548, i32 0, i32 1
+  %5550 = getelementptr inbounds [18 x i32], ptr %5549, i64 0, i64 9
+  %5551 = load i32, ptr %5550, align 4, !tbaa !9
+  %5552 = load i32, ptr %14, align 4, !tbaa !9
+  %5553 = xor i32 %5552, %5551
+  store i32 %5553, ptr %14, align 4, !tbaa !9
+  %5554 = load i32, ptr %15, align 4, !tbaa !9
+  %5555 = load i32, ptr %17, align 4, !tbaa !9
+  %5556 = add i32 %5555, %5554
+  store i32 %5556, ptr %17, align 4, !tbaa !9
+  %5557 = load i32, ptr %17, align 4, !tbaa !9
+  %5558 = load i32, ptr %14, align 4, !tbaa !9
+  %5559 = xor i32 %5558, %5557
+  store i32 %5559, ptr %14, align 4, !tbaa !9
+  %5560 = load i32, ptr %14, align 4, !tbaa !9
+  %5561 = and i32 %5560, 255
+  store i32 %5561, ptr %15, align 4, !tbaa !9
+  %5562 = load i32, ptr %14, align 4, !tbaa !9
+  %5563 = lshr i32 %5562, 8
+  store i32 %5563, ptr %16, align 4, !tbaa !9
+  %5564 = load i32, ptr %16, align 4, !tbaa !9
+  %5565 = and i32 %5564, 255
+  store i32 %5565, ptr %16, align 4, !tbaa !9
+  %5566 = load i32, ptr %14, align 4, !tbaa !9
+  %5567 = lshr i32 %5566, 16
+  store i32 %5567, ptr %17, align 4, !tbaa !9
+  %5568 = load i32, ptr %17, align 4, !tbaa !9
+  %5569 = and i32 %5568, 255
+  store i32 %5569, ptr %17, align 4, !tbaa !9
+  %5570 = load i32, ptr %14, align 4, !tbaa !9
+  %5571 = lshr i32 %5570, 24
+  store i32 %5571, ptr %18, align 4, !tbaa !9
+  %5572 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5573 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5572, i32 0, i32 0
+  %5574 = getelementptr inbounds [4 x [256 x i32]], ptr %5573, i64 0, i64 3
+  %5575 = load i32, ptr %15, align 4, !tbaa !9
+  %5576 = zext i32 %5575 to i64
+  %5577 = getelementptr inbounds nuw [256 x i32], ptr %5574, i64 0, i64 %5576
+  %5578 = load i32, ptr %5577, align 4, !tbaa !9
+  store i32 %5578, ptr %15, align 4, !tbaa !9
+  %5579 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5580 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5579, i32 0, i32 0
+  %5581 = getelementptr inbounds [4 x [256 x i32]], ptr %5580, i64 0, i64 2
+  %5582 = load i32, ptr %16, align 4, !tbaa !9
+  %5583 = zext i32 %5582 to i64
+  %5584 = getelementptr inbounds nuw [256 x i32], ptr %5581, i64 0, i64 %5583
+  %5585 = load i32, ptr %5584, align 4, !tbaa !9
+  store i32 %5585, ptr %16, align 4, !tbaa !9
+  %5586 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5587 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5586, i32 0, i32 0
+  %5588 = getelementptr inbounds [4 x [256 x i32]], ptr %5587, i64 0, i64 1
+  %5589 = load i32, ptr %17, align 4, !tbaa !9
+  %5590 = zext i32 %5589 to i64
+  %5591 = getelementptr inbounds nuw [256 x i32], ptr %5588, i64 0, i64 %5590
+  %5592 = load i32, ptr %5591, align 4, !tbaa !9
+  store i32 %5592, ptr %17, align 4, !tbaa !9
+  %5593 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5594 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5593, i32 0, i32 0
+  %5595 = getelementptr inbounds [4 x [256 x i32]], ptr %5594, i64 0, i64 0
+  %5596 = load i32, ptr %18, align 4, !tbaa !9
+  %5597 = zext i32 %5596 to i64
+  %5598 = getelementptr inbounds nuw [256 x i32], ptr %5595, i64 0, i64 %5597
+  %5599 = load i32, ptr %5598, align 4, !tbaa !9
+  %5600 = load i32, ptr %17, align 4, !tbaa !9
+  %5601 = add i32 %5600, %5599
+  store i32 %5601, ptr %17, align 4, !tbaa !9
+  %5602 = load i32, ptr %16, align 4, !tbaa !9
+  %5603 = load i32, ptr %17, align 4, !tbaa !9
+  %5604 = xor i32 %5603, %5602
+  store i32 %5604, ptr %17, align 4, !tbaa !9
+  %5605 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5606 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5605, i32 0, i32 1
+  %5607 = getelementptr inbounds [18 x i32], ptr %5606, i64 0, i64 10
+  %5608 = load i32, ptr %5607, align 4, !tbaa !9
+  %5609 = load i32, ptr %13, align 4, !tbaa !9
+  %5610 = xor i32 %5609, %5608
+  store i32 %5610, ptr %13, align 4, !tbaa !9
+  %5611 = load i32, ptr %15, align 4, !tbaa !9
+  %5612 = load i32, ptr %17, align 4, !tbaa !9
+  %5613 = add i32 %5612, %5611
+  store i32 %5613, ptr %17, align 4, !tbaa !9
+  %5614 = load i32, ptr %17, align 4, !tbaa !9
+  %5615 = load i32, ptr %13, align 4, !tbaa !9
+  %5616 = xor i32 %5615, %5614
+  store i32 %5616, ptr %13, align 4, !tbaa !9
+  %5617 = load i32, ptr %13, align 4, !tbaa !9
+  %5618 = and i32 %5617, 255
+  store i32 %5618, ptr %15, align 4, !tbaa !9
+  %5619 = load i32, ptr %13, align 4, !tbaa !9
+  %5620 = lshr i32 %5619, 8
+  store i32 %5620, ptr %16, align 4, !tbaa !9
+  %5621 = load i32, ptr %16, align 4, !tbaa !9
+  %5622 = and i32 %5621, 255
+  store i32 %5622, ptr %16, align 4, !tbaa !9
+  %5623 = load i32, ptr %13, align 4, !tbaa !9
+  %5624 = lshr i32 %5623, 16
+  store i32 %5624, ptr %17, align 4, !tbaa !9
+  %5625 = load i32, ptr %17, align 4, !tbaa !9
+  %5626 = and i32 %5625, 255
+  store i32 %5626, ptr %17, align 4, !tbaa !9
+  %5627 = load i32, ptr %13, align 4, !tbaa !9
+  %5628 = lshr i32 %5627, 24
+  store i32 %5628, ptr %18, align 4, !tbaa !9
+  %5629 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5630 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5629, i32 0, i32 0
+  %5631 = getelementptr inbounds [4 x [256 x i32]], ptr %5630, i64 0, i64 3
+  %5632 = load i32, ptr %15, align 4, !tbaa !9
+  %5633 = zext i32 %5632 to i64
+  %5634 = getelementptr inbounds nuw [256 x i32], ptr %5631, i64 0, i64 %5633
+  %5635 = load i32, ptr %5634, align 4, !tbaa !9
+  store i32 %5635, ptr %15, align 4, !tbaa !9
+  %5636 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5637 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5636, i32 0, i32 0
+  %5638 = getelementptr inbounds [4 x [256 x i32]], ptr %5637, i64 0, i64 2
+  %5639 = load i32, ptr %16, align 4, !tbaa !9
+  %5640 = zext i32 %5639 to i64
+  %5641 = getelementptr inbounds nuw [256 x i32], ptr %5638, i64 0, i64 %5640
+  %5642 = load i32, ptr %5641, align 4, !tbaa !9
+  store i32 %5642, ptr %16, align 4, !tbaa !9
+  %5643 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5644 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5643, i32 0, i32 0
+  %5645 = getelementptr inbounds [4 x [256 x i32]], ptr %5644, i64 0, i64 1
+  %5646 = load i32, ptr %17, align 4, !tbaa !9
+  %5647 = zext i32 %5646 to i64
+  %5648 = getelementptr inbounds nuw [256 x i32], ptr %5645, i64 0, i64 %5647
+  %5649 = load i32, ptr %5648, align 4, !tbaa !9
+  store i32 %5649, ptr %17, align 4, !tbaa !9
+  %5650 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5651 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5650, i32 0, i32 0
+  %5652 = getelementptr inbounds [4 x [256 x i32]], ptr %5651, i64 0, i64 0
+  %5653 = load i32, ptr %18, align 4, !tbaa !9
+  %5654 = zext i32 %5653 to i64
+  %5655 = getelementptr inbounds nuw [256 x i32], ptr %5652, i64 0, i64 %5654
+  %5656 = load i32, ptr %5655, align 4, !tbaa !9
+  %5657 = load i32, ptr %17, align 4, !tbaa !9
+  %5658 = add i32 %5657, %5656
+  store i32 %5658, ptr %17, align 4, !tbaa !9
+  %5659 = load i32, ptr %16, align 4, !tbaa !9
+  %5660 = load i32, ptr %17, align 4, !tbaa !9
+  %5661 = xor i32 %5660, %5659
+  store i32 %5661, ptr %17, align 4, !tbaa !9
+  %5662 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5663 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5662, i32 0, i32 1
+  %5664 = getelementptr inbounds [18 x i32], ptr %5663, i64 0, i64 11
+  %5665 = load i32, ptr %5664, align 4, !tbaa !9
+  %5666 = load i32, ptr %14, align 4, !tbaa !9
+  %5667 = xor i32 %5666, %5665
+  store i32 %5667, ptr %14, align 4, !tbaa !9
+  %5668 = load i32, ptr %15, align 4, !tbaa !9
+  %5669 = load i32, ptr %17, align 4, !tbaa !9
+  %5670 = add i32 %5669, %5668
+  store i32 %5670, ptr %17, align 4, !tbaa !9
+  %5671 = load i32, ptr %17, align 4, !tbaa !9
+  %5672 = load i32, ptr %14, align 4, !tbaa !9
+  %5673 = xor i32 %5672, %5671
+  store i32 %5673, ptr %14, align 4, !tbaa !9
+  %5674 = load i32, ptr %14, align 4, !tbaa !9
+  %5675 = and i32 %5674, 255
+  store i32 %5675, ptr %15, align 4, !tbaa !9
+  %5676 = load i32, ptr %14, align 4, !tbaa !9
+  %5677 = lshr i32 %5676, 8
+  store i32 %5677, ptr %16, align 4, !tbaa !9
+  %5678 = load i32, ptr %16, align 4, !tbaa !9
+  %5679 = and i32 %5678, 255
+  store i32 %5679, ptr %16, align 4, !tbaa !9
+  %5680 = load i32, ptr %14, align 4, !tbaa !9
+  %5681 = lshr i32 %5680, 16
+  store i32 %5681, ptr %17, align 4, !tbaa !9
+  %5682 = load i32, ptr %17, align 4, !tbaa !9
+  %5683 = and i32 %5682, 255
+  store i32 %5683, ptr %17, align 4, !tbaa !9
+  %5684 = load i32, ptr %14, align 4, !tbaa !9
+  %5685 = lshr i32 %5684, 24
+  store i32 %5685, ptr %18, align 4, !tbaa !9
+  %5686 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5687 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5686, i32 0, i32 0
+  %5688 = getelementptr inbounds [4 x [256 x i32]], ptr %5687, i64 0, i64 3
+  %5689 = load i32, ptr %15, align 4, !tbaa !9
+  %5690 = zext i32 %5689 to i64
+  %5691 = getelementptr inbounds nuw [256 x i32], ptr %5688, i64 0, i64 %5690
+  %5692 = load i32, ptr %5691, align 4, !tbaa !9
+  store i32 %5692, ptr %15, align 4, !tbaa !9
+  %5693 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5694 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5693, i32 0, i32 0
+  %5695 = getelementptr inbounds [4 x [256 x i32]], ptr %5694, i64 0, i64 2
+  %5696 = load i32, ptr %16, align 4, !tbaa !9
+  %5697 = zext i32 %5696 to i64
+  %5698 = getelementptr inbounds nuw [256 x i32], ptr %5695, i64 0, i64 %5697
+  %5699 = load i32, ptr %5698, align 4, !tbaa !9
+  store i32 %5699, ptr %16, align 4, !tbaa !9
+  %5700 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5701 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5700, i32 0, i32 0
+  %5702 = getelementptr inbounds [4 x [256 x i32]], ptr %5701, i64 0, i64 1
+  %5703 = load i32, ptr %17, align 4, !tbaa !9
+  %5704 = zext i32 %5703 to i64
+  %5705 = getelementptr inbounds nuw [256 x i32], ptr %5702, i64 0, i64 %5704
+  %5706 = load i32, ptr %5705, align 4, !tbaa !9
+  store i32 %5706, ptr %17, align 4, !tbaa !9
+  %5707 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5708 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5707, i32 0, i32 0
+  %5709 = getelementptr inbounds [4 x [256 x i32]], ptr %5708, i64 0, i64 0
+  %5710 = load i32, ptr %18, align 4, !tbaa !9
+  %5711 = zext i32 %5710 to i64
+  %5712 = getelementptr inbounds nuw [256 x i32], ptr %5709, i64 0, i64 %5711
+  %5713 = load i32, ptr %5712, align 4, !tbaa !9
+  %5714 = load i32, ptr %17, align 4, !tbaa !9
+  %5715 = add i32 %5714, %5713
+  store i32 %5715, ptr %17, align 4, !tbaa !9
+  %5716 = load i32, ptr %16, align 4, !tbaa !9
+  %5717 = load i32, ptr %17, align 4, !tbaa !9
+  %5718 = xor i32 %5717, %5716
+  store i32 %5718, ptr %17, align 4, !tbaa !9
+  %5719 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5720 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5719, i32 0, i32 1
+  %5721 = getelementptr inbounds [18 x i32], ptr %5720, i64 0, i64 12
+  %5722 = load i32, ptr %5721, align 4, !tbaa !9
+  %5723 = load i32, ptr %13, align 4, !tbaa !9
+  %5724 = xor i32 %5723, %5722
+  store i32 %5724, ptr %13, align 4, !tbaa !9
+  %5725 = load i32, ptr %15, align 4, !tbaa !9
+  %5726 = load i32, ptr %17, align 4, !tbaa !9
+  %5727 = add i32 %5726, %5725
+  store i32 %5727, ptr %17, align 4, !tbaa !9
+  %5728 = load i32, ptr %17, align 4, !tbaa !9
+  %5729 = load i32, ptr %13, align 4, !tbaa !9
+  %5730 = xor i32 %5729, %5728
+  store i32 %5730, ptr %13, align 4, !tbaa !9
+  %5731 = load i32, ptr %13, align 4, !tbaa !9
+  %5732 = and i32 %5731, 255
+  store i32 %5732, ptr %15, align 4, !tbaa !9
+  %5733 = load i32, ptr %13, align 4, !tbaa !9
+  %5734 = lshr i32 %5733, 8
+  store i32 %5734, ptr %16, align 4, !tbaa !9
+  %5735 = load i32, ptr %16, align 4, !tbaa !9
+  %5736 = and i32 %5735, 255
+  store i32 %5736, ptr %16, align 4, !tbaa !9
+  %5737 = load i32, ptr %13, align 4, !tbaa !9
+  %5738 = lshr i32 %5737, 16
+  store i32 %5738, ptr %17, align 4, !tbaa !9
+  %5739 = load i32, ptr %17, align 4, !tbaa !9
+  %5740 = and i32 %5739, 255
+  store i32 %5740, ptr %17, align 4, !tbaa !9
+  %5741 = load i32, ptr %13, align 4, !tbaa !9
+  %5742 = lshr i32 %5741, 24
+  store i32 %5742, ptr %18, align 4, !tbaa !9
+  %5743 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5744 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5743, i32 0, i32 0
+  %5745 = getelementptr inbounds [4 x [256 x i32]], ptr %5744, i64 0, i64 3
+  %5746 = load i32, ptr %15, align 4, !tbaa !9
+  %5747 = zext i32 %5746 to i64
+  %5748 = getelementptr inbounds nuw [256 x i32], ptr %5745, i64 0, i64 %5747
+  %5749 = load i32, ptr %5748, align 4, !tbaa !9
+  store i32 %5749, ptr %15, align 4, !tbaa !9
+  %5750 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5751 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5750, i32 0, i32 0
+  %5752 = getelementptr inbounds [4 x [256 x i32]], ptr %5751, i64 0, i64 2
+  %5753 = load i32, ptr %16, align 4, !tbaa !9
+  %5754 = zext i32 %5753 to i64
+  %5755 = getelementptr inbounds nuw [256 x i32], ptr %5752, i64 0, i64 %5754
+  %5756 = load i32, ptr %5755, align 4, !tbaa !9
+  store i32 %5756, ptr %16, align 4, !tbaa !9
+  %5757 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5758 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5757, i32 0, i32 0
+  %5759 = getelementptr inbounds [4 x [256 x i32]], ptr %5758, i64 0, i64 1
+  %5760 = load i32, ptr %17, align 4, !tbaa !9
+  %5761 = zext i32 %5760 to i64
+  %5762 = getelementptr inbounds nuw [256 x i32], ptr %5759, i64 0, i64 %5761
+  %5763 = load i32, ptr %5762, align 4, !tbaa !9
+  store i32 %5763, ptr %17, align 4, !tbaa !9
+  %5764 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5765 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5764, i32 0, i32 0
+  %5766 = getelementptr inbounds [4 x [256 x i32]], ptr %5765, i64 0, i64 0
+  %5767 = load i32, ptr %18, align 4, !tbaa !9
+  %5768 = zext i32 %5767 to i64
+  %5769 = getelementptr inbounds nuw [256 x i32], ptr %5766, i64 0, i64 %5768
+  %5770 = load i32, ptr %5769, align 4, !tbaa !9
+  %5771 = load i32, ptr %17, align 4, !tbaa !9
+  %5772 = add i32 %5771, %5770
+  store i32 %5772, ptr %17, align 4, !tbaa !9
+  %5773 = load i32, ptr %16, align 4, !tbaa !9
+  %5774 = load i32, ptr %17, align 4, !tbaa !9
+  %5775 = xor i32 %5774, %5773
+  store i32 %5775, ptr %17, align 4, !tbaa !9
+  %5776 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5777 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5776, i32 0, i32 1
+  %5778 = getelementptr inbounds [18 x i32], ptr %5777, i64 0, i64 13
+  %5779 = load i32, ptr %5778, align 4, !tbaa !9
+  %5780 = load i32, ptr %14, align 4, !tbaa !9
+  %5781 = xor i32 %5780, %5779
+  store i32 %5781, ptr %14, align 4, !tbaa !9
+  %5782 = load i32, ptr %15, align 4, !tbaa !9
+  %5783 = load i32, ptr %17, align 4, !tbaa !9
+  %5784 = add i32 %5783, %5782
+  store i32 %5784, ptr %17, align 4, !tbaa !9
+  %5785 = load i32, ptr %17, align 4, !tbaa !9
+  %5786 = load i32, ptr %14, align 4, !tbaa !9
+  %5787 = xor i32 %5786, %5785
+  store i32 %5787, ptr %14, align 4, !tbaa !9
+  %5788 = load i32, ptr %14, align 4, !tbaa !9
+  %5789 = and i32 %5788, 255
+  store i32 %5789, ptr %15, align 4, !tbaa !9
+  %5790 = load i32, ptr %14, align 4, !tbaa !9
+  %5791 = lshr i32 %5790, 8
+  store i32 %5791, ptr %16, align 4, !tbaa !9
+  %5792 = load i32, ptr %16, align 4, !tbaa !9
+  %5793 = and i32 %5792, 255
+  store i32 %5793, ptr %16, align 4, !tbaa !9
+  %5794 = load i32, ptr %14, align 4, !tbaa !9
+  %5795 = lshr i32 %5794, 16
+  store i32 %5795, ptr %17, align 4, !tbaa !9
+  %5796 = load i32, ptr %17, align 4, !tbaa !9
+  %5797 = and i32 %5796, 255
+  store i32 %5797, ptr %17, align 4, !tbaa !9
+  %5798 = load i32, ptr %14, align 4, !tbaa !9
+  %5799 = lshr i32 %5798, 24
+  store i32 %5799, ptr %18, align 4, !tbaa !9
+  %5800 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5801 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5800, i32 0, i32 0
+  %5802 = getelementptr inbounds [4 x [256 x i32]], ptr %5801, i64 0, i64 3
+  %5803 = load i32, ptr %15, align 4, !tbaa !9
+  %5804 = zext i32 %5803 to i64
+  %5805 = getelementptr inbounds nuw [256 x i32], ptr %5802, i64 0, i64 %5804
+  %5806 = load i32, ptr %5805, align 4, !tbaa !9
+  store i32 %5806, ptr %15, align 4, !tbaa !9
+  %5807 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5808 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5807, i32 0, i32 0
+  %5809 = getelementptr inbounds [4 x [256 x i32]], ptr %5808, i64 0, i64 2
+  %5810 = load i32, ptr %16, align 4, !tbaa !9
+  %5811 = zext i32 %5810 to i64
+  %5812 = getelementptr inbounds nuw [256 x i32], ptr %5809, i64 0, i64 %5811
+  %5813 = load i32, ptr %5812, align 4, !tbaa !9
+  store i32 %5813, ptr %16, align 4, !tbaa !9
+  %5814 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5815 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5814, i32 0, i32 0
+  %5816 = getelementptr inbounds [4 x [256 x i32]], ptr %5815, i64 0, i64 1
+  %5817 = load i32, ptr %17, align 4, !tbaa !9
+  %5818 = zext i32 %5817 to i64
+  %5819 = getelementptr inbounds nuw [256 x i32], ptr %5816, i64 0, i64 %5818
+  %5820 = load i32, ptr %5819, align 4, !tbaa !9
+  store i32 %5820, ptr %17, align 4, !tbaa !9
+  %5821 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5822 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5821, i32 0, i32 0
+  %5823 = getelementptr inbounds [4 x [256 x i32]], ptr %5822, i64 0, i64 0
+  %5824 = load i32, ptr %18, align 4, !tbaa !9
+  %5825 = zext i32 %5824 to i64
+  %5826 = getelementptr inbounds nuw [256 x i32], ptr %5823, i64 0, i64 %5825
+  %5827 = load i32, ptr %5826, align 4, !tbaa !9
+  %5828 = load i32, ptr %17, align 4, !tbaa !9
+  %5829 = add i32 %5828, %5827
+  store i32 %5829, ptr %17, align 4, !tbaa !9
+  %5830 = load i32, ptr %16, align 4, !tbaa !9
+  %5831 = load i32, ptr %17, align 4, !tbaa !9
+  %5832 = xor i32 %5831, %5830
+  store i32 %5832, ptr %17, align 4, !tbaa !9
+  %5833 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5834 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5833, i32 0, i32 1
+  %5835 = getelementptr inbounds [18 x i32], ptr %5834, i64 0, i64 14
+  %5836 = load i32, ptr %5835, align 4, !tbaa !9
+  %5837 = load i32, ptr %13, align 4, !tbaa !9
+  %5838 = xor i32 %5837, %5836
+  store i32 %5838, ptr %13, align 4, !tbaa !9
+  %5839 = load i32, ptr %15, align 4, !tbaa !9
+  %5840 = load i32, ptr %17, align 4, !tbaa !9
+  %5841 = add i32 %5840, %5839
+  store i32 %5841, ptr %17, align 4, !tbaa !9
+  %5842 = load i32, ptr %17, align 4, !tbaa !9
+  %5843 = load i32, ptr %13, align 4, !tbaa !9
+  %5844 = xor i32 %5843, %5842
+  store i32 %5844, ptr %13, align 4, !tbaa !9
+  %5845 = load i32, ptr %13, align 4, !tbaa !9
+  %5846 = and i32 %5845, 255
+  store i32 %5846, ptr %15, align 4, !tbaa !9
+  %5847 = load i32, ptr %13, align 4, !tbaa !9
+  %5848 = lshr i32 %5847, 8
+  store i32 %5848, ptr %16, align 4, !tbaa !9
+  %5849 = load i32, ptr %16, align 4, !tbaa !9
+  %5850 = and i32 %5849, 255
+  store i32 %5850, ptr %16, align 4, !tbaa !9
+  %5851 = load i32, ptr %13, align 4, !tbaa !9
+  %5852 = lshr i32 %5851, 16
+  store i32 %5852, ptr %17, align 4, !tbaa !9
+  %5853 = load i32, ptr %17, align 4, !tbaa !9
+  %5854 = and i32 %5853, 255
+  store i32 %5854, ptr %17, align 4, !tbaa !9
+  %5855 = load i32, ptr %13, align 4, !tbaa !9
+  %5856 = lshr i32 %5855, 24
+  store i32 %5856, ptr %18, align 4, !tbaa !9
+  %5857 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5858 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5857, i32 0, i32 0
+  %5859 = getelementptr inbounds [4 x [256 x i32]], ptr %5858, i64 0, i64 3
+  %5860 = load i32, ptr %15, align 4, !tbaa !9
+  %5861 = zext i32 %5860 to i64
+  %5862 = getelementptr inbounds nuw [256 x i32], ptr %5859, i64 0, i64 %5861
+  %5863 = load i32, ptr %5862, align 4, !tbaa !9
+  store i32 %5863, ptr %15, align 4, !tbaa !9
+  %5864 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5865 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5864, i32 0, i32 0
+  %5866 = getelementptr inbounds [4 x [256 x i32]], ptr %5865, i64 0, i64 2
+  %5867 = load i32, ptr %16, align 4, !tbaa !9
+  %5868 = zext i32 %5867 to i64
+  %5869 = getelementptr inbounds nuw [256 x i32], ptr %5866, i64 0, i64 %5868
+  %5870 = load i32, ptr %5869, align 4, !tbaa !9
+  store i32 %5870, ptr %16, align 4, !tbaa !9
+  %5871 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5872 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5871, i32 0, i32 0
+  %5873 = getelementptr inbounds [4 x [256 x i32]], ptr %5872, i64 0, i64 1
+  %5874 = load i32, ptr %17, align 4, !tbaa !9
+  %5875 = zext i32 %5874 to i64
+  %5876 = getelementptr inbounds nuw [256 x i32], ptr %5873, i64 0, i64 %5875
+  %5877 = load i32, ptr %5876, align 4, !tbaa !9
+  store i32 %5877, ptr %17, align 4, !tbaa !9
+  %5878 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5879 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5878, i32 0, i32 0
+  %5880 = getelementptr inbounds [4 x [256 x i32]], ptr %5879, i64 0, i64 0
+  %5881 = load i32, ptr %18, align 4, !tbaa !9
+  %5882 = zext i32 %5881 to i64
+  %5883 = getelementptr inbounds nuw [256 x i32], ptr %5880, i64 0, i64 %5882
+  %5884 = load i32, ptr %5883, align 4, !tbaa !9
+  %5885 = load i32, ptr %17, align 4, !tbaa !9
+  %5886 = add i32 %5885, %5884
+  store i32 %5886, ptr %17, align 4, !tbaa !9
+  %5887 = load i32, ptr %16, align 4, !tbaa !9
+  %5888 = load i32, ptr %17, align 4, !tbaa !9
+  %5889 = xor i32 %5888, %5887
+  store i32 %5889, ptr %17, align 4, !tbaa !9
+  %5890 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5891 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5890, i32 0, i32 1
+  %5892 = getelementptr inbounds [18 x i32], ptr %5891, i64 0, i64 15
+  %5893 = load i32, ptr %5892, align 4, !tbaa !9
+  %5894 = load i32, ptr %14, align 4, !tbaa !9
+  %5895 = xor i32 %5894, %5893
+  store i32 %5895, ptr %14, align 4, !tbaa !9
+  %5896 = load i32, ptr %15, align 4, !tbaa !9
+  %5897 = load i32, ptr %17, align 4, !tbaa !9
+  %5898 = add i32 %5897, %5896
+  store i32 %5898, ptr %17, align 4, !tbaa !9
+  %5899 = load i32, ptr %17, align 4, !tbaa !9
+  %5900 = load i32, ptr %14, align 4, !tbaa !9
+  %5901 = xor i32 %5900, %5899
+  store i32 %5901, ptr %14, align 4, !tbaa !9
+  %5902 = load i32, ptr %14, align 4, !tbaa !9
+  %5903 = and i32 %5902, 255
+  store i32 %5903, ptr %15, align 4, !tbaa !9
+  %5904 = load i32, ptr %14, align 4, !tbaa !9
+  %5905 = lshr i32 %5904, 8
+  store i32 %5905, ptr %16, align 4, !tbaa !9
+  %5906 = load i32, ptr %16, align 4, !tbaa !9
+  %5907 = and i32 %5906, 255
+  store i32 %5907, ptr %16, align 4, !tbaa !9
+  %5908 = load i32, ptr %14, align 4, !tbaa !9
+  %5909 = lshr i32 %5908, 16
+  store i32 %5909, ptr %17, align 4, !tbaa !9
+  %5910 = load i32, ptr %17, align 4, !tbaa !9
+  %5911 = and i32 %5910, 255
+  store i32 %5911, ptr %17, align 4, !tbaa !9
+  %5912 = load i32, ptr %14, align 4, !tbaa !9
+  %5913 = lshr i32 %5912, 24
+  store i32 %5913, ptr %18, align 4, !tbaa !9
+  %5914 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5915 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5914, i32 0, i32 0
+  %5916 = getelementptr inbounds [4 x [256 x i32]], ptr %5915, i64 0, i64 3
+  %5917 = load i32, ptr %15, align 4, !tbaa !9
+  %5918 = zext i32 %5917 to i64
+  %5919 = getelementptr inbounds nuw [256 x i32], ptr %5916, i64 0, i64 %5918
+  %5920 = load i32, ptr %5919, align 4, !tbaa !9
+  store i32 %5920, ptr %15, align 4, !tbaa !9
+  %5921 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5922 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5921, i32 0, i32 0
+  %5923 = getelementptr inbounds [4 x [256 x i32]], ptr %5922, i64 0, i64 2
+  %5924 = load i32, ptr %16, align 4, !tbaa !9
+  %5925 = zext i32 %5924 to i64
+  %5926 = getelementptr inbounds nuw [256 x i32], ptr %5923, i64 0, i64 %5925
+  %5927 = load i32, ptr %5926, align 4, !tbaa !9
+  store i32 %5927, ptr %16, align 4, !tbaa !9
+  %5928 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5929 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5928, i32 0, i32 0
+  %5930 = getelementptr inbounds [4 x [256 x i32]], ptr %5929, i64 0, i64 1
+  %5931 = load i32, ptr %17, align 4, !tbaa !9
+  %5932 = zext i32 %5931 to i64
+  %5933 = getelementptr inbounds nuw [256 x i32], ptr %5930, i64 0, i64 %5932
+  %5934 = load i32, ptr %5933, align 4, !tbaa !9
+  store i32 %5934, ptr %17, align 4, !tbaa !9
+  %5935 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5936 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5935, i32 0, i32 0
+  %5937 = getelementptr inbounds [4 x [256 x i32]], ptr %5936, i64 0, i64 0
+  %5938 = load i32, ptr %18, align 4, !tbaa !9
+  %5939 = zext i32 %5938 to i64
+  %5940 = getelementptr inbounds nuw [256 x i32], ptr %5937, i64 0, i64 %5939
+  %5941 = load i32, ptr %5940, align 4, !tbaa !9
+  %5942 = load i32, ptr %17, align 4, !tbaa !9
+  %5943 = add i32 %5942, %5941
+  store i32 %5943, ptr %17, align 4, !tbaa !9
+  %5944 = load i32, ptr %16, align 4, !tbaa !9
+  %5945 = load i32, ptr %17, align 4, !tbaa !9
+  %5946 = xor i32 %5945, %5944
+  store i32 %5946, ptr %17, align 4, !tbaa !9
+  %5947 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5948 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5947, i32 0, i32 1
+  %5949 = getelementptr inbounds [18 x i32], ptr %5948, i64 0, i64 16
+  %5950 = load i32, ptr %5949, align 4, !tbaa !9
+  %5951 = load i32, ptr %13, align 4, !tbaa !9
+  %5952 = xor i32 %5951, %5950
+  store i32 %5952, ptr %13, align 4, !tbaa !9
+  %5953 = load i32, ptr %15, align 4, !tbaa !9
+  %5954 = load i32, ptr %17, align 4, !tbaa !9
+  %5955 = add i32 %5954, %5953
+  store i32 %5955, ptr %17, align 4, !tbaa !9
+  %5956 = load i32, ptr %17, align 4, !tbaa !9
+  %5957 = load i32, ptr %13, align 4, !tbaa !9
+  %5958 = xor i32 %5957, %5956
+  store i32 %5958, ptr %13, align 4, !tbaa !9
+  %5959 = load i32, ptr %14, align 4, !tbaa !9
+  store i32 %5959, ptr %18, align 4, !tbaa !9
+  %5960 = load i32, ptr %13, align 4, !tbaa !9
+  store i32 %5960, ptr %14, align 4, !tbaa !9
+  %5961 = load i32, ptr %18, align 4, !tbaa !9
+  %5962 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 0
+  %5963 = getelementptr inbounds nuw %struct.BF_ctx, ptr %5962, i32 0, i32 1
+  %5964 = getelementptr inbounds [18 x i32], ptr %5963, i64 0, i64 17
+  %5965 = load i32, ptr %5964, align 4, !tbaa !9
+  %5966 = xor i32 %5961, %5965
+  store i32 %5966, ptr %13, align 4, !tbaa !9
+  br label %5967
+
+5967:                                             ; preds = %5040
+  %5968 = load i32, ptr %20, align 4, !tbaa !9
+  %5969 = add i32 %5968, -1
+  store i32 %5969, ptr %20, align 4, !tbaa !9
+  %5970 = icmp ne i32 %5969, 0
+  br i1 %5970, label %5040, label %5971
+
+5971:                                             ; preds = %5967
+  %5972 = load i32, ptr %13, align 4, !tbaa !9
+  %5973 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %5974 = load i32, ptr %21, align 4, !tbaa !9
+  %5975 = sext i32 %5974 to i64
+  %5976 = getelementptr inbounds [6 x i32], ptr %5973, i64 0, i64 %5975
+  store i32 %5972, ptr %5976, align 4, !tbaa !11
+  %5977 = load i32, ptr %14, align 4, !tbaa !9
+  %5978 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %5979 = load i32, ptr %21, align 4, !tbaa !9
+  %5980 = add nsw i32 %5979, 1
+  %5981 = sext i32 %5980 to i64
+  %5982 = getelementptr inbounds [6 x i32], ptr %5978, i64 0, i64 %5981
+  store i32 %5977, ptr %5982, align 4, !tbaa !11
+  br label %5983
+
+5983:                                             ; preds = %5971
+  %5984 = load i32, ptr %21, align 4, !tbaa !9
+  %5985 = add nsw i32 %5984, 2
+  store i32 %5985, ptr %21, align 4, !tbaa !9
+  br label %5027
+
+5986:                                             ; preds = %5027
+  %5987 = load ptr, ptr %9, align 8, !tbaa !4
+  %5988 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5987, ptr align 1 %5988, i64 28, i1 false)
+  %5989 = load ptr, ptr %8, align 8, !tbaa !4
+  %5990 = getelementptr inbounds i8, ptr %5989, i64 28
+  %5991 = load i8, ptr %5990, align 1, !tbaa !11
+  %5992 = sext i8 %5991 to i32
+  %5993 = sub nsw i32 %5992, 32
+  %5994 = sext i32 %5993 to i64
+  %5995 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %5994
+  %5996 = load i8, ptr %5995, align 1, !tbaa !11
+  %5997 = zext i8 %5996 to i32
+  %5998 = and i32 %5997, 48
+  %5999 = sext i32 %5998 to i64
+  %6000 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %5999
+  %6001 = load i8, ptr %6000, align 1, !tbaa !11
+  %6002 = load ptr, ptr %9, align 8, !tbaa !4
+  %6003 = getelementptr inbounds i8, ptr %6002, i64 28
+  store i8 %6001, ptr %6003, align 1, !tbaa !11
+  %6004 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %6005 = getelementptr inbounds [6 x i32], ptr %6004, i64 0, i64 0
+  call void @BF_swap(ptr noundef %6005, i32 noundef 6)
+  %6006 = load ptr, ptr %9, align 8, !tbaa !4
+  %6007 = getelementptr inbounds i8, ptr %6006, i64 29
+  %6008 = getelementptr inbounds nuw %struct.anon.0, ptr %12, i32 0, i32 2
+  %6009 = getelementptr inbounds [6 x i32], ptr %6008, i64 0, i64 0
+  call void @BF_encode(ptr noundef %6007, ptr noundef %6009, i32 noundef 23)
+  %6010 = load ptr, ptr %9, align 8, !tbaa !4
+  %6011 = getelementptr inbounds i8, ptr %6010, i64 60
+  store i8 0, ptr %6011, align 1, !tbaa !11
+  %6012 = load ptr, ptr %9, align 8, !tbaa !4
+  store ptr %6012, ptr %6, align 8
+  store i32 1, ptr %22, align 4
+  br label %6013
+
+6013:                                             ; preds = %5986, %136, %110, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4264, ptr %12) #6
+  %6014 = load ptr, ptr %6, align 8
+  ret ptr %6014
 }
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #1
+declare ptr @__errno_location() #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @BF_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
@@ -7862,175 +7926,190 @@ define internal void @BF_set_key(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca [2 x i32], align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store i8 %3, ptr %8, align 1
-  %17 = load ptr, ptr %5, align 8
-  store ptr %17, ptr %9, align 8
-  %18 = load i8, ptr %8, align 1
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store i8 %3, ptr %8, align 1, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %17, ptr %9, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  %18 = load i8, ptr %8, align 1, !tbaa !11
   %19 = zext i8 %18 to i32
   %20 = and i32 %19, 1
-  store i32 %20, ptr %10, align 4
-  %21 = load i8, ptr %8, align 1
+  store i32 %20, ptr %10, align 4, !tbaa !9
+  %21 = load i8, ptr %8, align 1, !tbaa !11
   %22 = zext i8 %21 to i32
   %23 = and i32 %22, 2
   %24 = shl i32 %23, 15
-  store i32 %24, ptr %13, align 4
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %11, align 4
+  store i32 %24, ptr %13, align 4, !tbaa !9
+  store i32 0, ptr %15, align 4, !tbaa !9
+  store i32 0, ptr %14, align 4, !tbaa !9
+  store i32 0, ptr %11, align 4, !tbaa !9
   br label %25
 
-25:                                               ; preds = %104, %4
-  %26 = load i32, ptr %11, align 4
+25:                                               ; preds = %103, %4
+  %26 = load i32, ptr %11, align 4, !tbaa !9
   %27 = icmp ult i32 %26, 18
-  br i1 %27, label %28, label %107
+  br i1 %27, label %28, label %106
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
-  store i32 0, ptr %29, align 4
+  store i32 0, ptr %29, align 4, !tbaa !9
   %30 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
-  store i32 0, ptr %30, align 4
-  store i32 0, ptr %12, align 4
+  store i32 0, ptr %30, align 4, !tbaa !9
+  store i32 0, ptr %12, align 4, !tbaa !9
   br label %31
 
 31:                                               ; preds = %71, %28
-  %32 = load i32, ptr %12, align 4
+  %32 = load i32, ptr %12, align 4, !tbaa !9
   %33 = icmp ult i32 %32, 4
   br i1 %33, label %34, label %74
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
-  %36 = load i32, ptr %35, align 4
+  %36 = load i32, ptr %35, align 4, !tbaa !9
   %37 = shl i32 %36, 8
-  store i32 %37, ptr %35, align 4
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i8, ptr %38, align 1
+  store i32 %37, ptr %35, align 4, !tbaa !9
+  %38 = load ptr, ptr %9, align 8, !tbaa !4
+  %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = zext i8 %39 to i32
   %41 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
-  %42 = load i32, ptr %41, align 4
+  %42 = load i32, ptr %41, align 4, !tbaa !9
   %43 = or i32 %42, %40
-  store i32 %43, ptr %41, align 4
+  store i32 %43, ptr %41, align 4, !tbaa !9
   %44 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
-  %45 = load i32, ptr %44, align 4
+  %45 = load i32, ptr %44, align 4, !tbaa !9
   %46 = shl i32 %45, 8
-  store i32 %46, ptr %44, align 4
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i8, ptr %47, align 1
+  store i32 %46, ptr %44, align 4, !tbaa !9
+  %47 = load ptr, ptr %9, align 8, !tbaa !4
+  %48 = load i8, ptr %47, align 1, !tbaa !11
   %49 = sext i8 %48 to i32
   %50 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
-  %51 = load i32, ptr %50, align 4
+  %51 = load i32, ptr %50, align 4, !tbaa !9
   %52 = or i32 %51, %49
-  store i32 %52, ptr %50, align 4
-  %53 = load i32, ptr %12, align 4
+  store i32 %52, ptr %50, align 4, !tbaa !9
+  %53 = load i32, ptr %12, align 4, !tbaa !9
   %54 = icmp ne i32 %53, 0
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %34
   %56 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
-  %57 = load i32, ptr %56, align 4
+  %57 = load i32, ptr %56, align 4, !tbaa !9
   %58 = and i32 %57, 128
-  %59 = load i32, ptr %14, align 4
+  %59 = load i32, ptr %14, align 4, !tbaa !9
   %60 = or i32 %59, %58
-  store i32 %60, ptr %14, align 4
+  store i32 %60, ptr %14, align 4, !tbaa !9
   br label %61
 
 61:                                               ; preds = %55, %34
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i8, ptr %62, align 1
+  %62 = load ptr, ptr %9, align 8, !tbaa !4
+  %63 = load i8, ptr %62, align 1, !tbaa !11
   %64 = icmp ne i8 %63, 0
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr %5, align 8
-  store ptr %66, ptr %9, align 8
+  %66 = load ptr, ptr %5, align 8, !tbaa !4
+  store ptr %66, ptr %9, align 8, !tbaa !4
   br label %70
 
 67:                                               ; preds = %61
-  %68 = load ptr, ptr %9, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i32 1
-  store ptr %69, ptr %9, align 8
+  %68 = load ptr, ptr %9, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i32 1
+  store ptr %69, ptr %9, align 8, !tbaa !4
   br label %70
 
 70:                                               ; preds = %67, %65
   br label %71
 
 71:                                               ; preds = %70
-  %72 = load i32, ptr %12, align 4
+  %72 = load i32, ptr %12, align 4, !tbaa !9
   %73 = add i32 %72, 1
-  store i32 %73, ptr %12, align 4
+  store i32 %73, ptr %12, align 4, !tbaa !9
   br label %31
 
 74:                                               ; preds = %31
   %75 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 0
-  %76 = load i32, ptr %75, align 4
+  %76 = load i32, ptr %75, align 4, !tbaa !9
   %77 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 1
-  %78 = load i32, ptr %77, align 4
+  %78 = load i32, ptr %77, align 4, !tbaa !9
   %79 = xor i32 %76, %78
-  %80 = load i32, ptr %15, align 4
+  %80 = load i32, ptr %15, align 4, !tbaa !9
   %81 = or i32 %80, %79
-  store i32 %81, ptr %15, align 4
-  %82 = load i32, ptr %10, align 4
+  store i32 %81, ptr %15, align 4, !tbaa !9
+  %82 = load i32, ptr %10, align 4, !tbaa !9
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %11, align 4
+  %84 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %83
+  %85 = load i32, ptr %84, align 4, !tbaa !9
+  %86 = load ptr, ptr %6, align 8, !tbaa !12
+  %87 = load i32, ptr %11, align 4, !tbaa !9
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %86, i64 %88
-  store i32 %85, ptr %89, align 4
-  %90 = load i32, ptr %11, align 4
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
+  store i32 %85, ptr %89, align 4, !tbaa !9
+  %90 = load i32, ptr %11, align 4, !tbaa !9
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.BF_ctx, ptr @BF_init_state, i32 0, i32 1
-  %93 = getelementptr inbounds [18 x i32], ptr %92, i64 0, i64 %91
-  %94 = load i32, ptr %93, align 4
-  %95 = load i32, ptr %10, align 4
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds [2 x i32], ptr %16, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4
-  %99 = xor i32 %94, %98
-  %100 = load ptr, ptr %7, align 8
-  %101 = load i32, ptr %11, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %100, i64 %102
-  store i32 %99, ptr %103, align 4
-  br label %104
+  %92 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (%struct.BF_ctx, ptr @BF_init_state, i32 0, i32 1), i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !9
+  %94 = load i32, ptr %10, align 4, !tbaa !9
+  %95 = zext i32 %94 to i64
+  %96 = getelementptr inbounds nuw [2 x i32], ptr %16, i64 0, i64 %95
+  %97 = load i32, ptr %96, align 4, !tbaa !9
+  %98 = xor i32 %93, %97
+  %99 = load ptr, ptr %7, align 8, !tbaa !12
+  %100 = load i32, ptr %11, align 4, !tbaa !9
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %99, i64 %101
+  store i32 %98, ptr %102, align 4, !tbaa !9
+  br label %103
 
-104:                                              ; preds = %74
-  %105 = load i32, ptr %11, align 4
-  %106 = add i32 %105, 1
-  store i32 %106, ptr %11, align 4
+103:                                              ; preds = %74
+  %104 = load i32, ptr %11, align 4, !tbaa !9
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %11, align 4, !tbaa !9
   br label %25
 
-107:                                              ; preds = %25
-  %108 = load i32, ptr %15, align 4
-  %109 = lshr i32 %108, 16
-  %110 = load i32, ptr %15, align 4
-  %111 = or i32 %110, %109
-  store i32 %111, ptr %15, align 4
-  %112 = load i32, ptr %15, align 4
-  %113 = and i32 %112, 65535
-  store i32 %113, ptr %15, align 4
-  %114 = load i32, ptr %15, align 4
-  %115 = add i32 %114, 65535
-  store i32 %115, ptr %15, align 4
-  %116 = load i32, ptr %14, align 4
-  %117 = shl i32 %116, 9
-  store i32 %117, ptr %14, align 4
-  %118 = load i32, ptr %15, align 4
-  %119 = xor i32 %118, -1
-  %120 = load i32, ptr %13, align 4
-  %121 = and i32 %119, %120
-  %122 = load i32, ptr %14, align 4
-  %123 = and i32 %122, %121
-  store i32 %123, ptr %14, align 4
-  %124 = load i32, ptr %14, align 4
-  %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds i32, ptr %125, i64 0
-  %127 = load i32, ptr %126, align 4
-  %128 = xor i32 %127, %124
-  store i32 %128, ptr %126, align 4
+106:                                              ; preds = %25
+  %107 = load i32, ptr %15, align 4, !tbaa !9
+  %108 = lshr i32 %107, 16
+  %109 = load i32, ptr %15, align 4, !tbaa !9
+  %110 = or i32 %109, %108
+  store i32 %110, ptr %15, align 4, !tbaa !9
+  %111 = load i32, ptr %15, align 4, !tbaa !9
+  %112 = and i32 %111, 65535
+  store i32 %112, ptr %15, align 4, !tbaa !9
+  %113 = load i32, ptr %15, align 4, !tbaa !9
+  %114 = add i32 %113, 65535
+  store i32 %114, ptr %15, align 4, !tbaa !9
+  %115 = load i32, ptr %14, align 4, !tbaa !9
+  %116 = shl i32 %115, 9
+  store i32 %116, ptr %14, align 4, !tbaa !9
+  %117 = load i32, ptr %15, align 4, !tbaa !9
+  %118 = xor i32 %117, -1
+  %119 = load i32, ptr %13, align 4, !tbaa !9
+  %120 = and i32 %118, %119
+  %121 = load i32, ptr %14, align 4, !tbaa !9
+  %122 = and i32 %121, %120
+  store i32 %122, ptr %14, align 4, !tbaa !9
+  %123 = load i32, ptr %14, align 4, !tbaa !9
+  %124 = load ptr, ptr %7, align 8, !tbaa !12
+  %125 = getelementptr inbounds i32, ptr %124, i64 0
+  %126 = load i32, ptr %125, align 4, !tbaa !9
+  %127 = xor i32 %126, %123
+  store i32 %127, ptr %125, align 4, !tbaa !9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret void
 }
 
@@ -8048,223 +8127,249 @@ define internal i32 @BF_decode(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %16 = load ptr, ptr %5, align 8
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  store ptr %20, ptr %9, align 8
-  %21 = load ptr, ptr %6, align 8
-  store ptr %21, ptr %10, align 8
-  br label %22
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i32 %2, ptr %7, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %17 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %17, ptr %8, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %18 = load ptr, ptr %8, align 8, !tbaa !4
+  %19 = load i32, ptr %7, align 4, !tbaa !9
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %18, i64 %20
+  store ptr %21, ptr %9, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  store ptr %22, ptr %10, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  br label %23
 
-22:                                               ; preds = %136, %3
-  %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i32 1
-  store ptr %24, ptr %10, align 8
-  %25 = load i8, ptr %23, align 1
-  %26 = zext i8 %25 to i32
-  store i32 %26, ptr %11, align 4
-  %27 = load i32, ptr %11, align 4
-  %28 = sub i32 %27, 32
-  store i32 %28, ptr %11, align 4
-  %29 = icmp uge i32 %28, 96
-  br i1 %29, label %30, label %31
+23:                                               ; preds = %137, %3
+  %24 = load ptr, ptr %10, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i32 1
+  store ptr %25, ptr %10, align 8, !tbaa !4
+  %26 = load i8, ptr %24, align 1, !tbaa !11
+  %27 = zext i8 %26 to i32
+  store i32 %27, ptr %11, align 4, !tbaa !9
+  %28 = load i32, ptr %11, align 4, !tbaa !9
+  %29 = sub i32 %28, 32
+  store i32 %29, ptr %11, align 4, !tbaa !9
+  %30 = icmp uge i32 %29, 96
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %22
+31:                                               ; preds = %23
   store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+32:                                               ; preds = %23
+  %33 = load i32, ptr %11, align 4, !tbaa !9
+  %34 = zext i32 %33 to i64
+  %35 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !11
+  %37 = zext i8 %36 to i32
+  store i32 %37, ptr %11, align 4, !tbaa !9
+  %38 = load i32, ptr %11, align 4, !tbaa !9
+  %39 = icmp ugt i32 %38, 63
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %32
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+41:                                               ; preds = %32
+  %42 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %42, ptr %12, align 4, !tbaa !9
+  %43 = load ptr, ptr %10, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i32 1
+  store ptr %44, ptr %10, align 8, !tbaa !4
+  %45 = load i8, ptr %43, align 1, !tbaa !11
+  %46 = zext i8 %45 to i32
+  store i32 %46, ptr %11, align 4, !tbaa !9
+  %47 = load i32, ptr %11, align 4, !tbaa !9
+  %48 = sub i32 %47, 32
+  store i32 %48, ptr %11, align 4, !tbaa !9
+  %49 = icmp uge i32 %48, 96
+  br i1 %49, label %50, label %51
+
+50:                                               ; preds = %41
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+51:                                               ; preds = %41
+  %52 = load i32, ptr %11, align 4, !tbaa !9
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !11
+  %56 = zext i8 %55 to i32
+  store i32 %56, ptr %11, align 4, !tbaa !9
+  %57 = load i32, ptr %11, align 4, !tbaa !9
+  %58 = icmp ugt i32 %57, 63
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %51
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+60:                                               ; preds = %51
+  %61 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %61, ptr %13, align 4, !tbaa !9
+  %62 = load i32, ptr %12, align 4, !tbaa !9
+  %63 = shl i32 %62, 2
+  %64 = load i32, ptr %13, align 4, !tbaa !9
+  %65 = and i32 %64, 48
+  %66 = lshr i32 %65, 4
+  %67 = or i32 %63, %66
+  %68 = trunc i32 %67 to i8
+  %69 = load ptr, ptr %8, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
+  store ptr %70, ptr %8, align 8, !tbaa !4
+  store i8 %68, ptr %69, align 1, !tbaa !11
+  %71 = load ptr, ptr %8, align 8, !tbaa !4
+  %72 = load ptr, ptr %9, align 8, !tbaa !4
+  %73 = icmp uge ptr %71, %72
+  br i1 %73, label %74, label %75
+
+74:                                               ; preds = %60
   br label %141
 
-31:                                               ; preds = %22
-  %32 = load i32, ptr %11, align 4
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  store i32 %36, ptr %11, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp ugt i32 %37, 63
-  br i1 %38, label %39, label %40
+75:                                               ; preds = %60
+  %76 = load ptr, ptr %10, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i32 1
+  store ptr %77, ptr %10, align 8, !tbaa !4
+  %78 = load i8, ptr %76, align 1, !tbaa !11
+  %79 = zext i8 %78 to i32
+  store i32 %79, ptr %11, align 4, !tbaa !9
+  %80 = load i32, ptr %11, align 4, !tbaa !9
+  %81 = sub i32 %80, 32
+  store i32 %81, ptr %11, align 4, !tbaa !9
+  %82 = icmp uge i32 %81, 96
+  br i1 %82, label %83, label %84
 
-39:                                               ; preds = %31
+83:                                               ; preds = %75
   store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+84:                                               ; preds = %75
+  %85 = load i32, ptr %11, align 4, !tbaa !9
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !11
+  %89 = zext i8 %88 to i32
+  store i32 %89, ptr %11, align 4, !tbaa !9
+  %90 = load i32, ptr %11, align 4, !tbaa !9
+  %91 = icmp ugt i32 %90, 63
+  br i1 %91, label %92, label %93
+
+92:                                               ; preds = %84
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %142
+
+93:                                               ; preds = %84
+  %94 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %94, ptr %14, align 4, !tbaa !9
+  %95 = load i32, ptr %13, align 4, !tbaa !9
+  %96 = and i32 %95, 15
+  %97 = shl i32 %96, 4
+  %98 = load i32, ptr %14, align 4, !tbaa !9
+  %99 = and i32 %98, 60
+  %100 = lshr i32 %99, 2
+  %101 = or i32 %97, %100
+  %102 = trunc i32 %101 to i8
+  %103 = load ptr, ptr %8, align 8, !tbaa !4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i32 1
+  store ptr %104, ptr %8, align 8, !tbaa !4
+  store i8 %102, ptr %103, align 1, !tbaa !11
+  %105 = load ptr, ptr %8, align 8, !tbaa !4
+  %106 = load ptr, ptr %9, align 8, !tbaa !4
+  %107 = icmp uge ptr %105, %106
+  br i1 %107, label %108, label %109
+
+108:                                              ; preds = %93
   br label %141
 
-40:                                               ; preds = %31
-  %41 = load i32, ptr %11, align 4
-  store i32 %41, ptr %12, align 4
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i32 1
-  store ptr %43, ptr %10, align 8
-  %44 = load i8, ptr %42, align 1
-  %45 = zext i8 %44 to i32
-  store i32 %45, ptr %11, align 4
-  %46 = load i32, ptr %11, align 4
-  %47 = sub i32 %46, 32
-  store i32 %47, ptr %11, align 4
-  %48 = icmp uge i32 %47, 96
-  br i1 %48, label %49, label %50
+109:                                              ; preds = %93
+  %110 = load ptr, ptr %10, align 8, !tbaa !4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i32 1
+  store ptr %111, ptr %10, align 8, !tbaa !4
+  %112 = load i8, ptr %110, align 1, !tbaa !11
+  %113 = zext i8 %112 to i32
+  store i32 %113, ptr %11, align 4, !tbaa !9
+  %114 = load i32, ptr %11, align 4, !tbaa !9
+  %115 = sub i32 %114, 32
+  store i32 %115, ptr %11, align 4, !tbaa !9
+  %116 = icmp uge i32 %115, 96
+  br i1 %116, label %117, label %118
 
-49:                                               ; preds = %40
+117:                                              ; preds = %109
   store i32 -1, ptr %4, align 4
-  br label %141
+  store i32 1, ptr %16, align 4
+  br label %142
 
-50:                                               ; preds = %40
-  %51 = load i32, ptr %11, align 4
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  store i32 %55, ptr %11, align 4
-  %56 = load i32, ptr %11, align 4
-  %57 = icmp ugt i32 %56, 63
-  br i1 %57, label %58, label %59
+118:                                              ; preds = %109
+  %119 = load i32, ptr %11, align 4, !tbaa !9
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %120
+  %122 = load i8, ptr %121, align 1, !tbaa !11
+  %123 = zext i8 %122 to i32
+  store i32 %123, ptr %11, align 4, !tbaa !9
+  %124 = load i32, ptr %11, align 4, !tbaa !9
+  %125 = icmp ugt i32 %124, 63
+  br i1 %125, label %126, label %127
 
-58:                                               ; preds = %50
+126:                                              ; preds = %118
   store i32 -1, ptr %4, align 4
-  br label %141
+  store i32 1, ptr %16, align 4
+  br label %142
 
-59:                                               ; preds = %50
-  %60 = load i32, ptr %11, align 4
-  store i32 %60, ptr %13, align 4
-  %61 = load i32, ptr %12, align 4
-  %62 = shl i32 %61, 2
-  %63 = load i32, ptr %13, align 4
-  %64 = and i32 %63, 48
-  %65 = lshr i32 %64, 4
-  %66 = or i32 %62, %65
-  %67 = trunc i32 %66 to i8
-  %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i32 1
-  store ptr %69, ptr %8, align 8
-  store i8 %67, ptr %68, align 1
-  %70 = load ptr, ptr %8, align 8
-  %71 = load ptr, ptr %9, align 8
-  %72 = icmp uge ptr %70, %71
-  br i1 %72, label %73, label %74
+127:                                              ; preds = %118
+  %128 = load i32, ptr %11, align 4, !tbaa !9
+  store i32 %128, ptr %15, align 4, !tbaa !9
+  %129 = load i32, ptr %14, align 4, !tbaa !9
+  %130 = and i32 %129, 3
+  %131 = shl i32 %130, 6
+  %132 = load i32, ptr %15, align 4, !tbaa !9
+  %133 = or i32 %131, %132
+  %134 = trunc i32 %133 to i8
+  %135 = load ptr, ptr %8, align 8, !tbaa !4
+  %136 = getelementptr inbounds nuw i8, ptr %135, i32 1
+  store ptr %136, ptr %8, align 8, !tbaa !4
+  store i8 %134, ptr %135, align 1, !tbaa !11
+  br label %137
 
-73:                                               ; preds = %59
-  br label %140
+137:                                              ; preds = %127
+  %138 = load ptr, ptr %8, align 8, !tbaa !4
+  %139 = load ptr, ptr %9, align 8, !tbaa !4
+  %140 = icmp ult ptr %138, %139
+  br i1 %140, label %23, label %141
 
-74:                                               ; preds = %59
-  %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i32 1
-  store ptr %76, ptr %10, align 8
-  %77 = load i8, ptr %75, align 1
-  %78 = zext i8 %77 to i32
-  store i32 %78, ptr %11, align 4
-  %79 = load i32, ptr %11, align 4
-  %80 = sub i32 %79, 32
-  store i32 %80, ptr %11, align 4
-  %81 = icmp uge i32 %80, 96
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %74
-  store i32 -1, ptr %4, align 4
-  br label %141
-
-83:                                               ; preds = %74
-  %84 = load i32, ptr %11, align 4
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  store i32 %88, ptr %11, align 4
-  %89 = load i32, ptr %11, align 4
-  %90 = icmp ugt i32 %89, 63
-  br i1 %90, label %91, label %92
-
-91:                                               ; preds = %83
-  store i32 -1, ptr %4, align 4
-  br label %141
-
-92:                                               ; preds = %83
-  %93 = load i32, ptr %11, align 4
-  store i32 %93, ptr %14, align 4
-  %94 = load i32, ptr %13, align 4
-  %95 = and i32 %94, 15
-  %96 = shl i32 %95, 4
-  %97 = load i32, ptr %14, align 4
-  %98 = and i32 %97, 60
-  %99 = lshr i32 %98, 2
-  %100 = or i32 %96, %99
-  %101 = trunc i32 %100 to i8
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i32 1
-  store ptr %103, ptr %8, align 8
-  store i8 %101, ptr %102, align 1
-  %104 = load ptr, ptr %8, align 8
-  %105 = load ptr, ptr %9, align 8
-  %106 = icmp uge ptr %104, %105
-  br i1 %106, label %107, label %108
-
-107:                                              ; preds = %92
-  br label %140
-
-108:                                              ; preds = %92
-  %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i32 1
-  store ptr %110, ptr %10, align 8
-  %111 = load i8, ptr %109, align 1
-  %112 = zext i8 %111 to i32
-  store i32 %112, ptr %11, align 4
-  %113 = load i32, ptr %11, align 4
-  %114 = sub i32 %113, 32
-  store i32 %114, ptr %11, align 4
-  %115 = icmp uge i32 %114, 96
-  br i1 %115, label %116, label %117
-
-116:                                              ; preds = %108
-  store i32 -1, ptr %4, align 4
-  br label %141
-
-117:                                              ; preds = %108
-  %118 = load i32, ptr %11, align 4
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %119
-  %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i32
-  store i32 %122, ptr %11, align 4
-  %123 = load i32, ptr %11, align 4
-  %124 = icmp ugt i32 %123, 63
-  br i1 %124, label %125, label %126
-
-125:                                              ; preds = %117
-  store i32 -1, ptr %4, align 4
-  br label %141
-
-126:                                              ; preds = %117
-  %127 = load i32, ptr %11, align 4
-  store i32 %127, ptr %15, align 4
-  %128 = load i32, ptr %14, align 4
-  %129 = and i32 %128, 3
-  %130 = shl i32 %129, 6
-  %131 = load i32, ptr %15, align 4
-  %132 = or i32 %130, %131
-  %133 = trunc i32 %132 to i8
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i32 1
-  store ptr %135, ptr %8, align 8
-  store i8 %133, ptr %134, align 1
-  br label %136
-
-136:                                              ; preds = %126
-  %137 = load ptr, ptr %8, align 8
-  %138 = load ptr, ptr %9, align 8
-  %139 = icmp ult ptr %137, %138
-  br i1 %139, label %22, label %140
-
-140:                                              ; preds = %136, %107, %73
+141:                                              ; preds = %137, %108, %74
   store i32 0, ptr %4, align 4
-  br label %141
+  store i32 1, ptr %16, align 4
+  br label %142
 
-141:                                              ; preds = %140, %125, %116, %91, %82, %58, %49, %39, %30
-  %142 = load i32, ptr %4, align 4
-  ret i32 %142
+142:                                              ; preds = %141, %126, %117, %92, %83, %59, %50, %40, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %143 = load i32, ptr %4, align 4
+  ret i32 %143
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8273,11 +8378,13 @@ define internal void @BF_swap(ptr noundef %0, i32 noundef %1) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  store ptr @BF_swap.endianness_check, ptr %5, align 8
-  %7 = load ptr, ptr %5, align 8
-  %8 = load i8, ptr %7, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store i32 %1, ptr %4, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  store ptr @BF_swap.endianness_check, ptr %5, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
+  %7 = load ptr, ptr %5, align 8, !tbaa !4
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %9 = icmp ne i8 %8, 0
   br i1 %9, label %10, label %33
 
@@ -8285,32 +8392,32 @@ define internal void @BF_swap(ptr noundef %0, i32 noundef %1) #0 {
   br label %11
 
 11:                                               ; preds = %28, %10
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i32, ptr %12, align 4
-  store i32 %13, ptr %6, align 4
-  %14 = load i32, ptr %6, align 4
+  %12 = load ptr, ptr %3, align 8, !tbaa !12
+  %13 = load i32, ptr %12, align 4, !tbaa !9
+  store i32 %13, ptr %6, align 4, !tbaa !9
+  %14 = load i32, ptr %6, align 4, !tbaa !9
   %15 = shl i32 %14, 16
-  %16 = load i32, ptr %6, align 4
+  %16 = load i32, ptr %6, align 4, !tbaa !9
   %17 = lshr i32 %16, 16
   %18 = or i32 %15, %17
-  store i32 %18, ptr %6, align 4
-  %19 = load i32, ptr %6, align 4
+  store i32 %18, ptr %6, align 4, !tbaa !9
+  %19 = load i32, ptr %6, align 4, !tbaa !9
   %20 = and i32 %19, 16711935
   %21 = shl i32 %20, 8
-  %22 = load i32, ptr %6, align 4
+  %22 = load i32, ptr %6, align 4, !tbaa !9
   %23 = lshr i32 %22, 8
   %24 = and i32 %23, 16711935
   %25 = or i32 %21, %24
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i32 1
-  store ptr %27, ptr %3, align 8
-  store i32 %25, ptr %26, align 4
+  %26 = load ptr, ptr %3, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw i32, ptr %26, i32 1
+  store ptr %27, ptr %3, align 8, !tbaa !12
+  store i32 %25, ptr %26, align 4, !tbaa !9
   br label %28
 
 28:                                               ; preds = %11
-  %29 = load i32, ptr %4, align 4
+  %29 = load i32, ptr %4, align 4, !tbaa !9
   %30 = add nsw i32 %29, -1
-  store i32 %30, ptr %4, align 4
+  store i32 %30, ptr %4, align 4, !tbaa !9
   %31 = icmp ne i32 %30, 0
   br i1 %31, label %11, label %32
 
@@ -8318,6 +8425,8 @@ define internal void @BF_swap(ptr noundef %0, i32 noundef %1) #0 {
   br label %33
 
 33:                                               ; preds = %32, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret void
 }
 
@@ -8331,148 +8440,170 @@ define internal void @BF_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i32, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store i32 %2, ptr %6, align 4, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %12, ptr %7, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %13 = load ptr, ptr %7, align 8, !tbaa !4
+  %14 = load i32, ptr %6, align 4, !tbaa !9
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  store ptr %16, ptr %8, align 8
-  %17 = load ptr, ptr %4, align 8
-  store ptr %17, ptr %9, align 8
+  store ptr %16, ptr %8, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  store ptr %17, ptr %9, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   br label %18
 
 18:                                               ; preds = %93, %3
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i32 1
-  store ptr %20, ptr %7, align 8
-  %21 = load i8, ptr %19, align 1
+  %19 = load ptr, ptr %7, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i32 1
+  store ptr %20, ptr %7, align 8, !tbaa !4
+  %21 = load i8, ptr %19, align 1, !tbaa !11
   %22 = zext i8 %21 to i32
-  store i32 %22, ptr %10, align 4
-  %23 = load i32, ptr %10, align 4
+  store i32 %22, ptr %10, align 4, !tbaa !9
+  %23 = load i32, ptr %10, align 4, !tbaa !9
   %24 = lshr i32 %23, 2
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i32 1
-  store ptr %29, ptr %9, align 8
-  store i8 %27, ptr %28, align 1
-  %30 = load i32, ptr %10, align 4
+  %26 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !11
+  %28 = load ptr, ptr %9, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %9, align 8, !tbaa !4
+  store i8 %27, ptr %28, align 1, !tbaa !11
+  %30 = load i32, ptr %10, align 4, !tbaa !9
   %31 = and i32 %30, 3
   %32 = shl i32 %31, 4
-  store i32 %32, ptr %10, align 4
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %8, align 8
+  store i32 %32, ptr %10, align 4, !tbaa !9
+  %33 = load ptr, ptr %7, align 8, !tbaa !4
+  %34 = load ptr, ptr %8, align 8, !tbaa !4
   %35 = icmp uge ptr %33, %34
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %18
-  %37 = load i32, ptr %10, align 4
+  %37 = load i32, ptr %10, align 4, !tbaa !9
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1
-  %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i32 1
-  store ptr %42, ptr %9, align 8
-  store i8 %40, ptr %41, align 1
+  %39 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !11
+  %41 = load ptr, ptr %9, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i32 1
+  store ptr %42, ptr %9, align 8, !tbaa !4
+  store i8 %40, ptr %41, align 1, !tbaa !11
   br label %97
 
 43:                                               ; preds = %18
-  %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
-  store ptr %45, ptr %7, align 8
-  %46 = load i8, ptr %44, align 1
+  %44 = load ptr, ptr %7, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i32 1
+  store ptr %45, ptr %7, align 8, !tbaa !4
+  %46 = load i8, ptr %44, align 1, !tbaa !11
   %47 = zext i8 %46 to i32
-  store i32 %47, ptr %11, align 4
-  %48 = load i32, ptr %11, align 4
+  store i32 %47, ptr %11, align 4, !tbaa !9
+  %48 = load i32, ptr %11, align 4, !tbaa !9
   %49 = lshr i32 %48, 4
-  %50 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %10, align 4, !tbaa !9
   %51 = or i32 %50, %49
-  store i32 %51, ptr %10, align 4
-  %52 = load i32, ptr %10, align 4
+  store i32 %51, ptr %10, align 4, !tbaa !9
+  %52 = load i32, ptr %10, align 4, !tbaa !9
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i32 1
-  store ptr %57, ptr %9, align 8
-  store i8 %55, ptr %56, align 1
-  %58 = load i32, ptr %11, align 4
+  %54 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !11
+  %56 = load ptr, ptr %9, align 8, !tbaa !4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i32 1
+  store ptr %57, ptr %9, align 8, !tbaa !4
+  store i8 %55, ptr %56, align 1, !tbaa !11
+  %58 = load i32, ptr %11, align 4, !tbaa !9
   %59 = and i32 %58, 15
   %60 = shl i32 %59, 2
-  store i32 %60, ptr %10, align 4
-  %61 = load ptr, ptr %7, align 8
-  %62 = load ptr, ptr %8, align 8
+  store i32 %60, ptr %10, align 4, !tbaa !9
+  %61 = load ptr, ptr %7, align 8, !tbaa !4
+  %62 = load ptr, ptr %8, align 8, !tbaa !4
   %63 = icmp uge ptr %61, %62
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %43
-  %65 = load i32, ptr %10, align 4
+  %65 = load i32, ptr %10, align 4, !tbaa !9
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i32 1
-  store ptr %70, ptr %9, align 8
-  store i8 %68, ptr %69, align 1
+  %67 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !11
+  %69 = load ptr, ptr %9, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i32 1
+  store ptr %70, ptr %9, align 8, !tbaa !4
+  store i8 %68, ptr %69, align 1, !tbaa !11
   br label %97
 
 71:                                               ; preds = %43
-  %72 = load ptr, ptr %7, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i32 1
-  store ptr %73, ptr %7, align 8
-  %74 = load i8, ptr %72, align 1
+  %72 = load ptr, ptr %7, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i32 1
+  store ptr %73, ptr %7, align 8, !tbaa !4
+  %74 = load i8, ptr %72, align 1, !tbaa !11
   %75 = zext i8 %74 to i32
-  store i32 %75, ptr %11, align 4
-  %76 = load i32, ptr %11, align 4
+  store i32 %75, ptr %11, align 4, !tbaa !9
+  %76 = load i32, ptr %11, align 4, !tbaa !9
   %77 = lshr i32 %76, 6
-  %78 = load i32, ptr %10, align 4
+  %78 = load i32, ptr %10, align 4, !tbaa !9
   %79 = or i32 %78, %77
-  store i32 %79, ptr %10, align 4
-  %80 = load i32, ptr %10, align 4
+  store i32 %79, ptr %10, align 4, !tbaa !9
+  %80 = load i32, ptr %10, align 4, !tbaa !9
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i32 1
-  store ptr %85, ptr %9, align 8
-  store i8 %83, ptr %84, align 1
-  %86 = load i32, ptr %11, align 4
+  %82 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !11
+  %84 = load ptr, ptr %9, align 8, !tbaa !4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i32 1
+  store ptr %85, ptr %9, align 8, !tbaa !4
+  store i8 %83, ptr %84, align 1, !tbaa !11
+  %86 = load i32, ptr %11, align 4, !tbaa !9
   %87 = and i32 %86, 63
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds [65 x i8], ptr @BF_itoa64, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i32 1
-  store ptr %92, ptr %9, align 8
-  store i8 %90, ptr %91, align 1
+  %89 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !11
+  %91 = load ptr, ptr %9, align 8, !tbaa !4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i32 1
+  store ptr %92, ptr %9, align 8, !tbaa !4
+  store i8 %90, ptr %91, align 1, !tbaa !11
   br label %93
 
 93:                                               ; preds = %71
-  %94 = load ptr, ptr %7, align 8
-  %95 = load ptr, ptr %8, align 8
+  %94 = load ptr, ptr %7, align 8, !tbaa !4
+  %95 = load ptr, ptr %8, align 8, !tbaa !4
   %96 = icmp ult ptr %94, %95
   br i1 %96, label %18, label %97
 
 97:                                               ; preds = %93, %64, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!7, !7, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 int", !6, i64 0}

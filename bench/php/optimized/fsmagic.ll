@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %.fr112 = freeze i32 %5
   %6 = and i32 %.fr112, 1040
   %7 = and i32 %.fr112, 16779264
@@ -43,11 +43,11 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %21, label %11
 
 11:                                               ; preds = %9
-  %12 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %4, align 4, !tbaa !4
   %13 = and i32 %12, 512
   %.not93 = icmp eq i32 %13, 0
   %14 = tail call ptr @__errno_location() #6
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !17
   br i1 %.not93, label %17, label %16
 
 16:                                               ; preds = %11
@@ -70,7 +70,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %25 = load i32, ptr %24, align 8
+  %25 = load i32, ptr %24, align 8, !tbaa !18
   %26 = and i32 %25, 2048
   %.not79 = icmp eq i32 %26, 0
   br i1 %.not79, label %30, label %27
@@ -81,7 +81,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %29, label %handle_mime.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27
-  %.pre = load i32, ptr %24, align 8
+  %.pre = load i32, ptr %24, align 8, !tbaa !18
   br label %30
 
 30:                                               ; preds = %._crit_edge, %23
@@ -99,7 +99,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge118:                                   ; preds = %33
   %37 = add nuw nsw i32 %.1, 1
-  %.pre119 = load i32, ptr %24, align 8
+  %.pre119 = load i32, ptr %24, align 8, !tbaa !18
   br label %38
 
 38:                                               ; preds = %._crit_edge118, %30
@@ -120,7 +120,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
 46:                                               ; preds = %38, %41, %21
   %.073 = phi i32 [ 0, %21 ], [ %42, %41 ], [ %.2, %38 ]
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %48 = load i32, ptr %47, align 8
+  %48 = load i32, ptr %47, align 8, !tbaa !18
   %49 = and i32 %48, 61440
   %50 = add nsw i32 %49, -4096
   %51 = lshr exact i32 %50, 12
@@ -133,7 +133,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   ]
 
 52:                                               ; preds = %46
-  %53 = load i32, ptr %4, align 4
+  %53 = load i32, ptr %4, align 4, !tbaa !4
   %54 = and i32 %53, 8
   %.not89 = icmp eq i32 %54, 0
   br i1 %.not89, label %55, label %handle_mime.exit
@@ -157,7 +157,7 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br label %handle_mime.exit.thread
 
 64:                                               ; preds = %46
-  %65 = load i32, ptr %4, align 4
+  %65 = load i32, ptr %4, align 4, !tbaa !4
   %66 = and i32 %65, 8
   %.not87 = icmp eq i32 %66, 0
   br i1 %.not87, label %67, label %handle_mime.exit.thread96
@@ -183,14 +183,14 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %75, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
 
 76:                                               ; preds = %46
-  %77 = load i32, ptr %4, align 4
+  %77 = load i32, ptr %4, align 4, !tbaa !4
   %78 = and i32 %77, 512
   %.not86 = icmp eq i32 %78, 0
   br i1 %.not86, label %handle_mime.exit.thread, label %79
 
 79:                                               ; preds = %76
   %80 = tail call ptr @__errno_location() #6
-  %81 = load i32, ptr %80, align 4
+  %81 = load i32, ptr %80, align 4, !tbaa !17
   tail call void (ptr, i32, ptr, ...) @file_error(ptr noundef nonnull %0, i32 noundef %81, ptr noundef nonnull @.str.11, ptr noundef nonnull %1) #5
   br label %handle_mime.exit.thread
 
@@ -238,14 +238,14 @@ define hidden range(i32 -1, 2) i32 @file_fsmagic(ptr noundef %0, ptr noundef %1,
   br i1 %99, label %handle_mime.exit.thread, label %handle_mime.exit.thread96.thread
 
 100:                                              ; preds = %46
-  %101 = load i32, ptr %4, align 4
+  %101 = load i32, ptr %4, align 4, !tbaa !4
   %102 = and i32 %101, 8
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %handle_mime.exit
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %106 = load i64, ptr %105, align 8
+  %106 = load i64, ptr %105, align 8, !tbaa !21
   %107 = icmp eq i64 %106, 0
   br i1 %107, label %108, label %handle_mime.exit
 
@@ -301,12 +301,12 @@ handle_mime.exit.thread:                          ; preds = %109, %68, %.thread1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @file_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden void @file_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
-declare i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -348,11 +348,11 @@ define internal fastcc range(i32 -1, 1) i32 @handle_mime(ptr noundef %0, i32 nou
   ret i32 %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(none) }
 
@@ -360,5 +360,23 @@ attributes #6 = { nounwind willreturn memory(none) }
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !14, i64 68}
+!5 = !{!"magic_set", !6, i64 0, !8, i64 16, !12, i64 32, !14, i64 56, !14, i64 60, !14, i64 64, !14, i64 68, !14, i64 72, !13, i64 80, !9, i64 88, !14, i64 96, !15, i64 100, !16, i64 104, !6, i64 136, !15, i64 264, !15, i64 266, !15, i64 268, !15, i64 270, !15, i64 272, !15, i64 274, !15, i64 276, !9, i64 280, !9, i64 288, !9, i64 296}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"cont", !9, i64 0, !10, i64 8}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!"p1 _ZTS10level_info", !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!"out", !13, i64 0, !9, i64 8, !13, i64 16}
+!13 = !{!"p1 omnipotent char", !11, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = !{!"", !13, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!17 = !{!14, !14, i64 0}
+!18 = !{!19, !14, i64 24}
+!19 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !14, i64 24, !14, i64 28, !14, i64 32, !14, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !20, i64 72, !20, i64 88, !20, i64 104, !6, i64 120}
+!20 = !{!"timespec", !9, i64 0, !9, i64 8}
+!21 = !{!19, !9, i64 48}

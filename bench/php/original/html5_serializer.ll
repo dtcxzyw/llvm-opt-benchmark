@@ -2,11 +2,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._xmlNode = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16 }
-%struct._xmlNs = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.dom_html5_serialize_context = type { ptr, ptr, ptr }
+%struct.dom_html5_serialize_context = type { ptr, ptr, ptr, ptr }
 %struct._xmlDtd = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._xmlAttr = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr }
+%struct._xmlNs = type { ptr, i32, ptr, ptr, ptr, ptr }
 
+@php_dom_ns_is_html_magic_token = external global ptr, align 8
 @.str = private unnamed_addr constant [5 x i8] c"area\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"base\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"br\00", align 1
@@ -25,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [6 x i8] c"frame\00", align 1
 @.str.16 = private unnamed_addr constant [7 x i8] c"keygen\00", align 1
 @.str.17 = private unnamed_addr constant [6 x i8] c"param\00", align 1
-@.str.18 = private unnamed_addr constant [29 x i8] c"http://www.w3.org/1999/xhtml\00", align 1
+@.str.18 = private unnamed_addr constant [9 x i8] c"template\00", align 1
 @.str.19 = private unnamed_addr constant [11 x i8] c"<!DOCTYPE \00", align 1
 @.str.20 = private unnamed_addr constant [2 x i8] c">\00", align 1
 @.str.21 = private unnamed_addr constant [6 x i8] c"style\00", align 1
@@ -47,90 +48,108 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [5 x i8] c"<!--\00", align 1
 @.str.38 = private unnamed_addr constant [4 x i8] c"-->\00", align 1
 @.str.39 = private unnamed_addr constant [2 x i8] c"<\00", align 1
-@.str.40 = private unnamed_addr constant [8 x i8] c" xmlns:\00", align 1
-@.str.41 = private unnamed_addr constant [3 x i8] c"=\22\00", align 1
-@.str.42 = private unnamed_addr constant [9 x i8] c" xmlns=\22\00", align 1
-@.str.43 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@.str.44 = private unnamed_addr constant [37 x i8] c"http://www.w3.org/XML/1998/namespace\00", align 1
-@.str.45 = private unnamed_addr constant [5 x i8] c"xml:\00", align 1
-@.str.46 = private unnamed_addr constant [30 x i8] c"http://www.w3.org/2000/xmlns/\00", align 1
-@.str.47 = private unnamed_addr constant [6 x i8] c"xmlns\00", align 1
-@.str.48 = private unnamed_addr constant [7 x i8] c"xmlns:\00", align 1
-@.str.49 = private unnamed_addr constant [29 x i8] c"http://www.w3.org/1999/xlink\00", align 1
-@.str.50 = private unnamed_addr constant [7 x i8] c"xlink:\00", align 1
-@.str.51 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@xmlFree = external global ptr, align 8
-@.str.52 = private unnamed_addr constant [35 x i8] c"http://www.w3.org/1998/Math/MathML\00", align 1
-@.str.53 = private unnamed_addr constant [27 x i8] c"http://www.w3.org/2000/svg\00", align 1
-@.str.54 = private unnamed_addr constant [3 x i8] c"</\00", align 1
+@php_dom_ns_is_xml_magic_token = external global ptr, align 8
+@.str.40 = private unnamed_addr constant [5 x i8] c"xml:\00", align 1
+@php_dom_ns_is_xmlns_magic_token = external global ptr, align 8
+@.str.41 = private unnamed_addr constant [6 x i8] c"xmlns\00", align 1
+@.str.42 = private unnamed_addr constant [7 x i8] c"xmlns:\00", align 1
+@php_dom_ns_is_xlink_magic_token = external global ptr, align 8
+@.str.43 = private unnamed_addr constant [7 x i8] c"xlink:\00", align 1
+@.str.44 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@.str.45 = private unnamed_addr constant [3 x i8] c"=\22\00", align 1
+@.str.46 = private unnamed_addr constant [2 x i8] c"&\00", align 1
+@.str.47 = private unnamed_addr constant [2 x i8] c";\00", align 1
+@.str.48 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
+@php_dom_ns_is_mathml_magic_token = external global ptr, align 8
+@php_dom_ns_is_svg_magic_token = external global ptr, align 8
+@.str.49 = private unnamed_addr constant [3 x i8] c"</\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dom_html5_serialize(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct._xmlNode, ptr %6, i32 0, i32 1
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp ne i32 %8, 1
-  br i1 %9, label %10, label %26
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %7 = load ptr, ptr %5, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct._xmlNode, ptr %7, i32 0, i32 1
+  %9 = load i32, ptr %8, align 8, !tbaa !10
+  %10 = icmp ne i32 %9, 1
+  br i1 %10, label %11, label %27
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct._xmlNode, ptr %11, i32 0, i32 1
-  %13 = load i32, ptr %12, align 8
-  %14 = icmp ne i32 %13, 11
-  br i1 %14, label %15, label %26
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct._xmlNode, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !10
+  %15 = icmp ne i32 %14, 11
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct._xmlNode, ptr %16, i32 0, i32 1
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp ne i32 %18, 9
-  br i1 %19, label %20, label %26
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct._xmlNode, ptr %17, i32 0, i32 1
+  %19 = load i32, ptr %18, align 8, !tbaa !10
+  %20 = icmp ne i32 %19, 9
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._xmlNode, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp ne i32 %23, 13
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct._xmlNode, ptr %22, i32 0, i32 1
+  %24 = load i32, ptr %23, align 8, !tbaa !10
+  %25 = icmp ne i32 %24, 13
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %20
+26:                                               ; preds = %21
   store i32 0, ptr %3, align 4
-  br label %42
+  br label %53
 
-26:                                               ; preds = %20, %15, %10, %2
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._xmlNode, ptr %27, i32 0, i32 1
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %35
+27:                                               ; preds = %21, %16, %11, %2
+  %28 = load ptr, ptr %5, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct._xmlNode, ptr %28, i32 0, i32 1
+  %30 = load i32, ptr %29, align 8, !tbaa !10
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %36
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %5, align 8
-  %33 = call zeroext i1 @dom_html5_serializes_as_void(ptr noundef %32)
-  br i1 %33, label %34, label %35
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %5, align 8, !tbaa !8
+  %34 = call zeroext i1 @dom_html5_serializes_as_void(ptr noundef %33)
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %31
+35:                                               ; preds = %32
   store i32 0, ptr %3, align 4
-  br label %42
+  br label %53
 
-35:                                               ; preds = %31, %26
-  %36 = load ptr, ptr %4, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct._xmlNode, ptr %37, i32 0, i32 3
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %5, align 8
-  %41 = call i32 @dom_html5_serialize_node(ptr noundef %36, ptr noundef %39, ptr noundef %40)
-  store i32 %41, ptr %3, align 4
-  br label %42
+36:                                               ; preds = %32, %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %37 = load ptr, ptr %4, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8, !tbaa !18
+  %40 = load ptr, ptr %5, align 8, !tbaa !8
+  %41 = call ptr @php_dom_retrieve_templated_content(ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr %6, align 8, !tbaa !8
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %48, label %44
 
-42:                                               ; preds = %35, %34, %25
-  %43 = load i32, ptr %3, align 4
-  ret i32 %43
+44:                                               ; preds = %36
+  %45 = load ptr, ptr %5, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct._xmlNode, ptr %45, i32 0, i32 3
+  %47 = load ptr, ptr %46, align 8, !tbaa !21
+  store ptr %47, ptr %6, align 8, !tbaa !8
+  br label %48
+
+48:                                               ; preds = %44, %36
+  %49 = load ptr, ptr %4, align 8, !tbaa !4
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  %51 = load ptr, ptr %5, align 8, !tbaa !8
+  %52 = call i32 @dom_html5_serialize_node(ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  store i32 %52, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %53
+
+53:                                               ; preds = %48, %35, %26
+  %54 = load i32, ptr %3, align 4
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable
@@ -138,139 +157,163 @@ define internal zeroext i1 @dom_html5_serializes_as_void(ptr noundef %0) #0 {
   %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call zeroext i1 @dom_is_html_ns(ptr noundef %5)
-  br i1 %6, label %7, label %85
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !22
+  %8 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %6, ptr noundef %7)
+  br i1 %8, label %9, label %90
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct._xmlNode, ptr %8, i32 0, i32 2
-  %10 = load ptr, ptr %9, align 8
-  %11 = call i64 @strlen(ptr noundef %10) #3
-  store i64 %11, ptr %4, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = load i64, ptr %4, align 8
-  %14 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %12, ptr noundef @.str, i64 noundef 4, i64 noundef %13)
-  br i1 %14, label %83, label %15
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %10 = load ptr, ptr %3, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw %struct._xmlNode, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %13 = call i64 @strlen(ptr noundef %12) #7
+  store i64 %13, ptr %4, align 8, !tbaa !25
+  %14 = load ptr, ptr %3, align 8, !tbaa !8
+  %15 = load i64, ptr %4, align 8, !tbaa !25
+  %16 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %14, ptr noundef @.str, i64 noundef 4, i64 noundef %15)
+  br i1 %16, label %85, label %17
 
-15:                                               ; preds = %7
-  %16 = load ptr, ptr %3, align 8
-  %17 = load i64, ptr %4, align 8
-  %18 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %16, ptr noundef @.str.1, i64 noundef 4, i64 noundef %17)
-  br i1 %18, label %83, label %19
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = load i64, ptr %4, align 8, !tbaa !25
+  %20 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %18, ptr noundef @.str.1, i64 noundef 4, i64 noundef %19)
+  br i1 %20, label %85, label %21
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %3, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %20, ptr noundef @.str.2, i64 noundef 2, i64 noundef %21)
-  br i1 %22, label %83, label %23
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %3, align 8, !tbaa !8
+  %23 = load i64, ptr %4, align 8, !tbaa !25
+  %24 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %22, ptr noundef @.str.2, i64 noundef 2, i64 noundef %23)
+  br i1 %24, label %85, label %25
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8
-  %25 = load i64, ptr %4, align 8
-  %26 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %24, ptr noundef @.str.3, i64 noundef 3, i64 noundef %25)
-  br i1 %26, label %83, label %27
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %3, align 8, !tbaa !8
+  %27 = load i64, ptr %4, align 8, !tbaa !25
+  %28 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %26, ptr noundef @.str.3, i64 noundef 3, i64 noundef %27)
+  br i1 %28, label %85, label %29
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %3, align 8
-  %29 = load i64, ptr %4, align 8
-  %30 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %28, ptr noundef @.str.4, i64 noundef 5, i64 noundef %29)
-  br i1 %30, label %83, label %31
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %3, align 8, !tbaa !8
+  %31 = load i64, ptr %4, align 8, !tbaa !25
+  %32 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %30, ptr noundef @.str.4, i64 noundef 5, i64 noundef %31)
+  br i1 %32, label %85, label %33
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %3, align 8
-  %33 = load i64, ptr %4, align 8
-  %34 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %32, ptr noundef @.str.5, i64 noundef 2, i64 noundef %33)
-  br i1 %34, label %83, label %35
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = load i64, ptr %4, align 8, !tbaa !25
+  %36 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %34, ptr noundef @.str.5, i64 noundef 2, i64 noundef %35)
+  br i1 %36, label %85, label %37
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i64, ptr %4, align 8
-  %38 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %36, ptr noundef @.str.6, i64 noundef 3, i64 noundef %37)
-  br i1 %38, label %83, label %39
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %3, align 8, !tbaa !8
+  %39 = load i64, ptr %4, align 8, !tbaa !25
+  %40 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %38, ptr noundef @.str.6, i64 noundef 3, i64 noundef %39)
+  br i1 %40, label %85, label %41
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %3, align 8
-  %41 = load i64, ptr %4, align 8
-  %42 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %40, ptr noundef @.str.7, i64 noundef 5, i64 noundef %41)
-  br i1 %42, label %83, label %43
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %43 = load i64, ptr %4, align 8, !tbaa !25
+  %44 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %42, ptr noundef @.str.7, i64 noundef 5, i64 noundef %43)
+  br i1 %44, label %85, label %45
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %3, align 8
-  %45 = load i64, ptr %4, align 8
-  %46 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %44, ptr noundef @.str.8, i64 noundef 4, i64 noundef %45)
-  br i1 %46, label %83, label %47
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %3, align 8, !tbaa !8
+  %47 = load i64, ptr %4, align 8, !tbaa !25
+  %48 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %46, ptr noundef @.str.8, i64 noundef 4, i64 noundef %47)
+  br i1 %48, label %85, label %49
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %3, align 8
-  %49 = load i64, ptr %4, align 8
-  %50 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %48, ptr noundef @.str.9, i64 noundef 4, i64 noundef %49)
-  br i1 %50, label %83, label %51
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %3, align 8, !tbaa !8
+  %51 = load i64, ptr %4, align 8, !tbaa !25
+  %52 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %50, ptr noundef @.str.9, i64 noundef 4, i64 noundef %51)
+  br i1 %52, label %85, label %53
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %3, align 8
-  %53 = load i64, ptr %4, align 8
-  %54 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %52, ptr noundef @.str.10, i64 noundef 6, i64 noundef %53)
-  br i1 %54, label %83, label %55
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %3, align 8, !tbaa !8
+  %55 = load i64, ptr %4, align 8, !tbaa !25
+  %56 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %54, ptr noundef @.str.10, i64 noundef 6, i64 noundef %55)
+  br i1 %56, label %85, label %57
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %3, align 8
-  %57 = load i64, ptr %4, align 8
-  %58 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %56, ptr noundef @.str.11, i64 noundef 5, i64 noundef %57)
-  br i1 %58, label %83, label %59
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %3, align 8, !tbaa !8
+  %59 = load i64, ptr %4, align 8, !tbaa !25
+  %60 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %58, ptr noundef @.str.11, i64 noundef 5, i64 noundef %59)
+  br i1 %60, label %85, label %61
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %3, align 8
-  %61 = load i64, ptr %4, align 8
-  %62 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %60, ptr noundef @.str.12, i64 noundef 3, i64 noundef %61)
-  br i1 %62, label %83, label %63
+61:                                               ; preds = %57
+  %62 = load ptr, ptr %3, align 8, !tbaa !8
+  %63 = load i64, ptr %4, align 8, !tbaa !25
+  %64 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %62, ptr noundef @.str.12, i64 noundef 3, i64 noundef %63)
+  br i1 %64, label %85, label %65
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %3, align 8
-  %65 = load i64, ptr %4, align 8
-  %66 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %64, ptr noundef @.str.13, i64 noundef 8, i64 noundef %65)
-  br i1 %66, label %83, label %67
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %3, align 8, !tbaa !8
+  %67 = load i64, ptr %4, align 8, !tbaa !25
+  %68 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %66, ptr noundef @.str.13, i64 noundef 8, i64 noundef %67)
+  br i1 %68, label %85, label %69
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %3, align 8
-  %69 = load i64, ptr %4, align 8
-  %70 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %68, ptr noundef @.str.14, i64 noundef 7, i64 noundef %69)
-  br i1 %70, label %83, label %71
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %3, align 8, !tbaa !8
+  %71 = load i64, ptr %4, align 8, !tbaa !25
+  %72 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %70, ptr noundef @.str.14, i64 noundef 7, i64 noundef %71)
+  br i1 %72, label %85, label %73
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %3, align 8
-  %73 = load i64, ptr %4, align 8
-  %74 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %72, ptr noundef @.str.15, i64 noundef 5, i64 noundef %73)
-  br i1 %74, label %83, label %75
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %3, align 8, !tbaa !8
+  %75 = load i64, ptr %4, align 8, !tbaa !25
+  %76 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %74, ptr noundef @.str.15, i64 noundef 5, i64 noundef %75)
+  br i1 %76, label %85, label %77
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %3, align 8
-  %77 = load i64, ptr %4, align 8
-  %78 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %76, ptr noundef @.str.16, i64 noundef 6, i64 noundef %77)
-  br i1 %78, label %83, label %79
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %3, align 8, !tbaa !8
+  %79 = load i64, ptr %4, align 8, !tbaa !25
+  %80 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %78, ptr noundef @.str.16, i64 noundef 6, i64 noundef %79)
+  br i1 %80, label %85, label %81
 
-79:                                               ; preds = %75
-  %80 = load ptr, ptr %3, align 8
-  %81 = load i64, ptr %4, align 8
-  %82 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %80, ptr noundef @.str.17, i64 noundef 5, i64 noundef %81)
-  br i1 %82, label %83, label %84
+81:                                               ; preds = %77
+  %82 = load ptr, ptr %3, align 8, !tbaa !8
+  %83 = load i64, ptr %4, align 8, !tbaa !25
+  %84 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %82, ptr noundef @.str.17, i64 noundef 5, i64 noundef %83)
+  br i1 %84, label %85, label %86
 
-83:                                               ; preds = %79, %75, %71, %67, %63, %59, %55, %51, %47, %43, %39, %35, %31, %27, %23, %19, %15, %7
+85:                                               ; preds = %81, %77, %73, %69, %65, %61, %57, %53, %49, %45, %41, %37, %33, %29, %25, %21, %17, %9
   store i1 true, ptr %2, align 1
-  br label %86
+  store i32 1, ptr %5, align 4
+  br label %87
 
-84:                                               ; preds = %79
-  br label %85
+86:                                               ; preds = %81
+  store i32 0, ptr %5, align 4
+  br label %87
 
-85:                                               ; preds = %84, %1
+87:                                               ; preds = %86, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %88 = load i32, ptr %5, align 4
+  switch i32 %88, label %93 [
+    i32 0, label %89
+    i32 1, label %91
+  ]
+
+89:                                               ; preds = %87
+  br label %90
+
+90:                                               ; preds = %89, %1
   store i1 false, ptr %2, align 1
-  br label %86
+  br label %91
 
-86:                                               ; preds = %85, %83
-  %87 = load i1, ptr %2, align 1
-  ret i1 %87
+91:                                               ; preds = %90, %87
+  %92 = load i1, ptr %2, align 1
+  ret i1 %92
+
+93:                                               ; preds = %87
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @php_dom_retrieve_templated_content(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dom_html5_serialize_node(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -278,342 +321,507 @@ define internal i32 @dom_html5_serialize_node(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  br label %8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !8
+  br label %10
 
-8:                                                ; preds = %160, %92, %3
-  %9 = load ptr, ptr %6, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %161
+10:                                               ; preds = %212, %143, %136, %3
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %213
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct._xmlNode, ptr %12, i32 0, i32 1
-  %14 = load i32, ptr %13, align 8
-  switch i32 %14, label %112 [
-    i32 14, label %15
-    i32 4, label %29
-    i32 3, label %29
-    i32 7, label %43
-    i32 8, label %57
-    i32 1, label %71
+13:                                               ; preds = %10
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct._xmlNode, ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8, !tbaa !10
+  switch i32 %16, label %163 [
+    i32 14, label %17
+    i32 4, label %32
+    i32 3, label %32
+    i32 7, label %47
+    i32 8, label %62
+    i32 1, label %77
+    i32 11, label %138
+    i32 5, label %148
   ]
 
-15:                                               ; preds = %11
-  br label %16
+17:                                               ; preds = %13
+  br label %18
 
-16:                                               ; preds = %15
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i32 @dom_html5_serialize_doctype(ptr noundef %17, ptr noundef %18)
-  %20 = icmp ne i32 %19, 0
-  %21 = xor i1 %20, true
-  %22 = xor i1 %21, true
-  %23 = zext i1 %22 to i32
-  %24 = sext i32 %23 to i64
-  %25 = icmp ne i64 %24, 0
-  br i1 %25, label %26, label %27
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = load ptr, ptr %6, align 8, !tbaa !8
+  %21 = call i32 @dom_html5_serialize_doctype(ptr noundef %19, ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  %23 = xor i1 %22, true
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i32
+  %26 = sext i32 %25 to i64
+  %27 = call i64 @llvm.expect.i64(i64 %26, i64 0)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %30
 
-26:                                               ; preds = %16
+29:                                               ; preds = %18
   store i32 -1, ptr %4, align 4
-  br label %162
+  br label %214
 
-27:                                               ; preds = %16
-  br label %28
+30:                                               ; preds = %18
+  br label %31
 
-28:                                               ; preds = %27
-  br label %113
+31:                                               ; preds = %30
+  br label %164
 
-29:                                               ; preds = %11, %11
-  br label %30
+32:                                               ; preds = %13, %13
+  br label %33
 
-30:                                               ; preds = %29
-  %31 = load ptr, ptr %5, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = call i32 @dom_html5_serialize_text_node(ptr noundef %31, ptr noundef %32)
-  %34 = icmp ne i32 %33, 0
-  %35 = xor i1 %34, true
-  %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %41
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8, !tbaa !4
+  %35 = load ptr, ptr %6, align 8, !tbaa !8
+  %36 = call i32 @dom_html5_serialize_text_node(ptr noundef %34, ptr noundef %35)
+  %37 = icmp ne i32 %36, 0
+  %38 = xor i1 %37, true
+  %39 = xor i1 %38, true
+  %40 = zext i1 %39 to i32
+  %41 = sext i32 %40 to i64
+  %42 = call i64 @llvm.expect.i64(i64 %41, i64 0)
+  %43 = icmp ne i64 %42, 0
+  br i1 %43, label %44, label %45
 
-40:                                               ; preds = %30
+44:                                               ; preds = %33
   store i32 -1, ptr %4, align 4
-  br label %162
+  br label %214
 
-41:                                               ; preds = %30
-  br label %42
+45:                                               ; preds = %33
+  br label %46
 
-42:                                               ; preds = %41
-  br label %113
+46:                                               ; preds = %45
+  br label %164
 
-43:                                               ; preds = %11
-  br label %44
+47:                                               ; preds = %13
+  br label %48
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %5, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = call i32 @dom_html5_serialize_processing_instruction(ptr noundef %45, ptr noundef %46)
-  %48 = icmp ne i32 %47, 0
-  %49 = xor i1 %48, true
-  %50 = xor i1 %49, true
-  %51 = zext i1 %50 to i32
-  %52 = sext i32 %51 to i64
-  %53 = icmp ne i64 %52, 0
-  br i1 %53, label %54, label %55
+48:                                               ; preds = %47
+  %49 = load ptr, ptr %5, align 8, !tbaa !4
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  %51 = call i32 @dom_html5_serialize_processing_instruction(ptr noundef %49, ptr noundef %50)
+  %52 = icmp ne i32 %51, 0
+  %53 = xor i1 %52, true
+  %54 = xor i1 %53, true
+  %55 = zext i1 %54 to i32
+  %56 = sext i32 %55 to i64
+  %57 = call i64 @llvm.expect.i64(i64 %56, i64 0)
+  %58 = icmp ne i64 %57, 0
+  br i1 %58, label %59, label %60
 
-54:                                               ; preds = %44
+59:                                               ; preds = %48
   store i32 -1, ptr %4, align 4
-  br label %162
+  br label %214
 
-55:                                               ; preds = %44
-  br label %56
+60:                                               ; preds = %48
+  br label %61
 
-56:                                               ; preds = %55
-  br label %113
+61:                                               ; preds = %60
+  br label %164
 
-57:                                               ; preds = %11
-  br label %58
+62:                                               ; preds = %13
+  br label %63
 
-58:                                               ; preds = %57
-  %59 = load ptr, ptr %5, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = call i32 @dom_html5_serialize_comment(ptr noundef %59, ptr noundef %60)
-  %62 = icmp ne i32 %61, 0
-  %63 = xor i1 %62, true
-  %64 = xor i1 %63, true
-  %65 = zext i1 %64 to i32
-  %66 = sext i32 %65 to i64
-  %67 = icmp ne i64 %66, 0
-  br i1 %67, label %68, label %69
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = load ptr, ptr %6, align 8, !tbaa !8
+  %66 = call i32 @dom_html5_serialize_comment(ptr noundef %64, ptr noundef %65)
+  %67 = icmp ne i32 %66, 0
+  %68 = xor i1 %67, true
+  %69 = xor i1 %68, true
+  %70 = zext i1 %69 to i32
+  %71 = sext i32 %70 to i64
+  %72 = call i64 @llvm.expect.i64(i64 %71, i64 0)
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %75
 
-68:                                               ; preds = %58
+74:                                               ; preds = %63
   store i32 -1, ptr %4, align 4
-  br label %162
+  br label %214
 
-69:                                               ; preds = %58
-  br label %70
+75:                                               ; preds = %63
+  br label %76
 
-70:                                               ; preds = %69
-  br label %113
+76:                                               ; preds = %75
+  br label %164
 
-71:                                               ; preds = %11
-  br label %72
+77:                                               ; preds = %13
+  br label %78
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %5, align 8
-  %74 = load ptr, ptr %6, align 8
-  %75 = call i32 @dom_html5_serialize_element_start(ptr noundef %73, ptr noundef %74)
-  %76 = icmp ne i32 %75, 0
-  %77 = xor i1 %76, true
-  %78 = xor i1 %77, true
-  %79 = zext i1 %78 to i32
-  %80 = sext i32 %79 to i64
-  %81 = icmp ne i64 %80, 0
-  br i1 %81, label %82, label %83
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %5, align 8, !tbaa !4
+  %80 = load ptr, ptr %6, align 8, !tbaa !8
+  %81 = call i32 @dom_html5_serialize_element_start(ptr noundef %79, ptr noundef %80)
+  %82 = icmp ne i32 %81, 0
+  %83 = xor i1 %82, true
+  %84 = xor i1 %83, true
+  %85 = zext i1 %84 to i32
+  %86 = sext i32 %85 to i64
+  %87 = call i64 @llvm.expect.i64(i64 %86, i64 0)
+  %88 = icmp ne i64 %87, 0
+  br i1 %88, label %89, label %90
 
-82:                                               ; preds = %72
+89:                                               ; preds = %78
   store i32 -1, ptr %4, align 4
-  br label %162
+  br label %214
 
-83:                                               ; preds = %72
-  br label %84
+90:                                               ; preds = %78
+  br label %91
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct._xmlNode, ptr %85, i32 0, i32 3
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %97
+91:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %92 = load ptr, ptr %6, align 8, !tbaa !8
+  %93 = getelementptr inbounds nuw %struct._xmlNode, ptr %92, i32 0, i32 3
+  %94 = load ptr, ptr %93, align 8, !tbaa !21
+  store ptr %94, ptr %8, align 8, !tbaa !8
+  %95 = load ptr, ptr %6, align 8, !tbaa !8
+  %96 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !22
+  %97 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %95, ptr noundef %96)
+  br i1 %97, label %98, label %110
 
-89:                                               ; preds = %84
-  %90 = load ptr, ptr %6, align 8
-  %91 = call zeroext i1 @dom_html5_serializes_as_void(ptr noundef %90)
-  br i1 %91, label %96, label %92
+98:                                               ; preds = %91
+  %99 = load ptr, ptr %6, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %struct._xmlNode, ptr %99, i32 0, i32 2
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
+  %102 = call i32 @xmlStrEqual(ptr noundef %101, ptr noundef @.str.18)
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %104, label %110
 
-92:                                               ; preds = %89
-  %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds %struct._xmlNode, ptr %93, i32 0, i32 3
-  %95 = load ptr, ptr %94, align 8
-  store ptr %95, ptr %6, align 8
-  br label %8
-
-96:                                               ; preds = %89
-  br label %111
-
-97:                                               ; preds = %84
-  br label %98
-
-98:                                               ; preds = %97
-  %99 = load ptr, ptr %5, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = call i32 @dom_html5_serialize_element_end(ptr noundef %99, ptr noundef %100)
-  %102 = icmp ne i32 %101, 0
-  %103 = xor i1 %102, true
-  %104 = xor i1 %103, true
-  %105 = zext i1 %104 to i32
-  %106 = sext i32 %105 to i64
-  %107 = icmp ne i64 %106, 0
-  br i1 %107, label %108, label %109
-
-108:                                              ; preds = %98
-  store i32 -1, ptr %4, align 4
-  br label %162
-
-109:                                              ; preds = %98
+104:                                              ; preds = %98
+  %105 = load ptr, ptr %5, align 8, !tbaa !4
+  %106 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %105, i32 0, i32 3
+  %107 = load ptr, ptr %106, align 8, !tbaa !18
+  %108 = load ptr, ptr %6, align 8, !tbaa !8
+  %109 = call ptr @php_dom_retrieve_templated_content(ptr noundef %107, ptr noundef %108)
+  store ptr %109, ptr %8, align 8, !tbaa !8
   br label %110
 
-110:                                              ; preds = %109
-  br label %111
+110:                                              ; preds = %104, %98, %91
+  %111 = load ptr, ptr %8, align 8, !tbaa !8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %119
 
-111:                                              ; preds = %110, %96
-  br label %113
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %6, align 8, !tbaa !8
+  %115 = call zeroext i1 @dom_html5_serializes_as_void(ptr noundef %114)
+  br i1 %115, label %118, label %116
 
-112:                                              ; preds = %11
-  br label %113
-
-113:                                              ; preds = %112, %111, %70, %56, %42, %28
-  %114 = load ptr, ptr %6, align 8
-  %115 = getelementptr inbounds %struct._xmlNode, ptr %114, i32 0, i32 6
-  %116 = load ptr, ptr %115, align 8
-  %117 = icmp ne ptr %116, null
-  br i1 %117, label %118, label %122
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %117, ptr %6, align 8, !tbaa !8
+  store i32 2, ptr %9, align 4
+  br label %136
 
 118:                                              ; preds = %113
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct._xmlNode, ptr %119, i32 0, i32 6
-  %121 = load ptr, ptr %120, align 8
-  store ptr %121, ptr %6, align 8
-  br label %160
+  br label %135
 
-122:                                              ; preds = %113
-  br label %123
+119:                                              ; preds = %110
+  br label %120
 
-123:                                              ; preds = %151, %122
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds %struct._xmlNode, ptr %124, i32 0, i32 5
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %6, align 8
-  %127 = load ptr, ptr %6, align 8
-  %128 = load ptr, ptr %7, align 8
-  %129 = icmp eq ptr %127, %128
-  br i1 %129, label %130, label %131
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %5, align 8, !tbaa !4
+  %122 = load ptr, ptr %6, align 8, !tbaa !8
+  %123 = call i32 @dom_html5_serialize_element_end(ptr noundef %121, ptr noundef %122)
+  %124 = icmp ne i32 %123, 0
+  %125 = xor i1 %124, true
+  %126 = xor i1 %125, true
+  %127 = zext i1 %126 to i32
+  %128 = sext i32 %127 to i64
+  %129 = call i64 @llvm.expect.i64(i64 %128, i64 0)
+  %130 = icmp ne i64 %129, 0
+  br i1 %130, label %131, label %132
 
-130:                                              ; preds = %123
-  store i32 0, ptr %4, align 4
-  br label %162
-
-131:                                              ; preds = %123
-  %132 = load ptr, ptr %6, align 8
-  %133 = getelementptr inbounds %struct._xmlNode, ptr %132, i32 0, i32 1
-  %134 = load i32, ptr %133, align 8
-  %135 = icmp eq i32 %134, 1
-  br i1 %135, label %136, label %150
-
-136:                                              ; preds = %131
-  br label %137
-
-137:                                              ; preds = %136
-  %138 = load ptr, ptr %5, align 8
-  %139 = load ptr, ptr %6, align 8
-  %140 = call i32 @dom_html5_serialize_element_end(ptr noundef %138, ptr noundef %139)
-  %141 = icmp ne i32 %140, 0
-  %142 = xor i1 %141, true
-  %143 = xor i1 %142, true
-  %144 = zext i1 %143 to i32
-  %145 = sext i32 %144 to i64
-  %146 = icmp ne i64 %145, 0
-  br i1 %146, label %147, label %148
-
-147:                                              ; preds = %137
+131:                                              ; preds = %120
   store i32 -1, ptr %4, align 4
-  br label %162
+  store i32 1, ptr %9, align 4
+  br label %136
 
-148:                                              ; preds = %137
+132:                                              ; preds = %120
+  br label %133
+
+133:                                              ; preds = %132
+  br label %134
+
+134:                                              ; preds = %133
+  br label %135
+
+135:                                              ; preds = %134, %118
+  store i32 4, ptr %9, align 4
+  br label %136
+
+136:                                              ; preds = %135, %131, %116
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %137 = load i32, ptr %9, align 4
+  switch i32 %137, label %216 [
+    i32 2, label %10
+    i32 1, label %214
+    i32 4, label %164
+  ]
+
+138:                                              ; preds = %13
+  %139 = load ptr, ptr %6, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw %struct._xmlNode, ptr %139, i32 0, i32 3
+  %141 = load ptr, ptr %140, align 8, !tbaa !21
+  %142 = icmp ne ptr %141, null
+  br i1 %142, label %143, label %147
+
+143:                                              ; preds = %138
+  %144 = load ptr, ptr %6, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw %struct._xmlNode, ptr %144, i32 0, i32 3
+  %146 = load ptr, ptr %145, align 8, !tbaa !21
+  store ptr %146, ptr %6, align 8, !tbaa !8
+  br label %10
+
+147:                                              ; preds = %138
+  br label %164
+
+148:                                              ; preds = %13
   br label %149
 
 149:                                              ; preds = %148
-  br label %150
+  %150 = load ptr, ptr %5, align 8, !tbaa !4
+  %151 = load ptr, ptr %6, align 8, !tbaa !8
+  %152 = call i32 @dom_html5_serialize_entity_ref(ptr noundef %150, ptr noundef %151)
+  %153 = icmp ne i32 %152, 0
+  %154 = xor i1 %153, true
+  %155 = xor i1 %154, true
+  %156 = zext i1 %155 to i32
+  %157 = sext i32 %156 to i64
+  %158 = call i64 @llvm.expect.i64(i64 %157, i64 0)
+  %159 = icmp ne i64 %158, 0
+  br i1 %159, label %160, label %161
 
-150:                                              ; preds = %149, %131
-  br label %151
+160:                                              ; preds = %149
+  store i32 -1, ptr %4, align 4
+  br label %214
 
-151:                                              ; preds = %150
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds %struct._xmlNode, ptr %152, i32 0, i32 6
-  %154 = load ptr, ptr %153, align 8
-  %155 = icmp eq ptr %154, null
-  br i1 %155, label %123, label %156
-
-156:                                              ; preds = %151
-  %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds %struct._xmlNode, ptr %157, i32 0, i32 6
-  %159 = load ptr, ptr %158, align 8
-  store ptr %159, ptr %6, align 8
-  br label %160
-
-160:                                              ; preds = %156, %118
-  br label %8
-
-161:                                              ; preds = %8
-  store i32 0, ptr %4, align 4
+161:                                              ; preds = %149
   br label %162
 
-162:                                              ; preds = %161, %147, %130, %108, %82, %68, %54, %40, %26
-  %163 = load i32, ptr %4, align 4
-  ret i32 %163
-}
+162:                                              ; preds = %161
+  br label %164
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @dom_is_html_ns(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._xmlNode, ptr %3, i32 0, i32 9
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %10, label %7
+163:                                              ; preds = %13
+  br label %164
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8
-  %9 = call zeroext i1 @dom_is_ns(ptr noundef %8, ptr noundef @.str.18)
+164:                                              ; preds = %163, %162, %147, %136, %76, %61, %46, %31
+  %165 = load ptr, ptr %6, align 8, !tbaa !8
+  %166 = getelementptr inbounds nuw %struct._xmlNode, ptr %165, i32 0, i32 6
+  %167 = load ptr, ptr %166, align 8, !tbaa !27
+  %168 = icmp ne ptr %167, null
+  br i1 %168, label %169, label %173
+
+169:                                              ; preds = %164
+  %170 = load ptr, ptr %6, align 8, !tbaa !8
+  %171 = getelementptr inbounds nuw %struct._xmlNode, ptr %170, i32 0, i32 6
+  %172 = load ptr, ptr %171, align 8, !tbaa !27
+  store ptr %172, ptr %6, align 8, !tbaa !8
+  br label %212
+
+173:                                              ; preds = %164
+  br label %174
+
+174:                                              ; preds = %203, %173
+  %175 = load ptr, ptr %6, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw %struct._xmlNode, ptr %175, i32 0, i32 5
+  %177 = load ptr, ptr %176, align 8, !tbaa !28
+  store ptr %177, ptr %6, align 8, !tbaa !8
+  %178 = load ptr, ptr %6, align 8, !tbaa !8
+  %179 = load ptr, ptr %7, align 8, !tbaa !8
+  %180 = icmp eq ptr %178, %179
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %174
+  store i32 0, ptr %4, align 4
+  br label %214
+
+182:                                              ; preds = %174
+  %183 = load ptr, ptr %6, align 8, !tbaa !8
+  %184 = getelementptr inbounds nuw %struct._xmlNode, ptr %183, i32 0, i32 1
+  %185 = load i32, ptr %184, align 8, !tbaa !10
+  %186 = icmp eq i32 %185, 1
+  br i1 %186, label %187, label %202
+
+187:                                              ; preds = %182
+  br label %188
+
+188:                                              ; preds = %187
+  %189 = load ptr, ptr %5, align 8, !tbaa !4
+  %190 = load ptr, ptr %6, align 8, !tbaa !8
+  %191 = call i32 @dom_html5_serialize_element_end(ptr noundef %189, ptr noundef %190)
+  %192 = icmp ne i32 %191, 0
+  %193 = xor i1 %192, true
+  %194 = xor i1 %193, true
+  %195 = zext i1 %194 to i32
+  %196 = sext i32 %195 to i64
+  %197 = call i64 @llvm.expect.i64(i64 %196, i64 0)
+  %198 = icmp ne i64 %197, 0
+  br i1 %198, label %199, label %200
+
+199:                                              ; preds = %188
+  store i32 -1, ptr %4, align 4
+  br label %214
+
+200:                                              ; preds = %188
+  br label %201
+
+201:                                              ; preds = %200
+  br label %202
+
+202:                                              ; preds = %201, %182
+  br label %203
+
+203:                                              ; preds = %202
+  %204 = load ptr, ptr %6, align 8, !tbaa !8
+  %205 = getelementptr inbounds nuw %struct._xmlNode, ptr %204, i32 0, i32 6
+  %206 = load ptr, ptr %205, align 8, !tbaa !27
+  %207 = icmp eq ptr %206, null
+  br i1 %207, label %174, label %208
+
+208:                                              ; preds = %203
+  %209 = load ptr, ptr %6, align 8, !tbaa !8
+  %210 = getelementptr inbounds nuw %struct._xmlNode, ptr %209, i32 0, i32 6
+  %211 = load ptr, ptr %210, align 8, !tbaa !27
+  store ptr %211, ptr %6, align 8, !tbaa !8
+  br label %212
+
+212:                                              ; preds = %208, %169
   br label %10
 
-10:                                               ; preds = %7, %1
-  %11 = phi i1 [ true, %1 ], [ %9, %7 ]
-  ret i1 %11
+213:                                              ; preds = %10
+  store i32 0, ptr %4, align 4
+  br label %214
+
+214:                                              ; preds = %213, %199, %181, %160, %136, %89, %74, %59, %44, %29
+  %215 = load i32, ptr %4, align 4
+  ret i32 %215
+
+216:                                              ; preds = %136
+  unreachable
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @dom_local_name_compare_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define hidden i32 @dom_html5_serialize_outer(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct._xmlNode, ptr %8, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !10
+  %11 = icmp eq i32 %10, 9
+  br i1 %11, label %22, label %12
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct._xmlNode, ptr %13, i32 0, i32 1
+  %15 = load i32, ptr %14, align 8, !tbaa !10
+  %16 = icmp eq i32 %15, 13
+  br i1 %16, label %22, label %17
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct._xmlNode, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 8, !tbaa !10
+  %21 = icmp eq i32 %20, 11
+  br i1 %21, label %22, label %36
+
+22:                                               ; preds = %17, %12, %2
+  %23 = load ptr, ptr %5, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw %struct._xmlNode, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  store ptr %25, ptr %5, align 8, !tbaa !8
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %22
+  store i32 0, ptr %3, align 4
+  br label %52
+
+29:                                               ; preds = %22
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = load ptr, ptr %5, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct._xmlNode, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %35 = call i32 @dom_html5_serialize_node(ptr noundef %30, ptr noundef %31, ptr noundef %34)
+  store i32 %35, ptr %3, align 4
+  br label %52
+
+36:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct._xmlNode, ptr %37, i32 0, i32 6
+  %39 = load ptr, ptr %38, align 8, !tbaa !27
+  store ptr %39, ptr %6, align 8, !tbaa !8
+  %40 = load ptr, ptr %5, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct._xmlNode, ptr %40, i32 0, i32 6
+  store ptr null, ptr %41, align 8, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %42 = load ptr, ptr %4, align 8, !tbaa !4
+  %43 = load ptr, ptr %5, align 8, !tbaa !8
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct._xmlNode, ptr %44, i32 0, i32 5
+  %46 = load ptr, ptr %45, align 8, !tbaa !28
+  %47 = call i32 @dom_html5_serialize_node(ptr noundef %42, ptr noundef %43, ptr noundef %46)
+  store i32 %47, ptr %7, align 4, !tbaa !29
+  %48 = load ptr, ptr %6, align 8, !tbaa !8
+  %49 = load ptr, ptr %5, align 8, !tbaa !8
+  %50 = getelementptr inbounds nuw %struct._xmlNode, ptr %49, i32 0, i32 6
+  store ptr %48, ptr %50, align 8, !tbaa !27
+  %51 = load i32, ptr %7, align 4, !tbaa !29
+  store i32 %51, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %52
+
+52:                                               ; preds = %36, %29, %28
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
+}
+
+declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
+
+; Function Attrs: alwaysinline nounwind uwtable
+define internal zeroext i1 @dom_local_name_compare_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #4 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 %3, ptr %8, align 8
-  %9 = load i64, ptr %8, align 8
-  %10 = load i64, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !8
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  store i64 %2, ptr %7, align 8, !tbaa !25
+  store i64 %3, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %10 = load i64, ptr %7, align 8, !tbaa !25
   %11 = icmp eq i64 %9, %10
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct._xmlNode, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i64, ptr %8, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i64, ptr %7, align 8
-  %19 = call i32 @zend_binary_strcmp(ptr noundef %15, i64 noundef %16, ptr noundef %17, i64 noundef %18)
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct._xmlNode, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %16 = load ptr, ptr %6, align 8, !tbaa !30
+  %17 = load i64, ptr %8, align 8, !tbaa !25
+  %18 = add i64 %17, 1
+  %19 = call i32 @memcmp(ptr noundef %15, ptr noundef %16, i64 noundef %18) #7
   %20 = icmp eq i32 %19, 0
   br label %21
 
@@ -622,115 +830,90 @@ define internal zeroext i1 @dom_local_name_compare_ex(ptr noundef %0, ptr nounde
   ret i1 %22
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @dom_is_ns(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._xmlNode, ptr %5, i32 0, i32 9
-  %7 = load ptr, ptr %6, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %18
-
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct._xmlNode, ptr %10, i32 0, i32 9
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct._xmlNs, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = call i32 @strcmp(ptr noundef %14, ptr noundef %15) #3
-  %17 = icmp eq i32 %16, 0
-  br label %18
-
-18:                                               ; preds = %9, %2
-  %19 = phi i1 [ false, %2 ], [ %17, %9 ]
-  ret i1 %19
-}
-
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #1
-
-declare i32 @zend_binary_strcmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dom_html5_serialize_doctype(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !31
   br label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = call i32 %9(ptr noundef %12, ptr noundef @.str.19, i64 noundef 10)
   %14 = icmp ne i32 %13, 0
   %15 = xor i1 %14, true
   %16 = xor i1 %15, true
   %17 = zext i1 %16 to i32
   %18 = sext i32 %17 to i64
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %6
-  store i32 -1, ptr %3, align 4
-  br label %50
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %6
-  br label %22
+  store i32 -1, ptr %3, align 4
+  br label %52
 
-22:                                               ; preds = %21
+22:                                               ; preds = %6
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._xmlDtd, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %26(ptr noundef %29, ptr noundef %32)
-  %34 = icmp ne i32 %33, 0
-  %35 = xor i1 %34, true
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = load ptr, ptr %5, align 8, !tbaa !31
+  %32 = getelementptr inbounds nuw %struct._xmlDtd, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %34 = call i32 %27(ptr noundef %30, ptr noundef %33)
+  %35 = icmp ne i32 %34, 0
   %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %41
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = call i64 @llvm.expect.i64(i64 %39, i64 0)
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %23
+42:                                               ; preds = %24
   store i32 -1, ptr %3, align 4
-  br label %50
+  br label %52
 
-41:                                               ; preds = %23
-  br label %42
+43:                                               ; preds = %24
+  br label %44
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 %45(ptr noundef %48, ptr noundef @.str.20, i64 noundef 1)
-  store i32 %49, ptr %3, align 4
-  br label %50
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %4, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %48 = load ptr, ptr %4, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  %51 = call i32 %47(ptr noundef %50, ptr noundef @.str.20, i64 noundef 1)
+  store i32 %51, ptr %3, align 4
+  br label %52
 
-50:                                               ; preds = %42, %40, %20
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+52:                                               ; preds = %44, %42, %21
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dom_html5_serialize_text_node(ptr noundef %0, ptr noundef %1) #0 {
@@ -739,103 +922,136 @@ define internal i32 @dom_html5_serialize_text_node(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds %struct._xmlNode, ptr %8, i32 0, i32 5
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._xmlNode, ptr %10, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp eq i32 %12, 1
-  br i1 %13, label %14, label %66
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw %struct._xmlNode, ptr %9, i32 0, i32 10
+  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %14, label %13
+
+13:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %83
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct._xmlNode, ptr %15, i32 0, i32 5
-  %17 = load ptr, ptr %16, align 8
-  %18 = call zeroext i1 @dom_is_html_ns(ptr noundef %17)
-  br i1 %18, label %19, label %66
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct._xmlNode, ptr %15, i32 0, i32 5
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  store ptr %17, ptr %6, align 8, !tbaa !8
+  %18 = load ptr, ptr %6, align 8, !tbaa !8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %76
 
-19:                                               ; preds = %14
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct._xmlNode, ptr %20, i32 0, i32 5
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %6, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._xmlNode, ptr %23, i32 0, i32 2
-  %25 = load ptr, ptr %24, align 8
-  %26 = call i64 @strlen(ptr noundef %25) #3
-  store i64 %26, ptr %7, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i64, ptr %7, align 8
-  %29 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %27, ptr noundef @.str.21, i64 noundef 5, i64 noundef %28)
-  br i1 %29, label %54, label %30
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %6, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct._xmlNode, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 8, !tbaa !10
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %76
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i64, ptr %7, align 8
-  %33 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %31, ptr noundef @.str.22, i64 noundef 6, i64 noundef %32)
-  br i1 %33, label %54, label %34
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %6, align 8, !tbaa !8
+  %27 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !22
+  %28 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %26, ptr noundef %27)
+  br i1 %28, label %29, label %76
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i64, ptr %7, align 8
-  %37 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %35, ptr noundef @.str.23, i64 noundef 3, i64 noundef %36)
-  br i1 %37, label %54, label %38
+29:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  %30 = load ptr, ptr %6, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct._xmlNode, ptr %30, i32 0, i32 2
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  %33 = call i64 @strlen(ptr noundef %32) #7
+  store i64 %33, ptr %7, align 8, !tbaa !25
+  %34 = load ptr, ptr %6, align 8, !tbaa !8
+  %35 = load i64, ptr %7, align 8, !tbaa !25
+  %36 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %34, ptr noundef @.str.21, i64 noundef 5, i64 noundef %35)
+  br i1 %36, label %61, label %37
 
-38:                                               ; preds = %34
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i64, ptr %7, align 8
-  %41 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %39, ptr noundef @.str.24, i64 noundef 6, i64 noundef %40)
-  br i1 %41, label %54, label %42
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %6, align 8, !tbaa !8
+  %39 = load i64, ptr %7, align 8, !tbaa !25
+  %40 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %38, ptr noundef @.str.22, i64 noundef 6, i64 noundef %39)
+  br i1 %40, label %61, label %41
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i64, ptr %7, align 8
-  %45 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %43, ptr noundef @.str.25, i64 noundef 7, i64 noundef %44)
-  br i1 %45, label %54, label %46
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %6, align 8, !tbaa !8
+  %43 = load i64, ptr %7, align 8, !tbaa !25
+  %44 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %42, ptr noundef @.str.23, i64 noundef 3, i64 noundef %43)
+  br i1 %44, label %61, label %45
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i64, ptr %7, align 8
-  %49 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %47, ptr noundef @.str.26, i64 noundef 8, i64 noundef %48)
-  br i1 %49, label %54, label %50
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %6, align 8, !tbaa !8
+  %47 = load i64, ptr %7, align 8, !tbaa !25
+  %48 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %46, ptr noundef @.str.24, i64 noundef 6, i64 noundef %47)
+  br i1 %48, label %61, label %49
 
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i64, ptr %7, align 8
-  %53 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %51, ptr noundef @.str.27, i64 noundef 9, i64 noundef %52)
-  br i1 %53, label %54, label %65
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %6, align 8, !tbaa !8
+  %51 = load i64, ptr %7, align 8, !tbaa !25
+  %52 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %50, ptr noundef @.str.25, i64 noundef 7, i64 noundef %51)
+  br i1 %52, label %61, label %53
 
-54:                                               ; preds = %50, %46, %42, %38, %34, %30, %19
-  %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %58, i32 0, i32 2
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct._xmlNode, ptr %61, i32 0, i32 10
-  %63 = load ptr, ptr %62, align 8
-  %64 = call i32 %57(ptr noundef %60, ptr noundef %63)
-  store i32 %64, ptr %3, align 4
-  br label %72
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %6, align 8, !tbaa !8
+  %55 = load i64, ptr %7, align 8, !tbaa !25
+  %56 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %54, ptr noundef @.str.26, i64 noundef 8, i64 noundef %55)
+  br i1 %56, label %61, label %57
 
-65:                                               ; preds = %50
-  br label %66
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %6, align 8, !tbaa !8
+  %59 = load i64, ptr %7, align 8, !tbaa !25
+  %60 = call zeroext i1 @dom_local_name_compare_ex(ptr noundef %58, ptr noundef @.str.27, i64 noundef 9, i64 noundef %59)
+  br i1 %60, label %61, label %72
 
-66:                                               ; preds = %65, %14, %2
-  %67 = load ptr, ptr %4, align 8
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct._xmlNode, ptr %68, i32 0, i32 10
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @dom_html5_escape_string(ptr noundef %67, ptr noundef %70, i1 noundef zeroext false)
+61:                                               ; preds = %57, %53, %49, %45, %41, %37, %29
+  %62 = load ptr, ptr %4, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !35
+  %65 = load ptr, ptr %4, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %65, i32 0, i32 2
+  %67 = load ptr, ptr %66, align 8, !tbaa !34
+  %68 = load ptr, ptr %5, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct._xmlNode, ptr %68, i32 0, i32 10
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
+  %71 = call i32 %64(ptr noundef %67, ptr noundef %70)
   store i32 %71, ptr %3, align 4
-  br label %72
+  store i32 1, ptr %8, align 4
+  br label %73
 
-72:                                               ; preds = %66, %54
-  %73 = load i32, ptr %3, align 4
-  ret i32 %73
+72:                                               ; preds = %57
+  store i32 0, ptr %8, align 4
+  br label %73
+
+73:                                               ; preds = %72, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  %74 = load i32, ptr %8, align 4
+  switch i32 %74, label %82 [
+    i32 0, label %75
+  ]
+
+75:                                               ; preds = %73
+  br label %76
+
+76:                                               ; preds = %75, %25, %20, %14
+  %77 = load ptr, ptr %4, align 8, !tbaa !4
+  %78 = load ptr, ptr %5, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct._xmlNode, ptr %78, i32 0, i32 10
+  %80 = load ptr, ptr %79, align 8, !tbaa !38
+  %81 = call i32 @dom_html5_escape_string(ptr noundef %77, ptr noundef %80, i1 noundef zeroext false)
+  store i32 %81, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %82
+
+82:                                               ; preds = %76, %73
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  br label %83
+
+83:                                               ; preds = %82, %13
+  %84 = load i32, ptr %3, align 4
+  ret i32 %84
 }
 
 ; Function Attrs: nounwind uwtable
@@ -843,131 +1059,145 @@ define internal i32 @dom_html5_serialize_processing_instruction(ptr noundef %0, 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
   br label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = call i32 %9(ptr noundef %12, ptr noundef @.str.35, i64 noundef 2)
   %14 = icmp ne i32 %13, 0
   %15 = xor i1 %14, true
   %16 = xor i1 %15, true
   %17 = zext i1 %16 to i32
   %18 = sext i32 %17 to i64
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %6
-  store i32 -1, ptr %3, align 4
-  br label %87
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %6
-  br label %22
+  store i32 -1, ptr %3, align 4
+  br label %97
 
-22:                                               ; preds = %21
+22:                                               ; preds = %6
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._xmlNode, ptr %30, i32 0, i32 2
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %26(ptr noundef %29, ptr noundef %32)
-  %34 = icmp ne i32 %33, 0
-  %35 = xor i1 %34, true
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct._xmlNode, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %34 = call i32 %27(ptr noundef %30, ptr noundef %33)
+  %35 = icmp ne i32 %34, 0
   %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %41
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = call i64 @llvm.expect.i64(i64 %39, i64 0)
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %43
 
-40:                                               ; preds = %23
+42:                                               ; preds = %24
   store i32 -1, ptr %3, align 4
-  br label %87
+  br label %97
 
-41:                                               ; preds = %23
-  br label %42
+43:                                               ; preds = %24
+  br label %44
 
-42:                                               ; preds = %41
-  br label %43
+44:                                               ; preds = %43
+  br label %45
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %47, i32 0, i32 2
-  %49 = load ptr, ptr %48, align 8
-  %50 = call i32 %46(ptr noundef %49, ptr noundef @.str.36, i64 noundef 1)
-  %51 = icmp ne i32 %50, 0
-  %52 = xor i1 %51, true
-  %53 = xor i1 %52, true
-  %54 = zext i1 %53 to i32
-  %55 = sext i32 %54 to i64
-  %56 = icmp ne i64 %55, 0
-  br i1 %56, label %57, label %58
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %4, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %46, i32 0, i32 1
+  %48 = load ptr, ptr %47, align 8, !tbaa !33
+  %49 = load ptr, ptr %4, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8, !tbaa !34
+  %52 = call i32 %48(ptr noundef %51, ptr noundef @.str.36, i64 noundef 1)
+  %53 = icmp ne i32 %52, 0
+  %54 = xor i1 %53, true
+  %55 = xor i1 %54, true
+  %56 = zext i1 %55 to i32
+  %57 = sext i32 %56 to i64
+  %58 = call i64 @llvm.expect.i64(i64 %57, i64 0)
+  %59 = icmp ne i64 %58, 0
+  br i1 %59, label %60, label %61
 
-57:                                               ; preds = %43
+60:                                               ; preds = %45
   store i32 -1, ptr %3, align 4
-  br label %87
+  br label %97
 
-58:                                               ; preds = %43
-  br label %59
+61:                                               ; preds = %45
+  br label %62
 
-59:                                               ; preds = %58
-  br label %60
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %5, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct._xmlNode, ptr %63, i32 0, i32 10
+  %65 = load ptr, ptr %64, align 8, !tbaa !38
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %67, label %89
 
-60:                                               ; preds = %59
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %64, i32 0, i32 2
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds %struct._xmlNode, ptr %67, i32 0, i32 10
-  %69 = load ptr, ptr %68, align 8
-  %70 = call i32 %63(ptr noundef %66, ptr noundef %69)
-  %71 = icmp ne i32 %70, 0
-  %72 = xor i1 %71, true
-  %73 = xor i1 %72, true
-  %74 = zext i1 %73 to i32
-  %75 = sext i32 %74 to i64
-  %76 = icmp ne i64 %75, 0
-  br i1 %76, label %77, label %78
+67:                                               ; preds = %62
+  br label %68
 
-77:                                               ; preds = %60
+68:                                               ; preds = %67
+  %69 = load ptr, ptr %4, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !35
+  %72 = load ptr, ptr %4, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %72, i32 0, i32 2
+  %74 = load ptr, ptr %73, align 8, !tbaa !34
+  %75 = load ptr, ptr %5, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw %struct._xmlNode, ptr %75, i32 0, i32 10
+  %77 = load ptr, ptr %76, align 8, !tbaa !38
+  %78 = call i32 %71(ptr noundef %74, ptr noundef %77)
+  %79 = icmp ne i32 %78, 0
+  %80 = xor i1 %79, true
+  %81 = xor i1 %80, true
+  %82 = zext i1 %81 to i32
+  %83 = sext i32 %82 to i64
+  %84 = call i64 @llvm.expect.i64(i64 %83, i64 0)
+  %85 = icmp ne i64 %84, 0
+  br i1 %85, label %86, label %87
+
+86:                                               ; preds = %68
   store i32 -1, ptr %3, align 4
-  br label %87
+  br label %97
 
-78:                                               ; preds = %60
-  br label %79
+87:                                               ; preds = %68
+  br label %88
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %80, i32 0, i32 1
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %83, i32 0, i32 2
-  %85 = load ptr, ptr %84, align 8
-  %86 = call i32 %82(ptr noundef %85, ptr noundef @.str.20, i64 noundef 1)
-  store i32 %86, ptr %3, align 4
-  br label %87
+88:                                               ; preds = %87
+  br label %89
 
-87:                                               ; preds = %79, %77, %57, %40, %20
-  %88 = load i32, ptr %3, align 4
-  ret i32 %88
+89:                                               ; preds = %88, %62
+  %90 = load ptr, ptr %4, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8, !tbaa !33
+  %93 = load ptr, ptr %4, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %93, i32 0, i32 2
+  %95 = load ptr, ptr %94, align 8, !tbaa !34
+  %96 = call i32 %92(ptr noundef %95, ptr noundef @.str.20, i64 noundef 1)
+  store i32 %96, ptr %3, align 4
+  br label %97
+
+97:                                               ; preds = %89, %86, %60, %42, %21
+  %98 = load i32, ptr %3, align 4
+  ret i32 %98
 }
 
 ; Function Attrs: nounwind uwtable
@@ -975,76 +1205,88 @@ define internal i32 @dom_html5_serialize_comment(ptr noundef %0, ptr noundef %1)
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
   br label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = call i32 %9(ptr noundef %12, ptr noundef @.str.37, i64 noundef 4)
   %14 = icmp ne i32 %13, 0
   %15 = xor i1 %14, true
   %16 = xor i1 %15, true
   %17 = zext i1 %16 to i32
   %18 = sext i32 %17 to i64
-  %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %6
-  store i32 -1, ptr %3, align 4
-  br label %50
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %6
-  br label %22
+  store i32 -1, ptr %3, align 4
+  br label %58
 
-22:                                               ; preds = %21
+22:                                               ; preds = %6
   br label %23
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %27, i32 0, i32 2
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._xmlNode, ptr %30, i32 0, i32 10
-  %32 = load ptr, ptr %31, align 8
-  %33 = call i32 %26(ptr noundef %29, ptr noundef %32)
-  %34 = icmp ne i32 %33, 0
-  %35 = xor i1 %34, true
-  %36 = xor i1 %35, true
-  %37 = zext i1 %36 to i32
-  %38 = sext i32 %37 to i64
-  %39 = icmp ne i64 %38, 0
-  br i1 %39, label %40, label %41
+  %24 = load ptr, ptr %5, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct._xmlNode, ptr %24, i32 0, i32 10
+  %26 = load ptr, ptr %25, align 8, !tbaa !38
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %50
 
-40:                                               ; preds = %23
+28:                                               ; preds = %23
+  br label %29
+
+29:                                               ; preds = %28
+  %30 = load ptr, ptr %4, align 8, !tbaa !4
+  %31 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8, !tbaa !35
+  %33 = load ptr, ptr %4, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %33, i32 0, i32 2
+  %35 = load ptr, ptr %34, align 8, !tbaa !34
+  %36 = load ptr, ptr %5, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct._xmlNode, ptr %36, i32 0, i32 10
+  %38 = load ptr, ptr %37, align 8, !tbaa !38
+  %39 = call i32 %32(ptr noundef %35, ptr noundef %38)
+  %40 = icmp ne i32 %39, 0
+  %41 = xor i1 %40, true
+  %42 = xor i1 %41, true
+  %43 = zext i1 %42 to i32
+  %44 = sext i32 %43 to i64
+  %45 = call i64 @llvm.expect.i64(i64 %44, i64 0)
+  %46 = icmp ne i64 %45, 0
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %29
   store i32 -1, ptr %3, align 4
+  br label %58
+
+48:                                               ; preds = %29
+  br label %49
+
+49:                                               ; preds = %48
   br label %50
 
-41:                                               ; preds = %23
-  br label %42
+50:                                               ; preds = %49, %23
+  %51 = load ptr, ptr %4, align 8, !tbaa !4
+  %52 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %54, i32 0, i32 2
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %57 = call i32 %53(ptr noundef %56, ptr noundef @.str.38, i64 noundef 3)
+  store i32 %57, ptr %3, align 4
+  br label %58
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %46, i32 0, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 %45(ptr noundef %48, ptr noundef @.str.38, i64 noundef 3)
-  store i32 %49, ptr %3, align 4
-  br label %50
-
-50:                                               ; preds = %42, %40, %20
-  %51 = load i32, ptr %3, align 4
-  ret i32 %51
+58:                                               ; preds = %50, %47, %21
+  %59 = load i32, ptr %3, align 4
+  ret i32 %59
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1053,904 +1295,1026 @@ define internal i32 @dom_html5_serialize_element_start(ptr noundef %0, ptr nound
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  br label %10
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %9
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %14, i32 0, i32 2
-  %16 = load ptr, ptr %15, align 8
-  %17 = call i32 %13(ptr noundef %16, ptr noundef @.str.39, i64 noundef 1)
-  %18 = icmp ne i32 %17, 0
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = call i32 %12(ptr noundef %15, ptr noundef @.str.39, i64 noundef 1)
+  %17 = icmp ne i32 %16, 0
+  %18 = xor i1 %17, true
   %19 = xor i1 %18, true
-  %20 = xor i1 %19, true
-  %21 = zext i1 %20 to i32
-  %22 = sext i32 %21 to i64
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
   %23 = icmp ne i64 %22, 0
   br i1 %23, label %24, label %25
 
-24:                                               ; preds = %10
+24:                                               ; preds = %9
   store i32 -1, ptr %3, align 4
-  br label %529
+  br label %519
 
-25:                                               ; preds = %10
+25:                                               ; preds = %9
   br label %26
 
 26:                                               ; preds = %25
   br label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %5, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
   %30 = call i32 @dom_html5_serialize_element_tag_name(ptr noundef %28, ptr noundef %29)
   %31 = icmp ne i32 %30, 0
   %32 = xor i1 %31, true
   %33 = xor i1 %32, true
   %34 = zext i1 %33 to i32
   %35 = sext i32 %34 to i64
-  %36 = icmp ne i64 %35, 0
-  br i1 %36, label %37, label %38
-
-37:                                               ; preds = %27
-  store i32 -1, ptr %3, align 4
-  br label %529
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 0)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
 38:                                               ; preds = %27
-  br label %39
-
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct._xmlNode, ptr %40, i32 0, i32 12
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %6, align 8
-  br label %43
-
-43:                                               ; preds = %166, %39
-  %44 = load ptr, ptr %6, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %170
-
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %6, align 8
-  %48 = call zeroext i1 @dom_ns_is_also_an_attribute(ptr noundef %47)
-  br i1 %48, label %50, label %49
-
-49:                                               ; preds = %46
-  br label %166
-
-50:                                               ; preds = %46
-  %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct._xmlNs, ptr %51, i32 0, i32 3
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %110
-
-55:                                               ; preds = %50
-  br label %56
-
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 %59(ptr noundef %62, ptr noundef @.str.40, i64 noundef 7)
-  %64 = icmp ne i32 %63, 0
-  %65 = xor i1 %64, true
-  %66 = xor i1 %65, true
-  %67 = zext i1 %66 to i32
-  %68 = sext i32 %67 to i64
-  %69 = icmp ne i64 %68, 0
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %56
   store i32 -1, ptr %3, align 4
-  br label %529
+  br label %519
 
-71:                                               ; preds = %56
-  br label %72
+39:                                               ; preds = %27
+  br label %40
 
-72:                                               ; preds = %71
+40:                                               ; preds = %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %41 = load ptr, ptr %5, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct._xmlNode, ptr %41, i32 0, i32 11
+  %43 = load ptr, ptr %42, align 8, !tbaa !39
+  store ptr %43, ptr %6, align 8, !tbaa !40
+  br label %44
+
+44:                                               ; preds = %505, %40
+  %45 = load ptr, ptr %6, align 8, !tbaa !40
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %48, label %47
+
+47:                                               ; preds = %44
+  store i32 6, ptr %7, align 4
+  br label %509
+
+48:                                               ; preds = %44
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %4, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %50, i32 0, i32 1
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
+  %53 = load ptr, ptr %4, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %53, i32 0, i32 2
+  %55 = load ptr, ptr %54, align 8, !tbaa !34
+  %56 = call i32 %52(ptr noundef %55, ptr noundef @.str.36, i64 noundef 1)
+  %57 = icmp ne i32 %56, 0
+  %58 = xor i1 %57, true
+  %59 = xor i1 %58, true
+  %60 = zext i1 %59 to i32
+  %61 = sext i32 %60 to i64
+  %62 = call i64 @llvm.expect.i64(i64 %61, i64 0)
+  %63 = icmp ne i64 %62, 0
+  br i1 %63, label %64, label %65
+
+64:                                               ; preds = %49
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %509
+
+65:                                               ; preds = %49
+  br label %66
+
+66:                                               ; preds = %65
+  br label %67
+
+67:                                               ; preds = %66
+  %68 = load ptr, ptr %6, align 8, !tbaa !40
+  %69 = getelementptr inbounds nuw %struct._xmlAttr, ptr %68, i32 0, i32 9
+  %70 = load ptr, ptr %69, align 8, !tbaa !41
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %95
+
+72:                                               ; preds = %67
   br label %73
 
 73:                                               ; preds = %72
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %77, i32 0, i32 2
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct._xmlNs, ptr %80, i32 0, i32 3
-  %82 = load ptr, ptr %81, align 8
+  %74 = load ptr, ptr %4, align 8, !tbaa !4
+  %75 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !35
+  %77 = load ptr, ptr %4, align 8, !tbaa !4
+  %78 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %77, i32 0, i32 2
+  %79 = load ptr, ptr %78, align 8, !tbaa !34
+  %80 = load ptr, ptr %6, align 8, !tbaa !40
+  %81 = getelementptr inbounds nuw %struct._xmlAttr, ptr %80, i32 0, i32 2
+  %82 = load ptr, ptr %81, align 8, !tbaa !43
   %83 = call i32 %76(ptr noundef %79, ptr noundef %82)
   %84 = icmp ne i32 %83, 0
   %85 = xor i1 %84, true
   %86 = xor i1 %85, true
   %87 = zext i1 %86 to i32
   %88 = sext i32 %87 to i64
-  %89 = icmp ne i64 %88, 0
-  br i1 %89, label %90, label %91
-
-90:                                               ; preds = %73
-  store i32 -1, ptr %3, align 4
-  br label %529
+  %89 = call i64 @llvm.expect.i64(i64 %88, i64 0)
+  %90 = icmp ne i64 %89, 0
+  br i1 %90, label %91, label %92
 
 91:                                               ; preds = %73
-  br label %92
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %509
 
-92:                                               ; preds = %91
+92:                                               ; preds = %73
   br label %93
 
 93:                                               ; preds = %92
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %94, i32 0, i32 1
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %97, i32 0, i32 2
-  %99 = load ptr, ptr %98, align 8
-  %100 = call i32 %96(ptr noundef %99, ptr noundef @.str.41, i64 noundef 2)
-  %101 = icmp ne i32 %100, 0
-  %102 = xor i1 %101, true
-  %103 = xor i1 %102, true
-  %104 = zext i1 %103 to i32
-  %105 = sext i32 %104 to i64
-  %106 = icmp ne i64 %105, 0
-  br i1 %106, label %107, label %108
+  br label %94
 
-107:                                              ; preds = %93
+94:                                               ; preds = %93
+  br label %360
+
+95:                                               ; preds = %67
+  %96 = load ptr, ptr %6, align 8, !tbaa !40
+  %97 = load ptr, ptr @php_dom_ns_is_xml_magic_token, align 8, !tbaa !22
+  %98 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %96, ptr noundef %97)
+  br i1 %98, label %99, label %141
+
+99:                                               ; preds = %95
+  br label %100
+
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %4, align 8, !tbaa !4
+  %102 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %101, i32 0, i32 1
+  %103 = load ptr, ptr %102, align 8, !tbaa !33
+  %104 = load ptr, ptr %4, align 8, !tbaa !4
+  %105 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8, !tbaa !34
+  %107 = call i32 %103(ptr noundef %106, ptr noundef @.str.40, i64 noundef 4)
+  %108 = icmp ne i32 %107, 0
+  %109 = xor i1 %108, true
+  %110 = xor i1 %109, true
+  %111 = zext i1 %110 to i32
+  %112 = sext i32 %111 to i64
+  %113 = call i64 @llvm.expect.i64(i64 %112, i64 0)
+  %114 = icmp ne i64 %113, 0
+  br i1 %114, label %115, label %116
+
+115:                                              ; preds = %100
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-108:                                              ; preds = %93
-  br label %109
+116:                                              ; preds = %100
+  br label %117
 
-109:                                              ; preds = %108
-  br label %128
+117:                                              ; preds = %116
+  br label %118
 
-110:                                              ; preds = %50
-  br label %111
+118:                                              ; preds = %117
+  br label %119
 
-111:                                              ; preds = %110
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %112, i32 0, i32 1
-  %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %4, align 8
-  %116 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %115, i32 0, i32 2
-  %117 = load ptr, ptr %116, align 8
-  %118 = call i32 %114(ptr noundef %117, ptr noundef @.str.42, i64 noundef 8)
-  %119 = icmp ne i32 %118, 0
-  %120 = xor i1 %119, true
-  %121 = xor i1 %120, true
-  %122 = zext i1 %121 to i32
-  %123 = sext i32 %122 to i64
-  %124 = icmp ne i64 %123, 0
-  br i1 %124, label %125, label %126
+119:                                              ; preds = %118
+  %120 = load ptr, ptr %4, align 8, !tbaa !4
+  %121 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %120, i32 0, i32 0
+  %122 = load ptr, ptr %121, align 8, !tbaa !35
+  %123 = load ptr, ptr %4, align 8, !tbaa !4
+  %124 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %123, i32 0, i32 2
+  %125 = load ptr, ptr %124, align 8, !tbaa !34
+  %126 = load ptr, ptr %6, align 8, !tbaa !40
+  %127 = getelementptr inbounds nuw %struct._xmlAttr, ptr %126, i32 0, i32 2
+  %128 = load ptr, ptr %127, align 8, !tbaa !43
+  %129 = call i32 %122(ptr noundef %125, ptr noundef %128)
+  %130 = icmp ne i32 %129, 0
+  %131 = xor i1 %130, true
+  %132 = xor i1 %131, true
+  %133 = zext i1 %132 to i32
+  %134 = sext i32 %133 to i64
+  %135 = call i64 @llvm.expect.i64(i64 %134, i64 0)
+  %136 = icmp ne i64 %135, 0
+  br i1 %136, label %137, label %138
 
-125:                                              ; preds = %111
+137:                                              ; preds = %119
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-126:                                              ; preds = %111
-  br label %127
+138:                                              ; preds = %119
+  br label %139
 
-127:                                              ; preds = %126
-  br label %128
+139:                                              ; preds = %138
+  br label %140
 
-128:                                              ; preds = %127, %109
-  br label %129
+140:                                              ; preds = %139
+  br label %359
 
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %4, align 8
-  %131 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %130, i32 0, i32 0
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %133, i32 0, i32 2
-  %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %struct._xmlNs, ptr %136, i32 0, i32 2
-  %138 = load ptr, ptr %137, align 8
-  %139 = call i32 %132(ptr noundef %135, ptr noundef %138)
-  %140 = icmp ne i32 %139, 0
-  %141 = xor i1 %140, true
-  %142 = xor i1 %141, true
-  %143 = zext i1 %142 to i32
-  %144 = sext i32 %143 to i64
-  %145 = icmp ne i64 %144, 0
-  br i1 %145, label %146, label %147
+141:                                              ; preds = %95
+  %142 = load ptr, ptr %6, align 8, !tbaa !40
+  %143 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !22
+  %144 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %142, ptr noundef %143)
+  br i1 %144, label %145, label %214
 
-146:                                              ; preds = %129
+145:                                              ; preds = %141
+  %146 = load ptr, ptr %6, align 8, !tbaa !40
+  %147 = getelementptr inbounds nuw %struct._xmlAttr, ptr %146, i32 0, i32 2
+  %148 = load ptr, ptr %147, align 8, !tbaa !43
+  %149 = call i32 @strcmp(ptr noundef %148, ptr noundef @.str.41) #7
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %151, label %171
+
+151:                                              ; preds = %145
+  br label %152
+
+152:                                              ; preds = %151
+  %153 = load ptr, ptr %4, align 8, !tbaa !4
+  %154 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8, !tbaa !33
+  %156 = load ptr, ptr %4, align 8, !tbaa !4
+  %157 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %156, i32 0, i32 2
+  %158 = load ptr, ptr %157, align 8, !tbaa !34
+  %159 = call i32 %155(ptr noundef %158, ptr noundef @.str.41, i64 noundef 5)
+  %160 = icmp ne i32 %159, 0
+  %161 = xor i1 %160, true
+  %162 = xor i1 %161, true
+  %163 = zext i1 %162 to i32
+  %164 = sext i32 %163 to i64
+  %165 = call i64 @llvm.expect.i64(i64 %164, i64 0)
+  %166 = icmp ne i64 %165, 0
+  br i1 %166, label %167, label %168
+
+167:                                              ; preds = %152
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-147:                                              ; preds = %129
-  br label %148
+168:                                              ; preds = %152
+  br label %169
 
-148:                                              ; preds = %147
-  br label %149
+169:                                              ; preds = %168
+  br label %170
 
-149:                                              ; preds = %148
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %150, i32 0, i32 1
-  %152 = load ptr, ptr %151, align 8
-  %153 = load ptr, ptr %4, align 8
-  %154 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %153, i32 0, i32 2
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 %152(ptr noundef %155, ptr noundef @.str.43, i64 noundef 1)
-  %157 = icmp ne i32 %156, 0
-  %158 = xor i1 %157, true
-  %159 = xor i1 %158, true
-  %160 = zext i1 %159 to i32
-  %161 = sext i32 %160 to i64
-  %162 = icmp ne i64 %161, 0
-  br i1 %162, label %163, label %164
+170:                                              ; preds = %169
+  br label %213
 
-163:                                              ; preds = %149
+171:                                              ; preds = %145
+  br label %172
+
+172:                                              ; preds = %171
+  %173 = load ptr, ptr %4, align 8, !tbaa !4
+  %174 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %173, i32 0, i32 1
+  %175 = load ptr, ptr %174, align 8, !tbaa !33
+  %176 = load ptr, ptr %4, align 8, !tbaa !4
+  %177 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %176, i32 0, i32 2
+  %178 = load ptr, ptr %177, align 8, !tbaa !34
+  %179 = call i32 %175(ptr noundef %178, ptr noundef @.str.42, i64 noundef 6)
+  %180 = icmp ne i32 %179, 0
+  %181 = xor i1 %180, true
+  %182 = xor i1 %181, true
+  %183 = zext i1 %182 to i32
+  %184 = sext i32 %183 to i64
+  %185 = call i64 @llvm.expect.i64(i64 %184, i64 0)
+  %186 = icmp ne i64 %185, 0
+  br i1 %186, label %187, label %188
+
+187:                                              ; preds = %172
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-164:                                              ; preds = %149
-  br label %165
+188:                                              ; preds = %172
+  br label %189
 
-165:                                              ; preds = %164
-  br label %166
+189:                                              ; preds = %188
+  br label %190
 
-166:                                              ; preds = %165, %49
-  %167 = load ptr, ptr %6, align 8
-  %168 = getelementptr inbounds %struct._xmlNs, ptr %167, i32 0, i32 0
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %6, align 8
-  br label %43
+190:                                              ; preds = %189
+  br label %191
 
-170:                                              ; preds = %43
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct._xmlNode, ptr %171, i32 0, i32 11
-  %173 = load ptr, ptr %172, align 8
-  store ptr %173, ptr %7, align 8
-  br label %174
+191:                                              ; preds = %190
+  %192 = load ptr, ptr %4, align 8, !tbaa !4
+  %193 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %192, i32 0, i32 0
+  %194 = load ptr, ptr %193, align 8, !tbaa !35
+  %195 = load ptr, ptr %4, align 8, !tbaa !4
+  %196 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %195, i32 0, i32 2
+  %197 = load ptr, ptr %196, align 8, !tbaa !34
+  %198 = load ptr, ptr %6, align 8, !tbaa !40
+  %199 = getelementptr inbounds nuw %struct._xmlAttr, ptr %198, i32 0, i32 2
+  %200 = load ptr, ptr %199, align 8, !tbaa !43
+  %201 = call i32 %194(ptr noundef %197, ptr noundef %200)
+  %202 = icmp ne i32 %201, 0
+  %203 = xor i1 %202, true
+  %204 = xor i1 %203, true
+  %205 = zext i1 %204 to i32
+  %206 = sext i32 %205 to i64
+  %207 = call i64 @llvm.expect.i64(i64 %206, i64 0)
+  %208 = icmp ne i64 %207, 0
+  br i1 %208, label %209, label %210
 
-174:                                              ; preds = %517, %170
-  %175 = load ptr, ptr %7, align 8
-  %176 = icmp ne ptr %175, null
-  br i1 %176, label %177, label %521
-
-177:                                              ; preds = %174
-  br label %178
-
-178:                                              ; preds = %177
-  %179 = load ptr, ptr %4, align 8
-  %180 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %179, i32 0, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = load ptr, ptr %4, align 8
-  %183 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %182, i32 0, i32 2
-  %184 = load ptr, ptr %183, align 8
-  %185 = call i32 %181(ptr noundef %184, ptr noundef @.str.36, i64 noundef 1)
-  %186 = icmp ne i32 %185, 0
-  %187 = xor i1 %186, true
-  %188 = xor i1 %187, true
-  %189 = zext i1 %188 to i32
-  %190 = sext i32 %189 to i64
-  %191 = icmp ne i64 %190, 0
-  br i1 %191, label %192, label %193
-
-192:                                              ; preds = %178
+209:                                              ; preds = %191
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-193:                                              ; preds = %178
-  br label %194
+210:                                              ; preds = %191
+  br label %211
 
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %7, align 8
-  %196 = getelementptr inbounds %struct._xmlAttr, ptr %195, i32 0, i32 9
-  %197 = load ptr, ptr %196, align 8
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %220
+211:                                              ; preds = %210
+  br label %212
 
-199:                                              ; preds = %194
-  br label %200
+212:                                              ; preds = %211
+  br label %213
 
-200:                                              ; preds = %199
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %201, i32 0, i32 0
-  %203 = load ptr, ptr %202, align 8
-  %204 = load ptr, ptr %4, align 8
-  %205 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %204, i32 0, i32 2
-  %206 = load ptr, ptr %205, align 8
-  %207 = load ptr, ptr %7, align 8
-  %208 = getelementptr inbounds %struct._xmlAttr, ptr %207, i32 0, i32 2
-  %209 = load ptr, ptr %208, align 8
-  %210 = call i32 %203(ptr noundef %206, ptr noundef %209)
-  %211 = icmp ne i32 %210, 0
-  %212 = xor i1 %211, true
-  %213 = xor i1 %212, true
-  %214 = zext i1 %213 to i32
-  %215 = sext i32 %214 to i64
-  %216 = icmp ne i64 %215, 0
-  br i1 %216, label %217, label %218
+213:                                              ; preds = %212, %170
+  br label %358
 
-217:                                              ; preds = %200
-  store i32 -1, ptr %3, align 4
-  br label %529
+214:                                              ; preds = %141
+  %215 = load ptr, ptr %6, align 8, !tbaa !40
+  %216 = load ptr, ptr @php_dom_ns_is_xlink_magic_token, align 8, !tbaa !22
+  %217 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %215, ptr noundef %216)
+  br i1 %217, label %218, label %260
 
-218:                                              ; preds = %200
+218:                                              ; preds = %214
   br label %219
 
 219:                                              ; preds = %218
-  br label %460
+  %220 = load ptr, ptr %4, align 8, !tbaa !4
+  %221 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %220, i32 0, i32 1
+  %222 = load ptr, ptr %221, align 8, !tbaa !33
+  %223 = load ptr, ptr %4, align 8, !tbaa !4
+  %224 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %223, i32 0, i32 2
+  %225 = load ptr, ptr %224, align 8, !tbaa !34
+  %226 = call i32 %222(ptr noundef %225, ptr noundef @.str.43, i64 noundef 6)
+  %227 = icmp ne i32 %226, 0
+  %228 = xor i1 %227, true
+  %229 = xor i1 %228, true
+  %230 = zext i1 %229 to i32
+  %231 = sext i32 %230 to i64
+  %232 = call i64 @llvm.expect.i64(i64 %231, i64 0)
+  %233 = icmp ne i64 %232, 0
+  br i1 %233, label %234, label %235
 
-220:                                              ; preds = %194
-  %221 = load ptr, ptr %7, align 8
-  %222 = call zeroext i1 @dom_is_ns(ptr noundef %221, ptr noundef @.str.44)
-  br i1 %222, label %223, label %261
-
-223:                                              ; preds = %220
-  br label %224
-
-224:                                              ; preds = %223
-  %225 = load ptr, ptr %4, align 8
-  %226 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %225, i32 0, i32 1
-  %227 = load ptr, ptr %226, align 8
-  %228 = load ptr, ptr %4, align 8
-  %229 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %228, i32 0, i32 2
-  %230 = load ptr, ptr %229, align 8
-  %231 = call i32 %227(ptr noundef %230, ptr noundef @.str.45, i64 noundef 4)
-  %232 = icmp ne i32 %231, 0
-  %233 = xor i1 %232, true
-  %234 = xor i1 %233, true
-  %235 = zext i1 %234 to i32
-  %236 = sext i32 %235 to i64
-  %237 = icmp ne i64 %236, 0
-  br i1 %237, label %238, label %239
-
-238:                                              ; preds = %224
+234:                                              ; preds = %219
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-239:                                              ; preds = %224
-  br label %240
+235:                                              ; preds = %219
+  br label %236
 
-240:                                              ; preds = %239
-  br label %241
+236:                                              ; preds = %235
+  br label %237
 
-241:                                              ; preds = %240
-  %242 = load ptr, ptr %4, align 8
-  %243 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %242, i32 0, i32 0
-  %244 = load ptr, ptr %243, align 8
-  %245 = load ptr, ptr %4, align 8
-  %246 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %245, i32 0, i32 2
-  %247 = load ptr, ptr %246, align 8
-  %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds %struct._xmlAttr, ptr %248, i32 0, i32 2
-  %250 = load ptr, ptr %249, align 8
-  %251 = call i32 %244(ptr noundef %247, ptr noundef %250)
-  %252 = icmp ne i32 %251, 0
-  %253 = xor i1 %252, true
-  %254 = xor i1 %253, true
-  %255 = zext i1 %254 to i32
-  %256 = sext i32 %255 to i64
-  %257 = icmp ne i64 %256, 0
-  br i1 %257, label %258, label %259
+237:                                              ; preds = %236
+  br label %238
 
-258:                                              ; preds = %241
+238:                                              ; preds = %237
+  %239 = load ptr, ptr %4, align 8, !tbaa !4
+  %240 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %239, i32 0, i32 0
+  %241 = load ptr, ptr %240, align 8, !tbaa !35
+  %242 = load ptr, ptr %4, align 8, !tbaa !4
+  %243 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %242, i32 0, i32 2
+  %244 = load ptr, ptr %243, align 8, !tbaa !34
+  %245 = load ptr, ptr %6, align 8, !tbaa !40
+  %246 = getelementptr inbounds nuw %struct._xmlAttr, ptr %245, i32 0, i32 2
+  %247 = load ptr, ptr %246, align 8, !tbaa !43
+  %248 = call i32 %241(ptr noundef %244, ptr noundef %247)
+  %249 = icmp ne i32 %248, 0
+  %250 = xor i1 %249, true
+  %251 = xor i1 %250, true
+  %252 = zext i1 %251 to i32
+  %253 = sext i32 %252 to i64
+  %254 = call i64 @llvm.expect.i64(i64 %253, i64 0)
+  %255 = icmp ne i64 %254, 0
+  br i1 %255, label %256, label %257
+
+256:                                              ; preds = %238
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-259:                                              ; preds = %241
-  br label %260
+257:                                              ; preds = %238
+  br label %258
 
-260:                                              ; preds = %259
-  br label %459
+258:                                              ; preds = %257
+  br label %259
 
-261:                                              ; preds = %220
-  %262 = load ptr, ptr %7, align 8
-  %263 = call zeroext i1 @dom_is_ns(ptr noundef %262, ptr noundef @.str.46)
-  br i1 %263, label %264, label %327
+259:                                              ; preds = %258
+  br label %357
 
-264:                                              ; preds = %261
-  %265 = load ptr, ptr %7, align 8
-  %266 = getelementptr inbounds %struct._xmlAttr, ptr %265, i32 0, i32 2
-  %267 = load ptr, ptr %266, align 8
-  %268 = call i32 @strcmp(ptr noundef %267, ptr noundef @.str.47) #3
-  %269 = icmp eq i32 %268, 0
-  br i1 %269, label %270, label %288
+260:                                              ; preds = %214
+  %261 = load ptr, ptr %6, align 8, !tbaa !40
+  %262 = getelementptr inbounds nuw %struct._xmlAttr, ptr %261, i32 0, i32 9
+  %263 = load ptr, ptr %262, align 8, !tbaa !41
+  %264 = getelementptr inbounds nuw %struct._xmlNs, ptr %263, i32 0, i32 3
+  %265 = load ptr, ptr %264, align 8, !tbaa !44
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %267, label %290
 
-270:                                              ; preds = %264
-  br label %271
+267:                                              ; preds = %260
+  br label %268
 
-271:                                              ; preds = %270
-  %272 = load ptr, ptr %4, align 8
-  %273 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %272, i32 0, i32 1
-  %274 = load ptr, ptr %273, align 8
-  %275 = load ptr, ptr %4, align 8
-  %276 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %275, i32 0, i32 2
-  %277 = load ptr, ptr %276, align 8
-  %278 = call i32 %274(ptr noundef %277, ptr noundef @.str.47, i64 noundef 5)
+268:                                              ; preds = %267
+  %269 = load ptr, ptr %4, align 8, !tbaa !4
+  %270 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %269, i32 0, i32 0
+  %271 = load ptr, ptr %270, align 8, !tbaa !35
+  %272 = load ptr, ptr %4, align 8, !tbaa !4
+  %273 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %272, i32 0, i32 2
+  %274 = load ptr, ptr %273, align 8, !tbaa !34
+  %275 = load ptr, ptr %6, align 8, !tbaa !40
+  %276 = getelementptr inbounds nuw %struct._xmlAttr, ptr %275, i32 0, i32 2
+  %277 = load ptr, ptr %276, align 8, !tbaa !43
+  %278 = call i32 %271(ptr noundef %274, ptr noundef %277)
   %279 = icmp ne i32 %278, 0
   %280 = xor i1 %279, true
   %281 = xor i1 %280, true
   %282 = zext i1 %281 to i32
   %283 = sext i32 %282 to i64
-  %284 = icmp ne i64 %283, 0
-  br i1 %284, label %285, label %286
+  %284 = call i64 @llvm.expect.i64(i64 %283, i64 0)
+  %285 = icmp ne i64 %284, 0
+  br i1 %285, label %286, label %287
 
-285:                                              ; preds = %271
+286:                                              ; preds = %268
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-286:                                              ; preds = %271
-  br label %287
+287:                                              ; preds = %268
+  br label %288
 
-287:                                              ; preds = %286
-  br label %326
-
-288:                                              ; preds = %264
+288:                                              ; preds = %287
   br label %289
 
 289:                                              ; preds = %288
-  %290 = load ptr, ptr %4, align 8
-  %291 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %290, i32 0, i32 1
-  %292 = load ptr, ptr %291, align 8
-  %293 = load ptr, ptr %4, align 8
-  %294 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %293, i32 0, i32 2
-  %295 = load ptr, ptr %294, align 8
-  %296 = call i32 %292(ptr noundef %295, ptr noundef @.str.48, i64 noundef 6)
-  %297 = icmp ne i32 %296, 0
-  %298 = xor i1 %297, true
-  %299 = xor i1 %298, true
-  %300 = zext i1 %299 to i32
-  %301 = sext i32 %300 to i64
-  %302 = icmp ne i64 %301, 0
-  br i1 %302, label %303, label %304
+  br label %356
 
-303:                                              ; preds = %289
+290:                                              ; preds = %260
+  br label %291
+
+291:                                              ; preds = %290
+  %292 = load ptr, ptr %4, align 8, !tbaa !4
+  %293 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %292, i32 0, i32 0
+  %294 = load ptr, ptr %293, align 8, !tbaa !35
+  %295 = load ptr, ptr %4, align 8, !tbaa !4
+  %296 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %295, i32 0, i32 2
+  %297 = load ptr, ptr %296, align 8, !tbaa !34
+  %298 = load ptr, ptr %6, align 8, !tbaa !40
+  %299 = getelementptr inbounds nuw %struct._xmlAttr, ptr %298, i32 0, i32 9
+  %300 = load ptr, ptr %299, align 8, !tbaa !41
+  %301 = getelementptr inbounds nuw %struct._xmlNs, ptr %300, i32 0, i32 3
+  %302 = load ptr, ptr %301, align 8, !tbaa !44
+  %303 = call i32 %294(ptr noundef %297, ptr noundef %302)
+  %304 = icmp ne i32 %303, 0
+  %305 = xor i1 %304, true
+  %306 = xor i1 %305, true
+  %307 = zext i1 %306 to i32
+  %308 = sext i32 %307 to i64
+  %309 = call i64 @llvm.expect.i64(i64 %308, i64 0)
+  %310 = icmp ne i64 %309, 0
+  br i1 %310, label %311, label %312
+
+311:                                              ; preds = %291
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-304:                                              ; preds = %289
-  br label %305
+312:                                              ; preds = %291
+  br label %313
 
-305:                                              ; preds = %304
-  br label %306
+313:                                              ; preds = %312
+  br label %314
 
-306:                                              ; preds = %305
-  %307 = load ptr, ptr %4, align 8
-  %308 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %307, i32 0, i32 0
-  %309 = load ptr, ptr %308, align 8
-  %310 = load ptr, ptr %4, align 8
-  %311 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %310, i32 0, i32 2
-  %312 = load ptr, ptr %311, align 8
-  %313 = load ptr, ptr %7, align 8
-  %314 = getelementptr inbounds %struct._xmlAttr, ptr %313, i32 0, i32 2
-  %315 = load ptr, ptr %314, align 8
-  %316 = call i32 %309(ptr noundef %312, ptr noundef %315)
-  %317 = icmp ne i32 %316, 0
-  %318 = xor i1 %317, true
-  %319 = xor i1 %318, true
-  %320 = zext i1 %319 to i32
-  %321 = sext i32 %320 to i64
-  %322 = icmp ne i64 %321, 0
-  br i1 %322, label %323, label %324
+314:                                              ; preds = %313
+  br label %315
 
-323:                                              ; preds = %306
+315:                                              ; preds = %314
+  %316 = load ptr, ptr %4, align 8, !tbaa !4
+  %317 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %316, i32 0, i32 1
+  %318 = load ptr, ptr %317, align 8, !tbaa !33
+  %319 = load ptr, ptr %4, align 8, !tbaa !4
+  %320 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %319, i32 0, i32 2
+  %321 = load ptr, ptr %320, align 8, !tbaa !34
+  %322 = call i32 %318(ptr noundef %321, ptr noundef @.str.44, i64 noundef 1)
+  %323 = icmp ne i32 %322, 0
+  %324 = xor i1 %323, true
+  %325 = xor i1 %324, true
+  %326 = zext i1 %325 to i32
+  %327 = sext i32 %326 to i64
+  %328 = call i64 @llvm.expect.i64(i64 %327, i64 0)
+  %329 = icmp ne i64 %328, 0
+  br i1 %329, label %330, label %331
+
+330:                                              ; preds = %315
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-324:                                              ; preds = %306
-  br label %325
+331:                                              ; preds = %315
+  br label %332
 
-325:                                              ; preds = %324
-  br label %326
+332:                                              ; preds = %331
+  br label %333
 
-326:                                              ; preds = %325, %287
-  br label %458
+333:                                              ; preds = %332
+  br label %334
 
-327:                                              ; preds = %261
-  %328 = load ptr, ptr %7, align 8
-  %329 = call zeroext i1 @dom_is_ns(ptr noundef %328, ptr noundef @.str.49)
-  br i1 %329, label %330, label %368
+334:                                              ; preds = %333
+  %335 = load ptr, ptr %4, align 8, !tbaa !4
+  %336 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %335, i32 0, i32 0
+  %337 = load ptr, ptr %336, align 8, !tbaa !35
+  %338 = load ptr, ptr %4, align 8, !tbaa !4
+  %339 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %338, i32 0, i32 2
+  %340 = load ptr, ptr %339, align 8, !tbaa !34
+  %341 = load ptr, ptr %6, align 8, !tbaa !40
+  %342 = getelementptr inbounds nuw %struct._xmlAttr, ptr %341, i32 0, i32 2
+  %343 = load ptr, ptr %342, align 8, !tbaa !43
+  %344 = call i32 %337(ptr noundef %340, ptr noundef %343)
+  %345 = icmp ne i32 %344, 0
+  %346 = xor i1 %345, true
+  %347 = xor i1 %346, true
+  %348 = zext i1 %347 to i32
+  %349 = sext i32 %348 to i64
+  %350 = call i64 @llvm.expect.i64(i64 %349, i64 0)
+  %351 = icmp ne i64 %350, 0
+  br i1 %351, label %352, label %353
 
-330:                                              ; preds = %327
-  br label %331
-
-331:                                              ; preds = %330
-  %332 = load ptr, ptr %4, align 8
-  %333 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %332, i32 0, i32 1
-  %334 = load ptr, ptr %333, align 8
-  %335 = load ptr, ptr %4, align 8
-  %336 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %335, i32 0, i32 2
-  %337 = load ptr, ptr %336, align 8
-  %338 = call i32 %334(ptr noundef %337, ptr noundef @.str.50, i64 noundef 6)
-  %339 = icmp ne i32 %338, 0
-  %340 = xor i1 %339, true
-  %341 = xor i1 %340, true
-  %342 = zext i1 %341 to i32
-  %343 = sext i32 %342 to i64
-  %344 = icmp ne i64 %343, 0
-  br i1 %344, label %345, label %346
-
-345:                                              ; preds = %331
+352:                                              ; preds = %334
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-346:                                              ; preds = %331
-  br label %347
+353:                                              ; preds = %334
+  br label %354
 
-347:                                              ; preds = %346
-  br label %348
+354:                                              ; preds = %353
+  br label %355
 
-348:                                              ; preds = %347
-  %349 = load ptr, ptr %4, align 8
-  %350 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %349, i32 0, i32 0
-  %351 = load ptr, ptr %350, align 8
-  %352 = load ptr, ptr %4, align 8
-  %353 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %352, i32 0, i32 2
-  %354 = load ptr, ptr %353, align 8
-  %355 = load ptr, ptr %7, align 8
-  %356 = getelementptr inbounds %struct._xmlAttr, ptr %355, i32 0, i32 2
-  %357 = load ptr, ptr %356, align 8
-  %358 = call i32 %351(ptr noundef %354, ptr noundef %357)
-  %359 = icmp ne i32 %358, 0
-  %360 = xor i1 %359, true
-  %361 = xor i1 %360, true
-  %362 = zext i1 %361 to i32
-  %363 = sext i32 %362 to i64
-  %364 = icmp ne i64 %363, 0
-  br i1 %364, label %365, label %366
+355:                                              ; preds = %354
+  br label %356
 
-365:                                              ; preds = %348
+356:                                              ; preds = %355, %289
+  br label %357
+
+357:                                              ; preds = %356, %259
+  br label %358
+
+358:                                              ; preds = %357, %213
+  br label %359
+
+359:                                              ; preds = %358, %140
+  br label %360
+
+360:                                              ; preds = %359, %94
+  br label %361
+
+361:                                              ; preds = %360
+  %362 = load ptr, ptr %4, align 8, !tbaa !4
+  %363 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %362, i32 0, i32 1
+  %364 = load ptr, ptr %363, align 8, !tbaa !33
+  %365 = load ptr, ptr %4, align 8, !tbaa !4
+  %366 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %365, i32 0, i32 2
+  %367 = load ptr, ptr %366, align 8, !tbaa !34
+  %368 = call i32 %364(ptr noundef %367, ptr noundef @.str.45, i64 noundef 2)
+  %369 = icmp ne i32 %368, 0
+  %370 = xor i1 %369, true
+  %371 = xor i1 %370, true
+  %372 = zext i1 %371 to i32
+  %373 = sext i32 %372 to i64
+  %374 = call i64 @llvm.expect.i64(i64 %373, i64 0)
+  %375 = icmp ne i64 %374, 0
+  br i1 %375, label %376, label %377
+
+376:                                              ; preds = %361
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-366:                                              ; preds = %348
-  br label %367
+377:                                              ; preds = %361
+  br label %378
 
-367:                                              ; preds = %366
-  br label %457
+378:                                              ; preds = %377
+  br label %379
 
-368:                                              ; preds = %327
-  %369 = load ptr, ptr %7, align 8
-  %370 = getelementptr inbounds %struct._xmlAttr, ptr %369, i32 0, i32 9
-  %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds %struct._xmlNs, ptr %371, i32 0, i32 3
-  %373 = load ptr, ptr %372, align 8
-  %374 = icmp eq ptr %373, null
-  br i1 %374, label %375, label %396
+379:                                              ; preds = %378
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %380 = load ptr, ptr %6, align 8, !tbaa !40
+  %381 = getelementptr inbounds nuw %struct._xmlAttr, ptr %380, i32 0, i32 3
+  %382 = load ptr, ptr %381, align 8, !tbaa !46
+  store ptr %382, ptr %8, align 8, !tbaa !8
+  br label %383
 
-375:                                              ; preds = %368
-  br label %376
+383:                                              ; preds = %479, %379
+  %384 = load ptr, ptr %8, align 8, !tbaa !8
+  %385 = icmp ne ptr %384, null
+  br i1 %385, label %387, label %386
 
-376:                                              ; preds = %375
-  %377 = load ptr, ptr %4, align 8
-  %378 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %377, i32 0, i32 0
-  %379 = load ptr, ptr %378, align 8
-  %380 = load ptr, ptr %4, align 8
-  %381 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %380, i32 0, i32 2
-  %382 = load ptr, ptr %381, align 8
-  %383 = load ptr, ptr %7, align 8
-  %384 = getelementptr inbounds %struct._xmlAttr, ptr %383, i32 0, i32 2
-  %385 = load ptr, ptr %384, align 8
-  %386 = call i32 %379(ptr noundef %382, ptr noundef %385)
-  %387 = icmp ne i32 %386, 0
-  %388 = xor i1 %387, true
-  %389 = xor i1 %388, true
-  %390 = zext i1 %389 to i32
-  %391 = sext i32 %390 to i64
-  %392 = icmp ne i64 %391, 0
-  br i1 %392, label %393, label %394
+386:                                              ; preds = %383
+  store i32 37, ptr %7, align 4
+  br label %483
 
-393:                                              ; preds = %376
+387:                                              ; preds = %383
+  %388 = load ptr, ptr %8, align 8, !tbaa !8
+  %389 = getelementptr inbounds nuw %struct._xmlNode, ptr %388, i32 0, i32 1
+  %390 = load i32, ptr %389, align 8, !tbaa !10
+  %391 = icmp eq i32 %390, 3
+  br i1 %391, label %392, label %416
+
+392:                                              ; preds = %387
+  %393 = load ptr, ptr %8, align 8, !tbaa !8
+  %394 = getelementptr inbounds nuw %struct._xmlNode, ptr %393, i32 0, i32 10
+  %395 = load ptr, ptr %394, align 8, !tbaa !38
+  %396 = icmp ne ptr %395, null
+  br i1 %396, label %397, label %415
+
+397:                                              ; preds = %392
+  br label %398
+
+398:                                              ; preds = %397
+  %399 = load ptr, ptr %4, align 8, !tbaa !4
+  %400 = load ptr, ptr %8, align 8, !tbaa !8
+  %401 = getelementptr inbounds nuw %struct._xmlNode, ptr %400, i32 0, i32 10
+  %402 = load ptr, ptr %401, align 8, !tbaa !38
+  %403 = call i32 @dom_html5_escape_string(ptr noundef %399, ptr noundef %402, i1 noundef zeroext true)
+  %404 = icmp ne i32 %403, 0
+  %405 = xor i1 %404, true
+  %406 = xor i1 %405, true
+  %407 = zext i1 %406 to i32
+  %408 = sext i32 %407 to i64
+  %409 = call i64 @llvm.expect.i64(i64 %408, i64 0)
+  %410 = icmp ne i64 %409, 0
+  br i1 %410, label %411, label %412
+
+411:                                              ; preds = %398
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %483
 
-394:                                              ; preds = %376
-  br label %395
+412:                                              ; preds = %398
+  br label %413
 
-395:                                              ; preds = %394
-  br label %456
+413:                                              ; preds = %412
+  br label %414
 
-396:                                              ; preds = %368
-  br label %397
+414:                                              ; preds = %413
+  br label %415
 
-397:                                              ; preds = %396
-  %398 = load ptr, ptr %4, align 8
-  %399 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %398, i32 0, i32 0
-  %400 = load ptr, ptr %399, align 8
-  %401 = load ptr, ptr %4, align 8
-  %402 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %401, i32 0, i32 2
-  %403 = load ptr, ptr %402, align 8
-  %404 = load ptr, ptr %7, align 8
-  %405 = getelementptr inbounds %struct._xmlAttr, ptr %404, i32 0, i32 9
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr inbounds %struct._xmlNs, ptr %406, i32 0, i32 3
-  %408 = load ptr, ptr %407, align 8
-  %409 = call i32 %400(ptr noundef %403, ptr noundef %408)
-  %410 = icmp ne i32 %409, 0
-  %411 = xor i1 %410, true
-  %412 = xor i1 %411, true
-  %413 = zext i1 %412 to i32
-  %414 = sext i32 %413 to i64
-  %415 = icmp ne i64 %414, 0
-  br i1 %415, label %416, label %417
+415:                                              ; preds = %414, %392
+  br label %478
 
-416:                                              ; preds = %397
+416:                                              ; preds = %387
+  %417 = load ptr, ptr %8, align 8, !tbaa !8
+  %418 = getelementptr inbounds nuw %struct._xmlNode, ptr %417, i32 0, i32 1
+  %419 = load i32, ptr %418, align 8, !tbaa !10
+  %420 = icmp eq i32 %419, 5
+  br i1 %420, label %421, label %477
+
+421:                                              ; preds = %416
+  br label %422
+
+422:                                              ; preds = %421
+  %423 = load ptr, ptr %4, align 8, !tbaa !4
+  %424 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %423, i32 0, i32 1
+  %425 = load ptr, ptr %424, align 8, !tbaa !33
+  %426 = load ptr, ptr %4, align 8, !tbaa !4
+  %427 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %426, i32 0, i32 2
+  %428 = load ptr, ptr %427, align 8, !tbaa !34
+  %429 = call i32 %425(ptr noundef %428, ptr noundef @.str.46, i64 noundef 1)
+  %430 = icmp ne i32 %429, 0
+  %431 = xor i1 %430, true
+  %432 = xor i1 %431, true
+  %433 = zext i1 %432 to i32
+  %434 = sext i32 %433 to i64
+  %435 = call i64 @llvm.expect.i64(i64 %434, i64 0)
+  %436 = icmp ne i64 %435, 0
+  br i1 %436, label %437, label %438
+
+437:                                              ; preds = %422
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %483
 
-417:                                              ; preds = %397
-  br label %418
+438:                                              ; preds = %422
+  br label %439
 
-418:                                              ; preds = %417
-  br label %419
+439:                                              ; preds = %438
+  br label %440
 
-419:                                              ; preds = %418
-  %420 = load ptr, ptr %4, align 8
-  %421 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %420, i32 0, i32 1
-  %422 = load ptr, ptr %421, align 8
-  %423 = load ptr, ptr %4, align 8
-  %424 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %423, i32 0, i32 2
-  %425 = load ptr, ptr %424, align 8
-  %426 = call i32 %422(ptr noundef %425, ptr noundef @.str.51, i64 noundef 1)
-  %427 = icmp ne i32 %426, 0
-  %428 = xor i1 %427, true
-  %429 = xor i1 %428, true
-  %430 = zext i1 %429 to i32
-  %431 = sext i32 %430 to i64
-  %432 = icmp ne i64 %431, 0
-  br i1 %432, label %433, label %434
+440:                                              ; preds = %439
+  br label %441
 
-433:                                              ; preds = %419
-  store i32 -1, ptr %3, align 4
-  br label %529
-
-434:                                              ; preds = %419
-  br label %435
-
-435:                                              ; preds = %434
-  br label %436
-
-436:                                              ; preds = %435
-  %437 = load ptr, ptr %4, align 8
-  %438 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %437, i32 0, i32 0
-  %439 = load ptr, ptr %438, align 8
-  %440 = load ptr, ptr %4, align 8
-  %441 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %440, i32 0, i32 2
-  %442 = load ptr, ptr %441, align 8
-  %443 = load ptr, ptr %7, align 8
-  %444 = getelementptr inbounds %struct._xmlAttr, ptr %443, i32 0, i32 2
-  %445 = load ptr, ptr %444, align 8
-  %446 = call i32 %439(ptr noundef %442, ptr noundef %445)
+441:                                              ; preds = %440
+  %442 = load ptr, ptr %4, align 8, !tbaa !4
+  %443 = load ptr, ptr %8, align 8, !tbaa !8
+  %444 = getelementptr inbounds nuw %struct._xmlNode, ptr %443, i32 0, i32 2
+  %445 = load ptr, ptr %444, align 8, !tbaa !24
+  %446 = call i32 @dom_html5_escape_string(ptr noundef %442, ptr noundef %445, i1 noundef zeroext true)
   %447 = icmp ne i32 %446, 0
   %448 = xor i1 %447, true
   %449 = xor i1 %448, true
   %450 = zext i1 %449 to i32
   %451 = sext i32 %450 to i64
-  %452 = icmp ne i64 %451, 0
-  br i1 %452, label %453, label %454
+  %452 = call i64 @llvm.expect.i64(i64 %451, i64 0)
+  %453 = icmp ne i64 %452, 0
+  br i1 %453, label %454, label %455
 
-453:                                              ; preds = %436
+454:                                              ; preds = %441
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %483
 
-454:                                              ; preds = %436
-  br label %455
-
-455:                                              ; preds = %454
+455:                                              ; preds = %441
   br label %456
 
-456:                                              ; preds = %455, %395
+456:                                              ; preds = %455
   br label %457
 
-457:                                              ; preds = %456, %367
+457:                                              ; preds = %456
   br label %458
 
-458:                                              ; preds = %457, %326
-  br label %459
+458:                                              ; preds = %457
+  %459 = load ptr, ptr %4, align 8, !tbaa !4
+  %460 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %459, i32 0, i32 1
+  %461 = load ptr, ptr %460, align 8, !tbaa !33
+  %462 = load ptr, ptr %4, align 8, !tbaa !4
+  %463 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %462, i32 0, i32 2
+  %464 = load ptr, ptr %463, align 8, !tbaa !34
+  %465 = call i32 %461(ptr noundef %464, ptr noundef @.str.47, i64 noundef 1)
+  %466 = icmp ne i32 %465, 0
+  %467 = xor i1 %466, true
+  %468 = xor i1 %467, true
+  %469 = zext i1 %468 to i32
+  %470 = sext i32 %469 to i64
+  %471 = call i64 @llvm.expect.i64(i64 %470, i64 0)
+  %472 = icmp ne i64 %471, 0
+  br i1 %472, label %473, label %474
 
-459:                                              ; preds = %458, %260
-  br label %460
-
-460:                                              ; preds = %459, %219
-  br label %461
-
-461:                                              ; preds = %460
-  %462 = load ptr, ptr %4, align 8
-  %463 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %462, i32 0, i32 1
-  %464 = load ptr, ptr %463, align 8
-  %465 = load ptr, ptr %4, align 8
-  %466 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %465, i32 0, i32 2
-  %467 = load ptr, ptr %466, align 8
-  %468 = call i32 %464(ptr noundef %467, ptr noundef @.str.41, i64 noundef 2)
-  %469 = icmp ne i32 %468, 0
-  %470 = xor i1 %469, true
-  %471 = xor i1 %470, true
-  %472 = zext i1 %471 to i32
-  %473 = sext i32 %472 to i64
-  %474 = icmp ne i64 %473, 0
-  br i1 %474, label %475, label %476
-
-475:                                              ; preds = %461
+473:                                              ; preds = %458
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %483
 
-476:                                              ; preds = %461
+474:                                              ; preds = %458
+  br label %475
+
+475:                                              ; preds = %474
+  br label %476
+
+476:                                              ; preds = %475
   br label %477
 
-477:                                              ; preds = %476
-  %478 = load ptr, ptr %7, align 8
-  %479 = call ptr @xmlNodeGetContent(ptr noundef %478)
-  store ptr %479, ptr %8, align 8
-  %480 = load ptr, ptr %8, align 8
-  %481 = icmp ne ptr %480, null
-  br i1 %481, label %482, label %499
+477:                                              ; preds = %476, %416
+  br label %478
 
-482:                                              ; preds = %477
-  %483 = load ptr, ptr %4, align 8
-  %484 = load ptr, ptr %8, align 8
-  %485 = call i32 @dom_html5_escape_string(ptr noundef %483, ptr noundef %484, i1 noundef zeroext true)
-  store i32 %485, ptr %9, align 4
-  %486 = load ptr, ptr @xmlFree, align 8
-  %487 = load ptr, ptr %8, align 8
-  call void %486(ptr noundef %487)
-  br label %488
+478:                                              ; preds = %477, %415
+  br label %479
 
-488:                                              ; preds = %482
-  %489 = load i32, ptr %9, align 4
-  %490 = icmp ne i32 %489, 0
-  %491 = xor i1 %490, true
-  %492 = xor i1 %491, true
-  %493 = zext i1 %492 to i32
-  %494 = sext i32 %493 to i64
-  %495 = icmp ne i64 %494, 0
-  br i1 %495, label %496, label %497
+479:                                              ; preds = %478
+  %480 = load ptr, ptr %8, align 8, !tbaa !8
+  %481 = getelementptr inbounds nuw %struct._xmlNode, ptr %480, i32 0, i32 6
+  %482 = load ptr, ptr %481, align 8, !tbaa !27
+  store ptr %482, ptr %8, align 8, !tbaa !8
+  br label %383
 
-496:                                              ; preds = %488
+483:                                              ; preds = %473, %454, %437, %411, %386
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %484 = load i32, ptr %7, align 4
+  switch i32 %484, label %509 [
+    i32 37, label %485
+  ]
+
+485:                                              ; preds = %483
+  br label %486
+
+486:                                              ; preds = %485
+  %487 = load ptr, ptr %4, align 8, !tbaa !4
+  %488 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %487, i32 0, i32 1
+  %489 = load ptr, ptr %488, align 8, !tbaa !33
+  %490 = load ptr, ptr %4, align 8, !tbaa !4
+  %491 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %490, i32 0, i32 2
+  %492 = load ptr, ptr %491, align 8, !tbaa !34
+  %493 = call i32 %489(ptr noundef %492, ptr noundef @.str.48, i64 noundef 1)
+  %494 = icmp ne i32 %493, 0
+  %495 = xor i1 %494, true
+  %496 = xor i1 %495, true
+  %497 = zext i1 %496 to i32
+  %498 = sext i32 %497 to i64
+  %499 = call i64 @llvm.expect.i64(i64 %498, i64 0)
+  %500 = icmp ne i64 %499, 0
+  br i1 %500, label %501, label %502
+
+501:                                              ; preds = %486
   store i32 -1, ptr %3, align 4
-  br label %529
+  store i32 1, ptr %7, align 4
+  br label %509
 
-497:                                              ; preds = %488
-  br label %498
+502:                                              ; preds = %486
+  br label %503
 
-498:                                              ; preds = %497
-  br label %499
+503:                                              ; preds = %502
+  br label %504
 
-499:                                              ; preds = %498, %477
-  br label %500
+504:                                              ; preds = %503
+  br label %505
 
-500:                                              ; preds = %499
-  %501 = load ptr, ptr %4, align 8
-  %502 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %501, i32 0, i32 1
-  %503 = load ptr, ptr %502, align 8
-  %504 = load ptr, ptr %4, align 8
-  %505 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %504, i32 0, i32 2
-  %506 = load ptr, ptr %505, align 8
-  %507 = call i32 %503(ptr noundef %506, ptr noundef @.str.43, i64 noundef 1)
-  %508 = icmp ne i32 %507, 0
-  %509 = xor i1 %508, true
-  %510 = xor i1 %509, true
-  %511 = zext i1 %510 to i32
-  %512 = sext i32 %511 to i64
-  %513 = icmp ne i64 %512, 0
-  br i1 %513, label %514, label %515
+505:                                              ; preds = %504
+  %506 = load ptr, ptr %6, align 8, !tbaa !40
+  %507 = getelementptr inbounds nuw %struct._xmlAttr, ptr %506, i32 0, i32 6
+  %508 = load ptr, ptr %507, align 8, !tbaa !47
+  store ptr %508, ptr %6, align 8, !tbaa !40
+  br label %44
 
-514:                                              ; preds = %500
-  store i32 -1, ptr %3, align 4
-  br label %529
+509:                                              ; preds = %501, %483, %376, %352, %330, %311, %286, %256, %234, %209, %187, %167, %137, %115, %91, %64, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %510 = load i32, ptr %7, align 4
+  switch i32 %510, label %521 [
+    i32 6, label %511
+    i32 1, label %519
+  ]
 
-515:                                              ; preds = %500
-  br label %516
+511:                                              ; preds = %509
+  %512 = load ptr, ptr %4, align 8, !tbaa !4
+  %513 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %512, i32 0, i32 1
+  %514 = load ptr, ptr %513, align 8, !tbaa !33
+  %515 = load ptr, ptr %4, align 8, !tbaa !4
+  %516 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %515, i32 0, i32 2
+  %517 = load ptr, ptr %516, align 8, !tbaa !34
+  %518 = call i32 %514(ptr noundef %517, ptr noundef @.str.20, i64 noundef 1)
+  store i32 %518, ptr %3, align 4
+  br label %519
 
-516:                                              ; preds = %515
-  br label %517
+519:                                              ; preds = %511, %509, %38, %24
+  %520 = load i32, ptr %3, align 4
+  ret i32 %520
 
-517:                                              ; preds = %516
-  %518 = load ptr, ptr %7, align 8
-  %519 = getelementptr inbounds %struct._xmlAttr, ptr %518, i32 0, i32 6
-  %520 = load ptr, ptr %519, align 8
-  store ptr %520, ptr %7, align 8
-  br label %174
-
-521:                                              ; preds = %174
-  %522 = load ptr, ptr %4, align 8
-  %523 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %522, i32 0, i32 1
-  %524 = load ptr, ptr %523, align 8
-  %525 = load ptr, ptr %4, align 8
-  %526 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %525, i32 0, i32 2
-  %527 = load ptr, ptr %526, align 8
-  %528 = call i32 %524(ptr noundef %527, ptr noundef @.str.20, i64 noundef 1)
-  store i32 %528, ptr %3, align 4
-  br label %529
-
-529:                                              ; preds = %521, %514, %496, %475, %453, %433, %416, %393, %365, %345, %323, %303, %285, %258, %238, %217, %192, %163, %146, %125, %107, %90, %70, %37, %24
-  %530 = load i32, ptr %3, align 4
-  ret i32 %530
+521:                                              ; preds = %509
+  unreachable
 }
+
+declare i32 @xmlStrEqual(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dom_html5_serialize_element_end(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = call zeroext i1 @dom_html5_serializes_as_void(ptr noundef %6)
-  br i1 %7, label %46, label %8
+  br i1 %7, label %48, label %8
 
 8:                                                ; preds = %2
   br label %9
 
 9:                                                ; preds = %8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %13, i32 0, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %12(ptr noundef %15, ptr noundef @.str.54, i64 noundef 2)
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %13 = load ptr, ptr %4, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %16 = call i32 %12(ptr noundef %15, ptr noundef @.str.49, i64 noundef 2)
   %17 = icmp ne i32 %16, 0
   %18 = xor i1 %17, true
   %19 = xor i1 %18, true
   %20 = zext i1 %19 to i32
   %21 = sext i32 %20 to i64
-  %22 = icmp ne i64 %21, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %9
-  store i32 -1, ptr %3, align 4
-  br label %47
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %25
 
 24:                                               ; preds = %9
-  br label %25
+  store i32 -1, ptr %3, align 4
+  br label %49
 
-25:                                               ; preds = %24
+25:                                               ; preds = %9
   br label %26
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %4, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = call i32 @dom_html5_serialize_element_tag_name(ptr noundef %27, ptr noundef %28)
-  %30 = icmp ne i32 %29, 0
-  %31 = xor i1 %30, true
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = load ptr, ptr %5, align 8, !tbaa !8
+  %30 = call i32 @dom_html5_serialize_element_tag_name(ptr noundef %28, ptr noundef %29)
+  %31 = icmp ne i32 %30, 0
   %32 = xor i1 %31, true
-  %33 = zext i1 %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = icmp ne i64 %34, 0
-  br i1 %35, label %36, label %37
+  %33 = xor i1 %32, true
+  %34 = zext i1 %33 to i32
+  %35 = sext i32 %34 to i64
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 0)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %26
+38:                                               ; preds = %27
   store i32 -1, ptr %3, align 4
-  br label %47
+  br label %49
 
-37:                                               ; preds = %26
-  br label %38
+39:                                               ; preds = %27
+  br label %40
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %42, i32 0, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 %41(ptr noundef %44, ptr noundef @.str.20, i64 noundef 1)
-  store i32 %45, ptr %3, align 4
-  br label %47
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %4, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
+  %44 = load ptr, ptr %4, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %44, i32 0, i32 2
+  %46 = load ptr, ptr %45, align 8, !tbaa !34
+  %47 = call i32 %43(ptr noundef %46, ptr noundef @.str.20, i64 noundef 1)
+  store i32 %47, ptr %3, align 4
+  br label %49
 
-46:                                               ; preds = %2
+48:                                               ; preds = %2
   store i32 0, ptr %3, align 4
-  br label %47
+  br label %49
 
-47:                                               ; preds = %46, %38, %36, %23
-  %48 = load i32, ptr %3, align 4
-  ret i32 %48
+49:                                               ; preds = %48, %40, %38, %24
+  %50 = load i32, ptr %3, align 4
+  ret i32 %50
+}
+
+; Function Attrs: nounwind uwtable
+define internal i32 @dom_html5_serialize_entity_ref(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  br label %6
+
+6:                                                ; preds = %2
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  %13 = call i32 %9(ptr noundef %12, ptr noundef @.str.46, i64 noundef 1)
+  %14 = icmp ne i32 %13, 0
+  %15 = xor i1 %14, true
+  %16 = xor i1 %15, true
+  %17 = zext i1 %16 to i32
+  %18 = sext i32 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %6
+  store i32 -1, ptr %3, align 4
+  br label %52
+
+22:                                               ; preds = %6
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %28, i32 0, i32 2
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct._xmlNode, ptr %31, i32 0, i32 2
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %34 = call i32 %27(ptr noundef %30, ptr noundef %33)
+  %35 = icmp ne i32 %34, 0
+  %36 = xor i1 %35, true
+  %37 = xor i1 %36, true
+  %38 = zext i1 %37 to i32
+  %39 = sext i32 %38 to i64
+  %40 = call i64 @llvm.expect.i64(i64 %39, i64 0)
+  %41 = icmp ne i64 %40, 0
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %24
+  store i32 -1, ptr %3, align 4
+  br label %52
+
+43:                                               ; preds = %24
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %4, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !33
+  %48 = load ptr, ptr %4, align 8, !tbaa !4
+  %49 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %48, i32 0, i32 2
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  %51 = call i32 %47(ptr noundef %50, ptr noundef @.str.47, i64 noundef 1)
+  store i32 %51, ptr %3, align 4
+  br label %52
+
+52:                                               ; preds = %44, %42, %21
+  %53 = load i32, ptr %3, align 4
+  ret i32 %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1962,541 +2326,672 @@ define internal i32 @dom_html5_escape_string(ptr noundef %0, ptr noundef %1, i1 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  %11 = zext i1 %2 to i8
-  store i8 %11, ptr %7, align 1
-  %12 = load ptr, ptr %6, align 8
-  store ptr %12, ptr %8, align 8
-  %13 = load i8, ptr %7, align 1
-  %14 = trunc i8 %13 to i1
-  %15 = select i1 %14, ptr @.str.28, ptr @.str.29
-  store ptr %15, ptr %9, align 8
-  br label %16
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  %12 = zext i1 %2 to i8
+  store i8 %12, ptr %7, align 1, !tbaa !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %13 = load ptr, ptr %6, align 8, !tbaa !30
+  store ptr %13, ptr %8, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  %14 = load i8, ptr %7, align 1, !tbaa !48, !range !50, !noundef !51
+  %15 = trunc i8 %14 to i1
+  %16 = select i1 %15, ptr @.str.28, ptr @.str.29
+  store ptr %16, ptr %9, align 8, !tbaa !30
+  br label %17
 
-16:                                               ; preds = %256, %3
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call i64 @strcspn(ptr noundef %17, ptr noundef %18) #3
-  store i64 %19, ptr %10, align 8
-  %20 = load i64, ptr %10, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %20
-  store ptr %22, ptr %6, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = sext i8 %24 to i32
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %28
+17:                                               ; preds = %283, %3
+  br label %18
 
-27:                                               ; preds = %16
-  br label %259
+18:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %19 = load ptr, ptr %6, align 8, !tbaa !30
+  %20 = load ptr, ptr %9, align 8, !tbaa !30
+  %21 = call i64 @strcspn(ptr noundef %19, ptr noundef %20) #7
+  store i64 %21, ptr %10, align 8, !tbaa !25
+  %22 = load i64, ptr %10, align 8, !tbaa !25
+  %23 = load ptr, ptr %6, align 8, !tbaa !30
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
+  store ptr %24, ptr %6, align 8, !tbaa !30
+  %25 = load ptr, ptr %6, align 8, !tbaa !30
+  %26 = load i8, ptr %25, align 1, !tbaa !52
+  %27 = sext i8 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %16
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i8, ptr %29, align 1
-  %31 = sext i8 %30 to i32
-  switch i32 %31, label %256 [
-    i32 38, label %32
-    i32 -62, label %75
-    i32 34, label %127
-    i32 60, label %170
-    i32 62, label %213
+29:                                               ; preds = %18
+  store i32 3, ptr %11, align 4
+  br label %281
+
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %6, align 8, !tbaa !30
+  %32 = load i8, ptr %31, align 1, !tbaa !52
+  %33 = sext i8 %32 to i32
+  switch i32 %33, label %278 [
+    i32 38, label %34
+    i32 -62, label %81
+    i32 34, label %137
+    i32 60, label %184
+    i32 62, label %231
   ]
 
-32:                                               ; preds = %28
-  br label %33
+34:                                               ; preds = %30
+  br label %35
 
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %37, i32 0, i32 2
-  %39 = load ptr, ptr %38, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = load ptr, ptr %8, align 8
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = call i32 %36(ptr noundef %39, ptr noundef %40, i64 noundef %45)
-  %47 = icmp ne i32 %46, 0
-  %48 = xor i1 %47, true
-  %49 = xor i1 %48, true
-  %50 = zext i1 %49 to i32
-  %51 = sext i32 %50 to i64
-  %52 = icmp ne i64 %51, 0
-  br i1 %52, label %53, label %54
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8, !tbaa !33
+  %39 = load ptr, ptr %5, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %42 = load ptr, ptr %8, align 8, !tbaa !30
+  %43 = load ptr, ptr %6, align 8, !tbaa !30
+  %44 = load ptr, ptr %8, align 8, !tbaa !30
+  %45 = ptrtoint ptr %43 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = call i32 %38(ptr noundef %41, ptr noundef %42, i64 noundef %47)
+  %49 = icmp ne i32 %48, 0
+  %50 = xor i1 %49, true
+  %51 = xor i1 %50, true
+  %52 = zext i1 %51 to i32
+  %53 = sext i32 %52 to i64
+  %54 = call i64 @llvm.expect.i64(i64 %53, i64 0)
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %57
 
-53:                                               ; preds = %33
+56:                                               ; preds = %35
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-54:                                               ; preds = %33
-  br label %55
+57:                                               ; preds = %35
+  br label %58
 
-55:                                               ; preds = %54
-  br label %56
+58:                                               ; preds = %57
+  br label %59
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %57, i32 0, i32 1
-  %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %60, i32 0, i32 2
-  %62 = load ptr, ptr %61, align 8
-  %63 = call i32 %59(ptr noundef %62, ptr noundef @.str.30, i64 noundef 5)
-  %64 = icmp ne i32 %63, 0
-  %65 = xor i1 %64, true
-  %66 = xor i1 %65, true
-  %67 = zext i1 %66 to i32
-  %68 = sext i32 %67 to i64
-  %69 = icmp ne i64 %68, 0
-  br i1 %69, label %70, label %71
+59:                                               ; preds = %58
+  br label %60
 
-70:                                               ; preds = %56
+60:                                               ; preds = %59
+  %61 = load ptr, ptr %5, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !33
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !34
+  %67 = call i32 %63(ptr noundef %66, ptr noundef @.str.30, i64 noundef 5)
+  %68 = icmp ne i32 %67, 0
+  %69 = xor i1 %68, true
+  %70 = xor i1 %69, true
+  %71 = zext i1 %70 to i32
+  %72 = sext i32 %71 to i64
+  %73 = call i64 @llvm.expect.i64(i64 %72, i64 0)
+  %74 = icmp ne i64 %73, 0
+  br i1 %74, label %75, label %76
+
+75:                                               ; preds = %60
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-71:                                               ; preds = %56
-  br label %72
+76:                                               ; preds = %60
+  br label %77
 
-72:                                               ; preds = %71
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1
-  store ptr %74, ptr %8, align 8
-  br label %256
+77:                                               ; preds = %76
+  br label %78
 
-75:                                               ; preds = %28
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
-  %78 = load i8, ptr %77, align 1
-  %79 = sext i8 %78 to i32
-  %80 = icmp eq i32 %79, -96
-  br i1 %80, label %81, label %126
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %6, align 8, !tbaa !30
+  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  store ptr %80, ptr %8, align 8, !tbaa !30
+  br label %278
 
-81:                                               ; preds = %75
-  br label %82
+81:                                               ; preds = %30
+  %82 = load ptr, ptr %6, align 8, !tbaa !30
+  %83 = getelementptr inbounds i8, ptr %82, i64 1
+  %84 = load i8, ptr %83, align 1, !tbaa !52
+  %85 = sext i8 %84 to i32
+  %86 = icmp eq i32 %85, -96
+  br i1 %86, label %87, label %136
 
-82:                                               ; preds = %81
-  %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %86, i32 0, i32 2
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr %8, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = ptrtoint ptr %90 to i64
-  %93 = ptrtoint ptr %91 to i64
-  %94 = sub i64 %92, %93
-  %95 = call i32 %85(ptr noundef %88, ptr noundef %89, i64 noundef %94)
-  %96 = icmp ne i32 %95, 0
-  %97 = xor i1 %96, true
-  %98 = xor i1 %97, true
-  %99 = zext i1 %98 to i32
-  %100 = sext i32 %99 to i64
-  %101 = icmp ne i64 %100, 0
-  br i1 %101, label %102, label %103
+87:                                               ; preds = %81
+  br label %88
 
-102:                                              ; preds = %82
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %5, align 8, !tbaa !4
+  %90 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !33
+  %92 = load ptr, ptr %5, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %92, i32 0, i32 2
+  %94 = load ptr, ptr %93, align 8, !tbaa !34
+  %95 = load ptr, ptr %8, align 8, !tbaa !30
+  %96 = load ptr, ptr %6, align 8, !tbaa !30
+  %97 = load ptr, ptr %8, align 8, !tbaa !30
+  %98 = ptrtoint ptr %96 to i64
+  %99 = ptrtoint ptr %97 to i64
+  %100 = sub i64 %98, %99
+  %101 = call i32 %91(ptr noundef %94, ptr noundef %95, i64 noundef %100)
+  %102 = icmp ne i32 %101, 0
+  %103 = xor i1 %102, true
+  %104 = xor i1 %103, true
+  %105 = zext i1 %104 to i32
+  %106 = sext i32 %105 to i64
+  %107 = call i64 @llvm.expect.i64(i64 %106, i64 0)
+  %108 = icmp ne i64 %107, 0
+  br i1 %108, label %109, label %110
+
+109:                                              ; preds = %88
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-103:                                              ; preds = %82
-  br label %104
+110:                                              ; preds = %88
+  br label %111
 
-104:                                              ; preds = %103
-  br label %105
+111:                                              ; preds = %110
+  br label %112
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr %5, align 8
-  %107 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %106, i32 0, i32 1
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %109, i32 0, i32 2
-  %111 = load ptr, ptr %110, align 8
-  %112 = call i32 %108(ptr noundef %111, ptr noundef @.str.31, i64 noundef 6)
-  %113 = icmp ne i32 %112, 0
-  %114 = xor i1 %113, true
-  %115 = xor i1 %114, true
-  %116 = zext i1 %115 to i32
-  %117 = sext i32 %116 to i64
-  %118 = icmp ne i64 %117, 0
-  br i1 %118, label %119, label %120
+112:                                              ; preds = %111
+  br label %113
 
-119:                                              ; preds = %105
+113:                                              ; preds = %112
+  %114 = load ptr, ptr %5, align 8, !tbaa !4
+  %115 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %114, i32 0, i32 1
+  %116 = load ptr, ptr %115, align 8, !tbaa !33
+  %117 = load ptr, ptr %5, align 8, !tbaa !4
+  %118 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %117, i32 0, i32 2
+  %119 = load ptr, ptr %118, align 8, !tbaa !34
+  %120 = call i32 %116(ptr noundef %119, ptr noundef @.str.31, i64 noundef 6)
+  %121 = icmp ne i32 %120, 0
+  %122 = xor i1 %121, true
+  %123 = xor i1 %122, true
+  %124 = zext i1 %123 to i32
+  %125 = sext i32 %124 to i64
+  %126 = call i64 @llvm.expect.i64(i64 %125, i64 0)
+  %127 = icmp ne i64 %126, 0
+  br i1 %127, label %128, label %129
+
+128:                                              ; preds = %113
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-120:                                              ; preds = %105
-  br label %121
+129:                                              ; preds = %113
+  br label %130
 
-121:                                              ; preds = %120
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i32 1
-  store ptr %123, ptr %6, align 8
-  %124 = load ptr, ptr %6, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 1
-  store ptr %125, ptr %8, align 8
-  br label %126
+130:                                              ; preds = %129
+  br label %131
 
-126:                                              ; preds = %121, %75
-  br label %256
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %6, align 8, !tbaa !30
+  %133 = getelementptr inbounds nuw i8, ptr %132, i32 1
+  store ptr %133, ptr %6, align 8, !tbaa !30
+  %134 = load ptr, ptr %6, align 8, !tbaa !30
+  %135 = getelementptr inbounds i8, ptr %134, i64 1
+  store ptr %135, ptr %8, align 8, !tbaa !30
+  br label %136
 
-127:                                              ; preds = %28
-  br label %128
+136:                                              ; preds = %131, %81
+  br label %278
 
-128:                                              ; preds = %127
-  %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %129, i32 0, i32 1
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %132, i32 0, i32 2
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr %8, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = load ptr, ptr %8, align 8
-  %138 = ptrtoint ptr %136 to i64
-  %139 = ptrtoint ptr %137 to i64
-  %140 = sub i64 %138, %139
-  %141 = call i32 %131(ptr noundef %134, ptr noundef %135, i64 noundef %140)
-  %142 = icmp ne i32 %141, 0
-  %143 = xor i1 %142, true
-  %144 = xor i1 %143, true
-  %145 = zext i1 %144 to i32
-  %146 = sext i32 %145 to i64
-  %147 = icmp ne i64 %146, 0
-  br i1 %147, label %148, label %149
+137:                                              ; preds = %30
+  br label %138
 
-148:                                              ; preds = %128
+138:                                              ; preds = %137
+  %139 = load ptr, ptr %5, align 8, !tbaa !4
+  %140 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %139, i32 0, i32 1
+  %141 = load ptr, ptr %140, align 8, !tbaa !33
+  %142 = load ptr, ptr %5, align 8, !tbaa !4
+  %143 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %142, i32 0, i32 2
+  %144 = load ptr, ptr %143, align 8, !tbaa !34
+  %145 = load ptr, ptr %8, align 8, !tbaa !30
+  %146 = load ptr, ptr %6, align 8, !tbaa !30
+  %147 = load ptr, ptr %8, align 8, !tbaa !30
+  %148 = ptrtoint ptr %146 to i64
+  %149 = ptrtoint ptr %147 to i64
+  %150 = sub i64 %148, %149
+  %151 = call i32 %141(ptr noundef %144, ptr noundef %145, i64 noundef %150)
+  %152 = icmp ne i32 %151, 0
+  %153 = xor i1 %152, true
+  %154 = xor i1 %153, true
+  %155 = zext i1 %154 to i32
+  %156 = sext i32 %155 to i64
+  %157 = call i64 @llvm.expect.i64(i64 %156, i64 0)
+  %158 = icmp ne i64 %157, 0
+  br i1 %158, label %159, label %160
+
+159:                                              ; preds = %138
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-149:                                              ; preds = %128
-  br label %150
+160:                                              ; preds = %138
+  br label %161
 
-150:                                              ; preds = %149
-  br label %151
+161:                                              ; preds = %160
+  br label %162
 
-151:                                              ; preds = %150
-  %152 = load ptr, ptr %5, align 8
-  %153 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %152, i32 0, i32 1
-  %154 = load ptr, ptr %153, align 8
-  %155 = load ptr, ptr %5, align 8
-  %156 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %155, i32 0, i32 2
-  %157 = load ptr, ptr %156, align 8
-  %158 = call i32 %154(ptr noundef %157, ptr noundef @.str.32, i64 noundef 6)
-  %159 = icmp ne i32 %158, 0
-  %160 = xor i1 %159, true
-  %161 = xor i1 %160, true
-  %162 = zext i1 %161 to i32
-  %163 = sext i32 %162 to i64
-  %164 = icmp ne i64 %163, 0
-  br i1 %164, label %165, label %166
+162:                                              ; preds = %161
+  br label %163
 
-165:                                              ; preds = %151
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %5, align 8, !tbaa !4
+  %165 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %164, i32 0, i32 1
+  %166 = load ptr, ptr %165, align 8, !tbaa !33
+  %167 = load ptr, ptr %5, align 8, !tbaa !4
+  %168 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %167, i32 0, i32 2
+  %169 = load ptr, ptr %168, align 8, !tbaa !34
+  %170 = call i32 %166(ptr noundef %169, ptr noundef @.str.32, i64 noundef 6)
+  %171 = icmp ne i32 %170, 0
+  %172 = xor i1 %171, true
+  %173 = xor i1 %172, true
+  %174 = zext i1 %173 to i32
+  %175 = sext i32 %174 to i64
+  %176 = call i64 @llvm.expect.i64(i64 %175, i64 0)
+  %177 = icmp ne i64 %176, 0
+  br i1 %177, label %178, label %179
+
+178:                                              ; preds = %163
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-166:                                              ; preds = %151
-  br label %167
+179:                                              ; preds = %163
+  br label %180
 
-167:                                              ; preds = %166
-  %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 1
-  store ptr %169, ptr %8, align 8
-  br label %256
+180:                                              ; preds = %179
+  br label %181
 
-170:                                              ; preds = %28
-  br label %171
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %6, align 8, !tbaa !30
+  %183 = getelementptr inbounds i8, ptr %182, i64 1
+  store ptr %183, ptr %8, align 8, !tbaa !30
+  br label %278
 
-171:                                              ; preds = %170
-  %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %172, i32 0, i32 1
-  %174 = load ptr, ptr %173, align 8
-  %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %175, i32 0, i32 2
-  %177 = load ptr, ptr %176, align 8
-  %178 = load ptr, ptr %8, align 8
-  %179 = load ptr, ptr %6, align 8
-  %180 = load ptr, ptr %8, align 8
-  %181 = ptrtoint ptr %179 to i64
-  %182 = ptrtoint ptr %180 to i64
-  %183 = sub i64 %181, %182
-  %184 = call i32 %174(ptr noundef %177, ptr noundef %178, i64 noundef %183)
-  %185 = icmp ne i32 %184, 0
-  %186 = xor i1 %185, true
-  %187 = xor i1 %186, true
-  %188 = zext i1 %187 to i32
-  %189 = sext i32 %188 to i64
-  %190 = icmp ne i64 %189, 0
-  br i1 %190, label %191, label %192
+184:                                              ; preds = %30
+  br label %185
 
-191:                                              ; preds = %171
+185:                                              ; preds = %184
+  %186 = load ptr, ptr %5, align 8, !tbaa !4
+  %187 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %186, i32 0, i32 1
+  %188 = load ptr, ptr %187, align 8, !tbaa !33
+  %189 = load ptr, ptr %5, align 8, !tbaa !4
+  %190 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %189, i32 0, i32 2
+  %191 = load ptr, ptr %190, align 8, !tbaa !34
+  %192 = load ptr, ptr %8, align 8, !tbaa !30
+  %193 = load ptr, ptr %6, align 8, !tbaa !30
+  %194 = load ptr, ptr %8, align 8, !tbaa !30
+  %195 = ptrtoint ptr %193 to i64
+  %196 = ptrtoint ptr %194 to i64
+  %197 = sub i64 %195, %196
+  %198 = call i32 %188(ptr noundef %191, ptr noundef %192, i64 noundef %197)
+  %199 = icmp ne i32 %198, 0
+  %200 = xor i1 %199, true
+  %201 = xor i1 %200, true
+  %202 = zext i1 %201 to i32
+  %203 = sext i32 %202 to i64
+  %204 = call i64 @llvm.expect.i64(i64 %203, i64 0)
+  %205 = icmp ne i64 %204, 0
+  br i1 %205, label %206, label %207
+
+206:                                              ; preds = %185
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-192:                                              ; preds = %171
-  br label %193
+207:                                              ; preds = %185
+  br label %208
 
-193:                                              ; preds = %192
-  br label %194
+208:                                              ; preds = %207
+  br label %209
 
-194:                                              ; preds = %193
-  %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %195, i32 0, i32 1
-  %197 = load ptr, ptr %196, align 8
-  %198 = load ptr, ptr %5, align 8
-  %199 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %198, i32 0, i32 2
-  %200 = load ptr, ptr %199, align 8
-  %201 = call i32 %197(ptr noundef %200, ptr noundef @.str.33, i64 noundef 4)
-  %202 = icmp ne i32 %201, 0
-  %203 = xor i1 %202, true
-  %204 = xor i1 %203, true
-  %205 = zext i1 %204 to i32
-  %206 = sext i32 %205 to i64
-  %207 = icmp ne i64 %206, 0
-  br i1 %207, label %208, label %209
-
-208:                                              ; preds = %194
-  store i32 -1, ptr %4, align 4
-  br label %273
-
-209:                                              ; preds = %194
+209:                                              ; preds = %208
   br label %210
 
 210:                                              ; preds = %209
-  %211 = load ptr, ptr %6, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 1
-  store ptr %212, ptr %8, align 8
-  br label %256
+  %211 = load ptr, ptr %5, align 8, !tbaa !4
+  %212 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %211, i32 0, i32 1
+  %213 = load ptr, ptr %212, align 8, !tbaa !33
+  %214 = load ptr, ptr %5, align 8, !tbaa !4
+  %215 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %214, i32 0, i32 2
+  %216 = load ptr, ptr %215, align 8, !tbaa !34
+  %217 = call i32 %213(ptr noundef %216, ptr noundef @.str.33, i64 noundef 4)
+  %218 = icmp ne i32 %217, 0
+  %219 = xor i1 %218, true
+  %220 = xor i1 %219, true
+  %221 = zext i1 %220 to i32
+  %222 = sext i32 %221 to i64
+  %223 = call i64 @llvm.expect.i64(i64 %222, i64 0)
+  %224 = icmp ne i64 %223, 0
+  br i1 %224, label %225, label %226
 
-213:                                              ; preds = %28
-  br label %214
-
-214:                                              ; preds = %213
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %215, i32 0, i32 1
-  %217 = load ptr, ptr %216, align 8
-  %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %218, i32 0, i32 2
-  %220 = load ptr, ptr %219, align 8
-  %221 = load ptr, ptr %8, align 8
-  %222 = load ptr, ptr %6, align 8
-  %223 = load ptr, ptr %8, align 8
-  %224 = ptrtoint ptr %222 to i64
-  %225 = ptrtoint ptr %223 to i64
-  %226 = sub i64 %224, %225
-  %227 = call i32 %217(ptr noundef %220, ptr noundef %221, i64 noundef %226)
-  %228 = icmp ne i32 %227, 0
-  %229 = xor i1 %228, true
-  %230 = xor i1 %229, true
-  %231 = zext i1 %230 to i32
-  %232 = sext i32 %231 to i64
-  %233 = icmp ne i64 %232, 0
-  br i1 %233, label %234, label %235
-
-234:                                              ; preds = %214
+225:                                              ; preds = %210
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-235:                                              ; preds = %214
-  br label %236
+226:                                              ; preds = %210
+  br label %227
 
-236:                                              ; preds = %235
-  br label %237
+227:                                              ; preds = %226
+  br label %228
 
-237:                                              ; preds = %236
-  %238 = load ptr, ptr %5, align 8
-  %239 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %238, i32 0, i32 1
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr %5, align 8
-  %242 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %241, i32 0, i32 2
-  %243 = load ptr, ptr %242, align 8
-  %244 = call i32 %240(ptr noundef %243, ptr noundef @.str.34, i64 noundef 4)
-  %245 = icmp ne i32 %244, 0
-  %246 = xor i1 %245, true
+228:                                              ; preds = %227
+  %229 = load ptr, ptr %6, align 8, !tbaa !30
+  %230 = getelementptr inbounds i8, ptr %229, i64 1
+  store ptr %230, ptr %8, align 8, !tbaa !30
+  br label %278
+
+231:                                              ; preds = %30
+  br label %232
+
+232:                                              ; preds = %231
+  %233 = load ptr, ptr %5, align 8, !tbaa !4
+  %234 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %233, i32 0, i32 1
+  %235 = load ptr, ptr %234, align 8, !tbaa !33
+  %236 = load ptr, ptr %5, align 8, !tbaa !4
+  %237 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %236, i32 0, i32 2
+  %238 = load ptr, ptr %237, align 8, !tbaa !34
+  %239 = load ptr, ptr %8, align 8, !tbaa !30
+  %240 = load ptr, ptr %6, align 8, !tbaa !30
+  %241 = load ptr, ptr %8, align 8, !tbaa !30
+  %242 = ptrtoint ptr %240 to i64
+  %243 = ptrtoint ptr %241 to i64
+  %244 = sub i64 %242, %243
+  %245 = call i32 %235(ptr noundef %238, ptr noundef %239, i64 noundef %244)
+  %246 = icmp ne i32 %245, 0
   %247 = xor i1 %246, true
-  %248 = zext i1 %247 to i32
-  %249 = sext i32 %248 to i64
-  %250 = icmp ne i64 %249, 0
-  br i1 %250, label %251, label %252
+  %248 = xor i1 %247, true
+  %249 = zext i1 %248 to i32
+  %250 = sext i32 %249 to i64
+  %251 = call i64 @llvm.expect.i64(i64 %250, i64 0)
+  %252 = icmp ne i64 %251, 0
+  br i1 %252, label %253, label %254
 
-251:                                              ; preds = %237
+253:                                              ; preds = %232
   store i32 -1, ptr %4, align 4
-  br label %273
+  store i32 1, ptr %11, align 4
+  br label %281
 
-252:                                              ; preds = %237
-  br label %253
+254:                                              ; preds = %232
+  br label %255
 
-253:                                              ; preds = %252
-  %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 1
-  store ptr %255, ptr %8, align 8
+255:                                              ; preds = %254
   br label %256
 
-256:                                              ; preds = %253, %210, %167, %126, %72, %28
-  %257 = load ptr, ptr %6, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i32 1
-  store ptr %258, ptr %6, align 8
-  br label %16
+256:                                              ; preds = %255
+  br label %257
 
-259:                                              ; preds = %27
-  %260 = load ptr, ptr %5, align 8
-  %261 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %260, i32 0, i32 1
-  %262 = load ptr, ptr %261, align 8
-  %263 = load ptr, ptr %5, align 8
-  %264 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %263, i32 0, i32 2
-  %265 = load ptr, ptr %264, align 8
-  %266 = load ptr, ptr %8, align 8
-  %267 = load ptr, ptr %6, align 8
-  %268 = load ptr, ptr %8, align 8
-  %269 = ptrtoint ptr %267 to i64
-  %270 = ptrtoint ptr %268 to i64
-  %271 = sub i64 %269, %270
-  %272 = call i32 %262(ptr noundef %265, ptr noundef %266, i64 noundef %271)
-  store i32 %272, ptr %4, align 4
-  br label %273
+257:                                              ; preds = %256
+  %258 = load ptr, ptr %5, align 8, !tbaa !4
+  %259 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %259, align 8, !tbaa !33
+  %261 = load ptr, ptr %5, align 8, !tbaa !4
+  %262 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %261, i32 0, i32 2
+  %263 = load ptr, ptr %262, align 8, !tbaa !34
+  %264 = call i32 %260(ptr noundef %263, ptr noundef @.str.34, i64 noundef 4)
+  %265 = icmp ne i32 %264, 0
+  %266 = xor i1 %265, true
+  %267 = xor i1 %266, true
+  %268 = zext i1 %267 to i32
+  %269 = sext i32 %268 to i64
+  %270 = call i64 @llvm.expect.i64(i64 %269, i64 0)
+  %271 = icmp ne i64 %270, 0
+  br i1 %271, label %272, label %273
 
-273:                                              ; preds = %259, %251, %234, %208, %191, %165, %148, %119, %102, %70, %53
-  %274 = load i32, ptr %4, align 4
-  ret i32 %274
+272:                                              ; preds = %257
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %281
+
+273:                                              ; preds = %257
+  br label %274
+
+274:                                              ; preds = %273
+  br label %275
+
+275:                                              ; preds = %274
+  %276 = load ptr, ptr %6, align 8, !tbaa !30
+  %277 = getelementptr inbounds i8, ptr %276, i64 1
+  store ptr %277, ptr %8, align 8, !tbaa !30
+  br label %278
+
+278:                                              ; preds = %30, %275, %228, %181, %136, %78
+  %279 = load ptr, ptr %6, align 8, !tbaa !30
+  %280 = getelementptr inbounds nuw i8, ptr %279, i32 1
+  store ptr %280, ptr %6, align 8, !tbaa !30
+  store i32 0, ptr %11, align 4
+  br label %281
+
+281:                                              ; preds = %278, %272, %253, %225, %206, %178, %159, %128, %109, %75, %56, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  %282 = load i32, ptr %11, align 4
+  switch i32 %282, label %298 [
+    i32 0, label %283
+    i32 3, label %284
+  ]
+
+283:                                              ; preds = %281
+  br label %17
+
+284:                                              ; preds = %281
+  %285 = load ptr, ptr %5, align 8, !tbaa !4
+  %286 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %285, i32 0, i32 1
+  %287 = load ptr, ptr %286, align 8, !tbaa !33
+  %288 = load ptr, ptr %5, align 8, !tbaa !4
+  %289 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %288, i32 0, i32 2
+  %290 = load ptr, ptr %289, align 8, !tbaa !34
+  %291 = load ptr, ptr %8, align 8, !tbaa !30
+  %292 = load ptr, ptr %6, align 8, !tbaa !30
+  %293 = load ptr, ptr %8, align 8, !tbaa !30
+  %294 = ptrtoint ptr %292 to i64
+  %295 = ptrtoint ptr %293 to i64
+  %296 = sub i64 %294, %295
+  %297 = call i32 %287(ptr noundef %290, ptr noundef %291, i64 noundef %296)
+  store i32 %297, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %298
+
+298:                                              ; preds = %284, %281
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %299 = load i32, ptr %4, align 4
+  ret i32 %299
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strcspn(ptr noundef, ptr noundef) #1
+declare i64 @strcspn(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dom_html5_serialize_element_tag_name(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct._xmlNode, ptr %6, i32 0, i32 9
-  %8 = load ptr, ptr %7, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %5, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct._xmlNode, ptr %6, i32 0, i32 9
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %66
+  br i1 %9, label %10, label %71
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct._xmlNode, ptr %11, i32 0, i32 9
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._xmlNs, ptr %13, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct._xmlNode, ptr %11, i32 0, i32 9
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
+  %14 = getelementptr inbounds nuw %struct._xmlNs, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = icmp ne ptr %15, null
-  br i1 %16, label %17, label %66
+  br i1 %16, label %17, label %71
 
 17:                                               ; preds = %10
-  %18 = load ptr, ptr %5, align 8
-  %19 = call zeroext i1 @dom_is_html_ns(ptr noundef %18)
-  br i1 %19, label %66, label %20
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !22
+  %20 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %18, ptr noundef %19)
+  br i1 %20, label %71, label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %5, align 8
-  %22 = call zeroext i1 @dom_is_ns(ptr noundef %21, ptr noundef @.str.52)
-  br i1 %22, label %66, label %23
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %5, align 8, !tbaa !8
+  %23 = load ptr, ptr @php_dom_ns_is_mathml_magic_token, align 8, !tbaa !22
+  %24 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %22, ptr noundef %23)
+  br i1 %24, label %71, label %25
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %5, align 8
-  %25 = call zeroext i1 @dom_is_ns(ptr noundef %24, ptr noundef @.str.53)
-  br i1 %25, label %66, label %26
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = load ptr, ptr @php_dom_ns_is_svg_magic_token, align 8, !tbaa !22
+  %28 = call zeroext i1 @php_dom_ns_is_fast(ptr noundef %26, ptr noundef %27)
+  br i1 %28, label %71, label %29
 
-26:                                               ; preds = %23
-  br label %27
+29:                                               ; preds = %25
+  br label %30
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %28, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %31, i32 0, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct._xmlNode, ptr %34, i32 0, i32 9
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct._xmlNs, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = call i32 %30(ptr noundef %33, ptr noundef %38)
-  %40 = icmp ne i32 %39, 0
-  %41 = xor i1 %40, true
-  %42 = xor i1 %41, true
-  %43 = zext i1 %42 to i32
-  %44 = sext i32 %43 to i64
-  %45 = icmp ne i64 %44, 0
-  br i1 %45, label %46, label %47
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  %34 = load ptr, ptr %4, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !34
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct._xmlNode, ptr %37, i32 0, i32 9
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  %40 = getelementptr inbounds nuw %struct._xmlNs, ptr %39, i32 0, i32 3
+  %41 = load ptr, ptr %40, align 8, !tbaa !44
+  %42 = call i32 %33(ptr noundef %36, ptr noundef %41)
+  %43 = icmp ne i32 %42, 0
+  %44 = xor i1 %43, true
+  %45 = xor i1 %44, true
+  %46 = zext i1 %45 to i32
+  %47 = sext i32 %46 to i64
+  %48 = call i64 @llvm.expect.i64(i64 %47, i64 0)
+  %49 = icmp ne i64 %48, 0
+  br i1 %49, label %50, label %51
 
-46:                                               ; preds = %27
+50:                                               ; preds = %30
   store i32 -1, ptr %3, align 4
-  br label %77
+  br label %82
 
-47:                                               ; preds = %27
-  br label %48
+51:                                               ; preds = %30
+  br label %52
 
-48:                                               ; preds = %47
-  br label %49
+52:                                               ; preds = %51
+  br label %53
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %53, i32 0, i32 2
-  %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %52(ptr noundef %55, ptr noundef @.str.51, i64 noundef 1)
-  %57 = icmp ne i32 %56, 0
-  %58 = xor i1 %57, true
-  %59 = xor i1 %58, true
-  %60 = zext i1 %59 to i32
-  %61 = sext i32 %60 to i64
-  %62 = icmp ne i64 %61, 0
-  br i1 %62, label %63, label %64
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %4, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
+  %57 = load ptr, ptr %4, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %57, i32 0, i32 2
+  %59 = load ptr, ptr %58, align 8, !tbaa !34
+  %60 = call i32 %56(ptr noundef %59, ptr noundef @.str.44, i64 noundef 1)
+  %61 = icmp ne i32 %60, 0
+  %62 = xor i1 %61, true
+  %63 = xor i1 %62, true
+  %64 = zext i1 %63 to i32
+  %65 = sext i32 %64 to i64
+  %66 = call i64 @llvm.expect.i64(i64 %65, i64 0)
+  %67 = icmp ne i64 %66, 0
+  br i1 %67, label %68, label %69
 
-63:                                               ; preds = %49
+68:                                               ; preds = %53
   store i32 -1, ptr %3, align 4
-  br label %77
+  br label %82
 
-64:                                               ; preds = %49
-  br label %65
+69:                                               ; preds = %53
+  br label %70
 
-65:                                               ; preds = %64
-  br label %66
+70:                                               ; preds = %69
+  br label %71
 
-66:                                               ; preds = %65, %23, %20, %17, %10, %2
-  %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.dom_html5_serialize_context, ptr %70, i32 0, i32 2
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds %struct._xmlNode, ptr %73, i32 0, i32 2
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i32 %69(ptr noundef %72, ptr noundef %75)
-  store i32 %76, ptr %3, align 4
-  br label %77
+71:                                               ; preds = %70, %25, %21, %17, %10, %2
+  %72 = load ptr, ptr %4, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8, !tbaa !35
+  %75 = load ptr, ptr %4, align 8, !tbaa !4
+  %76 = getelementptr inbounds nuw %struct.dom_html5_serialize_context, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %76, align 8, !tbaa !34
+  %78 = load ptr, ptr %5, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw %struct._xmlNode, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %79, align 8, !tbaa !24
+  %81 = call i32 %74(ptr noundef %77, ptr noundef %80)
+  store i32 %81, ptr %3, align 4
+  br label %82
 
-77:                                               ; preds = %66, %63, %46
-  %78 = load i32, ptr %3, align 4
-  ret i32 %78
+82:                                               ; preds = %71, %68, %50
+  %83 = load i32, ptr %3, align 4
+  ret i32 %83
 }
 
-declare zeroext i1 @dom_ns_is_also_an_attribute(ptr noundef) #2
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-declare ptr @xmlNodeGetContent(ptr noundef) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS8_xmlNode", !5, i64 0}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"_xmlNode", !5, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !14, i64 64, !15, i64 72, !13, i64 80, !16, i64 88, !15, i64 96, !5, i64 104, !17, i64 112, !17, i64 114}
+!12 = !{!"int", !6, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!"p1 _ZTS7_xmlDoc", !5, i64 0}
+!15 = !{!"p1 _ZTS6_xmlNs", !5, i64 0}
+!16 = !{!"p1 _ZTS8_xmlAttr", !5, i64 0}
+!17 = !{!"short", !6, i64 0}
+!18 = !{!19, !20, i64 24}
+!19 = !{!"", !5, i64 0, !5, i64 8, !5, i64 16, !20, i64 24}
+!20 = !{!"p1 _ZTS20php_dom_private_data", !5, i64 0}
+!21 = !{!11, !9, i64 24}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS22php_dom_ns_magic_token", !5, i64 0}
+!24 = !{!11, !13, i64 16}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !6, i64 0}
+!27 = !{!11, !9, i64 48}
+!28 = !{!11, !9, i64 40}
+!29 = !{!12, !12, i64 0}
+!30 = !{!13, !13, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS7_xmlDtd", !5, i64 0}
+!33 = !{!19, !5, i64 8}
+!34 = !{!19, !5, i64 16}
+!35 = !{!19, !5, i64 0}
+!36 = !{!37, !13, i64 16}
+!37 = !{!"_xmlDtd", !5, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !9, i64 32, !14, i64 40, !9, i64 48, !9, i64 56, !14, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !13, i64 104, !13, i64 112, !5, i64 120}
+!38 = !{!11, !13, i64 80}
+!39 = !{!11, !16, i64 88}
+!40 = !{!16, !16, i64 0}
+!41 = !{!42, !15, i64 72}
+!42 = !{!"_xmlAttr", !5, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !16, i64 48, !16, i64 56, !14, i64 64, !15, i64 72, !12, i64 80, !5, i64 88}
+!43 = !{!42, !13, i64 16}
+!44 = !{!45, !13, i64 24}
+!45 = !{!"_xmlNs", !15, i64 0, !12, i64 8, !13, i64 16, !13, i64 24, !5, i64 32, !14, i64 40}
+!46 = !{!42, !9, i64 24}
+!47 = !{!42, !16, i64 48}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"_Bool", !6, i64 0}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = !{!6, !6, i64 0}
+!53 = !{!11, !15, i64 72}

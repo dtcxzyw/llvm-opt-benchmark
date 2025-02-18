@@ -22,12 +22,12 @@ define hidden void @php_shutdown_crypt_r() #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_crypt_extended_init_r() #0 {
-  %1 = load i32, ptr @_crypt_extended_init_r.initialized, align 4
+  %1 = load i32, ptr @_crypt_extended_init_r.initialized, align 4, !tbaa !4
   %2 = icmp ne i32 %1, 0
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  store i32 1, ptr @_crypt_extended_init_r.initialized, align 4
+  store i32 1, ptr @_crypt_extended_init_r.initialized, align 4, !tbaa !4
   call void @_crypt_extended_init()
   br label %4
 
@@ -52,48 +52,58 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = alloca %struct.PHP_MD5_CTX, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i64 @strlen(ptr noundef %17) #5
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 152, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 152, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = call i64 @strlen(ptr noundef %17) #7
   %19 = trunc i64 %18 to i32
-  store i32 %19, ptr %12, align 4
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %7, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @strncmp(ptr noundef %21, ptr noundef @.str, i64 noundef 3) #5
+  store i32 %19, ptr %12, align 4, !tbaa !4
+  %20 = load ptr, ptr %5, align 8, !tbaa !8
+  store ptr %20, ptr %7, align 8, !tbaa !8
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = call i32 @strncmp(ptr noundef %21, ptr noundef @.str, i64 noundef 3) #7
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %3
-  %25 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !8
   %26 = getelementptr inbounds i8, ptr %25, i64 3
-  store ptr %26, ptr %7, align 8
+  store ptr %26, ptr %7, align 8, !tbaa !8
   br label %27
 
 27:                                               ; preds = %24, %3
-  %28 = load ptr, ptr %7, align 8
-  store ptr %28, ptr %8, align 8
+  %28 = load ptr, ptr %7, align 8, !tbaa !8
+  store ptr %28, ptr %8, align 8, !tbaa !8
   br label %29
 
 29:                                               ; preds = %47, %27
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i8, ptr %30, align 1
+  %30 = load ptr, ptr %8, align 8, !tbaa !8
+  %31 = load i8, ptr %30, align 1, !tbaa !11
   %32 = sext i8 %31 to i32
   %33 = icmp ne i32 %32, 0
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %8, align 8
-  %36 = load i8, ptr %35, align 1
+  %35 = load ptr, ptr %8, align 8, !tbaa !8
+  %36 = load i8, ptr %35, align 1, !tbaa !11
   %37 = sext i8 %36 to i32
   %38 = icmp ne i32 %37, 36
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %8, align 8
-  %41 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = icmp ult ptr %40, %42
   br label %44
@@ -106,56 +116,56 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %47
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i32 1
-  store ptr %49, ptr %8, align 8
+  %48 = load ptr, ptr %8, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i32 1
+  store ptr %49, ptr %8, align 8, !tbaa !8
   br label %29
 
 50:                                               ; preds = %44
-  %51 = load ptr, ptr %8, align 8
-  %52 = load ptr, ptr %7, align 8
+  %51 = load ptr, ptr %8, align 8, !tbaa !8
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
   %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %11, align 4
+  store i32 %56, ptr %11, align 4, !tbaa !4
   call void @PHP_MD5InitArgs(ptr noundef %13, ptr noundef null)
-  %57 = load ptr, ptr %4, align 8
-  %58 = load i32, ptr %12, align 4
+  %57 = load ptr, ptr %4, align 8, !tbaa !8
+  %58 = load i32, ptr %12, align 4, !tbaa !4
   %59 = zext i32 %58 to i64
   call void @PHP_MD5Update(ptr noundef %13, ptr noundef %57, i64 noundef %59)
   call void @PHP_MD5Update(ptr noundef %13, ptr noundef @.str, i64 noundef 3)
-  %60 = load ptr, ptr %7, align 8
-  %61 = load i32, ptr %11, align 4
+  %60 = load ptr, ptr %7, align 8, !tbaa !8
+  %61 = load i32, ptr %11, align 4, !tbaa !4
   %62 = zext i32 %61 to i64
   call void @PHP_MD5Update(ptr noundef %13, ptr noundef %60, i64 noundef %62)
   call void @PHP_MD5InitArgs(ptr noundef %14, ptr noundef null)
-  %63 = load ptr, ptr %4, align 8
-  %64 = load i32, ptr %12, align 4
+  %63 = load ptr, ptr %4, align 8, !tbaa !8
+  %64 = load i32, ptr %12, align 4, !tbaa !4
   %65 = zext i32 %64 to i64
   call void @PHP_MD5Update(ptr noundef %14, ptr noundef %63, i64 noundef %65)
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr %11, align 4
+  %66 = load ptr, ptr %7, align 8, !tbaa !8
+  %67 = load i32, ptr %11, align 4, !tbaa !4
   %68 = zext i32 %67 to i64
   call void @PHP_MD5Update(ptr noundef %14, ptr noundef %66, i64 noundef %68)
-  %69 = load ptr, ptr %4, align 8
-  %70 = load i32, ptr %12, align 4
+  %69 = load ptr, ptr %4, align 8, !tbaa !8
+  %70 = load i32, ptr %12, align 4, !tbaa !4
   %71 = zext i32 %70 to i64
   call void @PHP_MD5Update(ptr noundef %14, ptr noundef %69, i64 noundef %71)
   %72 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
   call void @PHP_MD5Final(ptr noundef %72, ptr noundef %14)
-  %73 = load i32, ptr %12, align 4
-  store i32 %73, ptr %16, align 4
+  %73 = load i32, ptr %12, align 4, !tbaa !4
+  store i32 %73, ptr %16, align 4, !tbaa !4
   br label %74
 
 74:                                               ; preds = %87, %50
-  %75 = load i32, ptr %16, align 4
+  %75 = load i32, ptr %16, align 4, !tbaa !4
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %77, label %90
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  %79 = load i32, ptr %16, align 4
+  %79 = load i32, ptr %16, align 4, !tbaa !4
   %80 = icmp sgt i32 %79, 16
   br i1 %80, label %81, label %82
 
@@ -163,7 +173,7 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %84
 
 82:                                               ; preds = %77
-  %83 = load i32, ptr %16, align 4
+  %83 = load i32, ptr %16, align 4, !tbaa !4
   br label %84
 
 84:                                               ; preds = %82, %81
@@ -173,25 +183,25 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %87
 
 87:                                               ; preds = %84
-  %88 = load i32, ptr %16, align 4
+  %88 = load i32, ptr %16, align 4, !tbaa !4
   %89 = sub nsw i32 %88, 16
-  store i32 %89, ptr %16, align 4
+  store i32 %89, ptr %16, align 4, !tbaa !4
   br label %74
 
 90:                                               ; preds = %74
   %91 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
   call void @explicit_bzero(ptr noundef %91, i64 noundef 16) #6
-  %92 = load i32, ptr %12, align 4
-  store i32 %92, ptr %10, align 4
+  %92 = load i32, ptr %12, align 4, !tbaa !4
+  store i32 %92, ptr %10, align 4, !tbaa !4
   br label %93
 
 93:                                               ; preds = %105, %90
-  %94 = load i32, ptr %10, align 4
+  %94 = load i32, ptr %10, align 4, !tbaa !4
   %95 = icmp ne i32 %94, 0
   br i1 %95, label %96, label %108
 
 96:                                               ; preds = %93
-  %97 = load i32, ptr %10, align 4
+  %97 = load i32, ptr %10, align 4, !tbaa !4
   %98 = and i32 %97, 1
   %99 = icmp ne i32 %98, 0
   br i1 %99, label %100, label %102
@@ -202,7 +212,7 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %104
 
 102:                                              ; preds = %96
-  %103 = load ptr, ptr %4, align 8
+  %103 = load ptr, ptr %4, align 8, !tbaa !8
   call void @PHP_MD5Update(ptr noundef %13, ptr noundef %103, i64 noundef 1)
   br label %104
 
@@ -210,233 +220,245 @@ define hidden ptr @php_md5_crypt_r(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %105
 
 105:                                              ; preds = %104
-  %106 = load i32, ptr %10, align 4
+  %106 = load i32, ptr %10, align 4, !tbaa !4
   %107 = lshr i32 %106, 1
-  store i32 %107, ptr %10, align 4
+  store i32 %107, ptr %10, align 4, !tbaa !4
   br label %93
 
 108:                                              ; preds = %93
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 @php_md5_crypt_r.passwd, ptr align 1 @.str, i64 3, i1 false)
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i32, ptr %11, align 4
+  %109 = load ptr, ptr %7, align 8, !tbaa !8
+  %110 = load i32, ptr %11, align 4, !tbaa !4
   %111 = add i32 %110, 1
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr @php_md5_crypt_r.passwd, i64 3
-  %114 = call i64 @php_strlcpy(ptr noundef %113, ptr noundef %109, i64 noundef %112)
-  %115 = call ptr @strcat(ptr noundef @php_md5_crypt_r.passwd, ptr noundef @.str.1) #6
-  %116 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  call void @PHP_MD5Final(ptr noundef %116, ptr noundef %13)
-  store i32 0, ptr %10, align 4
-  br label %117
+  %113 = call i64 @php_strlcpy(ptr noundef getelementptr inbounds (i8, ptr @php_md5_crypt_r.passwd, i64 3), ptr noundef %109, i64 noundef %112)
+  %114 = call ptr @strcat(ptr noundef @php_md5_crypt_r.passwd, ptr noundef @.str.1) #6
+  %115 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  call void @PHP_MD5Final(ptr noundef %115, ptr noundef %13)
+  store i32 0, ptr %10, align 4, !tbaa !4
+  br label %116
 
-117:                                              ; preds = %158, %108
-  %118 = load i32, ptr %10, align 4
-  %119 = icmp ult i32 %118, 1000
-  br i1 %119, label %120, label %161
+116:                                              ; preds = %157, %108
+  %117 = load i32, ptr %10, align 4, !tbaa !4
+  %118 = icmp ult i32 %117, 1000
+  br i1 %118, label %119, label %160
 
-120:                                              ; preds = %117
+119:                                              ; preds = %116
   call void @PHP_MD5InitArgs(ptr noundef %14, ptr noundef null)
-  %121 = load i32, ptr %10, align 4
-  %122 = and i32 %121, 1
-  %123 = icmp ne i32 %122, 0
-  br i1 %123, label %124, label %128
+  %120 = load i32, ptr %10, align 4, !tbaa !4
+  %121 = and i32 %120, 1
+  %122 = icmp ne i32 %121, 0
+  br i1 %122, label %123, label %127
 
-124:                                              ; preds = %120
-  %125 = load ptr, ptr %4, align 8
-  %126 = load i32, ptr %12, align 4
-  %127 = zext i32 %126 to i64
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %125, i64 noundef %127)
-  br label %130
+123:                                              ; preds = %119
+  %124 = load ptr, ptr %4, align 8, !tbaa !8
+  %125 = load i32, ptr %12, align 4, !tbaa !4
+  %126 = zext i32 %125 to i64
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %124, i64 noundef %126)
+  br label %129
 
-128:                                              ; preds = %120
-  %129 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %129, i64 noundef 16)
-  br label %130
+127:                                              ; preds = %119
+  %128 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %128, i64 noundef 16)
+  br label %129
 
-130:                                              ; preds = %128, %124
-  %131 = load i32, ptr %10, align 4
-  %132 = urem i32 %131, 3
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %138
+129:                                              ; preds = %127, %123
+  %130 = load i32, ptr %10, align 4, !tbaa !4
+  %131 = urem i32 %130, 3
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %133, label %137
 
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %7, align 8
-  %136 = load i32, ptr %11, align 4
-  %137 = zext i32 %136 to i64
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %135, i64 noundef %137)
-  br label %138
+133:                                              ; preds = %129
+  %134 = load ptr, ptr %7, align 8, !tbaa !8
+  %135 = load i32, ptr %11, align 4, !tbaa !4
+  %136 = zext i32 %135 to i64
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %134, i64 noundef %136)
+  br label %137
 
-138:                                              ; preds = %134, %130
-  %139 = load i32, ptr %10, align 4
-  %140 = urem i32 %139, 7
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %146
+137:                                              ; preds = %133, %129
+  %138 = load i32, ptr %10, align 4, !tbaa !4
+  %139 = urem i32 %138, 7
+  %140 = icmp ne i32 %139, 0
+  br i1 %140, label %141, label %145
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %4, align 8
-  %144 = load i32, ptr %12, align 4
-  %145 = zext i32 %144 to i64
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %143, i64 noundef %145)
-  br label %146
+141:                                              ; preds = %137
+  %142 = load ptr, ptr %4, align 8, !tbaa !8
+  %143 = load i32, ptr %12, align 4, !tbaa !4
+  %144 = zext i32 %143 to i64
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %142, i64 noundef %144)
+  br label %145
 
-146:                                              ; preds = %142, %138
-  %147 = load i32, ptr %10, align 4
-  %148 = and i32 %147, 1
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %152
+145:                                              ; preds = %141, %137
+  %146 = load i32, ptr %10, align 4, !tbaa !4
+  %147 = and i32 %146, 1
+  %148 = icmp ne i32 %147, 0
+  br i1 %148, label %149, label %151
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %151, i64 noundef 16)
-  br label %156
+149:                                              ; preds = %145
+  %150 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %150, i64 noundef 16)
+  br label %155
 
-152:                                              ; preds = %146
-  %153 = load ptr, ptr %4, align 8
-  %154 = load i32, ptr %12, align 4
-  %155 = zext i32 %154 to i64
-  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %153, i64 noundef %155)
-  br label %156
+151:                                              ; preds = %145
+  %152 = load ptr, ptr %4, align 8, !tbaa !8
+  %153 = load i32, ptr %12, align 4, !tbaa !4
+  %154 = zext i32 %153 to i64
+  call void @PHP_MD5Update(ptr noundef %14, ptr noundef %152, i64 noundef %154)
+  br label %155
 
-156:                                              ; preds = %152, %150
-  %157 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  call void @PHP_MD5Final(ptr noundef %157, ptr noundef %14)
-  br label %158
+155:                                              ; preds = %151, %149
+  %156 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  call void @PHP_MD5Final(ptr noundef %156, ptr noundef %14)
+  br label %157
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr %10, align 4
-  %160 = add i32 %159, 1
-  store i32 %160, ptr %10, align 4
-  br label %117
+157:                                              ; preds = %155
+  %158 = load i32, ptr %10, align 4, !tbaa !4
+  %159 = add i32 %158, 1
+  store i32 %159, ptr %10, align 4, !tbaa !4
+  br label %116
 
-161:                                              ; preds = %117
-  %162 = load i32, ptr %11, align 4
-  %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds i8, ptr @php_md5_crypt_r.passwd, i64 %163
-  %165 = getelementptr inbounds i8, ptr %164, i64 3
-  %166 = getelementptr inbounds i8, ptr %165, i64 1
-  store ptr %166, ptr @php_md5_crypt_r.p, align 8
-  %167 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  %168 = load i8, ptr %167, align 16
-  %169 = zext i8 %168 to i32
-  %170 = shl i32 %169, 16
-  %171 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 6
-  %172 = load i8, ptr %171, align 2
-  %173 = zext i8 %172 to i32
-  %174 = shl i32 %173, 8
-  %175 = or i32 %170, %174
-  %176 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 12
-  %177 = load i8, ptr %176, align 4
-  %178 = zext i8 %177 to i32
-  %179 = or i32 %175, %178
-  store i32 %179, ptr %15, align 4
-  %180 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %181 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %180, i32 noundef %181, i32 noundef 4)
-  %182 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
-  store ptr %183, ptr @php_md5_crypt_r.p, align 8
-  %184 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 1
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = shl i32 %186, 16
-  %188 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 7
-  %189 = load i8, ptr %188, align 1
-  %190 = zext i8 %189 to i32
-  %191 = shl i32 %190, 8
-  %192 = or i32 %187, %191
-  %193 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 13
-  %194 = load i8, ptr %193, align 1
-  %195 = zext i8 %194 to i32
-  %196 = or i32 %192, %195
-  store i32 %196, ptr %15, align 4
-  %197 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %198 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %197, i32 noundef %198, i32 noundef 4)
-  %199 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
-  store ptr %200, ptr @php_md5_crypt_r.p, align 8
-  %201 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 2
-  %202 = load i8, ptr %201, align 2
-  %203 = zext i8 %202 to i32
-  %204 = shl i32 %203, 16
-  %205 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 8
-  %206 = load i8, ptr %205, align 8
-  %207 = zext i8 %206 to i32
-  %208 = shl i32 %207, 8
-  %209 = or i32 %204, %208
-  %210 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 14
-  %211 = load i8, ptr %210, align 2
-  %212 = zext i8 %211 to i32
-  %213 = or i32 %209, %212
-  store i32 %213, ptr %15, align 4
-  %214 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %215 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %214, i32 noundef %215, i32 noundef 4)
-  %216 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 4
-  store ptr %217, ptr @php_md5_crypt_r.p, align 8
-  %218 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 3
-  %219 = load i8, ptr %218, align 1
-  %220 = zext i8 %219 to i32
-  %221 = shl i32 %220, 16
-  %222 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 9
-  %223 = load i8, ptr %222, align 1
-  %224 = zext i8 %223 to i32
-  %225 = shl i32 %224, 8
-  %226 = or i32 %221, %225
-  %227 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 15
-  %228 = load i8, ptr %227, align 1
-  %229 = zext i8 %228 to i32
-  %230 = or i32 %226, %229
-  store i32 %230, ptr %15, align 4
-  %231 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %232 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %231, i32 noundef %232, i32 noundef 4)
-  %233 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 4
-  store ptr %234, ptr @php_md5_crypt_r.p, align 8
-  %235 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 4
-  %236 = load i8, ptr %235, align 4
-  %237 = zext i8 %236 to i32
-  %238 = shl i32 %237, 16
-  %239 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 10
-  %240 = load i8, ptr %239, align 2
-  %241 = zext i8 %240 to i32
-  %242 = shl i32 %241, 8
-  %243 = or i32 %238, %242
-  %244 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 5
-  %245 = load i8, ptr %244, align 1
-  %246 = zext i8 %245 to i32
-  %247 = or i32 %243, %246
-  store i32 %247, ptr %15, align 4
-  %248 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %249 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %248, i32 noundef %249, i32 noundef 4)
-  %250 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 4
-  store ptr %251, ptr @php_md5_crypt_r.p, align 8
-  %252 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 11
-  %253 = load i8, ptr %252, align 1
-  %254 = zext i8 %253 to i32
-  store i32 %254, ptr %15, align 4
-  %255 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %256 = load i32, ptr %15, align 4
-  call void @to64(ptr noundef %255, i32 noundef %256, i32 noundef 2)
-  %257 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 2
-  store ptr %258, ptr @php_md5_crypt_r.p, align 8
-  %259 = load ptr, ptr @php_md5_crypt_r.p, align 8
-  store i8 0, ptr %259, align 1
-  %260 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  call void @explicit_bzero(ptr noundef %260, i64 noundef 16) #6
+160:                                              ; preds = %116
+  %161 = load i32, ptr %11, align 4, !tbaa !4
+  %162 = zext i32 %161 to i64
+  %163 = getelementptr inbounds nuw i8, ptr @php_md5_crypt_r.passwd, i64 %162
+  %164 = getelementptr inbounds i8, ptr %163, i64 3
+  %165 = getelementptr inbounds i8, ptr %164, i64 1
+  store ptr %165, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %166 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  %167 = load i8, ptr %166, align 16, !tbaa !11
+  %168 = zext i8 %167 to i32
+  %169 = shl i32 %168, 16
+  %170 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 6
+  %171 = load i8, ptr %170, align 2, !tbaa !11
+  %172 = zext i8 %171 to i32
+  %173 = shl i32 %172, 8
+  %174 = or i32 %169, %173
+  %175 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 12
+  %176 = load i8, ptr %175, align 4, !tbaa !11
+  %177 = zext i8 %176 to i32
+  %178 = or i32 %174, %177
+  store i32 %178, ptr %15, align 4, !tbaa !4
+  %179 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %180 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %179, i32 noundef %180, i32 noundef 4)
+  %181 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %182 = getelementptr inbounds i8, ptr %181, i64 4
+  store ptr %182, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %183 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 1
+  %184 = load i8, ptr %183, align 1, !tbaa !11
+  %185 = zext i8 %184 to i32
+  %186 = shl i32 %185, 16
+  %187 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 7
+  %188 = load i8, ptr %187, align 1, !tbaa !11
+  %189 = zext i8 %188 to i32
+  %190 = shl i32 %189, 8
+  %191 = or i32 %186, %190
+  %192 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 13
+  %193 = load i8, ptr %192, align 1, !tbaa !11
+  %194 = zext i8 %193 to i32
+  %195 = or i32 %191, %194
+  store i32 %195, ptr %15, align 4, !tbaa !4
+  %196 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %197 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %196, i32 noundef %197, i32 noundef 4)
+  %198 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %199 = getelementptr inbounds i8, ptr %198, i64 4
+  store ptr %199, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %200 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 2
+  %201 = load i8, ptr %200, align 2, !tbaa !11
+  %202 = zext i8 %201 to i32
+  %203 = shl i32 %202, 16
+  %204 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 8
+  %205 = load i8, ptr %204, align 8, !tbaa !11
+  %206 = zext i8 %205 to i32
+  %207 = shl i32 %206, 8
+  %208 = or i32 %203, %207
+  %209 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 14
+  %210 = load i8, ptr %209, align 2, !tbaa !11
+  %211 = zext i8 %210 to i32
+  %212 = or i32 %208, %211
+  store i32 %212, ptr %15, align 4, !tbaa !4
+  %213 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %214 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %213, i32 noundef %214, i32 noundef 4)
+  %215 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %216 = getelementptr inbounds i8, ptr %215, i64 4
+  store ptr %216, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %217 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 3
+  %218 = load i8, ptr %217, align 1, !tbaa !11
+  %219 = zext i8 %218 to i32
+  %220 = shl i32 %219, 16
+  %221 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 9
+  %222 = load i8, ptr %221, align 1, !tbaa !11
+  %223 = zext i8 %222 to i32
+  %224 = shl i32 %223, 8
+  %225 = or i32 %220, %224
+  %226 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 15
+  %227 = load i8, ptr %226, align 1, !tbaa !11
+  %228 = zext i8 %227 to i32
+  %229 = or i32 %225, %228
+  store i32 %229, ptr %15, align 4, !tbaa !4
+  %230 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %231 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %230, i32 noundef %231, i32 noundef 4)
+  %232 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %233 = getelementptr inbounds i8, ptr %232, i64 4
+  store ptr %233, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %234 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 4
+  %235 = load i8, ptr %234, align 4, !tbaa !11
+  %236 = zext i8 %235 to i32
+  %237 = shl i32 %236, 16
+  %238 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 10
+  %239 = load i8, ptr %238, align 2, !tbaa !11
+  %240 = zext i8 %239 to i32
+  %241 = shl i32 %240, 8
+  %242 = or i32 %237, %241
+  %243 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 5
+  %244 = load i8, ptr %243, align 1, !tbaa !11
+  %245 = zext i8 %244 to i32
+  %246 = or i32 %242, %245
+  store i32 %246, ptr %15, align 4, !tbaa !4
+  %247 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %248 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %247, i32 noundef %248, i32 noundef 4)
+  %249 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %250 = getelementptr inbounds i8, ptr %249, i64 4
+  store ptr %250, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %251 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 11
+  %252 = load i8, ptr %251, align 1, !tbaa !11
+  %253 = zext i8 %252 to i32
+  store i32 %253, ptr %15, align 4, !tbaa !4
+  %254 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %255 = load i32, ptr %15, align 4, !tbaa !4
+  call void @to64(ptr noundef %254, i32 noundef %255, i32 noundef 2)
+  %256 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %257 = getelementptr inbounds i8, ptr %256, i64 2
+  store ptr %257, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  %258 = load ptr, ptr @php_md5_crypt_r.p, align 8, !tbaa !8
+  store i8 0, ptr %258, align 1, !tbaa !11
+  %259 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
+  call void @explicit_bzero(ptr noundef %259, i64 noundef 16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 152, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 152, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret ptr @php_md5_crypt_r.passwd
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i64 @strlen(ptr noundef) #3
+
+; Function Attrs: nounwind willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 declare void @PHP_MD5InitArgs(ptr noundef, ptr noundef) #1
 
@@ -445,63 +467,75 @@ declare void @PHP_MD5Update(ptr noundef, ptr noundef, i64 noundef) #1
 declare void @PHP_MD5Final(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) #3
+declare void @explicit_bzero(ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @strcat(ptr noundef, ptr noundef) #3
+declare ptr @strcat(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @to64(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 %2, ptr %6, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store i32 %1, ptr %5, align 4, !tbaa !4
+  store i32 %2, ptr %6, align 4, !tbaa !4
   br label %7
 
 7:                                                ; preds = %11, %3
-  %8 = load i32, ptr %6, align 4
+  %8 = load i32, ptr %6, align 4, !tbaa !4
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %6, align 4
+  store i32 %9, ptr %6, align 4, !tbaa !4
   %10 = icmp sge i32 %9, 0
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %5, align 4, !tbaa !4
   %13 = and i32 %12, 63
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [65 x i8], ptr @itoa64, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i32 1
-  store ptr %18, ptr %4, align 8
-  store i8 %16, ptr %17, align 1
-  %19 = load i32, ptr %5, align 4
+  %16 = load i8, ptr %15, align 1, !tbaa !11
+  %17 = load ptr, ptr %4, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i32 1
+  store ptr %18, ptr %4, align 8, !tbaa !8
+  store i8 %16, ptr %17, align 1, !tbaa !11
+  %19 = load i32, ptr %5, align 4, !tbaa !4
   %20 = ashr i32 %19, 6
-  store i32 %20, ptr %5, align 4
+  store i32 %20, ptr %5, align 4, !tbaa !4
   br label %7
 
 21:                                               ; preds = %7
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}
+!11 = !{!6, !6, i64 0}

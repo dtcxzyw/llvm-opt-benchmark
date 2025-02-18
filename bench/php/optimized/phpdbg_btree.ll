@@ -12,25 +12,25 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @phpdbg_btree_init(ptr noundef writeonly captures(none) initializes((0, 17), (24, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %3, align 8
+  store i64 %1, ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %4, align 8
+  store ptr null, ptr %4, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %5, align 8
-  store i64 0, ptr %0, align 8
+  store i8 0, ptr %5, align 8, !tbaa !13
+  store i64 0, ptr %0, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @phpdbg_btree_find(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !4
   %8 = trunc i64 %7 to i32
   br label %.preheader
 
@@ -46,12 +46,12 @@ define hidden ptr @phpdbg_btree_find(ptr noundef readonly captures(none) %0, i64
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !15
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %.loopexit, label %17
 
 15:                                               ; preds = %.preheader
-  %16 = load ptr, ptr %.011, align 8
+  %16 = load ptr, ptr %.011, align 8, !tbaa !15
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %.loopexit, label %17
 
@@ -68,9 +68,9 @@ define hidden ptr @phpdbg_btree_find(ptr noundef readonly captures(none) %0, i64
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = trunc i64 %6 to i32
   %8 = icmp eq ptr %4, null
   br i1 %8, label %.loopexit, label %.preheader50
@@ -87,7 +87,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
   br i1 %12, label %13, label %41
 
 13:                                               ; preds = %.preheader50
-  %14 = load ptr, ptr %.033, align 8
+  %14 = load ptr, ptr %.033, align 8, !tbaa !15
   %.not44 = icmp eq ptr %14, null
   br i1 %.not44, label %15, label %51
 
@@ -111,7 +111,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.134, i64 8
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !15
   %27 = icmp ne ptr %26, null
   %28 = zext i1 %27 to i64
   br label %29
@@ -119,14 +119,14 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
 29:                                               ; preds = %24, %20
   %30 = phi i64 [ 0, %20 ], [ %28, %24 ]
   %31 = getelementptr inbounds nuw [2 x ptr], ptr %.134, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = add nsw i32 %.131, -1
   %34 = icmp sgt i32 %33, %.0
   br i1 %34, label %20, label %.preheader
 
 .preheader:                                       ; preds = %29
   %smin = tail call i32 @llvm.smin.i32(i32 %.0, i32 %19)
-  %.23563 = load ptr, ptr %32, align 8
+  %.23563 = load ptr, ptr %32, align 8, !tbaa !15
   %.not4664 = icmp eq i32 %smin, 0
   br i1 %.not4664, label %.loopexit, label %.lr.ph67
 
@@ -135,19 +135,19 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
   %.23265 = phi i32 [ %35, %.lr.ph67 ], [ %smin, %.preheader ]
   %35 = add nsw i32 %.23265, -1
   %36 = getelementptr inbounds nuw i8, ptr %.23566, i64 8
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = icmp ne ptr %37, null
   %39 = zext i1 %38 to i64
   %40 = getelementptr inbounds nuw [2 x ptr], ptr %.23566, i64 0, i64 %39
-  %.235 = load ptr, ptr %40, align 8
+  %.235 = load ptr, ptr %40, align 8, !tbaa !15
   %.not46 = icmp eq i32 %35, 0
   br i1 %.not46, label %.loopexit, label %.lr.ph67
 
 41:                                               ; preds = %.preheader50
   %42 = getelementptr inbounds nuw i8, ptr %.033, i64 8
-  %43 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !15
   %.not = icmp eq ptr %43, null
-  %.459 = load ptr, ptr %.033, align 8
+  %.459 = load ptr, ptr %.033, align 8, !tbaa !15
   br i1 %.not, label %.preheader48, label %44
 
 .preheader48:                                     ; preds = %41
@@ -164,11 +164,11 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
   %.361 = phi i32 [ %45, %.lr.ph ], [ %.030, %.preheader48 ]
   %45 = add nsw i32 %.361, -1
   %46 = getelementptr inbounds nuw i8, ptr %.462, i64 8
-  %47 = load ptr, ptr %46, align 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !15
   %48 = icmp ne ptr %47, null
   %49 = zext i1 %48 to i64
   %50 = getelementptr inbounds nuw [2 x ptr], ptr %.462, i64 0, i64 %49
-  %.4 = load ptr, ptr %50, align 8
+  %.4 = load ptr, ptr %50, align 8, !tbaa !15
   %.not42 = icmp eq i32 %45, 0
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
@@ -185,23 +185,23 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @phpdbg_btree_find_between(ptr dead_on_unwind noalias writable writeonly sret(%struct.phpdbg_btree_position) align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  store ptr %1, ptr %0, align 8
+  store ptr %1, ptr %0, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %5, align 8
+  store i64 %2, ptr %5, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %3, ptr %6, align 8
+  store i64 %3, ptr %6, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8
+  %4 = load i64, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = trunc i64 %8 to i32
   %10 = icmp eq ptr %6, null
   br i1 %10, label %phpdbg_btree_find_closest.exit.thread, label %.preheader50.i
@@ -218,7 +218,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %.preheader50.i
-  %16 = load ptr, ptr %.033.i, align 8
+  %16 = load ptr, ptr %.033.i, align 8, !tbaa !15
   %.not44.i = icmp eq ptr %16, null
   br i1 %.not44.i, label %17, label %53
 
@@ -241,7 +241,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.134.i, i64 8
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !15
   %28 = icmp ne ptr %27, null
   %29 = zext i1 %28 to i64
   br label %30
@@ -249,7 +249,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
 30:                                               ; preds = %25, %21
   %31 = phi i64 [ 0, %21 ], [ %29, %25 ]
   %32 = getelementptr inbounds nuw [2 x ptr], ptr %.134.i, i64 0, i64 %31
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
   %34 = add nsw i32 %.131.i, -1
   %35 = icmp sgt i32 %34, %.0.i
   br i1 %35, label %21, label %.preheader.i
@@ -257,7 +257,7 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
 .preheader.i:                                     ; preds = %30
   %36 = add i32 %9, -2
   %smin.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 %36)
-  %.23563.i = load ptr, ptr %33, align 8
+  %.23563.i = load ptr, ptr %33, align 8, !tbaa !15
   %.not4664.i = icmp eq i32 %smin.i, 0
   br i1 %.not4664.i, label %phpdbg_btree_find_closest.exit, label %.lr.ph67.i
 
@@ -266,19 +266,19 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
   %.23265.i = phi i32 [ %37, %.lr.ph67.i ], [ %smin.i, %.preheader.i ]
   %37 = add nsw i32 %.23265.i, -1
   %38 = getelementptr inbounds nuw i8, ptr %.23566.i, i64 8
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !15
   %40 = icmp ne ptr %39, null
   %41 = zext i1 %40 to i64
   %42 = getelementptr inbounds nuw [2 x ptr], ptr %.23566.i, i64 0, i64 %41
-  %.235.i = load ptr, ptr %42, align 8
+  %.235.i = load ptr, ptr %42, align 8, !tbaa !15
   %.not46.i = icmp eq i32 %37, 0
   br i1 %.not46.i, label %phpdbg_btree_find_closest.exit, label %.lr.ph67.i
 
 43:                                               ; preds = %.preheader50.i
   %44 = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !15
   %.not.i = icmp eq ptr %45, null
-  %.459.i = load ptr, ptr %.033.i, align 8
+  %.459.i = load ptr, ptr %.033.i, align 8, !tbaa !15
   br i1 %.not.i, label %.preheader48.i, label %46
 
 .preheader48.i:                                   ; preds = %43
@@ -295,11 +295,11 @@ define hidden noundef ptr @phpdbg_btree_next(ptr noundef captures(none) %0) loca
   %.361.i = phi i32 [ %47, %.lr.ph.i ], [ %.030.i, %.preheader48.i ]
   %47 = add nsw i32 %.361.i, -1
   %48 = getelementptr inbounds nuw i8, ptr %.462.i, i64 8
-  %49 = load ptr, ptr %48, align 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !15
   %50 = icmp ne ptr %49, null
   %51 = zext i1 %50 to i64
   %52 = getelementptr inbounds nuw [2 x ptr], ptr %.462.i, i64 0, i64 %51
-  %.4.i = load ptr, ptr %52, align 8
+  %.4.i = load ptr, ptr %52, align 8, !tbaa !15
   %.not42.i = icmp eq i32 %47, 0
   br i1 %.not42.i, label %phpdbg_btree_find_closest.exit, label %.lr.ph.i
 
@@ -316,15 +316,15 @@ phpdbg_btree_find_closest.exit:                   ; preds = %.lr.ph.i, %.lr.ph67
 
 phpdbg_btree_find_closest.exit.thread12:          ; preds = %53, %phpdbg_btree_find_closest.exit
   %.037.i14 = phi ptr [ %.037.i, %phpdbg_btree_find_closest.exit ], [ %.5.i, %53 ]
-  %55 = load i64, ptr %.037.i14, align 8
+  %55 = load i64, ptr %.037.i14, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load i64, ptr %56, align 8
+  %57 = load i64, ptr %56, align 8, !tbaa !18
   %58 = icmp ult i64 %55, %57
   br i1 %58, label %phpdbg_btree_find_closest.exit.thread, label %59
 
 59:                                               ; preds = %phpdbg_btree_find_closest.exit.thread12
   %60 = add i64 %55, -1
-  store i64 %60, ptr %3, align 8
+  store i64 %60, ptr %3, align 8, !tbaa !19
   br label %phpdbg_btree_find_closest.exit.thread
 
 phpdbg_btree_find_closest.exit.thread:            ; preds = %17, %1, %phpdbg_btree_find_closest.exit, %phpdbg_btree_find_closest.exit.thread12, %59
@@ -335,7 +335,7 @@ phpdbg_btree_find_closest.exit.thread:            ; preds = %17, %1, %phpdbg_btr
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = trunc i64 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
@@ -344,7 +344,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
   %.063.in = phi i32 [ %7, %4 ], [ %.063, %12 ]
   %.062 = phi ptr [ %8, %4 ], [ %16, %12 ]
   %.063 = add i32 %.063.in, -1
-  %10 = load ptr, ptr %.062, align 8
+  %10 = load ptr, ptr %.062, align 8, !tbaa !22
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
@@ -357,7 +357,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
   br i1 %.not, label %17, label %9
 
 17:                                               ; preds = %12
-  %.pr = load ptr, ptr %16, align 8
+  %.pr = load ptr, ptr %16, align 8, !tbaa !22
   %18 = icmp eq ptr %.pr, null
   br i1 %18, label %.thread, label %46
 
@@ -370,8 +370,8 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
 
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = trunc i8 %22 to i1
+  %22 = load i8, ptr %21, align 8, !tbaa !13, !range !23, !noundef !24
+  %23 = trunc nuw i8 %22 to i1
   %24 = add nsw i32 %.16475, 2
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 4
@@ -387,7 +387,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
 
 31:                                               ; preds = %29, %27
   %32 = phi ptr [ %28, %27 ], [ %30, %29 ]
-  store ptr %32, ptr %.176, align 8
+  store ptr %32, ptr %.176, align 8, !tbaa !22
   %33 = zext i32 %.16475 to i64
   br label %34
 
@@ -399,20 +399,19 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
   %37 = and i64 %36, 1
   %38 = xor i64 %37, 1
   %39 = getelementptr inbounds nuw [2 x ptr], ptr %35, i64 0, i64 %38
-  store ptr null, ptr %39, align 8
-  %40 = load ptr, ptr %.2, align 8
+  store ptr null, ptr %39, align 8, !tbaa !15
+  %40 = load ptr, ptr %.2, align 8, !tbaa !22
   %41 = getelementptr inbounds nuw [2 x ptr], ptr %40, i64 0, i64 %37
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %42, ptr %41, align 8
+  store ptr %42, ptr %41, align 8, !tbaa !22
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not72 = icmp eq i64 %indvars.iv, 0
   br i1 %.not72, label %43, label %34
 
 43:                                               ; preds = %34
-  %44 = load i64, ptr %0, align 8
+  %44 = load i64, ptr %0, align 8, !tbaa !14
   %45 = add i64 %44, 1
-  store i64 %45, ptr %0, align 8
-  %.pre = load ptr, ptr %41, align 8
+  store i64 %45, ptr %0, align 8, !tbaa !14
   br label %48
 
 46:                                               ; preds = %17
@@ -421,12 +420,12 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_insert_or_update(ptr noundef ca
   br i1 %.not69, label %52, label %48
 
 48:                                               ; preds = %46, %43
-  %49 = phi ptr [ %.pre, %43 ], [ %.pr, %46 ]
+  %49 = phi ptr [ %42, %43 ], [ %.pr, %46 ]
   %.3 = phi ptr [ %41, %43 ], [ %16, %46 ]
-  store i64 %1, ptr %49, align 8
-  %50 = load ptr, ptr %.3, align 8
+  store i64 %1, ptr %49, align 8, !tbaa !15
+  %50 = load ptr, ptr %.3, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %2, ptr %51, align 8
+  store ptr %2, ptr %51, align 8, !tbaa !15
   br label %52
 
 52:                                               ; preds = %46, %.thread, %48
@@ -443,24 +442,24 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.05873 = load ptr, ptr %3, align 8
+  %.05873 = load ptr, ptr %3, align 8, !tbaa !15
   %4 = icmp eq ptr %.05873, null
   br i1 %4, label %.loopexit69, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = and i64 %6, 4294967295
   br label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %.05878, align 8
+  %9 = load ptr, ptr %.05878, align 8, !tbaa !15
   %.not67 = icmp eq ptr %9, null
   br i1 %.not67, label %18, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.05878, i64 8
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !15
   %.not68 = icmp eq ptr %12, null
   br i1 %.not68, label %18, label %13
 
@@ -479,7 +478,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   %20 = lshr i64 %1, %19
   %21 = and i64 %20, 1
   %22 = getelementptr inbounds nuw [2 x ptr], ptr %.05878, i64 0, i64 %21
-  %.058 = load ptr, ptr %22, align 8
+  %.058 = load ptr, ptr %22, align 8, !tbaa !15
   %23 = icmp eq ptr %.058, null
   br i1 %23, label %.loopexit69, label %.lr.ph
 
@@ -495,16 +494,16 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   br i1 %.not, label %24, label %8
 
 24:                                               ; preds = %.lr.ph
-  %25 = load i64, ptr %0, align 8
+  %25 = load i64, ptr %0, align 8, !tbaa !14
   %26 = add i64 %25, -1
-  store i64 %26, ptr %0, align 8
+  store i64 %26, ptr %0, align 8, !tbaa !14
   %27 = icmp eq i32 %.05675, -1
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8
-  %31 = trunc i8 %30 to i1
+  %30 = load i8, ptr %29, align 8, !tbaa !13, !range !23, !noundef !24
+  %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
@@ -516,13 +515,13 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   br label %34
 
 34:                                               ; preds = %33, %32
-  store ptr null, ptr %3, align 8
+  store ptr null, ptr %3, align 8, !tbaa !12
   br label %.loopexit69
 
 35:                                               ; preds = %24
   %36 = sext i32 %.05476 to i64
   %37 = getelementptr inbounds [2 x ptr], ptr %.05377, i64 0, i64 %36
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %.05377, i64 16
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %41, label %65
@@ -531,15 +530,15 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   %.not65 = icmp eq i32 %.05476, 0
   %42 = zext i1 %.not65 to i64
   %43 = getelementptr inbounds nuw [2 x ptr], ptr %.05377, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !15
   %45 = add nuw nsw i32 %.05675, 1
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, ptr noundef nonnull align 8 dereferenceable(1) %44, i64 %47, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load i8, ptr %48, align 8
-  %50 = trunc i8 %49 to i1
-  %51 = load ptr, ptr %43, align 8
+  %49 = load i8, ptr %48, align 8, !tbaa !13, !range !23, !noundef !24
+  %50 = trunc nuw i8 %49 to i1
+  %51 = load ptr, ptr %43, align 8, !tbaa !15
   br i1 %50, label %52, label %53
 
 52:                                               ; preds = %41
@@ -551,7 +550,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   br label %54
 
 54:                                               ; preds = %53, %52
-  store ptr %39, ptr %43, align 8
+  store ptr %39, ptr %43, align 8, !tbaa !15
   %.not6679 = icmp eq i32 %.05675, 0
   br i1 %.not6679, label %.loopexit, label %.lr.ph83
 
@@ -569,19 +568,19 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   %58 = sub nsw i64 1, %indvars.iv88
   %gep = getelementptr %union._phpdbg_btree_branch, ptr %invariant.gep, i64 %58
   %59 = getelementptr inbounds nuw i8, ptr %.15981, i64 8
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !15
   %61 = getelementptr inbounds nuw i8, ptr %.082, i64 16
   %62 = icmp eq ptr %60, %61
   %63 = zext i1 %62 to i64
   %64 = getelementptr inbounds nuw [2 x ptr], ptr %.15981, i64 0, i64 %63
-  store ptr %gep, ptr %64, align 8
+  store ptr %gep, ptr %64, align 8, !tbaa !15
   %.not66 = icmp eq i64 %indvars.iv.next89, 0
   br i1 %.not66, label %.loopexit, label %57
 
 65:                                               ; preds = %35
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load i8, ptr %66, align 8
-  %68 = trunc i8 %67 to i1
+  %67 = load i8, ptr %66, align 8, !tbaa !13, !range !23, !noundef !24
+  %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %65
@@ -593,7 +592,7 @@ define hidden range(i32 -1, 1) i32 @phpdbg_btree_delete(ptr noundef captures(non
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %54, %69, %70
-  store ptr null, ptr %37, align 8
+  store ptr null, ptr %37, align 8, !tbaa !15
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %18, %2, %34, %.loopexit
@@ -621,11 +620,11 @@ define hidden void @phpdbg_btree_clean_recursive(ptr noundef %0, i64 noundef %1,
 5:                                                ; preds = %.lr.ph, %13
   %.in = phi i64 [ %1, %.lr.ph ], [ %6, %13 ]
   %6 = add i64 %.in, -1
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = icmp eq ptr %4, %7
   %9 = zext i1 %8 to i64
   %10 = getelementptr inbounds nuw [2 x ptr], ptr %0, i64 0, i64 %9
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !15
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %13, label %12
 
@@ -655,19 +654,19 @@ define hidden void @phpdbg_btree_clean_recursive(ptr noundef %0, i64 noundef %1,
 ; Function Attrs: nounwind uwtable
 define hidden void @phpdbg_btree_clean(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8
+  %6 = load i64, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i8, ptr %7, align 8
-  %9 = trunc i8 %8 to i1
+  %8 = load i8, ptr %7, align 8, !tbaa !13, !range !23, !noundef !24
+  %9 = trunc nuw i8 %8 to i1
   tail call void @phpdbg_btree_clean_recursive(ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext %9)
-  store ptr null, ptr %2, align 8
-  store i64 0, ptr %0, align 8
+  store ptr null, ptr %2, align 8, !tbaa !12
+  store i64 0, ptr %0, align 8, !tbaa !14
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -688,17 +687,17 @@ define hidden void @phpdbg_btree_branch_dump(ptr noundef readonly captures(addre
 
 tailrecurse:                                      ; preds = %.lr.ph
   %4 = add i64 %.tr812, -1
-  %5 = load ptr, ptr %.tr11, align 8
+  %5 = load ptr, ptr %.tr11, align 8, !tbaa !15
   tail call void @phpdbg_btree_branch_dump(ptr noundef %5, i64 noundef %4)
-  %6 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8, !tbaa !15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = load ptr, ptr @stderr, align 8
-  %9 = load i64, ptr %.tr11, align 8
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %9 = load i64, ptr %.tr11, align 8, !tbaa !15
   %10 = inttoptr i64 %9 to ptr
-  %11 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %3, align 8, !tbaa !15
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef %10, ptr noundef %11) #13
   br label %.loopexit
 
@@ -712,9 +711,9 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @phpdbg_btree_dump(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !4
   tail call void @phpdbg_btree_branch_dump(ptr noundef %3, i64 noundef %5)
   ret void
 }
@@ -722,25 +721,47 @@ define hidden void @phpdbg_btree_dump(ptr noundef readonly captures(none) %0) lo
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind allocsize(0) }
 attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !6, i64 8}
+!5 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16, !10, i64 24}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!"_Bool", !7, i64 0}
+!10 = !{!"p1 _ZTS20_phpdbg_btree_branch", !11, i64 0}
+!11 = !{!"any pointer", !7, i64 0}
+!12 = !{!5, !10, i64 24}
+!13 = !{!5, !9, i64 16}
+!14 = !{!5, !6, i64 0}
+!15 = !{!7, !7, i64 0}
+!16 = !{!17, !11, i64 0}
+!17 = !{!"", !11, i64 0, !6, i64 8, !6, i64 16}
+!18 = !{!17, !6, i64 16}
+!19 = !{!17, !6, i64 8}
+!20 = !{!21, !6, i64 0}
+!21 = !{!"", !6, i64 0, !11, i64 8}
+!22 = !{!10, !10, i64 0}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

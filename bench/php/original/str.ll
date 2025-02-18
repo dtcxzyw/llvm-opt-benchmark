@@ -21,10 +21,10 @@ define hidden ptr @lexbor_str_init(ptr noundef %0, ptr noundef %1, i64 noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %8 = load ptr, ptr %5, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  %8 = load ptr, ptr %5, align 8, !tbaa !4
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -33,33 +33,33 @@ define hidden ptr @lexbor_str_init(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %32
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
+  %13 = load i64, ptr %7, align 8, !tbaa !8
   %14 = add i64 %13, 1
   %15 = call ptr @lexbor_mraw_alloc(ptr noundef %12, i64 noundef %14)
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.lexbor_str_t, ptr %16, i32 0, i32 0
-  store ptr %15, ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.lexbor_str_t, ptr %18, i32 0, i32 1
-  store i64 0, ptr %19, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.lexbor_str_t, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
+  %16 = load ptr, ptr %5, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %16, i32 0, i32 0
+  store ptr %15, ptr %17, align 8, !tbaa !10
+  %18 = load ptr, ptr %5, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %18, i32 0, i32 1
+  store i64 0, ptr %19, align 8, !tbaa !13
+  %20 = load ptr, ptr %5, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = icmp ne ptr %22, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %11
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.lexbor_str_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  store i8 0, ptr %27, align 1
+  %25 = load ptr, ptr %5, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  store i8 0, ptr %27, align 1, !tbaa !14
   br label %28
 
 28:                                               ; preds = %24, %11
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct.lexbor_str_t, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
+  %29 = load ptr, ptr %5, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !10
   store ptr %31, ptr %4, align 8
   br label %32
 
@@ -78,82 +78,94 @@ define hidden ptr @lexbor_str_init_append(ptr noundef %0, ptr noundef %1, ptr no
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  store ptr null, ptr %5, align 8
-  br label %36
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %6, align 8, !tbaa !4
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %7, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = add i64 %16, 1
-  %18 = call ptr @lexbor_mraw_alloc(ptr noundef %15, i64 noundef %17)
-  store ptr %18, ptr %10, align 8
-  %19 = load ptr, ptr %10, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %14
   store ptr null, ptr %5, align 8
-  br label %36
+  store i32 1, ptr %11, align 4
+  br label %37
 
-22:                                               ; preds = %14
-  %23 = load ptr, ptr %10, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i64, ptr %9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %24, i64 %25, i1 false)
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i64, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  store i8 0, ptr %28, align 1
-  %29 = load ptr, ptr %10, align 8
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct.lexbor_str_t, ptr %30, i32 0, i32 0
-  store ptr %29, ptr %31, align 8
-  %32 = load i64, ptr %9, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.lexbor_str_t, ptr %33, i32 0, i32 1
-  store i64 %32, ptr %34, align 8
-  %35 = load ptr, ptr %10, align 8
-  store ptr %35, ptr %5, align 8
-  br label %36
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %7, align 8, !tbaa !4
+  %17 = load i64, ptr %9, align 8, !tbaa !8
+  %18 = add i64 %17, 1
+  %19 = call ptr @lexbor_mraw_alloc(ptr noundef %16, i64 noundef %18)
+  store ptr %19, ptr %10, align 8, !tbaa !15
+  %20 = load ptr, ptr %10, align 8, !tbaa !15
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
 
-36:                                               ; preds = %22, %21, %13
-  %37 = load ptr, ptr %5, align 8
-  ret ptr %37
+22:                                               ; preds = %15
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %37
+
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %10, align 8, !tbaa !15
+  %25 = load ptr, ptr %8, align 8, !tbaa !15
+  %26 = load i64, ptr %9, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %25, i64 %26, i1 false)
+  %27 = load ptr, ptr %10, align 8, !tbaa !15
+  %28 = load i64, ptr %9, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
+  store i8 0, ptr %29, align 1, !tbaa !14
+  %30 = load ptr, ptr %10, align 8, !tbaa !15
+  %31 = load ptr, ptr %6, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %31, i32 0, i32 0
+  store ptr %30, ptr %32, align 8, !tbaa !10
+  %33 = load i64, ptr %9, align 8, !tbaa !8
+  %34 = load ptr, ptr %6, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %34, i32 0, i32 1
+  store i64 %33, ptr %35, align 8, !tbaa !13
+  %36 = load ptr, ptr %10, align 8, !tbaa !15
+  store ptr %36, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %37
+
+37:                                               ; preds = %23, %22, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %38 = load ptr, ptr %5, align 8
+  ret ptr %38
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_str_clean(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.lexbor_str_t, ptr %3, i32 0, i32 1
-  store i64 0, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %3, i32 0, i32 1
+  store i64 0, ptr %4, align 8, !tbaa !13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lexbor_str_clean_all(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_destroy(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
@@ -161,11 +173,11 @@ define hidden ptr @lexbor_str_destroy(ptr noundef %0, ptr noundef %1, i1 noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
   %8 = zext i1 %2 to i8
-  store i8 %8, ptr %7, align 1
-  %9 = load ptr, ptr %5, align 8
+  store i8 %8, ptr %7, align 1, !tbaa !16
+  %9 = load ptr, ptr %5, align 8, !tbaa !4
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -174,36 +186,36 @@ define hidden ptr @lexbor_str_destroy(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %33
 
 12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.lexbor_str_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %5, align 8, !tbaa !4
+  %14 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.lexbor_str_t, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
+  %18 = load ptr, ptr %6, align 8, !tbaa !4
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = call ptr @lexbor_mraw_free(ptr noundef %18, ptr noundef %21)
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.lexbor_str_t, ptr %23, i32 0, i32 0
-  store ptr %22, ptr %24, align 8
+  %23 = load ptr, ptr %5, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %23, i32 0, i32 0
+  store ptr %22, ptr %24, align 8, !tbaa !10
   br label %25
 
 25:                                               ; preds = %17, %12
-  %26 = load i8, ptr %7, align 1
+  %26 = load i8, ptr %7, align 1, !tbaa !16, !range !18, !noundef !19
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %5, align 8, !tbaa !4
   %30 = call ptr @lexbor_free(ptr noundef %29)
   store ptr %30, ptr %4, align 8
   br label %33
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %5, align 8
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
   store ptr %32, ptr %4, align 8
   br label %33
 
@@ -223,36 +235,41 @@ define hidden ptr @lexbor_str_realloc(ptr noundef %0, ptr noundef %1, i64 nounde
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.lexbor_str_t, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = call ptr @lexbor_mraw_realloc(ptr noundef %9, ptr noundef %12, i64 noundef %13)
-  store ptr %14, ptr %8, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %23
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr %6, align 8, !tbaa !4
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !10
+  %14 = load i64, ptr %7, align 8, !tbaa !8
+  %15 = call ptr @lexbor_mraw_realloc(ptr noundef %10, ptr noundef %13, i64 noundef %14)
+  store ptr %15, ptr %8, align 8, !tbaa !15
+  %16 = load ptr, ptr %8, align 8, !tbaa !15
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr %8, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.lexbor_str_t, ptr %20, i32 0, i32 0
-  store ptr %19, ptr %21, align 8
-  %22 = load ptr, ptr %8, align 8
-  store ptr %22, ptr %4, align 8
-  br label %23
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %24
 
-23:                                               ; preds = %18, %17
-  %24 = load ptr, ptr %4, align 8
-  ret ptr %24
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %8, align 8, !tbaa !15
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %21, i32 0, i32 0
+  store ptr %20, ptr %22, align 8, !tbaa !10
+  %23 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %23, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %24
+
+24:                                               ; preds = %19, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %25 = load ptr, ptr %4, align 8
+  ret ptr %25
 }
 
 declare ptr @lexbor_mraw_realloc(ptr noundef, ptr noundef, i64 noundef) #1
@@ -264,80 +281,87 @@ define hidden ptr @lexbor_str_check_size(ptr noundef %0, ptr noundef %1, i64 nou
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.lexbor_str_t, ptr %9, i32 0, i32 1
-  %11 = load i64, ptr %10, align 8
-  %12 = load i64, ptr %7, align 8
-  %13 = sub i64 -1, %12
-  %14 = icmp ugt i64 %11, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store ptr null, ptr %4, align 8
-  br label %48
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !13
+  %13 = load i64, ptr %7, align 8, !tbaa !8
+  %14 = sub i64 -1, %13
+  %15 = icmp ugt i64 %12, %14
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.lexbor_str_t, ptr %17, i32 0, i32 1
-  %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = add i64 %19, %20
-  %22 = load ptr, ptr %5, align 8
-  %23 = call i64 @lexbor_str_size(ptr noundef %22)
-  %24 = icmp ule i64 %21, %23
-  br i1 %24, label %25, label %29
-
-25:                                               ; preds = %16
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.lexbor_str_t, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %4, align 8
-  br label %48
-
-29:                                               ; preds = %16
-  %30 = load ptr, ptr %6, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct.lexbor_str_t, ptr %31, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.lexbor_str_t, ptr %34, i32 0, i32 1
-  %36 = load i64, ptr %35, align 8
-  %37 = load i64, ptr %7, align 8
-  %38 = add i64 %36, %37
-  %39 = call ptr @lexbor_mraw_realloc(ptr noundef %30, ptr noundef %33, i64 noundef %38)
-  store ptr %39, ptr %8, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %29
   store ptr null, ptr %4, align 8
-  br label %48
+  store i32 1, ptr %9, align 4
+  br label %49
 
-43:                                               ; preds = %29
-  %44 = load ptr, ptr %8, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.lexbor_str_t, ptr %45, i32 0, i32 0
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %8, align 8
-  store ptr %47, ptr %4, align 8
-  br label %48
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %18, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8, !tbaa !13
+  %21 = load i64, ptr %7, align 8, !tbaa !8
+  %22 = add i64 %20, %21
+  %23 = load ptr, ptr %5, align 8, !tbaa !4
+  %24 = call i64 @lexbor_str_size(ptr noundef %23)
+  %25 = icmp ule i64 %22, %24
+  br i1 %25, label %26, label %30
 
-48:                                               ; preds = %43, %42, %25, %15
-  %49 = load ptr, ptr %4, align 8
-  ret ptr %49
+26:                                               ; preds = %17
+  %27 = load ptr, ptr %5, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  store ptr %29, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %49
+
+30:                                               ; preds = %17
+  %31 = load ptr, ptr %6, align 8, !tbaa !4
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = load ptr, ptr %5, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %35, i32 0, i32 1
+  %37 = load i64, ptr %36, align 8, !tbaa !13
+  %38 = load i64, ptr %7, align 8, !tbaa !8
+  %39 = add i64 %37, %38
+  %40 = call ptr @lexbor_mraw_realloc(ptr noundef %31, ptr noundef %34, i64 noundef %39)
+  store ptr %40, ptr %8, align 8, !tbaa !15
+  %41 = load ptr, ptr %8, align 8, !tbaa !15
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %44
+
+43:                                               ; preds = %30
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %49
+
+44:                                               ; preds = %30
+  %45 = load ptr, ptr %8, align 8, !tbaa !15
+  %46 = load ptr, ptr %5, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %46, i32 0, i32 0
+  store ptr %45, ptr %47, align 8, !tbaa !10
+  %48 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %48, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %49
+
+49:                                               ; preds = %44, %43, %26, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %50 = load ptr, ptr %4, align 8
+  ret ptr %50
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @lexbor_str_size(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lexbor_str_size(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.lexbor_str_t, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = call i64 @lexbor_mraw_data_size(ptr noundef %5)
   ret i64 %6
 }
@@ -351,104 +375,125 @@ define hidden ptr @lexbor_str_append(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  br label %12
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  br label %13
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.lexbor_str_t, ptr %13, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = add i64 %16, 1
-  %18 = sub i64 -1, %17
-  %19 = icmp ugt i64 %15, %18
-  br i1 %19, label %20, label %21
+13:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %14 = load ptr, ptr %6, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !13
+  %17 = load i64, ptr %9, align 8, !tbaa !8
+  %18 = add i64 %17, 1
+  %19 = sub i64 -1, %18
+  %20 = icmp ugt i64 %16, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %12
+21:                                               ; preds = %13
   store ptr null, ptr %5, align 8
-  br label %76
+  store i32 1, ptr %12, align 4
+  br label %52
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.lexbor_str_t, ptr %22, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  %27 = add i64 %24, %26
-  %28 = load ptr, ptr %6, align 8
-  %29 = call i64 @lexbor_str_size(ptr noundef %28)
-  %30 = icmp ugt i64 %27, %29
-  br i1 %30, label %31, label %50
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %6, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8, !tbaa !13
+  %26 = load i64, ptr %9, align 8, !tbaa !8
+  %27 = add i64 %26, 1
+  %28 = add i64 %25, %27
+  %29 = load ptr, ptr %6, align 8, !tbaa !4
+  %30 = call i64 @lexbor_str_size(ptr noundef %29)
+  %31 = icmp ugt i64 %28, %30
+  br i1 %31, label %32, label %51
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.lexbor_str_t, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.lexbor_str_t, ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = load i64, ptr %9, align 8
-  %40 = add i64 %39, 1
-  %41 = add i64 %38, %40
-  %42 = call ptr @lexbor_mraw_realloc(ptr noundef %32, ptr noundef %35, i64 noundef %41)
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %7, align 8, !tbaa !4
+  %34 = load ptr, ptr %6, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !10
+  %37 = load ptr, ptr %6, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !13
+  %40 = load i64, ptr %9, align 8, !tbaa !8
+  %41 = add i64 %40, 1
+  %42 = add i64 %39, %41
+  %43 = call ptr @lexbor_mraw_realloc(ptr noundef %33, ptr noundef %36, i64 noundef %42)
+  store ptr %43, ptr %11, align 8, !tbaa !4
+  %44 = load ptr, ptr %11, align 8, !tbaa !4
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %31
+46:                                               ; preds = %32
   store ptr null, ptr %5, align 8
-  br label %76
+  store i32 1, ptr %12, align 4
+  br label %52
 
-46:                                               ; preds = %31
-  %47 = load ptr, ptr %11, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.lexbor_str_t, ptr %48, i32 0, i32 0
-  store ptr %47, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %46, %21
+47:                                               ; preds = %32
+  %48 = load ptr, ptr %11, align 8, !tbaa !4
+  %49 = load ptr, ptr %6, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8, !tbaa !10
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.lexbor_str_t, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.lexbor_str_t, ptr %55, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 %57
-  store ptr %58, ptr %10, align 8
-  %59 = load ptr, ptr %10, align 8
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i64, ptr %9, align 8
-  %62 = mul i64 1, %61
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 1 %60, i64 %62, i1 false)
-  %63 = load i64, ptr %9, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.lexbor_str_t, ptr %64, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = add i64 %66, %63
-  store i64 %67, ptr %65, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %struct.lexbor_str_t, ptr %68, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.lexbor_str_t, ptr %71, i32 0, i32 1
-  %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 %73
-  store i8 0, ptr %74, align 1
-  %75 = load ptr, ptr %10, align 8
-  store ptr %75, ptr %5, align 8
-  br label %76
+51:                                               ; preds = %47, %22
+  store i32 0, ptr %12, align 4
+  br label %52
 
-76:                                               ; preds = %51, %45, %20
-  %77 = load ptr, ptr %5, align 8
-  ret ptr %77
+52:                                               ; preds = %51, %46, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  %53 = load i32, ptr %12, align 4
+  switch i32 %53, label %81 [
+    i32 0, label %54
+  ]
+
+54:                                               ; preds = %52
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %6, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !10
+  %60 = load ptr, ptr %6, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %60, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %62
+  store ptr %63, ptr %10, align 8, !tbaa !15
+  %64 = load ptr, ptr %10, align 8, !tbaa !15
+  %65 = load ptr, ptr %8, align 8, !tbaa !15
+  %66 = load i64, ptr %9, align 8, !tbaa !8
+  %67 = mul i64 1, %66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %65, i64 %67, i1 false)
+  %68 = load i64, ptr %9, align 8, !tbaa !8
+  %69 = load ptr, ptr %6, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %69, i32 0, i32 1
+  %71 = load i64, ptr %70, align 8, !tbaa !13
+  %72 = add i64 %71, %68
+  store i64 %72, ptr %70, align 8, !tbaa !13
+  %73 = load ptr, ptr %6, align 8, !tbaa !4
+  %74 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %73, i32 0, i32 0
+  %75 = load ptr, ptr %74, align 8, !tbaa !10
+  %76 = load ptr, ptr %6, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %76, i32 0, i32 1
+  %78 = load i64, ptr %77, align 8, !tbaa !13
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 %78
+  store i8 0, ptr %79, align 1, !tbaa !14
+  %80 = load ptr, ptr %10, align 8, !tbaa !15
+  store ptr %80, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %81
+
+81:                                               ; preds = %56, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %82 = load ptr, ptr %5, align 8
+  ret ptr %82
 }
 
 ; Function Attrs: nounwind uwtable
@@ -460,123 +505,144 @@ define hidden ptr @lexbor_str_append_before(ptr noundef %0, ptr noundef %1, ptr 
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  br label %12
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  br label %13
 
-12:                                               ; preds = %4
-  %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct.lexbor_str_t, ptr %13, i32 0, i32 1
-  %15 = load i64, ptr %14, align 8
-  %16 = load i64, ptr %9, align 8
-  %17 = add i64 %16, 1
-  %18 = sub i64 -1, %17
-  %19 = icmp ugt i64 %15, %18
-  br i1 %19, label %20, label %21
+13:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %14 = load ptr, ptr %6, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %14, i32 0, i32 1
+  %16 = load i64, ptr %15, align 8, !tbaa !13
+  %17 = load i64, ptr %9, align 8, !tbaa !8
+  %18 = add i64 %17, 1
+  %19 = sub i64 -1, %18
+  %20 = icmp ugt i64 %16, %19
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %12
+21:                                               ; preds = %13
   store ptr null, ptr %5, align 8
-  br label %90
+  store i32 1, ptr %12, align 4
+  br label %52
 
-21:                                               ; preds = %12
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.lexbor_str_t, ptr %22, i32 0, i32 1
-  %24 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, 1
-  %27 = add i64 %24, %26
-  %28 = load ptr, ptr %6, align 8
-  %29 = call i64 @lexbor_str_size(ptr noundef %28)
-  %30 = icmp ugt i64 %27, %29
-  br i1 %30, label %31, label %50
+22:                                               ; preds = %13
+  %23 = load ptr, ptr %6, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %23, i32 0, i32 1
+  %25 = load i64, ptr %24, align 8, !tbaa !13
+  %26 = load i64, ptr %9, align 8, !tbaa !8
+  %27 = add i64 %26, 1
+  %28 = add i64 %25, %27
+  %29 = load ptr, ptr %6, align 8, !tbaa !4
+  %30 = call i64 @lexbor_str_size(ptr noundef %29)
+  %31 = icmp ugt i64 %28, %30
+  br i1 %31, label %32, label %51
 
-31:                                               ; preds = %21
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct.lexbor_str_t, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct.lexbor_str_t, ptr %36, i32 0, i32 1
-  %38 = load i64, ptr %37, align 8
-  %39 = load i64, ptr %9, align 8
-  %40 = add i64 %39, 1
-  %41 = add i64 %38, %40
-  %42 = call ptr @lexbor_mraw_realloc(ptr noundef %32, ptr noundef %35, i64 noundef %41)
-  store ptr %42, ptr %11, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %46
+32:                                               ; preds = %22
+  %33 = load ptr, ptr %7, align 8, !tbaa !4
+  %34 = load ptr, ptr %6, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !10
+  %37 = load ptr, ptr %6, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !13
+  %40 = load i64, ptr %9, align 8, !tbaa !8
+  %41 = add i64 %40, 1
+  %42 = add i64 %39, %41
+  %43 = call ptr @lexbor_mraw_realloc(ptr noundef %33, ptr noundef %36, i64 noundef %42)
+  store ptr %43, ptr %11, align 8, !tbaa !4
+  %44 = load ptr, ptr %11, align 8, !tbaa !4
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %31
+46:                                               ; preds = %32
   store ptr null, ptr %5, align 8
-  br label %90
+  store i32 1, ptr %12, align 4
+  br label %52
 
-46:                                               ; preds = %31
-  %47 = load ptr, ptr %11, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct.lexbor_str_t, ptr %48, i32 0, i32 0
-  store ptr %47, ptr %49, align 8
-  br label %50
-
-50:                                               ; preds = %46, %21
+47:                                               ; preds = %32
+  %48 = load ptr, ptr %11, align 8, !tbaa !4
+  %49 = load ptr, ptr %6, align 8, !tbaa !4
+  %50 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %49, i32 0, i32 0
+  store ptr %48, ptr %50, align 8, !tbaa !10
   br label %51
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct.lexbor_str_t, ptr %52, i32 0, i32 0
-  %54 = load ptr, ptr %53, align 8
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.lexbor_str_t, ptr %55, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 %57
-  store ptr %58, ptr %10, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct.lexbor_str_t, ptr %59, i32 0, i32 0
-  %61 = load ptr, ptr %60, align 8
-  %62 = load i64, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 %62
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct.lexbor_str_t, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct.lexbor_str_t, ptr %67, i32 0, i32 1
-  %69 = load i64, ptr %68, align 8
-  %70 = mul i64 1, %69
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %63, ptr align 1 %66, i64 %70, i1 false)
-  %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds %struct.lexbor_str_t, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %8, align 8
-  %75 = load i64, ptr %9, align 8
-  %76 = mul i64 1, %75
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %74, i64 %76, i1 false)
-  %77 = load i64, ptr %9, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds %struct.lexbor_str_t, ptr %78, i32 0, i32 1
-  %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, %77
-  store i64 %81, ptr %79, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %struct.lexbor_str_t, ptr %82, i32 0, i32 0
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.lexbor_str_t, ptr %85, i32 0, i32 1
-  %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %84, i64 %87
-  store i8 0, ptr %88, align 1
-  %89 = load ptr, ptr %10, align 8
-  store ptr %89, ptr %5, align 8
-  br label %90
+51:                                               ; preds = %47, %22
+  store i32 0, ptr %12, align 4
+  br label %52
 
-90:                                               ; preds = %51, %45, %20
-  %91 = load ptr, ptr %5, align 8
-  ret ptr %91
+52:                                               ; preds = %51, %46, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  %53 = load i32, ptr %12, align 4
+  switch i32 %53, label %95 [
+    i32 0, label %54
+  ]
+
+54:                                               ; preds = %52
+  br label %55
+
+55:                                               ; preds = %54
+  br label %56
+
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %6, align 8, !tbaa !4
+  %58 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !10
+  %60 = load ptr, ptr %6, align 8, !tbaa !4
+  %61 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %60, i32 0, i32 1
+  %62 = load i64, ptr %61, align 8, !tbaa !13
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %62
+  store ptr %63, ptr %10, align 8, !tbaa !15
+  %64 = load ptr, ptr %6, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !10
+  %67 = load i64, ptr %9, align 8, !tbaa !8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %67
+  %69 = load ptr, ptr %6, align 8, !tbaa !4
+  %70 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %69, i32 0, i32 0
+  %71 = load ptr, ptr %70, align 8, !tbaa !10
+  %72 = load ptr, ptr %6, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %72, i32 0, i32 1
+  %74 = load i64, ptr %73, align 8, !tbaa !13
+  %75 = mul i64 1, %74
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %68, ptr align 1 %71, i64 %75, i1 false)
+  %76 = load ptr, ptr %6, align 8, !tbaa !4
+  %77 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !10
+  %79 = load ptr, ptr %8, align 8, !tbaa !15
+  %80 = load i64, ptr %9, align 8, !tbaa !8
+  %81 = mul i64 1, %80
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %79, i64 %81, i1 false)
+  %82 = load i64, ptr %9, align 8, !tbaa !8
+  %83 = load ptr, ptr %6, align 8, !tbaa !4
+  %84 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %83, i32 0, i32 1
+  %85 = load i64, ptr %84, align 8, !tbaa !13
+  %86 = add i64 %85, %82
+  store i64 %86, ptr %84, align 8, !tbaa !13
+  %87 = load ptr, ptr %6, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %87, i32 0, i32 0
+  %89 = load ptr, ptr %88, align 8, !tbaa !10
+  %90 = load ptr, ptr %6, align 8, !tbaa !4
+  %91 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %90, i32 0, i32 1
+  %92 = load i64, ptr %91, align 8, !tbaa !13
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 %92
+  store i8 0, ptr %93, align 1, !tbaa !14
+  %94 = load ptr, ptr %10, align 8, !tbaa !15
+  store ptr %94, ptr %5, align 8
+  store i32 1, ptr %12, align 4
+  br label %95
+
+95:                                               ; preds = %56, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %96 = load ptr, ptr %5, align 8
+  ret ptr %96
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_append_one(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) #0 {
@@ -585,98 +651,117 @@ define hidden ptr @lexbor_str_append_one(ptr noundef %0, ptr noundef %1, i8 noun
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i8 %2, ptr %7, align 1
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i8 %2, ptr %7, align 1, !tbaa !14
+  br label %10
 
-9:                                                ; preds = %3
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.lexbor_str_t, ptr %10, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp ugt i64 %12, -3
-  br i1 %13, label %14, label %15
+10:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !13
+  %14 = icmp ugt i64 %13, -3
+  br i1 %14, label %15, label %16
 
-14:                                               ; preds = %9
+15:                                               ; preds = %10
   store ptr null, ptr %4, align 8
-  br label %69
+  store i32 1, ptr %9, align 4
+  br label %42
 
-15:                                               ; preds = %9
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.lexbor_str_t, ptr %16, i32 0, i32 1
-  %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, 2
-  %20 = load ptr, ptr %5, align 8
-  %21 = call i64 @lexbor_str_size(ptr noundef %20)
-  %22 = icmp ugt i64 %19, %21
-  br i1 %22, label %23, label %40
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !4
+  %18 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %17, i32 0, i32 1
+  %19 = load i64, ptr %18, align 8, !tbaa !13
+  %20 = add i64 %19, 2
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = call i64 @lexbor_str_size(ptr noundef %21)
+  %23 = icmp ugt i64 %20, %22
+  br i1 %23, label %24, label %41
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.lexbor_str_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds %struct.lexbor_str_t, ptr %28, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %31 = add i64 %30, 2
-  %32 = call ptr @lexbor_mraw_realloc(ptr noundef %24, ptr noundef %27, i64 noundef %31)
-  store ptr %32, ptr %8, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %36
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %6, align 8, !tbaa !4
+  %26 = load ptr, ptr %5, align 8, !tbaa !4
+  %27 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !10
+  %29 = load ptr, ptr %5, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %32 = add i64 %31, 2
+  %33 = call ptr @lexbor_mraw_realloc(ptr noundef %25, ptr noundef %28, i64 noundef %32)
+  store ptr %33, ptr %8, align 8, !tbaa !4
+  %34 = load ptr, ptr %8, align 8, !tbaa !4
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %23
+36:                                               ; preds = %24
   store ptr null, ptr %4, align 8
-  br label %69
+  store i32 1, ptr %9, align 4
+  br label %42
 
-36:                                               ; preds = %23
-  %37 = load ptr, ptr %8, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.lexbor_str_t, ptr %38, i32 0, i32 0
-  store ptr %37, ptr %39, align 8
-  br label %40
-
-40:                                               ; preds = %36, %15
+37:                                               ; preds = %24
+  %38 = load ptr, ptr %8, align 8, !tbaa !4
+  %39 = load ptr, ptr %5, align 8, !tbaa !4
+  %40 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %39, i32 0, i32 0
+  store ptr %38, ptr %40, align 8, !tbaa !10
   br label %41
 
-41:                                               ; preds = %40
-  %42 = load i8, ptr %7, align 1
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.lexbor_str_t, ptr %43, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.lexbor_str_t, ptr %46, i32 0, i32 1
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 %48
-  store i8 %42, ptr %49, align 1
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.lexbor_str_t, ptr %50, i32 0, i32 1
-  %52 = load i64, ptr %51, align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr %51, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.lexbor_str_t, ptr %54, i32 0, i32 0
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds %struct.lexbor_str_t, ptr %57, i32 0, i32 1
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  store i8 0, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct.lexbor_str_t, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds %struct.lexbor_str_t, ptr %64, i32 0, i32 1
-  %66 = load i64, ptr %65, align 8
-  %67 = sub i64 %66, 1
-  %68 = getelementptr inbounds i8, ptr %63, i64 %67
-  store ptr %68, ptr %4, align 8
-  br label %69
+41:                                               ; preds = %37, %16
+  store i32 0, ptr %9, align 4
+  br label %42
 
-69:                                               ; preds = %41, %35, %14
-  %70 = load ptr, ptr %4, align 8
-  ret ptr %70
+42:                                               ; preds = %41, %36, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %43 = load i32, ptr %9, align 4
+  switch i32 %43, label %75 [
+    i32 0, label %44
+    i32 1, label %73
+  ]
+
+44:                                               ; preds = %42
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load i8, ptr %7, align 1, !tbaa !14
+  %47 = load ptr, ptr %5, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !10
+  %50 = load ptr, ptr %5, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %50, i32 0, i32 1
+  %52 = load i64, ptr %51, align 8, !tbaa !13
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
+  store i8 %46, ptr %53, align 1, !tbaa !14
+  %54 = load ptr, ptr %5, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %54, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8, !tbaa !13
+  %57 = add i64 %56, 1
+  store i64 %57, ptr %55, align 8, !tbaa !13
+  %58 = load ptr, ptr %5, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = load ptr, ptr %5, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %61, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
+  store i8 0, ptr %64, align 1, !tbaa !14
+  %65 = load ptr, ptr %5, align 8, !tbaa !4
+  %66 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %65, i32 0, i32 0
+  %67 = load ptr, ptr %66, align 8, !tbaa !10
+  %68 = load ptr, ptr %5, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %68, i32 0, i32 1
+  %70 = load i64, ptr %69, align 8, !tbaa !13
+  %71 = sub i64 %70, 1
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %71
+  store ptr %72, ptr %4, align 8
+  br label %73
+
+73:                                               ; preds = %45, %42
+  %74 = load ptr, ptr %4, align 8
+  ret ptr %74
+
+75:                                               ; preds = %42
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -689,125 +774,148 @@ define hidden ptr @lexbor_str_append_lowercase(ptr noundef %0, ptr noundef %1, p
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  br label %13
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  br label %14
 
-13:                                               ; preds = %4
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.lexbor_str_t, ptr %14, i32 0, i32 1
-  %16 = load i64, ptr %15, align 8
-  %17 = load i64, ptr %9, align 8
-  %18 = add i64 %17, 1
-  %19 = sub i64 -1, %18
-  %20 = icmp ugt i64 %16, %19
-  br i1 %20, label %21, label %22
+14:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %15 = load ptr, ptr %6, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %15, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8, !tbaa !13
+  %18 = load i64, ptr %9, align 8, !tbaa !8
+  %19 = add i64 %18, 1
+  %20 = sub i64 -1, %19
+  %21 = icmp ugt i64 %17, %20
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %13
+22:                                               ; preds = %14
   store ptr null, ptr %5, align 8
-  br label %88
+  store i32 1, ptr %13, align 4
+  br label %53
 
-22:                                               ; preds = %13
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.lexbor_str_t, ptr %23, i32 0, i32 1
-  %25 = load i64, ptr %24, align 8
-  %26 = load i64, ptr %9, align 8
-  %27 = add i64 %26, 1
-  %28 = add i64 %25, %27
-  %29 = load ptr, ptr %6, align 8
-  %30 = call i64 @lexbor_str_size(ptr noundef %29)
-  %31 = icmp ugt i64 %28, %30
-  br i1 %31, label %32, label %51
+23:                                               ; preds = %14
+  %24 = load ptr, ptr %6, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %24, i32 0, i32 1
+  %26 = load i64, ptr %25, align 8, !tbaa !13
+  %27 = load i64, ptr %9, align 8, !tbaa !8
+  %28 = add i64 %27, 1
+  %29 = add i64 %26, %28
+  %30 = load ptr, ptr %6, align 8, !tbaa !4
+  %31 = call i64 @lexbor_str_size(ptr noundef %30)
+  %32 = icmp ugt i64 %29, %31
+  br i1 %32, label %33, label %52
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.lexbor_str_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.lexbor_str_t, ptr %37, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
-  %40 = load i64, ptr %9, align 8
-  %41 = add i64 %40, 1
-  %42 = add i64 %39, %41
-  %43 = call ptr @lexbor_mraw_realloc(ptr noundef %33, ptr noundef %36, i64 noundef %42)
-  store ptr %43, ptr %12, align 8
-  %44 = load ptr, ptr %12, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %47
+33:                                               ; preds = %23
+  %34 = load ptr, ptr %7, align 8, !tbaa !4
+  %35 = load ptr, ptr %6, align 8, !tbaa !4
+  %36 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8, !tbaa !10
+  %38 = load ptr, ptr %6, align 8, !tbaa !4
+  %39 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %38, i32 0, i32 1
+  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %41 = load i64, ptr %9, align 8, !tbaa !8
+  %42 = add i64 %41, 1
+  %43 = add i64 %40, %42
+  %44 = call ptr @lexbor_mraw_realloc(ptr noundef %34, ptr noundef %37, i64 noundef %43)
+  store ptr %44, ptr %12, align 8, !tbaa !4
+  %45 = load ptr, ptr %12, align 8, !tbaa !4
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %32
+47:                                               ; preds = %33
   store ptr null, ptr %5, align 8
-  br label %88
+  store i32 1, ptr %13, align 4
+  br label %53
 
-47:                                               ; preds = %32
-  %48 = load ptr, ptr %12, align 8
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.lexbor_str_t, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  br label %51
-
-51:                                               ; preds = %47, %22
+48:                                               ; preds = %33
+  %49 = load ptr, ptr %12, align 8, !tbaa !4
+  %50 = load ptr, ptr %6, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %50, i32 0, i32 0
+  store ptr %49, ptr %51, align 8, !tbaa !10
   br label %52
 
-52:                                               ; preds = %51
-  %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct.lexbor_str_t, ptr %53, i32 0, i32 0
-  %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct.lexbor_str_t, ptr %56, i32 0, i32 1
-  %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  store ptr %59, ptr %11, align 8
-  store i64 0, ptr %10, align 8
-  br label %60
+52:                                               ; preds = %48, %23
+  store i32 0, ptr %13, align 4
+  br label %53
 
-60:                                               ; preds = %75, %52
-  %61 = load i64, ptr %10, align 8
-  %62 = load i64, ptr %9, align 8
-  %63 = icmp ult i64 %61, %62
-  br i1 %63, label %64, label %78
+53:                                               ; preds = %52, %47, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %54 = load i32, ptr %13, align 4
+  switch i32 %54, label %93 [
+    i32 0, label %55
+  ]
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %8, align 8
-  %66 = load i64, ptr %10, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %69
-  %71 = load i8, ptr %70, align 1
-  %72 = load ptr, ptr %11, align 8
-  %73 = load i64, ptr %10, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
-  store i8 %71, ptr %74, align 1
-  br label %75
+55:                                               ; preds = %53
+  br label %56
 
-75:                                               ; preds = %64
-  %76 = load i64, ptr %10, align 8
-  %77 = add i64 %76, 1
-  store i64 %77, ptr %10, align 8
-  br label %60
+56:                                               ; preds = %55
+  br label %57
 
-78:                                               ; preds = %60
-  %79 = load ptr, ptr %11, align 8
-  %80 = load i64, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  store i8 0, ptr %81, align 1
-  %82 = load i64, ptr %9, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct.lexbor_str_t, ptr %83, i32 0, i32 1
-  %85 = load i64, ptr %84, align 8
-  %86 = add i64 %85, %82
-  store i64 %86, ptr %84, align 8
-  %87 = load ptr, ptr %11, align 8
-  store ptr %87, ptr %5, align 8
-  br label %88
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %6, align 8, !tbaa !4
+  %59 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
+  %61 = load ptr, ptr %6, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %61, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8, !tbaa !13
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
+  store ptr %64, ptr %11, align 8, !tbaa !15
+  store i64 0, ptr %10, align 8, !tbaa !8
+  br label %65
 
-88:                                               ; preds = %78, %46, %21
-  %89 = load ptr, ptr %5, align 8
-  ret ptr %89
+65:                                               ; preds = %80, %57
+  %66 = load i64, ptr %10, align 8, !tbaa !8
+  %67 = load i64, ptr %9, align 8, !tbaa !8
+  %68 = icmp ult i64 %66, %67
+  br i1 %68, label %69, label %83
+
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %8, align 8, !tbaa !15
+  %71 = load i64, ptr %10, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !14
+  %74 = zext i8 %73 to i64
+  %75 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %74
+  %76 = load i8, ptr %75, align 1, !tbaa !14
+  %77 = load ptr, ptr %11, align 8, !tbaa !15
+  %78 = load i64, ptr %10, align 8, !tbaa !8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
+  store i8 %76, ptr %79, align 1, !tbaa !14
+  br label %80
+
+80:                                               ; preds = %69
+  %81 = load i64, ptr %10, align 8, !tbaa !8
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %10, align 8, !tbaa !8
+  br label %65
+
+83:                                               ; preds = %65
+  %84 = load ptr, ptr %11, align 8, !tbaa !15
+  %85 = load i64, ptr %10, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 %85
+  store i8 0, ptr %86, align 1, !tbaa !14
+  %87 = load i64, ptr %9, align 8, !tbaa !8
+  %88 = load ptr, ptr %6, align 8, !tbaa !4
+  %89 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %88, i32 0, i32 1
+  %90 = load i64, ptr %89, align 8, !tbaa !13
+  %91 = add i64 %90, %87
+  store i64 %91, ptr %89, align 8, !tbaa !13
+  %92 = load ptr, ptr %11, align 8, !tbaa !15
+  store ptr %92, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %93
+
+93:                                               ; preds = %83, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %94 = load ptr, ptr %5, align 8
+  ret ptr %94
 }
 
 ; Function Attrs: nounwind uwtable
@@ -822,185 +930,215 @@ define hidden ptr @lexbor_str_append_with_rep_null_chars(ptr noundef %0, ptr nou
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   %14 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct.lexbor_str_t, ptr %15, i32 0, i32 1
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %13, align 8
-  br label %18
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !4
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %16 = load ptr, ptr %6, align 8, !tbaa !4
+  %17 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %16, i32 0, i32 1
+  %18 = load i64, ptr %17, align 8, !tbaa !13
+  store i64 %18, ptr %13, align 8, !tbaa !8
+  br label %19
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.lexbor_str_t, ptr %19, i32 0, i32 1
-  %21 = load i64, ptr %20, align 8
-  %22 = load i64, ptr %9, align 8
-  %23 = add i64 %22, 1
-  %24 = sub i64 -1, %23
-  %25 = icmp ugt i64 %21, %24
-  br i1 %25, label %26, label %27
+19:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %20 = load ptr, ptr %6, align 8, !tbaa !4
+  %21 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %20, i32 0, i32 1
+  %22 = load i64, ptr %21, align 8, !tbaa !13
+  %23 = load i64, ptr %9, align 8, !tbaa !8
+  %24 = add i64 %23, 1
+  %25 = sub i64 -1, %24
+  %26 = icmp ugt i64 %22, %25
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %18
+27:                                               ; preds = %19
   store ptr null, ptr %5, align 8
-  br label %124
+  store i32 1, ptr %15, align 4
+  br label %58
 
-27:                                               ; preds = %18
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.lexbor_str_t, ptr %28, i32 0, i32 1
-  %30 = load i64, ptr %29, align 8
-  %31 = load i64, ptr %9, align 8
-  %32 = add i64 %31, 1
-  %33 = add i64 %30, %32
-  %34 = load ptr, ptr %6, align 8
-  %35 = call i64 @lexbor_str_size(ptr noundef %34)
-  %36 = icmp ugt i64 %33, %35
-  br i1 %36, label %37, label %56
+28:                                               ; preds = %19
+  %29 = load ptr, ptr %6, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %29, i32 0, i32 1
+  %31 = load i64, ptr %30, align 8, !tbaa !13
+  %32 = load i64, ptr %9, align 8, !tbaa !8
+  %33 = add i64 %32, 1
+  %34 = add i64 %31, %33
+  %35 = load ptr, ptr %6, align 8, !tbaa !4
+  %36 = call i64 @lexbor_str_size(ptr noundef %35)
+  %37 = icmp ugt i64 %34, %36
+  br i1 %37, label %38, label %57
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct.lexbor_str_t, ptr %39, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct.lexbor_str_t, ptr %42, i32 0, i32 1
-  %44 = load i64, ptr %43, align 8
-  %45 = load i64, ptr %9, align 8
-  %46 = add i64 %45, 1
-  %47 = add i64 %44, %46
-  %48 = call ptr @lexbor_mraw_realloc(ptr noundef %38, ptr noundef %41, i64 noundef %47)
-  store ptr %48, ptr %14, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %52
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %7, align 8, !tbaa !4
+  %40 = load ptr, ptr %6, align 8, !tbaa !4
+  %41 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !10
+  %43 = load ptr, ptr %6, align 8, !tbaa !4
+  %44 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %43, i32 0, i32 1
+  %45 = load i64, ptr %44, align 8, !tbaa !13
+  %46 = load i64, ptr %9, align 8, !tbaa !8
+  %47 = add i64 %46, 1
+  %48 = add i64 %45, %47
+  %49 = call ptr @lexbor_mraw_realloc(ptr noundef %39, ptr noundef %42, i64 noundef %48)
+  store ptr %49, ptr %14, align 8, !tbaa !4
+  %50 = load ptr, ptr %14, align 8, !tbaa !4
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %37
+52:                                               ; preds = %38
   store ptr null, ptr %5, align 8
-  br label %124
+  store i32 1, ptr %15, align 4
+  br label %58
 
-52:                                               ; preds = %37
-  %53 = load ptr, ptr %14, align 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds %struct.lexbor_str_t, ptr %54, i32 0, i32 0
-  store ptr %53, ptr %55, align 8
-  br label %56
-
-56:                                               ; preds = %52, %27
+53:                                               ; preds = %38
+  %54 = load ptr, ptr %14, align 8, !tbaa !4
+  %55 = load ptr, ptr %6, align 8, !tbaa !4
+  %56 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %55, i32 0, i32 0
+  store ptr %54, ptr %56, align 8, !tbaa !10
   br label %57
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %8, align 8
-  %59 = load i64, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  store ptr %60, ptr %12, align 8
+57:                                               ; preds = %53, %28
+  store i32 0, ptr %15, align 4
+  br label %58
+
+58:                                               ; preds = %57, %52, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %59 = load i32, ptr %15, align 4
+  switch i32 %59, label %129 [
+    i32 0, label %60
+  ]
+
+60:                                               ; preds = %58
   br label %61
 
-61:                                               ; preds = %97, %57
-  %62 = load ptr, ptr %8, align 8
-  %63 = load ptr, ptr %12, align 8
-  %64 = icmp ne ptr %62, %63
-  br i1 %64, label %65, label %100
+61:                                               ; preds = %60
+  br label %62
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %8, align 8
-  %67 = load ptr, ptr %12, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = ptrtoint ptr %67 to i64
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = mul i64 1, %71
-  %73 = call ptr @memchr(ptr noundef %66, i32 noundef 0, i64 noundef %72) #5
-  store ptr %73, ptr %10, align 8
-  %74 = load ptr, ptr %10, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %76, label %77
+62:                                               ; preds = %61
+  %63 = load ptr, ptr %8, align 8, !tbaa !15
+  %64 = load i64, ptr %9, align 8, !tbaa !8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
+  store ptr %65, ptr %12, align 8, !tbaa !15
+  br label %66
 
-76:                                               ; preds = %65
-  br label %100
+66:                                               ; preds = %102, %62
+  %67 = load ptr, ptr %8, align 8, !tbaa !15
+  %68 = load ptr, ptr %12, align 8, !tbaa !15
+  %69 = icmp ne ptr %67, %68
+  br i1 %69, label %70, label %105
 
-77:                                               ; preds = %65
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = load ptr, ptr %10, align 8
-  %82 = load ptr, ptr %8, align 8
-  %83 = ptrtoint ptr %81 to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = call ptr @lexbor_str_append(ptr noundef %78, ptr noundef %79, ptr noundef %80, i64 noundef %85)
-  store ptr %86, ptr %11, align 8
-  %87 = load ptr, ptr %11, align 8
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %89, label %90
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %8, align 8, !tbaa !15
+  %72 = load ptr, ptr %12, align 8, !tbaa !15
+  %73 = load ptr, ptr %8, align 8, !tbaa !15
+  %74 = ptrtoint ptr %72 to i64
+  %75 = ptrtoint ptr %73 to i64
+  %76 = sub i64 %74, %75
+  %77 = mul i64 1, %76
+  %78 = call ptr @memchr(ptr noundef %71, i32 noundef 0, i64 noundef %77) #8
+  store ptr %78, ptr %10, align 8, !tbaa !15
+  %79 = load ptr, ptr %10, align 8, !tbaa !15
+  %80 = icmp eq ptr %79, null
+  br i1 %80, label %81, label %82
 
-89:                                               ; preds = %77
+81:                                               ; preds = %70
+  br label %105
+
+82:                                               ; preds = %70
+  %83 = load ptr, ptr %6, align 8, !tbaa !4
+  %84 = load ptr, ptr %7, align 8, !tbaa !4
+  %85 = load ptr, ptr %8, align 8, !tbaa !15
+  %86 = load ptr, ptr %10, align 8, !tbaa !15
+  %87 = load ptr, ptr %8, align 8, !tbaa !15
+  %88 = ptrtoint ptr %86 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = call ptr @lexbor_str_append(ptr noundef %83, ptr noundef %84, ptr noundef %85, i64 noundef %90)
+  store ptr %91, ptr %11, align 8, !tbaa !15
+  %92 = load ptr, ptr %11, align 8, !tbaa !15
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %94, label %95
+
+94:                                               ; preds = %82
   store ptr null, ptr %5, align 8
-  br label %124
+  store i32 1, ptr %15, align 4
+  br label %129
 
-90:                                               ; preds = %77
-  %91 = load ptr, ptr %6, align 8
-  %92 = load ptr, ptr %7, align 8
-  %93 = call ptr @lexbor_str_append(ptr noundef %91, ptr noundef %92, ptr noundef @lexbor_str_res_ansi_replacement_character, i64 noundef 3)
-  store ptr %93, ptr %11, align 8
-  %94 = load ptr, ptr %11, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %97
+95:                                               ; preds = %82
+  %96 = load ptr, ptr %6, align 8, !tbaa !4
+  %97 = load ptr, ptr %7, align 8, !tbaa !4
+  %98 = call ptr @lexbor_str_append(ptr noundef %96, ptr noundef %97, ptr noundef @lexbor_str_res_ansi_replacement_character, i64 noundef 3)
+  store ptr %98, ptr %11, align 8, !tbaa !15
+  %99 = load ptr, ptr %11, align 8, !tbaa !15
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %102
 
-96:                                               ; preds = %90
+101:                                              ; preds = %95
   store ptr null, ptr %5, align 8
-  br label %124
+  store i32 1, ptr %15, align 4
+  br label %129
 
-97:                                               ; preds = %90
-  %98 = load ptr, ptr %10, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1
-  store ptr %99, ptr %8, align 8
-  br label %61
+102:                                              ; preds = %95
+  %103 = load ptr, ptr %10, align 8, !tbaa !15
+  %104 = getelementptr inbounds i8, ptr %103, i64 1
+  store ptr %104, ptr %8, align 8, !tbaa !15
+  br label %66
 
-100:                                              ; preds = %76, %61
-  %101 = load ptr, ptr %8, align 8
-  %102 = load ptr, ptr %12, align 8
-  %103 = icmp ne ptr %101, %102
-  br i1 %103, label %104, label %118
+105:                                              ; preds = %81, %66
+  %106 = load ptr, ptr %8, align 8, !tbaa !15
+  %107 = load ptr, ptr %12, align 8, !tbaa !15
+  %108 = icmp ne ptr %106, %107
+  br i1 %108, label %109, label %123
 
-104:                                              ; preds = %100
-  %105 = load ptr, ptr %6, align 8
-  %106 = load ptr, ptr %7, align 8
-  %107 = load ptr, ptr %8, align 8
-  %108 = load ptr, ptr %12, align 8
-  %109 = load ptr, ptr %8, align 8
-  %110 = ptrtoint ptr %108 to i64
-  %111 = ptrtoint ptr %109 to i64
-  %112 = sub i64 %110, %111
-  %113 = call ptr @lexbor_str_append(ptr noundef %105, ptr noundef %106, ptr noundef %107, i64 noundef %112)
-  store ptr %113, ptr %11, align 8
-  %114 = load ptr, ptr %11, align 8
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %117
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %6, align 8, !tbaa !4
+  %111 = load ptr, ptr %7, align 8, !tbaa !4
+  %112 = load ptr, ptr %8, align 8, !tbaa !15
+  %113 = load ptr, ptr %12, align 8, !tbaa !15
+  %114 = load ptr, ptr %8, align 8, !tbaa !15
+  %115 = ptrtoint ptr %113 to i64
+  %116 = ptrtoint ptr %114 to i64
+  %117 = sub i64 %115, %116
+  %118 = call ptr @lexbor_str_append(ptr noundef %110, ptr noundef %111, ptr noundef %112, i64 noundef %117)
+  store ptr %118, ptr %11, align 8, !tbaa !15
+  %119 = load ptr, ptr %11, align 8, !tbaa !15
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %122
 
-116:                                              ; preds = %104
+121:                                              ; preds = %109
   store ptr null, ptr %5, align 8
-  br label %124
+  store i32 1, ptr %15, align 4
+  br label %129
 
-117:                                              ; preds = %104
-  br label %118
+122:                                              ; preds = %109
+  br label %123
 
-118:                                              ; preds = %117, %100
-  %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct.lexbor_str_t, ptr %119, i32 0, i32 0
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i64, ptr %13, align 8
-  %123 = getelementptr inbounds i8, ptr %121, i64 %122
-  store ptr %123, ptr %5, align 8
-  br label %124
+123:                                              ; preds = %122, %105
+  %124 = load ptr, ptr %6, align 8, !tbaa !4
+  %125 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %124, i32 0, i32 0
+  %126 = load ptr, ptr %125, align 8, !tbaa !10
+  %127 = load i64, ptr %13, align 8, !tbaa !8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
+  store ptr %128, ptr %5, align 8
+  store i32 1, ptr %15, align 4
+  br label %129
 
-124:                                              ; preds = %118, %116, %96, %89, %51, %26
-  %125 = load ptr, ptr %5, align 8
-  ret ptr %125
+129:                                              ; preds = %123, %121, %101, %94, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %130 = load ptr, ptr %5, align 8
+  ret ptr %130
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #4
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_copy(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -1008,12 +1146,12 @@ define hidden ptr @lexbor_str_copy(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %struct.lexbor_str_t, ptr %8, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store ptr %2, ptr %7, align 8, !tbaa !4
+  %8 = load ptr, ptr %6, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -1022,22 +1160,22 @@ define hidden ptr @lexbor_str_copy(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %41
 
 13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.lexbor_str_t, ptr %14, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %5, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.lexbor_str_t, ptr %21, i32 0, i32 1
-  %23 = load i64, ptr %22, align 8
+  %19 = load ptr, ptr %5, align 8, !tbaa !4
+  %20 = load ptr, ptr %7, align 8, !tbaa !4
+  %21 = load ptr, ptr %6, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !13
   %24 = call ptr @lexbor_str_init(ptr noundef %19, ptr noundef %20, i64 noundef %23)
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.lexbor_str_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
+  %25 = load ptr, ptr %5, align 8, !tbaa !4
+  %26 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
 
@@ -1049,14 +1187,14 @@ define hidden ptr @lexbor_str_copy(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %31
 
 31:                                               ; preds = %30, %13
-  %32 = load ptr, ptr %5, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct.lexbor_str_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct.lexbor_str_t, ptr %37, i32 0, i32 1
-  %39 = load i64, ptr %38, align 8
+  %32 = load ptr, ptr %5, align 8, !tbaa !4
+  %33 = load ptr, ptr %7, align 8, !tbaa !4
+  %34 = load ptr, ptr %6, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !10
+  %37 = load ptr, ptr %6, align 8, !tbaa !4
+  %38 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %37, i32 0, i32 1
+  %39 = load i64, ptr %38, align 8, !tbaa !13
   %40 = call ptr @lexbor_str_append(ptr noundef %32, ptr noundef %33, ptr noundef %36, i64 noundef %39)
   store ptr %40, ptr %4, align 8
   br label %41
@@ -1072,96 +1210,102 @@ define hidden void @lexbor_str_stay_only_whitespace(ptr noundef %0) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  store i64 0, ptr %4, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.lexbor_str_t, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  store i64 0, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  store i64 0, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !10
+  store ptr %8, ptr %5, align 8, !tbaa !15
+  store i64 0, ptr %3, align 8, !tbaa !8
   br label %9
 
 9:                                                ; preds = %61, %1
-  %10 = load i64, ptr %3, align 8
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.lexbor_str_t, ptr %11, i32 0, i32 1
-  %13 = load i64, ptr %12, align 8
+  %10 = load i64, ptr %3, align 8, !tbaa !8
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !13
   %14 = icmp ult i64 %10, %13
   br i1 %14, label %15, label %64
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i64, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  %19 = load i8, ptr %18, align 1
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = load i64, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
   %20 = zext i8 %19 to i32
   %21 = icmp eq i32 %20, 32
   br i1 %21, label %50, label %22
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i64, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
-  %26 = load i8, ptr %25, align 1
+  %23 = load ptr, ptr %5, align 8, !tbaa !15
+  %24 = load i64, ptr %3, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !14
   %27 = zext i8 %26 to i32
   %28 = icmp eq i32 %27, 9
   br i1 %28, label %50, label %29
 
 29:                                               ; preds = %22
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i64, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  %33 = load i8, ptr %32, align 1
+  %30 = load ptr, ptr %5, align 8, !tbaa !15
+  %31 = load i64, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = zext i8 %33 to i32
   %35 = icmp eq i32 %34, 10
   br i1 %35, label %50, label %36
 
 36:                                               ; preds = %29
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i64, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
-  %40 = load i8, ptr %39, align 1
+  %37 = load ptr, ptr %5, align 8, !tbaa !15
+  %38 = load i64, ptr %3, align 8, !tbaa !8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !14
   %41 = zext i8 %40 to i32
   %42 = icmp eq i32 %41, 12
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %36
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i64, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  %47 = load i8, ptr %46, align 1
+  %44 = load ptr, ptr %5, align 8, !tbaa !15
+  %45 = load i64, ptr %3, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !14
   %48 = zext i8 %47 to i32
   %49 = icmp eq i32 %48, 13
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %43, %36, %29, %22, %15
-  %51 = load ptr, ptr %5, align 8
-  %52 = load i64, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = load ptr, ptr %5, align 8
-  %56 = load i64, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 %56
-  store i8 %54, ptr %57, align 1
-  %58 = load i64, ptr %4, align 8
+  %51 = load ptr, ptr %5, align 8, !tbaa !15
+  %52 = load i64, ptr %3, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !14
+  %55 = load ptr, ptr %5, align 8, !tbaa !15
+  %56 = load i64, ptr %4, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
+  store i8 %54, ptr %57, align 1, !tbaa !14
+  %58 = load i64, ptr %4, align 8, !tbaa !8
   %59 = add i64 %58, 1
-  store i64 %59, ptr %4, align 8
+  store i64 %59, ptr %4, align 8, !tbaa !8
   br label %60
 
 60:                                               ; preds = %50, %43
   br label %61
 
 61:                                               ; preds = %60
-  %62 = load i64, ptr %3, align 8
+  %62 = load i64, ptr %3, align 8, !tbaa !8
   %63 = add i64 %62, 1
-  store i64 %63, ptr %3, align 8
+  store i64 %63, ptr %3, align 8, !tbaa !8
   br label %9
 
 64:                                               ; preds = %9
-  %65 = load i64, ptr %4, align 8
-  %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.lexbor_str_t, ptr %66, i32 0, i32 1
-  store i64 %65, ptr %67, align 8
+  %65 = load i64, ptr %4, align 8, !tbaa !8
+  %66 = load ptr, ptr %2, align 8, !tbaa !4
+  %67 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %66, i32 0, i32 1
+  store i64 %65, ptr %67, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
@@ -1172,223 +1316,247 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.lexbor_str_t, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %6, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.lexbor_str_t, ptr %10, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %1
-  br label %148
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  %9 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
+  store ptr %10, ptr %6, align 8, !tbaa !15
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %11, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8, !tbaa !13
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %1
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, 32
-  br i1 %19, label %40, label %20
+  store i32 1, ptr %7, align 4
+  br label %150
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp eq i32 %23, 9
-  br i1 %24, label %40, label %25
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %6, align 8, !tbaa !15
+  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %19 = zext i8 %18 to i32
+  %20 = icmp eq i32 %19, 32
+  br i1 %20, label %41, label %21
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = icmp eq i32 %28, 10
-  br i1 %29, label %40, label %30
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %6, align 8, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !14
+  %24 = zext i8 %23 to i32
+  %25 = icmp eq i32 %24, 9
+  br i1 %25, label %41, label %26
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp eq i32 %33, 12
-  br i1 %34, label %40, label %35
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %6, align 8, !tbaa !15
+  %28 = load i8, ptr %27, align 1, !tbaa !14
+  %29 = zext i8 %28 to i32
+  %30 = icmp eq i32 %29, 10
+  br i1 %30, label %41, label %31
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp eq i32 %38, 13
-  br i1 %39, label %40, label %42
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %6, align 8, !tbaa !15
+  %33 = load i8, ptr %32, align 1, !tbaa !14
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, 12
+  br i1 %35, label %41, label %36
 
-40:                                               ; preds = %35, %30, %25, %20, %15
-  %41 = load ptr, ptr %6, align 8
-  store i8 32, ptr %41, align 1
-  br label %42
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %6, align 8, !tbaa !15
+  %38 = load i8, ptr %37, align 1, !tbaa !14
+  %39 = zext i8 %38 to i32
+  %40 = icmp eq i32 %39, 13
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %40, %35
-  store i64 0, ptr %3, align 8
-  store i64 0, ptr %4, align 8
-  store i64 0, ptr %5, align 8
+41:                                               ; preds = %36, %31, %26, %21, %16
+  %42 = load ptr, ptr %6, align 8, !tbaa !15
+  store i8 32, ptr %42, align 1, !tbaa !14
   br label %43
 
-43:                                               ; preds = %119, %42
-  %44 = load i64, ptr %3, align 8
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds %struct.lexbor_str_t, ptr %45, i32 0, i32 1
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp ult i64 %44, %47
-  br i1 %48, label %49, label %122
+43:                                               ; preds = %41, %36
+  store i64 0, ptr %3, align 8, !tbaa !8
+  store i64 0, ptr %4, align 8, !tbaa !8
+  store i64 0, ptr %5, align 8, !tbaa !8
+  br label %44
 
-49:                                               ; preds = %43
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i64, ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = icmp eq i32 %54, 32
-  br i1 %55, label %84, label %56
+44:                                               ; preds = %120, %43
+  %45 = load i64, ptr %3, align 8, !tbaa !8
+  %46 = load ptr, ptr %2, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %46, i32 0, i32 1
+  %48 = load i64, ptr %47, align 8, !tbaa !13
+  %49 = icmp ult i64 %45, %48
+  br i1 %49, label %50, label %123
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %6, align 8
-  %58 = load i64, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 %58
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = icmp eq i32 %61, 9
-  br i1 %62, label %84, label %63
+50:                                               ; preds = %44
+  %51 = load ptr, ptr %6, align 8, !tbaa !15
+  %52 = load i64, ptr %3, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !14
+  %55 = zext i8 %54 to i32
+  %56 = icmp eq i32 %55, 32
+  br i1 %56, label %85, label %57
 
-63:                                               ; preds = %56
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i64, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp eq i32 %68, 10
-  br i1 %69, label %84, label %70
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %6, align 8, !tbaa !15
+  %59 = load i64, ptr %3, align 8, !tbaa !8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !14
+  %62 = zext i8 %61 to i32
+  %63 = icmp eq i32 %62, 9
+  br i1 %63, label %85, label %64
 
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %6, align 8
-  %72 = load i64, ptr %3, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  %74 = load i8, ptr %73, align 1
-  %75 = zext i8 %74 to i32
-  %76 = icmp eq i32 %75, 12
-  br i1 %76, label %84, label %77
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %6, align 8, !tbaa !15
+  %66 = load i64, ptr %3, align 8, !tbaa !8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !14
+  %69 = zext i8 %68 to i32
+  %70 = icmp eq i32 %69, 10
+  br i1 %70, label %85, label %71
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i64, ptr %3, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i32
-  %83 = icmp eq i32 %82, 13
-  br i1 %83, label %84, label %99
+71:                                               ; preds = %64
+  %72 = load ptr, ptr %6, align 8, !tbaa !15
+  %73 = load i64, ptr %3, align 8, !tbaa !8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
+  %75 = load i8, ptr %74, align 1, !tbaa !14
+  %76 = zext i8 %75 to i32
+  %77 = icmp eq i32 %76, 12
+  br i1 %77, label %85, label %78
 
-84:                                               ; preds = %77, %70, %63, %56, %49
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i64, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %85, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i8 %88 to i32
-  %90 = icmp ne i32 %89, 32
-  br i1 %90, label %91, label %98
+78:                                               ; preds = %71
+  %79 = load ptr, ptr %6, align 8, !tbaa !15
+  %80 = load i64, ptr %3, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !14
+  %83 = zext i8 %82 to i32
+  %84 = icmp eq i32 %83, 13
+  br i1 %84, label %85, label %100
 
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i64, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 %93
-  store i8 32, ptr %94, align 1
-  %95 = load i64, ptr %4, align 8
-  store i64 %95, ptr %5, align 8
-  %96 = load i64, ptr %4, align 8
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %4, align 8
-  br label %98
+85:                                               ; preds = %78, %71, %64, %57, %50
+  %86 = load ptr, ptr %6, align 8, !tbaa !15
+  %87 = load i64, ptr %5, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !14
+  %90 = zext i8 %89 to i32
+  %91 = icmp ne i32 %90, 32
+  br i1 %91, label %92, label %99
 
-98:                                               ; preds = %91, %84
-  br label %118
+92:                                               ; preds = %85
+  %93 = load ptr, ptr %6, align 8, !tbaa !15
+  %94 = load i64, ptr %4, align 8, !tbaa !8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
+  store i8 32, ptr %95, align 1, !tbaa !14
+  %96 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %96, ptr %5, align 8, !tbaa !8
+  %97 = load i64, ptr %4, align 8, !tbaa !8
+  %98 = add i64 %97, 1
+  store i64 %98, ptr %4, align 8, !tbaa !8
+  br label %99
 
-99:                                               ; preds = %77
-  %100 = load ptr, ptr %6, align 8
-  %101 = load i64, ptr %5, align 8
-  %102 = getelementptr inbounds i8, ptr %100, i64 %101
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp eq i32 %104, 32
-  br i1 %105, label %106, label %108
-
-106:                                              ; preds = %99
-  %107 = load i64, ptr %4, align 8
-  store i64 %107, ptr %5, align 8
-  br label %108
-
-108:                                              ; preds = %106, %99
-  %109 = load ptr, ptr %6, align 8
-  %110 = load i64, ptr %3, align 8
-  %111 = getelementptr inbounds i8, ptr %109, i64 %110
-  %112 = load i8, ptr %111, align 1
-  %113 = load ptr, ptr %6, align 8
-  %114 = load i64, ptr %4, align 8
-  %115 = getelementptr inbounds i8, ptr %113, i64 %114
-  store i8 %112, ptr %115, align 1
-  %116 = load i64, ptr %4, align 8
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %4, align 8
-  br label %118
-
-118:                                              ; preds = %108, %98
+99:                                               ; preds = %92, %85
   br label %119
 
-119:                                              ; preds = %118
-  %120 = load i64, ptr %3, align 8
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %3, align 8
-  br label %43
+100:                                              ; preds = %78
+  %101 = load ptr, ptr %6, align 8, !tbaa !15
+  %102 = load i64, ptr %5, align 8, !tbaa !8
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
+  %104 = load i8, ptr %103, align 1, !tbaa !14
+  %105 = zext i8 %104 to i32
+  %106 = icmp eq i32 %105, 32
+  br i1 %106, label %107, label %109
 
-122:                                              ; preds = %43
-  %123 = load i64, ptr %4, align 8
-  %124 = load i64, ptr %3, align 8
-  %125 = icmp ne i64 %123, %124
-  br i1 %125, label %126, label %148
+107:                                              ; preds = %100
+  %108 = load i64, ptr %4, align 8, !tbaa !8
+  store i64 %108, ptr %5, align 8, !tbaa !8
+  br label %109
 
-126:                                              ; preds = %122
-  %127 = load i64, ptr %4, align 8
-  %128 = icmp ne i64 %127, 0
-  br i1 %128, label %129, label %141
+109:                                              ; preds = %107, %100
+  %110 = load ptr, ptr %6, align 8, !tbaa !15
+  %111 = load i64, ptr %3, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %111
+  %113 = load i8, ptr %112, align 1, !tbaa !14
+  %114 = load ptr, ptr %6, align 8, !tbaa !15
+  %115 = load i64, ptr %4, align 8, !tbaa !8
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 %115
+  store i8 %113, ptr %116, align 1, !tbaa !14
+  %117 = load i64, ptr %4, align 8, !tbaa !8
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %4, align 8, !tbaa !8
+  br label %119
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %6, align 8
-  %131 = load i64, ptr %4, align 8
-  %132 = sub i64 %131, 1
-  %133 = getelementptr inbounds i8, ptr %130, i64 %132
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = icmp eq i32 %135, 32
-  br i1 %136, label %137, label %140
+119:                                              ; preds = %109, %99
+  br label %120
 
-137:                                              ; preds = %129
-  %138 = load i64, ptr %4, align 8
-  %139 = add i64 %138, -1
-  store i64 %139, ptr %4, align 8
-  br label %140
+120:                                              ; preds = %119
+  %121 = load i64, ptr %3, align 8, !tbaa !8
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %3, align 8, !tbaa !8
+  br label %44
 
-140:                                              ; preds = %137, %129
+123:                                              ; preds = %44
+  %124 = load i64, ptr %4, align 8, !tbaa !8
+  %125 = load i64, ptr %3, align 8, !tbaa !8
+  %126 = icmp ne i64 %124, %125
+  br i1 %126, label %127, label %149
+
+127:                                              ; preds = %123
+  %128 = load i64, ptr %4, align 8, !tbaa !8
+  %129 = icmp ne i64 %128, 0
+  br i1 %129, label %130, label %142
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %6, align 8, !tbaa !15
+  %132 = load i64, ptr %4, align 8, !tbaa !8
+  %133 = sub i64 %132, 1
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !14
+  %136 = zext i8 %135 to i32
+  %137 = icmp eq i32 %136, 32
+  br i1 %137, label %138, label %141
+
+138:                                              ; preds = %130
+  %139 = load i64, ptr %4, align 8, !tbaa !8
+  %140 = add i64 %139, -1
+  store i64 %140, ptr %4, align 8, !tbaa !8
   br label %141
 
-141:                                              ; preds = %140, %126
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i64, ptr %4, align 8
-  %144 = getelementptr inbounds i8, ptr %142, i64 %143
-  store i8 0, ptr %144, align 1
-  %145 = load i64, ptr %4, align 8
-  %146 = load ptr, ptr %2, align 8
-  %147 = getelementptr inbounds %struct.lexbor_str_t, ptr %146, i32 0, i32 1
-  store i64 %145, ptr %147, align 8
-  br label %148
+141:                                              ; preds = %138, %130
+  br label %142
 
-148:                                              ; preds = %141, %122, %14
+142:                                              ; preds = %141, %127
+  %143 = load ptr, ptr %6, align 8, !tbaa !15
+  %144 = load i64, ptr %4, align 8, !tbaa !8
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 %144
+  store i8 0, ptr %145, align 1, !tbaa !14
+  %146 = load i64, ptr %4, align 8, !tbaa !8
+  %147 = load ptr, ptr %2, align 8, !tbaa !4
+  %148 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %147, i32 0, i32 1
+  store i64 %146, ptr %148, align 8, !tbaa !13
+  br label %149
+
+149:                                              ; preds = %142, %123
+  store i32 0, ptr %7, align 4
+  br label %150
+
+150:                                              ; preds = %149, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  %151 = load i32, ptr %7, align 4
+  switch i32 %151, label %153 [
+    i32 0, label %152
+    i32 1, label %152
+  ]
+
+152:                                              ; preds = %150, %150
   ret void
+
+153:                                              ; preds = %150
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1396,63 +1564,65 @@ define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.lexbor_str_t, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %4, align 8
-  store i64 0, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %7, ptr %4, align 8, !tbaa !15
+  store i64 0, ptr %3, align 8, !tbaa !8
   br label %8
 
 8:                                                ; preds = %51, %1
-  %9 = load i64, ptr %3, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.lexbor_str_t, ptr %10, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
+  %9 = load i64, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = icmp ult i64 %9, %12
   br i1 %13, label %14, label %54
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i64, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = load i8, ptr %17, align 1
+  %15 = load ptr, ptr %4, align 8, !tbaa !15
+  %16 = load i64, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
   %20 = icmp ne i32 %19, 32
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i64, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %22 = load ptr, ptr %4, align 8, !tbaa !15
+  %23 = load i64, ptr %3, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !14
   %26 = zext i8 %25 to i32
   %27 = icmp ne i32 %26, 9
   br i1 %27, label %28, label %50
 
 28:                                               ; preds = %21
-  %29 = load ptr, ptr %4, align 8
-  %30 = load i64, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = load i8, ptr %31, align 1
+  %29 = load ptr, ptr %4, align 8, !tbaa !15
+  %30 = load i64, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = zext i8 %32 to i32
   %34 = icmp ne i32 %33, 10
   br i1 %34, label %35, label %50
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr %4, align 8
-  %37 = load i64, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  %39 = load i8, ptr %38, align 1
+  %36 = load ptr, ptr %4, align 8, !tbaa !15
+  %37 = load i64, ptr %3, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = zext i8 %39 to i32
   %41 = icmp ne i32 %40, 12
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %35
-  %43 = load ptr, ptr %4, align 8
-  %44 = load i64, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = load i8, ptr %45, align 1
+  %43 = load ptr, ptr %4, align 8, !tbaa !15
+  %44 = load i64, ptr %3, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = zext i8 %46 to i32
   %48 = icmp ne i32 %47, 13
   br i1 %48, label %49, label %50
@@ -1464,49 +1634,51 @@ define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr noundef %0) #0 {
   br label %51
 
 51:                                               ; preds = %50
-  %52 = load i64, ptr %3, align 8
+  %52 = load i64, ptr %3, align 8, !tbaa !8
   %53 = add i64 %52, 1
-  store i64 %53, ptr %3, align 8
+  store i64 %53, ptr %3, align 8, !tbaa !8
   br label %8
 
 54:                                               ; preds = %49, %8
-  %55 = load i64, ptr %3, align 8
+  %55 = load i64, ptr %3, align 8, !tbaa !8
   %56 = icmp ne i64 %55, 0
   br i1 %56, label %57, label %77
 
 57:                                               ; preds = %54
-  %58 = load i64, ptr %3, align 8
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds %struct.lexbor_str_t, ptr %59, i32 0, i32 1
-  %61 = load i64, ptr %60, align 8
+  %58 = load i64, ptr %3, align 8, !tbaa !8
+  %59 = load ptr, ptr %2, align 8, !tbaa !4
+  %60 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %59, i32 0, i32 1
+  %61 = load i64, ptr %60, align 8, !tbaa !13
   %62 = icmp ne i64 %58, %61
   br i1 %62, label %63, label %77
 
 63:                                               ; preds = %57
-  %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds %struct.lexbor_str_t, ptr %64, i32 0, i32 0
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.lexbor_str_t, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i64, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 %70
-  %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.lexbor_str_t, ptr %72, i32 0, i32 1
-  %74 = load i64, ptr %73, align 8
-  %75 = load i64, ptr %3, align 8
+  %64 = load ptr, ptr %2, align 8, !tbaa !4
+  %65 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !10
+  %67 = load ptr, ptr %2, align 8, !tbaa !4
+  %68 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %67, i32 0, i32 0
+  %69 = load ptr, ptr %68, align 8, !tbaa !10
+  %70 = load i64, ptr %3, align 8, !tbaa !8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
+  %72 = load ptr, ptr %2, align 8, !tbaa !4
+  %73 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %72, i32 0, i32 1
+  %74 = load i64, ptr %73, align 8, !tbaa !13
+  %75 = load i64, ptr %3, align 8, !tbaa !8
   %76 = sub i64 %74, %75
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %66, ptr align 1 %71, i64 %76, i1 false)
   br label %77
 
 77:                                               ; preds = %63, %57, %54
-  %78 = load i64, ptr %3, align 8
-  %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds %struct.lexbor_str_t, ptr %79, i32 0, i32 1
-  %81 = load i64, ptr %80, align 8
+  %78 = load i64, ptr %3, align 8, !tbaa !8
+  %79 = load ptr, ptr %2, align 8, !tbaa !4
+  %80 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %79, i32 0, i32 1
+  %81 = load i64, ptr %80, align 8, !tbaa !13
   %82 = sub i64 %81, %78
-  store i64 %82, ptr %80, align 8
-  %83 = load i64, ptr %3, align 8
+  store i64 %82, ptr %80, align 8, !tbaa !13
+  %83 = load i64, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %83
 }
 
@@ -1515,63 +1687,65 @@ define hidden i64 @lexbor_str_whitespace_from_begin(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.lexbor_str_t, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %4, align 8
-  store i64 0, ptr %3, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %7, ptr %4, align 8, !tbaa !15
+  store i64 0, ptr %3, align 8, !tbaa !8
   br label %8
 
 8:                                                ; preds = %51, %1
-  %9 = load i64, ptr %3, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.lexbor_str_t, ptr %10, i32 0, i32 1
-  %12 = load i64, ptr %11, align 8
+  %9 = load i64, ptr %3, align 8, !tbaa !8
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %10, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = icmp ult i64 %9, %12
   br i1 %13, label %14, label %54
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load i64, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = load i8, ptr %17, align 1
+  %15 = load ptr, ptr %4, align 8, !tbaa !15
+  %16 = load i64, ptr %3, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
   %20 = icmp ne i32 %19, 32
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i64, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %22 = load ptr, ptr %4, align 8, !tbaa !15
+  %23 = load i64, ptr %3, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !14
   %26 = zext i8 %25 to i32
   %27 = icmp ne i32 %26, 9
   br i1 %27, label %28, label %50
 
 28:                                               ; preds = %21
-  %29 = load ptr, ptr %4, align 8
-  %30 = load i64, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = load i8, ptr %31, align 1
+  %29 = load ptr, ptr %4, align 8, !tbaa !15
+  %30 = load i64, ptr %3, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = zext i8 %32 to i32
   %34 = icmp ne i32 %33, 10
   br i1 %34, label %35, label %50
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr %4, align 8
-  %37 = load i64, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  %39 = load i8, ptr %38, align 1
+  %36 = load ptr, ptr %4, align 8, !tbaa !15
+  %37 = load i64, ptr %3, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  %39 = load i8, ptr %38, align 1, !tbaa !14
   %40 = zext i8 %39 to i32
   %41 = icmp ne i32 %40, 12
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %35
-  %43 = load ptr, ptr %4, align 8
-  %44 = load i64, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
-  %46 = load i8, ptr %45, align 1
+  %43 = load ptr, ptr %4, align 8, !tbaa !15
+  %44 = load i64, ptr %3, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !14
   %47 = zext i8 %46 to i32
   %48 = icmp ne i32 %47, 13
   br i1 %48, label %49, label %50
@@ -1583,13 +1757,15 @@ define hidden i64 @lexbor_str_whitespace_from_begin(ptr noundef %0) #0 {
   br label %51
 
 51:                                               ; preds = %50
-  %52 = load i64, ptr %3, align 8
+  %52 = load i64, ptr %3, align 8, !tbaa !8
   %53 = add i64 %52, 1
-  store i64 %53, ptr %3, align 8
+  store i64 %53, ptr %3, align 8, !tbaa !8
   br label %8
 
 54:                                               ; preds = %49, %8
-  %55 = load i64, ptr %3, align 8
+  %55 = load i64, ptr %3, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret i64 %55
 }
 
@@ -1599,90 +1775,97 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.lexbor_str_t, ptr %6, i32 0, i32 1
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %4, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.lexbor_str_t, ptr %9, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %5, align 8
-  br label %12
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !13
+  store i64 %9, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  store ptr %12, ptr %5, align 8, !tbaa !15
+  br label %13
 
-12:                                               ; preds = %59, %1
-  %13 = load i64, ptr %4, align 8
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %15, label %60
+13:                                               ; preds = %60, %1
+  %14 = load i64, ptr %4, align 8, !tbaa !8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %61
 
-15:                                               ; preds = %12
-  %16 = load i64, ptr %4, align 8
-  %17 = add i64 %16, -1
-  store i64 %17, ptr %4, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp ne i32 %22, 32
-  br i1 %23, label %24, label %59
+16:                                               ; preds = %13
+  %17 = load i64, ptr %4, align 8, !tbaa !8
+  %18 = add i64 %17, -1
+  store i64 %18, ptr %4, align 8, !tbaa !8
+  %19 = load ptr, ptr %5, align 8, !tbaa !15
+  %20 = load i64, ptr %4, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !14
+  %23 = zext i8 %22 to i32
+  %24 = icmp ne i32 %23, 32
+  br i1 %24, label %25, label %60
 
-24:                                               ; preds = %15
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i64, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp ne i32 %29, 9
-  br i1 %30, label %31, label %59
+25:                                               ; preds = %16
+  %26 = load ptr, ptr %5, align 8, !tbaa !15
+  %27 = load i64, ptr %4, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !14
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %30, 9
+  br i1 %31, label %32, label %60
 
-31:                                               ; preds = %24
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i64, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = zext i8 %35 to i32
-  %37 = icmp ne i32 %36, 10
-  br i1 %37, label %38, label %59
+32:                                               ; preds = %25
+  %33 = load ptr, ptr %5, align 8, !tbaa !15
+  %34 = load i64, ptr %4, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = zext i8 %36 to i32
+  %38 = icmp ne i32 %37, 10
+  br i1 %38, label %39, label %60
 
-38:                                               ; preds = %31
-  %39 = load ptr, ptr %5, align 8
-  %40 = load i64, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = icmp ne i32 %43, 12
-  br i1 %44, label %45, label %59
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %5, align 8, !tbaa !15
+  %41 = load i64, ptr %4, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !14
+  %44 = zext i8 %43 to i32
+  %45 = icmp ne i32 %44, 12
+  br i1 %45, label %46, label %60
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i64, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = icmp ne i32 %50, 13
-  br i1 %51, label %52, label %59
+46:                                               ; preds = %39
+  %47 = load ptr, ptr %5, align 8, !tbaa !15
+  %48 = load i64, ptr %4, align 8, !tbaa !8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !14
+  %51 = zext i8 %50 to i32
+  %52 = icmp ne i32 %51, 13
+  br i1 %52, label %53, label %60
 
-52:                                               ; preds = %45
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.lexbor_str_t, ptr %53, i32 0, i32 1
-  %55 = load i64, ptr %54, align 8
-  %56 = load i64, ptr %4, align 8
-  %57 = add i64 %56, 1
-  %58 = sub i64 %55, %57
-  store i64 %58, ptr %2, align 8
-  br label %61
+53:                                               ; preds = %46
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %54, i32 0, i32 1
+  %56 = load i64, ptr %55, align 8, !tbaa !13
+  %57 = load i64, ptr %4, align 8, !tbaa !8
+  %58 = add i64 %57, 1
+  %59 = sub i64 %56, %58
+  store i64 %59, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %62
 
-59:                                               ; preds = %45, %38, %31, %24, %15
-  br label %12
+60:                                               ; preds = %46, %39, %32, %25, %16
+  br label %13
 
-60:                                               ; preds = %12
+61:                                               ; preds = %13
   store i64 0, ptr %2, align 8
-  br label %61
+  store i32 1, ptr %6, align 4
+  br label %62
 
-61:                                               ; preds = %60, %52
-  %62 = load i64, ptr %2, align 8
-  ret i64 %62
+62:                                               ; preds = %61, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %63 = load i64, ptr %2, align 8
+  ret i64 %63
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1692,77 +1875,83 @@ define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef %0, ptr noundef %1
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %10
 
-9:                                                ; preds = %44, %3
-  %10 = load i64, ptr %8, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = icmp ult i64 %10, %11
-  br i1 %12, label %13, label %47
+10:                                               ; preds = %45, %3
+  %11 = load i64, ptr %8, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %14, label %48
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %24
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %5, align 8, !tbaa !15
+  %16 = load i64, ptr %8, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %19 = zext i8 %18 to i32
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %13
-  %21 = load ptr, ptr %5, align 8
-  %22 = load i64, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  store ptr %23, ptr %4, align 8
-  br label %51
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %5, align 8, !tbaa !15
+  %23 = load i64, ptr %8, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  store ptr %24, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %52
 
-24:                                               ; preds = %13
-  %25 = load ptr, ptr %5, align 8
-  %26 = load i64, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i64, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = icmp ne i32 %32, %40
-  br i1 %41, label %42, label %43
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %5, align 8, !tbaa !15
+  %27 = load i64, ptr %8, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !14
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !14
+  %33 = zext i8 %32 to i32
+  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %35 = load i64, ptr %8, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !14
+  %38 = zext i8 %37 to i64
+  %39 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !14
+  %41 = zext i8 %40 to i32
+  %42 = icmp ne i32 %33, %41
+  br i1 %42, label %43, label %44
 
-42:                                               ; preds = %24
+43:                                               ; preds = %25
   store ptr null, ptr %4, align 8
-  br label %51
+  store i32 1, ptr %9, align 4
+  br label %52
 
-43:                                               ; preds = %24
-  br label %44
+44:                                               ; preds = %25
+  br label %45
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %8, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %8, align 8
-  br label %9
+45:                                               ; preds = %44
+  %46 = load i64, ptr %8, align 8, !tbaa !8
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %8, align 8, !tbaa !8
+  br label %10
 
-47:                                               ; preds = %9
-  %48 = load ptr, ptr %5, align 8
-  %49 = load i64, ptr %8, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  store ptr %50, ptr %4, align 8
-  br label %51
+48:                                               ; preds = %10
+  %49 = load ptr, ptr %5, align 8, !tbaa !15
+  %50 = load i64, ptr %8, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
+  store ptr %51, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %52
 
-51:                                               ; preds = %47, %42, %20
-  %52 = load ptr, ptr %4, align 8
-  ret ptr %52
+52:                                               ; preds = %48, %43, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %53 = load ptr, ptr %4, align 8
+  ret ptr %53
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1771,35 +1960,35 @@ define hidden zeroext i1 @lexbor_str_data_ncasecmp_end(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
   br label %8
 
 8:                                                ; preds = %32, %3
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !8
   %10 = icmp ne i64 %9, 0
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %8
-  %12 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
   %13 = add i64 %12, -1
-  store i64 %13, ptr %7, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
+  store i64 %13, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %5, align 8, !tbaa !15
+  %15 = load i64, ptr %7, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i32
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i64, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %22 = load ptr, ptr %6, align 8, !tbaa !15
+  %23 = load i64, ptr %7, align 8, !tbaa !8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
+  %25 = load i8, ptr %24, align 1, !tbaa !14
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
+  %27 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !14
   %29 = zext i8 %28 to i32
   %30 = icmp ne i32 %21, %29
   br i1 %30, label %31, label %32
@@ -1828,50 +2017,68 @@ define hidden zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef %0, i64 n
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %11
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store i64 %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !8
+  br label %12
 
-11:                                               ; preds = %26, %4
-  %12 = load i64, ptr %9, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = load i64, ptr %10, align 8
-  %15 = sub i64 %13, %14
-  %16 = icmp ule i64 %12, %15
-  br i1 %16, label %17, label %29
+12:                                               ; preds = %28, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !8
+  %14 = load i64, ptr %7, align 8, !tbaa !8
+  %15 = load i64, ptr %10, align 8, !tbaa !8
+  %16 = sub i64 %14, %15
+  %17 = icmp ule i64 %13, %16
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i64, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i64, ptr %9, align 8
-  %23 = call zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef %20, ptr noundef %21, i64 noundef %22)
-  br i1 %23, label %24, label %25
+18:                                               ; preds = %12
+  store i32 2, ptr %11, align 4
+  br label %31
 
-24:                                               ; preds = %17
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %6, align 8, !tbaa !15
+  %21 = load i64, ptr %10, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load ptr, ptr %8, align 8, !tbaa !15
+  %24 = load i64, ptr %9, align 8, !tbaa !8
+  %25 = call zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef %22, ptr noundef %23, i64 noundef %24)
+  br i1 %25, label %26, label %27
+
+26:                                               ; preds = %19
   store i1 true, ptr %5, align 1
-  br label %30
+  store i32 1, ptr %11, align 4
+  br label %31
 
-25:                                               ; preds = %17
-  br label %26
+27:                                               ; preds = %19
+  br label %28
 
-26:                                               ; preds = %25
-  %27 = load i64, ptr %10, align 8
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %10, align 8
-  br label %11
+28:                                               ; preds = %27
+  %29 = load i64, ptr %10, align 8, !tbaa !8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %10, align 8, !tbaa !8
+  br label %12
 
-29:                                               ; preds = %11
+31:                                               ; preds = %26, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %32 = load i32, ptr %11, align 4
+  switch i32 %32, label %36 [
+    i32 2, label %33
+    i32 1, label %34
+  ]
+
+33:                                               ; preds = %31
   store i1 false, ptr %5, align 1
-  br label %30
+  br label %34
 
-30:                                               ; preds = %29, %24
-  %31 = load i1, ptr %5, align 1
-  ret i1 %31
+34:                                               ; preds = %33, %31
+  %35 = load i1, ptr %5, align 1
+  ret i1 %35
+
+36:                                               ; preds = %31
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1881,58 +2088,76 @@ define hidden zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %10
 
-9:                                                ; preds = %33, %3
-  %10 = load i64, ptr %8, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = icmp ult i64 %10, %11
-  br i1 %12, label %13, label %36
+10:                                               ; preds = %35, %3
+  %11 = load i64, ptr %8, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %18
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i32
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i64, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp ne i32 %21, %29
-  br i1 %30, label %31, label %32
+14:                                               ; preds = %10
+  store i32 2, ptr %9, align 4
+  br label %38
 
-31:                                               ; preds = %13
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = load i64, ptr %8, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %20 = zext i8 %19 to i64
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !14
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %6, align 8, !tbaa !15
+  %25 = load i64, ptr %8, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !14
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !14
+  %31 = zext i8 %30 to i32
+  %32 = icmp ne i32 %23, %31
+  br i1 %32, label %33, label %34
+
+33:                                               ; preds = %15
   store i1 false, ptr %4, align 1
-  br label %37
+  store i32 1, ptr %9, align 4
+  br label %38
 
-32:                                               ; preds = %13
-  br label %33
+34:                                               ; preds = %15
+  br label %35
 
-33:                                               ; preds = %32
-  %34 = load i64, ptr %8, align 8
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %8, align 8
-  br label %9
+35:                                               ; preds = %34
+  %36 = load i64, ptr %8, align 8, !tbaa !8
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %8, align 8, !tbaa !8
+  br label %10
 
-36:                                               ; preds = %9
+38:                                               ; preds = %33, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %39 = load i32, ptr %9, align 4
+  switch i32 %39, label %43 [
+    i32 2, label %40
+    i32 1, label %41
+  ]
+
+40:                                               ; preds = %38
   store i1 true, ptr %4, align 1
-  br label %37
+  br label %41
 
-37:                                               ; preds = %36, %31
-  %38 = load i1, ptr %4, align 1
-  ret i1 %38
+41:                                               ; preds = %40, %38
+  %42 = load i1, ptr %4, align 1
+  ret i1 %42
+
+43:                                               ; preds = %38
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1942,55 +2167,73 @@ define hidden zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef %0, ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %10
 
-9:                                                ; preds = %30, %3
-  %10 = load i64, ptr %8, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = icmp ult i64 %10, %11
-  br i1 %12, label %13, label %33
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %8, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i64, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = icmp ne i32 %18, %26
-  br i1 %27, label %28, label %29
+14:                                               ; preds = %10
+  store i32 2, ptr %9, align 4
+  br label %35
 
-28:                                               ; preds = %13
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = load i64, ptr %8, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %20 = zext i8 %19 to i32
+  %21 = load ptr, ptr %6, align 8, !tbaa !15
+  %22 = load i64, ptr %8, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !14
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !14
+  %28 = zext i8 %27 to i32
+  %29 = icmp ne i32 %20, %28
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %15
   store i1 false, ptr %4, align 1
-  br label %34
+  store i32 1, ptr %9, align 4
+  br label %35
 
-29:                                               ; preds = %13
-  br label %30
+31:                                               ; preds = %15
+  br label %32
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %8, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %8, align 8
-  br label %9
+32:                                               ; preds = %31
+  %33 = load i64, ptr %8, align 8, !tbaa !8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %8, align 8, !tbaa !8
+  br label %10
 
-33:                                               ; preds = %9
+35:                                               ; preds = %30, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %36 = load i32, ptr %9, align 4
+  switch i32 %36, label %40 [
+    i32 2, label %37
+    i32 1, label %38
+  ]
+
+37:                                               ; preds = %35
   store i1 true, ptr %4, align 1
-  br label %34
+  br label %38
 
-34:                                               ; preds = %33, %28
-  %35 = load i1, ptr %4, align 1
-  ret i1 %35
+38:                                               ; preds = %37, %35
+  %39 = load i1, ptr %4, align 1
+  ret i1 %39
+
+40:                                               ; preds = %35
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2000,55 +2243,73 @@ define hidden zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef %0, ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  store i64 0, ptr %8, align 8
-  br label %9
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !8
+  br label %10
 
-9:                                                ; preds = %30, %3
-  %10 = load i64, ptr %8, align 8
-  %11 = load i64, ptr %7, align 8
-  %12 = icmp ult i64 %10, %11
-  br i1 %12, label %13, label %33
+10:                                               ; preds = %32, %3
+  %11 = load i64, ptr %8, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = icmp ult i64 %11, %12
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %9
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i64, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = zext i8 %25 to i32
-  %27 = icmp ne i32 %18, %26
-  br i1 %27, label %28, label %29
+14:                                               ; preds = %10
+  store i32 2, ptr %9, align 4
+  br label %35
 
-28:                                               ; preds = %13
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %5, align 8, !tbaa !15
+  %17 = load i64, ptr %8, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %20 = zext i8 %19 to i32
+  %21 = load ptr, ptr %6, align 8, !tbaa !15
+  %22 = load i64, ptr %8, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !14
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !14
+  %28 = zext i8 %27 to i32
+  %29 = icmp ne i32 %20, %28
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %15
   store i1 false, ptr %4, align 1
-  br label %34
+  store i32 1, ptr %9, align 4
+  br label %35
 
-29:                                               ; preds = %13
-  br label %30
+31:                                               ; preds = %15
+  br label %32
 
-30:                                               ; preds = %29
-  %31 = load i64, ptr %8, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %8, align 8
-  br label %9
+32:                                               ; preds = %31
+  %33 = load i64, ptr %8, align 8, !tbaa !8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %8, align 8, !tbaa !8
+  br label %10
 
-33:                                               ; preds = %9
+35:                                               ; preds = %30, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %36 = load i32, ptr %9, align 4
+  switch i32 %36, label %40 [
+    i32 2, label %37
+    i32 1, label %38
+  ]
+
+37:                                               ; preds = %35
   store i1 true, ptr %4, align 1
-  br label %34
+  br label %38
 
-34:                                               ; preds = %33, %28
-  %35 = load i1, ptr %4, align 1
-  ret i1 %35
+38:                                               ; preds = %37, %35
+  %39 = load i1, ptr %4, align 1
+  ret i1 %39
+
+40:                                               ; preds = %35
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2056,22 +2317,22 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef %0, ptr noundef %1
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %27, %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !15
+  %8 = load i8, ptr %7, align 1, !tbaa !14
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i8, ptr %13, align 1
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = load i8, ptr %13, align 1, !tbaa !14
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
-  %17 = load i8, ptr %16, align 1
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i32
   %19 = icmp ne i32 %12, %18
   br i1 %19, label %20, label %21
@@ -2081,8 +2342,8 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef %0, ptr noundef %1
   br label %32
 
 21:                                               ; preds = %6
-  %22 = load ptr, ptr %4, align 8
-  %23 = load i8, ptr %22, align 1
+  %22 = load ptr, ptr %4, align 8, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
@@ -2092,12 +2353,12 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef %0, ptr noundef %1
   br label %32
 
 27:                                               ; preds = %21
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i32 1
-  store ptr %29, ptr %4, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i32 1
-  store ptr %31, ptr %5, align 8
+  %28 = load ptr, ptr %4, align 8, !tbaa !15
+  %29 = getelementptr inbounds nuw i8, ptr %28, i32 1
+  store ptr %29, ptr %4, align 8, !tbaa !15
+  %30 = load ptr, ptr %5, align 8, !tbaa !15
+  %31 = getelementptr inbounds nuw i8, ptr %30, i32 1
+  store ptr %31, ptr %5, align 8, !tbaa !15
   br label %6
 
 32:                                               ; preds = %26, %20
@@ -2111,29 +2372,29 @@ define hidden zeroext i1 @lexbor_str_data_ncmp_end(ptr noundef %0, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !15
+  store ptr %1, ptr %6, align 8, !tbaa !15
+  store i64 %2, ptr %7, align 8, !tbaa !8
   br label %8
 
 8:                                                ; preds = %26, %3
-  %9 = load i64, ptr %7, align 8
+  %9 = load i64, ptr %7, align 8, !tbaa !8
   %10 = icmp ne i64 %9, 0
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %8
-  %12 = load i64, ptr %7, align 8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
   %13 = add i64 %12, -1
-  store i64 %13, ptr %7, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = load i64, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
+  store i64 %13, ptr %7, align 8, !tbaa !8
+  %14 = load ptr, ptr %5, align 8, !tbaa !15
+  %15 = load i64, ptr %7, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i32
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i64, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = load i8, ptr %21, align 1
+  %19 = load ptr, ptr %6, align 8, !tbaa !15
+  %20 = load i64, ptr %7, align 8, !tbaa !8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !14
   %23 = zext i8 %22 to i32
   %24 = icmp ne i32 %18, %23
   br i1 %24, label %25, label %26
@@ -2162,70 +2423,88 @@ define hidden zeroext i1 @lexbor_str_data_ncmp_contain(ptr noundef %0, i64 nound
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  store ptr %0, ptr %6, align 8
-  store i64 %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
-  store i64 %3, ptr %9, align 8
-  store i64 0, ptr %10, align 8
-  br label %11
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !15
+  store i64 %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !15
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !8
+  br label %12
 
-11:                                               ; preds = %28, %4
-  %12 = load i64, ptr %9, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = load i64, ptr %10, align 8
-  %15 = sub i64 %13, %14
-  %16 = icmp ule i64 %12, %15
-  br i1 %16, label %17, label %31
+12:                                               ; preds = %30, %4
+  %13 = load i64, ptr %9, align 8, !tbaa !8
+  %14 = load i64, ptr %7, align 8, !tbaa !8
+  %15 = load i64, ptr %10, align 8, !tbaa !8
+  %16 = sub i64 %14, %15
+  %17 = icmp ule i64 %13, %16
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i64, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i64, ptr %9, align 8
-  %23 = mul i64 1, %22
-  %24 = call i32 @memcmp(ptr noundef %20, ptr noundef %21, i64 noundef %23) #5
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %27
+18:                                               ; preds = %12
+  store i32 2, ptr %11, align 4
+  br label %33
 
-26:                                               ; preds = %17
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %6, align 8, !tbaa !15
+  %21 = load i64, ptr %10, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load ptr, ptr %8, align 8, !tbaa !15
+  %24 = load i64, ptr %9, align 8, !tbaa !8
+  %25 = mul i64 1, %24
+  %26 = call i32 @memcmp(ptr noundef %22, ptr noundef %23, i64 noundef %25) #8
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %19
   store i1 true, ptr %5, align 1
-  br label %32
+  store i32 1, ptr %11, align 4
+  br label %33
 
-27:                                               ; preds = %17
-  br label %28
+29:                                               ; preds = %19
+  br label %30
 
-28:                                               ; preds = %27
-  %29 = load i64, ptr %10, align 8
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %10, align 8
-  br label %11
+30:                                               ; preds = %29
+  %31 = load i64, ptr %10, align 8, !tbaa !8
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %10, align 8, !tbaa !8
+  br label %12
 
-31:                                               ; preds = %11
+33:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %34 = load i32, ptr %11, align 4
+  switch i32 %34, label %38 [
+    i32 2, label %35
+    i32 1, label %36
+  ]
+
+35:                                               ; preds = %33
   store i1 false, ptr %5, align 1
-  br label %32
+  br label %36
 
-32:                                               ; preds = %31, %26
-  %33 = load i1, ptr %5, align 1
-  ret i1 %33
+36:                                               ; preds = %35, %33
+  %37 = load i1, ptr %5, align 1
+  ret i1 %37
+
+38:                                               ; preds = %33
+  unreachable
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @lexbor_str_data_ncmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !15
+  %8 = load ptr, ptr %5, align 8, !tbaa !15
+  %9 = load i64, ptr %6, align 8, !tbaa !8
   %10 = mul i64 1, %9
-  %11 = call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %10) #5
+  %11 = call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %10) #8
   %12 = icmp eq i32 %11, 0
   ret i1 %12
 }
@@ -2235,16 +2514,16 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr noundef %0, ptr noundef %1) #0
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %21, %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !15
+  %8 = load i8, ptr %7, align 1, !tbaa !14
   %9 = zext i8 %8 to i32
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i8, ptr %10, align 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !15
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
   %13 = icmp ne i32 %9, %12
   br i1 %13, label %14, label %15
@@ -2254,8 +2533,8 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr noundef %0, ptr noundef %1) #0
   br label %26
 
 15:                                               ; preds = %6
-  %16 = load ptr, ptr %4, align 8
-  %17 = load i8, ptr %16, align 1
+  %16 = load ptr, ptr %4, align 8, !tbaa !15
+  %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i32
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %21
@@ -2265,12 +2544,12 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr noundef %0, ptr noundef %1) #0
   br label %26
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i32 1
-  store ptr %23, ptr %4, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i32 1
-  store ptr %25, ptr %5, align 8
+  %22 = load ptr, ptr %4, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i32 1
+  store ptr %23, ptr %4, align 8, !tbaa !15
+  %24 = load ptr, ptr %5, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %24, i32 1
+  store ptr %25, ptr %5, align 8, !tbaa !15
   br label %6
 
 26:                                               ; preds = %20, %14
@@ -2283,16 +2562,16 @@ define hidden zeroext i1 @lexbor_str_data_cmp_ws(ptr noundef %0, ptr noundef %1)
   %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %46, %2
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !15
+  %8 = load i8, ptr %7, align 1, !tbaa !14
   %9 = zext i8 %8 to i32
-  %10 = load ptr, ptr %5, align 8
-  %11 = load i8, ptr %10, align 1
+  %10 = load ptr, ptr %5, align 8, !tbaa !15
+  %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
   %13 = icmp ne i32 %9, %12
   br i1 %13, label %14, label %15
@@ -2302,43 +2581,43 @@ define hidden zeroext i1 @lexbor_str_data_cmp_ws(ptr noundef %0, ptr noundef %1)
   br label %51
 
 15:                                               ; preds = %6
-  %16 = load ptr, ptr %4, align 8
-  %17 = load i8, ptr %16, align 1
+  %16 = load ptr, ptr %4, align 8, !tbaa !15
+  %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = zext i8 %17 to i32
   %19 = icmp eq i32 %18, 32
   br i1 %19, label %45, label %20
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %4, align 8
-  %22 = load i8, ptr %21, align 1
+  %21 = load ptr, ptr %4, align 8, !tbaa !15
+  %22 = load i8, ptr %21, align 1, !tbaa !14
   %23 = zext i8 %22 to i32
   %24 = icmp eq i32 %23, 9
   br i1 %24, label %45, label %25
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr %4, align 8
-  %27 = load i8, ptr %26, align 1
+  %26 = load ptr, ptr %4, align 8, !tbaa !15
+  %27 = load i8, ptr %26, align 1, !tbaa !14
   %28 = zext i8 %27 to i32
   %29 = icmp eq i32 %28, 10
   br i1 %29, label %45, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %4, align 8
-  %32 = load i8, ptr %31, align 1
+  %31 = load ptr, ptr %4, align 8, !tbaa !15
+  %32 = load i8, ptr %31, align 1, !tbaa !14
   %33 = zext i8 %32 to i32
   %34 = icmp eq i32 %33, 12
   br i1 %34, label %45, label %35
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr %4, align 8
-  %37 = load i8, ptr %36, align 1
+  %36 = load ptr, ptr %4, align 8, !tbaa !15
+  %37 = load i8, ptr %36, align 1, !tbaa !14
   %38 = zext i8 %37 to i32
   %39 = icmp eq i32 %38, 13
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %4, align 8
-  %42 = load i8, ptr %41, align 1
+  %41 = load ptr, ptr %4, align 8, !tbaa !15
+  %42 = load i8, ptr %41, align 1, !tbaa !14
   %43 = zext i8 %42 to i32
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
@@ -2348,12 +2627,12 @@ define hidden zeroext i1 @lexbor_str_data_cmp_ws(ptr noundef %0, ptr noundef %1)
   br label %51
 
 46:                                               ; preds = %40
-  %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i32 1
-  store ptr %48, ptr %4, align 8
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i32 1
-  store ptr %50, ptr %5, align 8
+  %47 = load ptr, ptr %4, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %47, i32 1
+  store ptr %48, ptr %4, align 8, !tbaa !15
+  %49 = load ptr, ptr %5, align 8, !tbaa !15
+  %50 = getelementptr inbounds nuw i8, ptr %49, i32 1
+  store ptr %50, ptr %5, align 8, !tbaa !15
   br label %6
 
 51:                                               ; preds = %45, %14
@@ -2366,31 +2645,31 @@ define hidden void @lexbor_str_data_to_lowercase(ptr noundef %0, ptr noundef %1,
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i64 %2, ptr %6, align 8, !tbaa !8
   br label %7
 
 7:                                                ; preds = %10, %3
-  %8 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8, !tbaa !8
   %9 = icmp ne i64 %8, 0
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7
-  %11 = load i64, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !8
   %12 = add i64 %11, -1
-  store i64 %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i64, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = load i8, ptr %15, align 1
+  store i64 %12, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = load i64, ptr %6, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  store i8 %19, ptr %22, align 1
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %20 = load ptr, ptr %4, align 8, !tbaa !15
+  %21 = load i64, ptr %6, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 %19, ptr %22, align 1, !tbaa !14
   br label %7
 
 23:                                               ; preds = %7
@@ -2402,31 +2681,31 @@ define hidden void @lexbor_str_data_to_uppercase(ptr noundef %0, ptr noundef %1,
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store ptr %1, ptr %5, align 8, !tbaa !15
+  store i64 %2, ptr %6, align 8, !tbaa !8
   br label %7
 
 7:                                                ; preds = %10, %3
-  %8 = load i64, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8, !tbaa !8
   %9 = icmp ne i64 %8, 0
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %7
-  %11 = load i64, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !tbaa !8
   %12 = add i64 %11, -1
-  store i64 %12, ptr %6, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i64, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = load i8, ptr %15, align 1
+  store i64 %12, ptr %6, align 8, !tbaa !8
+  %13 = load ptr, ptr %5, align 8, !tbaa !15
+  %14 = load i64, ptr %6, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = load ptr, ptr %4, align 8
-  %21 = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  store i8 %19, ptr %22, align 1
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %20 = load ptr, ptr %4, align 8, !tbaa !15
+  %21 = load i64, ptr %6, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  store i8 %19, ptr %22, align 1, !tbaa !14
   br label %7
 
 23:                                               ; preds = %7
@@ -2438,39 +2717,39 @@ define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef %0, i64 noundef %1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store i64 %1, ptr %5, align 8, !tbaa !8
   br label %6
 
 6:                                                ; preds = %30, %2
-  %7 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %5, align 8, !tbaa !8
   %8 = icmp ne i64 %7, 0
   br i1 %8, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %5, align 8, !tbaa !8
   %11 = add i64 %10, -1
-  store i64 %11, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  %15 = load i8, ptr %14, align 1
+  store i64 %11, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %4, align 8, !tbaa !15
+  %13 = load i64, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !14
   %16 = zext i8 %15 to i32
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i64, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %20 = load i8, ptr %19, align 1
+  %17 = load ptr, ptr %4, align 8, !tbaa !15
+  %18 = load i64, ptr %5, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
+  %22 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %16, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %9
-  %27 = load ptr, ptr %4, align 8
-  %28 = load i64, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  %27 = load ptr, ptr %4, align 8, !tbaa !15
+  %28 = load i64, ptr %5, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   store ptr %29, ptr %3, align 8
   br label %32
 
@@ -2491,39 +2770,39 @@ define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef %0, i64 noundef %1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store i64 %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !15
+  store i64 %1, ptr %5, align 8, !tbaa !8
   br label %6
 
 6:                                                ; preds = %30, %2
-  %7 = load i64, ptr %5, align 8
+  %7 = load i64, ptr %5, align 8, !tbaa !8
   %8 = icmp ne i64 %7, 0
   br i1 %8, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %5, align 8, !tbaa !8
   %11 = add i64 %10, -1
-  store i64 %11, ptr %5, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i64, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
-  %15 = load i8, ptr %14, align 1
+  store i64 %11, ptr %5, align 8, !tbaa !8
+  %12 = load ptr, ptr %4, align 8, !tbaa !15
+  %13 = load i64, ptr %5, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !14
   %16 = zext i8 %15 to i32
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i64, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %20 = load i8, ptr %19, align 1
+  %17 = load ptr, ptr %4, align 8, !tbaa !15
+  %18 = load i64, ptr %5, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1
+  %22 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !14
   %24 = zext i8 %23 to i32
   %25 = icmp eq i32 %16, %24
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %9
-  %27 = load ptr, ptr %4, align 8
-  %28 = load i64, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  %27 = load ptr, ptr %4, align 8, !tbaa !15
+  %28 = load i64, ptr %5, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   store ptr %29, ptr %3, align 8
   br label %32
 
@@ -2542,46 +2821,46 @@ define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef %0, i64 noundef %1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lexbor_str_data_noi(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = call ptr @lexbor_str_data(ptr noundef %3)
   ret ptr %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @lexbor_str_data(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lexbor_str_data(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.lexbor_str_t, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @lexbor_str_length_noi(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = call i64 @lexbor_str_length(ptr noundef %3)
   ret i64 %4
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @lexbor_str_length(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lexbor_str_length(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.lexbor_str_t, ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !13
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @lexbor_str_size_noi(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = call i64 @lexbor_str_size(ptr noundef %3)
   ret i64 %4
 }
@@ -2590,24 +2869,24 @@ define hidden i64 @lexbor_str_size_noi(ptr noundef %0) #0 {
 define hidden void @lexbor_str_data_set_noi(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %3, align 8, !tbaa !4
+  %6 = load ptr, ptr %4, align 8, !tbaa !15
   call void @lexbor_str_data_set(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @lexbor_str_data_set(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @lexbor_str_data_set(ptr noundef %0, ptr noundef %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.lexbor_str_t, ptr %6, i32 0, i32 0
-  store ptr %5, ptr %7, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %6, i32 0, i32 0
+  store ptr %5, ptr %7, align 8, !tbaa !10
   ret void
 }
 
@@ -2616,92 +2895,129 @@ define hidden ptr @lexbor_str_length_set_noi(ptr noundef %0, ptr noundef %1, i64
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i64 %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %6, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !4
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = load ptr, ptr %5, align 8, !tbaa !4
+  %9 = load i64, ptr %6, align 8, !tbaa !8
   %10 = call ptr @lexbor_str_length_set(ptr noundef %7, ptr noundef %8, i64 noundef %9)
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @lexbor_str_length_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @lexbor_str_length_set(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store i64 %2, ptr %7, align 8
-  %9 = load i64, ptr %7, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = call i64 @lexbor_str_size(ptr noundef %10)
-  %12 = icmp uge i64 %9, %11
-  br i1 %12, label %13, label %23
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !4
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  %10 = load i64, ptr %7, align 8, !tbaa !8
+  %11 = load ptr, ptr %5, align 8, !tbaa !4
+  %12 = call i64 @lexbor_str_size(ptr noundef %11)
+  %13 = icmp uge i64 %10, %12
+  br i1 %13, label %14, label %27
 
-13:                                               ; preds = %3
-  %14 = load ptr, ptr %5, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i64, ptr %7, align 8
-  %17 = add i64 %16, 1
-  %18 = call ptr @lexbor_str_realloc(ptr noundef %14, ptr noundef %15, i64 noundef %17)
-  store ptr %18, ptr %8, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %22
+14:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %15 = load ptr, ptr %5, align 8, !tbaa !4
+  %16 = load ptr, ptr %6, align 8, !tbaa !4
+  %17 = load i64, ptr %7, align 8, !tbaa !8
+  %18 = add i64 %17, 1
+  %19 = call ptr @lexbor_str_realloc(ptr noundef %15, ptr noundef %16, i64 noundef %18)
+  store ptr %19, ptr %8, align 8, !tbaa !15
+  %20 = load ptr, ptr %8, align 8, !tbaa !15
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %13
+22:                                               ; preds = %14
   store ptr null, ptr %4, align 8
-  br label %35
+  store i32 1, ptr %9, align 4
+  br label %24
 
-22:                                               ; preds = %13
-  br label %23
+23:                                               ; preds = %14
+  store i32 0, ptr %9, align 4
+  br label %24
 
-23:                                               ; preds = %22, %3
-  %24 = load i64, ptr %7, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.lexbor_str_t, ptr %25, i32 0, i32 1
-  store i64 %24, ptr %26, align 8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.lexbor_str_t, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i64, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  store i8 0, ptr %31, align 1
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.lexbor_str_t, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %4, align 8
-  br label %35
+24:                                               ; preds = %23, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %25 = load i32, ptr %9, align 4
+  switch i32 %25, label %41 [
+    i32 0, label %26
+    i32 1, label %39
+  ]
 
-35:                                               ; preds = %23, %21
-  %36 = load ptr, ptr %4, align 8
-  ret ptr %36
+26:                                               ; preds = %24
+  br label %27
+
+27:                                               ; preds = %26, %3
+  %28 = load i64, ptr %7, align 8, !tbaa !8
+  %29 = load ptr, ptr %5, align 8, !tbaa !4
+  %30 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %29, i32 0, i32 1
+  store i64 %28, ptr %30, align 8, !tbaa !13
+  %31 = load ptr, ptr %5, align 8, !tbaa !4
+  %32 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
+  %34 = load i64, ptr %7, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
+  store i8 0, ptr %35, align 1, !tbaa !14
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = getelementptr inbounds nuw %struct.lexbor_str_t, ptr %36, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8, !tbaa !10
+  store ptr %38, ptr %4, align 8
+  br label %39
+
+39:                                               ; preds = %27, %24
+  %40 = load ptr, ptr %4, align 8
+  ret ptr %40
+
+41:                                               ; preds = %24
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @lexbor_mraw_data_size(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @lexbor_mraw_data_size(ptr noundef %0) #5 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !8
   ret i64 %5
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"", !12, i64 0, !9, i64 8}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!11, !9, i64 8}
+!14 = !{!6, !6, i64 0}
+!15 = !{!12, !12, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"_Bool", !6, i64 0}
+!18 = !{i8 0, i8 2}
+!19 = !{}

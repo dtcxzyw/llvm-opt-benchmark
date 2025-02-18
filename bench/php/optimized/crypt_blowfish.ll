@@ -27,51 +27,52 @@ define hidden noundef ptr @php_crypt_blowfish_rn(ptr noundef readonly captures(n
   %7 = alloca [18 x i32], align 16
   %8 = alloca [18 x i32], align 16
   %9 = alloca [18 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 93, ptr nonnull %5) #9
   %10 = icmp slt i32 %3, 3
   br i1 %10, label %_crypt_output_magic.exit, label %11
 
 11:                                               ; preds = %4
-  store i8 42, ptr %2, align 1
+  store i8 42, ptr %2, align 1, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 48, ptr %12, align 1
+  store i8 48, ptr %12, align 1, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %13, align 1
-  %14 = load i8, ptr %1, align 1
+  store i8 0, ptr %13, align 1, !tbaa !4
+  %14 = load i8, ptr %1, align 1, !tbaa !4
   %15 = icmp eq i8 %14, 42
   br i1 %15, label %16, label %_crypt_output_magic.exit
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = icmp eq i8 %18, 48
   br i1 %19, label %20, label %_crypt_output_magic.exit
 
 20:                                               ; preds = %16
-  store i8 49, ptr %12, align 1
+  store i8 49, ptr %12, align 1, !tbaa !4
   br label %_crypt_output_magic.exit
 
 _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %21 = tail call fastcc ptr @BF_crypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 16)
-  %22 = tail call ptr @__errno_location() #8
-  %23 = load i32, ptr %22, align 4
+  %22 = tail call ptr @__errno_location() #10
+  %23 = load i32, ptr %22, align 4, !tbaa !7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %5, ptr noundef nonnull align 1 dereferenceable(30) @.str.1, i64 30, i1 false)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %37, label %24
 
 24:                                               ; preds = %_crypt_output_magic.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %26 = load i8, ptr %25, align 1
+  %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
   %28 = add nuw nsw i64 %27, 4294967199
   %29 = and i64 %28, 4294967295
   %30 = getelementptr inbounds nuw [26 x i8], ptr @flags_by_subtype, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = and i8 %31, 1
   %33 = zext nneg i8 %32 to i64
   %34 = getelementptr inbounds nuw [2 x ptr], ptr @php_crypt_blowfish_rn.test_hashes, i64 0, i64 %33
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !9
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %26, ptr %36, align 1
+  store i8 %26, ptr %36, align 1, !tbaa !4
   br label %37
 
 37:                                               ; preds = %24, %_crypt_output_magic.exit
@@ -79,7 +80,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %38, i8 85, i64 62, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 92
-  store i8 0, ptr %39, align 1
+  store i8 0, ptr %39, align 1, !tbaa !4
   %40 = call fastcc ptr @BF_crypt(ptr noundef nonnull @.str, ptr noundef nonnull %5, ptr noundef nonnull %38, i32 noundef 61, i32 noundef 1)
   %41 = icmp eq ptr %40, %38
   br i1 %41, label %42, label %45
@@ -97,6 +98,10 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
 
 45:                                               ; preds = %43, %42, %37
   %46 = phi i1 [ false, %42 ], [ false, %37 ], [ %.not35, %43 ]
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #9
   br label %47
 
 47:                                               ; preds = %61, %45
@@ -113,7 +118,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %49 = phi i32 [ 0, %47 ], [ %54, %48 ]
   %50 = phi i32 [ 0, %47 ], [ %57, %48 ]
   %51 = shl i32 %49, 8
-  %52 = load i8, ptr %.13340.i, align 1
+  %52 = load i8, ptr %.13340.i, align 1, !tbaa !4
   %53 = zext i8 %52 to i32
   %54 = or disjoint i32 %51, %53
   %55 = shl i32 %50, 8
@@ -133,12 +138,12 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %62 = xor i32 %57, %54
   %63 = or i32 %62, %.045.i
   %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
-  store i32 %54, ptr %64, align 4
+  store i32 %54, ptr %64, align 4, !tbaa !7
   %65 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 4, !tbaa !7
   %67 = xor i32 %66, %54
   %68 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
-  store i32 %67, ptr %68, align 4
+  store i32 %67, ptr %68, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next.i, 18
   br i1 %exitcond47.not.i, label %BF_set_key.exit, label %47
@@ -151,7 +156,7 @@ BF_set_key.exit:                                  ; preds = %61
   %72 = sub nuw nsw i32 65536, %70
   %73 = and i32 %71, 65536
   %74 = and i32 %73, %72
-  %75 = load i32, ptr %7, align 16
+  %75 = load i32, ptr %7, align 16, !tbaa !7
   %76 = xor i32 %75, %74
   br label %77
 
@@ -165,7 +170,7 @@ BF_set_key.exit:                                  ; preds = %61
   %.03539.i46 = phi i32 [ 0, %77 ], [ %85, %78 ]
   %79 = phi i32 [ 0, %77 ], [ %83, %78 ]
   %80 = shl i32 %79, 8
-  %81 = load i8, ptr %.13340.i45, align 1
+  %81 = load i8, ptr %.13340.i45, align 1, !tbaa !4
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %80, %82
   %.not37.i49 = icmp eq i8 %81, 0
@@ -177,19 +182,19 @@ BF_set_key.exit:                                  ; preds = %61
 
 86:                                               ; preds = %78
   %87 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
-  store i32 %83, ptr %87, align 4
+  store i32 %83, ptr %87, align 4, !tbaa !7
   %88 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i40
-  %89 = load i32, ptr %88, align 4
+  %89 = load i32, ptr %88, align 4, !tbaa !7
   %90 = xor i32 %89, %83
   %91 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
-  store i32 %90, ptr %91, align 4
+  store i32 %90, ptr %91, align 4, !tbaa !7
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond47.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
   br i1 %exitcond47.not.i53, label %BF_set_key.exit55, label %77
 
 BF_set_key.exit55:                                ; preds = %86
   %92 = xor i32 %76, 65536
-  store i32 %92, ptr %7, align 16
+  store i32 %92, ptr %7, align 16, !tbaa !7
   %93 = icmp eq i32 %76, -610444868
   %or.cond = select i1 %46, i1 %93, i1 false
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -206,70 +211,83 @@ BF_set_key.exit55:                                ; preds = %86
 98:                                               ; preds = %97
   %bcmp38 = call i32 @bcmp(ptr noundef nonnull dereferenceable(72) %7, ptr noundef nonnull dereferenceable(72) %9, i64 72)
   %.not39 = icmp eq i32 %bcmp38, 0
-  store i32 %23, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #9
+  store i32 %23, ptr %22, align 4, !tbaa !7
   br i1 %.not39, label %110, label %99
 
 .critedge:                                        ; preds = %BF_set_key.exit55, %97
-  store i32 %23, ptr %22, align 4
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #9
+  store i32 %23, ptr %22, align 4, !tbaa !7
   br label %99
 
 99:                                               ; preds = %.critedge, %98
   br i1 %10, label %_crypt_output_magic.exit57, label %100
 
 100:                                              ; preds = %99
-  store i8 42, ptr %2, align 1
+  store i8 42, ptr %2, align 1, !tbaa !4
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 48, ptr %101, align 1
+  store i8 48, ptr %101, align 1, !tbaa !4
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %102, align 1
-  %103 = load i8, ptr %1, align 1
+  store i8 0, ptr %102, align 1, !tbaa !4
+  %103 = load i8, ptr %1, align 1, !tbaa !4
   %104 = icmp eq i8 %103, 42
   br i1 %104, label %105, label %_crypt_output_magic.exit57
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %107 = load i8, ptr %106, align 1
+  %107 = load i8, ptr %106, align 1, !tbaa !4
   %108 = icmp eq i8 %107, 48
   br i1 %108, label %109, label %_crypt_output_magic.exit57
 
 109:                                              ; preds = %105
-  store i8 49, ptr %101, align 1
+  store i8 49, ptr %101, align 1, !tbaa !4
   br label %_crypt_output_magic.exit57
 
 _crypt_output_magic.exit57:                       ; preds = %99, %100, %105, %109
-  store i32 22, ptr %22, align 4
+  store i32 22, ptr %22, align 4, !tbaa !7
   br label %110
 
 110:                                              ; preds = %98, %_crypt_output_magic.exit57
   %.0 = phi ptr [ null, %_crypt_output_magic.exit57 ], [ %21, %98 ]
+  call void @llvm.lifetime.end.p0(i64 93, ptr nonnull %5) #9
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4) unnamed_addr #2 {
   %6 = alloca %struct.anon.0, align 4
+  call void @llvm.lifetime.start.p0(i64 4264, ptr nonnull %6) #9
   %7 = icmp slt i32 %3, 61
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #8
-  store i32 34, ptr %9, align 4
+  %9 = tail call ptr @__errno_location() #10
+  store i32 34, ptr %9, align 4, !tbaa !7
   br label %2522
 
 10:                                               ; preds = %5
-  %11 = load i8, ptr %1, align 1
+  %11 = load i8, ptr %1, align 1, !tbaa !4
   %.not = icmp eq i8 %11, 36
   br i1 %.not, label %12, label %42
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %14 = load i8, ptr %13, align 1
+  %14 = load i8, ptr %13, align 1, !tbaa !4
   %.not1866 = icmp eq i8 %14, 50
   br i1 %.not1866, label %15, label %42
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = add i8 %17, -123
   %or.cond = icmp ult i8 %18, -26
   br i1 %or.cond, label %42, label %19
@@ -285,20 +303,20 @@ define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none)
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %27 = load i8, ptr %26, align 1
+  %27 = load i8, ptr %26, align 1, !tbaa !4
   %.not1868 = icmp eq i8 %27, 36
   br i1 %.not1868, label %28, label %42
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = load i8, ptr %29, align 1
+  %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = add i8 %30, -52
   %or.cond1875 = icmp ult i8 %31, -4
   br i1 %or.cond1875, label %42, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %34 = load i8, ptr %33, align 1
+  %34 = load i8, ptr %33, align 1, !tbaa !4
   %35 = add i8 %34, -58
   %or.cond1876 = icmp ult i8 %35, -10
   br i1 %or.cond1876, label %42, label %36
@@ -311,13 +329,13 @@ define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none)
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %41 = load i8, ptr %40, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !4
   %.not1869 = icmp eq i8 %41, 36
   br i1 %.not1869, label %44, label %42
 
 42:                                               ; preds = %36, %39, %32, %28, %25, %19, %15, %12, %10
-  %43 = tail call ptr @__errno_location() #8
-  store i32 22, ptr %43, align 4
+  %43 = tail call ptr @__errno_location() #10
+  store i32 22, ptr %43, align 4, !tbaa !7
   br label %2522
 
 44:                                               ; preds = %39
@@ -338,17 +356,17 @@ define internal fastcc noundef ptr @BF_crypt(ptr noundef readonly captures(none)
   br i1 %.not1870, label %.preheader1886, label %56
 
 56:                                               ; preds = %52, %44
-  %57 = tail call ptr @__errno_location() #8
-  store i32 22, ptr %57, align 4
+  %57 = tail call ptr @__errno_location() #10
+  store i32 22, ptr %57, align 4, !tbaa !7
   br label %2522
 
 .preheader1886:                                   ; preds = %52, %.preheader1886
   %.07.i = phi i32 [ %61, %.preheader1886 ], [ 4, %52 ]
   %.0.i = phi ptr [ %60, %.preheader1886 ], [ %53, %52 ]
-  %58 = load i32, ptr %.0.i, align 4
+  %58 = load i32, ptr %.0.i, align 4, !tbaa !7
   %59 = tail call i32 @llvm.bswap.i32(i32 %58)
   %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 %59, ptr %.0.i, align 4
+  store i32 %59, ptr %.0.i, align 4, !tbaa !7
   %61 = add nsw i32 %.07.i, -1
   %.not.i = icmp eq i32 %61, 0
   br i1 %.not.i, label %BF_swap.exit, label %.preheader1886
@@ -357,7 +375,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4168
   %.ptr1871 = getelementptr inbounds nuw i8, ptr %6, i64 4096
   %63 = getelementptr inbounds nuw [26 x i8], ptr @flags_by_subtype, i64 0, i64 %22
-  %64 = load i8, ptr %63, align 1
+  %64 = load i8, ptr %63, align 1, !tbaa !4
   call fastcc void @BF_set_key(ptr noundef %0, ptr noundef %62, ptr noundef %.ptr1871, i8 noundef zeroext %64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %6, ptr noundef nonnull align 4 dereferenceable(4096) @BF_init_state, i64 4096, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 3072
@@ -395,11 +413,11 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %89 = and i64 %indvars.iv, 2
   %90 = and i64 %indvars.iv, 2
   %91 = getelementptr inbounds nuw [4 x i32], ptr %53, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
+  %92 = load i32, ptr %91, align 4, !tbaa !4
   %93 = or disjoint i64 %89, 1
   %94 = getelementptr inbounds nuw [4 x i32], ptr %53, i64 0, i64 %93
-  %95 = load i32, ptr %94, align 4
-  %96 = load i32, ptr %.ptr1871, align 4
+  %95 = load i32, ptr %94, align 4, !tbaa !4
+  %96 = load i32, ptr %.ptr1871, align 4, !tbaa !7
   %97 = xor i32 %92, %.018551913
   %98 = xor i32 %97, %96
   %99 = and i32 %98, 255
@@ -410,19 +428,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %104 = lshr i32 %98, 24
   %105 = zext nneg i32 %99 to i64
   %106 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4
+  %107 = load i32, ptr %106, align 4, !tbaa !7
   %108 = zext nneg i32 %101 to i64
   %109 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %108
-  %110 = load i32, ptr %109, align 4
+  %110 = load i32, ptr %109, align 4, !tbaa !7
   %111 = zext nneg i32 %103 to i64
   %112 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %111
-  %113 = load i32, ptr %112, align 4
+  %113 = load i32, ptr %112, align 4, !tbaa !7
   %114 = zext nneg i32 %104 to i64
   %115 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %114
-  %116 = load i32, ptr %115, align 4
+  %116 = load i32, ptr %115, align 4, !tbaa !7
   %117 = add i32 %116, %113
   %118 = xor i32 %117, %110
-  %119 = load i32, ptr %68, align 4
+  %119 = load i32, ptr %68, align 4, !tbaa !7
   %120 = add i32 %118, %107
   %121 = xor i32 %95, %.018511914
   %122 = xor i32 %121, %119
@@ -435,19 +453,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %129 = lshr i32 %123, 24
   %130 = zext nneg i32 %124 to i64
   %131 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %130
-  %132 = load i32, ptr %131, align 4
+  %132 = load i32, ptr %131, align 4, !tbaa !7
   %133 = zext nneg i32 %126 to i64
   %134 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %133
-  %135 = load i32, ptr %134, align 4
+  %135 = load i32, ptr %134, align 4, !tbaa !7
   %136 = zext nneg i32 %128 to i64
   %137 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %136
-  %138 = load i32, ptr %137, align 4
+  %138 = load i32, ptr %137, align 4, !tbaa !7
   %139 = zext nneg i32 %129 to i64
   %140 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %139
-  %141 = load i32, ptr %140, align 4
+  %141 = load i32, ptr %140, align 4, !tbaa !7
   %142 = add i32 %141, %138
   %143 = xor i32 %142, %135
-  %144 = load i32, ptr %69, align 4
+  %144 = load i32, ptr %69, align 4, !tbaa !7
   %145 = add i32 %143, %132
   %146 = xor i32 %144, %145
   %147 = xor i32 %146, %98
@@ -459,19 +477,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %153 = lshr i32 %147, 24
   %154 = zext nneg i32 %148 to i64
   %155 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4
+  %156 = load i32, ptr %155, align 4, !tbaa !7
   %157 = zext nneg i32 %150 to i64
   %158 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %157
-  %159 = load i32, ptr %158, align 4
+  %159 = load i32, ptr %158, align 4, !tbaa !7
   %160 = zext nneg i32 %152 to i64
   %161 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4
+  %162 = load i32, ptr %161, align 4, !tbaa !7
   %163 = zext nneg i32 %153 to i64
   %164 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4
+  %165 = load i32, ptr %164, align 4, !tbaa !7
   %166 = add i32 %165, %162
   %167 = xor i32 %166, %159
-  %168 = load i32, ptr %70, align 4
+  %168 = load i32, ptr %70, align 4, !tbaa !7
   %169 = add i32 %167, %156
   %170 = xor i32 %168, %169
   %171 = xor i32 %170, %123
@@ -483,19 +501,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %177 = lshr i32 %171, 24
   %178 = zext nneg i32 %172 to i64
   %179 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %178
-  %180 = load i32, ptr %179, align 4
+  %180 = load i32, ptr %179, align 4, !tbaa !7
   %181 = zext nneg i32 %174 to i64
   %182 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4
+  %183 = load i32, ptr %182, align 4, !tbaa !7
   %184 = zext nneg i32 %176 to i64
   %185 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %184
-  %186 = load i32, ptr %185, align 4
+  %186 = load i32, ptr %185, align 4, !tbaa !7
   %187 = zext nneg i32 %177 to i64
   %188 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %187
-  %189 = load i32, ptr %188, align 4
+  %189 = load i32, ptr %188, align 4, !tbaa !7
   %190 = add i32 %189, %186
   %191 = xor i32 %190, %183
-  %192 = load i32, ptr %71, align 4
+  %192 = load i32, ptr %71, align 4, !tbaa !7
   %193 = add i32 %191, %180
   %194 = xor i32 %192, %193
   %195 = xor i32 %194, %147
@@ -507,19 +525,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %201 = lshr i32 %195, 24
   %202 = zext nneg i32 %196 to i64
   %203 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4
+  %204 = load i32, ptr %203, align 4, !tbaa !7
   %205 = zext nneg i32 %198 to i64
   %206 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %205
-  %207 = load i32, ptr %206, align 4
+  %207 = load i32, ptr %206, align 4, !tbaa !7
   %208 = zext nneg i32 %200 to i64
   %209 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %208
-  %210 = load i32, ptr %209, align 4
+  %210 = load i32, ptr %209, align 4, !tbaa !7
   %211 = zext nneg i32 %201 to i64
   %212 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %211
-  %213 = load i32, ptr %212, align 4
+  %213 = load i32, ptr %212, align 4, !tbaa !7
   %214 = add i32 %213, %210
   %215 = xor i32 %214, %207
-  %216 = load i32, ptr %72, align 4
+  %216 = load i32, ptr %72, align 4, !tbaa !7
   %217 = add i32 %215, %204
   %218 = xor i32 %216, %217
   %219 = xor i32 %218, %171
@@ -531,19 +549,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %225 = lshr i32 %219, 24
   %226 = zext nneg i32 %220 to i64
   %227 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %226
-  %228 = load i32, ptr %227, align 4
+  %228 = load i32, ptr %227, align 4, !tbaa !7
   %229 = zext nneg i32 %222 to i64
   %230 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %229
-  %231 = load i32, ptr %230, align 4
+  %231 = load i32, ptr %230, align 4, !tbaa !7
   %232 = zext nneg i32 %224 to i64
   %233 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %232
-  %234 = load i32, ptr %233, align 4
+  %234 = load i32, ptr %233, align 4, !tbaa !7
   %235 = zext nneg i32 %225 to i64
   %236 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %235
-  %237 = load i32, ptr %236, align 4
+  %237 = load i32, ptr %236, align 4, !tbaa !7
   %238 = add i32 %237, %234
   %239 = xor i32 %238, %231
-  %240 = load i32, ptr %73, align 4
+  %240 = load i32, ptr %73, align 4, !tbaa !7
   %241 = add i32 %239, %228
   %242 = xor i32 %240, %241
   %243 = xor i32 %242, %195
@@ -555,19 +573,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %249 = lshr i32 %243, 24
   %250 = zext nneg i32 %244 to i64
   %251 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %250
-  %252 = load i32, ptr %251, align 4
+  %252 = load i32, ptr %251, align 4, !tbaa !7
   %253 = zext nneg i32 %246 to i64
   %254 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %253
-  %255 = load i32, ptr %254, align 4
+  %255 = load i32, ptr %254, align 4, !tbaa !7
   %256 = zext nneg i32 %248 to i64
   %257 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %256
-  %258 = load i32, ptr %257, align 4
+  %258 = load i32, ptr %257, align 4, !tbaa !7
   %259 = zext nneg i32 %249 to i64
   %260 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %259
-  %261 = load i32, ptr %260, align 4
+  %261 = load i32, ptr %260, align 4, !tbaa !7
   %262 = add i32 %261, %258
   %263 = xor i32 %262, %255
-  %264 = load i32, ptr %74, align 4
+  %264 = load i32, ptr %74, align 4, !tbaa !7
   %265 = add i32 %263, %252
   %266 = xor i32 %264, %265
   %267 = xor i32 %266, %219
@@ -579,19 +597,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %273 = lshr i32 %267, 24
   %274 = zext nneg i32 %268 to i64
   %275 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %274
-  %276 = load i32, ptr %275, align 4
+  %276 = load i32, ptr %275, align 4, !tbaa !7
   %277 = zext nneg i32 %270 to i64
   %278 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %277
-  %279 = load i32, ptr %278, align 4
+  %279 = load i32, ptr %278, align 4, !tbaa !7
   %280 = zext nneg i32 %272 to i64
   %281 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %280
-  %282 = load i32, ptr %281, align 4
+  %282 = load i32, ptr %281, align 4, !tbaa !7
   %283 = zext nneg i32 %273 to i64
   %284 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %283
-  %285 = load i32, ptr %284, align 4
+  %285 = load i32, ptr %284, align 4, !tbaa !7
   %286 = add i32 %285, %282
   %287 = xor i32 %286, %279
-  %288 = load i32, ptr %75, align 4
+  %288 = load i32, ptr %75, align 4, !tbaa !7
   %289 = add i32 %287, %276
   %290 = xor i32 %288, %289
   %291 = xor i32 %290, %243
@@ -603,19 +621,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %297 = lshr i32 %291, 24
   %298 = zext nneg i32 %292 to i64
   %299 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %298
-  %300 = load i32, ptr %299, align 4
+  %300 = load i32, ptr %299, align 4, !tbaa !7
   %301 = zext nneg i32 %294 to i64
   %302 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %301
-  %303 = load i32, ptr %302, align 4
+  %303 = load i32, ptr %302, align 4, !tbaa !7
   %304 = zext nneg i32 %296 to i64
   %305 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %304
-  %306 = load i32, ptr %305, align 4
+  %306 = load i32, ptr %305, align 4, !tbaa !7
   %307 = zext nneg i32 %297 to i64
   %308 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %307
-  %309 = load i32, ptr %308, align 4
+  %309 = load i32, ptr %308, align 4, !tbaa !7
   %310 = add i32 %309, %306
   %311 = xor i32 %310, %303
-  %312 = load i32, ptr %76, align 4
+  %312 = load i32, ptr %76, align 4, !tbaa !7
   %313 = add i32 %311, %300
   %314 = xor i32 %312, %313
   %315 = xor i32 %314, %267
@@ -627,19 +645,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %321 = lshr i32 %315, 24
   %322 = zext nneg i32 %316 to i64
   %323 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %322
-  %324 = load i32, ptr %323, align 4
+  %324 = load i32, ptr %323, align 4, !tbaa !7
   %325 = zext nneg i32 %318 to i64
   %326 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %325
-  %327 = load i32, ptr %326, align 4
+  %327 = load i32, ptr %326, align 4, !tbaa !7
   %328 = zext nneg i32 %320 to i64
   %329 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %328
-  %330 = load i32, ptr %329, align 4
+  %330 = load i32, ptr %329, align 4, !tbaa !7
   %331 = zext nneg i32 %321 to i64
   %332 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %331
-  %333 = load i32, ptr %332, align 4
+  %333 = load i32, ptr %332, align 4, !tbaa !7
   %334 = add i32 %333, %330
   %335 = xor i32 %334, %327
-  %336 = load i32, ptr %77, align 4
+  %336 = load i32, ptr %77, align 4, !tbaa !7
   %337 = add i32 %335, %324
   %338 = xor i32 %336, %337
   %339 = xor i32 %338, %291
@@ -651,19 +669,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %345 = lshr i32 %339, 24
   %346 = zext nneg i32 %340 to i64
   %347 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %346
-  %348 = load i32, ptr %347, align 4
+  %348 = load i32, ptr %347, align 4, !tbaa !7
   %349 = zext nneg i32 %342 to i64
   %350 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %349
-  %351 = load i32, ptr %350, align 4
+  %351 = load i32, ptr %350, align 4, !tbaa !7
   %352 = zext nneg i32 %344 to i64
   %353 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %352
-  %354 = load i32, ptr %353, align 4
+  %354 = load i32, ptr %353, align 4, !tbaa !7
   %355 = zext nneg i32 %345 to i64
   %356 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %355
-  %357 = load i32, ptr %356, align 4
+  %357 = load i32, ptr %356, align 4, !tbaa !7
   %358 = add i32 %357, %354
   %359 = xor i32 %358, %351
-  %360 = load i32, ptr %78, align 4
+  %360 = load i32, ptr %78, align 4, !tbaa !7
   %361 = add i32 %359, %348
   %362 = xor i32 %360, %361
   %363 = xor i32 %362, %315
@@ -675,19 +693,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %369 = lshr i32 %363, 24
   %370 = zext nneg i32 %364 to i64
   %371 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %370
-  %372 = load i32, ptr %371, align 4
+  %372 = load i32, ptr %371, align 4, !tbaa !7
   %373 = zext nneg i32 %366 to i64
   %374 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %373
-  %375 = load i32, ptr %374, align 4
+  %375 = load i32, ptr %374, align 4, !tbaa !7
   %376 = zext nneg i32 %368 to i64
   %377 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %376
-  %378 = load i32, ptr %377, align 4
+  %378 = load i32, ptr %377, align 4, !tbaa !7
   %379 = zext nneg i32 %369 to i64
   %380 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %379
-  %381 = load i32, ptr %380, align 4
+  %381 = load i32, ptr %380, align 4, !tbaa !7
   %382 = add i32 %381, %378
   %383 = xor i32 %382, %375
-  %384 = load i32, ptr %79, align 4
+  %384 = load i32, ptr %79, align 4, !tbaa !7
   %385 = add i32 %383, %372
   %386 = xor i32 %384, %385
   %387 = xor i32 %386, %339
@@ -699,19 +717,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %393 = lshr i32 %387, 24
   %394 = zext nneg i32 %388 to i64
   %395 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %394
-  %396 = load i32, ptr %395, align 4
+  %396 = load i32, ptr %395, align 4, !tbaa !7
   %397 = zext nneg i32 %390 to i64
   %398 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %397
-  %399 = load i32, ptr %398, align 4
+  %399 = load i32, ptr %398, align 4, !tbaa !7
   %400 = zext nneg i32 %392 to i64
   %401 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %400
-  %402 = load i32, ptr %401, align 4
+  %402 = load i32, ptr %401, align 4, !tbaa !7
   %403 = zext nneg i32 %393 to i64
   %404 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %403
-  %405 = load i32, ptr %404, align 4
+  %405 = load i32, ptr %404, align 4, !tbaa !7
   %406 = add i32 %405, %402
   %407 = xor i32 %406, %399
-  %408 = load i32, ptr %80, align 4
+  %408 = load i32, ptr %80, align 4, !tbaa !7
   %409 = add i32 %407, %396
   %410 = xor i32 %408, %409
   %411 = xor i32 %410, %363
@@ -723,19 +741,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %417 = lshr i32 %411, 24
   %418 = zext nneg i32 %412 to i64
   %419 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %418
-  %420 = load i32, ptr %419, align 4
+  %420 = load i32, ptr %419, align 4, !tbaa !7
   %421 = zext nneg i32 %414 to i64
   %422 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %421
-  %423 = load i32, ptr %422, align 4
+  %423 = load i32, ptr %422, align 4, !tbaa !7
   %424 = zext nneg i32 %416 to i64
   %425 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %424
-  %426 = load i32, ptr %425, align 4
+  %426 = load i32, ptr %425, align 4, !tbaa !7
   %427 = zext nneg i32 %417 to i64
   %428 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %427
-  %429 = load i32, ptr %428, align 4
+  %429 = load i32, ptr %428, align 4, !tbaa !7
   %430 = add i32 %429, %426
   %431 = xor i32 %430, %423
-  %432 = load i32, ptr %81, align 4
+  %432 = load i32, ptr %81, align 4, !tbaa !7
   %433 = add i32 %431, %420
   %434 = xor i32 %432, %433
   %435 = xor i32 %434, %387
@@ -747,19 +765,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %441 = lshr i32 %435, 24
   %442 = zext nneg i32 %436 to i64
   %443 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %442
-  %444 = load i32, ptr %443, align 4
+  %444 = load i32, ptr %443, align 4, !tbaa !7
   %445 = zext nneg i32 %438 to i64
   %446 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %445
-  %447 = load i32, ptr %446, align 4
+  %447 = load i32, ptr %446, align 4, !tbaa !7
   %448 = zext nneg i32 %440 to i64
   %449 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %448
-  %450 = load i32, ptr %449, align 4
+  %450 = load i32, ptr %449, align 4, !tbaa !7
   %451 = zext nneg i32 %441 to i64
   %452 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %451
-  %453 = load i32, ptr %452, align 4
+  %453 = load i32, ptr %452, align 4, !tbaa !7
   %454 = add i32 %453, %450
   %455 = xor i32 %454, %447
-  %456 = load i32, ptr %82, align 4
+  %456 = load i32, ptr %82, align 4, !tbaa !7
   %457 = add i32 %455, %444
   %458 = xor i32 %456, %457
   %459 = xor i32 %458, %411
@@ -771,29 +789,29 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %465 = lshr i32 %459, 24
   %466 = zext nneg i32 %460 to i64
   %467 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %466
-  %468 = load i32, ptr %467, align 4
+  %468 = load i32, ptr %467, align 4, !tbaa !7
   %469 = zext nneg i32 %462 to i64
   %470 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %469
-  %471 = load i32, ptr %470, align 4
+  %471 = load i32, ptr %470, align 4, !tbaa !7
   %472 = zext nneg i32 %464 to i64
   %473 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %472
-  %474 = load i32, ptr %473, align 4
+  %474 = load i32, ptr %473, align 4, !tbaa !7
   %475 = zext nneg i32 %465 to i64
   %476 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %475
-  %477 = load i32, ptr %476, align 4
+  %477 = load i32, ptr %476, align 4, !tbaa !7
   %478 = add i32 %477, %474
   %479 = xor i32 %478, %471
-  %480 = load i32, ptr %83, align 4
+  %480 = load i32, ptr %83, align 4, !tbaa !7
   %481 = add i32 %479, %468
   %482 = xor i32 %480, %481
   %483 = xor i32 %482, %435
-  %484 = load i32, ptr %84, align 4
+  %484 = load i32, ptr %84, align 4, !tbaa !7
   %485 = xor i32 %484, %459
   %486 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %indvars.iv
-  store i32 %485, ptr %486, align 4
+  store i32 %485, ptr %486, align 4, !tbaa !7
   %487 = or disjoint i64 %indvars.iv, 1
   %488 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %487
-  store i32 %483, ptr %488, align 4
+  store i32 %483, ptr %488, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %489 = icmp samesign ult i64 %indvars.iv, 16
   br i1 %489, label %88, label %.preheader1885
@@ -804,11 +822,11 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %.01848.idx = phi i64 [ %.01848.add, %490 ], [ 0, %.preheader1885 ]
   %.01848.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.01848.idx
   %.01848.add = add nuw nsw i64 %.01848.idx, 16
-  %491 = load i32, ptr %85, align 4
+  %491 = load i32, ptr %85, align 4, !tbaa !4
   %492 = xor i32 %491, %.11856
-  %493 = load i32, ptr %86, align 4
+  %493 = load i32, ptr %86, align 4, !tbaa !4
   %494 = xor i32 %493, %.11852
-  %495 = load i32, ptr %.ptr1871, align 4
+  %495 = load i32, ptr %.ptr1871, align 4, !tbaa !7
   %496 = xor i32 %492, %495
   %497 = and i32 %496, 255
   %498 = lshr i32 %496, 8
@@ -818,19 +836,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %502 = lshr i32 %496, 24
   %503 = zext nneg i32 %497 to i64
   %504 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %503
-  %505 = load i32, ptr %504, align 4
+  %505 = load i32, ptr %504, align 4, !tbaa !7
   %506 = zext nneg i32 %499 to i64
   %507 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %506
-  %508 = load i32, ptr %507, align 4
+  %508 = load i32, ptr %507, align 4, !tbaa !7
   %509 = zext nneg i32 %501 to i64
   %510 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %509
-  %511 = load i32, ptr %510, align 4
+  %511 = load i32, ptr %510, align 4, !tbaa !7
   %512 = zext nneg i32 %502 to i64
   %513 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %512
-  %514 = load i32, ptr %513, align 4
+  %514 = load i32, ptr %513, align 4, !tbaa !7
   %515 = add i32 %514, %511
   %516 = xor i32 %515, %508
-  %517 = load i32, ptr %68, align 4
+  %517 = load i32, ptr %68, align 4, !tbaa !7
   %518 = xor i32 %494, %517
   %519 = add i32 %516, %505
   %520 = xor i32 %518, %519
@@ -842,19 +860,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %526 = lshr i32 %520, 24
   %527 = zext nneg i32 %521 to i64
   %528 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %527
-  %529 = load i32, ptr %528, align 4
+  %529 = load i32, ptr %528, align 4, !tbaa !7
   %530 = zext nneg i32 %523 to i64
   %531 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %530
-  %532 = load i32, ptr %531, align 4
+  %532 = load i32, ptr %531, align 4, !tbaa !7
   %533 = zext nneg i32 %525 to i64
   %534 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %533
-  %535 = load i32, ptr %534, align 4
+  %535 = load i32, ptr %534, align 4, !tbaa !7
   %536 = zext nneg i32 %526 to i64
   %537 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %536
-  %538 = load i32, ptr %537, align 4
+  %538 = load i32, ptr %537, align 4, !tbaa !7
   %539 = add i32 %538, %535
   %540 = xor i32 %539, %532
-  %541 = load i32, ptr %69, align 4
+  %541 = load i32, ptr %69, align 4, !tbaa !7
   %542 = add i32 %540, %529
   %543 = xor i32 %541, %542
   %544 = xor i32 %543, %496
@@ -866,19 +884,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %550 = lshr i32 %544, 24
   %551 = zext nneg i32 %545 to i64
   %552 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %551
-  %553 = load i32, ptr %552, align 4
+  %553 = load i32, ptr %552, align 4, !tbaa !7
   %554 = zext nneg i32 %547 to i64
   %555 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %554
-  %556 = load i32, ptr %555, align 4
+  %556 = load i32, ptr %555, align 4, !tbaa !7
   %557 = zext nneg i32 %549 to i64
   %558 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %557
-  %559 = load i32, ptr %558, align 4
+  %559 = load i32, ptr %558, align 4, !tbaa !7
   %560 = zext nneg i32 %550 to i64
   %561 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %560
-  %562 = load i32, ptr %561, align 4
+  %562 = load i32, ptr %561, align 4, !tbaa !7
   %563 = add i32 %562, %559
   %564 = xor i32 %563, %556
-  %565 = load i32, ptr %70, align 4
+  %565 = load i32, ptr %70, align 4, !tbaa !7
   %566 = add i32 %564, %553
   %567 = xor i32 %565, %566
   %568 = xor i32 %567, %520
@@ -890,19 +908,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %574 = lshr i32 %568, 24
   %575 = zext nneg i32 %569 to i64
   %576 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %575
-  %577 = load i32, ptr %576, align 4
+  %577 = load i32, ptr %576, align 4, !tbaa !7
   %578 = zext nneg i32 %571 to i64
   %579 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %578
-  %580 = load i32, ptr %579, align 4
+  %580 = load i32, ptr %579, align 4, !tbaa !7
   %581 = zext nneg i32 %573 to i64
   %582 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %581
-  %583 = load i32, ptr %582, align 4
+  %583 = load i32, ptr %582, align 4, !tbaa !7
   %584 = zext nneg i32 %574 to i64
   %585 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %584
-  %586 = load i32, ptr %585, align 4
+  %586 = load i32, ptr %585, align 4, !tbaa !7
   %587 = add i32 %586, %583
   %588 = xor i32 %587, %580
-  %589 = load i32, ptr %71, align 4
+  %589 = load i32, ptr %71, align 4, !tbaa !7
   %590 = add i32 %588, %577
   %591 = xor i32 %589, %590
   %592 = xor i32 %591, %544
@@ -914,19 +932,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %598 = lshr i32 %592, 24
   %599 = zext nneg i32 %593 to i64
   %600 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %599
-  %601 = load i32, ptr %600, align 4
+  %601 = load i32, ptr %600, align 4, !tbaa !7
   %602 = zext nneg i32 %595 to i64
   %603 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %602
-  %604 = load i32, ptr %603, align 4
+  %604 = load i32, ptr %603, align 4, !tbaa !7
   %605 = zext nneg i32 %597 to i64
   %606 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %605
-  %607 = load i32, ptr %606, align 4
+  %607 = load i32, ptr %606, align 4, !tbaa !7
   %608 = zext nneg i32 %598 to i64
   %609 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %608
-  %610 = load i32, ptr %609, align 4
+  %610 = load i32, ptr %609, align 4, !tbaa !7
   %611 = add i32 %610, %607
   %612 = xor i32 %611, %604
-  %613 = load i32, ptr %72, align 4
+  %613 = load i32, ptr %72, align 4, !tbaa !7
   %614 = add i32 %612, %601
   %615 = xor i32 %613, %614
   %616 = xor i32 %615, %568
@@ -938,19 +956,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %622 = lshr i32 %616, 24
   %623 = zext nneg i32 %617 to i64
   %624 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %623
-  %625 = load i32, ptr %624, align 4
+  %625 = load i32, ptr %624, align 4, !tbaa !7
   %626 = zext nneg i32 %619 to i64
   %627 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %626
-  %628 = load i32, ptr %627, align 4
+  %628 = load i32, ptr %627, align 4, !tbaa !7
   %629 = zext nneg i32 %621 to i64
   %630 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %629
-  %631 = load i32, ptr %630, align 4
+  %631 = load i32, ptr %630, align 4, !tbaa !7
   %632 = zext nneg i32 %622 to i64
   %633 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %632
-  %634 = load i32, ptr %633, align 4
+  %634 = load i32, ptr %633, align 4, !tbaa !7
   %635 = add i32 %634, %631
   %636 = xor i32 %635, %628
-  %637 = load i32, ptr %73, align 4
+  %637 = load i32, ptr %73, align 4, !tbaa !7
   %638 = add i32 %636, %625
   %639 = xor i32 %637, %638
   %640 = xor i32 %639, %592
@@ -962,19 +980,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %646 = lshr i32 %640, 24
   %647 = zext nneg i32 %641 to i64
   %648 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %647
-  %649 = load i32, ptr %648, align 4
+  %649 = load i32, ptr %648, align 4, !tbaa !7
   %650 = zext nneg i32 %643 to i64
   %651 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %650
-  %652 = load i32, ptr %651, align 4
+  %652 = load i32, ptr %651, align 4, !tbaa !7
   %653 = zext nneg i32 %645 to i64
   %654 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %653
-  %655 = load i32, ptr %654, align 4
+  %655 = load i32, ptr %654, align 4, !tbaa !7
   %656 = zext nneg i32 %646 to i64
   %657 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %656
-  %658 = load i32, ptr %657, align 4
+  %658 = load i32, ptr %657, align 4, !tbaa !7
   %659 = add i32 %658, %655
   %660 = xor i32 %659, %652
-  %661 = load i32, ptr %74, align 4
+  %661 = load i32, ptr %74, align 4, !tbaa !7
   %662 = add i32 %660, %649
   %663 = xor i32 %661, %662
   %664 = xor i32 %663, %616
@@ -986,19 +1004,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %670 = lshr i32 %664, 24
   %671 = zext nneg i32 %665 to i64
   %672 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %671
-  %673 = load i32, ptr %672, align 4
+  %673 = load i32, ptr %672, align 4, !tbaa !7
   %674 = zext nneg i32 %667 to i64
   %675 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %674
-  %676 = load i32, ptr %675, align 4
+  %676 = load i32, ptr %675, align 4, !tbaa !7
   %677 = zext nneg i32 %669 to i64
   %678 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %677
-  %679 = load i32, ptr %678, align 4
+  %679 = load i32, ptr %678, align 4, !tbaa !7
   %680 = zext nneg i32 %670 to i64
   %681 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %680
-  %682 = load i32, ptr %681, align 4
+  %682 = load i32, ptr %681, align 4, !tbaa !7
   %683 = add i32 %682, %679
   %684 = xor i32 %683, %676
-  %685 = load i32, ptr %75, align 4
+  %685 = load i32, ptr %75, align 4, !tbaa !7
   %686 = add i32 %684, %673
   %687 = xor i32 %685, %686
   %688 = xor i32 %687, %640
@@ -1010,19 +1028,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %694 = lshr i32 %688, 24
   %695 = zext nneg i32 %689 to i64
   %696 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %695
-  %697 = load i32, ptr %696, align 4
+  %697 = load i32, ptr %696, align 4, !tbaa !7
   %698 = zext nneg i32 %691 to i64
   %699 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %698
-  %700 = load i32, ptr %699, align 4
+  %700 = load i32, ptr %699, align 4, !tbaa !7
   %701 = zext nneg i32 %693 to i64
   %702 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %701
-  %703 = load i32, ptr %702, align 4
+  %703 = load i32, ptr %702, align 4, !tbaa !7
   %704 = zext nneg i32 %694 to i64
   %705 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %704
-  %706 = load i32, ptr %705, align 4
+  %706 = load i32, ptr %705, align 4, !tbaa !7
   %707 = add i32 %706, %703
   %708 = xor i32 %707, %700
-  %709 = load i32, ptr %76, align 4
+  %709 = load i32, ptr %76, align 4, !tbaa !7
   %710 = add i32 %708, %697
   %711 = xor i32 %709, %710
   %712 = xor i32 %711, %664
@@ -1034,19 +1052,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %718 = lshr i32 %712, 24
   %719 = zext nneg i32 %713 to i64
   %720 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %719
-  %721 = load i32, ptr %720, align 4
+  %721 = load i32, ptr %720, align 4, !tbaa !7
   %722 = zext nneg i32 %715 to i64
   %723 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %722
-  %724 = load i32, ptr %723, align 4
+  %724 = load i32, ptr %723, align 4, !tbaa !7
   %725 = zext nneg i32 %717 to i64
   %726 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %725
-  %727 = load i32, ptr %726, align 4
+  %727 = load i32, ptr %726, align 4, !tbaa !7
   %728 = zext nneg i32 %718 to i64
   %729 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %728
-  %730 = load i32, ptr %729, align 4
+  %730 = load i32, ptr %729, align 4, !tbaa !7
   %731 = add i32 %730, %727
   %732 = xor i32 %731, %724
-  %733 = load i32, ptr %77, align 4
+  %733 = load i32, ptr %77, align 4, !tbaa !7
   %734 = add i32 %732, %721
   %735 = xor i32 %733, %734
   %736 = xor i32 %735, %688
@@ -1058,19 +1076,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %742 = lshr i32 %736, 24
   %743 = zext nneg i32 %737 to i64
   %744 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %743
-  %745 = load i32, ptr %744, align 4
+  %745 = load i32, ptr %744, align 4, !tbaa !7
   %746 = zext nneg i32 %739 to i64
   %747 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %746
-  %748 = load i32, ptr %747, align 4
+  %748 = load i32, ptr %747, align 4, !tbaa !7
   %749 = zext nneg i32 %741 to i64
   %750 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %749
-  %751 = load i32, ptr %750, align 4
+  %751 = load i32, ptr %750, align 4, !tbaa !7
   %752 = zext nneg i32 %742 to i64
   %753 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %752
-  %754 = load i32, ptr %753, align 4
+  %754 = load i32, ptr %753, align 4, !tbaa !7
   %755 = add i32 %754, %751
   %756 = xor i32 %755, %748
-  %757 = load i32, ptr %78, align 4
+  %757 = load i32, ptr %78, align 4, !tbaa !7
   %758 = add i32 %756, %745
   %759 = xor i32 %757, %758
   %760 = xor i32 %759, %712
@@ -1082,19 +1100,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %766 = lshr i32 %760, 24
   %767 = zext nneg i32 %761 to i64
   %768 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %767
-  %769 = load i32, ptr %768, align 4
+  %769 = load i32, ptr %768, align 4, !tbaa !7
   %770 = zext nneg i32 %763 to i64
   %771 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %770
-  %772 = load i32, ptr %771, align 4
+  %772 = load i32, ptr %771, align 4, !tbaa !7
   %773 = zext nneg i32 %765 to i64
   %774 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %773
-  %775 = load i32, ptr %774, align 4
+  %775 = load i32, ptr %774, align 4, !tbaa !7
   %776 = zext nneg i32 %766 to i64
   %777 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %776
-  %778 = load i32, ptr %777, align 4
+  %778 = load i32, ptr %777, align 4, !tbaa !7
   %779 = add i32 %778, %775
   %780 = xor i32 %779, %772
-  %781 = load i32, ptr %79, align 4
+  %781 = load i32, ptr %79, align 4, !tbaa !7
   %782 = add i32 %780, %769
   %783 = xor i32 %781, %782
   %784 = xor i32 %783, %736
@@ -1106,19 +1124,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %790 = lshr i32 %784, 24
   %791 = zext nneg i32 %785 to i64
   %792 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %791
-  %793 = load i32, ptr %792, align 4
+  %793 = load i32, ptr %792, align 4, !tbaa !7
   %794 = zext nneg i32 %787 to i64
   %795 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %794
-  %796 = load i32, ptr %795, align 4
+  %796 = load i32, ptr %795, align 4, !tbaa !7
   %797 = zext nneg i32 %789 to i64
   %798 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %797
-  %799 = load i32, ptr %798, align 4
+  %799 = load i32, ptr %798, align 4, !tbaa !7
   %800 = zext nneg i32 %790 to i64
   %801 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %800
-  %802 = load i32, ptr %801, align 4
+  %802 = load i32, ptr %801, align 4, !tbaa !7
   %803 = add i32 %802, %799
   %804 = xor i32 %803, %796
-  %805 = load i32, ptr %80, align 4
+  %805 = load i32, ptr %80, align 4, !tbaa !7
   %806 = add i32 %804, %793
   %807 = xor i32 %805, %806
   %808 = xor i32 %807, %760
@@ -1130,19 +1148,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %814 = lshr i32 %808, 24
   %815 = zext nneg i32 %809 to i64
   %816 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %815
-  %817 = load i32, ptr %816, align 4
+  %817 = load i32, ptr %816, align 4, !tbaa !7
   %818 = zext nneg i32 %811 to i64
   %819 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %818
-  %820 = load i32, ptr %819, align 4
+  %820 = load i32, ptr %819, align 4, !tbaa !7
   %821 = zext nneg i32 %813 to i64
   %822 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %821
-  %823 = load i32, ptr %822, align 4
+  %823 = load i32, ptr %822, align 4, !tbaa !7
   %824 = zext nneg i32 %814 to i64
   %825 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %824
-  %826 = load i32, ptr %825, align 4
+  %826 = load i32, ptr %825, align 4, !tbaa !7
   %827 = add i32 %826, %823
   %828 = xor i32 %827, %820
-  %829 = load i32, ptr %81, align 4
+  %829 = load i32, ptr %81, align 4, !tbaa !7
   %830 = add i32 %828, %817
   %831 = xor i32 %829, %830
   %832 = xor i32 %831, %784
@@ -1154,19 +1172,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %838 = lshr i32 %832, 24
   %839 = zext nneg i32 %833 to i64
   %840 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %839
-  %841 = load i32, ptr %840, align 4
+  %841 = load i32, ptr %840, align 4, !tbaa !7
   %842 = zext nneg i32 %835 to i64
   %843 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %842
-  %844 = load i32, ptr %843, align 4
+  %844 = load i32, ptr %843, align 4, !tbaa !7
   %845 = zext nneg i32 %837 to i64
   %846 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %845
-  %847 = load i32, ptr %846, align 4
+  %847 = load i32, ptr %846, align 4, !tbaa !7
   %848 = zext nneg i32 %838 to i64
   %849 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %848
-  %850 = load i32, ptr %849, align 4
+  %850 = load i32, ptr %849, align 4, !tbaa !7
   %851 = add i32 %850, %847
   %852 = xor i32 %851, %844
-  %853 = load i32, ptr %82, align 4
+  %853 = load i32, ptr %82, align 4, !tbaa !7
   %854 = add i32 %852, %841
   %855 = xor i32 %853, %854
   %856 = xor i32 %855, %808
@@ -1178,30 +1196,30 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %862 = lshr i32 %856, 24
   %863 = zext nneg i32 %857 to i64
   %864 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %863
-  %865 = load i32, ptr %864, align 4
+  %865 = load i32, ptr %864, align 4, !tbaa !7
   %866 = zext nneg i32 %859 to i64
   %867 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %866
-  %868 = load i32, ptr %867, align 4
+  %868 = load i32, ptr %867, align 4, !tbaa !7
   %869 = zext nneg i32 %861 to i64
   %870 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %869
-  %871 = load i32, ptr %870, align 4
+  %871 = load i32, ptr %870, align 4, !tbaa !7
   %872 = zext nneg i32 %862 to i64
   %873 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %872
-  %874 = load i32, ptr %873, align 4
+  %874 = load i32, ptr %873, align 4, !tbaa !7
   %875 = add i32 %874, %871
   %876 = xor i32 %875, %868
-  %877 = load i32, ptr %83, align 4
+  %877 = load i32, ptr %83, align 4, !tbaa !7
   %878 = add i32 %876, %865
   %879 = xor i32 %877, %878
   %880 = xor i32 %879, %832
-  %881 = load i32, ptr %84, align 4
+  %881 = load i32, ptr %84, align 4, !tbaa !7
   %882 = xor i32 %881, %856
-  store i32 %882, ptr %.01848.ptr, align 4
+  store i32 %882, ptr %.01848.ptr, align 4, !tbaa !7
   %883 = getelementptr inbounds nuw i8, ptr %.01848.ptr, i64 4
-  store i32 %880, ptr %883, align 4
-  %884 = load i32, ptr %53, align 4
-  %885 = load i32, ptr %87, align 4
-  %886 = load i32, ptr %.ptr1871, align 4
+  store i32 %880, ptr %883, align 4, !tbaa !7
+  %884 = load i32, ptr %53, align 4, !tbaa !4
+  %885 = load i32, ptr %87, align 4, !tbaa !4
+  %886 = load i32, ptr %.ptr1871, align 4, !tbaa !7
   %887 = xor i32 %884, %886
   %888 = xor i32 %887, %882
   %889 = and i32 %888, 255
@@ -1212,19 +1230,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %894 = lshr i32 %888, 24
   %895 = zext nneg i32 %889 to i64
   %896 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %895
-  %897 = load i32, ptr %896, align 4
+  %897 = load i32, ptr %896, align 4, !tbaa !7
   %898 = zext nneg i32 %891 to i64
   %899 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %898
-  %900 = load i32, ptr %899, align 4
+  %900 = load i32, ptr %899, align 4, !tbaa !7
   %901 = zext nneg i32 %893 to i64
   %902 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %901
-  %903 = load i32, ptr %902, align 4
+  %903 = load i32, ptr %902, align 4, !tbaa !7
   %904 = zext nneg i32 %894 to i64
   %905 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %904
-  %906 = load i32, ptr %905, align 4
+  %906 = load i32, ptr %905, align 4, !tbaa !7
   %907 = add i32 %906, %903
   %908 = xor i32 %907, %900
-  %909 = load i32, ptr %68, align 4
+  %909 = load i32, ptr %68, align 4, !tbaa !7
   %910 = add i32 %908, %897
   %911 = xor i32 %885, %909
   %912 = xor i32 %911, %910
@@ -1237,19 +1255,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %919 = lshr i32 %913, 24
   %920 = zext nneg i32 %914 to i64
   %921 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %920
-  %922 = load i32, ptr %921, align 4
+  %922 = load i32, ptr %921, align 4, !tbaa !7
   %923 = zext nneg i32 %916 to i64
   %924 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %923
-  %925 = load i32, ptr %924, align 4
+  %925 = load i32, ptr %924, align 4, !tbaa !7
   %926 = zext nneg i32 %918 to i64
   %927 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %926
-  %928 = load i32, ptr %927, align 4
+  %928 = load i32, ptr %927, align 4, !tbaa !7
   %929 = zext nneg i32 %919 to i64
   %930 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %929
-  %931 = load i32, ptr %930, align 4
+  %931 = load i32, ptr %930, align 4, !tbaa !7
   %932 = add i32 %931, %928
   %933 = xor i32 %932, %925
-  %934 = load i32, ptr %69, align 4
+  %934 = load i32, ptr %69, align 4, !tbaa !7
   %935 = add i32 %933, %922
   %936 = xor i32 %934, %935
   %937 = xor i32 %936, %888
@@ -1261,19 +1279,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %943 = lshr i32 %937, 24
   %944 = zext nneg i32 %938 to i64
   %945 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %944
-  %946 = load i32, ptr %945, align 4
+  %946 = load i32, ptr %945, align 4, !tbaa !7
   %947 = zext nneg i32 %940 to i64
   %948 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %947
-  %949 = load i32, ptr %948, align 4
+  %949 = load i32, ptr %948, align 4, !tbaa !7
   %950 = zext nneg i32 %942 to i64
   %951 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %950
-  %952 = load i32, ptr %951, align 4
+  %952 = load i32, ptr %951, align 4, !tbaa !7
   %953 = zext nneg i32 %943 to i64
   %954 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %953
-  %955 = load i32, ptr %954, align 4
+  %955 = load i32, ptr %954, align 4, !tbaa !7
   %956 = add i32 %955, %952
   %957 = xor i32 %956, %949
-  %958 = load i32, ptr %70, align 4
+  %958 = load i32, ptr %70, align 4, !tbaa !7
   %959 = add i32 %957, %946
   %960 = xor i32 %958, %959
   %961 = xor i32 %960, %913
@@ -1285,19 +1303,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %967 = lshr i32 %961, 24
   %968 = zext nneg i32 %962 to i64
   %969 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %968
-  %970 = load i32, ptr %969, align 4
+  %970 = load i32, ptr %969, align 4, !tbaa !7
   %971 = zext nneg i32 %964 to i64
   %972 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %971
-  %973 = load i32, ptr %972, align 4
+  %973 = load i32, ptr %972, align 4, !tbaa !7
   %974 = zext nneg i32 %966 to i64
   %975 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %974
-  %976 = load i32, ptr %975, align 4
+  %976 = load i32, ptr %975, align 4, !tbaa !7
   %977 = zext nneg i32 %967 to i64
   %978 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %977
-  %979 = load i32, ptr %978, align 4
+  %979 = load i32, ptr %978, align 4, !tbaa !7
   %980 = add i32 %979, %976
   %981 = xor i32 %980, %973
-  %982 = load i32, ptr %71, align 4
+  %982 = load i32, ptr %71, align 4, !tbaa !7
   %983 = add i32 %981, %970
   %984 = xor i32 %982, %983
   %985 = xor i32 %984, %937
@@ -1309,19 +1327,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %991 = lshr i32 %985, 24
   %992 = zext nneg i32 %986 to i64
   %993 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %992
-  %994 = load i32, ptr %993, align 4
+  %994 = load i32, ptr %993, align 4, !tbaa !7
   %995 = zext nneg i32 %988 to i64
   %996 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %995
-  %997 = load i32, ptr %996, align 4
+  %997 = load i32, ptr %996, align 4, !tbaa !7
   %998 = zext nneg i32 %990 to i64
   %999 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %998
-  %1000 = load i32, ptr %999, align 4
+  %1000 = load i32, ptr %999, align 4, !tbaa !7
   %1001 = zext nneg i32 %991 to i64
   %1002 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1001
-  %1003 = load i32, ptr %1002, align 4
+  %1003 = load i32, ptr %1002, align 4, !tbaa !7
   %1004 = add i32 %1003, %1000
   %1005 = xor i32 %1004, %997
-  %1006 = load i32, ptr %72, align 4
+  %1006 = load i32, ptr %72, align 4, !tbaa !7
   %1007 = add i32 %1005, %994
   %1008 = xor i32 %1006, %1007
   %1009 = xor i32 %1008, %961
@@ -1333,19 +1351,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1015 = lshr i32 %1009, 24
   %1016 = zext nneg i32 %1010 to i64
   %1017 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1016
-  %1018 = load i32, ptr %1017, align 4
+  %1018 = load i32, ptr %1017, align 4, !tbaa !7
   %1019 = zext nneg i32 %1012 to i64
   %1020 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1019
-  %1021 = load i32, ptr %1020, align 4
+  %1021 = load i32, ptr %1020, align 4, !tbaa !7
   %1022 = zext nneg i32 %1014 to i64
   %1023 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1022
-  %1024 = load i32, ptr %1023, align 4
+  %1024 = load i32, ptr %1023, align 4, !tbaa !7
   %1025 = zext nneg i32 %1015 to i64
   %1026 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1025
-  %1027 = load i32, ptr %1026, align 4
+  %1027 = load i32, ptr %1026, align 4, !tbaa !7
   %1028 = add i32 %1027, %1024
   %1029 = xor i32 %1028, %1021
-  %1030 = load i32, ptr %73, align 4
+  %1030 = load i32, ptr %73, align 4, !tbaa !7
   %1031 = add i32 %1029, %1018
   %1032 = xor i32 %1030, %1031
   %1033 = xor i32 %1032, %985
@@ -1357,19 +1375,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1039 = lshr i32 %1033, 24
   %1040 = zext nneg i32 %1034 to i64
   %1041 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1040
-  %1042 = load i32, ptr %1041, align 4
+  %1042 = load i32, ptr %1041, align 4, !tbaa !7
   %1043 = zext nneg i32 %1036 to i64
   %1044 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1043
-  %1045 = load i32, ptr %1044, align 4
+  %1045 = load i32, ptr %1044, align 4, !tbaa !7
   %1046 = zext nneg i32 %1038 to i64
   %1047 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1046
-  %1048 = load i32, ptr %1047, align 4
+  %1048 = load i32, ptr %1047, align 4, !tbaa !7
   %1049 = zext nneg i32 %1039 to i64
   %1050 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1049
-  %1051 = load i32, ptr %1050, align 4
+  %1051 = load i32, ptr %1050, align 4, !tbaa !7
   %1052 = add i32 %1051, %1048
   %1053 = xor i32 %1052, %1045
-  %1054 = load i32, ptr %74, align 4
+  %1054 = load i32, ptr %74, align 4, !tbaa !7
   %1055 = add i32 %1053, %1042
   %1056 = xor i32 %1054, %1055
   %1057 = xor i32 %1056, %1009
@@ -1381,19 +1399,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1063 = lshr i32 %1057, 24
   %1064 = zext nneg i32 %1058 to i64
   %1065 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1064
-  %1066 = load i32, ptr %1065, align 4
+  %1066 = load i32, ptr %1065, align 4, !tbaa !7
   %1067 = zext nneg i32 %1060 to i64
   %1068 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1067
-  %1069 = load i32, ptr %1068, align 4
+  %1069 = load i32, ptr %1068, align 4, !tbaa !7
   %1070 = zext nneg i32 %1062 to i64
   %1071 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1070
-  %1072 = load i32, ptr %1071, align 4
+  %1072 = load i32, ptr %1071, align 4, !tbaa !7
   %1073 = zext nneg i32 %1063 to i64
   %1074 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1073
-  %1075 = load i32, ptr %1074, align 4
+  %1075 = load i32, ptr %1074, align 4, !tbaa !7
   %1076 = add i32 %1075, %1072
   %1077 = xor i32 %1076, %1069
-  %1078 = load i32, ptr %75, align 4
+  %1078 = load i32, ptr %75, align 4, !tbaa !7
   %1079 = add i32 %1077, %1066
   %1080 = xor i32 %1078, %1079
   %1081 = xor i32 %1080, %1033
@@ -1405,19 +1423,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1087 = lshr i32 %1081, 24
   %1088 = zext nneg i32 %1082 to i64
   %1089 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1088
-  %1090 = load i32, ptr %1089, align 4
+  %1090 = load i32, ptr %1089, align 4, !tbaa !7
   %1091 = zext nneg i32 %1084 to i64
   %1092 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1091
-  %1093 = load i32, ptr %1092, align 4
+  %1093 = load i32, ptr %1092, align 4, !tbaa !7
   %1094 = zext nneg i32 %1086 to i64
   %1095 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1094
-  %1096 = load i32, ptr %1095, align 4
+  %1096 = load i32, ptr %1095, align 4, !tbaa !7
   %1097 = zext nneg i32 %1087 to i64
   %1098 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1097
-  %1099 = load i32, ptr %1098, align 4
+  %1099 = load i32, ptr %1098, align 4, !tbaa !7
   %1100 = add i32 %1099, %1096
   %1101 = xor i32 %1100, %1093
-  %1102 = load i32, ptr %76, align 4
+  %1102 = load i32, ptr %76, align 4, !tbaa !7
   %1103 = add i32 %1101, %1090
   %1104 = xor i32 %1102, %1103
   %1105 = xor i32 %1104, %1057
@@ -1429,19 +1447,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1111 = lshr i32 %1105, 24
   %1112 = zext nneg i32 %1106 to i64
   %1113 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1112
-  %1114 = load i32, ptr %1113, align 4
+  %1114 = load i32, ptr %1113, align 4, !tbaa !7
   %1115 = zext nneg i32 %1108 to i64
   %1116 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1115
-  %1117 = load i32, ptr %1116, align 4
+  %1117 = load i32, ptr %1116, align 4, !tbaa !7
   %1118 = zext nneg i32 %1110 to i64
   %1119 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1118
-  %1120 = load i32, ptr %1119, align 4
+  %1120 = load i32, ptr %1119, align 4, !tbaa !7
   %1121 = zext nneg i32 %1111 to i64
   %1122 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1121
-  %1123 = load i32, ptr %1122, align 4
+  %1123 = load i32, ptr %1122, align 4, !tbaa !7
   %1124 = add i32 %1123, %1120
   %1125 = xor i32 %1124, %1117
-  %1126 = load i32, ptr %77, align 4
+  %1126 = load i32, ptr %77, align 4, !tbaa !7
   %1127 = add i32 %1125, %1114
   %1128 = xor i32 %1126, %1127
   %1129 = xor i32 %1128, %1081
@@ -1453,19 +1471,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1135 = lshr i32 %1129, 24
   %1136 = zext nneg i32 %1130 to i64
   %1137 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1136
-  %1138 = load i32, ptr %1137, align 4
+  %1138 = load i32, ptr %1137, align 4, !tbaa !7
   %1139 = zext nneg i32 %1132 to i64
   %1140 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1139
-  %1141 = load i32, ptr %1140, align 4
+  %1141 = load i32, ptr %1140, align 4, !tbaa !7
   %1142 = zext nneg i32 %1134 to i64
   %1143 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1142
-  %1144 = load i32, ptr %1143, align 4
+  %1144 = load i32, ptr %1143, align 4, !tbaa !7
   %1145 = zext nneg i32 %1135 to i64
   %1146 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1145
-  %1147 = load i32, ptr %1146, align 4
+  %1147 = load i32, ptr %1146, align 4, !tbaa !7
   %1148 = add i32 %1147, %1144
   %1149 = xor i32 %1148, %1141
-  %1150 = load i32, ptr %78, align 4
+  %1150 = load i32, ptr %78, align 4, !tbaa !7
   %1151 = add i32 %1149, %1138
   %1152 = xor i32 %1150, %1151
   %1153 = xor i32 %1152, %1105
@@ -1477,19 +1495,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1159 = lshr i32 %1153, 24
   %1160 = zext nneg i32 %1154 to i64
   %1161 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1160
-  %1162 = load i32, ptr %1161, align 4
+  %1162 = load i32, ptr %1161, align 4, !tbaa !7
   %1163 = zext nneg i32 %1156 to i64
   %1164 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1163
-  %1165 = load i32, ptr %1164, align 4
+  %1165 = load i32, ptr %1164, align 4, !tbaa !7
   %1166 = zext nneg i32 %1158 to i64
   %1167 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1166
-  %1168 = load i32, ptr %1167, align 4
+  %1168 = load i32, ptr %1167, align 4, !tbaa !7
   %1169 = zext nneg i32 %1159 to i64
   %1170 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1169
-  %1171 = load i32, ptr %1170, align 4
+  %1171 = load i32, ptr %1170, align 4, !tbaa !7
   %1172 = add i32 %1171, %1168
   %1173 = xor i32 %1172, %1165
-  %1174 = load i32, ptr %79, align 4
+  %1174 = load i32, ptr %79, align 4, !tbaa !7
   %1175 = add i32 %1173, %1162
   %1176 = xor i32 %1174, %1175
   %1177 = xor i32 %1176, %1129
@@ -1501,19 +1519,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1183 = lshr i32 %1177, 24
   %1184 = zext nneg i32 %1178 to i64
   %1185 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1184
-  %1186 = load i32, ptr %1185, align 4
+  %1186 = load i32, ptr %1185, align 4, !tbaa !7
   %1187 = zext nneg i32 %1180 to i64
   %1188 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1187
-  %1189 = load i32, ptr %1188, align 4
+  %1189 = load i32, ptr %1188, align 4, !tbaa !7
   %1190 = zext nneg i32 %1182 to i64
   %1191 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1190
-  %1192 = load i32, ptr %1191, align 4
+  %1192 = load i32, ptr %1191, align 4, !tbaa !7
   %1193 = zext nneg i32 %1183 to i64
   %1194 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1193
-  %1195 = load i32, ptr %1194, align 4
+  %1195 = load i32, ptr %1194, align 4, !tbaa !7
   %1196 = add i32 %1195, %1192
   %1197 = xor i32 %1196, %1189
-  %1198 = load i32, ptr %80, align 4
+  %1198 = load i32, ptr %80, align 4, !tbaa !7
   %1199 = add i32 %1197, %1186
   %1200 = xor i32 %1198, %1199
   %1201 = xor i32 %1200, %1153
@@ -1525,19 +1543,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1207 = lshr i32 %1201, 24
   %1208 = zext nneg i32 %1202 to i64
   %1209 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1208
-  %1210 = load i32, ptr %1209, align 4
+  %1210 = load i32, ptr %1209, align 4, !tbaa !7
   %1211 = zext nneg i32 %1204 to i64
   %1212 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1211
-  %1213 = load i32, ptr %1212, align 4
+  %1213 = load i32, ptr %1212, align 4, !tbaa !7
   %1214 = zext nneg i32 %1206 to i64
   %1215 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1214
-  %1216 = load i32, ptr %1215, align 4
+  %1216 = load i32, ptr %1215, align 4, !tbaa !7
   %1217 = zext nneg i32 %1207 to i64
   %1218 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1217
-  %1219 = load i32, ptr %1218, align 4
+  %1219 = load i32, ptr %1218, align 4, !tbaa !7
   %1220 = add i32 %1219, %1216
   %1221 = xor i32 %1220, %1213
-  %1222 = load i32, ptr %81, align 4
+  %1222 = load i32, ptr %81, align 4, !tbaa !7
   %1223 = add i32 %1221, %1210
   %1224 = xor i32 %1222, %1223
   %1225 = xor i32 %1224, %1177
@@ -1549,19 +1567,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1231 = lshr i32 %1225, 24
   %1232 = zext nneg i32 %1226 to i64
   %1233 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1232
-  %1234 = load i32, ptr %1233, align 4
+  %1234 = load i32, ptr %1233, align 4, !tbaa !7
   %1235 = zext nneg i32 %1228 to i64
   %1236 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1235
-  %1237 = load i32, ptr %1236, align 4
+  %1237 = load i32, ptr %1236, align 4, !tbaa !7
   %1238 = zext nneg i32 %1230 to i64
   %1239 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1238
-  %1240 = load i32, ptr %1239, align 4
+  %1240 = load i32, ptr %1239, align 4, !tbaa !7
   %1241 = zext nneg i32 %1231 to i64
   %1242 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1241
-  %1243 = load i32, ptr %1242, align 4
+  %1243 = load i32, ptr %1242, align 4, !tbaa !7
   %1244 = add i32 %1243, %1240
   %1245 = xor i32 %1244, %1237
-  %1246 = load i32, ptr %82, align 4
+  %1246 = load i32, ptr %82, align 4, !tbaa !7
   %1247 = add i32 %1245, %1234
   %1248 = xor i32 %1246, %1247
   %1249 = xor i32 %1248, %1201
@@ -1573,28 +1591,28 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1255 = lshr i32 %1249, 24
   %1256 = zext nneg i32 %1250 to i64
   %1257 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1256
-  %1258 = load i32, ptr %1257, align 4
+  %1258 = load i32, ptr %1257, align 4, !tbaa !7
   %1259 = zext nneg i32 %1252 to i64
   %1260 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1259
-  %1261 = load i32, ptr %1260, align 4
+  %1261 = load i32, ptr %1260, align 4, !tbaa !7
   %1262 = zext nneg i32 %1254 to i64
   %1263 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1262
-  %1264 = load i32, ptr %1263, align 4
+  %1264 = load i32, ptr %1263, align 4, !tbaa !7
   %1265 = zext nneg i32 %1255 to i64
   %1266 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1265
-  %1267 = load i32, ptr %1266, align 4
+  %1267 = load i32, ptr %1266, align 4, !tbaa !7
   %1268 = add i32 %1267, %1264
   %1269 = xor i32 %1268, %1261
-  %1270 = load i32, ptr %83, align 4
+  %1270 = load i32, ptr %83, align 4, !tbaa !7
   %1271 = add i32 %1269, %1258
   %1272 = xor i32 %1270, %1271
   %1273 = xor i32 %1272, %1225
-  %1274 = load i32, ptr %84, align 4
+  %1274 = load i32, ptr %84, align 4, !tbaa !7
   %1275 = xor i32 %1274, %1249
   %1276 = getelementptr inbounds nuw i8, ptr %.01848.ptr, i64 8
-  store i32 %1275, ptr %1276, align 4
+  store i32 %1275, ptr %1276, align 4, !tbaa !7
   %1277 = getelementptr inbounds nuw i8, ptr %.01848.ptr, i64 12
-  store i32 %1273, ptr %1277, align 4
+  store i32 %1273, ptr %1277, align 4, !tbaa !7
   %1278 = icmp samesign ult i64 %.01848.idx, 4076
   br i1 %1278, label %490, label %.preheader1884
 
@@ -1605,18 +1623,18 @@ BF_swap.exit:                                     ; preds = %.preheader1886
 1279:                                             ; preds = %.preheader1884, %1279
   %indvars.iv1925 = phi i64 [ 0, %.preheader1884 ], [ %indvars.iv.next1926, %1279 ]
   %1280 = getelementptr inbounds nuw [18 x i32], ptr %62, i64 0, i64 %indvars.iv1925
-  %1281 = load i32, ptr %1280, align 4
+  %1281 = load i32, ptr %1280, align 4, !tbaa !7
   %1282 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %indvars.iv1925
-  %1283 = load i32, ptr %1282, align 4
+  %1283 = load i32, ptr %1282, align 4, !tbaa !7
   %1284 = xor i32 %1283, %1281
-  store i32 %1284, ptr %1282, align 4
+  store i32 %1284, ptr %1282, align 4, !tbaa !7
   %1285 = or disjoint i64 %indvars.iv1925, 1
   %1286 = getelementptr inbounds nuw [18 x i32], ptr %62, i64 0, i64 %1285
-  %1287 = load i32, ptr %1286, align 4
+  %1287 = load i32, ptr %1286, align 4, !tbaa !7
   %1288 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %1285
-  %1289 = load i32, ptr %1288, align 4
+  %1289 = load i32, ptr %1288, align 4, !tbaa !7
   %1290 = xor i32 %1289, %1287
-  store i32 %1290, ptr %1288, align 4
+  store i32 %1290, ptr %1288, align 4, !tbaa !7
   %indvars.iv.next1926 = add nuw nsw i64 %indvars.iv1925, 2
   %1291 = icmp samesign ult i64 %indvars.iv1925, 16
   br i1 %1291, label %1279, label %.preheader1883
@@ -1631,7 +1649,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %.11849.idx = phi i64 [ 4096, %.preheader1883 ], [ %.11849.add, %1292 ]
   %.11849.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.11849.idx
   %.11849.add = add nuw nsw i64 %.11849.idx, 8
-  %1293 = load i32, ptr %.ptr1871, align 4
+  %1293 = load i32, ptr %.ptr1871, align 4, !tbaa !7
   %1294 = xor i32 %1293, %.21857
   %1295 = and i32 %1294, 255
   %1296 = lshr i32 %1294, 8
@@ -1641,19 +1659,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1300 = lshr i32 %1294, 24
   %1301 = zext nneg i32 %1295 to i64
   %1302 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1301
-  %1303 = load i32, ptr %1302, align 4
+  %1303 = load i32, ptr %1302, align 4, !tbaa !7
   %1304 = zext nneg i32 %1297 to i64
   %1305 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1304
-  %1306 = load i32, ptr %1305, align 4
+  %1306 = load i32, ptr %1305, align 4, !tbaa !7
   %1307 = zext nneg i32 %1299 to i64
   %1308 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1307
-  %1309 = load i32, ptr %1308, align 4
+  %1309 = load i32, ptr %1308, align 4, !tbaa !7
   %1310 = zext nneg i32 %1300 to i64
   %1311 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1310
-  %1312 = load i32, ptr %1311, align 4
+  %1312 = load i32, ptr %1311, align 4, !tbaa !7
   %1313 = add i32 %1312, %1309
   %1314 = xor i32 %1313, %1306
-  %1315 = load i32, ptr %68, align 4
+  %1315 = load i32, ptr %68, align 4, !tbaa !7
   %1316 = xor i32 %1315, %.21853
   %1317 = add i32 %1314, %1303
   %1318 = xor i32 %1316, %1317
@@ -1665,19 +1683,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1324 = lshr i32 %1318, 24
   %1325 = zext nneg i32 %1319 to i64
   %1326 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1325
-  %1327 = load i32, ptr %1326, align 4
+  %1327 = load i32, ptr %1326, align 4, !tbaa !7
   %1328 = zext nneg i32 %1321 to i64
   %1329 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1328
-  %1330 = load i32, ptr %1329, align 4
+  %1330 = load i32, ptr %1329, align 4, !tbaa !7
   %1331 = zext nneg i32 %1323 to i64
   %1332 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1331
-  %1333 = load i32, ptr %1332, align 4
+  %1333 = load i32, ptr %1332, align 4, !tbaa !7
   %1334 = zext nneg i32 %1324 to i64
   %1335 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1334
-  %1336 = load i32, ptr %1335, align 4
+  %1336 = load i32, ptr %1335, align 4, !tbaa !7
   %1337 = add i32 %1336, %1333
   %1338 = xor i32 %1337, %1330
-  %1339 = load i32, ptr %69, align 4
+  %1339 = load i32, ptr %69, align 4, !tbaa !7
   %1340 = add i32 %1338, %1327
   %1341 = xor i32 %1339, %1340
   %1342 = xor i32 %1341, %1294
@@ -1689,19 +1707,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1348 = lshr i32 %1342, 24
   %1349 = zext nneg i32 %1343 to i64
   %1350 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1349
-  %1351 = load i32, ptr %1350, align 4
+  %1351 = load i32, ptr %1350, align 4, !tbaa !7
   %1352 = zext nneg i32 %1345 to i64
   %1353 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1352
-  %1354 = load i32, ptr %1353, align 4
+  %1354 = load i32, ptr %1353, align 4, !tbaa !7
   %1355 = zext nneg i32 %1347 to i64
   %1356 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1355
-  %1357 = load i32, ptr %1356, align 4
+  %1357 = load i32, ptr %1356, align 4, !tbaa !7
   %1358 = zext nneg i32 %1348 to i64
   %1359 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1358
-  %1360 = load i32, ptr %1359, align 4
+  %1360 = load i32, ptr %1359, align 4, !tbaa !7
   %1361 = add i32 %1360, %1357
   %1362 = xor i32 %1361, %1354
-  %1363 = load i32, ptr %70, align 4
+  %1363 = load i32, ptr %70, align 4, !tbaa !7
   %1364 = add i32 %1362, %1351
   %1365 = xor i32 %1363, %1364
   %1366 = xor i32 %1365, %1318
@@ -1713,19 +1731,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1372 = lshr i32 %1366, 24
   %1373 = zext nneg i32 %1367 to i64
   %1374 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1373
-  %1375 = load i32, ptr %1374, align 4
+  %1375 = load i32, ptr %1374, align 4, !tbaa !7
   %1376 = zext nneg i32 %1369 to i64
   %1377 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1376
-  %1378 = load i32, ptr %1377, align 4
+  %1378 = load i32, ptr %1377, align 4, !tbaa !7
   %1379 = zext nneg i32 %1371 to i64
   %1380 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1379
-  %1381 = load i32, ptr %1380, align 4
+  %1381 = load i32, ptr %1380, align 4, !tbaa !7
   %1382 = zext nneg i32 %1372 to i64
   %1383 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1382
-  %1384 = load i32, ptr %1383, align 4
+  %1384 = load i32, ptr %1383, align 4, !tbaa !7
   %1385 = add i32 %1384, %1381
   %1386 = xor i32 %1385, %1378
-  %1387 = load i32, ptr %71, align 4
+  %1387 = load i32, ptr %71, align 4, !tbaa !7
   %1388 = add i32 %1386, %1375
   %1389 = xor i32 %1387, %1388
   %1390 = xor i32 %1389, %1342
@@ -1737,19 +1755,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1396 = lshr i32 %1390, 24
   %1397 = zext nneg i32 %1391 to i64
   %1398 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1397
-  %1399 = load i32, ptr %1398, align 4
+  %1399 = load i32, ptr %1398, align 4, !tbaa !7
   %1400 = zext nneg i32 %1393 to i64
   %1401 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1400
-  %1402 = load i32, ptr %1401, align 4
+  %1402 = load i32, ptr %1401, align 4, !tbaa !7
   %1403 = zext nneg i32 %1395 to i64
   %1404 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1403
-  %1405 = load i32, ptr %1404, align 4
+  %1405 = load i32, ptr %1404, align 4, !tbaa !7
   %1406 = zext nneg i32 %1396 to i64
   %1407 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1406
-  %1408 = load i32, ptr %1407, align 4
+  %1408 = load i32, ptr %1407, align 4, !tbaa !7
   %1409 = add i32 %1408, %1405
   %1410 = xor i32 %1409, %1402
-  %1411 = load i32, ptr %72, align 4
+  %1411 = load i32, ptr %72, align 4, !tbaa !7
   %1412 = add i32 %1410, %1399
   %1413 = xor i32 %1411, %1412
   %1414 = xor i32 %1413, %1366
@@ -1761,19 +1779,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1420 = lshr i32 %1414, 24
   %1421 = zext nneg i32 %1415 to i64
   %1422 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1421
-  %1423 = load i32, ptr %1422, align 4
+  %1423 = load i32, ptr %1422, align 4, !tbaa !7
   %1424 = zext nneg i32 %1417 to i64
   %1425 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1424
-  %1426 = load i32, ptr %1425, align 4
+  %1426 = load i32, ptr %1425, align 4, !tbaa !7
   %1427 = zext nneg i32 %1419 to i64
   %1428 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1427
-  %1429 = load i32, ptr %1428, align 4
+  %1429 = load i32, ptr %1428, align 4, !tbaa !7
   %1430 = zext nneg i32 %1420 to i64
   %1431 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1430
-  %1432 = load i32, ptr %1431, align 4
+  %1432 = load i32, ptr %1431, align 4, !tbaa !7
   %1433 = add i32 %1432, %1429
   %1434 = xor i32 %1433, %1426
-  %1435 = load i32, ptr %73, align 4
+  %1435 = load i32, ptr %73, align 4, !tbaa !7
   %1436 = add i32 %1434, %1423
   %1437 = xor i32 %1435, %1436
   %1438 = xor i32 %1437, %1390
@@ -1785,19 +1803,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1444 = lshr i32 %1438, 24
   %1445 = zext nneg i32 %1439 to i64
   %1446 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1445
-  %1447 = load i32, ptr %1446, align 4
+  %1447 = load i32, ptr %1446, align 4, !tbaa !7
   %1448 = zext nneg i32 %1441 to i64
   %1449 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1448
-  %1450 = load i32, ptr %1449, align 4
+  %1450 = load i32, ptr %1449, align 4, !tbaa !7
   %1451 = zext nneg i32 %1443 to i64
   %1452 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1451
-  %1453 = load i32, ptr %1452, align 4
+  %1453 = load i32, ptr %1452, align 4, !tbaa !7
   %1454 = zext nneg i32 %1444 to i64
   %1455 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1454
-  %1456 = load i32, ptr %1455, align 4
+  %1456 = load i32, ptr %1455, align 4, !tbaa !7
   %1457 = add i32 %1456, %1453
   %1458 = xor i32 %1457, %1450
-  %1459 = load i32, ptr %74, align 4
+  %1459 = load i32, ptr %74, align 4, !tbaa !7
   %1460 = add i32 %1458, %1447
   %1461 = xor i32 %1459, %1460
   %1462 = xor i32 %1461, %1414
@@ -1809,19 +1827,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1468 = lshr i32 %1462, 24
   %1469 = zext nneg i32 %1463 to i64
   %1470 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1469
-  %1471 = load i32, ptr %1470, align 4
+  %1471 = load i32, ptr %1470, align 4, !tbaa !7
   %1472 = zext nneg i32 %1465 to i64
   %1473 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1472
-  %1474 = load i32, ptr %1473, align 4
+  %1474 = load i32, ptr %1473, align 4, !tbaa !7
   %1475 = zext nneg i32 %1467 to i64
   %1476 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1475
-  %1477 = load i32, ptr %1476, align 4
+  %1477 = load i32, ptr %1476, align 4, !tbaa !7
   %1478 = zext nneg i32 %1468 to i64
   %1479 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1478
-  %1480 = load i32, ptr %1479, align 4
+  %1480 = load i32, ptr %1479, align 4, !tbaa !7
   %1481 = add i32 %1480, %1477
   %1482 = xor i32 %1481, %1474
-  %1483 = load i32, ptr %75, align 4
+  %1483 = load i32, ptr %75, align 4, !tbaa !7
   %1484 = add i32 %1482, %1471
   %1485 = xor i32 %1483, %1484
   %1486 = xor i32 %1485, %1438
@@ -1833,19 +1851,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1492 = lshr i32 %1486, 24
   %1493 = zext nneg i32 %1487 to i64
   %1494 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1493
-  %1495 = load i32, ptr %1494, align 4
+  %1495 = load i32, ptr %1494, align 4, !tbaa !7
   %1496 = zext nneg i32 %1489 to i64
   %1497 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1496
-  %1498 = load i32, ptr %1497, align 4
+  %1498 = load i32, ptr %1497, align 4, !tbaa !7
   %1499 = zext nneg i32 %1491 to i64
   %1500 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1499
-  %1501 = load i32, ptr %1500, align 4
+  %1501 = load i32, ptr %1500, align 4, !tbaa !7
   %1502 = zext nneg i32 %1492 to i64
   %1503 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1502
-  %1504 = load i32, ptr %1503, align 4
+  %1504 = load i32, ptr %1503, align 4, !tbaa !7
   %1505 = add i32 %1504, %1501
   %1506 = xor i32 %1505, %1498
-  %1507 = load i32, ptr %76, align 4
+  %1507 = load i32, ptr %76, align 4, !tbaa !7
   %1508 = add i32 %1506, %1495
   %1509 = xor i32 %1507, %1508
   %1510 = xor i32 %1509, %1462
@@ -1857,19 +1875,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1516 = lshr i32 %1510, 24
   %1517 = zext nneg i32 %1511 to i64
   %1518 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1517
-  %1519 = load i32, ptr %1518, align 4
+  %1519 = load i32, ptr %1518, align 4, !tbaa !7
   %1520 = zext nneg i32 %1513 to i64
   %1521 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1520
-  %1522 = load i32, ptr %1521, align 4
+  %1522 = load i32, ptr %1521, align 4, !tbaa !7
   %1523 = zext nneg i32 %1515 to i64
   %1524 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1523
-  %1525 = load i32, ptr %1524, align 4
+  %1525 = load i32, ptr %1524, align 4, !tbaa !7
   %1526 = zext nneg i32 %1516 to i64
   %1527 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1526
-  %1528 = load i32, ptr %1527, align 4
+  %1528 = load i32, ptr %1527, align 4, !tbaa !7
   %1529 = add i32 %1528, %1525
   %1530 = xor i32 %1529, %1522
-  %1531 = load i32, ptr %77, align 4
+  %1531 = load i32, ptr %77, align 4, !tbaa !7
   %1532 = add i32 %1530, %1519
   %1533 = xor i32 %1531, %1532
   %1534 = xor i32 %1533, %1486
@@ -1881,19 +1899,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1540 = lshr i32 %1534, 24
   %1541 = zext nneg i32 %1535 to i64
   %1542 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1541
-  %1543 = load i32, ptr %1542, align 4
+  %1543 = load i32, ptr %1542, align 4, !tbaa !7
   %1544 = zext nneg i32 %1537 to i64
   %1545 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1544
-  %1546 = load i32, ptr %1545, align 4
+  %1546 = load i32, ptr %1545, align 4, !tbaa !7
   %1547 = zext nneg i32 %1539 to i64
   %1548 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1547
-  %1549 = load i32, ptr %1548, align 4
+  %1549 = load i32, ptr %1548, align 4, !tbaa !7
   %1550 = zext nneg i32 %1540 to i64
   %1551 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1550
-  %1552 = load i32, ptr %1551, align 4
+  %1552 = load i32, ptr %1551, align 4, !tbaa !7
   %1553 = add i32 %1552, %1549
   %1554 = xor i32 %1553, %1546
-  %1555 = load i32, ptr %78, align 4
+  %1555 = load i32, ptr %78, align 4, !tbaa !7
   %1556 = add i32 %1554, %1543
   %1557 = xor i32 %1555, %1556
   %1558 = xor i32 %1557, %1510
@@ -1905,19 +1923,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1564 = lshr i32 %1558, 24
   %1565 = zext nneg i32 %1559 to i64
   %1566 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1565
-  %1567 = load i32, ptr %1566, align 4
+  %1567 = load i32, ptr %1566, align 4, !tbaa !7
   %1568 = zext nneg i32 %1561 to i64
   %1569 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1568
-  %1570 = load i32, ptr %1569, align 4
+  %1570 = load i32, ptr %1569, align 4, !tbaa !7
   %1571 = zext nneg i32 %1563 to i64
   %1572 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1571
-  %1573 = load i32, ptr %1572, align 4
+  %1573 = load i32, ptr %1572, align 4, !tbaa !7
   %1574 = zext nneg i32 %1564 to i64
   %1575 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1574
-  %1576 = load i32, ptr %1575, align 4
+  %1576 = load i32, ptr %1575, align 4, !tbaa !7
   %1577 = add i32 %1576, %1573
   %1578 = xor i32 %1577, %1570
-  %1579 = load i32, ptr %79, align 4
+  %1579 = load i32, ptr %79, align 4, !tbaa !7
   %1580 = add i32 %1578, %1567
   %1581 = xor i32 %1579, %1580
   %1582 = xor i32 %1581, %1534
@@ -1929,19 +1947,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1588 = lshr i32 %1582, 24
   %1589 = zext nneg i32 %1583 to i64
   %1590 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1589
-  %1591 = load i32, ptr %1590, align 4
+  %1591 = load i32, ptr %1590, align 4, !tbaa !7
   %1592 = zext nneg i32 %1585 to i64
   %1593 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1592
-  %1594 = load i32, ptr %1593, align 4
+  %1594 = load i32, ptr %1593, align 4, !tbaa !7
   %1595 = zext nneg i32 %1587 to i64
   %1596 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1595
-  %1597 = load i32, ptr %1596, align 4
+  %1597 = load i32, ptr %1596, align 4, !tbaa !7
   %1598 = zext nneg i32 %1588 to i64
   %1599 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1598
-  %1600 = load i32, ptr %1599, align 4
+  %1600 = load i32, ptr %1599, align 4, !tbaa !7
   %1601 = add i32 %1600, %1597
   %1602 = xor i32 %1601, %1594
-  %1603 = load i32, ptr %80, align 4
+  %1603 = load i32, ptr %80, align 4, !tbaa !7
   %1604 = add i32 %1602, %1591
   %1605 = xor i32 %1603, %1604
   %1606 = xor i32 %1605, %1558
@@ -1953,19 +1971,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1612 = lshr i32 %1606, 24
   %1613 = zext nneg i32 %1607 to i64
   %1614 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1613
-  %1615 = load i32, ptr %1614, align 4
+  %1615 = load i32, ptr %1614, align 4, !tbaa !7
   %1616 = zext nneg i32 %1609 to i64
   %1617 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1616
-  %1618 = load i32, ptr %1617, align 4
+  %1618 = load i32, ptr %1617, align 4, !tbaa !7
   %1619 = zext nneg i32 %1611 to i64
   %1620 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1619
-  %1621 = load i32, ptr %1620, align 4
+  %1621 = load i32, ptr %1620, align 4, !tbaa !7
   %1622 = zext nneg i32 %1612 to i64
   %1623 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1622
-  %1624 = load i32, ptr %1623, align 4
+  %1624 = load i32, ptr %1623, align 4, !tbaa !7
   %1625 = add i32 %1624, %1621
   %1626 = xor i32 %1625, %1618
-  %1627 = load i32, ptr %81, align 4
+  %1627 = load i32, ptr %81, align 4, !tbaa !7
   %1628 = add i32 %1626, %1615
   %1629 = xor i32 %1627, %1628
   %1630 = xor i32 %1629, %1582
@@ -1977,19 +1995,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1636 = lshr i32 %1630, 24
   %1637 = zext nneg i32 %1631 to i64
   %1638 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1637
-  %1639 = load i32, ptr %1638, align 4
+  %1639 = load i32, ptr %1638, align 4, !tbaa !7
   %1640 = zext nneg i32 %1633 to i64
   %1641 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1640
-  %1642 = load i32, ptr %1641, align 4
+  %1642 = load i32, ptr %1641, align 4, !tbaa !7
   %1643 = zext nneg i32 %1635 to i64
   %1644 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1643
-  %1645 = load i32, ptr %1644, align 4
+  %1645 = load i32, ptr %1644, align 4, !tbaa !7
   %1646 = zext nneg i32 %1636 to i64
   %1647 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1646
-  %1648 = load i32, ptr %1647, align 4
+  %1648 = load i32, ptr %1647, align 4, !tbaa !7
   %1649 = add i32 %1648, %1645
   %1650 = xor i32 %1649, %1642
-  %1651 = load i32, ptr %82, align 4
+  %1651 = load i32, ptr %82, align 4, !tbaa !7
   %1652 = add i32 %1650, %1639
   %1653 = xor i32 %1651, %1652
   %1654 = xor i32 %1653, %1606
@@ -2001,27 +2019,27 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1660 = lshr i32 %1654, 24
   %1661 = zext nneg i32 %1655 to i64
   %1662 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1661
-  %1663 = load i32, ptr %1662, align 4
+  %1663 = load i32, ptr %1662, align 4, !tbaa !7
   %1664 = zext nneg i32 %1657 to i64
   %1665 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1664
-  %1666 = load i32, ptr %1665, align 4
+  %1666 = load i32, ptr %1665, align 4, !tbaa !7
   %1667 = zext nneg i32 %1659 to i64
   %1668 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1667
-  %1669 = load i32, ptr %1668, align 4
+  %1669 = load i32, ptr %1668, align 4, !tbaa !7
   %1670 = zext nneg i32 %1660 to i64
   %1671 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1670
-  %1672 = load i32, ptr %1671, align 4
+  %1672 = load i32, ptr %1671, align 4, !tbaa !7
   %1673 = add i32 %1672, %1669
   %1674 = xor i32 %1673, %1666
-  %1675 = load i32, ptr %83, align 4
+  %1675 = load i32, ptr %83, align 4, !tbaa !7
   %1676 = add i32 %1674, %1663
   %1677 = xor i32 %1675, %1676
   %1678 = xor i32 %1677, %1630
-  %1679 = load i32, ptr %84, align 4
+  %1679 = load i32, ptr %84, align 4, !tbaa !7
   %1680 = xor i32 %1679, %1654
-  store i32 %1680, ptr %.11849.ptr, align 4
+  store i32 %1680, ptr %.11849.ptr, align 4, !tbaa !7
   %1681 = getelementptr inbounds nuw i8, ptr %.11849.ptr, i64 4
-  store i32 %1678, ptr %1681, align 4
+  store i32 %1678, ptr %1681, align 4, !tbaa !7
   %1682 = icmp samesign ult i64 %.11849.idx, 4160
   br i1 %1682, label %1292, label %.preheader1882
 
@@ -2031,7 +2049,7 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %.21850.idx = phi i64 [ %.21850.add, %.preheader1882 ], [ 0, %1292 ]
   %.21850.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.21850.idx
   %.21850.add = add nuw nsw i64 %.21850.idx, 8
-  %1683 = load i32, ptr %.ptr1871, align 4
+  %1683 = load i32, ptr %.ptr1871, align 4, !tbaa !7
   %1684 = xor i32 %1683, %.31858
   %1685 = and i32 %1684, 255
   %1686 = lshr i32 %1684, 8
@@ -2041,19 +2059,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1690 = lshr i32 %1684, 24
   %1691 = zext nneg i32 %1685 to i64
   %1692 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1691
-  %1693 = load i32, ptr %1692, align 4
+  %1693 = load i32, ptr %1692, align 4, !tbaa !7
   %1694 = zext nneg i32 %1687 to i64
   %1695 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1694
-  %1696 = load i32, ptr %1695, align 4
+  %1696 = load i32, ptr %1695, align 4, !tbaa !7
   %1697 = zext nneg i32 %1689 to i64
   %1698 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1697
-  %1699 = load i32, ptr %1698, align 4
+  %1699 = load i32, ptr %1698, align 4, !tbaa !7
   %1700 = zext nneg i32 %1690 to i64
   %1701 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1700
-  %1702 = load i32, ptr %1701, align 4
+  %1702 = load i32, ptr %1701, align 4, !tbaa !7
   %1703 = add i32 %1702, %1699
   %1704 = xor i32 %1703, %1696
-  %1705 = load i32, ptr %68, align 4
+  %1705 = load i32, ptr %68, align 4, !tbaa !7
   %1706 = xor i32 %1705, %.31854
   %1707 = add i32 %1704, %1693
   %1708 = xor i32 %1706, %1707
@@ -2065,19 +2083,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1714 = lshr i32 %1708, 24
   %1715 = zext nneg i32 %1709 to i64
   %1716 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1715
-  %1717 = load i32, ptr %1716, align 4
+  %1717 = load i32, ptr %1716, align 4, !tbaa !7
   %1718 = zext nneg i32 %1711 to i64
   %1719 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1718
-  %1720 = load i32, ptr %1719, align 4
+  %1720 = load i32, ptr %1719, align 4, !tbaa !7
   %1721 = zext nneg i32 %1713 to i64
   %1722 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1721
-  %1723 = load i32, ptr %1722, align 4
+  %1723 = load i32, ptr %1722, align 4, !tbaa !7
   %1724 = zext nneg i32 %1714 to i64
   %1725 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1724
-  %1726 = load i32, ptr %1725, align 4
+  %1726 = load i32, ptr %1725, align 4, !tbaa !7
   %1727 = add i32 %1726, %1723
   %1728 = xor i32 %1727, %1720
-  %1729 = load i32, ptr %69, align 4
+  %1729 = load i32, ptr %69, align 4, !tbaa !7
   %1730 = add i32 %1728, %1717
   %1731 = xor i32 %1729, %1730
   %1732 = xor i32 %1731, %1684
@@ -2089,19 +2107,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1738 = lshr i32 %1732, 24
   %1739 = zext nneg i32 %1733 to i64
   %1740 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1739
-  %1741 = load i32, ptr %1740, align 4
+  %1741 = load i32, ptr %1740, align 4, !tbaa !7
   %1742 = zext nneg i32 %1735 to i64
   %1743 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1742
-  %1744 = load i32, ptr %1743, align 4
+  %1744 = load i32, ptr %1743, align 4, !tbaa !7
   %1745 = zext nneg i32 %1737 to i64
   %1746 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1745
-  %1747 = load i32, ptr %1746, align 4
+  %1747 = load i32, ptr %1746, align 4, !tbaa !7
   %1748 = zext nneg i32 %1738 to i64
   %1749 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1748
-  %1750 = load i32, ptr %1749, align 4
+  %1750 = load i32, ptr %1749, align 4, !tbaa !7
   %1751 = add i32 %1750, %1747
   %1752 = xor i32 %1751, %1744
-  %1753 = load i32, ptr %70, align 4
+  %1753 = load i32, ptr %70, align 4, !tbaa !7
   %1754 = add i32 %1752, %1741
   %1755 = xor i32 %1753, %1754
   %1756 = xor i32 %1755, %1708
@@ -2113,19 +2131,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1762 = lshr i32 %1756, 24
   %1763 = zext nneg i32 %1757 to i64
   %1764 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1763
-  %1765 = load i32, ptr %1764, align 4
+  %1765 = load i32, ptr %1764, align 4, !tbaa !7
   %1766 = zext nneg i32 %1759 to i64
   %1767 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1766
-  %1768 = load i32, ptr %1767, align 4
+  %1768 = load i32, ptr %1767, align 4, !tbaa !7
   %1769 = zext nneg i32 %1761 to i64
   %1770 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1769
-  %1771 = load i32, ptr %1770, align 4
+  %1771 = load i32, ptr %1770, align 4, !tbaa !7
   %1772 = zext nneg i32 %1762 to i64
   %1773 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1772
-  %1774 = load i32, ptr %1773, align 4
+  %1774 = load i32, ptr %1773, align 4, !tbaa !7
   %1775 = add i32 %1774, %1771
   %1776 = xor i32 %1775, %1768
-  %1777 = load i32, ptr %71, align 4
+  %1777 = load i32, ptr %71, align 4, !tbaa !7
   %1778 = add i32 %1776, %1765
   %1779 = xor i32 %1777, %1778
   %1780 = xor i32 %1779, %1732
@@ -2137,19 +2155,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1786 = lshr i32 %1780, 24
   %1787 = zext nneg i32 %1781 to i64
   %1788 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1787
-  %1789 = load i32, ptr %1788, align 4
+  %1789 = load i32, ptr %1788, align 4, !tbaa !7
   %1790 = zext nneg i32 %1783 to i64
   %1791 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1790
-  %1792 = load i32, ptr %1791, align 4
+  %1792 = load i32, ptr %1791, align 4, !tbaa !7
   %1793 = zext nneg i32 %1785 to i64
   %1794 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1793
-  %1795 = load i32, ptr %1794, align 4
+  %1795 = load i32, ptr %1794, align 4, !tbaa !7
   %1796 = zext nneg i32 %1786 to i64
   %1797 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1796
-  %1798 = load i32, ptr %1797, align 4
+  %1798 = load i32, ptr %1797, align 4, !tbaa !7
   %1799 = add i32 %1798, %1795
   %1800 = xor i32 %1799, %1792
-  %1801 = load i32, ptr %72, align 4
+  %1801 = load i32, ptr %72, align 4, !tbaa !7
   %1802 = add i32 %1800, %1789
   %1803 = xor i32 %1801, %1802
   %1804 = xor i32 %1803, %1756
@@ -2161,19 +2179,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1810 = lshr i32 %1804, 24
   %1811 = zext nneg i32 %1805 to i64
   %1812 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1811
-  %1813 = load i32, ptr %1812, align 4
+  %1813 = load i32, ptr %1812, align 4, !tbaa !7
   %1814 = zext nneg i32 %1807 to i64
   %1815 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1814
-  %1816 = load i32, ptr %1815, align 4
+  %1816 = load i32, ptr %1815, align 4, !tbaa !7
   %1817 = zext nneg i32 %1809 to i64
   %1818 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1817
-  %1819 = load i32, ptr %1818, align 4
+  %1819 = load i32, ptr %1818, align 4, !tbaa !7
   %1820 = zext nneg i32 %1810 to i64
   %1821 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1820
-  %1822 = load i32, ptr %1821, align 4
+  %1822 = load i32, ptr %1821, align 4, !tbaa !7
   %1823 = add i32 %1822, %1819
   %1824 = xor i32 %1823, %1816
-  %1825 = load i32, ptr %73, align 4
+  %1825 = load i32, ptr %73, align 4, !tbaa !7
   %1826 = add i32 %1824, %1813
   %1827 = xor i32 %1825, %1826
   %1828 = xor i32 %1827, %1780
@@ -2185,19 +2203,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1834 = lshr i32 %1828, 24
   %1835 = zext nneg i32 %1829 to i64
   %1836 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1835
-  %1837 = load i32, ptr %1836, align 4
+  %1837 = load i32, ptr %1836, align 4, !tbaa !7
   %1838 = zext nneg i32 %1831 to i64
   %1839 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1838
-  %1840 = load i32, ptr %1839, align 4
+  %1840 = load i32, ptr %1839, align 4, !tbaa !7
   %1841 = zext nneg i32 %1833 to i64
   %1842 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1841
-  %1843 = load i32, ptr %1842, align 4
+  %1843 = load i32, ptr %1842, align 4, !tbaa !7
   %1844 = zext nneg i32 %1834 to i64
   %1845 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1844
-  %1846 = load i32, ptr %1845, align 4
+  %1846 = load i32, ptr %1845, align 4, !tbaa !7
   %1847 = add i32 %1846, %1843
   %1848 = xor i32 %1847, %1840
-  %1849 = load i32, ptr %74, align 4
+  %1849 = load i32, ptr %74, align 4, !tbaa !7
   %1850 = add i32 %1848, %1837
   %1851 = xor i32 %1849, %1850
   %1852 = xor i32 %1851, %1804
@@ -2209,19 +2227,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1858 = lshr i32 %1852, 24
   %1859 = zext nneg i32 %1853 to i64
   %1860 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1859
-  %1861 = load i32, ptr %1860, align 4
+  %1861 = load i32, ptr %1860, align 4, !tbaa !7
   %1862 = zext nneg i32 %1855 to i64
   %1863 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1862
-  %1864 = load i32, ptr %1863, align 4
+  %1864 = load i32, ptr %1863, align 4, !tbaa !7
   %1865 = zext nneg i32 %1857 to i64
   %1866 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1865
-  %1867 = load i32, ptr %1866, align 4
+  %1867 = load i32, ptr %1866, align 4, !tbaa !7
   %1868 = zext nneg i32 %1858 to i64
   %1869 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1868
-  %1870 = load i32, ptr %1869, align 4
+  %1870 = load i32, ptr %1869, align 4, !tbaa !7
   %1871 = add i32 %1870, %1867
   %1872 = xor i32 %1871, %1864
-  %1873 = load i32, ptr %75, align 4
+  %1873 = load i32, ptr %75, align 4, !tbaa !7
   %1874 = add i32 %1872, %1861
   %1875 = xor i32 %1873, %1874
   %1876 = xor i32 %1875, %1828
@@ -2233,19 +2251,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1882 = lshr i32 %1876, 24
   %1883 = zext nneg i32 %1877 to i64
   %1884 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1883
-  %1885 = load i32, ptr %1884, align 4
+  %1885 = load i32, ptr %1884, align 4, !tbaa !7
   %1886 = zext nneg i32 %1879 to i64
   %1887 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1886
-  %1888 = load i32, ptr %1887, align 4
+  %1888 = load i32, ptr %1887, align 4, !tbaa !7
   %1889 = zext nneg i32 %1881 to i64
   %1890 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1889
-  %1891 = load i32, ptr %1890, align 4
+  %1891 = load i32, ptr %1890, align 4, !tbaa !7
   %1892 = zext nneg i32 %1882 to i64
   %1893 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1892
-  %1894 = load i32, ptr %1893, align 4
+  %1894 = load i32, ptr %1893, align 4, !tbaa !7
   %1895 = add i32 %1894, %1891
   %1896 = xor i32 %1895, %1888
-  %1897 = load i32, ptr %76, align 4
+  %1897 = load i32, ptr %76, align 4, !tbaa !7
   %1898 = add i32 %1896, %1885
   %1899 = xor i32 %1897, %1898
   %1900 = xor i32 %1899, %1852
@@ -2257,19 +2275,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1906 = lshr i32 %1900, 24
   %1907 = zext nneg i32 %1901 to i64
   %1908 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1907
-  %1909 = load i32, ptr %1908, align 4
+  %1909 = load i32, ptr %1908, align 4, !tbaa !7
   %1910 = zext nneg i32 %1903 to i64
   %1911 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1910
-  %1912 = load i32, ptr %1911, align 4
+  %1912 = load i32, ptr %1911, align 4, !tbaa !7
   %1913 = zext nneg i32 %1905 to i64
   %1914 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1913
-  %1915 = load i32, ptr %1914, align 4
+  %1915 = load i32, ptr %1914, align 4, !tbaa !7
   %1916 = zext nneg i32 %1906 to i64
   %1917 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1916
-  %1918 = load i32, ptr %1917, align 4
+  %1918 = load i32, ptr %1917, align 4, !tbaa !7
   %1919 = add i32 %1918, %1915
   %1920 = xor i32 %1919, %1912
-  %1921 = load i32, ptr %77, align 4
+  %1921 = load i32, ptr %77, align 4, !tbaa !7
   %1922 = add i32 %1920, %1909
   %1923 = xor i32 %1921, %1922
   %1924 = xor i32 %1923, %1876
@@ -2281,19 +2299,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1930 = lshr i32 %1924, 24
   %1931 = zext nneg i32 %1925 to i64
   %1932 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1931
-  %1933 = load i32, ptr %1932, align 4
+  %1933 = load i32, ptr %1932, align 4, !tbaa !7
   %1934 = zext nneg i32 %1927 to i64
   %1935 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1934
-  %1936 = load i32, ptr %1935, align 4
+  %1936 = load i32, ptr %1935, align 4, !tbaa !7
   %1937 = zext nneg i32 %1929 to i64
   %1938 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1937
-  %1939 = load i32, ptr %1938, align 4
+  %1939 = load i32, ptr %1938, align 4, !tbaa !7
   %1940 = zext nneg i32 %1930 to i64
   %1941 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1940
-  %1942 = load i32, ptr %1941, align 4
+  %1942 = load i32, ptr %1941, align 4, !tbaa !7
   %1943 = add i32 %1942, %1939
   %1944 = xor i32 %1943, %1936
-  %1945 = load i32, ptr %78, align 4
+  %1945 = load i32, ptr %78, align 4, !tbaa !7
   %1946 = add i32 %1944, %1933
   %1947 = xor i32 %1945, %1946
   %1948 = xor i32 %1947, %1900
@@ -2305,19 +2323,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1954 = lshr i32 %1948, 24
   %1955 = zext nneg i32 %1949 to i64
   %1956 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1955
-  %1957 = load i32, ptr %1956, align 4
+  %1957 = load i32, ptr %1956, align 4, !tbaa !7
   %1958 = zext nneg i32 %1951 to i64
   %1959 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1958
-  %1960 = load i32, ptr %1959, align 4
+  %1960 = load i32, ptr %1959, align 4, !tbaa !7
   %1961 = zext nneg i32 %1953 to i64
   %1962 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1961
-  %1963 = load i32, ptr %1962, align 4
+  %1963 = load i32, ptr %1962, align 4, !tbaa !7
   %1964 = zext nneg i32 %1954 to i64
   %1965 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1964
-  %1966 = load i32, ptr %1965, align 4
+  %1966 = load i32, ptr %1965, align 4, !tbaa !7
   %1967 = add i32 %1966, %1963
   %1968 = xor i32 %1967, %1960
-  %1969 = load i32, ptr %79, align 4
+  %1969 = load i32, ptr %79, align 4, !tbaa !7
   %1970 = add i32 %1968, %1957
   %1971 = xor i32 %1969, %1970
   %1972 = xor i32 %1971, %1924
@@ -2329,19 +2347,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %1978 = lshr i32 %1972, 24
   %1979 = zext nneg i32 %1973 to i64
   %1980 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %1979
-  %1981 = load i32, ptr %1980, align 4
+  %1981 = load i32, ptr %1980, align 4, !tbaa !7
   %1982 = zext nneg i32 %1975 to i64
   %1983 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %1982
-  %1984 = load i32, ptr %1983, align 4
+  %1984 = load i32, ptr %1983, align 4, !tbaa !7
   %1985 = zext nneg i32 %1977 to i64
   %1986 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %1985
-  %1987 = load i32, ptr %1986, align 4
+  %1987 = load i32, ptr %1986, align 4, !tbaa !7
   %1988 = zext nneg i32 %1978 to i64
   %1989 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %1988
-  %1990 = load i32, ptr %1989, align 4
+  %1990 = load i32, ptr %1989, align 4, !tbaa !7
   %1991 = add i32 %1990, %1987
   %1992 = xor i32 %1991, %1984
-  %1993 = load i32, ptr %80, align 4
+  %1993 = load i32, ptr %80, align 4, !tbaa !7
   %1994 = add i32 %1992, %1981
   %1995 = xor i32 %1993, %1994
   %1996 = xor i32 %1995, %1948
@@ -2353,19 +2371,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2002 = lshr i32 %1996, 24
   %2003 = zext nneg i32 %1997 to i64
   %2004 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2003
-  %2005 = load i32, ptr %2004, align 4
+  %2005 = load i32, ptr %2004, align 4, !tbaa !7
   %2006 = zext nneg i32 %1999 to i64
   %2007 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2006
-  %2008 = load i32, ptr %2007, align 4
+  %2008 = load i32, ptr %2007, align 4, !tbaa !7
   %2009 = zext nneg i32 %2001 to i64
   %2010 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2009
-  %2011 = load i32, ptr %2010, align 4
+  %2011 = load i32, ptr %2010, align 4, !tbaa !7
   %2012 = zext nneg i32 %2002 to i64
   %2013 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2012
-  %2014 = load i32, ptr %2013, align 4
+  %2014 = load i32, ptr %2013, align 4, !tbaa !7
   %2015 = add i32 %2014, %2011
   %2016 = xor i32 %2015, %2008
-  %2017 = load i32, ptr %81, align 4
+  %2017 = load i32, ptr %81, align 4, !tbaa !7
   %2018 = add i32 %2016, %2005
   %2019 = xor i32 %2017, %2018
   %2020 = xor i32 %2019, %1972
@@ -2377,19 +2395,19 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2026 = lshr i32 %2020, 24
   %2027 = zext nneg i32 %2021 to i64
   %2028 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2027
-  %2029 = load i32, ptr %2028, align 4
+  %2029 = load i32, ptr %2028, align 4, !tbaa !7
   %2030 = zext nneg i32 %2023 to i64
   %2031 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2030
-  %2032 = load i32, ptr %2031, align 4
+  %2032 = load i32, ptr %2031, align 4, !tbaa !7
   %2033 = zext nneg i32 %2025 to i64
   %2034 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2033
-  %2035 = load i32, ptr %2034, align 4
+  %2035 = load i32, ptr %2034, align 4, !tbaa !7
   %2036 = zext nneg i32 %2026 to i64
   %2037 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2036
-  %2038 = load i32, ptr %2037, align 4
+  %2038 = load i32, ptr %2037, align 4, !tbaa !7
   %2039 = add i32 %2038, %2035
   %2040 = xor i32 %2039, %2032
-  %2041 = load i32, ptr %82, align 4
+  %2041 = load i32, ptr %82, align 4, !tbaa !7
   %2042 = add i32 %2040, %2029
   %2043 = xor i32 %2041, %2042
   %2044 = xor i32 %2043, %1996
@@ -2401,27 +2419,27 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2050 = lshr i32 %2044, 24
   %2051 = zext nneg i32 %2045 to i64
   %2052 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2051
-  %2053 = load i32, ptr %2052, align 4
+  %2053 = load i32, ptr %2052, align 4, !tbaa !7
   %2054 = zext nneg i32 %2047 to i64
   %2055 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2054
-  %2056 = load i32, ptr %2055, align 4
+  %2056 = load i32, ptr %2055, align 4, !tbaa !7
   %2057 = zext nneg i32 %2049 to i64
   %2058 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2057
-  %2059 = load i32, ptr %2058, align 4
+  %2059 = load i32, ptr %2058, align 4, !tbaa !7
   %2060 = zext nneg i32 %2050 to i64
   %2061 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2060
-  %2062 = load i32, ptr %2061, align 4
+  %2062 = load i32, ptr %2061, align 4, !tbaa !7
   %2063 = add i32 %2062, %2059
   %2064 = xor i32 %2063, %2056
-  %2065 = load i32, ptr %83, align 4
+  %2065 = load i32, ptr %83, align 4, !tbaa !7
   %2066 = add i32 %2064, %2053
   %2067 = xor i32 %2065, %2066
   %2068 = xor i32 %2067, %2020
-  %2069 = load i32, ptr %84, align 4
+  %2069 = load i32, ptr %84, align 4, !tbaa !7
   %2070 = xor i32 %2069, %2044
-  store i32 %2070, ptr %.21850.ptr, align 4
+  store i32 %2070, ptr %.21850.ptr, align 4, !tbaa !7
   %2071 = getelementptr inbounds nuw i8, ptr %.21850.ptr, i64 4
-  store i32 %2068, ptr %2071, align 4
+  store i32 %2068, ptr %2071, align 4, !tbaa !7
   %2072 = icmp samesign ult i64 %.21850.idx, 4084
   br i1 %2072, label %.preheader1882, label %2073
 
@@ -2429,44 +2447,44 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   br i1 %.not1872, label %2074, label %2101
 
 2074:                                             ; preds = %2073
-  %2075 = load i32, ptr %53, align 4
-  %2076 = load i32, ptr %87, align 4
-  %2077 = load i32, ptr %85, align 4
-  %2078 = load i32, ptr %86, align 4
+  %2075 = load i32, ptr %53, align 4, !tbaa !4
+  %2076 = load i32, ptr %87, align 4, !tbaa !4
+  %2077 = load i32, ptr %85, align 4, !tbaa !4
+  %2078 = load i32, ptr %86, align 4, !tbaa !4
   br label %2079
 
 2079:                                             ; preds = %2074, %2079
   %indvars.iv1928 = phi i64 [ 0, %2074 ], [ %indvars.iv.next1929, %2079 ]
   %2080 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %indvars.iv1928
-  %2081 = load i32, ptr %2080, align 4
+  %2081 = load i32, ptr %2080, align 4, !tbaa !7
   %2082 = xor i32 %2081, %2075
-  store i32 %2082, ptr %2080, align 4
+  store i32 %2082, ptr %2080, align 4, !tbaa !7
   %2083 = or disjoint i64 %indvars.iv1928, 1
   %2084 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %2083
-  %2085 = load i32, ptr %2084, align 4
+  %2085 = load i32, ptr %2084, align 4, !tbaa !7
   %2086 = xor i32 %2085, %2076
-  store i32 %2086, ptr %2084, align 4
+  store i32 %2086, ptr %2084, align 4, !tbaa !7
   %2087 = or disjoint i64 %indvars.iv1928, 2
   %2088 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %2087
-  %2089 = load i32, ptr %2088, align 4
+  %2089 = load i32, ptr %2088, align 4, !tbaa !7
   %2090 = xor i32 %2089, %2077
-  store i32 %2090, ptr %2088, align 4
+  store i32 %2090, ptr %2088, align 4, !tbaa !7
   %2091 = or disjoint i64 %indvars.iv1928, 3
   %2092 = getelementptr inbounds nuw [18 x i32], ptr %.ptr1871, i64 0, i64 %2091
-  %2093 = load i32, ptr %2092, align 4
+  %2093 = load i32, ptr %2092, align 4, !tbaa !7
   %2094 = xor i32 %2093, %2078
-  store i32 %2094, ptr %2092, align 4
+  store i32 %2094, ptr %2092, align 4, !tbaa !7
   %indvars.iv.next1929 = add nuw nsw i64 %indvars.iv1928, 4
   %2095 = icmp samesign ult i64 %indvars.iv1928, 12
   br i1 %2095, label %2079, label %2096
 
 2096:                                             ; preds = %2079
-  %2097 = load i32, ptr %83, align 4
+  %2097 = load i32, ptr %83, align 4, !tbaa !7
   %2098 = xor i32 %2097, %2075
-  store i32 %2098, ptr %83, align 4
-  %2099 = load i32, ptr %84, align 4
+  store i32 %2098, ptr %83, align 4, !tbaa !7
+  %2099 = load i32, ptr %84, align 4, !tbaa !7
   %2100 = xor i32 %2099, %2076
-  store i32 %2100, ptr %84, align 4
+  store i32 %2100, ptr %84, align 4, !tbaa !7
   br label %.preheader1883
 
 2101:                                             ; preds = %2073
@@ -2475,33 +2493,33 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   br i1 %.not1873, label %.preheader, label %.preheader1884
 
 .preheader:                                       ; preds = %2101
-  %2103 = load i32, ptr %.ptr1871, align 4
-  %2104 = load i32, ptr %68, align 4
-  %2105 = load i32, ptr %69, align 4
-  %2106 = load i32, ptr %70, align 4
-  %2107 = load i32, ptr %71, align 4
-  %2108 = load i32, ptr %72, align 4
-  %2109 = load i32, ptr %73, align 4
-  %2110 = load i32, ptr %74, align 4
-  %2111 = load i32, ptr %75, align 4
-  %2112 = load i32, ptr %76, align 4
-  %2113 = load i32, ptr %77, align 4
-  %2114 = load i32, ptr %78, align 4
-  %2115 = load i32, ptr %79, align 4
-  %2116 = load i32, ptr %80, align 4
-  %2117 = load i32, ptr %81, align 4
-  %2118 = load i32, ptr %82, align 4
-  %2119 = load i32, ptr %83, align 4
-  %2120 = load i32, ptr %84, align 4
+  %2103 = load i32, ptr %.ptr1871, align 4, !tbaa !7
+  %2104 = load i32, ptr %68, align 4, !tbaa !7
+  %2105 = load i32, ptr %69, align 4, !tbaa !7
+  %2106 = load i32, ptr %70, align 4, !tbaa !7
+  %2107 = load i32, ptr %71, align 4, !tbaa !7
+  %2108 = load i32, ptr %72, align 4, !tbaa !7
+  %2109 = load i32, ptr %73, align 4, !tbaa !7
+  %2110 = load i32, ptr %74, align 4, !tbaa !7
+  %2111 = load i32, ptr %75, align 4, !tbaa !7
+  %2112 = load i32, ptr %76, align 4, !tbaa !7
+  %2113 = load i32, ptr %77, align 4, !tbaa !7
+  %2114 = load i32, ptr %78, align 4, !tbaa !7
+  %2115 = load i32, ptr %79, align 4, !tbaa !7
+  %2116 = load i32, ptr %80, align 4, !tbaa !7
+  %2117 = load i32, ptr %81, align 4, !tbaa !7
+  %2118 = load i32, ptr %82, align 4, !tbaa !7
+  %2119 = load i32, ptr %83, align 4, !tbaa !7
+  %2120 = load i32, ptr %84, align 4, !tbaa !7
   br label %2121
 
 2121:                                             ; preds = %.preheader, %2499
   %indvars.iv1931 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1932, %2499 ]
   %2122 = getelementptr inbounds nuw [6 x i32], ptr @BF_magic_w, i64 0, i64 %indvars.iv1931
-  %2123 = load i32, ptr %2122, align 8
+  %2123 = load i32, ptr %2122, align 8, !tbaa !7
   %2124 = or disjoint i64 %indvars.iv1931, 1
   %2125 = getelementptr inbounds nuw [6 x i32], ptr @BF_magic_w, i64 0, i64 %2124
-  %2126 = load i32, ptr %2125, align 4
+  %2126 = load i32, ptr %2125, align 4, !tbaa !7
   br label %2127
 
 2127:                                             ; preds = %2127, %2121
@@ -2517,16 +2535,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2134 = lshr i32 %2128, 24
   %2135 = zext nneg i32 %2129 to i64
   %2136 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2135
-  %2137 = load i32, ptr %2136, align 4
+  %2137 = load i32, ptr %2136, align 4, !tbaa !7
   %2138 = zext nneg i32 %2131 to i64
   %2139 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2138
-  %2140 = load i32, ptr %2139, align 4
+  %2140 = load i32, ptr %2139, align 4, !tbaa !7
   %2141 = zext nneg i32 %2133 to i64
   %2142 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2141
-  %2143 = load i32, ptr %2142, align 4
+  %2143 = load i32, ptr %2142, align 4, !tbaa !7
   %2144 = zext nneg i32 %2134 to i64
   %2145 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2144
-  %2146 = load i32, ptr %2145, align 4
+  %2146 = load i32, ptr %2145, align 4, !tbaa !7
   %2147 = add i32 %2146, %2143
   %2148 = xor i32 %2147, %2140
   %2149 = xor i32 %2104, %.4
@@ -2540,16 +2558,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2157 = lshr i32 %2151, 24
   %2158 = zext nneg i32 %2152 to i64
   %2159 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2158
-  %2160 = load i32, ptr %2159, align 4
+  %2160 = load i32, ptr %2159, align 4, !tbaa !7
   %2161 = zext nneg i32 %2154 to i64
   %2162 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2161
-  %2163 = load i32, ptr %2162, align 4
+  %2163 = load i32, ptr %2162, align 4, !tbaa !7
   %2164 = zext nneg i32 %2156 to i64
   %2165 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2164
-  %2166 = load i32, ptr %2165, align 4
+  %2166 = load i32, ptr %2165, align 4, !tbaa !7
   %2167 = zext nneg i32 %2157 to i64
   %2168 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2167
-  %2169 = load i32, ptr %2168, align 4
+  %2169 = load i32, ptr %2168, align 4, !tbaa !7
   %2170 = add i32 %2169, %2166
   %2171 = xor i32 %2170, %2163
   %2172 = add i32 %2171, %2160
@@ -2563,16 +2581,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2180 = lshr i32 %2174, 24
   %2181 = zext nneg i32 %2175 to i64
   %2182 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2181
-  %2183 = load i32, ptr %2182, align 4
+  %2183 = load i32, ptr %2182, align 4, !tbaa !7
   %2184 = zext nneg i32 %2177 to i64
   %2185 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2184
-  %2186 = load i32, ptr %2185, align 4
+  %2186 = load i32, ptr %2185, align 4, !tbaa !7
   %2187 = zext nneg i32 %2179 to i64
   %2188 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2187
-  %2189 = load i32, ptr %2188, align 4
+  %2189 = load i32, ptr %2188, align 4, !tbaa !7
   %2190 = zext nneg i32 %2180 to i64
   %2191 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2190
-  %2192 = load i32, ptr %2191, align 4
+  %2192 = load i32, ptr %2191, align 4, !tbaa !7
   %2193 = add i32 %2192, %2189
   %2194 = xor i32 %2193, %2186
   %2195 = add i32 %2194, %2183
@@ -2586,16 +2604,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2203 = lshr i32 %2197, 24
   %2204 = zext nneg i32 %2198 to i64
   %2205 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2204
-  %2206 = load i32, ptr %2205, align 4
+  %2206 = load i32, ptr %2205, align 4, !tbaa !7
   %2207 = zext nneg i32 %2200 to i64
   %2208 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2207
-  %2209 = load i32, ptr %2208, align 4
+  %2209 = load i32, ptr %2208, align 4, !tbaa !7
   %2210 = zext nneg i32 %2202 to i64
   %2211 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2210
-  %2212 = load i32, ptr %2211, align 4
+  %2212 = load i32, ptr %2211, align 4, !tbaa !7
   %2213 = zext nneg i32 %2203 to i64
   %2214 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2213
-  %2215 = load i32, ptr %2214, align 4
+  %2215 = load i32, ptr %2214, align 4, !tbaa !7
   %2216 = add i32 %2215, %2212
   %2217 = xor i32 %2216, %2209
   %2218 = add i32 %2217, %2206
@@ -2609,16 +2627,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2226 = lshr i32 %2220, 24
   %2227 = zext nneg i32 %2221 to i64
   %2228 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2227
-  %2229 = load i32, ptr %2228, align 4
+  %2229 = load i32, ptr %2228, align 4, !tbaa !7
   %2230 = zext nneg i32 %2223 to i64
   %2231 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2230
-  %2232 = load i32, ptr %2231, align 4
+  %2232 = load i32, ptr %2231, align 4, !tbaa !7
   %2233 = zext nneg i32 %2225 to i64
   %2234 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2233
-  %2235 = load i32, ptr %2234, align 4
+  %2235 = load i32, ptr %2234, align 4, !tbaa !7
   %2236 = zext nneg i32 %2226 to i64
   %2237 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2236
-  %2238 = load i32, ptr %2237, align 4
+  %2238 = load i32, ptr %2237, align 4, !tbaa !7
   %2239 = add i32 %2238, %2235
   %2240 = xor i32 %2239, %2232
   %2241 = add i32 %2240, %2229
@@ -2632,16 +2650,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2249 = lshr i32 %2243, 24
   %2250 = zext nneg i32 %2244 to i64
   %2251 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2250
-  %2252 = load i32, ptr %2251, align 4
+  %2252 = load i32, ptr %2251, align 4, !tbaa !7
   %2253 = zext nneg i32 %2246 to i64
   %2254 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2253
-  %2255 = load i32, ptr %2254, align 4
+  %2255 = load i32, ptr %2254, align 4, !tbaa !7
   %2256 = zext nneg i32 %2248 to i64
   %2257 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2256
-  %2258 = load i32, ptr %2257, align 4
+  %2258 = load i32, ptr %2257, align 4, !tbaa !7
   %2259 = zext nneg i32 %2249 to i64
   %2260 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2259
-  %2261 = load i32, ptr %2260, align 4
+  %2261 = load i32, ptr %2260, align 4, !tbaa !7
   %2262 = add i32 %2261, %2258
   %2263 = xor i32 %2262, %2255
   %2264 = add i32 %2263, %2252
@@ -2655,16 +2673,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2272 = lshr i32 %2266, 24
   %2273 = zext nneg i32 %2267 to i64
   %2274 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2273
-  %2275 = load i32, ptr %2274, align 4
+  %2275 = load i32, ptr %2274, align 4, !tbaa !7
   %2276 = zext nneg i32 %2269 to i64
   %2277 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2276
-  %2278 = load i32, ptr %2277, align 4
+  %2278 = load i32, ptr %2277, align 4, !tbaa !7
   %2279 = zext nneg i32 %2271 to i64
   %2280 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2279
-  %2281 = load i32, ptr %2280, align 4
+  %2281 = load i32, ptr %2280, align 4, !tbaa !7
   %2282 = zext nneg i32 %2272 to i64
   %2283 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2282
-  %2284 = load i32, ptr %2283, align 4
+  %2284 = load i32, ptr %2283, align 4, !tbaa !7
   %2285 = add i32 %2284, %2281
   %2286 = xor i32 %2285, %2278
   %2287 = add i32 %2286, %2275
@@ -2678,16 +2696,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2295 = lshr i32 %2289, 24
   %2296 = zext nneg i32 %2290 to i64
   %2297 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2296
-  %2298 = load i32, ptr %2297, align 4
+  %2298 = load i32, ptr %2297, align 4, !tbaa !7
   %2299 = zext nneg i32 %2292 to i64
   %2300 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2299
-  %2301 = load i32, ptr %2300, align 4
+  %2301 = load i32, ptr %2300, align 4, !tbaa !7
   %2302 = zext nneg i32 %2294 to i64
   %2303 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2302
-  %2304 = load i32, ptr %2303, align 4
+  %2304 = load i32, ptr %2303, align 4, !tbaa !7
   %2305 = zext nneg i32 %2295 to i64
   %2306 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2305
-  %2307 = load i32, ptr %2306, align 4
+  %2307 = load i32, ptr %2306, align 4, !tbaa !7
   %2308 = add i32 %2307, %2304
   %2309 = xor i32 %2308, %2301
   %2310 = add i32 %2309, %2298
@@ -2701,16 +2719,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2318 = lshr i32 %2312, 24
   %2319 = zext nneg i32 %2313 to i64
   %2320 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2319
-  %2321 = load i32, ptr %2320, align 4
+  %2321 = load i32, ptr %2320, align 4, !tbaa !7
   %2322 = zext nneg i32 %2315 to i64
   %2323 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2322
-  %2324 = load i32, ptr %2323, align 4
+  %2324 = load i32, ptr %2323, align 4, !tbaa !7
   %2325 = zext nneg i32 %2317 to i64
   %2326 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2325
-  %2327 = load i32, ptr %2326, align 4
+  %2327 = load i32, ptr %2326, align 4, !tbaa !7
   %2328 = zext nneg i32 %2318 to i64
   %2329 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2328
-  %2330 = load i32, ptr %2329, align 4
+  %2330 = load i32, ptr %2329, align 4, !tbaa !7
   %2331 = add i32 %2330, %2327
   %2332 = xor i32 %2331, %2324
   %2333 = add i32 %2332, %2321
@@ -2724,16 +2742,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2341 = lshr i32 %2335, 24
   %2342 = zext nneg i32 %2336 to i64
   %2343 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2342
-  %2344 = load i32, ptr %2343, align 4
+  %2344 = load i32, ptr %2343, align 4, !tbaa !7
   %2345 = zext nneg i32 %2338 to i64
   %2346 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2345
-  %2347 = load i32, ptr %2346, align 4
+  %2347 = load i32, ptr %2346, align 4, !tbaa !7
   %2348 = zext nneg i32 %2340 to i64
   %2349 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2348
-  %2350 = load i32, ptr %2349, align 4
+  %2350 = load i32, ptr %2349, align 4, !tbaa !7
   %2351 = zext nneg i32 %2341 to i64
   %2352 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2351
-  %2353 = load i32, ptr %2352, align 4
+  %2353 = load i32, ptr %2352, align 4, !tbaa !7
   %2354 = add i32 %2353, %2350
   %2355 = xor i32 %2354, %2347
   %2356 = add i32 %2355, %2344
@@ -2747,16 +2765,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2364 = lshr i32 %2358, 24
   %2365 = zext nneg i32 %2359 to i64
   %2366 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2365
-  %2367 = load i32, ptr %2366, align 4
+  %2367 = load i32, ptr %2366, align 4, !tbaa !7
   %2368 = zext nneg i32 %2361 to i64
   %2369 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2368
-  %2370 = load i32, ptr %2369, align 4
+  %2370 = load i32, ptr %2369, align 4, !tbaa !7
   %2371 = zext nneg i32 %2363 to i64
   %2372 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2371
-  %2373 = load i32, ptr %2372, align 4
+  %2373 = load i32, ptr %2372, align 4, !tbaa !7
   %2374 = zext nneg i32 %2364 to i64
   %2375 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2374
-  %2376 = load i32, ptr %2375, align 4
+  %2376 = load i32, ptr %2375, align 4, !tbaa !7
   %2377 = add i32 %2376, %2373
   %2378 = xor i32 %2377, %2370
   %2379 = add i32 %2378, %2367
@@ -2770,16 +2788,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2387 = lshr i32 %2381, 24
   %2388 = zext nneg i32 %2382 to i64
   %2389 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2388
-  %2390 = load i32, ptr %2389, align 4
+  %2390 = load i32, ptr %2389, align 4, !tbaa !7
   %2391 = zext nneg i32 %2384 to i64
   %2392 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2391
-  %2393 = load i32, ptr %2392, align 4
+  %2393 = load i32, ptr %2392, align 4, !tbaa !7
   %2394 = zext nneg i32 %2386 to i64
   %2395 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2394
-  %2396 = load i32, ptr %2395, align 4
+  %2396 = load i32, ptr %2395, align 4, !tbaa !7
   %2397 = zext nneg i32 %2387 to i64
   %2398 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2397
-  %2399 = load i32, ptr %2398, align 4
+  %2399 = load i32, ptr %2398, align 4, !tbaa !7
   %2400 = add i32 %2399, %2396
   %2401 = xor i32 %2400, %2393
   %2402 = add i32 %2401, %2390
@@ -2793,16 +2811,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2410 = lshr i32 %2404, 24
   %2411 = zext nneg i32 %2405 to i64
   %2412 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2411
-  %2413 = load i32, ptr %2412, align 4
+  %2413 = load i32, ptr %2412, align 4, !tbaa !7
   %2414 = zext nneg i32 %2407 to i64
   %2415 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2414
-  %2416 = load i32, ptr %2415, align 4
+  %2416 = load i32, ptr %2415, align 4, !tbaa !7
   %2417 = zext nneg i32 %2409 to i64
   %2418 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2417
-  %2419 = load i32, ptr %2418, align 4
+  %2419 = load i32, ptr %2418, align 4, !tbaa !7
   %2420 = zext nneg i32 %2410 to i64
   %2421 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2420
-  %2422 = load i32, ptr %2421, align 4
+  %2422 = load i32, ptr %2421, align 4, !tbaa !7
   %2423 = add i32 %2422, %2419
   %2424 = xor i32 %2423, %2416
   %2425 = add i32 %2424, %2413
@@ -2816,16 +2834,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2433 = lshr i32 %2427, 24
   %2434 = zext nneg i32 %2428 to i64
   %2435 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2434
-  %2436 = load i32, ptr %2435, align 4
+  %2436 = load i32, ptr %2435, align 4, !tbaa !7
   %2437 = zext nneg i32 %2430 to i64
   %2438 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2437
-  %2439 = load i32, ptr %2438, align 4
+  %2439 = load i32, ptr %2438, align 4, !tbaa !7
   %2440 = zext nneg i32 %2432 to i64
   %2441 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2440
-  %2442 = load i32, ptr %2441, align 4
+  %2442 = load i32, ptr %2441, align 4, !tbaa !7
   %2443 = zext nneg i32 %2433 to i64
   %2444 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2443
-  %2445 = load i32, ptr %2444, align 4
+  %2445 = load i32, ptr %2444, align 4, !tbaa !7
   %2446 = add i32 %2445, %2442
   %2447 = xor i32 %2446, %2439
   %2448 = add i32 %2447, %2436
@@ -2839,16 +2857,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2456 = lshr i32 %2450, 24
   %2457 = zext nneg i32 %2451 to i64
   %2458 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2457
-  %2459 = load i32, ptr %2458, align 4
+  %2459 = load i32, ptr %2458, align 4, !tbaa !7
   %2460 = zext nneg i32 %2453 to i64
   %2461 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2460
-  %2462 = load i32, ptr %2461, align 4
+  %2462 = load i32, ptr %2461, align 4, !tbaa !7
   %2463 = zext nneg i32 %2455 to i64
   %2464 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2463
-  %2465 = load i32, ptr %2464, align 4
+  %2465 = load i32, ptr %2464, align 4, !tbaa !7
   %2466 = zext nneg i32 %2456 to i64
   %2467 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2466
-  %2468 = load i32, ptr %2467, align 4
+  %2468 = load i32, ptr %2467, align 4, !tbaa !7
   %2469 = add i32 %2468, %2465
   %2470 = xor i32 %2469, %2462
   %2471 = add i32 %2470, %2459
@@ -2862,16 +2880,16 @@ BF_swap.exit:                                     ; preds = %.preheader1886
   %2479 = lshr i32 %2473, 24
   %2480 = zext nneg i32 %2474 to i64
   %2481 = getelementptr inbounds nuw [256 x i32], ptr %65, i64 0, i64 %2480
-  %2482 = load i32, ptr %2481, align 4
+  %2482 = load i32, ptr %2481, align 4, !tbaa !7
   %2483 = zext nneg i32 %2476 to i64
   %2484 = getelementptr inbounds nuw [256 x i32], ptr %66, i64 0, i64 %2483
-  %2485 = load i32, ptr %2484, align 4
+  %2485 = load i32, ptr %2484, align 4, !tbaa !7
   %2486 = zext nneg i32 %2478 to i64
   %2487 = getelementptr inbounds nuw [256 x i32], ptr %67, i64 0, i64 %2486
-  %2488 = load i32, ptr %2487, align 4
+  %2488 = load i32, ptr %2487, align 4, !tbaa !7
   %2489 = zext nneg i32 %2479 to i64
   %2490 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %2489
-  %2491 = load i32, ptr %2490, align 4
+  %2491 = load i32, ptr %2490, align 4, !tbaa !7
   %2492 = add i32 %2491, %2488
   %2493 = xor i32 %2492, %2485
   %2494 = add i32 %2493, %2482
@@ -2884,9 +2902,9 @@ BF_swap.exit:                                     ; preds = %.preheader1886
 
 2499:                                             ; preds = %2127
   %2500 = getelementptr inbounds nuw [6 x i32], ptr %53, i64 0, i64 %indvars.iv1931
-  store i32 %2497, ptr %2500, align 4
+  store i32 %2497, ptr %2500, align 4, !tbaa !4
   %2501 = getelementptr inbounds nuw [6 x i32], ptr %53, i64 0, i64 %2124
-  store i32 %2496, ptr %2501, align 4
+  store i32 %2496, ptr %2501, align 4, !tbaa !4
   %indvars.iv.next1932 = add nuw nsw i64 %indvars.iv1931, 2
   %2502 = icmp samesign ult i64 %indvars.iv1931, 4
   br i1 %2502, label %2121, label %2503
@@ -2894,26 +2912,26 @@ BF_swap.exit:                                     ; preds = %.preheader1886
 2503:                                             ; preds = %2499
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %2, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
   %2504 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %2505 = load i8, ptr %2504, align 1
+  %2505 = load i8, ptr %2504, align 1, !tbaa !4
   %2506 = sext i8 %2505 to i64
   %2507 = add nsw i64 %2506, -32
   %2508 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %2507
-  %2509 = load i8, ptr %2508, align 1
+  %2509 = load i8, ptr %2508, align 1, !tbaa !4
   %2510 = and i8 %2509, 48
   %2511 = zext nneg i8 %2510 to i64
   %2512 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %2511
-  %2513 = load i8, ptr %2512, align 16
+  %2513 = load i8, ptr %2512, align 16, !tbaa !4
   %2514 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i8 %2513, ptr %2514, align 1
+  store i8 %2513, ptr %2514, align 1, !tbaa !4
   br label %2515
 
 2515:                                             ; preds = %2515, %2503
   %.07.i1878 = phi i32 [ 6, %2503 ], [ %2519, %2515 ]
   %.0.i1879 = phi ptr [ %53, %2503 ], [ %2518, %2515 ]
-  %2516 = load i32, ptr %.0.i1879, align 4
+  %2516 = load i32, ptr %.0.i1879, align 4, !tbaa !7
   %2517 = tail call i32 @llvm.bswap.i32(i32 %2516)
   %2518 = getelementptr inbounds nuw i8, ptr %.0.i1879, i64 4
-  store i32 %2517, ptr %.0.i1879, align 4
+  store i32 %2517, ptr %.0.i1879, align 4, !tbaa !7
   %2519 = add nsw i32 %.07.i1878, -1
   %.not.i1880 = icmp eq i32 %2519, 0
   br i1 %.not.i1880, label %BF_swap.exit1881, label %2515
@@ -2922,26 +2940,31 @@ BF_swap.exit1881:                                 ; preds = %2515
   %2520 = getelementptr inbounds nuw i8, ptr %2, i64 29
   call fastcc void @BF_encode(ptr noundef nonnull %2520, ptr noundef %53)
   %2521 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i8 0, ptr %2521, align 1
+  store i8 0, ptr %2521, align 1, !tbaa !4
   br label %2522
 
 2522:                                             ; preds = %BF_swap.exit1881, %56, %42, %8
   %.01860 = phi ptr [ null, %8 ], [ null, %42 ], [ null, %56 ], [ %2, %BF_swap.exit1881 ]
+  call void @llvm.lifetime.end.p0(i64 4264, ptr nonnull %6) #9
   ret ptr %.01860
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3) unnamed_addr #5 {
+define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3) unnamed_addr #6 {
   %5 = alloca [2 x i32], align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = zext i8 %3 to i32
   %7 = and i32 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2954,7 +2977,7 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %.045 = phi i32 [ 0, %4 ], [ %29, %27 ]
   %.03144 = phi i32 [ 0, %4 ], [ %.2, %27 ]
   %.03243 = phi ptr [ %0, %4 ], [ %.234, %27 ]
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !7
   br label %12
 
 12:                                               ; preds = %11, %12
@@ -2964,21 +2987,21 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %13 = phi i32 [ 0, %11 ], [ %18, %12 ]
   %14 = phi i32 [ 0, %11 ], [ %22, %12 ]
   %15 = shl i32 %13, 8
-  store i32 %15, ptr %5, align 4
-  %16 = load i8, ptr %.13340, align 1
+  store i32 %15, ptr %5, align 4, !tbaa !7
+  %16 = load i8, ptr %.13340, align 1, !tbaa !4
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %15, %17
-  store i32 %18, ptr %5, align 4
+  store i32 %18, ptr %5, align 4, !tbaa !7
   %19 = shl i32 %14, 8
-  store i32 %19, ptr %8, align 4
-  %20 = load i8, ptr %.13340, align 1
+  store i32 %19, ptr %8, align 4, !tbaa !7
+  %20 = load i8, ptr %.13340, align 1, !tbaa !4
   %21 = sext i8 %20 to i32
   %22 = or i32 %19, %21
-  store i32 %22, ptr %8, align 4
+  store i32 %22, ptr %8, align 4, !tbaa !7
   %.not = icmp eq i32 %.03539, 0
   %23 = select i1 %.not, i32 0, i32 %21
   %.2 = or i32 %23, %.141
-  %24 = load i8, ptr %.13340, align 1
+  %24 = load i8, ptr %.13340, align 1, !tbaa !4
   %.not37 = icmp eq i8 %24, 0
   %25 = getelementptr inbounds nuw i8, ptr %.13340, i64 1
   %.234 = select i1 %.not37, ptr %0, ptr %25
@@ -2989,14 +3012,14 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
 27:                                               ; preds = %12
   %28 = xor i32 %22, %18
   %29 = or i32 %28, %.045
-  %30 = load i32, ptr %10, align 4
+  %30 = load i32, ptr %10, align 4, !tbaa !7
   %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %30, ptr %31, align 4
+  store i32 %30, ptr %31, align 4, !tbaa !7
   %32 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 4, !tbaa !7
   %34 = xor i32 %33, %30
   %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %34, ptr %35, align 4
+  store i32 %34, ptr %35, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next, 18
   br i1 %exitcond47.not, label %36, label %11
@@ -3011,15 +3034,16 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %42 = sub nuw nsw i32 65536, %40
   %43 = and i32 %38, %41
   %44 = and i32 %43, %42
-  %45 = load i32, ptr %2, align 4
+  %45 = load i32, ptr %2, align 4, !tbaa !7
   %46 = xor i32 %45, %44
-  store i32 %46, ptr %2, align 4
+  store i32 %46, ptr %2, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
-  %3 = load i8, ptr %1, align 1
+define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
+  %3 = load i8, ptr %1, align 1, !tbaa !4
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
   %6 = icmp ugt i32 %5, 95
@@ -3032,14 +3056,14 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
   %.039.ptr3 = getelementptr inbounds nuw i8, ptr %0, i64 %.039.idx2
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1
+  %10 = load i8, ptr %9, align 1, !tbaa !4
   %11 = icmp ugt i8 %10, 63
   br i1 %11, label %split, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %.0401, i64 1
   %14 = getelementptr inbounds nuw i8, ptr %.0401, i64 2
-  %15 = load i8, ptr %13, align 1
+  %15 = load i8, ptr %13, align 1, !tbaa !4
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -32
   %18 = icmp ugt i32 %17, 95
@@ -3048,7 +3072,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
 19:                                               ; preds = %12
   %20 = zext nneg i32 %17 to i64
   %21 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %20
-  %22 = load i8, ptr %21, align 1
+  %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = icmp ugt i8 %22, 63
   br i1 %23, label %split, label %24
 
@@ -3057,13 +3081,13 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
   %26 = lshr i8 %22, 4
   %27 = or disjoint i8 %26, %25
   %.ptr = getelementptr inbounds nuw i8, ptr %.039.ptr3, i64 1
-  store i8 %27, ptr %.039.ptr3, align 1
+  store i8 %27, ptr %.039.ptr3, align 1, !tbaa !4
   %.not = icmp samesign ult i64 %.039.idx2, 15
   br i1 %.not, label %28, label %split
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.0401, i64 3
-  %30 = load i8, ptr %14, align 1
+  %30 = load i8, ptr %14, align 1, !tbaa !4
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %31, -32
   %33 = icmp ugt i32 %32, 95
@@ -3072,7 +3096,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
 34:                                               ; preds = %28
   %35 = zext nneg i32 %32 to i64
   %36 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1
+  %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = icmp ugt i8 %37, 63
   br i1 %38, label %split, label %39
 
@@ -3081,9 +3105,9 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
   %41 = lshr i8 %37, 2
   %42 = or disjoint i8 %41, %40
   %.ptr54 = getelementptr inbounds nuw i8, ptr %.039.ptr3, i64 2
-  store i8 %42, ptr %.ptr, align 1
+  store i8 %42, ptr %.ptr, align 1, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %.0401, i64 4
-  %44 = load i8, ptr %29, align 1
+  %44 = load i8, ptr %29, align 1, !tbaa !4
   %45 = zext i8 %44 to i32
   %46 = add nsw i32 %45, -32
   %47 = icmp ugt i32 %46, 95
@@ -3092,7 +3116,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
 48:                                               ; preds = %39
   %49 = zext nneg i32 %46 to i64
   %50 = getelementptr inbounds nuw [96 x i8], ptr @BF_atoi64, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
+  %51 = load i8, ptr %50, align 1, !tbaa !4
   %52 = icmp ugt i8 %51, 63
   br i1 %52, label %split, label %53
 
@@ -3100,8 +3124,8 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr noundef nonnull write
   %54 = shl i8 %37, 6
   %55 = or disjoint i8 %51, %54
   %.add53 = add nuw nsw i64 %.039.idx2, 3
-  store i8 %55, ptr %.ptr54, align 1
-  %56 = load i8, ptr %43, align 1
+  store i8 %55, ptr %.ptr54, align 1, !tbaa !4
+  %56 = load i8, ptr %43, align 1, !tbaa !4
   %57 = zext i8 %56 to i32
   %58 = add nsw i32 %57, -32
   %59 = icmp ugt i32 %58, 95
@@ -3113,27 +3137,27 @@ split:                                            ; preds = %53, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #5 {
-  %3 = load i8, ptr %1, align 1
+define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #6 {
+  %3 = load i8, ptr %1, align 1, !tbaa !4
   %4 = zext i8 %3 to i32
   %5 = lshr i32 %4, 2
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
-  store i8 %8, ptr %0, align 1
+  %8 = load i8, ptr %7, align 1, !tbaa !4
+  store i8 %8, ptr %0, align 1, !tbaa !4
   %9 = shl nuw nsw i32 %4, 4
   %10 = and i32 %9, 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.ptr2 = getelementptr i8, ptr %1, i64 1
-  %12 = load i8, ptr %.ptr2, align 1
+  %12 = load i8, ptr %.ptr2, align 1, !tbaa !4
   %13 = zext i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = or disjoint i32 %14, %10
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1
+  %18 = load i8, ptr %17, align 1, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %18, ptr %11, align 1
+  store i8 %18, ptr %11, align 1, !tbaa !4
   %20 = shl nuw nsw i32 %13, 2
   %21 = and i32 %20, 60
   %invariant.gep = getelementptr inbounds i8, ptr %1, i64 2
@@ -3146,42 +3170,42 @@ define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, 
   %.030.idx3 = phi i64 [ 0, %2 ], [ %.add35, %22 ]
   %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.030.idx3
   %.add35 = add nuw nsw i64 %.030.idx3, 3
-  %25 = load i8, ptr %gep, align 1
+  %25 = load i8, ptr %gep, align 1, !tbaa !4
   %26 = zext i8 %25 to i32
   %27 = lshr i32 %26, 6
   %28 = or disjoint i32 %27, %23
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %.04, i64 3
-  store i8 %31, ptr %24, align 1
+  store i8 %31, ptr %24, align 1, !tbaa !4
   %33 = and i32 %26, 63
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
+  %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = getelementptr inbounds nuw i8, ptr %.04, i64 4
-  store i8 %36, ptr %32, align 1
+  store i8 %36, ptr %32, align 1, !tbaa !4
   %.030.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.add35
-  %38 = load i8, ptr %.030.ptr, align 1
+  %38 = load i8, ptr %.030.ptr, align 1, !tbaa !4
   %39 = zext i8 %38 to i32
   %40 = lshr i32 %39, 2
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %37, align 1
+  %43 = load i8, ptr %42, align 1, !tbaa !4
+  store i8 %43, ptr %37, align 1, !tbaa !4
   %44 = shl nuw nsw i32 %39, 4
   %45 = and i32 %44, 48
   %46 = getelementptr inbounds nuw i8, ptr %.04, i64 5
   %.ptr = getelementptr i8, ptr %.030.ptr, i64 1
-  %47 = load i8, ptr %.ptr, align 1
+  %47 = load i8, ptr %.ptr, align 1, !tbaa !4
   %48 = zext i8 %47 to i32
   %49 = lshr i32 %48, 4
   %50 = or disjoint i32 %49, %45
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %.04, i64 6
-  store i8 %53, ptr %46, align 1
+  store i8 %53, ptr %46, align 1, !tbaa !4
   %55 = shl nuw nsw i32 %48, 2
   %56 = and i32 %55, 60
   %.not38.not = icmp eq i64 %.add35, 21
@@ -3190,30 +3214,40 @@ define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, 
 .loopexit:                                        ; preds = %22
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [65 x i8], ptr @BF_itoa64, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 4
-  store i8 %59, ptr %54, align 1
+  %59 = load i8, ptr %58, align 4, !tbaa !4
+  store i8 %59, ptr %54, align 1, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #7
+declare i32 @llvm.bswap.i32(i32) #8
 
-attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}

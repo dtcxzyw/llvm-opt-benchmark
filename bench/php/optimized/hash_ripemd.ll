@@ -3,20 +3,18 @@ source_filename = "bench/php/original/hash_ripemd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._php_hash_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i8 }
-
 @.str = private unnamed_addr constant [10 x i8] c"ripemd128\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"l4l2b64.\00", align 1
-@php_hash_ripemd128_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str, ptr @PHP_RIPEMD128Init, ptr @PHP_RIPEMD128Update, ptr @PHP_RIPEMD128Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.1, i64 16, i64 64, i64 88, i8 1 }, align 8
+@php_hash_ripemd128_ops = hidden local_unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i8, [7 x i8] } { ptr @.str, ptr @PHP_RIPEMD128Init, ptr @PHP_RIPEMD128Update, ptr @PHP_RIPEMD128Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.1, i64 16, i64 64, i64 88, i8 1, [7 x i8] zeroinitializer }, align 8
 @.str.2 = private unnamed_addr constant [10 x i8] c"ripemd160\00", align 1
 @.str.3 = private unnamed_addr constant [9 x i8] c"l5l2b64.\00", align 1
-@php_hash_ripemd160_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.2, ptr @PHP_RIPEMD160Init, ptr @PHP_RIPEMD160Update, ptr @PHP_RIPEMD160Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.3, i64 20, i64 64, i64 92, i8 1 }, align 8
+@php_hash_ripemd160_ops = hidden local_unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i8, [7 x i8] } { ptr @.str.2, ptr @PHP_RIPEMD160Init, ptr @PHP_RIPEMD160Update, ptr @PHP_RIPEMD160Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.3, i64 20, i64 64, i64 92, i8 1, [7 x i8] zeroinitializer }, align 8
 @.str.4 = private unnamed_addr constant [10 x i8] c"ripemd256\00", align 1
 @.str.5 = private unnamed_addr constant [9 x i8] c"l8l2b64.\00", align 1
-@php_hash_ripemd256_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.4, ptr @PHP_RIPEMD256Init, ptr @PHP_RIPEMD256Update, ptr @PHP_RIPEMD256Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.5, i64 32, i64 64, i64 104, i8 1 }, align 8
+@php_hash_ripemd256_ops = hidden local_unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i8, [7 x i8] } { ptr @.str.4, ptr @PHP_RIPEMD256Init, ptr @PHP_RIPEMD256Update, ptr @PHP_RIPEMD256Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.5, i64 32, i64 64, i64 104, i8 1, [7 x i8] zeroinitializer }, align 8
 @.str.6 = private unnamed_addr constant [10 x i8] c"ripemd320\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"l10l2b64.\00", align 1
-@php_hash_ripemd320_ops = hidden local_unnamed_addr constant %struct._php_hash_ops { ptr @.str.6, ptr @PHP_RIPEMD320Init, ptr @PHP_RIPEMD320Update, ptr @PHP_RIPEMD320Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.7, i64 40, i64 64, i64 112, i8 1 }, align 8
+@php_hash_ripemd320_ops = hidden local_unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i8, [7 x i8] } { ptr @.str.6, ptr @PHP_RIPEMD320Init, ptr @PHP_RIPEMD320Update, ptr @PHP_RIPEMD320Final, ptr @php_hash_copy, ptr @php_hash_serialize, ptr @php_hash_unserialize, ptr @.str.7, i64 40, i64 64, i64 112, i8 1, [7 x i8] zeroinitializer }, align 8
 @R = internal unnamed_addr constant [80 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\07\04\0D\01\0A\06\0F\03\0C\00\09\05\02\0E\0B\08\03\0A\0E\04\09\0F\08\01\02\07\00\06\0D\0B\05\0C\01\09\0B\0A\00\08\0C\04\0D\03\07\0F\0E\05\06\02\04\00\05\09\07\0C\02\0A\0E\01\03\08\0B\06\0F\0D", align 16
 @K_values = internal unnamed_addr constant [5 x i32] [i32 0, i32 1518500249, i32 1859775393, i32 -1894007588, i32 -1454113458], align 16
 @S = internal unnamed_addr constant [80 x i8] c"\0B\0E\0F\0C\05\08\07\09\0B\0D\0E\0F\06\07\09\08\07\06\08\0D\0B\09\07\0F\07\0C\0F\09\0B\07\0D\0C\0B\0D\06\07\0E\09\0D\0F\0E\08\0D\06\05\0C\07\05\0B\0C\0E\0F\0E\0F\09\08\09\0E\05\06\08\06\05\0C\09\0F\05\0B\06\08\0D\0C\05\0C\0D\0E\0B\08\05\06", align 16
@@ -27,42 +25,42 @@ target triple = "x86_64-pc-linux-gnu"
 @PADDING = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD128Init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr readnone captures(none) %1) #0 {
+define dso_local void @PHP_RIPEMD128Init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
-  store i32 1732584193, ptr %0, align 4
+  store i32 0, ptr %4, align 4, !tbaa !4
+  store i32 0, ptr %3, align 4, !tbaa !4
+  store i32 1732584193, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %5, align 4
+  store i32 -271733879, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %6, align 4
+  store i32 -1732584194, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %7, align 4
+  store i32 271733878, ptr %7, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
+define dso_local void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = trunc i64 %2 to i32
   %8 = shl i32 %7, 3
   %9 = add i32 %4, %8
-  store i32 %9, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !4
   %10 = icmp ult i32 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = zext i1 %10 to i32
   %14 = add i32 %12, %13
   %15 = lshr i64 %2, 29
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = add i32 %14, %16
-  store i32 %18, ptr %17, align 4
+  store i32 %18, ptr %17, align 4, !tbaa !4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ult i64 %2, %20
@@ -80,7 +78,7 @@ define void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.031
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.031
   tail call fastcc void @RIPEMD128Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
@@ -96,48 +94,49 @@ define void @PHP_RIPEMD128Update(ptr noundef captures(none) %0, ptr noundef read
   %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.028
-  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %36 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
+define dso_local void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1
+  store i8 %6, ptr %3, align 1, !tbaa !8
   %7 = lshr i32 %5, 8
   %8 = trunc i32 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1
+  store i8 %8, ptr %9, align 1, !tbaa !8
   %10 = lshr i32 %5, 16
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1
+  store i8 %11, ptr %12, align 1, !tbaa !8
   %13 = lshr i32 %5, 24
   %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1
+  store i8 %14, ptr %15, align 1, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i32 %17, 8
   %21 = trunc i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1
+  store i8 %21, ptr %22, align 1, !tbaa !8
   %23 = lshr i32 %17, 16
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i32 %17, 24
   %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -146,13 +145,13 @@ define void @PHP_RIPEMD128Final(ptr noundef writeonly captures(none) %0, ptr nou
   %33 = zext i32 %32 to i64
   %34 = shl nsw i32 %32, 3
   %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4
+  store i32 %35, ptr %4, align 4, !tbaa !4
   %36 = icmp ult i32 %35, %34
   %37 = zext i1 %36 to i32
   %38 = lshr i32 %32, 29
   %39 = add i32 %38, %17
   %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4
+  store i32 %40, ptr %16, align 4, !tbaa !4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
@@ -186,19 +185,19 @@ PHP_RIPEMD128Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4
+  %59 = load i32, ptr %4, align 4, !tbaa !4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
   %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4
+  store i32 %62, ptr %4, align 4, !tbaa !4
   %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4
+  %64 = load i32, ptr %16, align 4, !tbaa !4
   %65 = zext i1 %63 to i32
   %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4
+  store i32 %66, ptr %16, align 4, !tbaa !4
   %.not.i17 = icmp samesign ult i32 %61, 56
   br i1 %.not.i17, label %72, label %67
 
@@ -228,35 +227,36 @@ PHP_RIPEMD128Update.exit22:                       ; preds = %72, %67
   %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %77 ]
   %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = lshr i32 %79, 24
   %81 = trunc nuw i32 %80 to i8
   %82 = or disjoint i64 %indvars.iv.i, 3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
-  store i8 %81, ptr %83, align 1
-  %84 = load i32, ptr %78, align 4
+  store i8 %81, ptr %83, align 1, !tbaa !8
+  %84 = load i32, ptr %78, align 4, !tbaa !4
   %85 = lshr i32 %84, 16
   %86 = trunc i32 %85 to i8
   %87 = or disjoint i64 %indvars.iv.i, 2
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 %87
-  store i8 %86, ptr %88, align 1
-  %89 = load i32, ptr %78, align 4
+  store i8 %86, ptr %88, align 1, !tbaa !8
+  %89 = load i32, ptr %78, align 4, !tbaa !4
   %90 = lshr i32 %89, 8
   %91 = trunc i32 %90 to i8
   %92 = or disjoint i64 %indvars.iv.i, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %92
-  store i8 %91, ptr %93, align 1
-  %94 = load i32, ptr %78, align 4
+  store i8 %91, ptr %93, align 1, !tbaa !8
+  %94 = load i32, ptr %78, align 4, !tbaa !4
   %95 = trunc i32 %94 to i8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %95, ptr %96, align 1
+  store i8 %95, ptr %96, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 4
   br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
 RIPEMDEncode.exit:                                ; preds = %77
-  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #6
+  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
@@ -267,44 +267,44 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD160Init(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr readnone captures(none) %1) #0 {
+define dso_local void @PHP_RIPEMD160Init(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
-  store i32 1732584193, ptr %0, align 4
+  store i32 0, ptr %4, align 4, !tbaa !4
+  store i32 0, ptr %3, align 4, !tbaa !4
+  store i32 1732584193, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %5, align 4
+  store i32 -271733879, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %6, align 4
+  store i32 -1732584194, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %7, align 4
+  store i32 271733878, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %8, align 4
+  store i32 -1009589776, ptr %8, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
+define dso_local void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = trunc i64 %2 to i32
   %8 = shl i32 %7, 3
   %9 = add i32 %4, %8
-  store i32 %9, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !4
   %10 = icmp ult i32 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = zext i1 %10 to i32
   %14 = add i32 %12, %13
   %15 = lshr i64 %2, 29
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = add i32 %14, %16
-  store i32 %18, ptr %17, align 4
+  store i32 %18, ptr %17, align 4, !tbaa !4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ult i64 %2, %20
@@ -322,7 +322,7 @@ define void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.031
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.031
   tail call fastcc void @RIPEMD160Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
@@ -338,48 +338,49 @@ define void @PHP_RIPEMD160Update(ptr noundef captures(none) %0, ptr noundef read
   %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.028
-  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %36 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
+define dso_local void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1
+  store i8 %6, ptr %3, align 1, !tbaa !8
   %7 = lshr i32 %5, 8
   %8 = trunc i32 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1
+  store i8 %8, ptr %9, align 1, !tbaa !8
   %10 = lshr i32 %5, 16
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1
+  store i8 %11, ptr %12, align 1, !tbaa !8
   %13 = lshr i32 %5, 24
   %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1
+  store i8 %14, ptr %15, align 1, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i32 %17, 8
   %21 = trunc i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1
+  store i8 %21, ptr %22, align 1, !tbaa !8
   %23 = lshr i32 %17, 16
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i32 %17, 24
   %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -388,13 +389,13 @@ define void @PHP_RIPEMD160Final(ptr noundef writeonly captures(none) %0, ptr nou
   %33 = zext i32 %32 to i64
   %34 = shl nsw i32 %32, 3
   %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4
+  store i32 %35, ptr %4, align 4, !tbaa !4
   %36 = icmp ult i32 %35, %34
   %37 = zext i1 %36 to i32
   %38 = lshr i32 %32, 29
   %39 = add i32 %38, %17
   %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4
+  store i32 %40, ptr %16, align 4, !tbaa !4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
@@ -428,19 +429,19 @@ PHP_RIPEMD160Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4
+  %59 = load i32, ptr %4, align 4, !tbaa !4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
   %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4
+  store i32 %62, ptr %4, align 4, !tbaa !4
   %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4
+  %64 = load i32, ptr %16, align 4, !tbaa !4
   %65 = zext i1 %63 to i32
   %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4
+  store i32 %66, ptr %16, align 4, !tbaa !4
   %.not.i17 = icmp samesign ult i32 %61, 56
   br i1 %.not.i17, label %72, label %67
 
@@ -470,83 +471,84 @@ PHP_RIPEMD160Update.exit22:                       ; preds = %72, %67
   %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %77 ]
   %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = lshr i32 %79, 24
   %81 = trunc nuw i32 %80 to i8
   %82 = or disjoint i64 %indvars.iv.i, 3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
-  store i8 %81, ptr %83, align 1
-  %84 = load i32, ptr %78, align 4
+  store i8 %81, ptr %83, align 1, !tbaa !8
+  %84 = load i32, ptr %78, align 4, !tbaa !4
   %85 = lshr i32 %84, 16
   %86 = trunc i32 %85 to i8
   %87 = or disjoint i64 %indvars.iv.i, 2
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 %87
-  store i8 %86, ptr %88, align 1
-  %89 = load i32, ptr %78, align 4
+  store i8 %86, ptr %88, align 1, !tbaa !8
+  %89 = load i32, ptr %78, align 4, !tbaa !4
   %90 = lshr i32 %89, 8
   %91 = trunc i32 %90 to i8
   %92 = or disjoint i64 %indvars.iv.i, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %92
-  store i8 %91, ptr %93, align 1
-  %94 = load i32, ptr %78, align 4
+  store i8 %91, ptr %93, align 1, !tbaa !8
+  %94 = load i32, ptr %78, align 4, !tbaa !4
   %95 = trunc i32 %94 to i8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %95, ptr %96, align 1
+  store i8 %95, ptr %96, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
   br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
 RIPEMDEncode.exit:                                ; preds = %77
-  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #6
+  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD256Init(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr readnone captures(none) %1) #0 {
+define dso_local void @PHP_RIPEMD256Init(ptr noundef writeonly captures(none) initializes((0, 40)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
-  store i32 1732584193, ptr %0, align 4
+  store i32 0, ptr %4, align 4, !tbaa !4
+  store i32 0, ptr %3, align 4, !tbaa !4
+  store i32 1732584193, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %5, align 4
+  store i32 -271733879, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %6, align 4
+  store i32 -1732584194, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %7, align 4
+  store i32 271733878, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1985229328, ptr %8, align 4
+  store i32 1985229328, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 -19088744, ptr %9, align 4
+  store i32 -19088744, ptr %9, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -1985229329, ptr %10, align 4
+  store i32 -1985229329, ptr %10, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19088743, ptr %11, align 4
+  store i32 19088743, ptr %11, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
+define dso_local void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = trunc i64 %2 to i32
   %8 = shl i32 %7, 3
   %9 = add i32 %4, %8
-  store i32 %9, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !4
   %10 = icmp ult i32 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = zext i1 %10 to i32
   %14 = add i32 %12, %13
   %15 = lshr i64 %2, 29
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %18 = add i32 %14, %16
-  store i32 %18, ptr %17, align 4
+  store i32 %18, ptr %17, align 4, !tbaa !4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ult i64 %2, %20
@@ -564,7 +566,7 @@ define void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.031
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.031
   tail call fastcc void @RIPEMD256Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
@@ -580,48 +582,49 @@ define void @PHP_RIPEMD256Update(ptr noundef captures(none) %0, ptr noundef read
   %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.028
-  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %36 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
+define dso_local void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1
+  store i8 %6, ptr %3, align 1, !tbaa !8
   %7 = lshr i32 %5, 8
   %8 = trunc i32 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1
+  store i8 %8, ptr %9, align 1, !tbaa !8
   %10 = lshr i32 %5, 16
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1
+  store i8 %11, ptr %12, align 1, !tbaa !8
   %13 = lshr i32 %5, 24
   %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1
+  store i8 %14, ptr %15, align 1, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i32 %17, 8
   %21 = trunc i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1
+  store i8 %21, ptr %22, align 1, !tbaa !8
   %23 = lshr i32 %17, 16
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i32 %17, 24
   %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -630,13 +633,13 @@ define void @PHP_RIPEMD256Final(ptr noundef writeonly captures(none) %0, ptr nou
   %33 = zext i32 %32 to i64
   %34 = shl nsw i32 %32, 3
   %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4
+  store i32 %35, ptr %4, align 4, !tbaa !4
   %36 = icmp ult i32 %35, %34
   %37 = zext i1 %36 to i32
   %38 = lshr i32 %32, 29
   %39 = add i32 %38, %17
   %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4
+  store i32 %40, ptr %16, align 4, !tbaa !4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
@@ -670,19 +673,19 @@ PHP_RIPEMD256Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4
+  %59 = load i32, ptr %4, align 4, !tbaa !4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
   %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4
+  store i32 %62, ptr %4, align 4, !tbaa !4
   %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4
+  %64 = load i32, ptr %16, align 4, !tbaa !4
   %65 = zext i1 %63 to i32
   %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4
+  store i32 %66, ptr %16, align 4, !tbaa !4
   %.not.i17 = icmp samesign ult i32 %61, 56
   br i1 %.not.i17, label %72, label %67
 
@@ -712,87 +715,88 @@ PHP_RIPEMD256Update.exit22:                       ; preds = %72, %67
   %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %77 ]
   %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = lshr i32 %79, 24
   %81 = trunc nuw i32 %80 to i8
   %82 = or disjoint i64 %indvars.iv.i, 3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
-  store i8 %81, ptr %83, align 1
-  %84 = load i32, ptr %78, align 4
+  store i8 %81, ptr %83, align 1, !tbaa !8
+  %84 = load i32, ptr %78, align 4, !tbaa !4
   %85 = lshr i32 %84, 16
   %86 = trunc i32 %85 to i8
   %87 = or disjoint i64 %indvars.iv.i, 2
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 %87
-  store i8 %86, ptr %88, align 1
-  %89 = load i32, ptr %78, align 4
+  store i8 %86, ptr %88, align 1, !tbaa !8
+  %89 = load i32, ptr %78, align 4, !tbaa !4
   %90 = lshr i32 %89, 8
   %91 = trunc i32 %90 to i8
   %92 = or disjoint i64 %indvars.iv.i, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %92
-  store i8 %91, ptr %93, align 1
-  %94 = load i32, ptr %78, align 4
+  store i8 %91, ptr %93, align 1, !tbaa !8
+  %94 = load i32, ptr %78, align 4, !tbaa !4
   %95 = trunc i32 %94 to i8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %95, ptr %96, align 1
+  store i8 %95, ptr %96, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
   br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
 RIPEMDEncode.exit:                                ; preds = %77
-  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #6
+  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD320Init(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr readnone captures(none) %1) #0 {
+define dso_local void @PHP_RIPEMD320Init(ptr noundef writeonly captures(none) initializes((0, 48)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %3, align 4
-  store i32 1732584193, ptr %0, align 4
+  store i32 0, ptr %4, align 4, !tbaa !4
+  store i32 0, ptr %3, align 4, !tbaa !4
+  store i32 1732584193, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %5, align 4
+  store i32 -271733879, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %6, align 4
+  store i32 -1732584194, ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %7, align 4
+  store i32 271733878, ptr %7, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1009589776, ptr %8, align 4
+  store i32 -1009589776, ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 1985229328, ptr %9, align 4
+  store i32 1985229328, ptr %9, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 -19088744, ptr %10, align 4
+  store i32 -19088744, ptr %10, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 -1985229329, ptr %11, align 4
+  store i32 -1985229329, ptr %11, align 4, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 19088743, ptr %12, align 4
+  store i32 19088743, ptr %12, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 1009589775, ptr %13, align 4
+  store i32 1009589775, ptr %13, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
+define dso_local void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 63
   %7 = trunc i64 %2 to i32
   %8 = shl i32 %7, 3
   %9 = add i32 %4, %8
-  store i32 %9, ptr %3, align 4
+  store i32 %9, ptr %3, align 4, !tbaa !4
   %10 = icmp ult i32 %9, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = zext i1 %10 to i32
   %14 = add i32 %12, %13
   %15 = lshr i64 %2, 29
   %16 = trunc i64 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = add i32 %14, %16
-  store i32 %18, ptr %17, align 4
+  store i32 %18, ptr %17, align 4, !tbaa !4
   %19 = sub nuw nsw i32 64, %6
   %20 = zext nneg i32 %19 to i64
   %.not = icmp ult i64 %2, %20
@@ -810,7 +814,7 @@ define void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr noundef read
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.031 = phi i64 [ %28, %.lr.ph ], [ %20, %21 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.031
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.031
   tail call fastcc void @RIPEMD320Transform(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %28 = add i64 %.031, 64
   %29 = add i64 %.031, 127
@@ -826,48 +830,49 @@ define void @PHP_RIPEMD320Update(ptr noundef captures(none) %0, ptr noundef read
   %.1 = phi i64 [ 0, %31 ], [ %20, %21 ], [ %28, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = getelementptr inbounds nuw [64 x i8], ptr %33, i64 0, i64 %.028
-  %35 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %36 = sub i64 %2, %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %35, i64 %36, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
+define dso_local void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [8 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = trunc i32 %5 to i8
-  store i8 %6, ptr %3, align 1
+  store i8 %6, ptr %3, align 1, !tbaa !8
   %7 = lshr i32 %5, 8
   %8 = trunc i32 %7 to i8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 %8, ptr %9, align 1
+  store i8 %8, ptr %9, align 1, !tbaa !8
   %10 = lshr i32 %5, 16
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i8 %11, ptr %12, align 1
+  store i8 %11, ptr %12, align 1, !tbaa !8
   %13 = lshr i32 %5, 24
   %14 = trunc nuw i32 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  store i8 %14, ptr %15, align 1
+  store i8 %14, ptr %15, align 1, !tbaa !8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i8 %18, ptr %19, align 1
+  store i8 %18, ptr %19, align 1, !tbaa !8
   %20 = lshr i32 %17, 8
   %21 = trunc i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  store i8 %21, ptr %22, align 1
+  store i8 %21, ptr %22, align 1, !tbaa !8
   %23 = lshr i32 %17, 16
   %24 = trunc i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %24, ptr %25, align 1
+  store i8 %24, ptr %25, align 1, !tbaa !8
   %26 = lshr i32 %17, 24
   %27 = trunc nuw i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  store i8 %27, ptr %28, align 1
+  store i8 %27, ptr %28, align 1, !tbaa !8
   %29 = lshr i32 %5, 3
   %30 = and i32 %29, 63
   %31 = icmp samesign ult i32 %30, 56
@@ -876,13 +881,13 @@ define void @PHP_RIPEMD320Final(ptr noundef writeonly captures(none) %0, ptr nou
   %33 = zext i32 %32 to i64
   %34 = shl nsw i32 %32, 3
   %35 = add i32 %34, %5
-  store i32 %35, ptr %4, align 4
+  store i32 %35, ptr %4, align 4, !tbaa !4
   %36 = icmp ult i32 %35, %34
   %37 = zext i1 %36 to i32
   %38 = lshr i32 %32, 29
   %39 = add i32 %38, %17
   %40 = add i32 %39, %37
-  store i32 %40, ptr %16, align 4
+  store i32 %40, ptr %16, align 4, !tbaa !4
   %41 = sub nuw nsw i32 64, %30
   %.not.i = icmp ult i32 %32, %41
   br i1 %.not.i, label %53, label %42
@@ -916,19 +921,19 @@ PHP_RIPEMD320Update.exit:                         ; preds = %.lr.ph.i, %42, %53
   %.1.i = phi i64 [ 0, %53 ], [ %43, %42 ], [ %50, %.lr.ph.i ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 0, i64 %.028.i
-  %57 = getelementptr inbounds i8, ptr @PADDING, i64 %.1.i
+  %57 = getelementptr inbounds nuw i8, ptr @PADDING, i64 %.1.i
   %58 = sub i64 %33, %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %57, i64 %58, i1 false)
-  %59 = load i32, ptr %4, align 4
+  %59 = load i32, ptr %4, align 4, !tbaa !4
   %60 = lshr i32 %59, 3
   %61 = and i32 %60, 63
   %62 = add i32 %59, 64
-  store i32 %62, ptr %4, align 4
+  store i32 %62, ptr %4, align 4, !tbaa !4
   %63 = icmp ugt i32 %59, -65
-  %64 = load i32, ptr %16, align 4
+  %64 = load i32, ptr %16, align 4, !tbaa !4
   %65 = zext i1 %63 to i32
   %66 = add i32 %64, %65
-  store i32 %66, ptr %16, align 4
+  store i32 %66, ptr %16, align 4, !tbaa !4
   %.not.i17 = icmp samesign ult i32 %61, 56
   br i1 %.not.i17, label %72, label %67
 
@@ -958,79 +963,84 @@ PHP_RIPEMD320Update.exit22:                       ; preds = %72, %67
   %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %77 ]
   %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
-  %79 = load i32, ptr %78, align 4
+  %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = lshr i32 %79, 24
   %81 = trunc nuw i32 %80 to i8
   %82 = or disjoint i64 %indvars.iv.i, 3
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
-  store i8 %81, ptr %83, align 1
-  %84 = load i32, ptr %78, align 4
+  store i8 %81, ptr %83, align 1, !tbaa !8
+  %84 = load i32, ptr %78, align 4, !tbaa !4
   %85 = lshr i32 %84, 16
   %86 = trunc i32 %85 to i8
   %87 = or disjoint i64 %indvars.iv.i, 2
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 %87
-  store i8 %86, ptr %88, align 1
-  %89 = load i32, ptr %78, align 4
+  store i8 %86, ptr %88, align 1, !tbaa !8
+  %89 = load i32, ptr %78, align 4, !tbaa !4
   %90 = lshr i32 %89, 8
   %91 = trunc i32 %90 to i8
   %92 = or disjoint i64 %indvars.iv.i, 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %92
-  store i8 %91, ptr %93, align 1
-  %94 = load i32, ptr %78, align 4
+  store i8 %91, ptr %93, align 1, !tbaa !8
+  %94 = load i32, ptr %78, align 4, !tbaa !4
   %95 = trunc i32 %94 to i8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %95, ptr %96, align 1
+  store i8 %95, ptr %96, align 1, !tbaa !8
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 10
   br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
 RIPEMDEncode.exit:                                ; preds = %77
-  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #6
+  tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD128Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   br label %11
 
 11:                                               ; preds = %11, %2
   %indvars.iv16.i = phi i64 [ 0, %2 ], [ %indvars.iv.next17.i, %11 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %13 = load i8, ptr %12, align 1
+  %13 = load i8, ptr %12, align 1, !tbaa !8
   %14 = zext i8 %13 to i32
   %15 = or disjoint i64 %indvars.iv.i, 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %18, 8
   %20 = or disjoint i32 %19, %14
   %21 = or disjoint i64 %indvars.iv.i, 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
   %26 = or disjoint i32 %20, %25
   %27 = or disjoint i64 %indvars.iv.i, 3
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 1, !tbaa !8
   %30 = zext i8 %29 to i32
   %31 = shl nuw i32 %30, 24
   %32 = or disjoint i32 %26, %31
   %33 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
-  store i32 %32, ptr %33, align 4
+  store i32 %32, ptr %33, align 4, !tbaa !4
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
@@ -1050,13 +1060,13 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %35 = xor i32 %34, %.0201222
   %36 = add i32 %35, %.0213219
   %37 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %38 = load i8, ptr %37, align 1
+  %38 = load i8, ptr %37, align 1, !tbaa !8
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4
+  %41 = load i32, ptr %40, align 4, !tbaa !4
   %42 = add i32 %36, %41
   %43 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %44 = load i8, ptr %43, align 1
+  %44 = load i8, ptr %43, align 1, !tbaa !8
   %45 = zext i8 %44 to i32
   %46 = shl i32 %42, %45
   %47 = sub nsw i32 32, %45
@@ -1067,15 +1077,15 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %52 = and i32 %.0189225, %51
   %53 = or i32 %50, %52
   %54 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1
+  %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4
+  %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = add i32 %.0197223, 1352829926
   %60 = add i32 %59, %53
   %61 = add i32 %60, %58
   %62 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !8
   %64 = zext i8 %63 to i32
   %65 = shl i32 %61, %64
   %66 = sub nsw i32 32, %64
@@ -1101,18 +1111,18 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %72 = or i32 %71, %69
   %73 = add i32 %72, %.1214228
   %74 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv263
-  %75 = load i8, ptr %74, align 1
+  %75 = load i8, ptr %74, align 1, !tbaa !8
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %76
-  %78 = load i32, ptr %77, align 4
+  %78 = load i32, ptr %77, align 4, !tbaa !4
   %79 = add i32 %73, %78
   %80 = lshr i64 %indvars.iv263, 4
   %81 = and i64 %80, 268435455
   %82 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
+  %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = add i32 %79, %83
   %85 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv263
-  %86 = load i8, ptr %85, align 1
+  %86 = load i8, ptr %85, align 1, !tbaa !8
   %87 = zext i8 %86 to i32
   %88 = shl i32 %84, %87
   %89 = sub nsw i32 32, %87
@@ -1123,16 +1133,16 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %94 = xor i32 %93, %.1186235
   %95 = add i32 %94, %.1198232
   %96 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv263
-  %97 = load i8, ptr %96, align 1
+  %97 = load i8, ptr %96, align 1, !tbaa !8
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4
+  %100 = load i32, ptr %99, align 4, !tbaa !4
   %101 = add i32 %95, %100
   %102 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %81
-  %103 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %102, align 4, !tbaa !4
   %104 = add i32 %101, %103
   %105 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv263
-  %106 = load i8, ptr %105, align 1
+  %106 = load i8, ptr %105, align 1, !tbaa !8
   %107 = zext i8 %106 to i32
   %108 = shl i32 %104, %107
   %109 = sub nsw i32 32, %107
@@ -1157,18 +1167,18 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %114 = xor i32 %113, %.2203240
   %115 = add i32 %114, %.2215237
   %116 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv267
-  %117 = load i8, ptr %116, align 1
+  %117 = load i8, ptr %116, align 1, !tbaa !8
   %118 = zext i8 %117 to i64
   %119 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %118
-  %120 = load i32, ptr %119, align 4
+  %120 = load i32, ptr %119, align 4, !tbaa !4
   %121 = add i32 %115, %120
   %122 = lshr i64 %indvars.iv267, 4
   %123 = and i64 %122, 268435455
   %124 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4
+  %125 = load i32, ptr %124, align 4, !tbaa !4
   %126 = add i32 %121, %125
   %127 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv267
-  %128 = load i8, ptr %127, align 1
+  %128 = load i8, ptr %127, align 1, !tbaa !8
   %129 = zext i8 %128 to i32
   %130 = shl i32 %126, %129
   %131 = sub nsw i32 32, %129
@@ -1180,16 +1190,16 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %137 = or i32 %136, %134
   %138 = add i32 %137, %.2199241
   %139 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv267
-  %140 = load i8, ptr %139, align 1
+  %140 = load i8, ptr %139, align 1, !tbaa !8
   %141 = zext i8 %140 to i64
   %142 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
+  %143 = load i32, ptr %142, align 4, !tbaa !4
   %144 = add i32 %138, %143
   %145 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %123
-  %146 = load i32, ptr %145, align 4
+  %146 = load i32, ptr %145, align 4, !tbaa !4
   %147 = add i32 %144, %146
   %148 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv267
-  %149 = load i8, ptr %148, align 1
+  %149 = load i8, ptr %148, align 1, !tbaa !8
   %150 = zext i8 %149 to i32
   %151 = shl i32 %147, %150
   %152 = sub nsw i32 32, %150
@@ -1215,18 +1225,18 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %158 = or i32 %155, %157
   %159 = add i32 %158, %.3216246
   %160 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv271
-  %161 = load i8, ptr %160, align 1
+  %161 = load i8, ptr %160, align 1, !tbaa !8
   %162 = zext i8 %161 to i64
   %163 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %162
-  %164 = load i32, ptr %163, align 4
+  %164 = load i32, ptr %163, align 4, !tbaa !4
   %165 = add i32 %159, %164
   %166 = lshr i64 %indvars.iv271, 4
   %167 = and i64 %166, 268435455
   %168 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %167
-  %169 = load i32, ptr %168, align 4
+  %169 = load i32, ptr %168, align 4, !tbaa !4
   %170 = add i32 %165, %169
   %171 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv271
-  %172 = load i8, ptr %171, align 1
+  %172 = load i8, ptr %171, align 1, !tbaa !8
   %173 = zext i8 %172 to i32
   %174 = shl i32 %170, %173
   %175 = sub nsw i32 32, %173
@@ -1236,16 +1246,16 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %179 = xor i32 %178, %.3188253
   %180 = add i32 %179, %.3200250
   %181 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv271
-  %182 = load i8, ptr %181, align 1
+  %182 = load i8, ptr %181, align 1, !tbaa !8
   %183 = zext i8 %182 to i64
   %184 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %183
-  %185 = load i32, ptr %184, align 4
+  %185 = load i32, ptr %184, align 4, !tbaa !4
   %186 = add i32 %180, %185
   %187 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %167
-  %188 = load i32, ptr %187, align 4
+  %188 = load i32, ptr %187, align 4, !tbaa !4
   %189 = add i32 %186, %188
   %190 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv271
-  %191 = load i8, ptr %190, align 1
+  %191 = load i8, ptr %190, align 1, !tbaa !8
   %192 = zext i8 %191 to i32
   %193 = shl i32 %189, %192
   %194 = sub nsw i32 32, %192
@@ -1260,64 +1270,69 @@ RIPEMDDecode.exit:                                ; preds = %11, %RIPEMDDecode.e
   %199 = add i32 %198, %.3192252
   %200 = add i32 %.3208248, %8
   %201 = add i32 %200, %.3188253
-  store i32 %201, ptr %5, align 4
+  store i32 %201, ptr %5, align 4, !tbaa !4
   %202 = add i32 %.3204249, %10
   %203 = add i32 %202, %196
-  store i32 %203, ptr %7, align 4
+  store i32 %203, ptr %7, align 4, !tbaa !4
   %204 = add i32 %177, %4
   %205 = add i32 %204, %.3196251
-  store i32 %205, ptr %9, align 4
-  store i32 %199, ptr %0, align 4
-  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #6
+  store i32 %205, ptr %9, align 4, !tbaa !4
+  store i32 %199, ptr %0, align 4, !tbaa !4
+  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD256Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   br label %19
 
 19:                                               ; preds = %19, %2
   %indvars.iv16.i = phi i64 [ 0, %2 ], [ %indvars.iv.next17.i, %19 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %19 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %21 = load i8, ptr %20, align 1
+  %21 = load i8, ptr %20, align 1, !tbaa !8
   %22 = zext i8 %21 to i32
   %23 = or disjoint i64 %indvars.iv.i, 1
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
   %28 = or disjoint i32 %27, %22
   %29 = or disjoint i64 %indvars.iv.i, 2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 16
   %34 = or disjoint i32 %28, %33
   %35 = or disjoint i64 %indvars.iv.i, 3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  %37 = load i8, ptr %36, align 1
+  %37 = load i8, ptr %36, align 1, !tbaa !8
   %38 = zext i8 %37 to i32
   %39 = shl nuw i32 %38, 24
   %40 = or disjoint i32 %34, %39
   %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
-  store i32 %40, ptr %41, align 4
+  store i32 %40, ptr %41, align 4, !tbaa !4
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
@@ -1337,13 +1352,13 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %43 = xor i32 %42, %.0212233
   %44 = add i32 %43, %.0224230
   %45 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1
+  %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = zext i8 %46 to i64
   %48 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
+  %49 = load i32, ptr %48, align 4, !tbaa !4
   %50 = add i32 %44, %49
   %51 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %52 = load i8, ptr %51, align 1
+  %52 = load i8, ptr %51, align 1, !tbaa !8
   %53 = zext i8 %52 to i32
   %54 = shl i32 %50, %53
   %55 = sub nsw i32 32, %53
@@ -1354,15 +1369,15 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %60 = and i32 %.0200236, %59
   %61 = or i32 %58, %60
   %62 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !8
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4
+  %66 = load i32, ptr %65, align 4, !tbaa !4
   %67 = add i32 %.0208234, 1352829926
   %68 = add i32 %67, %61
   %69 = add i32 %68, %66
   %70 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %71 = load i8, ptr %70, align 1
+  %71 = load i8, ptr %70, align 1, !tbaa !8
   %72 = zext i8 %71 to i32
   %73 = shl i32 %69, %72
   %74 = sub nsw i32 32, %72
@@ -1388,18 +1403,18 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %80 = or i32 %79, %77
   %81 = add i32 %80, %.1225239
   %82 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv274
-  %83 = load i8, ptr %82, align 1
+  %83 = load i8, ptr %82, align 1, !tbaa !8
   %84 = zext i8 %83 to i64
   %85 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %84
-  %86 = load i32, ptr %85, align 4
+  %86 = load i32, ptr %85, align 4, !tbaa !4
   %87 = add i32 %81, %86
   %88 = lshr i64 %indvars.iv274, 4
   %89 = and i64 %88, 268435455
   %90 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4
+  %91 = load i32, ptr %90, align 4, !tbaa !4
   %92 = add i32 %87, %91
   %93 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv274
-  %94 = load i8, ptr %93, align 1
+  %94 = load i8, ptr %93, align 1, !tbaa !8
   %95 = zext i8 %94 to i32
   %96 = shl i32 %92, %95
   %97 = sub nsw i32 32, %95
@@ -1410,16 +1425,16 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %102 = xor i32 %101, %.1197246
   %103 = add i32 %102, %.1209243
   %104 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv274
-  %105 = load i8, ptr %104, align 1
+  %105 = load i8, ptr %104, align 1, !tbaa !8
   %106 = zext i8 %105 to i64
   %107 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4
+  %108 = load i32, ptr %107, align 4, !tbaa !4
   %109 = add i32 %103, %108
   %110 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %89
-  %111 = load i32, ptr %110, align 4
+  %111 = load i32, ptr %110, align 4, !tbaa !4
   %112 = add i32 %109, %111
   %113 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv274
-  %114 = load i8, ptr %113, align 1
+  %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = zext i8 %114 to i32
   %116 = shl i32 %112, %115
   %117 = sub nsw i32 32, %115
@@ -1444,18 +1459,18 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %122 = xor i32 %121, %.2214251
   %123 = add i32 %122, %.2226248
   %124 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv278
-  %125 = load i8, ptr %124, align 1
+  %125 = load i8, ptr %124, align 1, !tbaa !8
   %126 = zext i8 %125 to i64
   %127 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %126
-  %128 = load i32, ptr %127, align 4
+  %128 = load i32, ptr %127, align 4, !tbaa !4
   %129 = add i32 %123, %128
   %130 = lshr i64 %indvars.iv278, 4
   %131 = and i64 %130, 268435455
   %132 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4
+  %133 = load i32, ptr %132, align 4, !tbaa !4
   %134 = add i32 %129, %133
   %135 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv278
-  %136 = load i8, ptr %135, align 1
+  %136 = load i8, ptr %135, align 1, !tbaa !8
   %137 = zext i8 %136 to i32
   %138 = shl i32 %134, %137
   %139 = sub nsw i32 32, %137
@@ -1467,16 +1482,16 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %145 = or i32 %144, %142
   %146 = add i32 %145, %.2210252
   %147 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv278
-  %148 = load i8, ptr %147, align 1
+  %148 = load i8, ptr %147, align 1, !tbaa !8
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %149
-  %151 = load i32, ptr %150, align 4
+  %151 = load i32, ptr %150, align 4, !tbaa !4
   %152 = add i32 %146, %151
   %153 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %131
-  %154 = load i32, ptr %153, align 4
+  %154 = load i32, ptr %153, align 4, !tbaa !4
   %155 = add i32 %152, %154
   %156 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv278
-  %157 = load i8, ptr %156, align 1
+  %157 = load i8, ptr %156, align 1, !tbaa !8
   %158 = zext i8 %157 to i32
   %159 = shl i32 %155, %158
   %160 = sub nsw i32 32, %158
@@ -1502,18 +1517,18 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %166 = or i32 %163, %165
   %167 = add i32 %166, %.3227257
   %168 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv282
-  %169 = load i8, ptr %168, align 1
+  %169 = load i8, ptr %168, align 1, !tbaa !8
   %170 = zext i8 %169 to i64
   %171 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %170
-  %172 = load i32, ptr %171, align 4
+  %172 = load i32, ptr %171, align 4, !tbaa !4
   %173 = add i32 %167, %172
   %174 = lshr i64 %indvars.iv282, 4
   %175 = and i64 %174, 268435455
   %176 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %175
-  %177 = load i32, ptr %176, align 4
+  %177 = load i32, ptr %176, align 4, !tbaa !4
   %178 = add i32 %173, %177
   %179 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv282
-  %180 = load i8, ptr %179, align 1
+  %180 = load i8, ptr %179, align 1, !tbaa !8
   %181 = zext i8 %180 to i32
   %182 = shl i32 %178, %181
   %183 = sub nsw i32 32, %181
@@ -1523,16 +1538,16 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
   %187 = xor i32 %186, %.3199264
   %188 = add i32 %187, %.3211261
   %189 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv282
-  %190 = load i8, ptr %189, align 1
+  %190 = load i8, ptr %189, align 1, !tbaa !8
   %191 = zext i8 %190 to i64
   %192 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %191
-  %193 = load i32, ptr %192, align 4
+  %193 = load i32, ptr %192, align 4, !tbaa !4
   %194 = add i32 %188, %193
   %195 = getelementptr inbounds nuw [4 x i32], ptr @KK_values, i64 0, i64 %175
-  %196 = load i32, ptr %195, align 4
+  %196 = load i32, ptr %195, align 4, !tbaa !4
   %197 = add i32 %194, %196
   %198 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv282
-  %199 = load i8, ptr %198, align 1
+  %199 = load i8, ptr %198, align 1, !tbaa !8
   %200 = zext i8 %199 to i32
   %201 = shl i32 %197, %200
   %202 = sub nsw i32 32, %200
@@ -1544,65 +1559,67 @@ RIPEMDDecode.exit:                                ; preds = %19, %RIPEMDDecode.e
 
 205:                                              ; preds = %.preheader
   %206 = add i32 %.3215260, %4
-  store i32 %206, ptr %0, align 4
+  store i32 %206, ptr %0, align 4, !tbaa !4
   %207 = add i32 %185, %6
-  store i32 %207, ptr %5, align 4
+  store i32 %207, ptr %5, align 4, !tbaa !4
   %208 = add i32 %.3223258, %8
-  store i32 %208, ptr %7, align 4
+  store i32 %208, ptr %7, align 4, !tbaa !4
   %209 = add i32 %.3203263, %10
-  store i32 %209, ptr %9, align 4
+  store i32 %209, ptr %9, align 4, !tbaa !4
   %210 = add i32 %.3199264, %12
-  store i32 %210, ptr %11, align 4
+  store i32 %210, ptr %11, align 4, !tbaa !4
   %211 = add i32 %204, %14
-  store i32 %211, ptr %13, align 4
+  store i32 %211, ptr %13, align 4, !tbaa !4
   %212 = add i32 %.3207262, %16
-  store i32 %212, ptr %15, align 4
+  store i32 %212, ptr %15, align 4, !tbaa !4
   %213 = add i32 %.3219259, %18
-  store i32 %213, ptr %17, align 4
-  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #6
+  store i32 %213, ptr %17, align 4, !tbaa !4
+  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD160Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   br label %13
 
 13:                                               ; preds = %13, %2
   %indvars.iv16.i = phi i64 [ 0, %2 ], [ %indvars.iv.next17.i, %13 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1
+  %15 = load i8, ptr %14, align 1, !tbaa !8
   %16 = zext i8 %15 to i32
   %17 = or disjoint i64 %indvars.iv.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 8
   %22 = or disjoint i32 %21, %16
   %23 = or disjoint i64 %indvars.iv.i, 2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %23
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 16
   %28 = or disjoint i32 %22, %27
   %29 = or disjoint i64 %indvars.iv.i, 3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
-  %31 = load i8, ptr %30, align 1
+  %31 = load i8, ptr %30, align 1, !tbaa !8
   %32 = zext i8 %31 to i32
   %33 = shl nuw i32 %32, 24
   %34 = or disjoint i32 %28, %33
   %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
-  store i32 %34, ptr %35, align 4
+  store i32 %34, ptr %35, align 4, !tbaa !4
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
@@ -1624,13 +1641,13 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %37 = xor i32 %36, %.0289315
   %38 = add i32 %37, %.0304312
   %39 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %40 = load i8, ptr %39, align 1
+  %40 = load i8, ptr %39, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %41
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = add i32 %38, %43
   %45 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1
+  %46 = load i8, ptr %45, align 1, !tbaa !8
   %47 = zext i8 %46 to i32
   %48 = shl i32 %44, %47
   %49 = sub nsw i32 32, %47
@@ -1642,15 +1659,15 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %55 = or i32 %.0269319, %54
   %56 = xor i32 %55, %.0274318
   %57 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %58 = load i8, ptr %57, align 1
+  %58 = load i8, ptr %57, align 1, !tbaa !8
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4
+  %61 = load i32, ptr %60, align 4, !tbaa !4
   %62 = add i32 %.0279317, 1352829926
   %63 = add i32 %62, %56
   %64 = add i32 %63, %61
   %65 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %66 = load i8, ptr %65, align 1
+  %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = zext i8 %66 to i32
   %68 = shl i32 %64, %67
   %69 = sub nsw i32 32, %67
@@ -1680,18 +1697,18 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %77 = or i32 %76, %74
   %78 = add i32 %77, %.1305323
   %79 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv387
-  %80 = load i8, ptr %79, align 1
+  %80 = load i8, ptr %79, align 1, !tbaa !8
   %81 = zext i8 %80 to i64
   %82 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %81
-  %83 = load i32, ptr %82, align 4
+  %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = add i32 %78, %83
   %85 = lshr i64 %indvars.iv387, 4
   %86 = and i64 %85, 268435455
   %87 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %86
-  %88 = load i32, ptr %87, align 4
+  %88 = load i32, ptr %87, align 4, !tbaa !4
   %89 = add i32 %84, %88
   %90 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv387
-  %91 = load i8, ptr %90, align 1
+  %91 = load i8, ptr %90, align 1, !tbaa !8
   %92 = zext i8 %91 to i32
   %93 = shl i32 %89, %92
   %94 = sub nsw i32 32, %92
@@ -1705,16 +1722,16 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %102 = or i32 %99, %101
   %103 = add i32 %102, %.1280328
   %104 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv387
-  %105 = load i8, ptr %104, align 1
+  %105 = load i8, ptr %104, align 1, !tbaa !8
   %106 = zext i8 %105 to i64
   %107 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4
+  %108 = load i32, ptr %107, align 4, !tbaa !4
   %109 = add i32 %103, %108
   %110 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %86
-  %111 = load i32, ptr %110, align 4
+  %111 = load i32, ptr %110, align 4, !tbaa !4
   %112 = add i32 %109, %111
   %113 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv387
-  %114 = load i8, ptr %113, align 1
+  %114 = load i8, ptr %113, align 1, !tbaa !8
   %115 = zext i8 %114 to i32
   %116 = shl i32 %112, %115
   %117 = sub nsw i32 32, %115
@@ -1743,18 +1760,18 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %124 = xor i32 %123, %.2291337
   %125 = add i32 %124, %.2306334
   %126 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv391
-  %127 = load i8, ptr %126, align 1
+  %127 = load i8, ptr %126, align 1, !tbaa !8
   %128 = zext i8 %127 to i64
   %129 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %128
-  %130 = load i32, ptr %129, align 4
+  %130 = load i32, ptr %129, align 4, !tbaa !4
   %131 = add i32 %125, %130
   %132 = lshr i64 %indvars.iv391, 4
   %133 = and i64 %132, 268435455
   %134 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %133
-  %135 = load i32, ptr %134, align 4
+  %135 = load i32, ptr %134, align 4, !tbaa !4
   %136 = add i32 %131, %135
   %137 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv391
-  %138 = load i8, ptr %137, align 1
+  %138 = load i8, ptr %137, align 1, !tbaa !8
   %139 = zext i8 %138 to i32
   %140 = shl i32 %136, %139
   %141 = sub nsw i32 32, %139
@@ -1767,16 +1784,16 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %148 = xor i32 %147, %.2266342
   %149 = add i32 %148, %.2281339
   %150 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv391
-  %151 = load i8, ptr %150, align 1
+  %151 = load i8, ptr %150, align 1, !tbaa !8
   %152 = zext i8 %151 to i64
   %153 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %152
-  %154 = load i32, ptr %153, align 4
+  %154 = load i32, ptr %153, align 4, !tbaa !4
   %155 = add i32 %149, %154
   %156 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %133
-  %157 = load i32, ptr %156, align 4
+  %157 = load i32, ptr %156, align 4, !tbaa !4
   %158 = add i32 %155, %157
   %159 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv391
-  %160 = load i8, ptr %159, align 1
+  %160 = load i8, ptr %159, align 1, !tbaa !8
   %161 = zext i8 %160 to i32
   %162 = shl i32 %158, %161
   %163 = sub nsw i32 32, %161
@@ -1806,18 +1823,18 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %171 = or i32 %168, %170
   %172 = add i32 %171, %.3307345
   %173 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv395
-  %174 = load i8, ptr %173, align 1
+  %174 = load i8, ptr %173, align 1, !tbaa !8
   %175 = zext i8 %174 to i64
   %176 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %175
-  %177 = load i32, ptr %176, align 4
+  %177 = load i32, ptr %176, align 4, !tbaa !4
   %178 = add i32 %172, %177
   %179 = lshr i64 %indvars.iv395, 4
   %180 = and i64 %179, 268435455
   %181 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %180
-  %182 = load i32, ptr %181, align 4
+  %182 = load i32, ptr %181, align 4, !tbaa !4
   %183 = add i32 %178, %182
   %184 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv395
-  %185 = load i8, ptr %184, align 1
+  %185 = load i8, ptr %184, align 1, !tbaa !8
   %186 = zext i8 %185 to i32
   %187 = shl i32 %183, %186
   %188 = sub nsw i32 32, %186
@@ -1831,16 +1848,16 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %196 = or i32 %195, %193
   %197 = add i32 %196, %.3282350
   %198 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv395
-  %199 = load i8, ptr %198, align 1
+  %199 = load i8, ptr %198, align 1, !tbaa !8
   %200 = zext i8 %199 to i64
   %201 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %200
-  %202 = load i32, ptr %201, align 4
+  %202 = load i32, ptr %201, align 4, !tbaa !4
   %203 = add i32 %197, %202
   %204 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %180
-  %205 = load i32, ptr %204, align 4
+  %205 = load i32, ptr %204, align 4, !tbaa !4
   %206 = add i32 %203, %205
   %207 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv395
-  %208 = load i8, ptr %207, align 1
+  %208 = load i8, ptr %207, align 1, !tbaa !8
   %209 = zext i8 %208 to i32
   %210 = shl i32 %206, %209
   %211 = sub nsw i32 32, %209
@@ -1869,18 +1886,18 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %218 = xor i32 %217, %.4303357
   %219 = add i32 %218, %.4308356
   %220 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv399
-  %221 = load i8, ptr %220, align 1
+  %221 = load i8, ptr %220, align 1, !tbaa !8
   %222 = zext i8 %221 to i64
   %223 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %222
-  %224 = load i32, ptr %223, align 4
+  %224 = load i32, ptr %223, align 4, !tbaa !4
   %225 = add i32 %219, %224
   %226 = lshr i64 %indvars.iv399, 4
   %227 = and i64 %226, 268435455
   %228 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %227
-  %229 = load i32, ptr %228, align 4
+  %229 = load i32, ptr %228, align 4, !tbaa !4
   %230 = add i32 %225, %229
   %231 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv399
-  %232 = load i8, ptr %231, align 1
+  %232 = load i8, ptr %231, align 1, !tbaa !8
   %233 = zext i8 %232 to i32
   %234 = shl i32 %230, %233
   %235 = sub nsw i32 32, %233
@@ -1892,16 +1909,16 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %241 = xor i32 %240, %.4268364
   %242 = add i32 %241, %.4283361
   %243 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv399
-  %244 = load i8, ptr %243, align 1
+  %244 = load i8, ptr %243, align 1, !tbaa !8
   %245 = zext i8 %244 to i64
   %246 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %245
-  %247 = load i32, ptr %246, align 4
+  %247 = load i32, ptr %246, align 4, !tbaa !4
   %248 = add i32 %242, %247
   %249 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %227
-  %250 = load i32, ptr %249, align 4
+  %250 = load i32, ptr %249, align 4, !tbaa !4
   %251 = add i32 %248, %250
   %252 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv399
-  %253 = load i8, ptr %252, align 1
+  %253 = load i8, ptr %252, align 1, !tbaa !8
   %254 = zext i8 %253 to i32
   %255 = shl i32 %251, %254
   %256 = sub nsw i32 32, %254
@@ -1918,71 +1935,73 @@ RIPEMDDecode.exit:                                ; preds = %13, %RIPEMDDecode.e
   %263 = add i32 %262, %260
   %264 = add i32 %239, %8
   %265 = add i32 %264, %.4268364
-  store i32 %265, ptr %5, align 4
+  store i32 %265, ptr %5, align 4, !tbaa !4
   %266 = add i32 %.4293359, %10
   %267 = add i32 %266, %.4263365
-  store i32 %267, ptr %7, align 4
+  store i32 %267, ptr %7, align 4, !tbaa !4
   %268 = add i32 %.4288360, %12
   %269 = add i32 %268, %259
-  store i32 %269, ptr %9, align 4
+  store i32 %269, ptr %9, align 4, !tbaa !4
   %270 = add i32 %238, %4
   %271 = add i32 %270, %.4278362
-  store i32 %271, ptr %11, align 4
-  store i32 %263, ptr %0, align 4
-  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #6
+  store i32 %271, ptr %11, align 4, !tbaa !4
+  store i32 %263, ptr %0, align 4, !tbaa !4
+  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RIPEMD320Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca [16 x i32], align 16
-  %4 = load i32, ptr %0, align 4
+  %4 = load i32, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 4
+  %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
+  %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i32, ptr %11, align 4
+  %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4
+  %14 = load i32, ptr %13, align 4, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i32, ptr %15, align 4
+  %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   br label %23
 
 23:                                               ; preds = %23, %2
   %indvars.iv16.i = phi i64 [ 0, %2 ], [ %indvars.iv.next17.i, %23 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %23 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %25 = load i8, ptr %24, align 1
+  %25 = load i8, ptr %24, align 1, !tbaa !8
   %26 = zext i8 %25 to i32
   %27 = or disjoint i64 %indvars.iv.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
-  %29 = load i8, ptr %28, align 1
+  %29 = load i8, ptr %28, align 1, !tbaa !8
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = or disjoint i32 %31, %26
   %33 = or disjoint i64 %indvars.iv.i, 2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
-  %35 = load i8, ptr %34, align 1
+  %35 = load i8, ptr %34, align 1, !tbaa !8
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 16
   %38 = or disjoint i32 %32, %37
   %39 = or disjoint i64 %indvars.iv.i, 3
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
-  %41 = load i8, ptr %40, align 1
+  %41 = load i8, ptr %40, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = shl nuw i32 %42, 24
   %44 = or disjoint i32 %38, %43
   %45 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
-  store i32 %44, ptr %45, align 4
+  store i32 %44, ptr %45, align 4, !tbaa !4
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next17.i, 16
@@ -2004,13 +2023,13 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %47 = xor i32 %46, %.0303329
   %48 = add i32 %47, %.0318326
   %49 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv
-  %50 = load i8, ptr %49, align 1
+  %50 = load i8, ptr %49, align 1, !tbaa !8
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = add i32 %48, %53
   %55 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv
-  %56 = load i8, ptr %55, align 1
+  %56 = load i8, ptr %55, align 1, !tbaa !8
   %57 = zext i8 %56 to i32
   %58 = shl i32 %54, %57
   %59 = sub nsw i32 32, %57
@@ -2022,15 +2041,15 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %65 = or i32 %.0283333, %64
   %66 = xor i32 %65, %.0288332
   %67 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv
-  %68 = load i8, ptr %67, align 1
+  %68 = load i8, ptr %67, align 1, !tbaa !8
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4
+  %71 = load i32, ptr %70, align 4, !tbaa !4
   %72 = add i32 %.0293331, 1352829926
   %73 = add i32 %72, %66
   %74 = add i32 %73, %71
   %75 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv
-  %76 = load i8, ptr %75, align 1
+  %76 = load i8, ptr %75, align 1, !tbaa !8
   %77 = zext i8 %76 to i32
   %78 = shl i32 %74, %77
   %79 = sub nsw i32 32, %77
@@ -2060,18 +2079,18 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %87 = or i32 %86, %84
   %88 = add i32 %87, %.1319337
   %89 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv401
-  %90 = load i8, ptr %89, align 1
+  %90 = load i8, ptr %89, align 1, !tbaa !8
   %91 = zext i8 %90 to i64
   %92 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %91
-  %93 = load i32, ptr %92, align 4
+  %93 = load i32, ptr %92, align 4, !tbaa !4
   %94 = add i32 %88, %93
   %95 = lshr i64 %indvars.iv401, 4
   %96 = and i64 %95, 268435455
   %97 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %96
-  %98 = load i32, ptr %97, align 4
+  %98 = load i32, ptr %97, align 4, !tbaa !4
   %99 = add i32 %94, %98
   %100 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv401
-  %101 = load i8, ptr %100, align 1
+  %101 = load i8, ptr %100, align 1, !tbaa !8
   %102 = zext i8 %101 to i32
   %103 = shl i32 %99, %102
   %104 = sub nsw i32 32, %102
@@ -2085,16 +2104,16 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %112 = or i32 %109, %111
   %113 = add i32 %112, %.1294342
   %114 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv401
-  %115 = load i8, ptr %114, align 1
+  %115 = load i8, ptr %114, align 1, !tbaa !8
   %116 = zext i8 %115 to i64
   %117 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
+  %118 = load i32, ptr %117, align 4, !tbaa !4
   %119 = add i32 %113, %118
   %120 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %96
-  %121 = load i32, ptr %120, align 4
+  %121 = load i32, ptr %120, align 4, !tbaa !4
   %122 = add i32 %119, %121
   %123 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv401
-  %124 = load i8, ptr %123, align 1
+  %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i32
   %126 = shl i32 %122, %125
   %127 = sub nsw i32 32, %125
@@ -2123,18 +2142,18 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %134 = xor i32 %133, %.2305351
   %135 = add i32 %134, %.2320348
   %136 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv405
-  %137 = load i8, ptr %136, align 1
+  %137 = load i8, ptr %136, align 1, !tbaa !8
   %138 = zext i8 %137 to i64
   %139 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %138
-  %140 = load i32, ptr %139, align 4
+  %140 = load i32, ptr %139, align 4, !tbaa !4
   %141 = add i32 %135, %140
   %142 = lshr i64 %indvars.iv405, 4
   %143 = and i64 %142, 268435455
   %144 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %143
-  %145 = load i32, ptr %144, align 4
+  %145 = load i32, ptr %144, align 4, !tbaa !4
   %146 = add i32 %141, %145
   %147 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv405
-  %148 = load i8, ptr %147, align 1
+  %148 = load i8, ptr %147, align 1, !tbaa !8
   %149 = zext i8 %148 to i32
   %150 = shl i32 %146, %149
   %151 = sub nsw i32 32, %149
@@ -2147,16 +2166,16 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %158 = xor i32 %157, %.2280356
   %159 = add i32 %158, %.2295353
   %160 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv405
-  %161 = load i8, ptr %160, align 1
+  %161 = load i8, ptr %160, align 1, !tbaa !8
   %162 = zext i8 %161 to i64
   %163 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %162
-  %164 = load i32, ptr %163, align 4
+  %164 = load i32, ptr %163, align 4, !tbaa !4
   %165 = add i32 %159, %164
   %166 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %143
-  %167 = load i32, ptr %166, align 4
+  %167 = load i32, ptr %166, align 4, !tbaa !4
   %168 = add i32 %165, %167
   %169 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv405
-  %170 = load i8, ptr %169, align 1
+  %170 = load i8, ptr %169, align 1, !tbaa !8
   %171 = zext i8 %170 to i32
   %172 = shl i32 %168, %171
   %173 = sub nsw i32 32, %171
@@ -2186,18 +2205,18 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %181 = or i32 %178, %180
   %182 = add i32 %181, %.3321359
   %183 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv409
-  %184 = load i8, ptr %183, align 1
+  %184 = load i8, ptr %183, align 1, !tbaa !8
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %185
-  %187 = load i32, ptr %186, align 4
+  %187 = load i32, ptr %186, align 4, !tbaa !4
   %188 = add i32 %182, %187
   %189 = lshr i64 %indvars.iv409, 4
   %190 = and i64 %189, 268435455
   %191 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %190
-  %192 = load i32, ptr %191, align 4
+  %192 = load i32, ptr %191, align 4, !tbaa !4
   %193 = add i32 %188, %192
   %194 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv409
-  %195 = load i8, ptr %194, align 1
+  %195 = load i8, ptr %194, align 1, !tbaa !8
   %196 = zext i8 %195 to i32
   %197 = shl i32 %193, %196
   %198 = sub nsw i32 32, %196
@@ -2211,16 +2230,16 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %206 = or i32 %205, %203
   %207 = add i32 %206, %.3296364
   %208 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv409
-  %209 = load i8, ptr %208, align 1
+  %209 = load i8, ptr %208, align 1, !tbaa !8
   %210 = zext i8 %209 to i64
   %211 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %210
-  %212 = load i32, ptr %211, align 4
+  %212 = load i32, ptr %211, align 4, !tbaa !4
   %213 = add i32 %207, %212
   %214 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %190
-  %215 = load i32, ptr %214, align 4
+  %215 = load i32, ptr %214, align 4, !tbaa !4
   %216 = add i32 %213, %215
   %217 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv409
-  %218 = load i8, ptr %217, align 1
+  %218 = load i8, ptr %217, align 1, !tbaa !8
   %219 = zext i8 %218 to i32
   %220 = shl i32 %216, %219
   %221 = sub nsw i32 32, %219
@@ -2249,18 +2268,18 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %228 = xor i32 %227, %.4317371
   %229 = add i32 %228, %.4322370
   %230 = getelementptr inbounds nuw [80 x i8], ptr @R, i64 0, i64 %indvars.iv413
-  %231 = load i8, ptr %230, align 1
+  %231 = load i8, ptr %230, align 1, !tbaa !8
   %232 = zext i8 %231 to i64
   %233 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %232
-  %234 = load i32, ptr %233, align 4
+  %234 = load i32, ptr %233, align 4, !tbaa !4
   %235 = add i32 %229, %234
   %236 = lshr i64 %indvars.iv413, 4
   %237 = and i64 %236, 268435455
   %238 = getelementptr inbounds nuw [5 x i32], ptr @K_values, i64 0, i64 %237
-  %239 = load i32, ptr %238, align 4
+  %239 = load i32, ptr %238, align 4, !tbaa !4
   %240 = add i32 %235, %239
   %241 = getelementptr inbounds nuw [80 x i8], ptr @S, i64 0, i64 %indvars.iv413
-  %242 = load i8, ptr %241, align 1
+  %242 = load i8, ptr %241, align 1, !tbaa !8
   %243 = zext i8 %242 to i32
   %244 = shl i32 %240, %243
   %245 = sub nsw i32 32, %243
@@ -2272,16 +2291,16 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
   %251 = xor i32 %250, %.4282378
   %252 = add i32 %251, %.4297375
   %253 = getelementptr inbounds nuw [80 x i8], ptr @RR, i64 0, i64 %indvars.iv413
-  %254 = load i8, ptr %253, align 1
+  %254 = load i8, ptr %253, align 1, !tbaa !8
   %255 = zext i8 %254 to i64
   %256 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %255
-  %257 = load i32, ptr %256, align 4
+  %257 = load i32, ptr %256, align 4, !tbaa !4
   %258 = add i32 %252, %257
   %259 = getelementptr inbounds nuw [5 x i32], ptr @KK160_values, i64 0, i64 %237
-  %260 = load i32, ptr %259, align 4
+  %260 = load i32, ptr %259, align 4, !tbaa !4
   %261 = add i32 %258, %260
   %262 = getelementptr inbounds nuw [80 x i8], ptr @SS, i64 0, i64 %indvars.iv413
-  %263 = load i8, ptr %262, align 1
+  %263 = load i8, ptr %262, align 1, !tbaa !8
   %264 = zext i8 %263 to i32
   %265 = shl i32 %261, %264
   %266 = sub nsw i32 32, %264
@@ -2295,46 +2314,53 @@ RIPEMDDecode.exit:                                ; preds = %23, %RIPEMDDecode.e
 
 271:                                              ; preds = %.preheader
   %272 = add i32 %.4302374, %4
-  store i32 %272, ptr %0, align 4
+  store i32 %272, ptr %0, align 4, !tbaa !4
   %273 = add i32 %248, %6
-  store i32 %273, ptr %5, align 4
+  store i32 %273, ptr %5, align 4, !tbaa !4
   %274 = add i32 %.4317371, %8
-  store i32 %274, ptr %7, align 4
+  store i32 %274, ptr %7, align 4, !tbaa !4
   %275 = add i32 %249, %10
-  store i32 %275, ptr %9, align 4
+  store i32 %275, ptr %9, align 4, !tbaa !4
   %276 = add i32 %.4282378, %12
-  store i32 %276, ptr %11, align 4
+  store i32 %276, ptr %11, align 4, !tbaa !4
   %277 = add i32 %.4277379, %14
-  store i32 %277, ptr %13, align 4
+  store i32 %277, ptr %13, align 4, !tbaa !4
   %278 = add i32 %269, %16
-  store i32 %278, ptr %15, align 4
+  store i32 %278, ptr %15, align 4, !tbaa !4
   %279 = add i32 %.4292376, %18
-  store i32 %279, ptr %17, align 4
+  store i32 %279, ptr %17, align 4, !tbaa !4
   %280 = add i32 %270, %20
-  store i32 %280, ptr %19, align 4
+  store i32 %280, ptr %19, align 4, !tbaa !4
   %281 = add i32 %.4307373, %22
-  store i32 %281, ptr %21, align 4
-  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #6
+  store i32 %281, ptr %21, align 4, !tbaa !4
+  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 64) #7
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}

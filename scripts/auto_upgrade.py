@@ -47,6 +47,7 @@ supported_project = [
     "openblas",
     "openssl",
     "osqp",
+    "php",
 ]
 
 modify_only = [
@@ -59,6 +60,7 @@ modify_only = [
     "openmpi",
     "oniguruma",
     "openblas",
+    "php",
 ]
 
 

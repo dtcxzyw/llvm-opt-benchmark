@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i32, ptr @_pcre2_utf8_table1_size, align 4
+  %3 = load i32, ptr @_pcre2_utf8_table1_size, align 4, !tbaa !4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge26
 
@@ -20,7 +20,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
   %5 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_utf8_table1, i64 0, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4
+  %6 = load i32, ptr %5, align 4, !tbaa !4
   %.not = icmp sgt i32 %0, %6
   br i1 %.not, label %7, label %._crit_edge.split.loop.exit34
 
@@ -48,7 +48,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
   %15 = getelementptr inbounds i8, ptr %.01622, i64 -1
-  store i8 %14, ptr %.01622, align 1
+  store i8 %14, ptr %.01622, align 1, !tbaa !8
   %16 = lshr i32 %.01721, 6
   %17 = add nsw i32 %.023, -1
   %18 = icmp samesign ugt i32 %.023, 1
@@ -60,19 +60,24 @@ define hidden range(i32 -2147483647, -2147483648) i32 @_pcre2_ord2utf_8(i32 noun
   %.017.lcssa = phi i32 [ %0, %._crit_edge ], [ %0, %2 ], [ %16, %.lr.ph25 ]
   %.016.lcssa = phi ptr [ %10, %._crit_edge ], [ %1, %2 ], [ %15, %.lr.ph25 ]
   %20 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_utf8_table2, i64 0, i64 %19
-  %21 = load i32, ptr %20, align 4
+  %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = or i32 %21, %.017.lcssa
   %23 = trunc i32 %22 to i8
-  store i8 %23, ptr %.016.lcssa, align 1
+  store i8 %23, ptr %.016.lcssa, align 1, !tbaa !8
   %24 = add nuw nsw i32 %.015.lcssa32, 1
   ret i32 %24
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!6, !6, i64 0}

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._zend_blacklist = type { ptr, i32, i32, ptr }
-%struct._zend_pcre_globals = type { %struct._zend_array, i64, i64, i8, i8, i32, %struct._zval_struct, %struct._zval_struct, ptr }
+%struct._zend_pcre_globals = type { %struct._zend_array, i64, i64, i8, i32, %struct._zval_struct, %struct._zval_struct, ptr }
 %struct._zend_array = type { %struct._zend_refcounted_h, %union.anon.0, i32, %union.anon.1, i32, i32, i32, i32, i64, ptr }
 %struct._zend_refcounted_h = type { i32, %union.anon }
 %union.anon = type { i32 }
@@ -32,36 +32,36 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_accel_blacklist_init(ptr noundef captures(none) initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %2, align 4
+  store i32 0, ptr %2, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 32, ptr %3, align 8
-  %4 = load ptr, ptr %0, align 8
+  store i32 32, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %zend_accel_blacklist_shutdown.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %1
   tail call void @free(ptr noundef nonnull %4) #13
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
   %.not20.i = icmp eq ptr %6, null
   br i1 %.not20.i, label %zend_accel_blacklist_shutdown.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.i
   %.023.i = phi ptr [ %9, %.preheader.i ], [ %6, %._crit_edge.i ]
-  %7 = load ptr, ptr %.023.i, align 8
+  %7 = load ptr, ptr %.023.i, align 8, !tbaa !15
   tail call void @php_pcre2_code_free(ptr noundef %7) #13
   %8 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   tail call void @free(ptr noundef nonnull %.023.i) #13
   %.not21.i = icmp eq ptr %9, null
   br i1 %.not21.i, label %zend_accel_blacklist_shutdown.exit, label %.preheader.i
 
 zend_accel_blacklist_shutdown.exit:               ; preds = %.preheader.i, %._crit_edge.i, %1
-  %10 = load i32, ptr %3, align 8
+  %10 = load i32, ptr %3, align 8, !tbaa !12
   %11 = sext i32 %10 to i64
-  %12 = tail call noalias ptr @calloc(i64 noundef 16, i64 noundef %11) #14
-  store ptr %12, ptr %0, align 8
+  %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 16) #14
+  store ptr %12, ptr %0, align 8, !tbaa !13
   %.not8 = icmp eq ptr %12, null
   br i1 %.not8, label %13, label %14
 
@@ -71,19 +71,19 @@ zend_accel_blacklist_shutdown.exit:               ; preds = %.preheader.i, %._cr
 
 14:                                               ; preds = %zend_accel_blacklist_shutdown.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %15, align 8
+  store ptr null, ptr %15, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_accel_blacklist_shutdown(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %2, i64 %6
   %8 = icmp sgt i32 %5, 0
@@ -91,36 +91,36 @@ define hidden void @zend_accel_blacklist_shutdown(ptr noundef captures(none) %0)
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.01722 = phi ptr [ %10, %.lr.ph ], [ %2, %3 ]
-  %9 = load ptr, ptr %.01722, align 8
+  %9 = load ptr, ptr %.01722, align 8, !tbaa !19
   tail call void @free(ptr noundef %9) #13
   %10 = getelementptr inbounds nuw i8, ptr %.01722, i64 16
   %11 = icmp ult ptr %10, %7
   br i1 %11, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %0, align 8
+  %.pre = load ptr, ptr %0, align 8, !tbaa !13
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %12 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %2, %3 ]
   tail call void @free(ptr noundef %12) #13
-  store ptr null, ptr %0, align 8
+  store ptr null, ptr %0, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
   %.023 = phi ptr [ %17, %.preheader ], [ %14, %._crit_edge ]
-  %15 = load ptr, ptr %.023, align 8
+  %15 = load ptr, ptr %.023, align 8, !tbaa !15
   tail call void @php_pcre2_code_free(ptr noundef %15) #13
   %16 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   tail call void @free(ptr noundef nonnull %.023) #13
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %1, %._crit_edge
+.loopexit:                                        ; preds = %.preheader, %._crit_edge, %1
   ret void
 }
 
@@ -130,10 +130,16 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: noreturn
 declare void @zend_accel_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare void @php_pcre2_code_free(ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+
+declare void @php_pcre2_code_free(ptr noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -144,6 +150,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %7 = alloca [4097 x i8], align 16
   %8 = alloca [4097 x i8], align 16
   %9 = alloca %struct.glob_t, align 8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false)
   %10 = call i32 @glob(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %9) #13
   %11 = icmp ne i32 %10, 3
@@ -160,16 +167,16 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
 
 17:                                               ; preds = %2
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef %1) #13
-  br label %129
+  br label %116
 
 18:                                               ; preds = %.lr.ph, %zend_accel_blacklist_loadone.exit
-  %19 = phi i64 [ 0, %.lr.ph ], [ %126, %zend_accel_blacklist_loadone.exit ]
-  %.020 = phi i32 [ 0, %.lr.ph ], [ %125, %zend_accel_blacklist_loadone.exit ]
-  %20 = load ptr, ptr %14, align 8
+  %19 = phi i64 [ 0, %.lr.ph ], [ %113, %zend_accel_blacklist_loadone.exit ]
+  %.020 = phi i32 [ 0, %.lr.ph ], [ %112, %zend_accel_blacklist_loadone.exit ]
+  %20 = load ptr, ptr %14, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
-  %22 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %8)
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
+  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %8) #13
   %23 = call noalias ptr @fopen(ptr noundef %22, ptr noundef nonnull @.str.2)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -205,7 +212,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %.not62.i = icmp eq ptr %.049.i, null
   br label %35
 
-35:                                               ; preds = %.backedge.i, %.lr.ph76.i
+35:                                               ; preds = %108, %.lr.ph76.i
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   %37 = trunc i64 %36 to i32
   %38 = icmp sgt i32 %37, 0
@@ -215,7 +222,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %40 = add i64 %36, 4294967295
   %41 = and i64 %40, 4294967295
   %42 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
+  %43 = load i8, ptr %42, align 1, !tbaa !27
   %44 = icmp eq i8 %43, 10
   br i1 %44, label %45, label %59
 
@@ -223,7 +230,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %46 = add nsw i32 %37, -1
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %47
-  store i8 0, ptr %48, align 1
+  store i8 0, ptr %48, align 1, !tbaa !27
   %.not61.i = icmp eq i32 %37, 1
   br i1 %.not61.i, label %59, label %49
 
@@ -231,7 +238,7 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %50 = add i64 %36, 4294967294
   %51 = and i64 %50, 4294967295
   %52 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
+  %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = icmp eq i8 %53, 13
   br i1 %54, label %55, label %59
 
@@ -239,12 +246,12 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %56 = add nsw i32 %37, -2
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw [4097 x i8], ptr %7, i64 0, i64 %57
-  store i8 0, ptr %58, align 1
+  store i8 0, ptr %58, align 1, !tbaa !27
   br label %59
 
 59:                                               ; preds = %55, %49, %45, %39, %35
   %.051.i = phi i32 [ %56, %55 ], [ %46, %49 ], [ 0, %45 ], [ %37, %39 ], [ %37, %35 ]
-  %60 = load i8, ptr %7, align 16
+  %60 = load i8, ptr %7, align 16, !tbaa !27
   %61 = icmp eq i8 %60, 13
   br i1 %61, label %.lr.ph.i, label %._crit_edge.i
 
@@ -252,9 +259,9 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %.071.i = phi ptr [ %62, %.lr.ph.i ], [ %7, %59 ]
   %.15270.i = phi i32 [ %63, %.lr.ph.i ], [ %.051.i, %59 ]
   %62 = getelementptr inbounds nuw i8, ptr %.071.i, i64 1
-  store i8 0, ptr %.071.i, align 1
+  store i8 0, ptr %.071.i, align 1, !tbaa !27
   %63 = add nsw i32 %.15270.i, -1
-  %64 = load i8, ptr %62, align 1
+  %64 = load i8, ptr %62, align 1, !tbaa !27
   %65 = icmp eq i8 %64, 13
   br i1 %65, label %.lr.ph.i, label %._crit_edge.i
 
@@ -271,13 +278,13 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %69 = zext nneg i32 %.152.lcssa.i to i64
   %70 = getelementptr i8, ptr %.0.lcssa.i, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -1
-  %72 = load i8, ptr %71, align 1
+  %72 = load i8, ptr %71, align 1, !tbaa !27
   %73 = icmp eq i8 %72, 34
   br i1 %73, label %74, label %.thread.thread.i
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 1
-  store i8 0, ptr %.0.lcssa.i, align 1
+  store i8 0, ptr %.0.lcssa.i, align 1, !tbaa !27
   %76 = add nsw i32 %.152.lcssa.i, -2
   br label %77
 
@@ -285,12 +292,12 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %.2.i = phi i32 [ %76, %74 ], [ %.152.lcssa.i, %._crit_edge.i ]
   %.1.i = phi ptr [ %75, %74 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %78 = icmp slt i32 %.2.i, 1
-  br i1 %78, label %.backedge.i, label %.thread.i
+  br i1 %78, label %108, label %.thread.i
 
 .thread.i:                                        ; preds = %77
-  %.pre.i = load i8, ptr %.1.i, align 1
+  %.pre.i = load i8, ptr %.1.i, align 1, !tbaa !27
   %79 = icmp eq i8 %.pre.i, 59
-  br i1 %79, label %.backedge.i, label %.thread.i..thread.thread.i_crit_edge
+  br i1 %79, label %108, label %.thread.i..thread.thread.i_crit_edge
 
 .thread.i..thread.thread.i_crit_edge:             ; preds = %.thread.i
   %.pre = zext nneg i32 %.2.i to i64
@@ -314,20 +321,20 @@ define hidden void @zend_accel_blacklist_load(ptr noundef captures(none) %0, ptr
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   %87 = trunc i64 %86 to i32
   call void @free(ptr noundef %80) #13
-  %88 = load i32, ptr %15, align 4
-  %89 = load i32, ptr %16, align 8
+  %88 = load i32, ptr %15, align 4, !tbaa !4
+  %89 = load i32, ptr %16, align 8, !tbaa !12
   %90 = icmp eq i32 %88, %89
-  %.pre81.i = load ptr, ptr %0, align 8
+  %.pre81.i = load ptr, ptr %0, align 8, !tbaa !13
   br i1 %90, label %91, label %zend_accel_blacklist_allocate.exit.i
 
 91:                                               ; preds = %85
   %92 = add nsw i32 %88, 32
-  store i32 %92, ptr %16, align 8
+  store i32 %92, ptr %16, align 8, !tbaa !12
   %93 = sext i32 %92 to i64
   %94 = shl nsw i64 %93, 4
   %95 = call ptr @realloc(ptr noundef %.pre81.i, i64 noundef %94) #17
-  store ptr %95, ptr %0, align 8
-  %.pre82.i = load i32, ptr %15, align 4
+  store ptr %95, ptr %0, align 8, !tbaa !13
+  %.pre82.i = load i32, ptr %15, align 4, !tbaa !4
   br label %zend_accel_blacklist_allocate.exit.i
 
 zend_accel_blacklist_allocate.exit.i:             ; preds = %91, %85
@@ -335,370 +342,358 @@ zend_accel_blacklist_allocate.exit.i:             ; preds = %91, %85
   %97 = phi ptr [ %.pre81.i, %85 ], [ %95, %91 ]
   %98 = sext i32 %96 to i64
   %99 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98, i32 1
-  store i32 %87, ptr %99, align 8
+  store i32 %87, ptr %99, align 8, !tbaa !28
   %100 = shl i64 %86, 32
   %sext64.i = add i64 %100, 4294967296
   %101 = ashr exact i64 %sext64.i, 32
   %102 = call noalias ptr @malloc(i64 noundef %101) #18
-  %103 = load ptr, ptr %0, align 8
-  %104 = load i32, ptr %15, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %103, i64 %105
-  store ptr %102, ptr %106, align 8
-  %107 = load ptr, ptr %0, align 8
-  %108 = load i32, ptr %15, align 4
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %107, i64 %109
-  %111 = load ptr, ptr %110, align 8
-  %.not65.i = icmp eq ptr %111, null
-  br i1 %.not65.i, label %112, label %113
+  %103 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %97, i64 %98
+  store ptr %102, ptr %103, align 8, !tbaa !19
+  %.not65.i = icmp eq ptr %102, null
+  br i1 %.not65.i, label %104, label %105
 
-112:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
+104:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.5) #15
   unreachable
 
-113:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 12
-  store i32 %108, ptr %114, align 4
-  %115 = load ptr, ptr %0, align 8
-  %116 = load i32, ptr %15, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %115, i64 %117
-  %119 = load ptr, ptr %118, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %119, ptr nonnull align 16 %8, i64 %101, i1 false)
-  %120 = load i32, ptr %15, align 4
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %15, align 4
-  br label %.backedge.i
+105:                                              ; preds = %zend_accel_blacklist_allocate.exit.i
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  store i32 %96, ptr %106, align 4, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr nonnull align 16 %8, i64 %101, i1 false)
+  %107 = add nsw i32 %96, 1
+  store i32 %107, ptr %15, align 4, !tbaa !4
+  br label %108
 
-.backedge.i:                                      ; preds = %113, %.thread.i, %77
-  %122 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %23)
-  %.not59.i = icmp eq ptr %122, null
+108:                                              ; preds = %105, %.thread.i, %77
+  %109 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %23)
+  %.not59.i = icmp eq ptr %109, null
   br i1 %.not59.i, label %._crit_edge77.i, label %35
 
-._crit_edge77.i:                                  ; preds = %.backedge.i, %33
-  %123 = call i32 @fclose(ptr noundef nonnull %23)
+._crit_edge77.i:                                  ; preds = %108, %33
+  %110 = call i32 @fclose(ptr noundef nonnull %23)
   %.not60.i = icmp eq ptr %.049.i, null
-  br i1 %.not60.i, label %zend_accel_blacklist_loadone.exit, label %124
+  br i1 %.not60.i, label %zend_accel_blacklist_loadone.exit, label %111
 
-124:                                              ; preds = %._crit_edge77.i
+111:                                              ; preds = %._crit_edge77.i
   call void @free(ptr noundef nonnull %.049.i) #13
   br label %zend_accel_blacklist_loadone.exit
 
-zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.i, %124
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %8)
-  %125 = add i32 %.020, 1
-  %126 = zext i32 %125 to i64
-  %127 = load i64, ptr %9, align 8
-  %128 = icmp ugt i64 %127, %126
-  br i1 %128, label %18, label %._crit_edge
+zend_accel_blacklist_loadone.exit:                ; preds = %25, %._crit_edge77.i, %111
+  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %7) #13
+  %112 = add i32 %.020, 1
+  %113 = zext i32 %112 to i64
+  %114 = load i64, ptr %9, align 8, !tbaa !30
+  %115 = icmp ugt i64 %114, %113
+  br i1 %115, label %18, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_accel_blacklist_loadone.exit
   call void @globfree(ptr noundef nonnull %9) #13
-  br label %129
+  br label %116
 
-129:                                              ; preds = %._crit_edge, %17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %6)
-  %130 = call ptr @php_pcre_cctx() #13
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %132 = load i32, ptr %131, align 4
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %zend_accel_blacklist_update_regexp.exit, label %134
+116:                                              ; preds = %._crit_edge, %17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 12288, ptr nonnull %6) #13
+  %117 = call ptr @php_pcre_cctx() #13
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %119 = load i32, ptr %118, align 4, !tbaa !4
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %zend_accel_blacklist_update_regexp.exit, label %121
 
-134:                                              ; preds = %129
-  store i8 94, ptr %6, align 16
-  %135 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 40, ptr %135, align 1
-  %136 = icmp sgt i32 %132, 0
-  br i1 %136, label %.lr.ph93.i, label %zend_accel_blacklist_update_regexp.exit
+121:                                              ; preds = %116
+  store i8 94, ptr %6, align 16, !tbaa !27
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 40, ptr %122, align 1, !tbaa !27
+  %123 = icmp sgt i32 %119, 0
+  br i1 %123, label %.lr.ph93.i, label %zend_accel_blacklist_update_regexp.exit
 
-.lr.ph93.i:                                       ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %138 = ptrtoint ptr %6 to i64
-  br label %139
+.lr.ph93.i:                                       ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %125 = ptrtoint ptr %6 to i64
+  br label %126
 
-139:                                              ; preds = %215, %.lr.ph93.i
-  %140 = phi i32 [ %132, %.lr.ph93.i ], [ %216, %215 ]
-  %.092.i = phi i32 [ 0, %.lr.ph93.i ], [ %.2.i12, %215 ]
-  %.05591.i = phi ptr [ null, %.lr.ph93.i ], [ %.156.i, %215 ]
-  %.06090.i = phi ptr [ %137, %.lr.ph93.i ], [ %.161.i, %215 ]
-  %.062.idx89.i = phi i64 [ 2, %.lr.ph93.i ], [ %.6.idx.i, %215 ]
-  %141 = load ptr, ptr %0, align 8
-  %142 = sext i32 %.092.i to i64
-  %143 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %141, i64 %142
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = sext i32 %146 to i64
-  %.062.add.i = add nsw i64 %.062.idx89.i, %147
-  %148 = icmp slt i64 %.062.add.i, 12279
-  %149 = load i8, ptr %144, align 1
-  br i1 %148, label %.preheader.i, label %.loopexit.i
+126:                                              ; preds = %202, %.lr.ph93.i
+  %127 = phi i32 [ %119, %.lr.ph93.i ], [ %203, %202 ]
+  %.092.i = phi i32 [ 0, %.lr.ph93.i ], [ %.2.i12, %202 ]
+  %.05591.i = phi ptr [ null, %.lr.ph93.i ], [ %.156.i, %202 ]
+  %.06090.i = phi ptr [ %124, %.lr.ph93.i ], [ %.161.i, %202 ]
+  %.062.idx89.i = phi i64 [ 2, %.lr.ph93.i ], [ %.6.idx.i, %202 ]
+  %128 = load ptr, ptr %0, align 8, !tbaa !13
+  %129 = sext i32 %.092.i to i64
+  %130 = getelementptr inbounds %struct._zend_blacklist_entry, ptr %128, i64 %129
+  %131 = load ptr, ptr %130, align 8, !tbaa !19
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %133 = load i32, ptr %132, align 8, !tbaa !28
+  %134 = sext i32 %133 to i64
+  %.062.add.i = add nsw i64 %.062.idx89.i, %134
+  %135 = icmp slt i64 %.062.add.i, 12279
+  %136 = load i8, ptr %131, align 1, !tbaa !27
+  br i1 %135, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %139
-  %150 = icmp ne i8 %149, 0
-  %151 = icmp slt i64 %.062.idx89.i, 12279
-  %152 = and i1 %151, %150
-  br i1 %152, label %.lr.ph.i13, label %.loopexit.i
+.preheader.i:                                     ; preds = %126
+  %137 = icmp ne i8 %136, 0
+  %138 = icmp slt i64 %.062.idx89.i, 12279
+  %139 = and i1 %138, %137
+  br i1 %139, label %.lr.ph.i13, label %.loopexit.i
 
-.lr.ph.i13:                                       ; preds = %.preheader.i, %175
-  %153 = phi i8 [ %176, %175 ], [ %149, %.preheader.i ]
-  %.15886.i = phi ptr [ %.259.i, %175 ], [ %144, %.preheader.i ]
-  %.264.idx85.i = phi i64 [ %.4.idx.i, %175 ], [ %.062.idx89.i, %.preheader.i ]
+.lr.ph.i13:                                       ; preds = %.preheader.i, %162
+  %140 = phi i8 [ %163, %162 ], [ %136, %.preheader.i ]
+  %.15886.i = phi ptr [ %.259.i, %162 ], [ %131, %.preheader.i ]
+  %.264.idx85.i = phi i64 [ %.4.idx.i, %162 ], [ %.062.idx89.i, %.preheader.i ]
   %.264.ptr87.i = getelementptr inbounds i8, ptr %6, i64 %.264.idx85.i
-  switch i8 %153, label %172 [
-    i8 63, label %154
-    i8 42, label %159
-    i8 94, label %171
-    i8 46, label %171
-    i8 91, label %171
-    i8 93, label %171
-    i8 36, label %171
-    i8 40, label %171
-    i8 41, label %171
-    i8 124, label %171
-    i8 43, label %171
-    i8 123, label %171
-    i8 125, label %171
-    i8 92, label %171
+  switch i8 %140, label %159 [
+    i8 63, label %141
+    i8 42, label %146
+    i8 94, label %158
+    i8 46, label %158
+    i8 91, label %158
+    i8 93, label %158
+    i8 36, label %158
+    i8 40, label %158
+    i8 41, label %158
+    i8 124, label %158
+    i8 43, label %158
+    i8 123, label %158
+    i8 125, label %158
+    i8 92, label %158
   ]
 
-154:                                              ; preds = %.lr.ph.i13
-  %155 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
-  store i8 91, ptr %.264.ptr87.i, align 1
-  %156 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
-  store i8 94, ptr %156, align 1
-  %157 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 2
-  store i8 47, ptr %157, align 1
-  %158 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
-  store i8 93, ptr %158, align 1
+141:                                              ; preds = %.lr.ph.i13
+  %142 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
+  store i8 91, ptr %.264.ptr87.i, align 1, !tbaa !27
+  %143 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
+  store i8 94, ptr %143, align 1, !tbaa !27
+  %144 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 2
+  store i8 47, ptr %144, align 1, !tbaa !27
+  %145 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
+  store i8 93, ptr %145, align 1, !tbaa !27
   %.264.add.i = add nsw i64 %.264.idx85.i, 4
-  br label %175
+  br label %162
 
-159:                                              ; preds = %.lr.ph.i13
-  %160 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
-  %161 = load i8, ptr %160, align 1
-  %162 = icmp eq i8 %161, 42
-  br i1 %162, label %163, label %166
+146:                                              ; preds = %.lr.ph.i13
+  %147 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
+  %148 = load i8, ptr %147, align 1, !tbaa !27
+  %149 = icmp eq i8 %148, 42
+  br i1 %149, label %150, label %153
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 2
-  store i8 46, ptr %.264.ptr87.i, align 1
-  %165 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
-  store i8 42, ptr %165, align 1
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 2
+  store i8 46, ptr %.264.ptr87.i, align 1, !tbaa !27
+  %152 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
+  store i8 42, ptr %152, align 1, !tbaa !27
   %.264.add69.i = add nsw i64 %.264.idx85.i, 2
-  br label %175
+  br label %162
 
-166:                                              ; preds = %159
-  store i8 91, ptr %.264.ptr87.i, align 1
-  %167 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
-  store i8 94, ptr %167, align 1
-  %168 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 2
-  store i8 47, ptr %168, align 1
-  %169 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
-  store i8 93, ptr %169, align 1
-  %170 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 4
-  store i8 42, ptr %170, align 1
+153:                                              ; preds = %146
+  store i8 91, ptr %.264.ptr87.i, align 1, !tbaa !27
+  %154 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 1
+  store i8 94, ptr %154, align 1, !tbaa !27
+  %155 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 2
+  store i8 47, ptr %155, align 1, !tbaa !27
+  %156 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 3
+  store i8 93, ptr %156, align 1, !tbaa !27
+  %157 = getelementptr inbounds nuw i8, ptr %.264.ptr87.i, i64 4
+  store i8 42, ptr %157, align 1, !tbaa !27
   %.264.add68.i = add nsw i64 %.264.idx85.i, 5
-  br label %175
+  br label %162
 
-171:                                              ; preds = %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13
+158:                                              ; preds = %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13, %.lr.ph.i13
   %.264.add70.i = add nsw i64 %.264.idx85.i, 1
-  store i8 92, ptr %.264.ptr87.i, align 1
-  %.pre.i14 = load i8, ptr %.15886.i, align 1
-  br label %172
+  store i8 92, ptr %.264.ptr87.i, align 1, !tbaa !27
+  %.pre.i14 = load i8, ptr %.15886.i, align 1, !tbaa !27
+  br label %159
 
-172:                                              ; preds = %171, %.lr.ph.i13
-  %173 = phi i8 [ %153, %.lr.ph.i13 ], [ %.pre.i14, %171 ]
-  %.3.idx.i = phi i64 [ %.264.idx85.i, %.lr.ph.i13 ], [ %.264.add70.i, %171 ]
+159:                                              ; preds = %158, %.lr.ph.i13
+  %160 = phi i8 [ %140, %.lr.ph.i13 ], [ %.pre.i14, %158 ]
+  %.3.idx.i = phi i64 [ %.264.idx85.i, %.lr.ph.i13 ], [ %.264.add70.i, %158 ]
   %.3.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.3.idx.i
-  %174 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %.15886.i, i64 1
   %.3.add.i = add nsw i64 %.3.idx.i, 1
-  store i8 %173, ptr %.3.ptr.i, align 1
-  br label %175
+  store i8 %160, ptr %.3.ptr.i, align 1, !tbaa !27
+  br label %162
 
-175:                                              ; preds = %172, %166, %163, %154
-  %.4.idx.i = phi i64 [ %.3.add.i, %172 ], [ %.264.add69.i, %163 ], [ %.264.add68.i, %166 ], [ %.264.add.i, %154 ]
-  %.259.i = phi ptr [ %174, %172 ], [ %164, %163 ], [ %160, %166 ], [ %155, %154 ]
-  %176 = load i8, ptr %.259.i, align 1
-  %177 = icmp ne i8 %176, 0
-  %178 = icmp slt i64 %.4.idx.i, 12279
-  %179 = select i1 %177, i1 %178, i1 false
-  br i1 %179, label %.lr.ph.i13, label %.loopexit.i
+162:                                              ; preds = %159, %153, %150, %141
+  %.4.idx.i = phi i64 [ %.3.add.i, %159 ], [ %.264.add69.i, %150 ], [ %.264.add68.i, %153 ], [ %.264.add.i, %141 ]
+  %.259.i = phi ptr [ %161, %159 ], [ %151, %150 ], [ %147, %153 ], [ %142, %141 ]
+  %163 = load i8, ptr %.259.i, align 1, !tbaa !27
+  %164 = icmp ne i8 %163, 0
+  %165 = icmp slt i64 %.4.idx.i, 12279
+  %166 = select i1 %164, i1 %165, i1 false
+  br i1 %166, label %.lr.ph.i13, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %175, %.preheader.i, %139
-  %180 = phi i8 [ %149, %.preheader.i ], [ %149, %139 ], [ %176, %175 ]
-  %.163.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %139 ], [ %.4.idx.i, %175 ]
+.loopexit.i:                                      ; preds = %162, %.preheader.i, %126
+  %167 = phi i8 [ %136, %.preheader.i ], [ %136, %126 ], [ %163, %162 ]
+  %.163.idx.i = phi i64 [ %.062.idx89.i, %.preheader.i ], [ %.062.idx89.i, %126 ], [ %.4.idx.i, %162 ]
   %.163.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.163.idx.i
-  %.not.i10 = icmp eq i8 %180, 0
-  br i1 %.not.i10, label %181, label %184
+  %.not.i10 = icmp eq i8 %167, 0
+  br i1 %.not.i10, label %168, label %171
 
-181:                                              ; preds = %.loopexit.i
-  %182 = add nsw i32 %140, -1
-  %183 = icmp eq i32 %.092.i, %182
-  br i1 %183, label %186, label %213
+168:                                              ; preds = %.loopexit.i
+  %169 = add nsw i32 %127, -1
+  %170 = icmp eq i32 %.092.i, %169
+  br i1 %170, label %173, label %200
 
-184:                                              ; preds = %.loopexit.i
+171:                                              ; preds = %.loopexit.i
   %.not79.i = icmp eq ptr %.05591.i, null
-  br i1 %.not79.i, label %185, label %188
+  br i1 %.not79.i, label %172, label %175
 
-185:                                              ; preds = %184
+172:                                              ; preds = %171
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.6) #15
   unreachable
 
-186:                                              ; preds = %181
-  %187 = add nsw i32 %.092.i, 1
-  br label %188
+173:                                              ; preds = %168
+  %174 = add nsw i32 %.092.i, 1
+  br label %175
 
-188:                                              ; preds = %186, %184
-  %.5.i = phi ptr [ %.163.ptr.i, %186 ], [ %.05591.i, %184 ]
-  %.1.i11 = phi i32 [ %187, %186 ], [ %.092.i, %184 ]
-  store i8 41, ptr %.5.i, align 1
-  %189 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %.not80.i = icmp eq ptr %189, null
-  br i1 %.not80.i, label %190, label %191
+175:                                              ; preds = %173, %171
+  %.5.i = phi ptr [ %.163.ptr.i, %173 ], [ %.05591.i, %171 ]
+  %.1.i11 = phi i32 [ %174, %173 ], [ %.092.i, %171 ]
+  store i8 41, ptr %.5.i, align 1, !tbaa !27
+  %176 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %.not80.i = icmp eq ptr %176, null
+  br i1 %.not80.i, label %177, label %178
 
-190:                                              ; preds = %188
+177:                                              ; preds = %175
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.5) #15
   unreachable
 
-191:                                              ; preds = %188
-  %192 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store ptr null, ptr %193, align 8
-  %194 = ptrtoint ptr %192 to i64
-  %195 = sub i64 %194, %138
-  %196 = call ptr @php_pcre2_compile(ptr noundef nonnull %6, i64 noundef %195, i32 noundef 8192, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %130) #13
-  store ptr %196, ptr %189, align 8
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %203
+178:                                              ; preds = %175
+  %179 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store ptr null, ptr %180, align 8, !tbaa !18
+  %181 = ptrtoint ptr %179 to i64
+  %182 = sub i64 %181, %125
+  %183 = call ptr @php_pcre2_compile(ptr noundef nonnull %6, i64 noundef %182, i32 noundef 8192, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %117) #13
+  store ptr %183, ptr %176, align 8, !tbaa !15
+  %184 = icmp eq ptr %183, null
+  br i1 %184, label %185, label %190
 
-198:                                              ; preds = %191
-  call void @free(ptr noundef nonnull %189) #13
-  %199 = load i32, ptr %4, align 4
-  %200 = call i32 @php_pcre2_get_error_message(i32 noundef %199, ptr noundef nonnull %3, i64 noundef 128) #13
-  %201 = load i64, ptr %5, align 8
-  %202 = trunc i64 %201 to i32
-  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %202, ptr noundef nonnull %3) #15
+185:                                              ; preds = %178
+  call void @free(ptr noundef nonnull %176) #13
+  %186 = load i32, ptr %4, align 4, !tbaa !31
+  %187 = call i32 @php_pcre2_get_error_message(i32 noundef %186, ptr noundef nonnull %3, i64 noundef 128) #13
+  %188 = load i64, ptr %5, align 8, !tbaa !32
+  %189 = trunc i64 %188 to i32
+  call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %189, ptr noundef nonnull %3) #15
   unreachable
 
-203:                                              ; preds = %191
-  %204 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 72), align 8
-  %205 = trunc i8 %204 to i1
-  br i1 %205, label %206, label %212
+190:                                              ; preds = %178
+  %191 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pcre_globals, i64 72), align 8, !tbaa !33, !range !40, !noundef !41
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %193, label %199
 
-206:                                              ; preds = %203
-  %207 = call i32 @php_pcre2_jit_compile(ptr noundef nonnull %196, i32 noundef 1) #13
-  %208 = icmp slt i32 %207, 0
-  br i1 %208, label %209, label %212
+193:                                              ; preds = %190
+  %194 = call i32 @php_pcre2_jit_compile(ptr noundef nonnull %183, i32 noundef 1) #13
+  %195 = icmp slt i32 %194, 0
+  br i1 %195, label %196, label %199
 
-209:                                              ; preds = %206
-  %210 = load i32, ptr %4, align 4
-  %211 = call i32 @php_pcre2_get_error_message(i32 noundef %210, ptr noundef nonnull %3, i64 noundef 128) #13
+196:                                              ; preds = %193
+  %197 = load i32, ptr %4, align 4, !tbaa !31
+  %198 = call i32 @php_pcre2_get_error_message(i32 noundef %197, ptr noundef nonnull %3, i64 noundef 128) #13
   call void (i32, ptr, ...) @zend_accel_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #13
-  br label %212
+  br label %199
 
-212:                                              ; preds = %209, %206, %203
-  store ptr %189, ptr %.06090.i, align 8
-  %.pre96.i = load i32, ptr %131, align 4
-  br label %215
+199:                                              ; preds = %196, %193, %190
+  store ptr %176, ptr %.06090.i, align 8, !tbaa !42
+  %.pre96.i = load i32, ptr %118, align 4, !tbaa !4
+  br label %202
 
-213:                                              ; preds = %181
+200:                                              ; preds = %168
   %.163.add.i = add nsw i64 %.163.idx.i, 1
-  store i8 124, ptr %.163.ptr.i, align 1
-  %214 = add nsw i32 %.092.i, 1
-  br label %215
+  store i8 124, ptr %.163.ptr.i, align 1, !tbaa !27
+  %201 = add nsw i32 %.092.i, 1
+  br label %202
 
-215:                                              ; preds = %213, %212
-  %216 = phi i32 [ %.pre96.i, %212 ], [ %140, %213 ]
-  %.6.idx.i = phi i64 [ 2, %212 ], [ %.163.add.i, %213 ]
-  %.161.i = phi ptr [ %193, %212 ], [ %.06090.i, %213 ]
-  %.156.i = phi ptr [ %.05591.i, %212 ], [ %.163.ptr.i, %213 ]
-  %.2.i12 = phi i32 [ %.1.i11, %212 ], [ %214, %213 ]
-  %217 = icmp slt i32 %.2.i12, %216
-  br i1 %217, label %139, label %zend_accel_blacklist_update_regexp.exit
+202:                                              ; preds = %200, %199
+  %203 = phi i32 [ %.pre96.i, %199 ], [ %127, %200 ]
+  %.6.idx.i = phi i64 [ 2, %199 ], [ %.163.add.i, %200 ]
+  %.161.i = phi ptr [ %180, %199 ], [ %.06090.i, %200 ]
+  %.156.i = phi ptr [ %.05591.i, %199 ], [ %.163.ptr.i, %200 ]
+  %.2.i12 = phi i32 [ %.1.i11, %199 ], [ %201, %200 ]
+  %204 = icmp slt i32 %.2.i12, %203
+  br i1 %204, label %126, label %zend_accel_blacklist_update_regexp.exit
 
-zend_accel_blacklist_update_regexp.exit:          ; preds = %215, %129, %134
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %6)
+zend_accel_blacklist_update_regexp.exit:          ; preds = %202, %116, %121
+  call void @llvm.lifetime.end.p0(i64 12288, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare i32 @glob(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @glob(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_accel_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare void @globfree(ptr noundef) local_unnamed_addr #6
+declare void @globfree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @zend_accel_blacklist_is_blacklisted(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = tail call ptr @php_pcre_mctx() #13
   %7 = icmp eq ptr %5, null
-  br i1 %7, label %.loopexit, label %.outer.split
+  br i1 %7, label %.loopexit, label %.preheader
 
-.outer.split:                                     ; preds = %3, %.outer
-  %.016.ph20 = phi ptr [ %16, %.outer ], [ %5, %3 ]
-  br label %8
+.preheader:                                       ; preds = %3, %17
+  %.01931 = phi ptr [ %.120, %17 ], [ %5, %3 ]
+  %8 = load ptr, ptr %.01931, align 8, !tbaa !15
+  %9 = tail call ptr @php_pcre_create_match_data(i32 noundef 0, ptr noundef %8) #13
+  %.not24 = icmp eq ptr %9, null
+  br i1 %.not24, label %17, label %10
 
-8:                                                ; preds = %.outer.split, %8
-  %9 = load ptr, ptr %.016.ph20, align 8
-  %10 = tail call ptr @php_pcre_create_match_data(i32 noundef 0, ptr noundef %9) #13
-  %.not19 = icmp eq ptr %10, null
-  br i1 %.not19, label %8, label %11
+10:                                               ; preds = %.preheader
+  %11 = load ptr, ptr %.01931, align 8, !tbaa !15
+  %12 = tail call i32 @php_pcre2_match(ptr noundef %11, ptr noundef %1, i64 noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %9, ptr noundef %6) #13
+  %13 = icmp sgt i32 %12, -1
+  tail call void @php_pcre_free_match_data(ptr noundef nonnull %9) #13
+  br i1 %13, label %.loopexit, label %14
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr %.016.ph20, align 8
-  %13 = tail call i32 @php_pcre2_match(ptr noundef %12, ptr noundef %1, i64 noundef %2, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %10, ptr noundef %6) #13
-  %14 = icmp sgt i32 %13, -1
-  tail call void @php_pcre_free_match_data(ptr noundef nonnull %10) #13
-  br i1 %14, label %.loopexit, label %.outer
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.01931, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  br label %17
 
-.outer:                                           ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.016.ph20, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %.not.not = icmp eq ptr %16, null
-  br i1 %.not.not, label %.loopexit, label %.outer.split
+17:                                               ; preds = %14, %.preheader
+  %.120 = phi ptr [ %.01931, %.preheader ], [ %16, %14 ]
+  %.not.not = icmp eq ptr %.120, null
+  br i1 %.not.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.outer, %11, %3
-  %.0 = phi i1 [ false, %3 ], [ %14, %11 ], [ %14, %.outer ]
+.loopexit:                                        ; preds = %17, %10, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %17 ], [ true, %10 ]
   ret i1 %.0
 }
 
-declare ptr @php_pcre_mctx() local_unnamed_addr #4
+declare ptr @php_pcre_mctx() local_unnamed_addr #5
 
-declare ptr @php_pcre_create_match_data(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @php_pcre_create_match_data(i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @php_pcre2_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_pcre2_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @php_pcre_free_match_data(ptr noundef) local_unnamed_addr #4
+declare void @php_pcre_free_match_data(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_accel_blacklist_apply(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %7 = load ptr, ptr %0, align 8
+  %7 = load ptr, ptr %0, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw %struct._zend_blacklist_entry, ptr %7, i64 %indvars.iv
   %9 = tail call i32 %1(ptr noundef %8, ptr noundef %2) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = load i32, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4, !tbaa !4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -708,63 +703,57 @@ define hidden void @zend_accel_blacklist_apply(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @zend_dirname(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @zend_dirname(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
-declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-declare ptr @expand_filepath_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @expand_filepath_ex(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
-declare ptr @php_pcre_cctx() local_unnamed_addr #4
+declare ptr @php_pcre_cctx() local_unnamed_addr #5
 
-declare ptr @php_pcre2_compile(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @php_pcre2_compile(ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @php_pcre2_get_error_message(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @php_pcre2_get_error_message(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @php_pcre2_jit_compile(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @php_pcre2_jit_compile(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0,1) }
 attributes #15 = { noreturn nounwind }
@@ -776,5 +765,44 @@ attributes #18 = { nounwind allocsize(0) }
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !10, i64 12}
+!5 = !{!"_zend_blacklist", !6, i64 0, !10, i64 8, !10, i64 12, !11, i64 16}
+!6 = !{!"p1 _ZTS21_zend_blacklist_entry", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"p1 _ZTS17_zend_regexp_list", !7, i64 0}
+!12 = !{!5, !10, i64 8}
+!13 = !{!5, !6, i64 0}
+!14 = !{!5, !11, i64 16}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_zend_regexp_list", !17, i64 0, !11, i64 8}
+!17 = !{!"p1 _ZTS17pcre2_real_code_8", !7, i64 0}
+!18 = !{!16, !11, i64 8}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"_zend_blacklist_entry", !21, i64 0, !10, i64 8, !10, i64 12}
+!21 = !{!"p1 omnipotent char", !7, i64 0}
+!22 = !{!23, !25, i64 8}
+!23 = !{!"", !24, i64 0, !25, i64 8, !24, i64 16, !10, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64}
+!24 = !{!"long", !8, i64 0}
+!25 = !{!"p2 omnipotent char", !7, i64 0}
+!26 = !{!21, !21, i64 0}
+!27 = !{!8, !8, i64 0}
+!28 = !{!20, !10, i64 8}
+!29 = !{!20, !10, i64 12}
+!30 = !{!23, !24, i64 0}
+!31 = !{!10, !10, i64 0}
+!32 = !{!24, !24, i64 0}
+!33 = !{!34, !37, i64 72}
+!34 = !{!"_zend_pcre_globals", !35, i64 0, !24, i64 56, !24, i64 64, !37, i64 72, !10, i64 76, !38, i64 80, !38, i64 96, !39, i64 112}
+!35 = !{!"_zend_array", !36, i64 0, !8, i64 8, !10, i64 12, !8, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !24, i64 40, !7, i64 48}
+!36 = !{!"_zend_refcounted_h", !10, i64 0, !8, i64 4}
+!37 = !{!"_Bool", !8, i64 0}
+!38 = !{!"_zval_struct", !8, i64 0, !8, i64 8, !8, i64 12}
+!39 = !{!"p1 _ZTS28pcre2_real_general_context_8", !7, i64 0}
+!40 = !{i8 0, i8 2}
+!41 = !{}
+!42 = !{!11, !11, i64 0}

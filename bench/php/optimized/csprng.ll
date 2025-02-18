@@ -3,269 +3,370 @@ source_filename = "bench/php/original/csprng.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_random_globals = type { ptr, i8, ptr, i8, i32 }
+%struct.zend_atomic_int_s = type { i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
-@random_globals = external local_unnamed_addr global %struct._zend_random_globals, align 8
+@random_fd = internal global %struct.zend_atomic_int_s { i32 -1 }, align 4
 @.str = private unnamed_addr constant [13 x i8] c"/dev/urandom\00", align 1
-@random_ce_Random_RandomException = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [29 x i8] c"Cannot open /dev/urandom: %s\00", align 1
 @.str.2 = private unnamed_addr constant [25 x i8] c"Cannot open /dev/urandom\00", align 1
 @.str.3 = private unnamed_addr constant [36 x i8] c"Error reading from /dev/urandom: %s\00", align 1
 @.str.4 = private unnamed_addr constant [32 x i8] c"Error reading from /dev/urandom\00", align 1
 @.str.5 = private unnamed_addr constant [44 x i8] c"Could not gather sufficient random data: %s\00", align 1
 @.str.6 = private unnamed_addr constant [40 x i8] c"Could not gather sufficient random data\00", align 1
+@random_ce_Random_RandomException = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.stat, align 8
-  %.not69 = icmp eq i64 %1, 0
-  br i1 %.not69, label %.critedge, label %.lr.ph.lr.ph
+define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = alloca %struct.stat, align 8
+  %.not82 = icmp eq i64 %1, 0
+  br i1 %.not82, label %.thread, label %.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %3
-  %5 = tail call ptr @__errno_location() #7
-  br label %.lr.ph.split.us
+.lr.ph:                                           ; preds = %4
+  %6 = tail call ptr @__errno_location() #8
+  br label %7
 
-.lr.ph.split.us:                                  ; preds = %.outer, %.lr.ph.lr.ph
-  %.032.ph66 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %15, %.outer ]
-  %6 = sub nuw i64 %1, %.032.ph66
-  %7 = getelementptr inbounds i8, ptr %0, i64 %.032.ph66
-  store i32 0, ptr %5, align 4
-  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %7, i64 noundef %6, i32 noundef 0) #8
-  %9 = icmp eq i64 %8, -1
-  br i1 %9, label %.lr.ph65, label %.outer
+7:                                                ; preds = %.lr.ph, %18
+  %.05078 = phi i64 [ 0, %.lr.ph ], [ %.252, %18 ]
+  %8 = sub nuw i64 %1, %.05078
+  store i32 0, ptr %6, align 4, !tbaa !4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.05078
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef nonnull %9, i64 noundef %8, i32 noundef 0) #9
+  %11 = icmp eq i64 %10, -1
+  br i1 %11, label %12, label %16
 
-.lr.ph65:                                         ; preds = %.lr.ph.split.us, %11
-  %10 = load i32, ptr %5, align 4
-  switch i32 %10, label %.loopexit [
-    i32 38, label %.split56.us
-    i32 4, label %11
-    i32 11, label %11
+12:                                               ; preds = %7
+  %13 = load i32, ptr %6, align 4, !tbaa !4
+  switch i32 %13, label %.thread [
+    i32 38, label %14
+    i32 4, label %18
+    i32 11, label %18
   ]
 
-11:                                               ; preds = %.lr.ph65, %.lr.ph65
-  store i32 0, ptr %5, align 4
-  %12 = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %7, i64 noundef %6, i32 noundef 0) #8
-  %13 = icmp eq i64 %12, -1
-  br i1 %13, label %.lr.ph65, label %.outer
+14:                                               ; preds = %12
+  %15 = icmp eq i64 %.05078, 0
+  tail call void @llvm.assume(i1 %15)
+  br label %.thread
 
-.split56.us:                                      ; preds = %.lr.ph65
-  %14 = icmp eq i64 %.032.ph66, 0
-  tail call void @llvm.assume(i1 %14)
-  br label %.loopexit
+16:                                               ; preds = %7
+  %17 = add i64 %10, %.05078
+  br label %18
 
-.outer:                                           ; preds = %11, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %8, %.lr.ph.split.us ], [ %12, %11 ]
-  %15 = add i64 %.us-phi, %.032.ph66
-  %16 = icmp ult i64 %15, %1
-  br i1 %16, label %.lr.ph.split.us, label %.critedge
+18:                                               ; preds = %12, %12, %16
+  %.252 = phi i64 [ %17, %16 ], [ %.05078, %12 ], [ %.05078, %12 ]
+  %19 = icmp ult i64 %.252, %1
+  br i1 %19, label %7, label %.thread
 
-.loopexit:                                        ; preds = %.lr.ph65, %.split56.us
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4
-  %18 = icmp slt i32 %17, 0
-  br i1 %18, label %19, label %49
+.thread:                                          ; preds = %18, %12, %4, %14
+  %.151 = phi i64 [ 0, %14 ], [ 0, %4 ], [ %.252, %18 ], [ %.05078, %12 ]
+  %20 = icmp ult i64 %.151, %1
+  br i1 %20, label %21, label %70
 
-19:                                               ; preds = %.loopexit
-  store i32 0, ptr %5, align 4
-  %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #8
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %31
+21:                                               ; preds = %.thread
+  %22 = atomicrmw or ptr @random_fd, i32 0 seq_cst, align 4
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #9
+  %23 = icmp slt i32 %22, 0
+  %24 = tail call ptr @__errno_location() #8
+  br i1 %23, label %25, label %zend_atomic_int_compare_exchange_ex.exit.thread
 
-22:                                               ; preds = %19
-  br i1 %2, label %23, label %.critedge
+25:                                               ; preds = %21
+  store i32 0, ptr %24, align 4, !tbaa !4
+  %26 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 0) #9
+  %27 = icmp slt i32 %26, 0
+  br i1 %27, label %28, label %35
 
-23:                                               ; preds = %22
-  %24 = load i32, ptr %5, align 4
-  %.not45 = icmp eq i32 %24, 0
-  %25 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  br i1 %.not45, label %29, label %26
+28:                                               ; preds = %25
+  %29 = load i32, ptr %24, align 4, !tbaa !4
+  %.not66 = icmp eq i32 %29, 0
+  br i1 %.not66, label %33, label %30
 
-26:                                               ; preds = %23
-  %27 = tail call ptr @strerror(i32 noundef %24) #8
-  %28 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %25, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %27) #8
-  br label %.critedge
+30:                                               ; preds = %28
+  %31 = tail call ptr @strerror(i32 noundef %29) #9
+  %32 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %31) #9
+  br label %.sink.split
 
-29:                                               ; preds = %23
-  %30 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %25, i64 noundef 0, ptr noundef nonnull @.str.2) #8
-  br label %.critedge
+33:                                               ; preds = %28
+  %34 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.2) #9
+  br label %.sink.split
 
-31:                                               ; preds = %19
-  store i32 0, ptr %5, align 4
-  %32 = call i32 @fstat(i32 noundef %20, ptr noundef nonnull %4) #8
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %33, label %38
+35:                                               ; preds = %25
+  store i32 0, ptr %24, align 4, !tbaa !4
+  %36 = call i32 @fstat(i32 noundef %26, ptr noundef nonnull %5) #9
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %37, label %42
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %35 = load i32, ptr %34, align 8
-  %36 = and i32 %35, 61440
-  %37 = icmp eq i32 %36, 8192
-  br i1 %37, label %48, label %38
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !8
+  %40 = and i32 %39, 61440
+  %41 = icmp eq i32 %40, 8192
+  br i1 %41, label %50, label %42
 
-38:                                               ; preds = %33, %31
-  %39 = tail call i32 @close(i32 noundef %20) #8
-  br i1 %2, label %40, label %.critedge
+42:                                               ; preds = %37, %35
+  %43 = tail call i32 @close(i32 noundef %26) #9
+  %44 = load i32, ptr %24, align 4, !tbaa !4
+  %.not65 = icmp eq i32 %44, 0
+  br i1 %.not65, label %48, label %45
 
-40:                                               ; preds = %38
-  %41 = load i32, ptr %5, align 4
-  %.not44 = icmp eq i32 %41, 0
-  %42 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  br i1 %.not44, label %46, label %43
+45:                                               ; preds = %42
+  %46 = tail call ptr @strerror(i32 noundef %44) #9
+  %47 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.3, ptr noundef %46) #9
+  br label %.sink.split
 
-43:                                               ; preds = %40
-  %44 = tail call ptr @strerror(i32 noundef %41) #8
-  %45 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %42, i64 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %44) #8
-  br label %.critedge
+48:                                               ; preds = %42
+  %49 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.4) #9
+  br label %.sink.split
 
-46:                                               ; preds = %40
-  %47 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %42, i64 noundef 0, ptr noundef nonnull @.str.4) #8
-  br label %.critedge
+50:                                               ; preds = %37
+  %51 = cmpxchg ptr @random_fd, i32 -1, i32 %26 seq_cst seq_cst, align 4
+  %52 = extractvalue { i32, i1 } %51, 1
+  br i1 %52, label %zend_atomic_int_compare_exchange_ex.exit.thread, label %zend_atomic_int_compare_exchange_ex.exit
 
-48:                                               ; preds = %33
-  store i32 %20, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 28), align 4
-  br label %49
+zend_atomic_int_compare_exchange_ex.exit:         ; preds = %50
+  %53 = extractvalue { i32, i1 } %51, 0
+  %54 = tail call i32 @close(i32 noundef %26) #9
+  br label %zend_atomic_int_compare_exchange_ex.exit.thread
 
-49:                                               ; preds = %48, %.loopexit
-  %.031 = phi i32 [ %20, %48 ], [ %17, %.loopexit ]
-  br label %53
+zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %21, %50, %zend_atomic_int_compare_exchange_ex.exit
+  %.045 = phi i32 [ %26, %50 ], [ %53, %zend_atomic_int_compare_exchange_ex.exit ], [ %22, %21 ]
+  br label %58
 
-50:                                               ; preds = %53
-  %51 = add i64 %56, %.168
-  %52 = icmp ult i64 %51, %1
-  br i1 %52, label %53, label %.critedge
+55:                                               ; preds = %58
+  %56 = add i64 %61, %.35381
+  %57 = icmp ult i64 %56, %1
+  br i1 %57, label %58, label %.sink.split
 
-53:                                               ; preds = %49, %50
-  %.168 = phi i64 [ 0, %49 ], [ %51, %50 ]
-  store i32 0, ptr %5, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 %.168
-  %55 = sub nuw i64 %1, %.168
-  %56 = tail call i64 @read(i32 noundef %.031, ptr noundef %54, i64 noundef %55) #8
-  %57 = icmp slt i64 %56, 1
-  br i1 %57, label %58, label %50
+58:                                               ; preds = %zend_atomic_int_compare_exchange_ex.exit.thread, %55
+  %.35381 = phi i64 [ 0, %zend_atomic_int_compare_exchange_ex.exit.thread ], [ %56, %55 ]
+  store i32 0, ptr %24, align 4, !tbaa !4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.35381
+  %60 = sub nuw i64 %1, %.35381
+  %61 = tail call i64 @read(i32 noundef %.045, ptr noundef nonnull %59, i64 noundef %60) #9
+  %62 = icmp sgt i64 %61, 0
+  br i1 %62, label %55, label %63
 
-58:                                               ; preds = %53
-  br i1 %2, label %59, label %.critedge
+63:                                               ; preds = %58
+  %64 = load i32, ptr %24, align 4, !tbaa !4
+  %.not64 = icmp eq i32 %64, 0
+  br i1 %.not64, label %68, label %65
 
-59:                                               ; preds = %58
-  %60 = load i32, ptr %5, align 4
-  %.not43 = icmp eq i32 %60, 0
-  %61 = load ptr, ptr @random_ce_Random_RandomException, align 8
-  br i1 %.not43, label %65, label %62
+65:                                               ; preds = %63
+  %66 = tail call ptr @strerror(i32 noundef %64) #9
+  %67 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.5, ptr noundef %66) #9
+  br label %.sink.split
 
-62:                                               ; preds = %59
-  %63 = tail call ptr @strerror(i32 noundef %60) #8
-  %64 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %61, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %63) #8
-  br label %.critedge
+68:                                               ; preds = %63
+  %69 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.6) #9
+  br label %.sink.split
 
-65:                                               ; preds = %59
-  %66 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %61, i64 noundef 0, ptr noundef nonnull @.str.6) #8
-  br label %.critedge
+.sink.split:                                      ; preds = %55, %33, %30, %48, %45, %65, %68
+  %.3.ph = phi i32 [ -1, %68 ], [ -1, %65 ], [ -1, %45 ], [ -1, %48 ], [ -1, %30 ], [ -1, %33 ], [ 0, %55 ]
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #9
+  br label %70
 
-.critedge:                                        ; preds = %.outer, %50, %3, %58, %65, %62, %38, %46, %43, %22, %29, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %29 ], [ -1, %22 ], [ -1, %43 ], [ -1, %46 ], [ -1, %38 ], [ -1, %62 ], [ -1, %65 ], [ -1, %58 ], [ 0, %3 ], [ 0, %50 ], [ 0, %.outer ]
-  ret i32 %.0
+70:                                               ; preds = %.sink.split, %.thread
+  %.3 = phi i32 [ 0, %.thread ], [ %.3.ph, %.sink.split ]
+  ret i32 %.3
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #1
+declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
-declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #2
+declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-declare i32 @close(i32 noundef) local_unnamed_addr #5
+declare i32 @close(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = alloca i64, align 8
-  %6 = icmp eq i64 %0, %1
-  br i1 %6, label %.loopexit21.sink.split, label %7
+define dso_local range(i32 -1, 1) i32 @php_random_bytes(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+  %4 = alloca [128 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
+  %5 = call i32 @php_random_bytes_ex(ptr noundef %0, i64 noundef %1, ptr noundef %4, i64 noundef 128)
+  %6 = icmp eq i32 %5, -1
+  %brmerge.not = and i1 %2, %6
+  br i1 %brmerge.not, label %7, label %10
 
-7:                                                ; preds = %4
-  %8 = sub i64 %1, %0
-  %9 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3)
-  %10 = icmp eq i32 %9, -1
-  br i1 %10, label %.loopexit21, label %11
+7:                                                ; preds = %3
+  %8 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
+  %9 = call ptr @zend_throw_exception(ptr noundef %8, ptr noundef nonnull %4, i64 noundef 0) #9
+  br label %10
 
-11:                                               ; preds = %7
-  %12 = icmp eq i64 %8, -1
-  br i1 %12, label %13, label %15
+10:                                               ; preds = %3, %7
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  ret i32 %5
+}
 
-13:                                               ; preds = %11
-  %14 = load i64, ptr %5, align 8
-  br label %.loopexit21.sink.split
+declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
-15:                                               ; preds = %11
-  %16 = add nuw i64 %8, 1
-  %17 = and i64 %16, %8
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %..loopexit_crit_edge, label %18
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+  %5 = alloca [128 x i8], align 16
+  %6 = alloca [128 x i8], align 16
+  %7 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  %8 = icmp eq i64 %0, %1
+  br i1 %8, label %9, label %10
 
-..loopexit_crit_edge:                             ; preds = %15
-  %.pre = load i64, ptr %5, align 8
+9:                                                ; preds = %4
+  store i64 %0, ptr %2, align 8, !tbaa !15
   br label %.loopexit
 
-18:                                               ; preds = %15
-  %19 = urem i64 -1, %16
-  %20 = sub nuw i64 -2, %19
-  br label %21
+10:                                               ; preds = %4
+  %11 = sub i64 %1, %0
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
+  %12 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %6, i64 noundef 128)
+  %13 = icmp eq i32 %12, -1
+  %brmerge.not.i = and i1 %3, %13
+  br i1 %brmerge.not.i, label %php_random_bytes.exit.thread, label %php_random_bytes.exit
 
-21:                                               ; preds = %24, %18
-  %22 = load i64, ptr %5, align 8
-  %23 = icmp ugt i64 %22, %20
-  br i1 %23, label %24, label %.loopexit
+php_random_bytes.exit.thread:                     ; preds = %10
+  %14 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
+  %15 = call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull %6, i64 noundef 0) #9
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
+  br label %.loopexit
 
-24:                                               ; preds = %21
-  %25 = call i32 @php_random_bytes(ptr noundef nonnull %5, i64 noundef 8, i1 noundef zeroext %3)
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %.loopexit21, label %21
+php_random_bytes.exit:                            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
+  br i1 %13, label %.loopexit, label %16
 
-.loopexit:                                        ; preds = %21, %..loopexit_crit_edge
-  %27 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %22, %21 ]
-  %28 = urem i64 %27, %16
-  %29 = add i64 %28, %0
-  br label %.loopexit21.sink.split
+16:                                               ; preds = %php_random_bytes.exit
+  %17 = icmp eq i64 %11, -1
+  br i1 %17, label %18, label %20
 
-.loopexit21.sink.split:                           ; preds = %4, %13, %.loopexit
-  %.sink = phi i64 [ %29, %.loopexit ], [ %14, %13 ], [ %0, %4 ]
-  store i64 %.sink, ptr %2, align 8
-  br label %.loopexit21
+18:                                               ; preds = %16
+  %19 = load i64, ptr %7, align 8, !tbaa !15
+  store i64 %19, ptr %2, align 8, !tbaa !15
+  br label %.loopexit
 
-.loopexit21:                                      ; preds = %24, %.loopexit21.sink.split, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %.loopexit21.sink.split ], [ -1, %24 ]
+20:                                               ; preds = %16
+  %21 = add nuw i64 %11, 1
+  %22 = and i64 %21, %11
+  %.not = icmp eq i64 %22, 0
+  br i1 %.not, label %..critedge_crit_edge, label %23
+
+..critedge_crit_edge:                             ; preds = %20
+  %.pre = load i64, ptr %7, align 8, !tbaa !15
+  br label %.critedge
+
+23:                                               ; preds = %20
+  %24 = urem i64 -1, %21
+  %25 = sub nuw i64 -2, %24
+  br i1 %3, label %.split.preheader, label %.split.us
+
+.split.preheader:                                 ; preds = %23
+  %26 = load i64, ptr %7, align 8, !tbaa !15
+  %.not2335 = icmp ugt i64 %26, %25
+  br i1 %.not2335, label %.lr.ph, label %.critedge
+
+.split.us:                                        ; preds = %23, %php_random_bytes.exit25.us
+  %27 = load i64, ptr %7, align 8, !tbaa !15
+  %.not23.us = icmp ugt i64 %27, %25
+  br i1 %.not23.us, label %php_random_bytes.exit25.us, label %.critedge
+
+php_random_bytes.exit25.us:                       ; preds = %.split.us
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  %28 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %5, i64 noundef 128)
+  %29 = icmp eq i32 %28, -1
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  br i1 %29, label %.loopexit, label %.split.us
+
+.lr.ph:                                           ; preds = %.split.preheader, %php_random_bytes.exit25
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  %30 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %5, i64 noundef 128)
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %php_random_bytes.exit25.thread, label %php_random_bytes.exit25
+
+php_random_bytes.exit25.thread:                   ; preds = %.lr.ph
+  %32 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
+  %33 = call ptr @zend_throw_exception(ptr noundef %32, ptr noundef nonnull %5, i64 noundef 0) #9
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  br label %.loopexit
+
+php_random_bytes.exit25:                          ; preds = %.lr.ph
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  %34 = load i64, ptr %7, align 8, !tbaa !15
+  %.not23 = icmp ugt i64 %34, %25
+  br i1 %.not23, label %.lr.ph, label %.critedge
+
+.critedge:                                        ; preds = %.split.us, %php_random_bytes.exit25, %.split.preheader, %..critedge_crit_edge
+  %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %26, %.split.preheader ], [ %34, %php_random_bytes.exit25 ], [ %27, %.split.us ]
+  %36 = urem i64 %35, %21
+  %37 = add i64 %36, %0
+  store i64 %37, ptr %2, align 8, !tbaa !15
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %php_random_bytes.exit25.us, %php_random_bytes.exit25.thread, %php_random_bytes.exit.thread, %php_random_bytes.exit, %.critedge, %18, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %18 ], [ 0, %.critedge ], [ -1, %php_random_bytes.exit ], [ -1, %php_random_bytes.exit.thread ], [ -1, %php_random_bytes.exit25.thread ], [ -1, %php_random_bytes.exit25.us ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   ret i32 %.0
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { nounwind }
+; Function Attrs: nounwind uwtable
+define dso_local void @php_random_csprng_shutdown() local_unnamed_addr #0 {
+  %1 = tail call i32 @zend_atomic_int_exchange(ptr noundef nonnull @random_fd, i32 noundef -1) #9
+  %.not = icmp eq i32 %1, -1
+  br i1 %.not, label %4, label %2
+
+2:                                                ; preds = %0
+  %3 = tail call i32 @close(i32 noundef %1) #9
+  br label %4
+
+4:                                                ; preds = %2, %0
+  ret void
+}
+
+declare i32 @zend_atomic_int_exchange(ptr noundef, i32 noundef) local_unnamed_addr #6
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!2 = !{i32 7, !"PIE Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !5, i64 24}
+!9 = !{!"stat", !10, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !11, i64 72, !11, i64 88, !11, i64 104, !6, i64 120}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!"timespec", !10, i64 0, !10, i64 8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS17_zend_class_entry", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!10, !10, i64 0}
