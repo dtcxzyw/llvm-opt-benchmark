@@ -24,21 +24,21 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN5draco22AdaptiveRAnsBitDecoderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 5.000000e-01, ptr %2, align 8
+  store double 5.000000e-01, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco22AdaptiveRAnsBitDecoderD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 5.000000e-01, ptr %2, align 8
+  store double 5.000000e-01, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco22AdaptiveRAnsBitDecoder5ClearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 5.000000e-01, ptr %2, align 8
+  store double 5.000000e-01, ptr %2, align 8, !tbaa !3
   ret void
 }
 
@@ -47,20 +47,20 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double 5.000000e-01, ptr %3, align 8
+  store double 5.000000e-01, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8
+  %5 = load i64, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = add i64 %7, 4
   %.not17 = icmp slt i64 %5, %8
   br i1 %.not17, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8
+  %10 = load ptr, ptr %1, align 8, !tbaa !19
   %11 = getelementptr inbounds i8, ptr %10, i64 %7
   %12 = load i32, ptr %11, align 1
-  store i64 %8, ptr %6, align 8
+  store i64 %8, ptr %6, align 8, !tbaa !18
   %13 = zext i32 %12 to i64
   %14 = sub nsw i64 %5, %8
   %15 = icmp slt i64 %14, %13
@@ -72,18 +72,18 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
   br i1 %18, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %19
 
 19:                                               ; preds = %16
-  store ptr %17, ptr %0, align 8
+  store ptr %17, ptr %0, align 8, !tbaa !20
   %20 = add nsw i32 %12, -1
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %21
-  %23 = load i8, ptr %22, align 1
+  %23 = load i8, ptr %22, align 1, !tbaa !21
   %24 = icmp ult i8 %23, 64
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %20, ptr %26, align 8
-  %27 = load i8, ptr %22, align 1
+  store i32 %20, ptr %26, align 8, !tbaa !22
+  %27 = load i8, ptr %22, align 1, !tbaa !21
   %28 = and i8 %27, 63
   %29 = zext nneg i8 %28 to i32
   br label %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14
@@ -102,12 +102,12 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
 34:                                               ; preds = %32
   %35 = add nsw i32 %12, -2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %35, ptr %36, align 8
+  store i32 %35, ptr %36, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   %38 = getelementptr inbounds i8, ptr %37, i64 -2
-  %.val.i = load i8, ptr %38, align 1
+  %.val.i = load i8, ptr %38, align 1, !tbaa !21
   %39 = getelementptr i8, ptr %37, i64 -1
-  %.val29.i = load i8, ptr %39, align 1
+  %.val29.i = load i8, ptr %39, align 1, !tbaa !21
   %40 = zext i8 %.val29.i to i32
   %41 = shl nuw nsw i32 %40, 8
   %42 = zext i8 %.val.i to i32
@@ -123,33 +123,32 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14: ; preds = %34, %2
   %.ph = phi i32 [ %29, %25 ], [ %43, %34 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = add nuw nsw i32 %.ph, 4096
-  store i32 %47, ptr %46, align 4
+  store i32 %47, ptr %46, align 4, !tbaa !23
   br label %62
 
 _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %44
   %48 = add nsw i32 %12, -3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %48, ptr %49, align 8
+  store i32 %48, ptr %49, align 8, !tbaa !22
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   %51 = getelementptr inbounds i8, ptr %50, i64 -3
   %52 = getelementptr i8, ptr %50, i64 -2
   %53 = load i16, ptr %52, align 1
   %54 = zext i16 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
-  %56 = load i8, ptr %51, align 1
+  %56 = load i8, ptr %51, align 1, !tbaa !21
   %57 = zext i8 %56 to i32
   %.masked.i = and i32 %55, 4194048
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %59 = or disjoint i32 %57, 4096
   %60 = add nuw nsw i32 %59, %.masked.i
-  store i32 %60, ptr %58, align 4
+  store i32 %60, ptr %58, align 4, !tbaa !23
   %61 = icmp samesign ult i32 %.masked.i, 1044480
   br i1 %61, label %62, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 62:                                               ; preds = %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit
-  %63 = load i64, ptr %6, align 8
-  %64 = add nsw i64 %63, %13
-  store i64 %64, ptr %6, align 8
+  %63 = add nsw i64 %8, %13
+  store i64 %63, ptr %6, align 8, !tbaa !18
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %30, %44, %32, %16, %2, %_ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit, %9, %62
@@ -160,26 +159,26 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %30, %44, %32, %16, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load double, ptr %2, align 8
+  %3 = load double, ptr %2, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = icmp ult i32 %5, 4096
   br i1 %6, label %7, label %_ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %_ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit
 
 11:                                               ; preds = %7
   %12 = shl nuw nsw i32 %5, 8
-  %13 = load ptr, ptr %0, align 8
+  %13 = load ptr, ptr %0, align 8, !tbaa !20
   %14 = add nsw i32 %9, -1
-  store i32 %14, ptr %8, align 8
+  store i32 %14, ptr %8, align 8, !tbaa !22
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  %17 = load i8, ptr %16, align 1
+  %17 = load i8, ptr %16, align 1, !tbaa !21
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %12, %18
   br label %_ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit
@@ -201,12 +200,12 @@ _ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit: ; preds = %1, %7, %11
   %33 = sub i32 %20, %32
   %34 = add nuw i32 %30, %28
   %storemerge.i = select i1 %31, i32 %34, i32 %33
-  store i32 %storemerge.i, ptr %4, align 4
+  store i32 %storemerge.i, ptr %4, align 4, !tbaa !23
   %35 = xor i1 %31, true
   %36 = uitofp i1 %35 to double
   %37 = fmul double %36, 7.812500e-03
   %38 = tail call noundef double @llvm.fmuladd.f64(double %3, double 0x3FEFC00000000000, double %37)
-  store double %38, ptr %2, align 8
+  store double %38, ptr %2, align 8, !tbaa !3
   ret i1 %31
 }
 
@@ -220,8 +219,8 @@ define void @_ZN5draco22AdaptiveRAnsBitDecoder28DecodeLeastSignificantBits32EiPj
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
-  %.promoted = load double, ptr %4, align 8
-  %.promoted11 = load i32, ptr %5, align 4
+  %.promoted = load double, ptr %4, align 8, !tbaa !3
+  %.promoted11 = load i32, ptr %5, align 4, !tbaa !23
   %.promoted13 = load i32, ptr %6, align 8
   br label %8
 
@@ -240,10 +239,10 @@ define void @_ZN5draco22AdaptiveRAnsBitDecoder28DecodeLeastSignificantBits32EiPj
 14:                                               ; preds = %8
   %15 = shl nuw nsw i32 %storemerge.i.i12, 8
   %16 = add nsw i32 %9, -1
-  store i32 %16, ptr %6, align 8
+  store i32 %16, ptr %6, align 8, !tbaa !22
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
-  %19 = load i8, ptr %18, align 1
+  %19 = load i8, ptr %18, align 1, !tbaa !21
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %15, %20
   br label %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit
@@ -266,21 +265,21 @@ _ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit: ; preds = %8, %14
   %36 = sub i32 %23, %35
   %37 = add nuw i32 %33, %31
   %storemerge.i.i = select i1 %34, i32 %37, i32 %36
-  store i32 %storemerge.i.i, ptr %5, align 4
+  store i32 %storemerge.i.i, ptr %5, align 4, !tbaa !23
   %38 = xor i1 %34, true
   %39 = uitofp i1 %38 to double
   %40 = fmul double %39, 7.812500e-03
   %41 = tail call noundef double @llvm.fmuladd.f64(double %10, double 0x3FEFC00000000000, double %40)
-  store double %41, ptr %4, align 8
+  store double %41, ptr %4, align 8, !tbaa !3
   %42 = zext i1 %34 to i32
   %43 = or disjoint i32 %11, %42
   %44 = add nsw i32 %.059, -1
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %43, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
-  store i32 %.0.lcssa, ptr %2, align 4
+  store i32 %.0.lcssa, ptr %2, align 4, !tbaa !26
   ret void
 }
 
@@ -300,23 +299,44 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !11, i64 16}
+!4 = !{!"_ZTSN5draco22AdaptiveRAnsBitDecoderE", !5, i64 0, !11, i64 16}
+!5 = !{!"_ZTSN5draco10AnsDecoderE", !6, i64 0, !10, i64 8, !10, i64 12}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"double", !8, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"_ZTSN5draco13DecoderBufferE", !6, i64 0, !14, i64 8, !14, i64 16, !15, i64 24, !16, i64 48, !17, i64 50}
+!14 = !{!"long", !8, i64 0}
+!15 = !{!"_ZTSN5draco13DecoderBuffer10BitDecoderE", !6, i64 0, !6, i64 8, !14, i64 16}
+!16 = !{!"bool", !8, i64 0}
+!17 = !{!"short", !8, i64 0}
+!18 = !{!13, !14, i64 16}
+!19 = !{!13, !6, i64 0}
+!20 = !{!5, !6, i64 0}
+!21 = !{!8, !8, i64 0}
+!22 = !{!5, !10, i64 8}
+!23 = !{!5, !10, i64 12}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!10, !10, i64 0}

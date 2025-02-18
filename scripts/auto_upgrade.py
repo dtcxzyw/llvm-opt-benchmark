@@ -80,6 +80,7 @@ supported_project = [
     "cvc5",
     "cxxopts",
     "double_conversion",
+    "draco",
 ]
 
 modify_only = [

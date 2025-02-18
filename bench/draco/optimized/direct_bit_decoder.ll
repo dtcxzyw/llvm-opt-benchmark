@@ -31,27 +31,31 @@ define void @_ZN5draco16DirectBitDecoderC2Ev(ptr noundef nonnull writeonly align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5draco16DirectBitDecoderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZN5draco16DirectBitDecoder5ClearEv.exit, label %5
 
 5:                                                ; preds = %1
-  store ptr %2, ptr %3, align 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
   br label %_ZN5draco16DirectBitDecoder5ClearEv.exit
 
 _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %6, align 8
+  store i32 0, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = ptrtoint ptr %2 to i64
-  store i64 %8, ptr %7, align 8
+  store i64 %8, ptr %7, align 8, !tbaa !17
   %.not.i.i.i1 = icmp eq ptr %2, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %9
 
 9:                                                ; preds = %_ZN5draco16DirectBitDecoder5ClearEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #15
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !18
+  %12 = ptrtoint ptr %11 to i64
+  %13 = sub i64 %12, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %13) #15
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco16DirectBitDecoder5ClearEv.exit, %9
@@ -60,22 +64,22 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco16DirectBi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5draco16DirectBitDecoder5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((24, 36)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8
+  %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %5
 
 5:                                                ; preds = %1
-  store ptr %2, ptr %3, align 8
+  store ptr %2, ptr %3, align 8, !tbaa !9
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %6, align 8
+  store i32 0, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = ptrtoint ptr %2 to i64
-  store i64 %8, ptr %7, align 8
+  store i64 %8, ptr %7, align 8, !tbaa !17
   ret void
 }
 
@@ -83,35 +87,35 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco16DirectBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %0, align 8
+  %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
   %.not.i.i.i = icmp eq ptr %5, %3
   br i1 %.not.i.i.i, label %_ZN5draco16DirectBitDecoder5ClearEv.exit, label %6
 
 6:                                                ; preds = %2
-  store ptr %3, ptr %4, align 8
+  store ptr %3, ptr %4, align 8, !tbaa !9
   br label %_ZN5draco16DirectBitDecoder5ClearEv.exit
 
 _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %2, %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %7, align 8
+  store i32 0, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = ptrtoint ptr %3 to i64
-  store i64 %9, ptr %8, align 8
+  store i64 %9, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i64, ptr %10, align 8
+  %11 = load i64, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8
+  %13 = load i64, ptr %12, align 8, !tbaa !26
   %14 = add i64 %13, 4
   %.not12 = icmp slt i64 %11, %14
   br i1 %.not12, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %15
 
 15:                                               ; preds = %_ZN5draco16DirectBitDecoder5ClearEv.exit
-  %16 = load ptr, ptr %1, align 8
+  %16 = load ptr, ptr %1, align 8, !tbaa !27
   %17 = getelementptr inbounds i8, ptr %16, i64 %13
   %18 = load i32, ptr %17, align 1
-  store i64 %14, ptr %12, align 8
+  store i64 %14, ptr %12, align 8, !tbaa !26
   %19 = icmp ne i32 %18, 0
   %20 = and i32 %18, 3
   %.not = icmp eq i32 %20, 0
@@ -122,61 +126,34 @@ _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %2, %6
   %22 = zext i32 %18 to i64
   %23 = sub nsw i64 %11, %14
   %24 = icmp slt i64 %23, %22
-  br i1 %24, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %25
+  br i1 %24, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-25:                                               ; preds = %21
-  %26 = lshr exact i32 %18, 2
-  %27 = zext nneg i32 %26 to i64
-  %28 = load ptr, ptr %4, align 8
-  %29 = load ptr, ptr %0, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = ashr exact i64 %32, 2
-  %34 = icmp ult i64 %33, %27
-  br i1 %34, label %35, label %37
+_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21
+  %25 = lshr exact i32 %18, 2
+  %26 = zext nneg i32 %25 to i64
+  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %26)
+  %.pre14 = load i64, ptr %12, align 8, !tbaa !26
+  %.pre = load i64, ptr %10, align 8, !tbaa !19
+  %27 = add i64 %.pre14, %22
+  %.not13 = icmp slt i64 %.pre, %27
+  br i1 %.not13, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %28
 
-35:                                               ; preds = %25
-  %36 = sub nuw nsw i64 %27, %33
-  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %36)
-  br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-
-37:                                               ; preds = %25
-  %38 = icmp ugt i64 %33, %27
-  br i1 %38, label %39, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %27
-  %.not.i.i = icmp eq ptr %28, %40
-  br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %41
-
-41:                                               ; preds = %39
-  store ptr %40, ptr %4, align 8
-  br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-
-_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
-  %42 = load i64, ptr %10, align 8
-  %43 = load i64, ptr %12, align 8
-  %44 = add i64 %43, %22
-  %.not13 = icmp slt i64 %42, %44
-  br i1 %.not13, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %45
-
-45:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %46 = load ptr, ptr %0, align 8
-  %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 %43
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %48, i64 %22, i1 false)
-  %49 = load i64, ptr %12, align 8
-  %50 = add i64 %49, %22
-  store i64 %50, ptr %12, align 8
-  %51 = load ptr, ptr %0, align 8
-  %52 = ptrtoint ptr %51 to i64
-  store i64 %52, ptr %8, align 8
-  store i32 0, ptr %7, align 8
+28:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %29 = load ptr, ptr %0, align 8, !tbaa !3
+  %30 = load ptr, ptr %1, align 8, !tbaa !27
+  %31 = getelementptr inbounds i8, ptr %30, i64 %.pre14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 %22, i1 false)
+  %32 = load i64, ptr %12, align 8, !tbaa !26
+  %33 = add i64 %32, %22
+  store i64 %33, ptr %12, align 8, !tbaa !26
+  %34 = load ptr, ptr %0, align 8, !tbaa !17
+  %35 = ptrtoint ptr %34 to i64
+  store i64 %35, ptr %8, align 8, !tbaa !17
+  store i32 0, ptr %7, align 8, !tbaa !10
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %_ZN5draco16DirectBitDecoder5ClearEv.exit, %21, %15, %45
-  %.0 = phi i1 [ true, %45 ], [ false, %15 ], [ false, %21 ], [ false, %_ZN5draco16DirectBitDecoder5ClearEv.exit ], [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %_ZN5draco16DirectBitDecoder5ClearEv.exit, %28, %21, %15
+  %.0 = phi i1 [ false, %15 ], [ false, %21 ], [ true, %28 ], [ false, %_ZN5draco16DirectBitDecoder5ClearEv.exit ], [ false, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ]
   ret i1 %.0
 }
 
@@ -184,23 +161,23 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %_ZNSt6vectorIjSaIjE
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %42, label %3
+  br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !9
+  %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -213,7 +190,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   br i1 %.not28, label %25, label %19
 
 19:                                               ; preds = %3
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !28
   %20 = getelementptr i8, ptr %5, i64 4
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
@@ -221,14 +198,14 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %22 = shl i64 %1, 2
   %23 = add i64 %22, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %23, i1 false), !tbaa !28
   %24 = getelementptr i32, ptr %5, i64 %1
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
-  store ptr %.0.i.i.i, ptr %4, align 8
-  br label %42
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !9
+  br label %43
 
 25:                                               ; preds = %3
   %26 = icmp ult i64 %17, %1
@@ -244,8 +221,8 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %25
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 2305843009213693951)
   %30 = shl nuw nsw i64 %29, 2
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #17
-  %32 = getelementptr inbounds i8, ptr %31, i64 %9
-  store i32 0, ptr %32, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %9
+  store i32 0, ptr %32, align 4, !tbaa !28
   %33 = icmp eq i64 %1, 1
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit32, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
@@ -253,7 +230,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIj
   %34 = getelementptr i8, ptr %32, i64 4
   %35 = shl nuw nsw i64 %1, 2
   %36 = add nsw i64 %35, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 %36, i1 false), !tbaa !28
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit32
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit32: ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
@@ -269,18 +246,19 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
   br i1 %.not.i34, label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #15
+  %40 = sub i64 %13, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %40) #15
   br label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %39
-  store ptr %31, ptr %0, align 8
-  %40 = getelementptr inbounds i32, ptr %32, i64 %1
-  store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %29
-  store ptr %41, ptr %11, align 8
-  br label %42
+  store ptr %31, ptr %0, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i32, ptr %32, i64 %1
+  store ptr %41, ptr %4, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
+  store ptr %42, ptr %11, align 8, !tbaa !18
+  br label %43
 
-42:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35, %2
+43:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35, %2
   ret void
 }
 
@@ -312,18 +290,18 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -332,9 +310,34 @@ attributes #16 = { noreturn }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!5 = !{!"p1 int", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!4, !5, i64 8}
+!10 = !{!11, !16, i64 32}
+!11 = !{!"_ZTSN5draco16DirectBitDecoderE", !12, i64 0, !15, i64 24, !16, i64 32}
+!12 = !{!"_ZTSSt6vectorIjSaIjEE", !13, i64 0}
+!13 = !{!"_ZTSSt12_Vector_baseIjSaIjEE", !14, i64 0}
+!14 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE12_Vector_implE", !4, i64 0}
+!15 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEE", !5, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!5, !5, i64 0}
+!18 = !{!4, !5, i64 16}
+!19 = !{!20, !22, i64 8}
+!20 = !{!"_ZTSN5draco13DecoderBufferE", !21, i64 0, !22, i64 8, !22, i64 16, !23, i64 24, !24, i64 48, !25, i64 50}
+!21 = !{!"p1 omnipotent char", !6, i64 0}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!"_ZTSN5draco13DecoderBuffer10BitDecoderE", !21, i64 0, !21, i64 8, !22, i64 16}
+!24 = !{!"bool", !7, i64 0}
+!25 = !{!"short", !7, i64 0}
+!26 = !{!20, !22, i64 16}
+!27 = !{!20, !21, i64 0}
+!28 = !{!16, !16, i64 0}
