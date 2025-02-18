@@ -1,1525 +1,1732 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
+%struct.mi_page_s = type { i8, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, ptr, i16, i8, i8, i64, ptr, i64, i64, ptr, ptr }
 %union.mi_page_flags_s = type { i8 }
-%struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
-%struct.mi_page_queue_s = type { ptr, ptr, i64 }
+%struct.mi_heap_s = type { ptr, ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8, i8, [129 x ptr], [75 x %struct.mi_page_queue_s] }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
+%struct.mi_page_queue_s = type { ptr, ptr, i64 }
+%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, ptr, ptr, ptr, i8, i8, i64, i64, i64, i64, i64, i64, ptr, ptr, i64, i64, i32, [1 x %struct.mi_page_s] }
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_commit_mask_s = type { [8 x i64] }
 
 @_mi_heap_default = external thread_local(initialexec) global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %call = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext false) #6
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %zero.addr = alloca i8, align 1
-  %align_mask = alloca i64, align 8
-  %padsize = alloca i64, align 8
-  %page = alloca ptr, align 8
-  %is_aligned = alloca i8, align 1
-  %p = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %frombool = zext i1 %zero to i8
-  store i8 %frombool, ptr %zero.addr, align 1
-  %0 = load i64, ptr %alignment.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %entry
-  %1 = load i64, ptr %alignment.addr, align 8
-  %call = call zeroext i1 @_mi_is_power_of_two(i64 noundef %1) #6
-  %lnot = xor i1 %call, true
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot1 = xor i1 %2, true
-  %lnot2 = xor i1 %lnot1, true
-  %lnot.ext = zext i1 %lnot2 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.end
-  %3 = load i64, ptr %size.addr, align 8
-  %cmp3 = icmp ugt i64 %3, 9223372036854775807
-  %lnot5 = xor i1 %cmp3, true
-  %lnot7 = xor i1 %lnot5, true
-  %lnot.ext8 = zext i1 %lnot7 to i32
-  %conv9 = sext i32 %lnot.ext8 to i64
-  %tobool10 = icmp ne i64 %conv9, 0
-  br i1 %tobool10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end12:                                         ; preds = %if.end
-  %4 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %4, 1
-  store i64 %sub, ptr %align_mask, align 8
-  %5 = load i64, ptr %size.addr, align 8
-  %add = add i64 %5, 0
-  store i64 %add, ptr %padsize, align 8
-  %6 = load i64, ptr %padsize, align 8
-  %cmp13 = icmp ule i64 %6, 1024
-  br i1 %cmp13, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %if.end12
-  %7 = load i64, ptr %alignment.addr, align 8
-  %8 = load i64, ptr %padsize, align 8
-  %cmp15 = icmp ule i64 %7, %8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %if.end12
-  %9 = phi i1 [ false, %if.end12 ], [ %cmp15, %land.rhs ]
-  %lnot17 = xor i1 %9, true
-  %lnot19 = xor i1 %lnot17, true
-  %lnot.ext20 = zext i1 %lnot19 to i32
-  %conv21 = sext i32 %lnot.ext20 to i64
-  %tobool22 = icmp ne i64 %conv21, 0
-  br i1 %tobool22, label %if.then23, label %if.end50
-
-if.then23:                                        ; preds = %land.end
-  %10 = load ptr, ptr %heap.addr, align 8
-  %11 = load i64, ptr %padsize, align 8
-  %call24 = call ptr @_mi_heap_get_free_small_page(ptr noundef %10, i64 noundef %11) #6
-  store ptr %call24, ptr %page, align 8
-  %12 = load ptr, ptr %page, align 8
-  %free = getelementptr inbounds %struct.mi_page_s, ptr %12, i32 0, i32 7
-  %13 = load ptr, ptr %free, align 8
-  %14 = ptrtoint ptr %13 to i64
-  %15 = load i64, ptr %offset.addr, align 8
-  %add25 = add i64 %14, %15
-  %16 = load i64, ptr %align_mask, align 8
-  %and = and i64 %add25, %16
-  %cmp26 = icmp eq i64 %and, 0
-  %frombool28 = zext i1 %cmp26 to i8
-  store i8 %frombool28, ptr %is_aligned, align 1
-  %17 = load ptr, ptr %page, align 8
-  %free29 = getelementptr inbounds %struct.mi_page_s, ptr %17, i32 0, i32 7
-  %18 = load ptr, ptr %free29, align 8
-  %cmp30 = icmp ne ptr %18, null
-  br i1 %cmp30, label %land.rhs32, label %land.end35
-
-land.rhs32:                                       ; preds = %if.then23
-  %19 = load i8, ptr %is_aligned, align 1
-  %tobool33 = trunc i8 %19 to i1
-  br label %land.end35
-
-land.end35:                                       ; preds = %land.rhs32, %if.then23
-  %20 = phi i1 [ false, %if.then23 ], [ %tobool33, %land.rhs32 ]
-  %lnot36 = xor i1 %20, true
-  %lnot38 = xor i1 %lnot36, true
-  %lnot.ext39 = zext i1 %lnot38 to i32
-  %conv40 = sext i32 %lnot.ext39 to i64
-  %tobool41 = icmp ne i64 %conv40, 0
-  br i1 %tobool41, label %if.then42, label %if.end49
-
-if.then42:                                        ; preds = %land.end35
-  %21 = load ptr, ptr %heap.addr, align 8
-  %22 = load ptr, ptr %page, align 8
-  %23 = load i64, ptr %padsize, align 8
-  %24 = load i8, ptr %zero.addr, align 1
-  %tobool43 = trunc i8 %24 to i1
-  %call44 = call ptr @_mi_page_malloc(ptr noundef %21, ptr noundef %22, i64 noundef %23, i1 noundef zeroext %tobool43) #6
-  store ptr %call44, ptr %p, align 8
-  %25 = load ptr, ptr %p, align 8
-  %cmp45 = icmp ne ptr %25, null
-  br i1 %cmp45, label %if.then47, label %if.end48
-
-if.then47:                                        ; preds = %if.then42
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.then47, %if.then42
-  %26 = load ptr, ptr %p, align 8
-  store ptr %26, ptr %retval, align 8
-  br label %return
-
-if.end49:                                         ; preds = %land.end35
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.end49, %land.end
-  %27 = load ptr, ptr %heap.addr, align 8
-  %28 = load i64, ptr %size.addr, align 8
-  %29 = load i64, ptr %alignment.addr, align 8
-  %30 = load i64, ptr %offset.addr, align 8
-  %31 = load i8, ptr %zero.addr, align 1
-  %tobool51 = trunc i8 %31 to i1
-  %call52 = call ptr @mi_heap_malloc_zero_aligned_at_fallback(ptr noundef %27, i64 noundef %28, i64 noundef %29, i64 noundef %30, i1 noundef zeroext %tobool51) #6
-  store ptr %call52, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end50, %if.end48, %if.then11, %if.then
-  %32 = load ptr, ptr %retval, align 8
-  ret ptr %32
-}
-
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_malloc_aligned(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr %alignment.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %entry
-  %1 = load i64, ptr %alignment.addr, align 8
-  %call = call zeroext i1 @_mi_is_power_of_two(i64 noundef %1) #6
-  %lnot = xor i1 %call, true
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ %lnot, %lor.rhs ]
-  %lnot1 = xor i1 %2, true
-  %lnot2 = xor i1 %lnot1, true
-  %lnot.ext = zext i1 %lnot2 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.end
-  %3 = load i64, ptr %size.addr, align 8
-  %call3 = call zeroext i1 @_mi_is_power_of_two(i64 noundef %3) #6
-  br i1 %call3, label %land.lhs.true, label %land.end
-
-land.lhs.true:                                    ; preds = %if.end
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load i64, ptr %alignment.addr, align 8
-  %cmp5 = icmp uge i64 %4, %5
-  br i1 %cmp5, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %land.lhs.true
-  %6 = load i64, ptr %size.addr, align 8
-  %cmp7 = icmp ule i64 %6, 1024
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %if.end
-  %7 = phi i1 [ false, %land.lhs.true ], [ false, %if.end ], [ %cmp7, %land.rhs ]
-  %lnot9 = xor i1 %7, true
-  %lnot11 = xor i1 %lnot9, true
-  %lnot.ext12 = zext i1 %lnot11 to i32
-  %conv13 = sext i32 %lnot.ext12 to i64
-  %tobool14 = icmp ne i64 %conv13, 0
-  br i1 %tobool14, label %if.then15, label %if.else
-
-if.then15:                                        ; preds = %land.end
-  %8 = load ptr, ptr %heap.addr, align 8
-  %9 = load i64, ptr %size.addr, align 8
-  %call16 = call noalias ptr @mi_heap_malloc_small(ptr noundef %8, i64 noundef %9) #6
-  store ptr %call16, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %land.end
-  %10 = load ptr, ptr %heap.addr, align 8
-  %11 = load i64, ptr %size.addr, align 8
-  %12 = load i64, ptr %alignment.addr, align 8
-  %call17 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef 0) #6
-  store ptr %call17, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then15, %if.then
-  %13 = load ptr, ptr %retval, align 8
+define hidden noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = load i64, ptr %7, align 8, !tbaa !8
+  %12 = load i64, ptr %8, align 8, !tbaa !8
+  %13 = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext false) #10
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @_mi_is_power_of_two(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %1 = load i64, ptr %x.addr, align 8
-  %sub = sub i64 %1, 1
-  %and = and i64 %0, %sub
-  %cmp = icmp eq i64 %and, 0
-  ret i1 %cmp
-}
+define internal ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i64 %1, ptr %8, align 8, !tbaa !8
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  %18 = zext i1 %4 to i8
+  store i8 %18, ptr %11, align 1, !tbaa !10
+  %19 = load i64, ptr %9, align 8, !tbaa !8
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %25, label %21
 
-declare noalias ptr @mi_heap_malloc_small(ptr noundef, i64 noundef) #1
+21:                                               ; preds = %5
+  %22 = load i64, ptr %9, align 8, !tbaa !8
+  %23 = call zeroext i1 @_mi_is_power_of_two(i64 noundef %22) #10
+  %24 = xor i1 %23, true
+  br label %25
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %call = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext true) #6
-  ret ptr %call
-}
+25:                                               ; preds = %21, %5
+  %26 = phi i1 [ true, %5 ], [ %24, %21 ]
+  %27 = xor i1 %26, true
+  %28 = xor i1 %27, true
+  %29 = zext i1 %28 to i32
+  %30 = sext i32 %29 to i64
+  %31 = call i64 @llvm.expect.i64(i64 %30, i64 0)
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %34
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_zalloc_aligned(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %call = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef 0) #6
-  ret ptr %call
-}
+33:                                               ; preds = %25
+  store ptr null, ptr %6, align 8
+  br label %122
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %heap, i64 noundef %count, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %total = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load i64, ptr %count.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call zeroext i1 @mi_count_size_overflow(i64 noundef %0, i64 noundef %1, ptr noundef %total) #6
-  br i1 %call, label %if.then, label %if.end
+34:                                               ; preds = %25
+  %35 = load i64, ptr %8, align 8, !tbaa !8
+  %36 = icmp ule i64 %35, 1024
+  br i1 %36, label %37, label %41
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+37:                                               ; preds = %34
+  %38 = load i64, ptr %9, align 8, !tbaa !8
+  %39 = load i64, ptr %8, align 8, !tbaa !8
+  %40 = icmp ule i64 %38, %39
+  br label %41
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %heap.addr, align 8
-  %3 = load i64, ptr %total, align 8
-  %4 = load i64, ptr %alignment.addr, align 8
-  %5 = load i64, ptr %offset.addr, align 8
-  %call1 = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #6
-  store ptr %call1, ptr %retval, align 8
-  br label %return
+41:                                               ; preds = %37, %34
+  %42 = phi i1 [ false, %34 ], [ %40, %37 ]
+  %43 = xor i1 %42, true
+  %44 = xor i1 %43, true
+  %45 = zext i1 %44 to i32
+  %46 = sext i32 %45 to i64
+  %47 = call i64 @llvm.expect.i64(i64 %46, i64 1)
+  %48 = icmp ne i64 %47, 0
+  br i1 %48, label %49, label %114
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
+49:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %50 = load i64, ptr %9, align 8, !tbaa !8
+  %51 = sub i64 %50, 1
+  store i64 %51, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %52 = load i64, ptr %8, align 8, !tbaa !8
+  %53 = add i64 %52, 0
+  store i64 %53, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %54 = load ptr, ptr %7, align 8, !tbaa !3
+  %55 = load i64, ptr %13, align 8, !tbaa !8
+  %56 = call ptr @_mi_heap_get_free_small_page(ptr noundef %54, i64 noundef %55) #10
+  store ptr %56, ptr %14, align 8, !tbaa !12
+  %57 = load ptr, ptr %14, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw %struct.mi_page_s, ptr %57, i32 0, i32 6
+  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  %60 = icmp ne ptr %59, null
+  %61 = xor i1 %60, true
+  %62 = xor i1 %61, true
+  %63 = zext i1 %62 to i32
+  %64 = sext i32 %63 to i64
+  %65 = call i64 @llvm.expect.i64(i64 %64, i64 1)
+  %66 = icmp ne i64 %65, 0
+  br i1 %66, label %67, label %110
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_count_size_overflow(i64 noundef %count, i64 noundef %size, ptr noundef %total) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %total.addr = alloca ptr, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %total, ptr %total.addr, align 8
-  %0 = load i64, ptr %count.addr, align 8
-  %cmp = icmp eq i64 %0, 1
-  br i1 %cmp, label %if.then, label %if.else
+67:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #11
+  %68 = load ptr, ptr %14, align 8, !tbaa !12
+  %69 = getelementptr inbounds nuw %struct.mi_page_s, ptr %68, i32 0, i32 6
+  %70 = load ptr, ptr %69, align 8, !tbaa !14
+  %71 = ptrtoint ptr %70 to i64
+  %72 = load i64, ptr %10, align 8, !tbaa !8
+  %73 = add i64 %71, %72
+  %74 = load i64, ptr %12, align 8, !tbaa !8
+  %75 = and i64 %73, %74
+  %76 = icmp eq i64 %75, 0
+  %77 = zext i1 %76 to i8
+  store i8 %77, ptr %15, align 1, !tbaa !10
+  %78 = load i8, ptr %15, align 1, !tbaa !10, !range !19, !noundef !20
+  %79 = trunc i8 %78 to i1
+  %80 = xor i1 %79, true
+  %81 = xor i1 %80, true
+  %82 = zext i1 %81 to i32
+  %83 = sext i32 %82 to i64
+  %84 = call i64 @llvm.expect.i64(i64 %83, i64 1)
+  %85 = icmp ne i64 %84, 0
+  br i1 %85, label %86, label %106
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load ptr, ptr %total.addr, align 8
-  store i64 %1, ptr %2, align 8
-  store i1 false, ptr %retval, align 1
-  br label %return
+86:                                               ; preds = %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %87 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %94
 
-if.else:                                          ; preds = %entry
-  %3 = load i64, ptr %count.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load ptr, ptr %total.addr, align 8
-  %call = call zeroext i1 @mi_mul_overflow(i64 noundef %3, i64 noundef %4, ptr noundef %5) #6
-  %lnot = xor i1 %call, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then2, label %if.else3
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %7, align 8, !tbaa !3
+  %91 = load ptr, ptr %14, align 8, !tbaa !12
+  %92 = load i64, ptr %13, align 8, !tbaa !8
+  %93 = call ptr @_mi_page_malloc_zeroed(ptr noundef %90, ptr noundef %91, i64 noundef %92) #10
+  br label %99
 
-if.then2:                                         ; preds = %if.else
-  %6 = load ptr, ptr %total.addr, align 8
-  store i64 -1, ptr %6, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
+94:                                               ; preds = %86
+  %95 = load ptr, ptr %7, align 8, !tbaa !3
+  %96 = load ptr, ptr %14, align 8, !tbaa !12
+  %97 = load i64, ptr %13, align 8, !tbaa !8
+  %98 = call ptr @_mi_page_malloc(ptr noundef %95, ptr noundef %96, i64 noundef %97) #10
+  br label %99
 
-if.else3:                                         ; preds = %if.else
-  store i1 false, ptr %retval, align 1
-  br label %return
+99:                                               ; preds = %94, %89
+  %100 = phi ptr [ %93, %89 ], [ %98, %94 ]
+  store ptr %100, ptr %16, align 8, !tbaa !21
+  %101 = load ptr, ptr %16, align 8, !tbaa !21
+  %102 = icmp ne ptr %101, null
+  br i1 %102, label %103, label %104
 
-return:                                           ; preds = %if.else3, %if.then2, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
-}
+103:                                              ; preds = %99
+  br label %104
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_heap_calloc_aligned(ptr noundef %heap, i64 noundef %count, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load i64, ptr %count.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %call = call noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0) #6
-  ret ptr %call
-}
+104:                                              ; preds = %103, %99
+  %105 = load ptr, ptr %16, align 8, !tbaa !21
+  store ptr %105, ptr %6, align 8
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  br label %107
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_malloc_aligned_at(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %2 = load i64, ptr %offset.addr, align 8
-  %call1 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %call, i64 noundef %0, i64 noundef %1, i64 noundef %2) #6
-  ret ptr %call1
-}
+106:                                              ; preds = %67
+  store i32 0, ptr %17, align 4
+  br label %107
 
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_prim_get_default_heap() #0 {
-entry:
-  %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %1 = load ptr, ptr %0, align 8
-  ret ptr %1
-}
+107:                                              ; preds = %106, %104
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #11
+  %108 = load i32, ptr %17, align 4
+  switch i32 %108, label %111 [
+    i32 0, label %109
+  ]
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %call1 = call noalias ptr @mi_heap_malloc_aligned(ptr noundef %call, i64 noundef %0, i64 noundef %1) #6
-  ret ptr %call1
-}
+109:                                              ; preds = %107
+  br label %110
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @mi_zalloc_aligned_at(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %2 = load i64, ptr %offset.addr, align 8
-  %call1 = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %call, i64 noundef %0, i64 noundef %1, i64 noundef %2) #6
-  ret ptr %call1
+110:                                              ; preds = %109, %49
+  store i32 0, ptr %17, align 4
+  br label %111
+
+111:                                              ; preds = %110, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %112 = load i32, ptr %17, align 4
+  switch i32 %112, label %124 [
+    i32 0, label %113
+    i32 1, label %122
+  ]
+
+113:                                              ; preds = %111
+  br label %114
+
+114:                                              ; preds = %113, %41
+  %115 = load ptr, ptr %7, align 8, !tbaa !3
+  %116 = load i64, ptr %8, align 8, !tbaa !8
+  %117 = load i64, ptr %9, align 8, !tbaa !8
+  %118 = load i64, ptr %10, align 8, !tbaa !8
+  %119 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %120 = trunc i8 %119 to i1
+  %121 = call ptr @mi_heap_malloc_zero_aligned_at_generic(ptr noundef %115, i64 noundef %116, i64 noundef %117, i64 noundef %118, i1 noundef zeroext %120) #10
+  store ptr %121, ptr %6, align 8
+  br label %122
+
+122:                                              ; preds = %114, %111, %33
+  %123 = load ptr, ptr %6, align 8
+  ret ptr %123
+
+124:                                              ; preds = %111
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_zalloc_aligned(i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %call1 = call noalias ptr @mi_heap_zalloc_aligned(ptr noundef %call, i64 noundef %0, i64 noundef %1) #6
-  ret ptr %call1
+define hidden noalias ptr @mi_heap_malloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = load i64, ptr %6, align 8, !tbaa !8
+  %10 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef 0) #10
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_calloc_aligned_at(i64 noundef %count, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %count.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %call1 = call noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %call, i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
-  ret ptr %call1
+define hidden noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = load i64, ptr %7, align 8, !tbaa !8
+  %12 = load i64, ptr %8, align 8, !tbaa !8
+  %13 = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext true) #10
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_calloc_aligned(i64 noundef %count, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load i64, ptr %count.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %call1 = call noalias ptr @mi_heap_calloc_aligned(ptr noundef %call, i64 noundef %0, i64 noundef %1, i64 noundef %2) #6
-  ret ptr %call1
+define hidden noalias ptr @mi_heap_zalloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = load i64, ptr %6, align 8, !tbaa !8
+  %10 = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef 0) #10
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mi_heap_realloc_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %newsize.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %call = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false) #6
-  ret ptr %call
+define hidden noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i64 %1, ptr %8, align 8, !tbaa !8
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  store i64 %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %14 = load i64, ptr %8, align 8, !tbaa !8
+  %15 = load i64, ptr %9, align 8, !tbaa !8
+  %16 = call zeroext i1 @mi_count_size_overflow(i64 noundef %14, i64 noundef %15, ptr noundef %12) #10
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %24
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = load i64, ptr %12, align 8, !tbaa !8
+  %21 = load i64, ptr %10, align 8, !tbaa !8
+  %22 = load i64, ptr %11, align 8, !tbaa !8
+  %23 = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %22) #10
+  store ptr %23, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %24
+
+24:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %25 = load ptr, ptr %6, align 8
+  ret ptr %25
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @mi_count_size_overflow(i64 noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+  %4 = alloca i1, align 1
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !8
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !22
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = icmp eq i64 %8, 1
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !22
+  store i64 %11, ptr %12, align 8, !tbaa !8
+  store i1 false, ptr %4, align 1
+  br label %27
+
+13:                                               ; preds = %3
+  %14 = load i64, ptr %5, align 8, !tbaa !8
+  %15 = load i64, ptr %6, align 8, !tbaa !8
+  %16 = load ptr, ptr %7, align 8, !tbaa !22
+  %17 = call zeroext i1 @mi_mul_overflow(i64 noundef %14, i64 noundef %15, ptr noundef %16) #10
+  %18 = xor i1 %17, true
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %26
+
+24:                                               ; preds = %13
+  %25 = load ptr, ptr %7, align 8, !tbaa !22
+  store i64 -1, ptr %25, align 8, !tbaa !8
+  store i1 true, ptr %4, align 1
+  br label %27
+
+26:                                               ; preds = %13
+  store i1 false, ptr %4, align 1
+  br label %27
+
+27:                                               ; preds = %26, %24, %10
+  %28 = load i1, ptr %4, align 1
+  ret i1 %28
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden noalias ptr @mi_heap_calloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = load i64, ptr %7, align 8, !tbaa !8
+  %12 = load i64, ptr %8, align 8, !tbaa !8
+  %13 = call noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef 0) #10
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %zero.addr = alloca i8, align 1
-  %size = alloca i64, align 8
-  %newp = alloca ptr, align 8
-  %start = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %frombool = zext i1 %zero to i8
-  store i8 %frombool, ptr %zero.addr, align 1
-  %0 = load i64, ptr %alignment.addr, align 8
-  %cmp = icmp ule i64 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load i64, ptr %newsize.addr, align 8
-  %4 = load i8, ptr %zero.addr, align 1
-  %tobool = trunc i8 %4 to i1
-  %call = call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %tobool) #6
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %p.addr, align 8
-  %cmp1 = icmp eq ptr %5, null
-  br i1 %cmp1, label %if.then2, label %if.end5
-
-if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %heap.addr, align 8
-  %7 = load i64, ptr %newsize.addr, align 8
-  %8 = load i64, ptr %alignment.addr, align 8
-  %9 = load i64, ptr %offset.addr, align 8
-  %10 = load i8, ptr %zero.addr, align 1
-  %tobool3 = trunc i8 %10 to i1
-  %call4 = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i1 noundef zeroext %tobool3) #6
-  store ptr %call4, ptr %retval, align 8
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %11 = load ptr, ptr %p.addr, align 8
-  %call6 = call i64 @mi_usable_size(ptr noundef %11) #6
-  store i64 %call6, ptr %size, align 8
-  %12 = load i64, ptr %newsize.addr, align 8
-  %13 = load i64, ptr %size, align 8
-  %cmp7 = icmp ule i64 %12, %13
-  br i1 %cmp7, label %land.lhs.true, label %if.else
-
-land.lhs.true:                                    ; preds = %if.end5
-  %14 = load i64, ptr %newsize.addr, align 8
-  %15 = load i64, ptr %size, align 8
-  %16 = load i64, ptr %size, align 8
-  %div = udiv i64 %16, 2
-  %sub = sub i64 %15, %div
-  %cmp8 = icmp uge i64 %14, %sub
-  br i1 %cmp8, label %land.lhs.true9, label %if.else
-
-land.lhs.true9:                                   ; preds = %land.lhs.true
-  %17 = load ptr, ptr %p.addr, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = load i64, ptr %offset.addr, align 8
-  %add = add i64 %18, %19
-  %20 = load i64, ptr %alignment.addr, align 8
-  %rem = urem i64 %add, %20
-  %cmp10 = icmp eq i64 %rem, 0
-  br i1 %cmp10, label %if.then11, label %if.else
-
-if.then11:                                        ; preds = %land.lhs.true9
-  %21 = load ptr, ptr %p.addr, align 8
-  store ptr %21, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true9, %land.lhs.true, %if.end5
-  %22 = load ptr, ptr %heap.addr, align 8
-  %23 = load i64, ptr %newsize.addr, align 8
-  %24 = load i64, ptr %alignment.addr, align 8
-  %25 = load i64, ptr %offset.addr, align 8
-  %call12 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %22, i64 noundef %23, i64 noundef %24, i64 noundef %25) #6
-  store ptr %call12, ptr %newp, align 8
-  %26 = load ptr, ptr %newp, align 8
-  %cmp13 = icmp ne ptr %26, null
-  br i1 %cmp13, label %if.then14, label %if.end28
-
-if.then14:                                        ; preds = %if.else
-  %27 = load i8, ptr %zero.addr, align 1
-  %tobool15 = trunc i8 %27 to i1
-  br i1 %tobool15, label %land.lhs.true16, label %if.end22
-
-land.lhs.true16:                                  ; preds = %if.then14
-  %28 = load i64, ptr %newsize.addr, align 8
-  %29 = load i64, ptr %size, align 8
-  %cmp17 = icmp ugt i64 %28, %29
-  br i1 %cmp17, label %if.then18, label %if.end22
-
-if.then18:                                        ; preds = %land.lhs.true16
-  %30 = load i64, ptr %size, align 8
-  %cmp19 = icmp uge i64 %30, 8
-  br i1 %cmp19, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.then18
-  %31 = load i64, ptr %size, align 8
-  %sub20 = sub i64 %31, 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.then18
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub20, %cond.true ], [ 0, %cond.false ]
-  store i64 %cond, ptr %start, align 8
-  %32 = load ptr, ptr %newp, align 8
-  %33 = load i64, ptr %start, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %32, i64 %33
-  %34 = load i64, ptr %newsize.addr, align 8
-  %35 = load i64, ptr %start, align 8
-  %sub21 = sub i64 %34, %35
-  call void @_mi_memzero(ptr noundef %add.ptr, i64 noundef %sub21) #6
-  br label %if.end22
-
-if.end22:                                         ; preds = %cond.end, %land.lhs.true16, %if.then14
-  %36 = load ptr, ptr %newp, align 8
-  %37 = load ptr, ptr %p.addr, align 8
-  %38 = load i64, ptr %newsize.addr, align 8
-  %39 = load i64, ptr %size, align 8
-  %cmp23 = icmp ugt i64 %38, %39
-  br i1 %cmp23, label %cond.true24, label %cond.false25
-
-cond.true24:                                      ; preds = %if.end22
-  %40 = load i64, ptr %size, align 8
-  br label %cond.end26
-
-cond.false25:                                     ; preds = %if.end22
-  %41 = load i64, ptr %newsize.addr, align 8
-  br label %cond.end26
-
-cond.end26:                                       ; preds = %cond.false25, %cond.true24
-  %cond27 = phi i64 [ %40, %cond.true24 ], [ %41, %cond.false25 ]
-  call void @_mi_memcpy_aligned(ptr noundef %36, ptr noundef %37, i64 noundef %cond27) #6
-  %42 = load ptr, ptr %p.addr, align 8
-  call void @mi_free(ptr noundef %42) #6
-  br label %if.end28
-
-if.end28:                                         ; preds = %cond.end26, %if.else
-  %43 = load ptr, ptr %newp, align 8
-  store ptr %43, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end28, %if.then11, %if.then2, %if.then
-  %44 = load ptr, ptr %retval, align 8
-  ret ptr %44
+define hidden noalias ptr @mi_malloc_aligned_at(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = call ptr @mi_prim_get_default_heap() #10
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) #10
+  ret ptr %11
 }
 
-; Function Attrs: nounwind uwtable
-define ptr @mi_heap_realloc_aligned(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %newsize.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %call = call ptr @mi_heap_realloc_zero_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext false) #6
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_heap_realloc_zero_aligned(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i1 noundef zeroext %zero) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %zero.addr = alloca i8, align 1
-  %offset = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %frombool = zext i1 %zero to i8
-  store i8 %frombool, ptr %zero.addr, align 1
-  %0 = load i64, ptr %alignment.addr, align 8
-  %cmp = icmp ule i64 %0, 8
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load ptr, ptr %p.addr, align 8
-  %3 = load i64, ptr %newsize.addr, align 8
-  %4 = load i8, ptr %zero.addr, align 1
-  %tobool = trunc i8 %4 to i1
-  %call = call ptr @_mi_heap_realloc_zero(ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %tobool) #6
-  store ptr %call, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %p.addr, align 8
-  %6 = ptrtoint ptr %5 to i64
-  %7 = load i64, ptr %alignment.addr, align 8
-  %rem = urem i64 %6, %7
-  store i64 %rem, ptr %offset, align 8
-  %8 = load ptr, ptr %heap.addr, align 8
-  %9 = load ptr, ptr %p.addr, align 8
-  %10 = load i64, ptr %newsize.addr, align 8
-  %11 = load i64, ptr %alignment.addr, align 8
-  %12 = load i64, ptr %offset, align 8
-  %13 = load i8, ptr %zero.addr, align 1
-  %tobool1 = trunc i8 %13 to i1
-  %call2 = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext %tobool1) #6
-  store ptr %call2, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %14 = load ptr, ptr %retval, align 8
-  ret ptr %14
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_heap_rezalloc_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %newsize.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %call = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true) #6
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_heap_rezalloc_aligned(ptr noundef %heap, ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %newsize.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %call = call ptr @mi_heap_realloc_zero_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext true) #6
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_heap_recalloc_aligned_at(ptr noundef %heap, ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newcount.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %total = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newcount, ptr %newcount.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %0 = load i64, ptr %newcount.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call zeroext i1 @mi_count_size_overflow(i64 noundef %0, i64 noundef %1, ptr noundef %total) #6
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %heap.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i64, ptr %total, align 8
-  %5 = load i64, ptr %alignment.addr, align 8
-  %6 = load i64, ptr %offset.addr, align 8
-  %call1 = call ptr @mi_heap_rezalloc_aligned_at(ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) #6
-  store ptr %call1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %7 = load ptr, ptr %retval, align 8
-  ret ptr %7
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_heap_recalloc_aligned(ptr noundef %heap, ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %newcount.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %total = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newcount, ptr %newcount.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr %newcount.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call zeroext i1 @mi_count_size_overflow(i64 noundef %0, i64 noundef %1, ptr noundef %total) #6
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %heap.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i64, ptr %total, align 8
-  %5 = load i64, ptr %alignment.addr, align 8
-  %call1 = call ptr @mi_heap_rezalloc_aligned(ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #6
-  store ptr %call1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_realloc_aligned_at(ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newsize.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %call1 = call ptr @mi_heap_realloc_aligned_at(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_realloc_aligned(ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newsize.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %call1 = call ptr @mi_heap_realloc_aligned(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_rezalloc_aligned_at(ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newsize.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %3 = load i64, ptr %offset.addr, align 8
-  %call1 = call ptr @mi_heap_rezalloc_aligned_at(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_rezalloc_aligned(ptr noundef %p, i64 noundef %newsize, i64 noundef %alignment) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newsize.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newsize, ptr %newsize.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newsize.addr, align 8
-  %2 = load i64, ptr %alignment.addr, align 8
-  %call1 = call ptr @mi_heap_rezalloc_aligned(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_recalloc_aligned_at(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newcount.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newcount, ptr %newcount.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newcount.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr %offset.addr, align 8
-  %call1 = call ptr @mi_heap_recalloc_aligned_at(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @mi_recalloc_aligned(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  %newcount.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %newcount, ptr %newcount.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %call = call ptr @mi_prim_get_default_heap() #6
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i64, ptr %newcount.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %3 = load i64, ptr %alignment.addr, align 8
-  %call1 = call ptr @mi_heap_recalloc_aligned(ptr noundef %call, ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_heap_get_free_small_page(ptr noundef %heap, i64 noundef %size) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %idx = alloca i64, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %call = call i64 @_mi_wsize_from_size(i64 noundef %0) #6
-  store i64 %call, ptr %idx, align 8
-  %1 = load ptr, ptr %heap.addr, align 8
-  %pages_free_direct = getelementptr inbounds %struct.mi_heap_s, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %idx, align 8
-  %arrayidx = getelementptr inbounds [129 x ptr], ptr %pages_free_direct, i64 0, i64 %2
-  %3 = load ptr, ptr %arrayidx, align 8
-  ret ptr %3
-}
-
-declare ptr @_mi_page_malloc(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_heap_malloc_zero_aligned_at_fallback(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %zero) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %offset.addr = alloca i64, align 8
-  %zero.addr = alloca i8, align 1
-  %align_mask = alloca i64, align 8
-  %padsize = alloca i64, align 8
-  %p = alloca ptr, align 8
-  %p6 = alloca ptr, align 8
-  %oversize = alloca i64, align 8
-  %poffset = alloca i64, align 8
-  %adjust = alloca i64, align 8
-  %aligned_p = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  %frombool = zext i1 %zero to i8
-  store i8 %frombool, ptr %zero.addr, align 1
-  %0 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %0, 1
-  store i64 %sub, ptr %align_mask, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %add = add i64 %1, 0
-  store i64 %add, ptr %padsize, align 8
-  %2 = load i64, ptr %offset.addr, align 8
-  %cmp = icmp eq i64 %2, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %3 = load i64, ptr %alignment.addr, align 8
-  %4 = load i64, ptr %padsize, align 8
-  %cmp1 = icmp ule i64 %3, %4
-  br i1 %cmp1, label %land.lhs.true2, label %if.end
-
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %5 = load i64, ptr %padsize, align 8
-  %cmp3 = icmp ule i64 %5, 128
-  br i1 %cmp3, label %land.lhs.true4, label %if.end
-
-land.lhs.true4:                                   ; preds = %land.lhs.true2
-  %6 = load i64, ptr %padsize, align 8
-  %7 = load i64, ptr %align_mask, align 8
-  %and = and i64 %6, %7
-  %cmp5 = icmp eq i64 %and, 0
-  br i1 %cmp5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true4
-  %8 = load ptr, ptr %heap.addr, align 8
-  %9 = load i64, ptr %size.addr, align 8
-  %10 = load i8, ptr %zero.addr, align 1
-  %tobool = trunc i8 %10 to i1
-  %call = call ptr @_mi_heap_malloc_zero(ptr noundef %8, i64 noundef %9, i1 noundef zeroext %tobool) #6
-  store ptr %call, ptr %p, align 8
-  %11 = load ptr, ptr %p, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true4, %land.lhs.true2, %land.lhs.true, %entry
-  %12 = load i64, ptr %alignment.addr, align 8
-  %cmp7 = icmp ugt i64 %12, 16777216
-  %lnot = xor i1 %cmp7, true
-  %lnot8 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot8 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool9 = icmp ne i64 %conv, 0
-  br i1 %tobool9, label %if.then10, label %if.else
-
-if.then10:                                        ; preds = %if.end
-  %13 = load i64, ptr %offset.addr, align 8
-  %cmp11 = icmp ne i64 %13, 0
-  %lnot13 = xor i1 %cmp11, true
-  %lnot15 = xor i1 %lnot13, true
-  %lnot.ext16 = zext i1 %lnot15 to i32
-  %conv17 = sext i32 %lnot.ext16 to i64
-  %tobool18 = icmp ne i64 %conv17, 0
-  br i1 %tobool18, label %if.then19, label %if.end20
-
-if.then19:                                        ; preds = %if.then10
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end20:                                         ; preds = %if.then10
-  %14 = load i64, ptr %size.addr, align 8
-  %cmp21 = icmp ule i64 %14, 1024
-  br i1 %cmp21, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end20
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end20
-  %15 = load i64, ptr %size.addr, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 1025, %cond.true ], [ %15, %cond.false ]
-  store i64 %cond, ptr %oversize, align 8
-  %16 = load ptr, ptr %heap.addr, align 8
-  %17 = load i64, ptr %oversize, align 8
-  %18 = load i64, ptr %alignment.addr, align 8
-  %call23 = call ptr @_mi_heap_malloc_zero_ex(ptr noundef %16, i64 noundef %17, i1 noundef zeroext false, i64 noundef %18) #6
-  store ptr %call23, ptr %p6, align 8
-  %19 = load ptr, ptr %p6, align 8
-  %cmp24 = icmp eq ptr %19, null
-  br i1 %cmp24, label %if.then26, label %if.end27
-
-if.then26:                                        ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end27:                                         ; preds = %cond.end
-  br label %if.end36
-
-if.else:                                          ; preds = %if.end
-  %20 = load i64, ptr %size.addr, align 8
-  %21 = load i64, ptr %alignment.addr, align 8
-  %add28 = add i64 %20, %21
-  %sub29 = sub i64 %add28, 1
-  store i64 %sub29, ptr %oversize, align 8
-  %22 = load ptr, ptr %heap.addr, align 8
-  %23 = load i64, ptr %oversize, align 8
-  %24 = load i8, ptr %zero.addr, align 1
-  %tobool30 = trunc i8 %24 to i1
-  %call31 = call ptr @_mi_heap_malloc_zero(ptr noundef %22, i64 noundef %23, i1 noundef zeroext %tobool30) #6
-  store ptr %call31, ptr %p6, align 8
-  %25 = load ptr, ptr %p6, align 8
-  %cmp32 = icmp eq ptr %25, null
-  br i1 %cmp32, label %if.then34, label %if.end35
-
-if.then34:                                        ; preds = %if.else
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end35:                                         ; preds = %if.else
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end35, %if.end27
-  %26 = load ptr, ptr %p6, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = load i64, ptr %offset.addr, align 8
-  %add37 = add i64 %27, %28
-  %29 = load i64, ptr %align_mask, align 8
-  %and38 = and i64 %add37, %29
-  store i64 %and38, ptr %poffset, align 8
-  %30 = load i64, ptr %poffset, align 8
-  %cmp39 = icmp eq i64 %30, 0
-  br i1 %cmp39, label %cond.true41, label %cond.false42
-
-cond.true41:                                      ; preds = %if.end36
-  br label %cond.end44
-
-cond.false42:                                     ; preds = %if.end36
-  %31 = load i64, ptr %alignment.addr, align 8
-  %32 = load i64, ptr %poffset, align 8
-  %sub43 = sub i64 %31, %32
-  br label %cond.end44
-
-cond.end44:                                       ; preds = %cond.false42, %cond.true41
-  %cond45 = phi i64 [ 0, %cond.true41 ], [ %sub43, %cond.false42 ]
-  store i64 %cond45, ptr %adjust, align 8
-  %33 = load ptr, ptr %p6, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = load i64, ptr %adjust, align 8
-  %add46 = add i64 %34, %35
-  %36 = inttoptr i64 %add46 to ptr
-  store ptr %36, ptr %aligned_p, align 8
-  %37 = load ptr, ptr %aligned_p, align 8
-  %38 = load ptr, ptr %p6, align 8
-  %cmp47 = icmp ne ptr %37, %38
-  br i1 %cmp47, label %if.then49, label %if.end52
-
-if.then49:                                        ; preds = %cond.end44
-  %39 = load ptr, ptr %p6, align 8
-  %call50 = call ptr @_mi_ptr_page(ptr noundef %39) #6
-  store ptr %call50, ptr %page, align 8
-  %40 = load ptr, ptr %page, align 8
-  call void @mi_page_set_has_aligned(ptr noundef %40, i1 noundef zeroext true) #6
-  %41 = load ptr, ptr %page, align 8
-  %42 = load ptr, ptr %p6, align 8
-  %43 = load i64, ptr %adjust, align 8
-  %44 = load i64, ptr %size.addr, align 8
-  %add51 = add i64 %43, %44
-  call void @_mi_padding_shrink(ptr noundef %41, ptr noundef %42, i64 noundef %add51) #6
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.then49, %cond.end44
-  %45 = load i64, ptr %alignment.addr, align 8
-  %cmp53 = icmp ugt i64 %45, 16777216
-  br i1 %cmp53, label %if.then55, label %if.end60
-
-if.then55:                                        ; preds = %if.end52
-  %46 = load i8, ptr %zero.addr, align 1
-  %tobool56 = trunc i8 %46 to i1
-  br i1 %tobool56, label %if.then57, label %if.end59
-
-if.then57:                                        ; preds = %if.then55
-  %47 = load ptr, ptr %aligned_p, align 8
-  %48 = load ptr, ptr %aligned_p, align 8
-  %call58 = call i64 @mi_usable_size(ptr noundef %48) #6
-  call void @_mi_memzero_aligned(ptr noundef %47, i64 noundef %call58) #6
-  br label %if.end59
-
-if.end59:                                         ; preds = %if.then57, %if.then55
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.end59, %if.end52
-  %49 = load ptr, ptr %p6, align 8
-  %50 = load ptr, ptr %aligned_p, align 8
-  %cmp61 = icmp ne ptr %49, %50
-  br i1 %cmp61, label %if.then63, label %if.end64
-
-if.then63:                                        ; preds = %if.end60
-  br label %if.end64
-
-if.end64:                                         ; preds = %if.then63, %if.end60
-  %51 = load ptr, ptr %aligned_p, align 8
-  store ptr %51, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end64, %if.then34, %if.then26, %if.then19, %if.then
-  %52 = load ptr, ptr %retval, align 8
-  ret ptr %52
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_mi_wsize_from_size(i64 noundef %size) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %add = add i64 %0, 8
-  %sub = sub i64 %add, 1
-  %div = udiv i64 %sub, 8
-  ret i64 %div
-}
-
-declare ptr @_mi_heap_malloc_zero(ptr noundef, i64 noundef, i1 noundef zeroext) #1
-
-declare ptr @_mi_heap_malloc_zero_ex(ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_ptr_page(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  %1 = load ptr, ptr %p.addr, align 8
-  %call1 = call ptr @_mi_segment_page_of(ptr noundef %call, ptr noundef %1) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_page_set_has_aligned(ptr noundef %page, i1 noundef zeroext %has_aligned) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %has_aligned.addr = alloca i8, align 1
-  store ptr %page, ptr %page.addr, align 8
-  %frombool = zext i1 %has_aligned to i8
-  store i8 %frombool, ptr %has_aligned.addr, align 1
-  %0 = load i8, ptr %has_aligned.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  %conv = zext i1 %tobool to i8
-  %1 = load ptr, ptr %page.addr, align 8
-  %flags = getelementptr inbounds %struct.mi_page_s, ptr %1, i32 0, i32 5
-  %bf.load = load i8, ptr %flags, align 2
-  %bf.value = and i8 %conv, 1
-  %bf.shl = shl i8 %bf.value, 1
-  %bf.clear = and i8 %bf.load, -3
-  %bf.set = or i8 %bf.clear, %bf.shl
-  store i8 %bf.set, ptr %flags, align 2
-  ret void
-}
-
-declare void @_mi_padding_shrink(ptr noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @_mi_memzero_aligned(ptr noundef %dst, i64 noundef %n) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %adst = alloca ptr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  store ptr %0, ptr %adst, align 8
-  %1 = load ptr, ptr %adst, align 8
-  %2 = load i64, ptr %n.addr, align 8
-  call void @_mi_memzero(ptr noundef %1, i64 noundef %2) #6
-  ret void
-}
-
-declare i64 @mi_usable_size(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_segment_page_of(ptr noundef %segment, ptr noundef %p) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %diff = alloca i64, align 8
-  %idx = alloca i64, align 8
-  %slice0 = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %diff, align 8
-  %2 = load i64, ptr %diff, align 8
-  %shr = lshr i64 %2, 16
-  store i64 %shr, ptr %idx, align 8
-  %3 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 18
-  %4 = load i64, ptr %idx, align 8
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %4
-  store ptr %arrayidx, ptr %slice0, align 8
-  %5 = load ptr, ptr %slice0, align 8
-  %call = call ptr @mi_slice_first(ptr noundef %5) #6
-  store ptr %call, ptr %slice, align 8
-  %6 = load ptr, ptr %slice, align 8
-  %call1 = call ptr @mi_slice_to_page(ptr noundef %6) #6
-  ret ptr %call1
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_ptr_segment(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %sub = sub i64 %1, 1
-  %and = and i64 %sub, -33554432
-  %2 = inttoptr i64 %and to ptr
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @mi_prim_get_default_heap() #2 {
+  %1 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %2 = load ptr, ptr %1, align 8, !tbaa !3
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_slice_first(ptr noundef %slice) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %1 = load ptr, ptr %slice.addr, align 8
-  %slice_offset = getelementptr inbounds %struct.mi_page_s, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %slice_offset, align 4
-  %idx.ext = zext i32 %2 to i64
-  %idx.neg = sub i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.neg
-  store ptr %add.ptr, ptr %start, align 8
-  %3 = load ptr, ptr %start, align 8
-  ret ptr %3
+define hidden noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = call ptr @mi_prim_get_default_heap() #10
+  %6 = load i64, ptr %3, align 8, !tbaa !8
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = call noalias ptr @mi_heap_malloc_aligned(ptr noundef %5, i64 noundef %6, i64 noundef %7) #10
+  ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_slice_to_page(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  ret ptr %0
+define hidden noalias ptr @mi_zalloc_aligned_at(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = call ptr @mi_prim_get_default_heap() #10
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = call noalias ptr @mi_heap_zalloc_aligned_at(ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) #10
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define hidden noalias ptr @mi_zalloc_aligned(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = call ptr @mi_prim_get_default_heap() #10
+  %6 = load i64, ptr %3, align 8, !tbaa !8
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = call noalias ptr @mi_heap_zalloc_aligned(ptr noundef %5, i64 noundef %6, i64 noundef %7) #10
+  ret ptr %8
+}
+
+; Function Attrs: nounwind uwtable
+define hidden noalias ptr @mi_calloc_aligned_at(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !8
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = call ptr @mi_prim_get_default_heap() #10
+  %10 = load i64, ptr %5, align 8, !tbaa !8
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = call noalias ptr @mi_heap_calloc_aligned_at(ptr noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) #10
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define hidden noalias ptr @mi_calloc_aligned(i64 noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = call ptr @mi_prim_get_default_heap() #10
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = call noalias ptr @mi_heap_calloc_aligned(ptr noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10) #10
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_realloc_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store i64 %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  store i64 %4, ptr %10, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load ptr, ptr %7, align 8, !tbaa !21
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = load i64, ptr %9, align 8, !tbaa !8
+  %15 = load i64, ptr %10, align 8, !tbaa !8
+  %16 = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i1 noundef zeroext false) #10
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !21
+  store i64 %2, ptr %10, align 8, !tbaa !8
+  store i64 %3, ptr %11, align 8, !tbaa !8
+  store i64 %4, ptr %12, align 8, !tbaa !8
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %13, align 1, !tbaa !10
+  %19 = load i64, ptr %11, align 8, !tbaa !8
+  %20 = icmp ule i64 %19, 8
+  br i1 %20, label %21, label %28
+
+21:                                               ; preds = %6
+  %22 = load ptr, ptr %8, align 8, !tbaa !3
+  %23 = load ptr, ptr %9, align 8, !tbaa !21
+  %24 = load i64, ptr %10, align 8, !tbaa !8
+  %25 = load i8, ptr %13, align 1, !tbaa !10, !range !19, !noundef !20
+  %26 = trunc i8 %25 to i1
+  %27 = call ptr @_mi_heap_realloc_zero(ptr noundef %22, ptr noundef %23, i64 noundef %24, i1 noundef zeroext %26) #10
+  store ptr %27, ptr %7, align 8
+  br label %108
+
+28:                                               ; preds = %6
+  %29 = load ptr, ptr %9, align 8, !tbaa !21
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %39
+
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %8, align 8, !tbaa !3
+  %33 = load i64, ptr %10, align 8, !tbaa !8
+  %34 = load i64, ptr %11, align 8, !tbaa !8
+  %35 = load i64, ptr %12, align 8, !tbaa !8
+  %36 = load i8, ptr %13, align 1, !tbaa !10, !range !19, !noundef !20
+  %37 = trunc i8 %36 to i1
+  %38 = call ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %32, i64 noundef %33, i64 noundef %34, i64 noundef %35, i1 noundef zeroext %37) #10
+  store ptr %38, ptr %7, align 8
+  br label %108
+
+39:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %40 = load ptr, ptr %9, align 8, !tbaa !21
+  %41 = call i64 @mi_usable_size(ptr noundef %40) #10
+  store i64 %41, ptr %14, align 8, !tbaa !8
+  %42 = load i64, ptr %10, align 8, !tbaa !8
+  %43 = load i64, ptr %14, align 8, !tbaa !8
+  %44 = icmp ule i64 %42, %43
+  br i1 %44, label %45, label %62
+
+45:                                               ; preds = %39
+  %46 = load i64, ptr %10, align 8, !tbaa !8
+  %47 = load i64, ptr %14, align 8, !tbaa !8
+  %48 = load i64, ptr %14, align 8, !tbaa !8
+  %49 = udiv i64 %48, 2
+  %50 = sub i64 %47, %49
+  %51 = icmp uge i64 %46, %50
+  br i1 %51, label %52, label %62
+
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %9, align 8, !tbaa !21
+  %54 = ptrtoint ptr %53 to i64
+  %55 = load i64, ptr %12, align 8, !tbaa !8
+  %56 = add i64 %54, %55
+  %57 = load i64, ptr %11, align 8, !tbaa !8
+  %58 = urem i64 %56, %57
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %52
+  %61 = load ptr, ptr %9, align 8, !tbaa !21
+  store ptr %61, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %107
+
+62:                                               ; preds = %52, %45, %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = load i64, ptr %10, align 8, !tbaa !8
+  %65 = load i64, ptr %11, align 8, !tbaa !8
+  %66 = load i64, ptr %12, align 8, !tbaa !8
+  %67 = call noalias ptr @mi_heap_malloc_aligned_at(ptr noundef %63, i64 noundef %64, i64 noundef %65, i64 noundef %66) #10
+  store ptr %67, ptr %16, align 8, !tbaa !21
+  %68 = load ptr, ptr %16, align 8, !tbaa !21
+  %69 = icmp ne ptr %68, null
+  br i1 %69, label %70, label %105
+
+70:                                               ; preds = %62
+  %71 = load i8, ptr %13, align 1, !tbaa !10, !range !19, !noundef !20
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %92
+
+73:                                               ; preds = %70
+  %74 = load i64, ptr %10, align 8, !tbaa !8
+  %75 = load i64, ptr %14, align 8, !tbaa !8
+  %76 = icmp ugt i64 %74, %75
+  br i1 %76, label %77, label %92
+
+77:                                               ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  %78 = load i64, ptr %14, align 8, !tbaa !8
+  %79 = icmp uge i64 %78, 8
+  br i1 %79, label %80, label %83
+
+80:                                               ; preds = %77
+  %81 = load i64, ptr %14, align 8, !tbaa !8
+  %82 = sub i64 %81, 8
+  br label %84
+
+83:                                               ; preds = %77
+  br label %84
+
+84:                                               ; preds = %83, %80
+  %85 = phi i64 [ %82, %80 ], [ 0, %83 ]
+  store i64 %85, ptr %17, align 8, !tbaa !8
+  %86 = load ptr, ptr %16, align 8, !tbaa !21
+  %87 = load i64, ptr %17, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
+  %89 = load i64, ptr %10, align 8, !tbaa !8
+  %90 = load i64, ptr %17, align 8, !tbaa !8
+  %91 = sub i64 %89, %90
+  call void @_mi_memzero(ptr noundef %88, i64 noundef %91) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  br label %92
+
+92:                                               ; preds = %84, %73, %70
+  %93 = load ptr, ptr %16, align 8, !tbaa !21
+  %94 = load ptr, ptr %9, align 8, !tbaa !21
+  %95 = load i64, ptr %10, align 8, !tbaa !8
+  %96 = load i64, ptr %14, align 8, !tbaa !8
+  %97 = icmp ugt i64 %95, %96
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %92
+  %99 = load i64, ptr %14, align 8, !tbaa !8
+  br label %102
+
+100:                                              ; preds = %92
+  %101 = load i64, ptr %10, align 8, !tbaa !8
+  br label %102
+
+102:                                              ; preds = %100, %98
+  %103 = phi i64 [ %99, %98 ], [ %101, %100 ]
+  call void @_mi_memcpy_aligned(ptr noundef %93, ptr noundef %94, i64 noundef %103) #10
+  %104 = load ptr, ptr %9, align 8, !tbaa !21
+  call void @mi_free(ptr noundef %104) #10
+  br label %105
+
+105:                                              ; preds = %102, %62
+  %106 = load ptr, ptr %16, align 8, !tbaa !21
+  store ptr %106, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  br label %107
+
+107:                                              ; preds = %105, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  br label %108
+
+108:                                              ; preds = %107, %31, %21
+  %109 = load ptr, ptr %7, align 8
+  ret ptr %109
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_realloc_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !21
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !21
+  %11 = load i64, ptr %7, align 8, !tbaa !8
+  %12 = load i64, ptr %8, align 8, !tbaa !8
+  %13 = call ptr @mi_heap_realloc_zero_aligned(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext false) #10
+  ret ptr %13
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_heap_realloc_zero_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !21
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  %13 = zext i1 %4 to i8
+  store i8 %13, ptr %11, align 1, !tbaa !10
+  %14 = load i64, ptr %10, align 8, !tbaa !8
+  %15 = icmp ule i64 %14, 8
+  br i1 %15, label %16, label %23
+
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %7, align 8, !tbaa !3
+  %18 = load ptr, ptr %8, align 8, !tbaa !21
+  %19 = load i64, ptr %9, align 8, !tbaa !8
+  %20 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %21 = trunc i8 %20 to i1
+  %22 = call ptr @_mi_heap_realloc_zero(ptr noundef %17, ptr noundef %18, i64 noundef %19, i1 noundef zeroext %21) #10
+  store ptr %22, ptr %6, align 8
+  br label %36
+
+23:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %24 = load ptr, ptr %8, align 8, !tbaa !21
+  %25 = ptrtoint ptr %24 to i64
+  %26 = load i64, ptr %10, align 8, !tbaa !8
+  %27 = urem i64 %25, %26
+  store i64 %27, ptr %12, align 8, !tbaa !8
+  %28 = load ptr, ptr %7, align 8, !tbaa !3
+  %29 = load ptr, ptr %8, align 8, !tbaa !21
+  %30 = load i64, ptr %9, align 8, !tbaa !8
+  %31 = load i64, ptr %10, align 8, !tbaa !8
+  %32 = load i64, ptr %12, align 8, !tbaa !8
+  %33 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %34 = trunc i8 %33 to i1
+  %35 = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %28, ptr noundef %29, i64 noundef %30, i64 noundef %31, i64 noundef %32, i1 noundef zeroext %34) #10
+  store ptr %35, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  br label %36
+
+36:                                               ; preds = %23, %16
+  %37 = load ptr, ptr %6, align 8
+  ret ptr %37
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_rezalloc_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !21
+  store i64 %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  store i64 %4, ptr %10, align 8, !tbaa !8
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  %12 = load ptr, ptr %7, align 8, !tbaa !21
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = load i64, ptr %9, align 8, !tbaa !8
+  %15 = load i64, ptr %10, align 8, !tbaa !8
+  %16 = call ptr @mi_heap_realloc_zero_aligned_at(ptr noundef %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i1 noundef zeroext true) #10
+  ret ptr %16
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_rezalloc_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !21
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = load ptr, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %6, align 8, !tbaa !21
+  %11 = load i64, ptr %7, align 8, !tbaa !8
+  %12 = load i64, ptr %8, align 8, !tbaa !8
+  %13 = call ptr @mi_heap_realloc_zero_aligned(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i1 noundef zeroext true) #10
+  ret ptr %13
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_recalloc_aligned_at(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !21
+  store i64 %2, ptr %10, align 8, !tbaa !8
+  store i64 %3, ptr %11, align 8, !tbaa !8
+  store i64 %4, ptr %12, align 8, !tbaa !8
+  store i64 %5, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #11
+  %16 = load i64, ptr %10, align 8, !tbaa !8
+  %17 = load i64, ptr %11, align 8, !tbaa !8
+  %18 = call zeroext i1 @mi_count_size_overflow(i64 noundef %16, i64 noundef %17, ptr noundef %14) #10
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %6
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %27
+
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %8, align 8, !tbaa !3
+  %22 = load ptr, ptr %9, align 8, !tbaa !21
+  %23 = load i64, ptr %14, align 8, !tbaa !8
+  %24 = load i64, ptr %12, align 8, !tbaa !8
+  %25 = load i64, ptr %13, align 8, !tbaa !8
+  %26 = call ptr @mi_heap_rezalloc_aligned_at(ptr noundef %21, ptr noundef %22, i64 noundef %23, i64 noundef %24, i64 noundef %25) #10
+  store ptr %26, ptr %7, align 8
+  store i32 1, ptr %15, align 4
+  br label %27
+
+27:                                               ; preds = %20, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #11
+  %28 = load ptr, ptr %7, align 8
+  ret ptr %28
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_heap_recalloc_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !21
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  store i64 %4, ptr %11, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %14 = load i64, ptr %9, align 8, !tbaa !8
+  %15 = load i64, ptr %10, align 8, !tbaa !8
+  %16 = call zeroext i1 @mi_count_size_overflow(i64 noundef %14, i64 noundef %15, ptr noundef %12) #10
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %24
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %7, align 8, !tbaa !3
+  %20 = load ptr, ptr %8, align 8, !tbaa !21
+  %21 = load i64, ptr %12, align 8, !tbaa !8
+  %22 = load i64, ptr %11, align 8, !tbaa !8
+  %23 = call ptr @mi_heap_rezalloc_aligned(ptr noundef %19, ptr noundef %20, i64 noundef %21, i64 noundef %22) #10
+  store ptr %23, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %24
+
+24:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %25 = load ptr, ptr %6, align 8
+  ret ptr %25
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_realloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !21
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = call ptr @mi_prim_get_default_heap() #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = call ptr @mi_heap_realloc_aligned_at(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) #10
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_realloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = call ptr @mi_prim_get_default_heap() #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !21
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = call ptr @mi_heap_realloc_aligned(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %10) #10
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_rezalloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !21
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = call ptr @mi_prim_get_default_heap() #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = call ptr @mi_heap_rezalloc_aligned_at(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) #10
+  ret ptr %14
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_rezalloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = call ptr @mi_prim_get_default_heap() #10
+  %8 = load ptr, ptr %4, align 8, !tbaa !21
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i64, ptr %6, align 8, !tbaa !8
+  %11 = call ptr @mi_heap_rezalloc_aligned(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %10) #10
+  ret ptr %11
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_recalloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !21
+  store i64 %1, ptr %7, align 8, !tbaa !8
+  store i64 %2, ptr %8, align 8, !tbaa !8
+  store i64 %3, ptr %9, align 8, !tbaa !8
+  store i64 %4, ptr %10, align 8, !tbaa !8
+  %11 = call ptr @mi_prim_get_default_heap() #10
+  %12 = load ptr, ptr %6, align 8, !tbaa !21
+  %13 = load i64, ptr %7, align 8, !tbaa !8
+  %14 = load i64, ptr %8, align 8, !tbaa !8
+  %15 = load i64, ptr %9, align 8, !tbaa !8
+  %16 = load i64, ptr %10, align 8, !tbaa !8
+  %17 = call ptr @mi_heap_recalloc_aligned_at(ptr noundef %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef %16) #10
+  ret ptr %17
+}
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @mi_recalloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !21
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  store i64 %3, ptr %8, align 8, !tbaa !8
+  %9 = call ptr @mi_prim_get_default_heap() #10
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = load i64, ptr %7, align 8, !tbaa !8
+  %13 = load i64, ptr %8, align 8, !tbaa !8
+  %14 = call ptr @mi_heap_recalloc_aligned(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %12, i64 noundef %13) #10
+  ret ptr %14
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @_mi_is_power_of_two(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !8
+  %3 = load i64, ptr %2, align 8, !tbaa !8
+  %4 = load i64, ptr %2, align 8, !tbaa !8
+  %5 = sub i64 %4, 1
+  %6 = and i64 %3, %5
+  %7 = icmp eq i64 %6, 0
+  ret i1 %7
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_heap_get_free_small_page(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = call i64 @_mi_wsize_from_size(i64 noundef %6) #10
+  store i64 %7, ptr %5, align 8, !tbaa !8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %8, i32 0, i32 13
+  %10 = load i64, ptr %5, align 8, !tbaa !8
+  %11 = getelementptr inbounds nuw [129 x ptr], ptr %9, i64 0, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret ptr %12
+}
+
+declare ptr @_mi_page_malloc_zeroed(ptr noundef, ptr noundef, i64 noundef) #4
+
+declare ptr @_mi_page_malloc(ptr noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: noinline nounwind uwtable
+define internal ptr @mi_heap_malloc_zero_aligned_at_generic(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i64 %1, ptr %8, align 8, !tbaa !8
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  %15 = zext i1 %4 to i8
+  store i8 %15, ptr %11, align 1, !tbaa !10
+  %16 = load i64, ptr %8, align 8, !tbaa !8
+  %17 = icmp ugt i64 %16, 9223372036854775807
+  %18 = xor i1 %17, true
+  %19 = xor i1 %18, true
+  %20 = zext i1 %19 to i32
+  %21 = sext i32 %20 to i64
+  %22 = call i64 @llvm.expect.i64(i64 %21, i64 0)
+  %23 = icmp ne i64 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  br label %69
+
+25:                                               ; preds = %5
+  %26 = load i64, ptr %10, align 8, !tbaa !8
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %61
+
+28:                                               ; preds = %25
+  %29 = load i64, ptr %8, align 8, !tbaa !8
+  %30 = load i64, ptr %9, align 8, !tbaa !8
+  %31 = call zeroext i1 @mi_malloc_is_naturally_aligned(i64 noundef %29, i64 noundef %30) #10
+  br i1 %31, label %32, label %61
+
+32:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %34 = load i64, ptr %8, align 8, !tbaa !8
+  %35 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %36 = trunc i8 %35 to i1
+  %37 = call ptr @mi_heap_malloc_zero_no_guarded(ptr noundef %33, i64 noundef %34, i1 noundef zeroext %36) #10
+  store ptr %37, ptr %12, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  %38 = load ptr, ptr %12, align 8, !tbaa !21
+  %39 = ptrtoint ptr %38 to i64
+  %40 = load i64, ptr %9, align 8, !tbaa !8
+  %41 = sub i64 %40, 1
+  %42 = and i64 %39, %41
+  %43 = icmp eq i64 %42, 0
+  %44 = zext i1 %43 to i8
+  store i8 %44, ptr %13, align 1, !tbaa !10
+  %45 = load i8, ptr %13, align 1, !tbaa !10, !range !19, !noundef !20
+  %46 = trunc i8 %45 to i1
+  %47 = xor i1 %46, true
+  %48 = xor i1 %47, true
+  %49 = zext i1 %48 to i32
+  %50 = sext i32 %49 to i64
+  %51 = call i64 @llvm.expect.i64(i64 %50, i64 1)
+  %52 = icmp ne i64 %51, 0
+  br i1 %52, label %53, label %55
+
+53:                                               ; preds = %32
+  %54 = load ptr, ptr %12, align 8, !tbaa !21
+  store ptr %54, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %58
+
+55:                                               ; preds = %32
+  %56 = load ptr, ptr %12, align 8, !tbaa !21
+  call void @mi_free(ptr noundef %56) #10
+  br label %57
+
+57:                                               ; preds = %55
+  store i32 0, ptr %14, align 4
+  br label %58
+
+58:                                               ; preds = %57, %53
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %59 = load i32, ptr %14, align 4
+  switch i32 %59, label %71 [
+    i32 0, label %60
+    i32 1, label %69
+  ]
+
+60:                                               ; preds = %58
+  br label %61
+
+61:                                               ; preds = %60, %28, %25
+  %62 = load ptr, ptr %7, align 8, !tbaa !3
+  %63 = load i64, ptr %8, align 8, !tbaa !8
+  %64 = load i64, ptr %9, align 8, !tbaa !8
+  %65 = load i64, ptr %10, align 8, !tbaa !8
+  %66 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %67 = trunc i8 %66 to i1
+  %68 = call ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef %62, i64 noundef %63, i64 noundef %64, i64 noundef %65, i1 noundef zeroext %67) #10
+  store ptr %68, ptr %6, align 8
+  br label %69
+
+69:                                               ; preds = %61, %58, %24
+  %70 = load ptr, ptr %6, align 8
+  ret ptr %70
+
+71:                                               ; preds = %58
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @_mi_wsize_from_size(i64 noundef %0) #2 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !8
+  %3 = load i64, ptr %2, align 8, !tbaa !8
+  %4 = add i64 %3, 8
+  %5 = sub i64 %4, 1
+  %6 = udiv i64 %5, 8
+  ret i64 %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_malloc_is_naturally_aligned(i64 noundef %0, i64 noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  %7 = load i64, ptr %5, align 8, !tbaa !8
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = icmp ugt i64 %7, %8
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %28
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %5, align 8, !tbaa !8
+  %13 = icmp ule i64 %12, 16
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  store i1 true, ptr %3, align 1
+  br label %28
+
+15:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %16 = load i64, ptr %4, align 8, !tbaa !8
+  %17 = call i64 @mi_good_size(i64 noundef %16) #10
+  store i64 %17, ptr %6, align 8, !tbaa !8
+  %18 = load i64, ptr %6, align 8, !tbaa !8
+  %19 = icmp ule i64 %18, 65536
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %15
+  %21 = load i64, ptr %6, align 8, !tbaa !8
+  %22 = load i64, ptr %5, align 8, !tbaa !8
+  %23 = sub i64 %22, 1
+  %24 = and i64 %21, %23
+  %25 = icmp eq i64 %24, 0
+  br label %26
+
+26:                                               ; preds = %20, %15
+  %27 = phi i1 [ false, %15 ], [ %25, %20 ]
+  store i1 %27, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %28
+
+28:                                               ; preds = %26, %14, %10
+  %29 = load i1, ptr %3, align 1
+  ret i1 %29
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_heap_malloc_zero_no_guarded(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = load i64, ptr %5, align 8, !tbaa !8
+  %10 = load i8, ptr %6, align 1, !tbaa !10, !range !19, !noundef !20
+  %11 = trunc i8 %10 to i1
+  %12 = call ptr @_mi_heap_malloc_zero(ptr noundef %8, i64 noundef %9, i1 noundef zeroext %11) #10
+  ret ptr %12
+}
+
+declare void @mi_free(ptr noundef) #4
+
+; Function Attrs: noinline nounwind uwtable
+define internal ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i64 %1, ptr %8, align 8, !tbaa !8
+  store i64 %2, ptr %9, align 8, !tbaa !8
+  store i64 %3, ptr %10, align 8, !tbaa !8
+  %20 = zext i1 %4 to i8
+  store i8 %20, ptr %11, align 1, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #11
+  %21 = load i64, ptr %9, align 8, !tbaa !8
+  %22 = icmp ugt i64 %21, 2097152
+  %23 = xor i1 %22, true
+  %24 = xor i1 %23, true
+  %25 = zext i1 %24 to i32
+  %26 = sext i32 %25 to i64
+  %27 = call i64 @llvm.expect.i64(i64 %26, i64 0)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %55
+
+29:                                               ; preds = %5
+  %30 = load i64, ptr %10, align 8, !tbaa !8
+  %31 = icmp ne i64 %30, 0
+  %32 = xor i1 %31, true
+  %33 = xor i1 %32, true
+  %34 = zext i1 %33 to i32
+  %35 = sext i32 %34 to i64
+  %36 = call i64 @llvm.expect.i64(i64 %35, i64 0)
+  %37 = icmp ne i64 %36, 0
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %29
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %128
+
+39:                                               ; preds = %29
+  %40 = load i64, ptr %8, align 8, !tbaa !8
+  %41 = icmp ule i64 %40, 1024
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %39
+  br label %45
+
+43:                                               ; preds = %39
+  %44 = load i64, ptr %8, align 8, !tbaa !8
+  br label %45
+
+45:                                               ; preds = %43, %42
+  %46 = phi i64 [ 1025, %42 ], [ %44, %43 ]
+  store i64 %46, ptr %13, align 8, !tbaa !8
+  %47 = load ptr, ptr %7, align 8, !tbaa !3
+  %48 = load i64, ptr %13, align 8, !tbaa !8
+  %49 = load i64, ptr %9, align 8, !tbaa !8
+  %50 = call ptr @_mi_heap_malloc_zero_ex(ptr noundef %47, i64 noundef %48, i1 noundef zeroext false, i64 noundef %49) #10
+  store ptr %50, ptr %12, align 8, !tbaa !21
+  %51 = load ptr, ptr %12, align 8, !tbaa !21
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %54
+
+53:                                               ; preds = %45
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %128
+
+54:                                               ; preds = %45
+  br label %75
+
+55:                                               ; preds = %5
+  %56 = load i64, ptr %8, align 8, !tbaa !8
+  %57 = icmp ult i64 %56, 16
+  br i1 %57, label %58, label %59
+
+58:                                               ; preds = %55
+  br label %61
+
+59:                                               ; preds = %55
+  %60 = load i64, ptr %8, align 8, !tbaa !8
+  br label %61
+
+61:                                               ; preds = %59, %58
+  %62 = phi i64 [ 16, %58 ], [ %60, %59 ]
+  %63 = load i64, ptr %9, align 8, !tbaa !8
+  %64 = add i64 %62, %63
+  %65 = sub i64 %64, 1
+  store i64 %65, ptr %13, align 8, !tbaa !8
+  %66 = load ptr, ptr %7, align 8, !tbaa !3
+  %67 = load i64, ptr %13, align 8, !tbaa !8
+  %68 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %69 = trunc i8 %68 to i1
+  %70 = call ptr @mi_heap_malloc_zero_no_guarded(ptr noundef %66, i64 noundef %67, i1 noundef zeroext %69) #10
+  store ptr %70, ptr %12, align 8, !tbaa !21
+  %71 = load ptr, ptr %12, align 8, !tbaa !21
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %74
+
+73:                                               ; preds = %61
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %128
+
+74:                                               ; preds = %61
+  br label %75
+
+75:                                               ; preds = %74, %54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %76 = load ptr, ptr %12, align 8, !tbaa !21
+  %77 = call ptr @_mi_ptr_page(ptr noundef %76) #10
+  store ptr %77, ptr %15, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #11
+  %78 = load i64, ptr %9, align 8, !tbaa !8
+  %79 = sub i64 %78, 1
+  store i64 %79, ptr %16, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  %80 = load ptr, ptr %12, align 8, !tbaa !21
+  %81 = ptrtoint ptr %80 to i64
+  %82 = load i64, ptr %10, align 8, !tbaa !8
+  %83 = add i64 %81, %82
+  %84 = load i64, ptr %16, align 8, !tbaa !8
+  %85 = and i64 %83, %84
+  store i64 %85, ptr %17, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %86 = load i64, ptr %17, align 8, !tbaa !8
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %89
+
+88:                                               ; preds = %75
+  br label %93
+
+89:                                               ; preds = %75
+  %90 = load i64, ptr %9, align 8, !tbaa !8
+  %91 = load i64, ptr %17, align 8, !tbaa !8
+  %92 = sub i64 %90, %91
+  br label %93
+
+93:                                               ; preds = %89, %88
+  %94 = phi i64 [ 0, %88 ], [ %92, %89 ]
+  store i64 %94, ptr %18, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #11
+  %95 = load ptr, ptr %12, align 8, !tbaa !21
+  %96 = ptrtoint ptr %95 to i64
+  %97 = load i64, ptr %18, align 8, !tbaa !8
+  %98 = add i64 %96, %97
+  %99 = inttoptr i64 %98 to ptr
+  store ptr %99, ptr %19, align 8, !tbaa !21
+  %100 = load ptr, ptr %19, align 8, !tbaa !21
+  %101 = load ptr, ptr %12, align 8, !tbaa !21
+  %102 = icmp ne ptr %100, %101
+  br i1 %102, label %103, label %110
+
+103:                                              ; preds = %93
+  %104 = load ptr, ptr %15, align 8, !tbaa !12
+  call void @mi_page_set_has_aligned(ptr noundef %104, i1 noundef zeroext true) #10
+  %105 = load ptr, ptr %15, align 8, !tbaa !12
+  %106 = load ptr, ptr %12, align 8, !tbaa !21
+  %107 = load i64, ptr %18, align 8, !tbaa !8
+  %108 = load i64, ptr %8, align 8, !tbaa !8
+  %109 = add i64 %107, %108
+  call void @_mi_padding_shrink(ptr noundef %105, ptr noundef %106, i64 noundef %109) #10
+  br label %110
+
+110:                                              ; preds = %103, %93
+  %111 = load i64, ptr %9, align 8, !tbaa !8
+  %112 = icmp ugt i64 %111, 2097152
+  br i1 %112, label %113, label %121
+
+113:                                              ; preds = %110
+  %114 = load i8, ptr %11, align 1, !tbaa !10, !range !19, !noundef !20
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %120
+
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %19, align 8, !tbaa !21
+  %118 = load ptr, ptr %19, align 8, !tbaa !21
+  %119 = call i64 @mi_usable_size(ptr noundef %118) #10
+  call void @_mi_memzero_aligned(ptr noundef %117, i64 noundef %119) #10
+  br label %120
+
+120:                                              ; preds = %116, %113
+  br label %121
+
+121:                                              ; preds = %120, %110
+  %122 = load ptr, ptr %12, align 8, !tbaa !21
+  %123 = load ptr, ptr %19, align 8, !tbaa !21
+  %124 = icmp ne ptr %122, %123
+  br i1 %124, label %125, label %126
+
+125:                                              ; preds = %121
+  br label %126
+
+126:                                              ; preds = %125, %121
+  %127 = load ptr, ptr %19, align 8, !tbaa !21
+  store ptr %127, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  br label %128
+
+128:                                              ; preds = %126, %73, %53, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  %129 = load ptr, ptr %6, align 8
+  ret ptr %129
+}
+
+declare i64 @mi_good_size(i64 noundef) #4
+
+declare ptr @_mi_heap_malloc_zero(ptr noundef, i64 noundef, i1 noundef zeroext) #4
+
+declare ptr @_mi_heap_malloc_zero_ex(ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_ptr_page(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %4 = call ptr @_mi_ptr_segment(ptr noundef %3) #10
+  %5 = load ptr, ptr %2, align 8, !tbaa !21
+  %6 = call ptr @_mi_segment_page_of(ptr noundef %4, ptr noundef %5) #10
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mi_page_set_has_aligned(ptr noundef %0, i1 noundef zeroext %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !10
+  %6 = load i8, ptr %4, align 1, !tbaa !10, !range !19, !noundef !20
+  %7 = trunc i8 %6 to i1
+  %8 = zext i1 %7 to i8
+  %9 = load ptr, ptr %3, align 8, !tbaa !12
+  %10 = getelementptr inbounds nuw %struct.mi_page_s, ptr %9, i32 0, i32 4
+  %11 = load i8, ptr %10, align 2
+  %12 = and i8 %8, 1
+  %13 = shl i8 %12, 1
+  %14 = and i8 %11, -3
+  %15 = or i8 %14, %13
+  store i8 %15, ptr %10, align 2
+  ret void
+}
+
+declare void @_mi_padding_shrink(ptr noundef, ptr noundef, i64 noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_mi_memzero_aligned(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !21
+  call void @llvm.assume(i1 true) [ "align"(ptr %6, i64 8) ]
+  store ptr %6, ptr %5, align 8, !tbaa !21
+  %7 = load ptr, ptr %5, align 8, !tbaa !21
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  call void @_mi_memzero(ptr noundef %7, i64 noundef %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret void
+}
+
+declare i64 @mi_usable_size(ptr noundef) #4
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_segment_page_of(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !24
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = call i64 @_mi_segment_page_idx_of(ptr noundef %6, ptr noundef %7) #10
+  store i64 %8, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %3, align 8, !tbaa !24
+  %10 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %9, i32 0, i32 20
+  %11 = load i64, ptr %5, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %10, i64 0, i64 %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_ptr_segment(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %4 = load ptr, ptr %2, align 8, !tbaa !21
+  %5 = ptrtoint ptr %4 to i64
+  %6 = sub i64 %5, 1
+  %7 = and i64 %6, -4194304
+  %8 = inttoptr i64 %7 to ptr
+  store ptr %8, ptr %3, align 8, !tbaa !24
+  %9 = load ptr, ptr %3, align 8, !tbaa !24
+  %10 = ptrtoint ptr %9 to i64
+  %11 = icmp sle i64 %10, 0
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %1
+  br label %15
+
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !24
+  br label %15
+
+15:                                               ; preds = %13, %12
+  %16 = phi ptr [ null, %12 ], [ %14, %13 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret ptr %16
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @_mi_segment_page_idx_of(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load ptr, ptr %3, align 8, !tbaa !24
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  store i64 %11, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %12 = load i64, ptr %5, align 8, !tbaa !8
+  %13 = load ptr, ptr %3, align 8, !tbaa !24
+  %14 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %13, i32 0, i32 18
+  %15 = load i64, ptr %14, align 8, !tbaa !26
+  %16 = lshr i64 %12, %15
+  store i64 %16, ptr %6, align 8, !tbaa !8
+  %17 = load i64, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  ret i64 %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #2
+declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nounwind uwtable
-define internal void @_mi_memzero(ptr noundef %dst, i64 noundef %n) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %1 = load i64, ptr %n.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %1, i1 false)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_mi_memzero(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load ptr, ptr %3, align 8, !tbaa !21
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %6, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_mul_overflow(i64 noundef %count, i64 noundef %size, ptr noundef %total) #0 {
-entry:
-  %count.addr = alloca i64, align 8
-  %size.addr = alloca i64, align 8
-  %total.addr = alloca ptr, align 8
-  store i64 %count, ptr %count.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %total, ptr %total.addr, align 8
-  %0 = load i64, ptr %count.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %2 = load ptr, ptr %total.addr, align 8
-  %3 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %0, i64 %1)
-  %4 = extractvalue { i64, i1 } %3, 1
-  %5 = extractvalue { i64, i1 } %3, 0
-  store i64 %5, ptr %2, align 8
-  ret i1 %4
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @mi_mul_overflow(i64 noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store i64 %0, ptr %4, align 8, !tbaa !8
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !22
+  %7 = load i64, ptr %4, align 8, !tbaa !8
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = load ptr, ptr %6, align 8, !tbaa !22
+  %10 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 %8)
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  store i64 %12, ptr %9, align 8
+  ret i1 %11
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #4
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
-declare ptr @_mi_heap_realloc_zero(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) #1
+declare ptr @_mi_heap_realloc_zero(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) #4
 
-; Function Attrs: nounwind uwtable
-define internal void @_mi_memcpy_aligned(ptr noundef %dst, ptr noundef %src, i64 noundef %n) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %adst = alloca ptr, align 8
-  %asrc = alloca ptr, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
-  store ptr %0, ptr %adst, align 8
-  %1 = load ptr, ptr %src.addr, align 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
-  store ptr %1, ptr %asrc, align 8
-  %2 = load ptr, ptr %adst, align 8
-  %3 = load ptr, ptr %asrc, align 8
-  %4 = load i64, ptr %n.addr, align 8
-  call void @_mi_memcpy(ptr noundef %2, ptr noundef %3, i64 noundef %4) #6
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_mi_memcpy_aligned(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %9 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 8) ]
+  store ptr %9, ptr %7, align 8, !tbaa !21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %10 = load ptr, ptr %5, align 8, !tbaa !21
+  call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 8) ]
+  store ptr %10, ptr %8, align 8, !tbaa !21
+  %11 = load ptr, ptr %7, align 8, !tbaa !21
+  %12 = load ptr, ptr %8, align 8, !tbaa !21
+  %13 = load i64, ptr %6, align 8, !tbaa !8
+  call void @_mi_memcpy(ptr noundef %11, ptr noundef %12, i64 noundef %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-declare void @mi_free(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @_mi_memcpy(ptr noundef %dst, ptr noundef %src, i64 noundef %n) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %src.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store ptr %src, ptr %src.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %1 = load ptr, ptr %src.addr, align 8
-  %2 = load i64, ptr %n.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %2, i1 false)
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_mi_memcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !21
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load ptr, ptr %5, align 8, !tbaa !21
+  %9 = load i64, ptr %6, align 8, !tbaa !8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %9, i1 false)
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-builtin-malloc" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { "no-builtin-malloc" }
+attributes #11 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS9mi_heap_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"_Bool", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS9mi_page_s", !5, i64 0}
+!14 = !{!15, !17, i64 8}
+!15 = !{!"mi_page_s", !6, i64 0, !6, i64 1, !6, i64 1, !6, i64 1, !6, i64 1, !16, i64 2, !16, i64 4, !6, i64 6, !6, i64 7, !6, i64 7, !17, i64 8, !17, i64 16, !16, i64 24, !6, i64 26, !6, i64 27, !9, i64 32, !18, i64 40, !6, i64 48, !6, i64 56, !13, i64 64, !13, i64 72}
+!16 = !{!"short", !6, i64 0}
+!17 = !{!"p1 _ZTS10mi_block_s", !5, i64 0}
+!18 = !{!"p1 omnipotent char", !5, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!5, !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 long", !5, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS12mi_segment_s", !5, i64 0}
+!26 = !{!27, !9, i64 144}
+!27 = !{!"mi_segment_s", !28, i64 0, !11, i64 24, !11, i64 25, !9, i64 32, !30, i64 40, !25, i64 48, !25, i64 56, !11, i64 64, !11, i64 65, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !25, i64 120, !25, i64 128, !6, i64 136, !9, i64 144, !29, i64 152, !6, i64 160}
+!28 = !{!"mi_memid_s", !6, i64 0, !11, i64 16, !11, i64 17, !11, i64 18, !29, i64 20}
+!29 = !{!"int", !6, i64 0}
+!30 = !{!"p1 _ZTS12mi_subproc_s", !5, i64 0}

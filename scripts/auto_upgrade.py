@@ -38,6 +38,7 @@ supported_project = [
     "lvgl",
     "lz4",
     "memcached",
+    "mimalloc",
 ]
 
 modify_only = [

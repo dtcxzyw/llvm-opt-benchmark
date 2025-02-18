@@ -1,1466 +1,1122 @@
 ; ModuleID = 'bench/mimalloc/original/bitmap.ll'
 source_filename = "bench/mimalloc/original/bitmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_claim_field(ptr noundef captures(none) %bitmap, i64 noundef %idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %arrayidx = getelementptr inbounds i64, ptr %bitmap, i64 %idx
-  %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %cmp = icmp eq i64 %0, -1
-  br i1 %cmp, label %return, label %if.end
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_claim_field(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %1
+  %6 = load atomic i64, ptr %5 monotonic, align 8
+  %7 = icmp eq i64 %6, -1
+  br i1 %7, label %.loopexit, label %8
 
-if.end:                                           ; preds = %entry
-  %cmp.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i, label %mi_bitmap_mask_.exit, label %if.end.i
+8:                                                ; preds = %4
+  %9 = icmp ugt i64 %2, 63
+  br i1 %9, label %mi_bitmap_mask_.exit, label %10
 
-if.end.i:                                         ; preds = %if.end
-  %cmp1.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i, label %mi_bitmap_mask_.exit, label %if.end3.i
+10:                                               ; preds = %8
+  %11 = icmp eq i64 %2, 0
+  br i1 %11, label %mi_bitmap_mask_.exit, label %12
 
-if.end3.i:                                        ; preds = %if.end.i
-  %notmask.i = shl nsw i64 -1, %count
-  %sub.i = xor i64 %notmask.i, -1
+12:                                               ; preds = %10
+  %notmask.i = shl nsw i64 -1, %2
+  %13 = xor i64 %notmask.i, -1
   br label %mi_bitmap_mask_.exit
 
-mi_bitmap_mask_.exit:                             ; preds = %if.end, %if.end.i, %if.end3.i
-  %retval.0.i = phi i64 [ %sub.i, %if.end3.i ], [ -1, %if.end ], [ 0, %if.end.i ]
-  %sub = sub i64 64, %count
-  %not = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not, i1 true)
-  %cmp2.not22 = icmp ugt i64 %1, %sub
-  br i1 %cmp2.not22, label %return, label %while.cond.outer.split.lr.ph
+mi_bitmap_mask_.exit:                             ; preds = %8, %10, %12
+  %.0.i = phi i64 [ %13, %12 ], [ -1, %8 ], [ 0, %10 ]
+  %14 = sub i64 64, %2
+  %15 = xor i64 %6, -1
+  %16 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %15, i1 true)
+  %.not.not50 = icmp ugt i64 %16, %14
+  br i1 %.not.not50, label %.loopexit, label %.lr.ph
 
-while.cond.outer.split.lr.ph:                     ; preds = %mi_bitmap_mask_.exit
-  %shl = shl i64 %retval.0.i, %1
-  %cmp8 = icmp eq i64 %count, 1
-  br i1 %cmp8, label %while.cond.outer.split.us, label %while.cond.outer.split
+.lr.ph:                                           ; preds = %mi_bitmap_mask_.exit
+  %17 = shl i64 %.0.i, %16
+  %18 = icmp eq i64 %2, 1
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
-while.cond.outer.split.us:                        ; preds = %while.cond.outer.split.lr.ph, %if.else7.us
-  %map.0.ph25.us = phi i64 [ %map.0.us, %if.else7.us ], [ %0, %while.cond.outer.split.lr.ph ]
-  %bitidx.0.ph24.us = phi i64 [ %add.us, %if.else7.us ], [ %1, %while.cond.outer.split.lr.ph ]
-  %m.0.ph23.us = phi i64 [ %shl12.us, %if.else7.us ], [ %shl, %while.cond.outer.split.lr.ph ]
-  br label %while.cond.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %29
+  %.03353.us = phi i64 [ %.235.us, %29 ], [ %6, %.lr.ph ]
+  %.03852.us = phi i64 [ %.139.us, %29 ], [ %16, %.lr.ph ]
+  %.04051.us = phi i64 [ %.141.us, %29 ], [ %17, %.lr.ph ]
+  %19 = and i64 %.03353.us, %.04051.us
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %24, label %21
 
-if.else7.us:                                      ; preds = %while.cond.us
-  %add.us = add i64 %bitidx.0.ph24.us, 1
-  %shl12.us = shl i64 %m.0.ph23.us, 1
-  %cmp2.not.us = icmp ugt i64 %add.us, %sub
-  br i1 %cmp2.not.us, label %return, label %while.cond.outer.split.us, !llvm.loop !4
+21:                                               ; preds = %.lr.ph.split.us
+  %22 = add i64 %.03852.us, 1
+  %23 = shl i64 %.04051.us, 1
+  br label %29
 
-if.then4.us:                                      ; preds = %while.cond.us
-  %or.us = or i64 %map.0.us, %m.0.ph23.us
-  %2 = cmpxchg ptr %arrayidx, i64 %map.0.us, i64 %or.us acq_rel acquire, align 8
-  %3 = extractvalue { i64, i1 } %2, 1
-  %4 = extractvalue { i64, i1 } %2, 0
-  br i1 %3, label %if.else, label %while.cond.us, !llvm.loop !4
+24:                                               ; preds = %.lr.ph.split.us
+  %25 = or i64 %.03353.us, %.04051.us
+  %26 = cmpxchg ptr %5, i64 %.03353.us, i64 %25 acq_rel acquire, align 8
+  %27 = extractvalue { i64, i1 } %26, 1
+  %28 = extractvalue { i64, i1 } %26, 0
+  br i1 %27, label %.thread, label %29, !llvm.loop !3
 
-while.cond.us:                                    ; preds = %if.then4.us, %while.cond.outer.split.us
-  %map.0.us = phi i64 [ %4, %if.then4.us ], [ %map.0.ph25.us, %while.cond.outer.split.us ]
-  %and.us = and i64 %map.0.us, %m.0.ph23.us
-  %cmp3.us = icmp eq i64 %and.us, 0
-  br i1 %cmp3.us, label %if.then4.us, label %if.else7.us
+29:                                               ; preds = %21, %24
+  %.141.us = phi i64 [ %23, %21 ], [ %.04051.us, %24 ]
+  %.139.us = phi i64 [ %22, %21 ], [ %.03852.us, %24 ]
+  %.235.us = phi i64 [ %.03353.us, %21 ], [ %28, %24 ]
+  %.not.not.us = icmp ugt i64 %.139.us, %14
+  br i1 %.not.not.us, label %.loopexit, label %.lr.ph.split.us
 
-while.cond.outer.split:                           ; preds = %while.cond.outer.split.lr.ph, %if.else7
-  %map.0.ph25 = phi i64 [ %map.0, %if.else7 ], [ %0, %while.cond.outer.split.lr.ph ]
-  %bitidx.0.ph24 = phi i64 [ %add, %if.else7 ], [ %1, %while.cond.outer.split.lr.ph ]
-  %m.0.ph23 = phi i64 [ %shl12, %if.else7 ], [ %shl, %while.cond.outer.split.lr.ph ]
-  br label %while.cond
+.lr.ph.split:                                     ; preds = %.lr.ph, %45
+  %.03353 = phi i64 [ %.235, %45 ], [ %6, %.lr.ph ]
+  %.03852 = phi i64 [ %.139, %45 ], [ %16, %.lr.ph ]
+  %.04051 = phi i64 [ %.141, %45 ], [ %17, %.lr.ph ]
+  %30 = and i64 %.03353, %.04051
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %39
 
-while.cond:                                       ; preds = %while.cond.outer.split, %if.then4
-  %map.0 = phi i64 [ %7, %if.then4 ], [ %map.0.ph25, %while.cond.outer.split ]
-  %and = and i64 %map.0, %m.0.ph23
-  %cmp3 = icmp eq i64 %and, 0
-  br i1 %cmp3, label %if.then4, label %if.else7
+32:                                               ; preds = %.lr.ph.split
+  %33 = or i64 %.03353, %.04051
+  %34 = cmpxchg ptr %5, i64 %.03353, i64 %33 acq_rel acquire, align 8
+  %35 = extractvalue { i64, i1 } %34, 1
+  %36 = extractvalue { i64, i1 } %34, 0
+  br i1 %35, label %.thread, label %45, !llvm.loop !3
 
-if.then4:                                         ; preds = %while.cond
-  %or = or i64 %map.0, %m.0.ph23
-  %5 = cmpxchg ptr %arrayidx, i64 %map.0, i64 %or acq_rel acquire, align 8
-  %6 = extractvalue { i64, i1 } %5, 1
-  %7 = extractvalue { i64, i1 } %5, 0
-  br i1 %6, label %if.else, label %while.cond, !llvm.loop !4
+.thread:                                          ; preds = %32, %24
+  %.us-phi = phi i64 [ %.03852.us, %24 ], [ %.03852, %32 ]
+  %37 = shl i64 %1, 6
+  %38 = add i64 %.us-phi, %37
+  store i64 %38, ptr %3, align 8, !tbaa !5
+  br label %.loopexit
 
-if.else:                                          ; preds = %if.then4, %if.then4.us
-  %.us-phi = phi i64 [ %bitidx.0.ph24.us, %if.then4.us ], [ %bitidx.0.ph24, %if.then4 ]
-  %mul.i = shl i64 %idx, 6
-  %add.i = add i64 %.us-phi, %mul.i
-  store i64 %add.i, ptr %bitmap_idx, align 8
-  br label %return
+39:                                               ; preds = %.lr.ph.split
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
+  %41 = add i64 %.03852, %40
+  %42 = sub i64 64, %41
+  %43 = add i64 %42, %.03852
+  %44 = shl i64 %.04051, %42
+  br label %45
 
-if.else7:                                         ; preds = %while.cond
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and, i1 true)
-  %9 = add i64 %bitidx.0.ph24, %8
-  %sub11 = sub i64 64, %9
-  %add = add i64 %sub11, %bitidx.0.ph24
-  %shl12 = shl i64 %m.0.ph23, %sub11
-  %cmp2.not = icmp ugt i64 %add, %sub
-  br i1 %cmp2.not, label %return, label %while.cond.outer.split, !llvm.loop !4
+45:                                               ; preds = %32, %39
+  %.141 = phi i64 [ %44, %39 ], [ %.04051, %32 ]
+  %.139 = phi i64 [ %43, %39 ], [ %.03852, %32 ]
+  %.235 = phi i64 [ %.03353, %39 ], [ %36, %32 ]
+  %.not.not = icmp ugt i64 %.139, %14
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.split
 
-return:                                           ; preds = %if.else7, %if.else7.us, %mi_bitmap_mask_.exit, %entry, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ false, %entry ], [ false, %mi_bitmap_mask_.exit ], [ false, %if.else7.us ], [ false, %if.else7 ]
-  ret i1 %retval.0
+.loopexit:                                        ; preds = %45, %29, %mi_bitmap_mask_.exit, %.thread, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.thread ], [ false, %mi_bitmap_mask_.exit ], [ false, %29 ], [ false, %45 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %cmp20.not = icmp eq i64 %bitmap_fields, 0
-  br i1 %cmp20.not, label %return, label %for.body.lr.ph
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+  %.not1629.not = icmp eq i64 %1, 0
+  br i1 %.not1629.not, label %.critedge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %cmp1.i.i = icmp eq i64 %count, 0
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %sub.i = sub i64 64, %count
-  %cmp8.i = icmp eq i64 %count, 1
-  br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
+.lr.ph:                                           ; preds = %5
+  %6 = icmp eq i64 %3, 0
+  %notmask.i.i = shl nsw i64 -1, %3
+  %7 = xor i64 %notmask.i.i, -1
+  %8 = sub i64 64, %3
+  %9 = icmp eq i64 %3, 1
+  br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %visited.022.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %idx.021.us = phi i64 [ %inc4.us, %for.inc.us ], [ %start_field_idx, %for.body.lr.ph ]
-  %cmp1.not.us = icmp ult i64 %idx.021.us, %bitmap_fields
-  %spec.store.select.us = select i1 %cmp1.not.us, i64 %idx.021.us, i64 0
-  %arrayidx.i.us = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us
-  %0 = load atomic i64, ptr %arrayidx.i.us monotonic, align 8
-  %cmp.i.us = icmp eq i64 %0, -1
-  br i1 %cmp.i.us, label %for.inc.us, label %if.end.i.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
+  %.01231.us = phi i64 [ %27, %.loopexit.us ], [ 0, %.lr.ph ]
+  %.01330.us = phi i64 [ %28, %.loopexit.us ], [ %2, %.lr.ph ]
+  %.not.us = icmp ult i64 %.01330.us, %1
+  %spec.store.select.us = select i1 %.not.us, i64 %.01330.us, i64 0
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us
+  %11 = load atomic i64, ptr %10 monotonic, align 8
+  %12 = icmp eq i64 %11, -1
+  br i1 %12, label %.loopexit.us, label %mi_bitmap_mask_.exit.i.us
 
-if.end.i.us:                                      ; preds = %for.body.us
-  %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
-  %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
-  br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
+mi_bitmap_mask_.exit.i.us:                        ; preds = %.lr.ph.split.us
+  %13 = xor i64 %11, -1
+  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %13, i1 true)
+  %.not.not50.i.us = icmp ugt i64 %14, %8
+  br i1 %.not.not50.i.us, label %.loopexit.us, label %.lr.ph.i.us
 
-while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
-  %shl.i.us = shl nuw i64 1, %1
-  br label %while.cond.outer.split.us.i.us
+.lr.ph.i.us:                                      ; preds = %mi_bitmap_mask_.exit.i.us
+  %15 = shl nuw i64 1, %14
+  br label %.lr.ph.split.us.i.us
 
-while.cond.outer.split.us.i.us:                   ; preds = %while.cond.outer.split.lr.ph.i.us, %if.else7.us.i.us
-  %map.0.ph25.us.i.us = phi i64 [ %map.0.us.i.us, %if.else7.us.i.us ], [ %0, %while.cond.outer.split.lr.ph.i.us ]
-  %bitidx.0.ph24.us.i.us = phi i64 [ %add.us.i.us, %if.else7.us.i.us ], [ %1, %while.cond.outer.split.lr.ph.i.us ]
-  %m.0.ph23.us.i.us = phi i64 [ %shl12.us.i.us, %if.else7.us.i.us ], [ %shl.i.us, %while.cond.outer.split.lr.ph.i.us ]
-  br label %while.cond.us.i.us
+.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %26
+  %.03353.us.i.us = phi i64 [ %.235.us.i.us, %26 ], [ %11, %.lr.ph.i.us ]
+  %.03852.us.i.us = phi i64 [ %.139.us.i.us, %26 ], [ %14, %.lr.ph.i.us ]
+  %.04051.us.i.us = phi i64 [ %.141.us.i.us, %26 ], [ %15, %.lr.ph.i.us ]
+  %16 = and i64 %.04051.us.i.us, %.03353.us.i.us
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %21, label %18
 
-while.cond.us.i.us:                               ; preds = %if.then4.us.i.us, %while.cond.outer.split.us.i.us
-  %map.0.us.i.us = phi i64 [ %4, %if.then4.us.i.us ], [ %map.0.ph25.us.i.us, %while.cond.outer.split.us.i.us ]
-  %and.us.i.us = and i64 %map.0.us.i.us, %m.0.ph23.us.i.us
-  %cmp3.us.i.us = icmp eq i64 %and.us.i.us, 0
-  br i1 %cmp3.us.i.us, label %if.then4.us.i.us, label %if.else7.us.i.us
+18:                                               ; preds = %.lr.ph.split.us.i.us
+  %19 = add i64 %.03852.us.i.us, 1
+  %20 = shl i64 %.04051.us.i.us, 1
+  br label %26
 
-if.else7.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %add.us.i.us = add i64 %bitidx.0.ph24.us.i.us, 1
-  %shl12.us.i.us = shl i64 %m.0.ph23.us.i.us, 1
-  %cmp2.not.us.i.us = icmp ugt i64 %add.us.i.us, %sub.i
-  br i1 %cmp2.not.us.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
+21:                                               ; preds = %.lr.ph.split.us.i.us
+  %22 = or i64 %.04051.us.i.us, %.03353.us.i.us
+  %23 = cmpxchg ptr %10, i64 %.03353.us.i.us, i64 %22 acq_rel acquire, align 8
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = extractvalue { i64, i1 } %23, 0
+  br i1 %24, label %_mi_bitmap_try_find_claim_field.exit, label %26, !llvm.loop !3
 
-if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %or.us.i.us = or i64 %map.0.us.i.us, %m.0.ph23.us.i.us
-  %2 = cmpxchg ptr %arrayidx.i.us, i64 %map.0.us.i.us, i64 %or.us.i.us acq_rel acquire, align 8
-  %3 = extractvalue { i64, i1 } %2, 1
-  %4 = extractvalue { i64, i1 } %2, 0
-  br i1 %3, label %_mi_bitmap_try_find_claim_field.exit, label %while.cond.us.i.us, !llvm.loop !4
+26:                                               ; preds = %21, %18
+  %.141.us.i.us = phi i64 [ %20, %18 ], [ %.04051.us.i.us, %21 ]
+  %.139.us.i.us = phi i64 [ %19, %18 ], [ %.03852.us.i.us, %21 ]
+  %.235.us.i.us = phi i64 [ %.03353.us.i.us, %18 ], [ %25, %21 ]
+  %.not.not.us.i.us = icmp ugt i64 %.139.us.i.us, %8
+  br i1 %.not.not.us.i.us, label %.loopexit.us, label %.lr.ph.split.us.i.us
 
-for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end.i.us, %for.body.us
-  %inc.us = add nuw i64 %visited.022.us, 1
-  %inc4.us = add i64 %spec.store.select.us, 1
-  %exitcond118.not = icmp eq i64 %inc.us, %bitmap_fields
-  br i1 %exitcond118.not, label %return, label %for.body.us, !llvm.loop !6
+.loopexit.us:                                     ; preds = %26, %mi_bitmap_mask_.exit.i.us, %.lr.ph.split.us
+  %27 = add nuw i64 %.01231.us, 1
+  %28 = add i64 %spec.store.select.us, 1
+  %exitcond96.not = icmp eq i64 %27, %1
+  br i1 %exitcond96.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !9
 
-for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  %cmp.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i, label %for.body.us27, label %for.body.lr.ph.split.split
+.lr.ph.split:                                     ; preds = %.lr.ph
+  %29 = icmp ugt i64 %3, 63
+  br i1 %29, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-for.body.us27:                                    ; preds = %for.body.lr.ph.split, %for.inc.us42
-  %visited.022.us29 = phi i64 [ %inc.us43, %for.inc.us42 ], [ 0, %for.body.lr.ph.split ]
-  %idx.021.us30 = phi i64 [ %inc4.us44, %for.inc.us42 ], [ %start_field_idx, %for.body.lr.ph.split ]
-  %cmp1.not.us31 = icmp ult i64 %idx.021.us30, %bitmap_fields
-  %spec.store.select.us32 = select i1 %cmp1.not.us31, i64 %idx.021.us30, i64 0
-  %arrayidx.i.us33 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us32
-  %5 = load atomic i64, ptr %arrayidx.i.us33 monotonic, align 8
-  %cmp.i.us34 = icmp eq i64 %5, -1
-  br i1 %cmp.i.us34, label %for.inc.us42, label %if.end.i.us35
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.loopexit20.us
+  %.01231.us37 = phi i64 [ %50, %.loopexit20.us ], [ 0, %.lr.ph.split ]
+  %.01330.us38 = phi i64 [ %51, %.loopexit20.us ], [ %2, %.lr.ph.split ]
+  %.not.us39 = icmp ult i64 %.01330.us38, %1
+  %spec.store.select.us40 = select i1 %.not.us39, i64 %.01330.us38, i64 0
+  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us40
+  %31 = load atomic i64, ptr %30 monotonic, align 8
+  %32 = icmp eq i64 %31, -1
+  br i1 %32, label %.loopexit20.us, label %mi_bitmap_mask_.exit.i.us41
 
-if.end.i.us35:                                    ; preds = %for.body.us27
-  %not.i.us38 = xor i64 %5, -1
-  %6 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us38, i1 true)
-  %cmp2.not22.i.us39 = icmp ugt i64 %6, %sub.i
-  br i1 %cmp2.not22.i.us39, label %for.inc.us42, label %while.cond.outer.split.lr.ph.i.us40
+mi_bitmap_mask_.exit.i.us41:                      ; preds = %.lr.ph.split.split.us
+  %33 = xor i64 %31, -1
+  %34 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %33, i1 true)
+  %.not.not50.i.us43 = icmp ugt i64 %34, %8
+  br i1 %.not.not50.i.us43, label %.loopexit20.us, label %.lr.ph.i.us44
 
-while.cond.outer.split.lr.ph.i.us40:              ; preds = %if.end.i.us35
-  %shl.i.us41 = shl nsw i64 -1, %6
-  br label %while.cond.outer.split.i.us
+.lr.ph.i.us44:                                    ; preds = %mi_bitmap_mask_.exit.i.us41
+  %35 = shl nsw i64 -1, %34
+  br label %.lr.ph.split.i.us
 
-while.cond.outer.split.i.us:                      ; preds = %if.else7.i.us, %while.cond.outer.split.lr.ph.i.us40
-  %map.0.ph25.i.us = phi i64 [ %map.0.i.us, %if.else7.i.us ], [ %5, %while.cond.outer.split.lr.ph.i.us40 ]
-  %bitidx.0.ph24.i.us = phi i64 [ %add.i.us, %if.else7.i.us ], [ %6, %while.cond.outer.split.lr.ph.i.us40 ]
-  %m.0.ph23.i.us = phi i64 [ %shl12.i.us, %if.else7.i.us ], [ %shl.i.us41, %while.cond.outer.split.lr.ph.i.us40 ]
-  br label %while.cond.i.us
+.lr.ph.split.i.us:                                ; preds = %49, %.lr.ph.i.us44
+  %.03353.i.us = phi i64 [ %.235.i.us, %49 ], [ %31, %.lr.ph.i.us44 ]
+  %.03852.i.us = phi i64 [ %.139.i.us, %49 ], [ %34, %.lr.ph.i.us44 ]
+  %.04051.i.us = phi i64 [ %.141.i.us, %49 ], [ %35, %.lr.ph.i.us44 ]
+  %36 = and i64 %.04051.i.us, %.03353.i.us
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %44, label %38
 
-while.cond.i.us:                                  ; preds = %if.then4.i.us, %while.cond.outer.split.i.us
-  %map.0.i.us = phi i64 [ %11, %if.then4.i.us ], [ %map.0.ph25.i.us, %while.cond.outer.split.i.us ]
-  %and.i.us = and i64 %map.0.i.us, %m.0.ph23.i.us
-  %cmp3.i.us = icmp eq i64 %and.i.us, 0
-  br i1 %cmp3.i.us, label %if.then4.i.us, label %if.else7.i.us
+38:                                               ; preds = %.lr.ph.split.i.us
+  %39 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %36, i1 true)
+  %40 = add i64 %.03852.i.us, %39
+  %41 = sub i64 64, %40
+  %42 = add i64 %41, %.03852.i.us
+  %43 = shl i64 %.04051.i.us, %41
+  br label %49
 
-if.else7.i.us:                                    ; preds = %while.cond.i.us
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.us, i1 true)
-  %8 = add i64 %bitidx.0.ph24.i.us, %7
-  %sub11.i.us = sub i64 64, %8
-  %add.i.us = add i64 %sub11.i.us, %bitidx.0.ph24.i.us
-  %shl12.i.us = shl i64 %m.0.ph23.i.us, %sub11.i.us
-  %cmp2.not.i.us = icmp ugt i64 %add.i.us, %sub.i
-  br i1 %cmp2.not.i.us, label %for.inc.us42, label %while.cond.outer.split.i.us, !llvm.loop !4
+44:                                               ; preds = %.lr.ph.split.i.us
+  %45 = or i64 %.04051.i.us, %.03353.i.us
+  %46 = cmpxchg ptr %30, i64 %.03353.i.us, i64 %45 acq_rel acquire, align 8
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  br i1 %47, label %_mi_bitmap_try_find_claim_field.exit, label %49, !llvm.loop !3
 
-if.then4.i.us:                                    ; preds = %while.cond.i.us
-  %or.i.us = or i64 %map.0.i.us, %m.0.ph23.i.us
-  %9 = cmpxchg ptr %arrayidx.i.us33, i64 %map.0.i.us, i64 %or.i.us acq_rel acquire, align 8
-  %10 = extractvalue { i64, i1 } %9, 1
-  %11 = extractvalue { i64, i1 } %9, 0
-  br i1 %10, label %_mi_bitmap_try_find_claim_field.exit, label %while.cond.i.us, !llvm.loop !4
+49:                                               ; preds = %44, %38
+  %.141.i.us = phi i64 [ %43, %38 ], [ %.04051.i.us, %44 ]
+  %.139.i.us = phi i64 [ %42, %38 ], [ %.03852.i.us, %44 ]
+  %.235.i.us = phi i64 [ %.03353.i.us, %38 ], [ %48, %44 ]
+  %.not.not.i.us = icmp ugt i64 %.139.i.us, %8
+  br i1 %.not.not.i.us, label %.loopexit20.us, label %.lr.ph.split.i.us
 
-for.inc.us42:                                     ; preds = %if.else7.i.us, %if.end.i.us35, %for.body.us27
-  %inc.us43 = add nuw i64 %visited.022.us29, 1
-  %inc4.us44 = add i64 %spec.store.select.us32, 1
-  %exitcond117.not = icmp eq i64 %inc.us43, %bitmap_fields
-  br i1 %exitcond117.not, label %return, label %for.body.us27, !llvm.loop !6
+.loopexit20.us:                                   ; preds = %49, %mi_bitmap_mask_.exit.i.us41, %.lr.ph.split.split.us
+  %50 = add nuw i64 %.01231.us37, 1
+  %51 = add i64 %spec.store.select.us40, 1
+  %exitcond95.not = icmp eq i64 %50, %1
+  br i1 %exitcond95.not, label %.critedge, label %.lr.ph.split.split.us, !llvm.loop !9
 
-for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  br i1 %cmp1.i.i, label %for.body.us50, label %for.body
+.lr.ph.split.split:                               ; preds = %.lr.ph.split
+  br i1 %6, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
-for.body.us50:                                    ; preds = %for.body.lr.ph.split.split, %for.inc.us85
-  %visited.022.us52 = phi i64 [ %inc.us86, %for.inc.us85 ], [ 0, %for.body.lr.ph.split.split ]
-  %idx.021.us53 = phi i64 [ %inc4.us87, %for.inc.us85 ], [ %start_field_idx, %for.body.lr.ph.split.split ]
-  %cmp1.not.us54 = icmp ult i64 %idx.021.us53, %bitmap_fields
-  %spec.store.select.us55 = select i1 %cmp1.not.us54, i64 %idx.021.us53, i64 0
-  %arrayidx.i.us56 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us55
-  %12 = load atomic i64, ptr %arrayidx.i.us56 monotonic, align 8
-  %cmp.i.us57 = icmp eq i64 %12, -1
-  br i1 %cmp.i.us57, label %for.inc.us85, label %if.end.i.us58
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.loopexit20.us71
+  %.01231.us51 = phi i64 [ %64, %.loopexit20.us71 ], [ 0, %.lr.ph.split.split ]
+  %.01330.us52 = phi i64 [ %65, %.loopexit20.us71 ], [ %2, %.lr.ph.split.split ]
+  %.not.us53 = icmp ult i64 %.01330.us52, %1
+  %spec.store.select.us54 = select i1 %.not.us53, i64 %.01330.us52, i64 0
+  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
+  %53 = load atomic i64, ptr %52 monotonic, align 8
+  %54 = icmp eq i64 %53, -1
+  br i1 %54, label %.loopexit20.us71, label %mi_bitmap_mask_.exit.i.us55
 
-if.end.i.us58:                                    ; preds = %for.body.us50
-  %not.i.us61 = xor i64 %12, -1
-  %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us61, i1 true)
-  %cmp2.not22.i.us62 = icmp ugt i64 %13, %sub.i
-  br i1 %cmp2.not22.i.us62, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
+mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.split.us
+  %55 = xor i64 %53, -1
+  %56 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %55, i1 true)
+  %.not.not50.i.us57 = icmp ugt i64 %56, %8
+  br i1 %.not.not50.i.us57, label %.loopexit20.us71, label %.lr.ph.split.i.us59.preheader
 
-while.cond.outer.split.i.us65.preheader:          ; preds = %if.end.i.us58
-  %arrayidx.i.us56.le = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us55
-  br label %if.then4.i.us83
+.lr.ph.split.i.us59.preheader:                    ; preds = %mi_bitmap_mask_.exit.i.us55
+  %57 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
+  %58 = cmpxchg ptr %57, i64 %53, i64 %53 acq_rel acquire, align 8
+  %59 = extractvalue { i64, i1 } %58, 1
+  br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !3
 
-if.then4.i.us83:                                  ; preds = %while.cond.outer.split.i.us65.preheader, %if.then4.i.us83
-  %map.0.i.us70 = phi i64 [ %16, %if.then4.i.us83 ], [ %12, %while.cond.outer.split.i.us65.preheader ]
-  %14 = cmpxchg ptr %arrayidx.i.us56.le, i64 %map.0.i.us70, i64 %map.0.i.us70 acq_rel acquire, align 8
-  %15 = extractvalue { i64, i1 } %14, 1
-  %16 = extractvalue { i64, i1 } %14, 0
-  br i1 %15, label %_mi_bitmap_try_find_claim_field.exit, label %if.then4.i.us83, !llvm.loop !4
+.lr.ph127:                                        ; preds = %.lr.ph.split.i.us59.preheader, %.lr.ph127
+  %60 = phi { i64, i1 } [ %62, %.lr.ph127 ], [ %58, %.lr.ph.split.i.us59.preheader ]
+  %61 = extractvalue { i64, i1 } %60, 0
+  %62 = cmpxchg ptr %57, i64 %61, i64 %61 acq_rel acquire, align 8
+  %63 = extractvalue { i64, i1 } %62, 1
+  br i1 %63, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph127, !llvm.loop !3
 
-for.inc.us85:                                     ; preds = %if.end.i.us58, %for.body.us50
-  %inc.us86 = add nuw i64 %visited.022.us52, 1
-  %inc4.us87 = add i64 %spec.store.select.us55, 1
-  %exitcond116.not = icmp eq i64 %inc.us86, %bitmap_fields
-  br i1 %exitcond116.not, label %return, label %for.body.us50, !llvm.loop !6
+.loopexit20.us71:                                 ; preds = %mi_bitmap_mask_.exit.i.us55, %.lr.ph.split.split.split.us
+  %64 = add nuw i64 %.01231.us51, 1
+  %65 = add i64 %spec.store.select.us54, 1
+  %exitcond94.not = icmp eq i64 %64, %1
+  br i1 %exitcond94.not, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !9
 
-for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.inc
-  %visited.022 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split.split ]
-  %idx.021 = phi i64 [ %inc4, %for.inc ], [ %start_field_idx, %for.body.lr.ph.split.split ]
-  %cmp1.not = icmp ult i64 %idx.021, %bitmap_fields
-  %spec.store.select = select i1 %cmp1.not, i64 %idx.021, i64 0
-  %arrayidx.i = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select
-  %17 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %cmp.i = icmp eq i64 %17, -1
-  br i1 %cmp.i, label %for.inc, label %if.end.i
+.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.loopexit20
+  %.01231 = phi i64 [ %88, %.loopexit20 ], [ 0, %.lr.ph.split.split ]
+  %.01330 = phi i64 [ %89, %.loopexit20 ], [ %2, %.lr.ph.split.split ]
+  %.not = icmp ult i64 %.01330, %1
+  %spec.store.select = select i1 %.not, i64 %.01330, i64 0
+  %66 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %67 = load atomic i64, ptr %66 monotonic, align 8
+  %68 = icmp eq i64 %67, -1
+  br i1 %68, label %.loopexit20, label %mi_bitmap_mask_.exit.i
 
-if.end.i:                                         ; preds = %for.body
-  %not.i = xor i64 %17, -1
-  %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
-  %cmp2.not22.i = icmp ugt i64 %18, %sub.i
-  br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
+mi_bitmap_mask_.exit.i:                           ; preds = %.lr.ph.split.split.split
+  %69 = xor i64 %67, -1
+  %70 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %69, i1 true)
+  %.not.not50.i = icmp ugt i64 %70, %8
+  br i1 %.not.not50.i, label %.loopexit20, label %.lr.ph.i
 
-while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
-  %shl.i = shl i64 %sub.i.i, %18
-  br label %while.cond.outer.split.i
+.lr.ph.i:                                         ; preds = %mi_bitmap_mask_.exit.i
+  %71 = shl i64 %7, %70
+  br label %.lr.ph.split.i
 
-while.cond.outer.split.i:                         ; preds = %while.cond.outer.split.lr.ph.i, %if.else7.i
-  %map.0.ph25.i = phi i64 [ %map.0.i, %if.else7.i ], [ %17, %while.cond.outer.split.lr.ph.i ]
-  %bitidx.0.ph24.i = phi i64 [ %add.i, %if.else7.i ], [ %18, %while.cond.outer.split.lr.ph.i ]
-  %m.0.ph23.i = phi i64 [ %shl12.i, %if.else7.i ], [ %shl.i, %while.cond.outer.split.lr.ph.i ]
-  br label %while.cond.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %85
+  %.03353.i = phi i64 [ %.235.i, %85 ], [ %67, %.lr.ph.i ]
+  %.03852.i = phi i64 [ %.139.i, %85 ], [ %70, %.lr.ph.i ]
+  %.04051.i = phi i64 [ %.141.i, %85 ], [ %71, %.lr.ph.i ]
+  %72 = and i64 %.04051.i, %.03353.i
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %79
 
-while.cond.i:                                     ; preds = %if.then4.i, %while.cond.outer.split.i
-  %map.0.i = phi i64 [ %21, %if.then4.i ], [ %map.0.ph25.i, %while.cond.outer.split.i ]
-  %and.i = and i64 %map.0.i, %m.0.ph23.i
-  %cmp3.i = icmp eq i64 %and.i, 0
-  br i1 %cmp3.i, label %if.then4.i, label %if.else7.i
+74:                                               ; preds = %.lr.ph.split.i
+  %75 = or i64 %.04051.i, %.03353.i
+  %76 = cmpxchg ptr %66, i64 %.03353.i, i64 %75 acq_rel acquire, align 8
+  %77 = extractvalue { i64, i1 } %76, 1
+  %78 = extractvalue { i64, i1 } %76, 0
+  br i1 %77, label %_mi_bitmap_try_find_claim_field.exit, label %85, !llvm.loop !3
 
-if.then4.i:                                       ; preds = %while.cond.i
-  %or.i = or i64 %map.0.i, %m.0.ph23.i
-  %19 = cmpxchg ptr %arrayidx.i, i64 %map.0.i, i64 %or.i acq_rel acquire, align 8
+79:                                               ; preds = %.lr.ph.split.i
+  %80 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %72, i1 true)
+  %81 = add i64 %.03852.i, %80
+  %82 = sub i64 64, %81
+  %83 = add i64 %82, %.03852.i
+  %84 = shl i64 %.04051.i, %82
+  br label %85
+
+85:                                               ; preds = %79, %74
+  %.141.i = phi i64 [ %84, %79 ], [ %.04051.i, %74 ]
+  %.139.i = phi i64 [ %83, %79 ], [ %.03852.i, %74 ]
+  %.235.i = phi i64 [ %.03353.i, %79 ], [ %78, %74 ]
+  %.not.not.i = icmp ugt i64 %.139.i, %8
+  br i1 %.not.not.i, label %.loopexit20, label %.lr.ph.split.i
+
+_mi_bitmap_try_find_claim_field.exit:             ; preds = %74, %.lr.ph127, %44, %21, %.lr.ph.split.i.us59.preheader
+  %spec.store.select28 = phi i64 [ %spec.store.select.us54, %.lr.ph.split.i.us59.preheader ], [ %spec.store.select.us, %21 ], [ %spec.store.select.us40, %44 ], [ %spec.store.select.us54, %.lr.ph127 ], [ %spec.store.select, %74 ]
+  %.us-phi.i = phi i64 [ %56, %.lr.ph.split.i.us59.preheader ], [ %.03852.us.i.us, %21 ], [ %.03852.i.us, %44 ], [ %56, %.lr.ph127 ], [ %.03852.i, %74 ]
+  %86 = shl i64 %spec.store.select28, 6
+  %87 = add i64 %.us-phi.i, %86
+  store i64 %87, ptr %4, align 8, !tbaa !5
+  br label %.critedge
+
+.loopexit20:                                      ; preds = %85, %.lr.ph.split.split.split, %mi_bitmap_mask_.exit.i
+  %88 = add nuw i64 %.01231, 1
+  %89 = add i64 %spec.store.select, 1
+  %exitcond.not = icmp eq i64 %88, %1
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split.split, !llvm.loop !9
+
+.critedge:                                        ; preds = %.loopexit20, %.loopexit20.us71, %.loopexit20.us, %.loopexit.us, %5, %_mi_bitmap_try_find_claim_field.exit
+  %.not1625 = phi i1 [ true, %_mi_bitmap_try_find_claim_field.exit ], [ false, %5 ], [ false, %.loopexit.us ], [ false, %.loopexit20.us ], [ false, %.loopexit20.us71 ], [ false, %.loopexit20 ]
+  ret i1 %.not1625
+}
+
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_unclaim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+  %5 = and i64 %3, 63
+  %6 = icmp ugt i64 %2, 63
+  br i1 %6, label %mi_bitmap_mask_.exit, label %7
+
+7:                                                ; preds = %4
+  %8 = icmp eq i64 %2, 0
+  br i1 %8, label %mi_bitmap_mask_.exit, label %9
+
+9:                                                ; preds = %7
+  %notmask.i = shl nsw i64 -1, %2
+  %10 = xor i64 %notmask.i, -1
+  %11 = shl i64 %10, %5
+  br label %mi_bitmap_mask_.exit
+
+mi_bitmap_mask_.exit:                             ; preds = %4, %7, %9
+  %.0.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
+  %12 = lshr i64 %3, 6
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %14 = xor i64 %.0.i, -1
+  %15 = atomicrmw and ptr %13, i64 %14 acq_rel, align 8
+  %16 = and i64 %15, %.0.i
+  %17 = icmp eq i64 %16, %.0.i
+  ret i1 %17
+}
+
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
+  %6 = lshr i64 %3, 6
+  %7 = and i64 %3, 63
+  %8 = icmp ugt i64 %2, 63
+  br i1 %8, label %mi_bitmap_mask_.exit, label %9
+
+9:                                                ; preds = %5
+  %10 = icmp eq i64 %2, 0
+  br i1 %10, label %mi_bitmap_mask_.exit, label %11
+
+11:                                               ; preds = %9
+  %notmask.i = shl nsw i64 -1, %2
+  %12 = xor i64 %notmask.i, -1
+  %13 = shl i64 %12, %7
+  br label %mi_bitmap_mask_.exit
+
+mi_bitmap_mask_.exit:                             ; preds = %5, %9, %11
+  %.0.i = phi i64 [ %13, %11 ], [ -1, %5 ], [ 0, %9 ]
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %15 = atomicrmw or ptr %14, i64 %.0.i acq_rel, align 8
+  %.not = icmp eq ptr %4, null
+  %.pre = and i64 %15, %.0.i
+  br i1 %.not, label %mi_bitmap_mask_.exit._crit_edge, label %16
+
+16:                                               ; preds = %mi_bitmap_mask_.exit
+  %17 = icmp ne i64 %.pre, %.0.i
+  %18 = zext i1 %17 to i8
+  store i8 %18, ptr %4, align 1, !tbaa !10
+  br label %mi_bitmap_mask_.exit._crit_edge
+
+mi_bitmap_mask_.exit._crit_edge:                  ; preds = %mi_bitmap_mask_.exit, %16
+  %19 = icmp eq i64 %.pre, 0
+  ret i1 %19
+}
+
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
+define hidden noundef zeroext i1 @_mi_bitmap_try_claim(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = lshr i64 %3, 6
+  %6 = and i64 %3, 63
+  %7 = icmp ugt i64 %2, 63
+  br i1 %7, label %mi_bitmap_mask_.exit, label %8
+
+8:                                                ; preds = %4
+  %9 = icmp eq i64 %2, 0
+  br i1 %9, label %mi_bitmap_mask_.exit, label %10
+
+10:                                               ; preds = %8
+  %notmask.i = shl nsw i64 -1, %2
+  %11 = xor i64 %notmask.i, -1
+  %12 = shl i64 %11, %6
+  br label %mi_bitmap_mask_.exit
+
+mi_bitmap_mask_.exit:                             ; preds = %4, %8, %10
+  %.0.i = phi i64 [ %12, %10 ], [ -1, %4 ], [ 0, %8 ]
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  br label %15
+
+15:                                               ; preds = %17, %mi_bitmap_mask_.exit
+  %.016 = phi i64 [ %14, %mi_bitmap_mask_.exit ], [ %21, %17 ]
+  %16 = and i64 %.016, %.0.i
+  %.not = icmp eq i64 %16, 0
+  br i1 %.not, label %17, label %22
+
+17:                                               ; preds = %15
+  %18 = or i64 %.016, %.0.i
+  %19 = cmpxchg ptr %13, i64 %.016, i64 %18 acq_rel acquire, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = extractvalue { i64, i1 } %19, 0
-  br i1 %20, label %_mi_bitmap_try_find_claim_field.exit, label %while.cond.i, !llvm.loop !4
+  br i1 %20, label %22, label %15, !llvm.loop !12
 
-if.else7.i:                                       ; preds = %while.cond.i
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i, i1 true)
-  %23 = add i64 %bitidx.0.ph24.i, %22
-  %sub11.i = sub i64 64, %23
-  %add.i = add i64 %sub11.i, %bitidx.0.ph24.i
-  %shl12.i = shl i64 %m.0.ph23.i, %sub11.i
-  %cmp2.not.i = icmp ugt i64 %add.i, %sub.i
-  br i1 %cmp2.not.i, label %for.inc, label %while.cond.outer.split.i, !llvm.loop !4
-
-_mi_bitmap_try_find_claim_field.exit:             ; preds = %if.then4.i, %if.then4.i.us83, %if.then4.i.us, %if.then4.us.i.us
-  %spec.store.select19 = phi i64 [ %spec.store.select.us, %if.then4.us.i.us ], [ %spec.store.select.us32, %if.then4.i.us ], [ %spec.store.select.us55, %if.then4.i.us83 ], [ %spec.store.select, %if.then4.i ]
-  %.us-phi.i = phi i64 [ %bitidx.0.ph24.us.i.us, %if.then4.us.i.us ], [ %bitidx.0.ph24.i.us, %if.then4.i.us ], [ %13, %if.then4.i.us83 ], [ %bitidx.0.ph24.i, %if.then4.i ]
-  %mul.i.i = shl i64 %spec.store.select19, 6
-  %add.i.i = add i64 %.us-phi.i, %mul.i.i
-  store i64 %add.i.i, ptr %bitmap_idx, align 8
-  br label %return
-
-for.inc:                                          ; preds = %if.else7.i, %for.body, %if.end.i
-  %inc = add nuw i64 %visited.022, 1
-  %inc4 = add i64 %spec.store.select, 1
-  %exitcond.not = icmp eq i64 %inc, %bitmap_fields
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
-
-return:                                           ; preds = %for.inc, %for.inc.us85, %for.inc.us42, %for.inc.us, %entry, %_mi_bitmap_try_find_claim_field.exit
-  %cmp16 = phi i1 [ true, %_mi_bitmap_try_find_claim_field.exit ], [ false, %entry ], [ false, %for.inc.us ], [ false, %for.inc.us42 ], [ false, %for.inc.us85 ], [ false, %for.inc ]
-  ret i1 %cmp16
-}
-
-; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef readonly captures(address_is_null) %pred_fun, ptr noundef %pred_arg, ptr noundef captures(none) %bitmap_idx) local_unnamed_addr #1 {
-entry:
-  %cmp32.not = icmp eq i64 %bitmap_fields, 0
-  br i1 %cmp32.not, label %return, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %entry
-  %cmp.i.i = icmp ugt i64 %count, 63
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %sub.i = sub i64 64, %count
-  %cmp8.i = icmp eq i64 %count, 1
-  %cmp3 = icmp eq ptr %pred_fun, null
-  %cmp.i.i11 = icmp ult i64 %count, 64
-  br i1 %cmp8.i, label %for.body.us, label %for.body.lr.ph.split
-
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %visited.034.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %idx.033.us = phi i64 [ %inc9.us, %for.inc.us ], [ %start_field_idx, %for.body.lr.ph ]
-  %cmp1.not.us = icmp ult i64 %idx.033.us, %bitmap_fields
-  %spec.store.select.us = select i1 %cmp1.not.us, i64 %idx.033.us, i64 0
-  %arrayidx.i.us = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us
-  %0 = load atomic i64, ptr %arrayidx.i.us monotonic, align 8
-  %cmp.i.us = icmp eq i64 %0, -1
-  br i1 %cmp.i.us, label %for.inc.us, label %if.end.i.us
-
-if.end.i.us:                                      ; preds = %for.body.us
-  %not.i.us = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
-  %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
-  br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
-
-while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
-  %shl.i.us = shl nuw i64 1, %1
-  br label %while.cond.outer.split.us.i.us
-
-while.cond.outer.split.us.i.us:                   ; preds = %while.cond.outer.split.lr.ph.i.us, %if.else7.us.i.us
-  %map.0.ph25.us.i.us = phi i64 [ %map.0.us.i.us, %if.else7.us.i.us ], [ %0, %while.cond.outer.split.lr.ph.i.us ]
-  %bitidx.0.ph24.us.i.us = phi i64 [ %add.us.i.us, %if.else7.us.i.us ], [ %1, %while.cond.outer.split.lr.ph.i.us ]
-  %m.0.ph23.us.i.us = phi i64 [ %shl12.us.i.us, %if.else7.us.i.us ], [ %shl.i.us, %while.cond.outer.split.lr.ph.i.us ]
-  br label %while.cond.us.i.us
-
-while.cond.us.i.us:                               ; preds = %if.then4.us.i.us, %while.cond.outer.split.us.i.us
-  %map.0.us.i.us = phi i64 [ %4, %if.then4.us.i.us ], [ %map.0.ph25.us.i.us, %while.cond.outer.split.us.i.us ]
-  %and.us.i.us = and i64 %map.0.us.i.us, %m.0.ph23.us.i.us
-  %cmp3.us.i.us = icmp eq i64 %and.us.i.us, 0
-  br i1 %cmp3.us.i.us, label %if.then4.us.i.us, label %if.else7.us.i.us
-
-if.else7.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %add.us.i.us = add i64 %bitidx.0.ph24.us.i.us, 1
-  %shl12.us.i.us = shl i64 %m.0.ph23.us.i.us, 1
-  %cmp2.not.us.i.us = icmp ugt i64 %add.us.i.us, %sub.i
-  br i1 %cmp2.not.us.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
-
-if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %or.us.i.us = or i64 %map.0.us.i.us, %m.0.ph23.us.i.us
-  %2 = cmpxchg ptr %arrayidx.i.us, i64 %map.0.us.i.us, i64 %or.us.i.us acq_rel acquire, align 8
-  %3 = extractvalue { i64, i1 } %2, 1
-  %4 = extractvalue { i64, i1 } %2, 0
-  br i1 %3, label %if.then2.loopexit.us, label %while.cond.us.i.us, !llvm.loop !4
-
-lor.lhs.false.us:                                 ; preds = %if.then2.loopexit.us
-  %call4.us = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i.us, ptr noundef %pred_arg) #4
-  br i1 %call4.us, label %return, label %if.end6.us
-
-if.end6.us:                                       ; preds = %lor.lhs.false.us
-  %5 = load i64, ptr %bitmap_idx, align 8
-  %rem.i.i.us = and i64 %5, 63
-  %shl4.i.i.us = shl nuw i64 %sub.i.i, %rem.i.i.us
-  %6 = xor i64 %shl4.i.i.us, -1
-  %div1.i.i.us = lshr i64 %5, 6
-  %arrayidx.i19.us = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i.us
-  %7 = atomicrmw and ptr %arrayidx.i19.us, i64 %6 acq_rel, align 8
-  br label %for.inc.us
-
-for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end6.us, %if.end.i.us, %for.body.us
-  %inc.us = add nuw i64 %visited.034.us, 1
-  %inc9.us = add i64 %spec.store.select.us, 1
-  %exitcond98.not = icmp eq i64 %inc.us, %bitmap_fields
-  br i1 %exitcond98.not, label %return, label %for.body.us, !llvm.loop !7
-
-if.then2.loopexit.us:                             ; preds = %if.then4.us.i.us
-  %mul.i.i.us = shl i64 %spec.store.select.us, 6
-  %add.i.i.us = add i64 %bitidx.0.ph24.us.i.us, %mul.i.i.us
-  store i64 %add.i.i.us, ptr %bitmap_idx, align 8
-  br i1 %cmp3, label %return, label %lor.lhs.false.us
-
-for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  br i1 %cmp3, label %for.body.lr.ph.split.split.us, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %for.body.lr.ph.split
-  %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 %sub.i.i
-  %8 = add i64 %count, -64
-  %brmerge75 = icmp ult i64 %8, -63
-  %.mux76 = sext i1 %cmp.i.i11 to i64
-  br label %for.body
-
-for.body.lr.ph.split.split.us:                    ; preds = %for.body.lr.ph.split
-  br i1 %cmp.i.i, label %for.body.us40.us, label %for.body.us40
-
-for.body.us40.us:                                 ; preds = %for.body.lr.ph.split.split.us, %for.inc.us57.us
-  %visited.034.us42.us = phi i64 [ %inc.us58.us, %for.inc.us57.us ], [ 0, %for.body.lr.ph.split.split.us ]
-  %idx.033.us43.us = phi i64 [ %inc9.us59.us, %for.inc.us57.us ], [ %start_field_idx, %for.body.lr.ph.split.split.us ]
-  %cmp1.not.us44.us = icmp ult i64 %idx.033.us43.us, %bitmap_fields
-  %spec.store.select.us45.us = select i1 %cmp1.not.us44.us, i64 %idx.033.us43.us, i64 0
-  %arrayidx.i.us46.us = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us45.us
-  %9 = load atomic i64, ptr %arrayidx.i.us46.us monotonic, align 8
-  %cmp.i.us47.us = icmp eq i64 %9, -1
-  br i1 %cmp.i.us47.us, label %for.inc.us57.us, label %if.end.i.us48.us
-
-if.end.i.us48.us:                                 ; preds = %for.body.us40.us
-  %not.i.us53.us = xor i64 %9, -1
-  %10 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53.us, i1 true)
-  %cmp2.not22.i.us54.us = icmp ugt i64 %10, %sub.i
-  br i1 %cmp2.not22.i.us54.us, label %for.inc.us57.us, label %while.cond.outer.split.lr.ph.i.us55.us
-
-while.cond.outer.split.lr.ph.i.us55.us:           ; preds = %if.end.i.us48.us
-  %shl.i.us56.us = shl nsw i64 -1, %10
-  br label %while.cond.outer.split.i.us.us
-
-while.cond.outer.split.i.us.us:                   ; preds = %if.else7.i.us.us, %while.cond.outer.split.lr.ph.i.us55.us
-  %map.0.ph25.i.us.us = phi i64 [ %map.0.i.us.us, %if.else7.i.us.us ], [ %9, %while.cond.outer.split.lr.ph.i.us55.us ]
-  %bitidx.0.ph24.i.us.us = phi i64 [ %add.i.us.us, %if.else7.i.us.us ], [ %10, %while.cond.outer.split.lr.ph.i.us55.us ]
-  %m.0.ph23.i.us.us = phi i64 [ %shl12.i.us.us, %if.else7.i.us.us ], [ %shl.i.us56.us, %while.cond.outer.split.lr.ph.i.us55.us ]
-  br label %while.cond.i.us.us
-
-while.cond.i.us.us:                               ; preds = %if.then4.i.us.us, %while.cond.outer.split.i.us.us
-  %map.0.i.us.us = phi i64 [ %15, %if.then4.i.us.us ], [ %map.0.ph25.i.us.us, %while.cond.outer.split.i.us.us ]
-  %and.i.us.us = and i64 %map.0.i.us.us, %m.0.ph23.i.us.us
-  %cmp3.i.us.us = icmp eq i64 %and.i.us.us, 0
-  br i1 %cmp3.i.us.us, label %if.then4.i.us.us, label %if.else7.i.us.us
-
-if.else7.i.us.us:                                 ; preds = %while.cond.i.us.us
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.us.us, i1 true)
-  %12 = add i64 %bitidx.0.ph24.i.us.us, %11
-  %sub11.i.us.us = sub i64 64, %12
-  %add.i.us.us = add i64 %sub11.i.us.us, %bitidx.0.ph24.i.us.us
-  %shl12.i.us.us = shl i64 %m.0.ph23.i.us.us, %sub11.i.us.us
-  %cmp2.not.i.us.us = icmp ugt i64 %add.i.us.us, %sub.i
-  br i1 %cmp2.not.i.us.us, label %for.inc.us57.us, label %while.cond.outer.split.i.us.us, !llvm.loop !4
-
-if.then4.i.us.us:                                 ; preds = %while.cond.i.us.us
-  %or.i.us.us = or i64 %map.0.i.us.us, %m.0.ph23.i.us.us
-  %13 = cmpxchg ptr %arrayidx.i.us46.us, i64 %map.0.i.us.us, i64 %or.i.us.us acq_rel acquire, align 8
-  %14 = extractvalue { i64, i1 } %13, 1
-  %15 = extractvalue { i64, i1 } %13, 0
-  br i1 %14, label %if.then2.loopexit25.us, label %while.cond.i.us.us, !llvm.loop !4
-
-for.inc.us57.us:                                  ; preds = %if.else7.i.us.us, %if.end.i.us48.us, %for.body.us40.us
-  %inc.us58.us = add nuw i64 %visited.034.us42.us, 1
-  %inc9.us59.us = add i64 %spec.store.select.us45.us, 1
-  %exitcond97.not = icmp eq i64 %inc.us58.us, %bitmap_fields
-  br i1 %exitcond97.not, label %return, label %for.body.us40.us, !llvm.loop !7
-
-for.body.us40:                                    ; preds = %for.body.lr.ph.split.split.us, %for.inc.us57
-  %visited.034.us42 = phi i64 [ %inc.us58, %for.inc.us57 ], [ 0, %for.body.lr.ph.split.split.us ]
-  %idx.033.us43 = phi i64 [ %inc9.us59, %for.inc.us57 ], [ %start_field_idx, %for.body.lr.ph.split.split.us ]
-  %cmp1.not.us44 = icmp ult i64 %idx.033.us43, %bitmap_fields
-  %spec.store.select.us45 = select i1 %cmp1.not.us44, i64 %idx.033.us43, i64 0
-  %arrayidx.i.us46 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us45
-  %16 = load atomic i64, ptr %arrayidx.i.us46 monotonic, align 8
-  %cmp.i.us47 = icmp eq i64 %16, -1
-  br i1 %cmp.i.us47, label %for.inc.us57, label %if.end.i.us48
-
-if.end.i.us48:                                    ; preds = %for.body.us40
-  %not.i.us53 = xor i64 %16, -1
-  %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53, i1 true)
-  %cmp2.not22.i.us54 = icmp ugt i64 %17, %sub.i
-  br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
-
-while.cond.outer.split.lr.ph.i.us55:              ; preds = %if.end.i.us48
-  %shl.i.us56 = shl i64 %sub.i.i, %17
-  br label %while.cond.outer.split.i.us
-
-while.cond.outer.split.i.us:                      ; preds = %if.else7.i.us, %while.cond.outer.split.lr.ph.i.us55
-  %map.0.ph25.i.us = phi i64 [ %map.0.i.us, %if.else7.i.us ], [ %16, %while.cond.outer.split.lr.ph.i.us55 ]
-  %bitidx.0.ph24.i.us = phi i64 [ %add.i.us, %if.else7.i.us ], [ %17, %while.cond.outer.split.lr.ph.i.us55 ]
-  %m.0.ph23.i.us = phi i64 [ %shl12.i.us, %if.else7.i.us ], [ %shl.i.us56, %while.cond.outer.split.lr.ph.i.us55 ]
-  br label %while.cond.i.us
-
-while.cond.i.us:                                  ; preds = %if.then4.i.us, %while.cond.outer.split.i.us
-  %map.0.i.us = phi i64 [ %22, %if.then4.i.us ], [ %map.0.ph25.i.us, %while.cond.outer.split.i.us ]
-  %and.i.us = and i64 %map.0.i.us, %m.0.ph23.i.us
-  %cmp3.i.us = icmp eq i64 %and.i.us, 0
-  br i1 %cmp3.i.us, label %if.then4.i.us, label %if.else7.i.us
-
-if.else7.i.us:                                    ; preds = %while.cond.i.us
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.us, i1 true)
-  %19 = add i64 %bitidx.0.ph24.i.us, %18
-  %sub11.i.us = sub i64 64, %19
-  %add.i.us = add i64 %sub11.i.us, %bitidx.0.ph24.i.us
-  %shl12.i.us = shl i64 %m.0.ph23.i.us, %sub11.i.us
-  %cmp2.not.i.us = icmp ugt i64 %add.i.us, %sub.i
-  br i1 %cmp2.not.i.us, label %for.inc.us57, label %while.cond.outer.split.i.us, !llvm.loop !4
-
-if.then4.i.us:                                    ; preds = %while.cond.i.us
-  %or.i.us = or i64 %map.0.i.us, %m.0.ph23.i.us
-  %20 = cmpxchg ptr %arrayidx.i.us46, i64 %map.0.i.us, i64 %or.i.us acq_rel acquire, align 8
-  %21 = extractvalue { i64, i1 } %20, 1
-  %22 = extractvalue { i64, i1 } %20, 0
-  br i1 %21, label %if.then2.loopexit25.us, label %while.cond.i.us, !llvm.loop !4
-
-for.inc.us57:                                     ; preds = %if.else7.i.us, %if.end.i.us48, %for.body.us40
-  %inc.us58 = add nuw i64 %visited.034.us42, 1
-  %inc9.us59 = add i64 %spec.store.select.us45, 1
-  %exitcond96.not = icmp eq i64 %inc.us58, %bitmap_fields
-  br i1 %exitcond96.not, label %return, label %for.body.us40, !llvm.loop !7
-
-if.then2.loopexit25.us:                           ; preds = %if.then4.i.us, %if.then4.i.us.us
-  %.us-phi70 = phi i64 [ %spec.store.select.us45.us, %if.then4.i.us.us ], [ %spec.store.select.us45, %if.then4.i.us ]
-  %.us-phi71 = phi i64 [ %bitidx.0.ph24.i.us.us, %if.then4.i.us.us ], [ %bitidx.0.ph24.i.us, %if.then4.i.us ]
-  %mul.i.i.us61 = shl i64 %.us-phi70, 6
-  %add.i.i.us62 = add i64 %.us-phi71, %mul.i.i.us61
-  store i64 %add.i.i.us62, ptr %bitmap_idx, align 8
-  br label %return
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %visited.034 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %idx.033 = phi i64 [ %inc9, %for.inc ], [ %start_field_idx, %for.body.preheader ]
-  %cmp1.not = icmp ult i64 %idx.033, %bitmap_fields
-  %spec.store.select = select i1 %cmp1.not, i64 %idx.033, i64 0
-  %arrayidx.i = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select
-  %23 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %cmp.i = icmp eq i64 %23, -1
-  br i1 %cmp.i, label %for.inc, label %if.end.i
-
-if.end.i:                                         ; preds = %for.body
-  %not.i = xor i64 %23, -1
-  %24 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
-  %cmp2.not22.i = icmp ugt i64 %24, %sub.i
-  br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
-
-while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
-  %shl.i = shl i64 %retval.0.i.i, %24
-  br label %while.cond.outer.split.i
-
-while.cond.outer.split.i:                         ; preds = %while.cond.outer.split.lr.ph.i, %if.else7.i
-  %map.0.ph25.i = phi i64 [ %map.0.i, %if.else7.i ], [ %23, %while.cond.outer.split.lr.ph.i ]
-  %bitidx.0.ph24.i = phi i64 [ %add.i, %if.else7.i ], [ %24, %while.cond.outer.split.lr.ph.i ]
-  %m.0.ph23.i = phi i64 [ %shl12.i, %if.else7.i ], [ %shl.i, %while.cond.outer.split.lr.ph.i ]
-  br label %while.cond.i
-
-while.cond.i:                                     ; preds = %if.then4.i, %while.cond.outer.split.i
-  %map.0.i = phi i64 [ %27, %if.then4.i ], [ %map.0.ph25.i, %while.cond.outer.split.i ]
-  %and.i = and i64 %map.0.i, %m.0.ph23.i
-  %cmp3.i = icmp eq i64 %and.i, 0
-  br i1 %cmp3.i, label %if.then4.i, label %if.else7.i
-
-if.then4.i:                                       ; preds = %while.cond.i
-  %or.i = or i64 %map.0.i, %m.0.ph23.i
-  %25 = cmpxchg ptr %arrayidx.i, i64 %map.0.i, i64 %or.i acq_rel acquire, align 8
-  %26 = extractvalue { i64, i1 } %25, 1
-  %27 = extractvalue { i64, i1 } %25, 0
-  br i1 %26, label %if.then2.loopexit25, label %while.cond.i, !llvm.loop !4
-
-if.else7.i:                                       ; preds = %while.cond.i
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i, i1 true)
-  %29 = add i64 %bitidx.0.ph24.i, %28
-  %sub11.i = sub i64 64, %29
-  %add.i = add i64 %sub11.i, %bitidx.0.ph24.i
-  %shl12.i = shl i64 %m.0.ph23.i, %sub11.i
-  %cmp2.not.i = icmp ugt i64 %add.i, %sub.i
-  br i1 %cmp2.not.i, label %for.inc, label %while.cond.outer.split.i, !llvm.loop !4
-
-if.then2.loopexit25:                              ; preds = %if.then4.i
-  %mul.i.i = shl i64 %spec.store.select, 6
-  %add.i.i = add i64 %bitidx.0.ph24.i, %mul.i.i
-  store i64 %add.i.i, ptr %bitmap_idx, align 8
-  %call4 = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i, ptr noundef %pred_arg) #4
-  br i1 %call4, label %return, label %if.end6
-
-if.end6:                                          ; preds = %if.then2.loopexit25
-  %30 = load i64, ptr %bitmap_idx, align 8
-  %rem.i.i = and i64 %30, 63
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
-  %31 = xor i64 %shl4.i.i, -1
-  %retval.0.i.i18 = select i1 %brmerge75, i64 %.mux76, i64 %31
-  %div1.i.i = lshr i64 %30, 6
-  %arrayidx.i19 = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %32 = atomicrmw and ptr %arrayidx.i19, i64 %retval.0.i.i18 acq_rel, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.else7.i, %if.end.i, %for.body, %if.end6
-  %inc = add nuw i64 %visited.034, 1
-  %inc9 = add i64 %spec.store.select, 1
-  %exitcond.not = icmp eq i64 %inc, %bitmap_fields
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
-
-return:                                           ; preds = %if.then2.loopexit25, %for.inc, %for.inc.us57, %for.inc.us57.us, %lor.lhs.false.us, %if.then2.loopexit.us, %for.inc.us, %if.then2.loopexit25.us, %entry
-  %cmp.lcssa = phi i1 [ false, %entry ], [ true, %if.then2.loopexit25.us ], [ false, %for.inc.us ], [ true, %if.then2.loopexit.us ], [ true, %lor.lhs.false.us ], [ false, %for.inc.us57.us ], [ false, %for.inc.us57 ], [ false, %for.inc ], [ true, %if.then2.loopexit25 ]
-  ret i1 %cmp.lcssa
+22:                                               ; preds = %17, %15
+  ret i1 %.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_unclaim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
-entry:
-  %rem.i = and i64 %bitmap_idx, 63
-  %cmp.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i, label %mi_bitmap_mask_.exit, label %if.end.i
+define hidden zeroext i1 @_mi_bitmap_is_claimed(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+  %5 = and i64 %3, 63
+  %6 = icmp ugt i64 %2, 63
+  br i1 %6, label %mi_bitmap_is_claimedx.exit, label %7
 
-if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i, label %mi_bitmap_mask_.exit, label %if.end3.i
+7:                                                ; preds = %4
+  %8 = icmp eq i64 %2, 0
+  br i1 %8, label %mi_bitmap_is_claimedx.exit, label %9
 
-if.end3.i:                                        ; preds = %if.end.i
-  %notmask.i = shl nsw i64 -1, %count
-  %sub.i = xor i64 %notmask.i, -1
-  %shl4.i = shl i64 %sub.i, %rem.i
-  br label %mi_bitmap_mask_.exit
-
-mi_bitmap_mask_.exit:                             ; preds = %entry, %if.end.i, %if.end3.i
-  %retval.0.i = phi i64 [ %shl4.i, %if.end3.i ], [ -1, %entry ], [ 0, %if.end.i ]
-  %div1.i = lshr i64 %bitmap_idx, 6
-  %arrayidx = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %not = xor i64 %retval.0.i, -1
-  %0 = atomicrmw and ptr %arrayidx, i64 %not acq_rel, align 8
-  %and = and i64 %0, %retval.0.i
-  %cmp = icmp eq i64 %and, %retval.0.i
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly captures(address_is_null) %any_zero) local_unnamed_addr #2 {
-entry:
-  %div1.i = lshr i64 %bitmap_idx, 6
-  %rem.i = and i64 %bitmap_idx, 63
-  %cmp.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i, label %mi_bitmap_mask_.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i, label %mi_bitmap_mask_.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
-  %notmask.i = shl nsw i64 -1, %count
-  %sub.i = xor i64 %notmask.i, -1
-  %shl4.i = shl i64 %sub.i, %rem.i
-  br label %mi_bitmap_mask_.exit
-
-mi_bitmap_mask_.exit:                             ; preds = %entry, %if.end.i, %if.end3.i
-  %retval.0.i = phi i64 [ %shl4.i, %if.end3.i ], [ -1, %entry ], [ 0, %if.end.i ]
-  %arrayidx = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %0 = atomicrmw or ptr %arrayidx, i64 %retval.0.i acq_rel, align 8
-  %cmp.not = icmp eq ptr %any_zero, null
-  %.pre = and i64 %0, %retval.0.i
-  br i1 %cmp.not, label %if.end, label %if.then
-
-if.then:                                          ; preds = %mi_bitmap_mask_.exit
-  %cmp3 = icmp ne i64 %.pre, %retval.0.i
-  %frombool = zext i1 %cmp3 to i8
-  store i8 %frombool, ptr %any_zero, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %mi_bitmap_mask_.exit, %if.then
-  %cmp5 = icmp eq i64 %.pre, 0
-  ret i1 %cmp5
-}
-
-; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_claim(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %div1.i = lshr i64 %bitmap_idx, 6
-  %rem.i = and i64 %bitmap_idx, 63
-  %cmp.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i, label %mi_bitmap_mask_.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %cmp1.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i, label %mi_bitmap_mask_.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
-  %notmask.i = shl nsw i64 -1, %count
-  %sub.i = xor i64 %notmask.i, -1
-  %shl4.i = shl i64 %sub.i, %rem.i
-  br label %mi_bitmap_mask_.exit
-
-mi_bitmap_mask_.exit:                             ; preds = %entry, %if.end.i, %if.end3.i
-  %retval.0.i = phi i64 [ %shl4.i, %if.end3.i ], [ -1, %entry ], [ 0, %if.end.i ]
-  %arrayidx = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %do.cond, %mi_bitmap_mask_.exit
-  %expected.0 = phi i64 [ %0, %mi_bitmap_mask_.exit ], [ %3, %do.cond ]
-  %and = and i64 %expected.0, %retval.0.i
-  %cmp.not = icmp eq i64 %and, 0
-  br i1 %cmp.not, label %do.cond, label %return
-
-do.cond:                                          ; preds = %do.body
-  %or = or i64 %expected.0, %retval.0.i
-  %1 = cmpxchg ptr %arrayidx, i64 %expected.0, i64 %or acq_rel acquire, align 8
-  %2 = extractvalue { i64, i1 } %1, 1
-  %3 = extractvalue { i64, i1 } %1, 0
-  br i1 %2, label %return, label %do.body, !llvm.loop !8
-
-return:                                           ; preds = %do.cond, %do.body
-  ret i1 %cmp.not
-}
-
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_claimed(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
-entry:
-  %rem.i.i = and i64 %bitmap_idx, 63
-  %cmp.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i, label %mi_bitmap_is_claimedx.exit, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %entry
-  %cmp1.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i, label %mi_bitmap_is_claimedx.exit, label %if.end3.i.i
-
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
+9:                                                ; preds = %7
+  %notmask.i.i = shl nsw i64 -1, %2
+  %10 = xor i64 %notmask.i.i, -1
+  %11 = shl i64 %10, %5
   br label %mi_bitmap_is_claimedx.exit
 
-mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i, %if.end3.i.i
-  %retval.0.i.i = phi i64 [ %shl4.i.i, %if.end3.i.i ], [ -1, %entry ], [ 0, %if.end.i.i ]
-  %div1.i.i = lshr i64 %bitmap_idx, 6
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %.pre.i = and i64 %0, %retval.0.i.i
-  %cmp5.i = icmp eq i64 %.pre.i, %retval.0.i.i
-  ret i1 %cmp5.i
+mi_bitmap_is_claimedx.exit:                       ; preds = %4, %7, %9
+  %.0.i.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
+  %12 = lshr i64 %3, 6
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  %.pre.i = and i64 %14, %.0.i.i
+  %15 = icmp eq i64 %.pre.i, %.0.i.i
+  ret i1 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_any_claimed(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #2 {
-entry:
-  %rem.i.i = and i64 %bitmap_idx, 63
-  %cmp.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i, label %mi_bitmap_is_claimedx.exit, label %if.end.i.i
+define hidden zeroext i1 @_mi_bitmap_is_any_claimed(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
+  %5 = and i64 %3, 63
+  %6 = icmp ugt i64 %2, 63
+  br i1 %6, label %mi_bitmap_is_claimedx.exit, label %7
 
-if.end.i.i:                                       ; preds = %entry
-  %cmp1.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i, label %mi_bitmap_is_claimedx.exit, label %if.end3.i.i
+7:                                                ; preds = %4
+  %8 = icmp eq i64 %2, 0
+  br i1 %8, label %mi_bitmap_is_claimedx.exit, label %9
 
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
+9:                                                ; preds = %7
+  %notmask.i.i = shl nsw i64 -1, %2
+  %10 = xor i64 %notmask.i.i, -1
+  %11 = shl i64 %10, %5
   br label %mi_bitmap_is_claimedx.exit
 
-mi_bitmap_is_claimedx.exit:                       ; preds = %entry, %if.end.i.i, %if.end3.i.i
-  %retval.0.i.i = phi i64 [ %shl4.i.i, %if.end3.i.i ], [ -1, %entry ], [ 0, %if.end.i.i ]
-  %div1.i.i = lshr i64 %bitmap_idx, 6
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %.pre.i = and i64 %0, %retval.0.i.i
-  %cmp3.i = icmp ne i64 %.pre.i, 0
-  ret i1 %cmp3.i
+mi_bitmap_is_claimedx.exit:                       ; preds = %4, %7, %9
+  %.0.i.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
+  %12 = lshr i64 %3, 6
+  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %14 = load atomic i64, ptr %13 monotonic, align 8
+  %.pre.i = and i64 %14, %.0.i.i
+  %15 = icmp ne i64 %.pre.i, 0
+  ret i1 %15
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef captures(address) %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef writeonly captures(none) %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ult i64 %count, 3
-  br i1 %cmp, label %if.then, label %for.cond.preheader
+define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+  %6 = icmp ult i64 %3, 3
+  br i1 %6, label %11, label %.preheader
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp159.not = icmp eq i64 %bitmap_fields, 0
-  br i1 %cmp159.not, label %return, label %for.body.lr.ph
+.preheader:                                       ; preds = %5
+  %.not2441.not = icmp eq i64 %1, 0
+  br i1 %.not2441.not, label %.critedge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cmp5 = icmp ult i64 %count, 65
-  %sub.i = sub nuw nsw i64 64, %count
-  %cmp.i.i = icmp eq i64 %count, 64
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %retval.0.i.i = select i1 %cmp.i.i, i64 -1, i64 %sub.i.i
-  %sub.i18 = add i64 %count, 63
-  %cmp.i.i.i = icmp samesign ugt i64 %count, 63
-  %retval.0.i.i.i = select i1 %cmp.i.i.i, i64 -1, i64 %sub.i.i
-  br label %for.body
+.lr.ph:                                           ; preds = %.preheader
+  %7 = add i64 %3, 63
+  %8 = sub nuw nsw i64 64, %3
+  %9 = icmp samesign ugt i64 %3, 63
+  %notmask.i.i.i = shl nsw i64 -1, %3
+  %10 = xor i64 %notmask.i.i.i, -1
+  %.0.i.i.i = select i1 %9, i64 -1, i64 %10
+  br label %13
 
-if.then:                                          ; preds = %entry
-  %call = tail call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef %bitmap, i64 noundef %bitmap_fields, i64 noundef %start_field_idx, i64 noundef %count, ptr noundef %bitmap_idx) #5
-  br label %return
+11:                                               ; preds = %5
+  %12 = tail call zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #3
+  br label %.critedge
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %visited.061 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %idx.060 = phi i64 [ %start_field_idx, %for.body.lr.ph ], [ %inc14, %for.inc ]
-  %cmp2.not = icmp ult i64 %idx.060, %bitmap_fields
-  %spec.store.select = select i1 %cmp2.not, i64 %idx.060, i64 0
-  br i1 %cmp5, label %if.then6, label %if.end10
+13:                                               ; preds = %.lr.ph, %.loopexit
+  %.01943 = phi i64 [ 0, %.lr.ph ], [ %105, %.loopexit ]
+  %.02042 = phi i64 [ %2, %.lr.ph ], [ %106, %.loopexit ]
+  %.not = icmp ult i64 %.02042, %1
+  %spec.store.select = select i1 %.not, i64 %.02042, i64 0
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %15 = load atomic i64, ptr %14 monotonic, align 8
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
+  %17 = icmp eq i64 %16, 0
+  br i1 %17, label %.loopexit, label %.lr.ph161.i
 
-if.then6:                                         ; preds = %for.body
-  %arrayidx.i = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select
-  %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %cmp.i = icmp eq i64 %0, -1
-  br i1 %cmp.i, label %if.end10, label %if.end.i
+.lr.ph161.i:                                      ; preds = %13
+  %18 = sub i64 %1, %spec.store.select
+  br label %23
 
-if.end.i:                                         ; preds = %if.then6
-  %not.i = xor i64 %0, -1
-  %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
-  %cmp2.not22.i = icmp samesign ugt i64 %1, %sub.i
-  br i1 %cmp2.not22.i, label %if.end10, label %while.cond.outer.split.lr.ph.i
+tailrecurse.i:                                    ; preds = %.loopexit.i
+  %19 = add nuw nsw i64 %.tr134159.i, 1
+  %20 = load atomic i64, ptr %14 monotonic, align 8
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 false)
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %.loopexit, label %23
 
-while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
-  %shl.i = shl i64 %retval.0.i.i, %1
-  br label %while.cond.outer.split.i
+23:                                               ; preds = %tailrecurse.i, %.lr.ph161.i
+  %24 = phi i64 [ %16, %.lr.ph161.i ], [ %21, %tailrecurse.i ]
+  %25 = phi i64 [ %15, %.lr.ph161.i ], [ %20, %tailrecurse.i ]
+  %.tr134159.i = phi i64 [ 0, %.lr.ph161.i ], [ %19, %tailrecurse.i ]
+  %.not.i = icmp ult i64 %24, %3
+  br i1 %.not.i, label %46, label %26
 
-while.cond.outer.split.i:                         ; preds = %while.cond.outer.split.lr.ph.i, %if.else7.i
-  %map.0.ph25.i = phi i64 [ %map.0.i, %if.else7.i ], [ %0, %while.cond.outer.split.lr.ph.i ]
-  %bitidx.0.ph24.i = phi i64 [ %add.i, %if.else7.i ], [ %1, %while.cond.outer.split.lr.ph.i ]
-  %m.0.ph23.i = phi i64 [ %shl12.i, %if.else7.i ], [ %shl.i, %while.cond.outer.split.lr.ph.i ]
-  br label %while.cond.i
+26:                                               ; preds = %23
+  %27 = load atomic i64, ptr %14 monotonic, align 8
+  %28 = icmp eq i64 %27, -1
+  br i1 %28, label %.loopexit, label %mi_bitmap_mask_.exit.i.i
 
-while.cond.i:                                     ; preds = %if.then4.i, %while.cond.outer.split.i
-  %map.0.i = phi i64 [ %4, %if.then4.i ], [ %map.0.ph25.i, %while.cond.outer.split.i ]
-  %and.i = and i64 %map.0.i, %m.0.ph23.i
-  %cmp3.i = icmp eq i64 %and.i, 0
-  br i1 %cmp3.i, label %if.then4.i, label %if.else7.i
+mi_bitmap_mask_.exit.i.i:                         ; preds = %26
+  %29 = xor i64 %27, -1
+  %30 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %29, i1 true)
+  %.not.not50.i.i = icmp samesign ugt i64 %30, %8
+  br i1 %.not.not50.i.i, label %.loopexit, label %.lr.ph.i.i
 
-if.then4.i:                                       ; preds = %while.cond.i
-  %or.i = or i64 %map.0.i, %m.0.ph23.i
-  %2 = cmpxchg ptr %arrayidx.i, i64 %map.0.i, i64 %or.i acq_rel acquire, align 8
-  %3 = extractvalue { i64, i1 } %2, 1
-  %4 = extractvalue { i64, i1 } %2, 0
-  br i1 %3, label %_mi_bitmap_try_find_claim_field.exit, label %while.cond.i, !llvm.loop !4
+.lr.ph.i.i:                                       ; preds = %mi_bitmap_mask_.exit.i.i
+  %31 = shl i64 %.0.i.i.i, %30
+  br label %.lr.ph.split.i.i
 
-if.else7.i:                                       ; preds = %while.cond.i
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i, i1 true)
-  %6 = add i64 %bitidx.0.ph24.i, %5
-  %sub11.i = sub i64 64, %6
-  %add.i = add i64 %sub11.i, %bitidx.0.ph24.i
-  %shl12.i = shl i64 %m.0.ph23.i, %sub11.i
-  %cmp2.not.i = icmp ugt i64 %add.i, %sub.i
-  br i1 %cmp2.not.i, label %if.end10, label %while.cond.outer.split.i, !llvm.loop !4
+.lr.ph.split.i.i:                                 ; preds = %45, %.lr.ph.i.i
+  %.03353.i.i = phi i64 [ %.235.i.i, %45 ], [ %27, %.lr.ph.i.i ]
+  %.03852.i.i = phi i64 [ %.139.i.i, %45 ], [ %30, %.lr.ph.i.i ]
+  %.04051.i.i = phi i64 [ %.141.i.i, %45 ], [ %31, %.lr.ph.i.i ]
+  %32 = and i64 %.04051.i.i, %.03353.i.i
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %34, label %39
 
-_mi_bitmap_try_find_claim_field.exit:             ; preds = %if.then4.i
-  %mul.i.i = shl i64 %spec.store.select, 6
-  %add.i.i = add i64 %bitidx.0.ph24.i, %mul.i.i
-  store i64 %add.i.i, ptr %bitmap_idx, align 8
-  br label %return
+34:                                               ; preds = %.lr.ph.split.i.i
+  %35 = or i64 %.04051.i.i, %.03353.i.i
+  %36 = cmpxchg ptr %14, i64 %.03353.i.i, i64 %35 acq_rel acquire, align 8
+  %37 = extractvalue { i64, i1 } %36, 1
+  %38 = extractvalue { i64, i1 } %36, 0
+  br i1 %37, label %mi_bitmap_try_find_claim_field_across.exit, label %45, !llvm.loop !3
 
-if.end10:                                         ; preds = %if.else7.i, %if.end.i, %if.then6, %for.body
-  %arrayidx.i17 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select
-  %7 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 false)
-  %cmp102.i = icmp eq i64 %8, 0
-  br i1 %cmp102.i, label %for.inc, label %if.end.lr.ph.i
+39:                                               ; preds = %.lr.ph.split.i.i
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
+  %41 = add i64 %.03852.i.i, %40
+  %42 = sub i64 64, %41
+  %43 = add i64 %42, %.03852.i.i
+  %44 = shl i64 %.04051.i.i, %42
+  br label %45
 
-if.end.lr.ph.i:                                   ; preds = %if.end10
-  %sub6.i = sub i64 %bitmap_fields, %spec.store.select
-  br label %if.end.i19
+45:                                               ; preds = %39, %34
+  %.141.i.i = phi i64 [ %44, %39 ], [ %.04051.i.i, %34 ]
+  %.139.i.i = phi i64 [ %43, %39 ], [ %.03852.i.i, %34 ]
+  %.235.i.i = phi i64 [ %.03353.i.i, %39 ], [ %38, %34 ]
+  %.not.not.i.i = icmp ugt i64 %.139.i.i, %8
+  br i1 %.not.not.i.i, label %.loopexit, label %.lr.ph.split.i.i
 
-tailrecurse.i:                                    ; preds = %if.end77.i
-  %add80.i = add nuw nsw i64 %retries.tr103.i, 1
-  %9 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 false)
-  %cmp.i33 = icmp eq i64 %10, 0
-  br i1 %cmp.i33, label %for.inc, label %if.end.i19
+46:                                               ; preds = %23
+  %47 = sub i64 %7, %24
+  %48 = lshr i64 %47, 6
+  %.not117.i = icmp ult i64 %48, %18
+  br i1 %.not117.i, label %.lr.ph.i, label %.loopexit
 
-if.end.i19:                                       ; preds = %tailrecurse.i, %if.end.lr.ph.i
-  %11 = phi i64 [ %8, %if.end.lr.ph.i ], [ %10, %tailrecurse.i ]
-  %12 = phi i64 [ %7, %if.end.lr.ph.i ], [ %9, %tailrecurse.i ]
-  %retries.tr103.i = phi i64 [ 0, %if.end.lr.ph.i ], [ %add80.i, %tailrecurse.i ]
-  %cmp1.not.i = icmp ult i64 %11, %count
-  br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
+49:                                               ; preds = %mi_bitmap_mask_.exit.i
+  %50 = add i64 %56, %.0105154.i
+  %51 = icmp ult i64 %50, %3
+  br i1 %51, label %.lr.ph.i, label %mi_bitmap_mask_.exit128.i, !llvm.loop !13
 
-if.then2.i:                                       ; preds = %if.end.i19
-  %13 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
-  %cmp.i.i20 = icmp eq i64 %13, -1
-  br i1 %cmp.i.i20, label %for.inc, label %if.end.i.i21
+.lr.ph.i:                                         ; preds = %46, %49
+  %.095155.i = phi ptr [ %52, %49 ], [ %14, %46 ]
+  %.0105154.i = phi i64 [ %50, %49 ], [ %24, %46 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.095155.i, i64 8
+  %53 = load atomic i64, ptr %52 monotonic, align 8
+  %54 = add i64 %.0105154.i, 64
+  %.not121.i = icmp ugt i64 %54, %3
+  %55 = sub nuw i64 %3, %.0105154.i
+  %56 = select i1 %.not121.i, i64 %55, i64 64
+  %57 = icmp ugt i64 %56, 63
+  br i1 %57, label %mi_bitmap_mask_.exit.i, label %58
 
-if.end.i.i21:                                     ; preds = %if.then2.i
-  %not.i.i = xor i64 %13, -1
-  %14 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.i, i1 true)
-  %cmp2.not22.i.i = icmp samesign ugt i64 %14, %sub.i
-  br i1 %cmp2.not22.i.i, label %for.inc, label %while.cond.outer.split.lr.ph.i.i
+58:                                               ; preds = %.lr.ph.i
+  %59 = icmp eq i64 %56, 0
+  br i1 %59, label %mi_bitmap_mask_.exit.i, label %60
 
-while.cond.outer.split.lr.ph.i.i:                 ; preds = %if.end.i.i21
-  %shl.i.i = shl i64 %retval.0.i.i.i, %14
-  br label %while.cond.outer.split.i.i
+60:                                               ; preds = %58
+  %notmask.i.i = shl nsw i64 -1, %56
+  %61 = xor i64 %notmask.i.i, -1
+  br label %mi_bitmap_mask_.exit.i
 
-while.cond.outer.split.i.i:                       ; preds = %if.else7.i.i, %while.cond.outer.split.lr.ph.i.i
-  %map.0.ph25.i.i = phi i64 [ %map.0.i.i, %if.else7.i.i ], [ %13, %while.cond.outer.split.lr.ph.i.i ]
-  %bitidx.0.ph24.i.i = phi i64 [ %add.i.i23, %if.else7.i.i ], [ %14, %while.cond.outer.split.lr.ph.i.i ]
-  %m.0.ph23.i.i = phi i64 [ %shl12.i.i, %if.else7.i.i ], [ %shl.i.i, %while.cond.outer.split.lr.ph.i.i ]
-  br label %while.cond.i.i
+mi_bitmap_mask_.exit.i:                           ; preds = %60, %58, %.lr.ph.i
+  %.0.i125.i = phi i64 [ %61, %60 ], [ -1, %.lr.ph.i ], [ 0, %58 ]
+  %62 = and i64 %.0.i125.i, %53
+  %.not122.i = icmp eq i64 %62, 0
+  br i1 %.not122.i, label %49, label %.loopexit, !llvm.loop !13
 
-while.cond.i.i:                                   ; preds = %if.then4.i.i, %while.cond.outer.split.i.i
-  %map.0.i.i = phi i64 [ %17, %if.then4.i.i ], [ %map.0.ph25.i.i, %while.cond.outer.split.i.i ]
-  %and.i.i = and i64 %map.0.i.i, %m.0.ph23.i.i
-  %cmp3.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp3.i.i, label %if.then4.i.i, label %if.else7.i.i
+mi_bitmap_mask_.exit128.i:                        ; preds = %49
+  %63 = sub nuw nsw i64 64, %24
+  %64 = icmp eq i64 %25, 0
+  %notmask.i126.i = shl nsw i64 -1, %24
+  %65 = xor i64 %notmask.i126.i, -1
+  %66 = shl i64 %65, %63
+  %.0.i127.i = select i1 %64, i64 -1, i64 %66
+  %67 = load atomic i64, ptr %14 monotonic, align 8
+  br label %68
 
-if.then4.i.i:                                     ; preds = %while.cond.i.i
-  %or.i.i = or i64 %map.0.i.i, %m.0.ph23.i.i
-  %15 = cmpxchg ptr %arrayidx.i17, i64 %map.0.i.i, i64 %or.i.i acq_rel acquire, align 8
-  %16 = extractvalue { i64, i1 } %15, 1
-  %17 = extractvalue { i64, i1 } %15, 0
-  br i1 %16, label %mi_bitmap_try_find_claim_field_across.exit, label %while.cond.i.i, !llvm.loop !4
+68:                                               ; preds = %70, %mi_bitmap_mask_.exit128.i
+  %.099.i = phi i64 [ %67, %mi_bitmap_mask_.exit128.i ], [ %74, %70 ]
+  %69 = and i64 %.099.i, %.0.i127.i
+  %.not118.i = icmp eq i64 %69, 0
+  br i1 %.not118.i, label %70, label %.loopexit138.i
 
-if.else7.i.i:                                     ; preds = %while.cond.i.i
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.i, i1 true)
-  %19 = add i64 %bitidx.0.ph24.i.i, %18
-  %sub11.i.i = sub i64 64, %19
-  %add.i.i23 = add i64 %sub11.i.i, %bitidx.0.ph24.i.i
-  %shl12.i.i = shl i64 %m.0.ph23.i.i, %sub11.i.i
-  %cmp2.not.i.i = icmp ugt i64 %add.i.i23, %sub.i
-  br i1 %cmp2.not.i.i, label %for.inc, label %while.cond.outer.split.i.i, !llvm.loop !4
+70:                                               ; preds = %68
+  %71 = or i64 %.099.i, %.0.i127.i
+  %72 = cmpxchg ptr %14, i64 %.099.i, i64 %71 acq_rel acquire, align 8
+  %73 = extractvalue { i64, i1 } %72, 1
+  %74 = extractvalue { i64, i1 } %72, 0
+  br i1 %73, label %.preheader.i, label %68, !llvm.loop !14
 
-if.end4.i:                                        ; preds = %if.end.i19
-  %sub.i65.i = sub i64 %sub.i18, %11
-  %div4.i.i = lshr i64 %sub.i65.i, 6
-  %cmp7.not.i = icmp ult i64 %div4.i.i, %sub6.i
-  br i1 %cmp7.not.i, label %while.body.i, label %for.inc
+.preheader.i:                                     ; preds = %70, %77
+  %.297.i = phi ptr [ %75, %77 ], [ %14, %70 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.297.i, i64 8
+  %76 = icmp ult ptr %.297.i, %.095155.i
+  br i1 %76, label %77, label %80
 
-while.cond.i31:                                   ; preds = %mi_bitmap_mask_.exit.i29
-  %add18.i = add i64 %cond.i, %found.095.i
-  %cmp10.i = icmp ult i64 %add18.i, %count
-  br i1 %cmp10.i, label %while.body.i, label %while.end.i, !llvm.loop !9
+77:                                               ; preds = %.preheader.i
+  %78 = cmpxchg ptr %75, i64 0, i64 -1 acq_rel acquire, align 8
+  %79 = extractvalue { i64, i1 } %78, 1
+  br i1 %79, label %.preheader.i, label %.loopexit138.i, !llvm.loop !15
 
-while.body.i:                                     ; preds = %if.end4.i, %while.cond.i31
-  %field.096.i = phi ptr [ %incdec.ptr.i, %while.cond.i31 ], [ %arrayidx.i17, %if.end4.i ]
-  %found.095.i = phi i64 [ %add18.i, %while.cond.i31 ], [ %11, %if.end4.i ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %field.096.i, i64 8
-  %20 = load atomic i64, ptr %incdec.ptr.i monotonic, align 8
-  %add.i25 = add i64 %found.095.i, 64
-  %cmp12.not.i = icmp ugt i64 %add.i25, %count
-  %sub13.i = sub nuw i64 %count, %found.095.i
-  %cond.i = select i1 %cmp12.not.i, i64 %sub13.i, i64 64
-  %cmp.i66.i = icmp ugt i64 %cond.i, 63
-  br i1 %cmp.i66.i, label %mi_bitmap_mask_.exit.i29, label %if.end.i67.i
+80:                                               ; preds = %.preheader.i
+  %81 = load atomic i64, ptr %75 monotonic, align 8
+  br label %82
 
-if.end.i67.i:                                     ; preds = %while.body.i
-  %cmp1.i.i26 = icmp eq i64 %cond.i, 0
-  br i1 %cmp1.i.i26, label %mi_bitmap_mask_.exit.i29, label %if.end3.i.i27
+82:                                               ; preds = %84, %80
+  %.2101.i = phi i64 [ %81, %80 ], [ %88, %84 ]
+  %83 = and i64 %.2101.i, %.0.i125.i
+  %.not119.i = icmp eq i64 %83, 0
+  br i1 %.not119.i, label %84, label %.loopexit138.i
 
-if.end3.i.i27:                                    ; preds = %if.end.i67.i
-  %notmask.i.i28 = shl nsw i64 -1, %cond.i
-  %sub.i68.i = xor i64 %notmask.i.i28, -1
-  br label %mi_bitmap_mask_.exit.i29
+84:                                               ; preds = %82
+  %85 = or i64 %.2101.i, %.0.i125.i
+  %86 = cmpxchg ptr %75, i64 %.2101.i, i64 %85 acq_rel acquire, align 8
+  %87 = extractvalue { i64, i1 } %86, 1
+  %88 = extractvalue { i64, i1 } %86, 0
+  br i1 %87, label %mi_bitmap_try_find_claim_field_across.exit, label %82, !llvm.loop !16
 
-mi_bitmap_mask_.exit.i29:                         ; preds = %if.end3.i.i27, %if.end.i67.i, %while.body.i
-  %retval.0.i69.i = phi i64 [ %sub.i68.i, %if.end3.i.i27 ], [ -1, %while.body.i ], [ 0, %if.end.i67.i ]
-  %and.i30 = and i64 %retval.0.i69.i, %20
-  %cmp15.not.i = icmp eq i64 %and.i30, 0
-  br i1 %cmp15.not.i, label %while.cond.i31, label %for.inc
+.loopexit138.i:                                   ; preds = %68, %77, %82
+  %.196.i = phi ptr [ %75, %82 ], [ %75, %77 ], [ %14, %68 ]
+  %89 = getelementptr inbounds i8, ptr %.196.i, i64 -8
+  %90 = icmp ugt ptr %89, %14
+  br i1 %90, label %.lr.ph157.i, label %._crit_edge.i
 
-while.end.i:                                      ; preds = %while.cond.i31
-  %sub20.i = sub nuw nsw i64 64, %11
-  %cmp.i70.i = icmp eq i64 %12, 0
-  %notmask.i74.i = shl nsw i64 -1, %11
-  %sub.i75.i = xor i64 %notmask.i74.i, -1
-  %shl4.i.i = shl i64 %sub.i75.i, %sub20.i
-  %retval.0.i76.i = select i1 %cmp.i70.i, i64 -1, i64 %shl4.i.i
-  %21 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
-  br label %do.body.i
+.lr.ph157.i:                                      ; preds = %.loopexit138.i, %.lr.ph157.i
+  %91 = phi ptr [ %92, %.lr.ph157.i ], [ %89, %.loopexit138.i ]
+  store atomic i64 0, ptr %91 release, align 8
+  %92 = getelementptr inbounds i8, ptr %91, i64 -8
+  %93 = icmp ugt ptr %92, %14
+  br i1 %93, label %.lr.ph157.i, label %._crit_edge.i, !llvm.loop !17
 
-do.body.i:                                        ; preds = %do.cond.i, %while.end.i
-  %map.0.i32 = phi i64 [ %21, %while.end.i ], [ %24, %do.cond.i ]
-  %and23.i = and i64 %map.0.i32, %retval.0.i76.i
-  %cmp24.not.i = icmp eq i64 %and23.i, 0
-  br i1 %cmp24.not.i, label %do.cond.i, label %rollback.i
+._crit_edge.i:                                    ; preds = %.lr.ph157.i, %.loopexit138.i
+  %.lcssa148.i = phi ptr [ %89, %.loopexit138.i ], [ %92, %.lr.ph157.i ]
+  %94 = icmp eq ptr %.lcssa148.i, %14
+  br i1 %94, label %95, label %.loopexit.i
 
-do.cond.i:                                        ; preds = %do.body.i
-  %or.i35 = or i64 %map.0.i32, %retval.0.i76.i
-  %22 = cmpxchg ptr %arrayidx.i17, i64 %map.0.i32, i64 %or.i35 acq_rel acquire, align 8
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  br i1 %23, label %while.cond27.i, label %do.body.i, !llvm.loop !10
+95:                                               ; preds = %._crit_edge.i
+  %96 = load atomic i64, ptr %14 monotonic, align 8
+  %97 = xor i64 %.0.i127.i, -1
+  br label %98
 
-while.cond27.i:                                   ; preds = %do.cond.i, %while.body30.i
-  %field.2.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
-  %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %field.2.i, i64 8
-  %cmp29.i = icmp ult ptr %field.2.i, %field.096.i
-  br i1 %cmp29.i, label %while.body30.i, label %while.end39.i
+98:                                               ; preds = %98, %95
+  %.4103.i = phi i64 [ %96, %95 ], [ %102, %98 ]
+  %99 = and i64 %.4103.i, %97
+  %100 = cmpxchg ptr %14, i64 %.4103.i, i64 %99 acq_rel acquire, align 8
+  %101 = extractvalue { i64, i1 } %100, 1
+  %102 = extractvalue { i64, i1 } %100, 0
+  br i1 %101, label %.loopexit.i, label %98, !llvm.loop !18
 
-while.body30.i:                                   ; preds = %while.cond27.i
-  %25 = cmpxchg ptr %incdec.ptr28.i, i64 0, i64 -1 acq_rel acquire, align 8
-  %26 = extractvalue { i64, i1 } %25, 1
-  br i1 %26, label %while.cond27.i, label %rollback.i, !llvm.loop !11
+.loopexit.i:                                      ; preds = %98, %._crit_edge.i
+  %.not120.i = icmp eq i64 %.tr134159.i, 3
+  br i1 %.not120.i, label %.loopexit, label %tailrecurse.i
 
-while.end39.i:                                    ; preds = %while.cond27.i
-  %27 = load atomic i64, ptr %incdec.ptr28.i monotonic, align 8
-  br label %do.body41.i
+mi_bitmap_try_find_claim_field_across.exit:       ; preds = %34, %84
+  %.03852.i.lcssa.sink.i = phi i64 [ %63, %84 ], [ %.03852.i.i, %34 ]
+  %103 = shl i64 %spec.store.select, 6
+  %104 = add i64 %.03852.i.lcssa.sink.i, %103
+  store i64 %104, ptr %4, align 8, !tbaa !5
+  br label %.critedge
 
-do.body41.i:                                      ; preds = %do.cond47.i, %while.end39.i
-  %map.2.i = phi i64 [ %27, %while.end39.i ], [ %30, %do.cond47.i ]
-  %and43.i = and i64 %map.2.i, %retval.0.i69.i
-  %cmp44.not.i = icmp eq i64 %and43.i, 0
-  br i1 %cmp44.not.i, label %do.cond47.i, label %rollback.i
+.loopexit:                                        ; preds = %.loopexit.i, %46, %tailrecurse.i, %45, %mi_bitmap_mask_.exit.i, %26, %mi_bitmap_mask_.exit.i.i, %13
+  %105 = add nuw i64 %.01943, 1
+  %106 = add i64 %spec.store.select, 1
+  %exitcond.not = icmp eq i64 %105, %1
+  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !19
 
-do.cond47.i:                                      ; preds = %do.body41.i
-  %or42.i = or i64 %map.2.i, %retval.0.i69.i
-  %28 = cmpxchg ptr %incdec.ptr28.i, i64 %map.2.i, i64 %or42.i acq_rel acquire, align 8
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = extractvalue { i64, i1 } %28, 0
-  br i1 %29, label %mi_bitmap_try_find_claim_field_across.exit, label %do.body41.i, !llvm.loop !12
-
-rollback.i:                                       ; preds = %do.body.i, %while.body30.i, %do.body41.i
-  %field.1.i = phi ptr [ %incdec.ptr28.i, %do.body41.i ], [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.body.i ]
-  %incdec.ptr5898.i = getelementptr inbounds i8, ptr %field.1.i, i64 -8
-  %cmp5999.i = icmp ugt ptr %incdec.ptr5898.i, %arrayidx.i17
-  br i1 %cmp5999.i, label %while.body60.i, label %while.end62.i
-
-while.body60.i:                                   ; preds = %rollback.i, %while.body60.i
-  %incdec.ptr58100.i = phi ptr [ %incdec.ptr58.i, %while.body60.i ], [ %incdec.ptr5898.i, %rollback.i ]
-  store atomic i64 0, ptr %incdec.ptr58100.i release, align 8
-  %incdec.ptr58.i = getelementptr inbounds i8, ptr %incdec.ptr58100.i, i64 -8
-  %cmp59.i = icmp ugt ptr %incdec.ptr58.i, %arrayidx.i17
-  br i1 %cmp59.i, label %while.body60.i, label %while.end62.i, !llvm.loop !13
-
-while.end62.i:                                    ; preds = %while.body60.i, %rollback.i
-  %incdec.ptr58.lcssa.i = phi ptr [ %incdec.ptr5898.i, %rollback.i ], [ %incdec.ptr58.i, %while.body60.i ]
-  %cmp63.i = icmp eq ptr %incdec.ptr58.lcssa.i, %arrayidx.i17
-  br i1 %cmp63.i, label %if.then64.i, label %if.end77.i
-
-if.then64.i:                                      ; preds = %while.end62.i
-  %31 = load atomic i64, ptr %arrayidx.i17 monotonic, align 8
-  %not.i34 = xor i64 %retval.0.i76.i, -1
-  br label %do.body66.i
-
-do.body66.i:                                      ; preds = %do.body66.i, %if.then64.i
-  %map.4.i = phi i64 [ %31, %if.then64.i ], [ %34, %do.body66.i ]
-  %and67.i = and i64 %map.4.i, %not.i34
-  %32 = cmpxchg ptr %arrayidx.i17, i64 %map.4.i, i64 %and67.i acq_rel acquire, align 8
-  %33 = extractvalue { i64, i1 } %32, 1
-  %34 = extractvalue { i64, i1 } %32, 0
-  br i1 %33, label %if.end77.i, label %do.body66.i, !llvm.loop !14
-
-if.end77.i:                                       ; preds = %do.body66.i, %while.end62.i
-  %cmp78.not.i = icmp eq i64 %retries.tr103.i, 3
-  br i1 %cmp78.not.i, label %for.inc, label %tailrecurse.i
-
-mi_bitmap_try_find_claim_field_across.exit:       ; preds = %do.cond47.i, %if.then4.i.i
-  %bitidx.0.ph24.i.lcssa121.sink.i = phi i64 [ %bitidx.0.ph24.i.i, %if.then4.i.i ], [ %sub20.i, %do.cond47.i ]
-  %mul.i.i.i = shl i64 %spec.store.select, 6
-  %add.i.i.i = add i64 %bitidx.0.ph24.i.lcssa121.sink.i, %mul.i.i.i
-  store i64 %add.i.i.i, ptr %bitmap_idx, align 8
-  br label %return
-
-for.inc:                                          ; preds = %if.end77.i, %if.end4.i, %tailrecurse.i, %if.else7.i.i, %mi_bitmap_mask_.exit.i29, %if.then2.i, %if.end.i.i21, %if.end10
-  %inc = add nuw i64 %visited.061, 1
-  %inc14 = add i64 %spec.store.select, 1
-  %exitcond.not = icmp eq i64 %inc, %bitmap_fields
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !15
-
-return:                                           ; preds = %for.inc, %for.cond.preheader, %mi_bitmap_try_find_claim_field_across.exit, %_mi_bitmap_try_find_claim_field.exit, %if.then
-  %retval.0 = phi i1 [ %call, %if.then ], [ true, %_mi_bitmap_try_find_claim_field.exit ], [ true, %mi_bitmap_try_find_claim_field_across.exit ], [ false, %for.cond.preheader ], [ false, %for.inc ]
-  ret i1 %retval.0
+.critedge:                                        ; preds = %.loopexit, %.preheader, %mi_bitmap_try_find_claim_field_across.exit, %11
+  %.021 = phi i1 [ %12, %11 ], [ true, %mi_bitmap_try_find_claim_field_across.exit ], [ false, %.preheader ], [ false, %.loopexit ]
+  ret i1 %.021
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %div1.i = lshr i64 %bitmap_idx, 6
-  %rem.i.i = and i64 %bitmap_idx, 63
-  %add.i = add i64 %rem.i.i, %count
-  %cmp.i = icmp ult i64 %add.i, 65
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define hidden zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = lshr i64 %3, 6
+  %6 = and i64 %3, 63
+  %7 = add i64 %6, %2
+  %8 = icmp ult i64 %7, 65
+  br i1 %8, label %9, label %mi_bitmap_mask_.exit24.i, !prof !20
 
-if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i, label %while.end.thread, label %if.end.i.i
+9:                                                ; preds = %4
+  %10 = icmp ugt i64 %2, 63
+  br i1 %10, label %._crit_edge.thread, label %11
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %cmp1.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i, label %while.end.thread, label %if.end3.i.i
+11:                                               ; preds = %9
+  %12 = icmp eq i64 %2, 0
+  br i1 %12, label %._crit_edge.thread, label %13
 
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
-  br label %while.end.thread
+13:                                               ; preds = %11
+  %notmask.i.i = shl nsw i64 -1, %2
+  %14 = xor i64 %notmask.i.i, -1
+  %15 = shl i64 %14, %6
+  br label %._crit_edge.thread
 
-if.else.i:                                        ; preds = %entry
-  %sub.i = sub nuw nsw i64 64, %rem.i.i
-  %cmp.i15.i = icmp eq i64 %rem.i.i, 0
-  %notmask.i19.i = shl nsw i64 -1, %sub.i
-  %sub.i20.i = xor i64 %notmask.i19.i, -1
-  %shl4.i21.i = shl i64 %sub.i20.i, %rem.i.i
-  %retval.0.i22.i = select i1 %cmp.i15.i, i64 -1, i64 %shl4.i21.i
-  %sub4.i = sub i64 %count, %sub.i
-  %rem.i = and i64 %sub4.i, 63
-  %notmask.i28.i = shl nsw i64 -1, %rem.i
-  %arrayidx = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %not = xor i64 %retval.0.i22.i, -1
-  %0 = atomicrmw and ptr %arrayidx, i64 %not acq_rel, align 8
-  %and = and i64 %0, %retval.0.i22.i
-  %cmp.not = icmp eq i64 %and, %retval.0.i22.i
-  %field.011 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %cmp2.not12 = icmp ult i64 %sub4.i, 64
-  br i1 %cmp2.not12, label %while.end, label %while.body.lr.ph
+mi_bitmap_mask_.exit24.i:                         ; preds = %4
+  %16 = sub nuw nsw i64 64, %6
+  %17 = icmp eq i64 %6, 0
+  %notmask.i22.i = shl nsw i64 -1, %16
+  %18 = xor i64 %notmask.i22.i, -1
+  %19 = shl i64 %18, %6
+  %.0.i23.i = select i1 %17, i64 -1, i64 %19
+  %20 = sub i64 %2, %16
+  %21 = and i64 %20, 63
+  %notmask.i25.i = shl nsw i64 -1, %21
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %23 = xor i64 %.0.i23.i, -1
+  %24 = atomicrmw and ptr %22, i64 %23 acq_rel, align 8
+  %25 = and i64 %24, %.0.i23.i
+  %.not = icmp eq i64 %25, %.0.i23.i
+  %.02035 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.not2236 = icmp ult i64 %20, 64
+  br i1 %.not2236, label %._crit_edge, label %.lr.ph
 
-while.end.thread:                                 ; preds = %if.then.i, %if.end.i.i, %if.end3.i.i
-  %pre_mask.0.ph = phi i64 [ -1, %if.then.i ], [ 0, %if.end.i.i ], [ %shl4.i.i, %if.end3.i.i ]
-  %arrayidx22 = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %not23 = xor i64 %pre_mask.0.ph, -1
-  %1 = atomicrmw and ptr %arrayidx22, i64 %not23 acq_rel, align 8
-  %and24 = and i64 %1, %pre_mask.0.ph
-  %cmp.not25 = icmp eq i64 %and24, %pre_mask.0.ph
-  br label %if.end20
+._crit_edge.thread:                               ; preds = %9, %11, %13
+  %.033.ph = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %27 = xor i64 %.033.ph, -1
+  %28 = atomicrmw and ptr %26, i64 %27 acq_rel, align 8
+  %29 = and i64 %28, %.033.ph
+  %.not46 = icmp eq i64 %29, %.033.ph
+  br label %37
 
-while.body.lr.ph:                                 ; preds = %if.else.i
-  %div14.i = lshr i64 %sub4.i, 6
-  br label %while.body
+.lr.ph:                                           ; preds = %mi_bitmap_mask_.exit24.i
+  %30 = lshr i64 %20, 6
+  br label %31
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %field.015 = phi ptr [ %field.011, %while.body.lr.ph ], [ %field.0, %while.body ]
-  %mid_count.014 = phi i64 [ %div14.i, %while.body.lr.ph ], [ %dec, %while.body ]
-  %all_one.113 = phi i1 [ %cmp.not, %while.body.lr.ph ], [ %spec.select6, %while.body ]
-  %dec = add nsw i64 %mid_count.014, -1
-  %2 = atomicrmw xchg ptr %field.015, i64 0 acq_rel, align 8
-  %cmp8.not = icmp eq i64 %2, -1
-  %spec.select6 = select i1 %cmp8.not, i1 %all_one.113, i1 false
-  %field.0 = getelementptr inbounds nuw i8, ptr %field.015, i64 8
-  %cmp2.not = icmp eq i64 %dec, 0
-  br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !16
+31:                                               ; preds = %.lr.ph, %31
+  %.02039 = phi ptr [ %.02035, %.lr.ph ], [ %.020, %31 ]
+  %.038 = phi i64 [ %30, %.lr.ph ], [ %32, %31 ]
+  %.137 = phi i1 [ %.not, %.lr.ph ], [ %spec.select26, %31 ]
+  %32 = add nsw i64 %.038, -1
+  %33 = atomicrmw xchg ptr %.02039, i64 0 acq_rel, align 8
+  %.not25 = icmp eq i64 %33, -1
+  %spec.select26 = select i1 %.not25, i1 %.137, i1 false
+  %.020 = getelementptr inbounds nuw i8, ptr %.02039, i64 8
+  %.not22 = icmp eq i64 %32, 0
+  br i1 %.not22, label %._crit_edge, label %31, !llvm.loop !21
 
-while.end:                                        ; preds = %while.body, %if.else.i
-  %all_one.1.lcssa = phi i1 [ %cmp.not, %if.else.i ], [ %spec.select6, %while.body ]
-  %field.0.lcssa = phi ptr [ %field.011, %if.else.i ], [ %field.0, %while.body ]
-  %cmp11.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp11.not, label %if.end20, label %if.then12
+._crit_edge:                                      ; preds = %31, %mi_bitmap_mask_.exit24.i
+  %.1.lcssa = phi i1 [ %.not, %mi_bitmap_mask_.exit24.i ], [ %spec.select26, %31 ]
+  %.020.lcssa = phi ptr [ %.02035, %mi_bitmap_mask_.exit24.i ], [ %.020, %31 ]
+  %.not23 = icmp eq i64 %21, 0
+  br i1 %.not23, label %37, label %34
 
-if.then12:                                        ; preds = %while.end
-  %3 = atomicrmw and ptr %field.0.lcssa, i64 %notmask.i28.i acq_rel, align 8
-  %4 = or i64 %3, %notmask.i28.i
-  %cmp17.not = icmp eq i64 %4, -1
-  %spec.select7 = select i1 %cmp17.not, i1 %all_one.1.lcssa, i1 false
-  br label %if.end20
+34:                                               ; preds = %._crit_edge
+  %35 = atomicrmw and ptr %.020.lcssa, i64 %notmask.i25.i acq_rel, align 8
+  %36 = or i64 %35, %notmask.i25.i
+  %.not24 = icmp eq i64 %36, -1
+  %spec.select27 = select i1 %.not24, i1 %.1.lcssa, i1 false
+  br label %37
 
-if.end20:                                         ; preds = %while.end.thread, %if.then12, %while.end
-  %all_one.3 = phi i1 [ %all_one.1.lcssa, %while.end ], [ %spec.select7, %if.then12 ], [ %cmp.not25, %while.end.thread ]
-  ret i1 %all_one.3
+37:                                               ; preds = %._crit_edge.thread, %34, %._crit_edge
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select27, %34 ], [ %.not46, %._crit_edge.thread ]
+  ret i1 %.3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_claim_across(ptr noundef captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx, ptr noundef writeonly captures(address_is_null) %pany_zero) local_unnamed_addr #0 {
-entry:
-  %div1.i = lshr i64 %bitmap_idx, 6
-  %rem.i.i = and i64 %bitmap_idx, 63
-  %add.i = add i64 %rem.i.i, %count
-  %cmp.i = icmp ult i64 %add.i, 65
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+define hidden zeroext i1 @_mi_bitmap_claim_across(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+  %6 = lshr i64 %3, 6
+  %7 = and i64 %3, 63
+  %8 = add i64 %7, %2
+  %9 = icmp ult i64 %8, 65
+  br i1 %9, label %10, label %mi_bitmap_mask_.exit24.i, !prof !20
 
-if.then.i:                                        ; preds = %entry
-  %cmp.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i, label %while.end.thread, label %if.end.i.i
+10:                                               ; preds = %5
+  %11 = icmp ugt i64 %2, 63
+  br i1 %11, label %._crit_edge.thread, label %12
 
-if.end.i.i:                                       ; preds = %if.then.i
-  %cmp1.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i, label %while.end.thread, label %if.end3.i.i
+12:                                               ; preds = %10
+  %13 = icmp eq i64 %2, 0
+  br i1 %13, label %._crit_edge.thread, label %14
 
-if.end3.i.i:                                      ; preds = %if.end.i.i
-  %notmask.i.i = shl nsw i64 -1, %count
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %shl4.i.i = shl i64 %sub.i.i, %rem.i.i
-  br label %while.end.thread
+14:                                               ; preds = %12
+  %notmask.i.i = shl nsw i64 -1, %2
+  %15 = xor i64 %notmask.i.i, -1
+  %16 = shl i64 %15, %7
+  br label %._crit_edge.thread
 
-if.else.i:                                        ; preds = %entry
-  %sub.i = sub nuw nsw i64 64, %rem.i.i
-  %cmp.i15.i = icmp eq i64 %rem.i.i, 0
-  %notmask.i19.i = shl nsw i64 -1, %sub.i
-  %sub.i20.i = xor i64 %notmask.i19.i, -1
-  %shl4.i21.i = shl i64 %sub.i20.i, %rem.i.i
-  %retval.0.i22.i = select i1 %cmp.i15.i, i64 -1, i64 %shl4.i21.i
-  %sub4.i = sub i64 %count, %sub.i
-  %rem.i = and i64 %sub4.i, 63
-  %notmask.i28.i = shl nsw i64 -1, %rem.i
-  %sub.i29.i = xor i64 %notmask.i28.i, -1
-  %arrayidx = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %0 = atomicrmw or ptr %arrayidx, i64 %retval.0.i22.i acq_rel, align 8
-  %and = and i64 %0, %retval.0.i22.i
-  %cmp.not = icmp eq i64 %and, 0
-  %cmp3.not = icmp ne i64 %and, %retval.0.i22.i
-  %any_zero.0 = zext i1 %cmp3.not to i8
-  %field.019 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %cmp6.not20 = icmp ult i64 %sub4.i, 64
-  br i1 %cmp6.not20, label %while.end, label %while.body.preheader
+mi_bitmap_mask_.exit24.i:                         ; preds = %5
+  %17 = sub nuw nsw i64 64, %7
+  %18 = icmp eq i64 %7, 0
+  %notmask.i22.i = shl nsw i64 -1, %17
+  %19 = xor i64 %notmask.i22.i, -1
+  %20 = shl i64 %19, %7
+  %.0.i23.i = select i1 %18, i64 -1, i64 %20
+  %21 = sub i64 %2, %17
+  %22 = and i64 %21, 63
+  %notmask.i25.i = shl nsw i64 -1, %22
+  %23 = xor i64 %notmask.i25.i, -1
+  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %25 = atomicrmw or ptr %24, i64 %.0.i23.i acq_rel, align 8
+  %26 = and i64 %25, %.0.i23.i
+  %.not = icmp eq i64 %26, 0
+  %.not33 = icmp ne i64 %26, %.0.i23.i
+  %.026 = zext i1 %.not33 to i8
+  %.03054 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.not3455 = icmp ult i64 %21, 64
+  br i1 %.not3455, label %._crit_edge, label %.lr.ph.preheader
 
-while.body.preheader:                             ; preds = %if.else.i
-  %div14.i = lshr i64 %sub4.i, 6
-  br label %while.body
+.lr.ph.preheader:                                 ; preds = %mi_bitmap_mask_.exit24.i
+  %27 = lshr i64 %21, 6
+  br label %.lr.ph
 
-while.end.thread:                                 ; preds = %if.then.i, %if.end.i.i, %if.end3.i.i
-  %pre_mask.0.ph = phi i64 [ -1, %if.then.i ], [ 0, %if.end.i.i ], [ %shl4.i.i, %if.end3.i.i ]
-  %arrayidx32 = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i
-  %1 = atomicrmw or ptr %arrayidx32, i64 %pre_mask.0.ph acq_rel, align 8
-  %and33 = and i64 %1, %pre_mask.0.ph
-  %cmp.not34 = icmp eq i64 %and33, 0
-  %cmp3.not35 = icmp ne i64 %and33, %pre_mask.0.ph
-  %any_zero.036 = zext i1 %cmp3.not35 to i8
-  br label %if.end30
+._crit_edge.thread:                               ; preds = %10, %12, %14
+  %.052.ph = phi i64 [ -1, %10 ], [ 0, %12 ], [ %16, %14 ]
+  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %29 = atomicrmw or ptr %28, i64 %.052.ph acq_rel, align 8
+  %30 = and i64 %29, %.052.ph
+  %.not67 = icmp eq i64 %30, 0
+  %.not3368 = icmp ne i64 %30, %.052.ph
+  %.02669 = zext i1 %.not3368 to i8
+  br label %36
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %field.024 = phi ptr [ %field.0, %while.body ], [ %field.019, %while.body.preheader ]
-  %mid_count.023 = phi i64 [ %dec, %while.body ], [ %div14.i, %while.body.preheader ]
-  %all_zero.122 = phi i1 [ %spec.select10, %while.body ], [ %cmp.not, %while.body.preheader ]
-  %any_zero.121 = phi i8 [ %any_zero.2, %while.body ], [ %any_zero.0, %while.body.preheader ]
-  %dec = add nsw i64 %mid_count.023, -1
-  %2 = atomicrmw xchg ptr %field.024, i64 -1 acq_rel, align 8
-  %cmp11.not = icmp eq i64 %2, 0
-  %spec.select10 = select i1 %cmp11.not, i1 %all_zero.122, i1 false
-  %cmp15.not = icmp eq i64 %2, -1
-  %any_zero.2 = select i1 %cmp15.not, i8 %any_zero.121, i8 1
-  %field.0 = getelementptr inbounds nuw i8, ptr %field.024, i64 8
-  %cmp6.not = icmp eq i64 %dec, 0
-  br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !17
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.03059 = phi ptr [ %.030, %.lr.ph ], [ %.03054, %.lr.ph.preheader ]
+  %.058 = phi i64 [ %31, %.lr.ph ], [ %27, %.lr.ph.preheader ]
+  %.157 = phi i1 [ %spec.select41, %.lr.ph ], [ %.not, %.lr.ph.preheader ]
+  %.12756 = phi i8 [ %.228, %.lr.ph ], [ %.026, %.lr.ph.preheader ]
+  %31 = add nsw i64 %.058, -1
+  %32 = atomicrmw xchg ptr %.03059, i64 -1 acq_rel, align 8
+  %.not39 = icmp eq i64 %32, 0
+  %spec.select41 = select i1 %.not39, i1 %.157, i1 false
+  %.not40 = icmp eq i64 %32, -1
+  %.228 = select i1 %.not40, i8 %.12756, i8 1
+  %.030 = getelementptr inbounds nuw i8, ptr %.03059, i64 8
+  %.not34 = icmp eq i64 %31, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
-while.end:                                        ; preds = %while.body, %if.else.i
-  %any_zero.1.lcssa = phi i8 [ %any_zero.0, %if.else.i ], [ %any_zero.2, %while.body ]
-  %all_zero.1.lcssa = phi i1 [ %cmp.not, %if.else.i ], [ %spec.select10, %while.body ]
-  %field.0.lcssa = phi ptr [ %field.019, %if.else.i ], [ %field.0, %while.body ]
-  %cmp18.not = icmp eq i64 %rem.i, 0
-  br i1 %cmp18.not, label %if.end30, label %if.then19
+._crit_edge:                                      ; preds = %.lr.ph, %mi_bitmap_mask_.exit24.i
+  %.127.lcssa = phi i8 [ %.026, %mi_bitmap_mask_.exit24.i ], [ %.228, %.lr.ph ]
+  %.1.lcssa = phi i1 [ %.not, %mi_bitmap_mask_.exit24.i ], [ %spec.select41, %.lr.ph ]
+  %.030.lcssa = phi ptr [ %.03054, %mi_bitmap_mask_.exit24.i ], [ %.030, %.lr.ph ]
+  %.not35 = icmp eq i64 %22, 0
+  br i1 %.not35, label %36, label %33
 
-if.then19:                                        ; preds = %while.end
-  %3 = atomicrmw or ptr %field.0.lcssa, i64 %sub.i29.i acq_rel, align 8
-  %and22 = and i64 %3, %sub.i29.i
-  %cmp23.not = icmp eq i64 %and22, 0
-  %spec.select11 = select i1 %cmp23.not, i1 %all_zero.1.lcssa, i1 false
-  %cmp27.not = icmp eq i64 %and22, %sub.i29.i
-  %spec.select12 = select i1 %cmp27.not, i8 %any_zero.1.lcssa, i8 1
-  br label %if.end30
+33:                                               ; preds = %._crit_edge
+  %34 = atomicrmw or ptr %.030.lcssa, i64 %23 acq_rel, align 8
+  %35 = and i64 %34, %23
+  %.not36 = icmp eq i64 %35, 0
+  %spec.select42 = select i1 %.not36, i1 %.1.lcssa, i1 false
+  %.not37 = icmp eq i64 %35, %23
+  %spec.select43 = select i1 %.not37, i8 %.127.lcssa, i8 1
+  br label %36
 
-if.end30:                                         ; preds = %while.end.thread, %if.then19, %while.end
-  %any_zero.3 = phi i8 [ %any_zero.1.lcssa, %while.end ], [ %spec.select12, %if.then19 ], [ %any_zero.036, %while.end.thread ]
-  %all_zero.3 = phi i1 [ %all_zero.1.lcssa, %while.end ], [ %spec.select11, %if.then19 ], [ %cmp.not34, %while.end.thread ]
-  %cmp31.not = icmp eq ptr %pany_zero, null
-  br i1 %cmp31.not, label %if.end33, label %if.then32
+36:                                               ; preds = %._crit_edge.thread, %33, %._crit_edge
+  %.329 = phi i8 [ %.127.lcssa, %._crit_edge ], [ %spec.select43, %33 ], [ %.02669, %._crit_edge.thread ]
+  %.3 = phi i1 [ %.1.lcssa, %._crit_edge ], [ %spec.select42, %33 ], [ %.not67, %._crit_edge.thread ]
+  %.not38 = icmp eq ptr %4, null
+  br i1 %.not38, label %39, label %37
 
-if.then32:                                        ; preds = %if.end30
-  %frombool = and i8 %any_zero.3, 1
-  store i8 %frombool, ptr %pany_zero, align 1
-  br label %if.end33
+37:                                               ; preds = %36
+  %38 = and i8 %.329, 1
+  store i8 %38, ptr %4, align 1, !tbaa !10
+  br label %39
 
-if.end33:                                         ; preds = %if.then32, %if.end30
-  ret i1 %all_zero.3
+39:                                               ; preds = %37, %36
+  ret i1 %.3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %div1.i.i = lshr i64 %bitmap_idx, 6
-  %rem.i.i.i = and i64 %bitmap_idx, 63
-  %add.i.i = add i64 %rem.i.i.i, %count
-  %cmp.i.i = icmp ult i64 %add.i.i, 65
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+define hidden zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = lshr i64 %3, 6
+  %6 = and i64 %3, 63
+  %7 = add i64 %6, %2
+  %8 = icmp ult i64 %7, 65
+  br i1 %8, label %9, label %mi_bitmap_mask_.exit24.i.i, !prof !20
 
-if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i.i, label %while.end.thread.i, label %if.end.i.i.i
+9:                                                ; preds = %4
+  %10 = icmp ugt i64 %2, 63
+  br i1 %10, label %._crit_edge.thread.i, label %11
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp1.i.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i.i, label %while.end.thread.i, label %if.end3.i.i.i
+11:                                               ; preds = %9
+  %12 = icmp eq i64 %2, 0
+  br i1 %12, label %._crit_edge.thread.i, label %13
 
-if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
-  %notmask.i.i.i = shl nsw i64 -1, %count
-  %sub.i.i.i = xor i64 %notmask.i.i.i, -1
-  %shl4.i.i.i = shl i64 %sub.i.i.i, %rem.i.i.i
-  br label %while.end.thread.i
+13:                                               ; preds = %11
+  %notmask.i.i.i = shl nsw i64 -1, %2
+  %14 = xor i64 %notmask.i.i.i, -1
+  %15 = shl i64 %14, %6
+  br label %._crit_edge.thread.i
 
-if.else.i.i:                                      ; preds = %entry
-  %sub.i.i = sub nuw nsw i64 64, %rem.i.i.i
-  %cmp.i15.i.i = icmp eq i64 %rem.i.i.i, 0
-  %notmask.i19.i.i = shl nsw i64 -1, %sub.i.i
-  %sub.i20.i.i = xor i64 %notmask.i19.i.i, -1
-  %shl4.i21.i.i = shl i64 %sub.i20.i.i, %rem.i.i.i
-  %retval.0.i22.i.i = select i1 %cmp.i15.i.i, i64 -1, i64 %shl4.i21.i.i
-  %sub4.i.i = sub i64 %count, %sub.i.i
-  %rem.i.i = and i64 %sub4.i.i, 63
-  %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %and.i = and i64 %0, %retval.0.i22.i.i
-  %cmp.not.i = icmp eq i64 %and.i, %retval.0.i22.i.i
-  %field.017.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %cmp6.not18.i = icmp ult i64 %sub4.i.i, 64
-  br i1 %cmp6.not18.i, label %while.end.i, label %while.body.i.preheader
+mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
+  %16 = sub nuw nsw i64 64, %6
+  %17 = icmp eq i64 %6, 0
+  %notmask.i22.i.i = shl nsw i64 -1, %16
+  %18 = xor i64 %notmask.i22.i.i, -1
+  %19 = shl i64 %18, %6
+  %.0.i23.i.i = select i1 %17, i64 -1, i64 %19
+  %20 = sub i64 %2, %16
+  %21 = and i64 %20, 63
+  %notmask.i25.i.i = shl nsw i64 -1, %21
+  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %23 = load atomic i64, ptr %22 monotonic, align 8
+  %24 = and i64 %23, %.0.i23.i.i
+  %.not.i = icmp eq i64 %24, %.0.i23.i.i
+  %.02748.i = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.not3049.i = icmp ult i64 %20, 64
+  br i1 %.not3049.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-while.body.i.preheader:                           ; preds = %if.else.i.i
-  %div14.i.i = lshr i64 %sub4.i.i, 6
-  br label %while.body.i
+.lr.ph.i.preheader:                               ; preds = %mi_bitmap_mask_.exit24.i.i
+  %25 = lshr i64 %20, 6
+  br label %.lr.ph.i
 
-while.end.thread.i:                               ; preds = %if.end3.i.i.i, %if.end.i.i.i, %if.then.i.i
-  %pre_mask.0.ph.i = phi i64 [ -1, %if.then.i.i ], [ 0, %if.end.i.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
-  %arrayidx30.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %1 = load atomic i64, ptr %arrayidx30.i monotonic, align 8
-  %and31.i = and i64 %1, %pre_mask.0.ph.i
-  %cmp.not32.i = icmp eq i64 %and31.i, %pre_mask.0.ph.i
+._crit_edge.thread.i:                             ; preds = %13, %11, %9
+  %.046.ph.i = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %27 = load atomic i64, ptr %26 monotonic, align 8
+  %28 = and i64 %27, %.046.ph.i
+  %.not61.i = icmp eq i64 %28, %.046.ph.i
   br label %mi_bitmap_is_claimedx_across.exit
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %field.022.i = phi ptr [ %field.0.i, %while.body.i ], [ %field.017.i, %while.body.i.preheader ]
-  %mid_count.021.i = phi i64 [ %dec.i, %while.body.i ], [ %div14.i.i, %while.body.i.preheader ]
-  %all_ones.120.i = phi i1 [ %spec.select10.i, %while.body.i ], [ %cmp.not.i, %while.body.i.preheader ]
-  %dec.i = add nsw i64 %mid_count.021.i, -1
-  %2 = load atomic i64, ptr %field.022.i monotonic, align 8
-  %cmp10.not.i = icmp eq i64 %2, -1
-  %spec.select10.i = select i1 %cmp10.not.i, i1 %all_ones.120.i, i1 false
-  %field.0.i = getelementptr inbounds nuw i8, ptr %field.022.i, i64 8
-  %cmp6.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !18
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02753.i = phi ptr [ %.027.i, %.lr.ph.i ], [ %.02748.i, %.lr.ph.i.preheader ]
+  %.052.i = phi i64 [ %29, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
+  %.151.i = phi i1 [ %spec.select37.i, %.lr.ph.i ], [ %.not.i, %.lr.ph.i.preheader ]
+  %29 = add nsw i64 %.052.i, -1
+  %30 = load atomic i64, ptr %.02753.i monotonic, align 8
+  %.not35.i = icmp eq i64 %30, -1
+  %spec.select37.i = select i1 %.not35.i, i1 %.151.i, i1 false
+  %.027.i = getelementptr inbounds nuw i8, ptr %.02753.i, i64 8
+  %.not30.i = icmp eq i64 %29, 0
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
-while.end.i:                                      ; preds = %while.body.i, %if.else.i.i
-  %all_ones.1.lcssa.i = phi i1 [ %cmp.not.i, %if.else.i.i ], [ %spec.select10.i, %while.body.i ]
-  %field.0.lcssa.i = phi ptr [ %field.017.i, %if.else.i.i ], [ %field.0.i, %while.body.i ]
-  %cmp17.not.i = icmp eq i64 %rem.i.i, 0
-  br i1 %cmp17.not.i, label %mi_bitmap_is_claimedx_across.exit, label %if.then18.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %mi_bitmap_mask_.exit24.i.i
+  %.1.lcssa.i = phi i1 [ %.not.i, %mi_bitmap_mask_.exit24.i.i ], [ %spec.select37.i, %.lr.ph.i ]
+  %.027.lcssa.i = phi ptr [ %.02748.i, %mi_bitmap_mask_.exit24.i.i ], [ %.027.i, %.lr.ph.i ]
+  %.not31.i = icmp eq i64 %21, 0
+  br i1 %.not31.i, label %mi_bitmap_is_claimedx_across.exit, label %31
 
-if.then18.i:                                      ; preds = %while.end.i
-  %3 = load atomic i64, ptr %field.0.lcssa.i monotonic, align 8
-  %4 = or i64 %3, %notmask.i28.i.i
-  %cmp21.not.i = icmp eq i64 %4, -1
-  %spec.select11.i = select i1 %cmp21.not.i, i1 %all_ones.1.lcssa.i, i1 false
+31:                                               ; preds = %._crit_edge.i
+  %32 = load atomic i64, ptr %.027.lcssa.i monotonic, align 8
+  %33 = or i64 %32, %notmask.i25.i.i
+  %.not32.i = icmp eq i64 %33, -1
+  %spec.select38.i = select i1 %.not32.i, i1 %.1.lcssa.i, i1 false
   br label %mi_bitmap_is_claimedx_across.exit
 
-mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i, %while.end.i, %if.then18.i
-  %all_ones.3.i = phi i1 [ %all_ones.1.lcssa.i, %while.end.i ], [ %spec.select11.i, %if.then18.i ], [ %cmp.not32.i, %while.end.thread.i ]
-  ret i1 %all_ones.3.i
+mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %31
+  %.3.i = phi i1 [ %.1.lcssa.i, %._crit_edge.i ], [ %spec.select38.i, %31 ], [ %.not61.i, %._crit_edge.thread.i ]
+  ret i1 %.3.i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr noundef readonly captures(none) %bitmap, i64 noundef %bitmap_fields, i64 noundef %count, i64 noundef %bitmap_idx) local_unnamed_addr #0 {
-entry:
-  %div1.i.i = lshr i64 %bitmap_idx, 6
-  %rem.i.i.i = and i64 %bitmap_idx, 63
-  %add.i.i = add i64 %rem.i.i.i, %count
-  %cmp.i.i = icmp ult i64 %add.i.i, 65
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
+define hidden zeroext i1 @_mi_bitmap_is_any_claimed_across(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = lshr i64 %3, 6
+  %6 = and i64 %3, 63
+  %7 = add i64 %6, %2
+  %8 = icmp ult i64 %7, 65
+  br i1 %8, label %9, label %mi_bitmap_mask_.exit24.i.i, !prof !20
 
-if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.i = icmp ugt i64 %count, 63
-  br i1 %cmp.i.i.i, label %while.end.thread.i, label %if.end.i.i.i
+9:                                                ; preds = %4
+  %10 = icmp ugt i64 %2, 63
+  br i1 %10, label %._crit_edge.thread.i, label %11
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %cmp1.i.i.i = icmp eq i64 %count, 0
-  br i1 %cmp1.i.i.i, label %while.end.thread.i, label %if.end3.i.i.i
+11:                                               ; preds = %9
+  %12 = icmp eq i64 %2, 0
+  br i1 %12, label %._crit_edge.thread.i, label %13
 
-if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
-  %notmask.i.i.i = shl nsw i64 -1, %count
-  %sub.i.i.i = xor i64 %notmask.i.i.i, -1
-  %shl4.i.i.i = shl i64 %sub.i.i.i, %rem.i.i.i
-  br label %while.end.thread.i
+13:                                               ; preds = %11
+  %notmask.i.i.i = shl nsw i64 -1, %2
+  %14 = xor i64 %notmask.i.i.i, -1
+  %15 = shl i64 %14, %6
+  br label %._crit_edge.thread.i
 
-if.else.i.i:                                      ; preds = %entry
-  %sub.i.i = sub nuw nsw i64 64, %rem.i.i.i
-  %cmp.i15.i.i = icmp eq i64 %rem.i.i.i, 0
-  %notmask.i19.i.i = shl nsw i64 -1, %sub.i.i
-  %sub.i20.i.i = xor i64 %notmask.i19.i.i, -1
-  %shl4.i21.i.i = shl i64 %sub.i20.i.i, %rem.i.i.i
-  %retval.0.i22.i.i = select i1 %cmp.i15.i.i, i64 -1, i64 %shl4.i21.i.i
-  %sub4.i.i = sub i64 %count, %sub.i.i
-  %rem.i.i = and i64 %sub4.i.i, 63
-  %notmask.i28.i.i = shl nsw i64 -1, %rem.i.i
-  %sub.i29.i.i = xor i64 %notmask.i28.i.i, -1
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %0 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %and.i = and i64 %0, %retval.0.i22.i.i
-  %cmp3.not.i = icmp ne i64 %and.i, 0
-  %field.017.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %cmp6.not18.i = icmp ult i64 %sub4.i.i, 64
-  br i1 %cmp6.not18.i, label %while.end.i, label %while.body.i.preheader
+mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
+  %16 = sub nuw nsw i64 64, %6
+  %17 = icmp eq i64 %6, 0
+  %notmask.i22.i.i = shl nsw i64 -1, %16
+  %18 = xor i64 %notmask.i22.i.i, -1
+  %19 = shl i64 %18, %6
+  %.0.i23.i.i = select i1 %17, i64 -1, i64 %19
+  %20 = sub i64 %2, %16
+  %21 = and i64 %20, 63
+  %notmask.i25.i.i = shl nsw i64 -1, %21
+  %22 = xor i64 %notmask.i25.i.i, -1
+  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %24 = load atomic i64, ptr %23 monotonic, align 8
+  %25 = and i64 %24, %.0.i23.i.i
+  %.not29.i = icmp ne i64 %25, 0
+  %.02748.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.not3049.i = icmp ult i64 %20, 64
+  br i1 %.not3049.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-while.body.i.preheader:                           ; preds = %if.else.i.i
-  %div14.i.i = lshr i64 %sub4.i.i, 6
-  br label %while.body.i
+.lr.ph.i.preheader:                               ; preds = %mi_bitmap_mask_.exit24.i.i
+  %26 = lshr i64 %20, 6
+  br label %.lr.ph.i
 
-while.end.thread.i:                               ; preds = %if.end3.i.i.i, %if.end.i.i.i, %if.then.i.i
-  %pre_mask.0.ph.i = phi i64 [ -1, %if.then.i.i ], [ 0, %if.end.i.i.i ], [ %shl4.i.i.i, %if.end3.i.i.i ]
-  %arrayidx30.i = getelementptr inbounds nuw i64, ptr %bitmap, i64 %div1.i.i
-  %1 = load atomic i64, ptr %arrayidx30.i monotonic, align 8
-  %and31.i = and i64 %1, %pre_mask.0.ph.i
-  %cmp3.not33.i = icmp ne i64 %and31.i, 0
+._crit_edge.thread.i:                             ; preds = %13, %11, %9
+  %.046.ph.i = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
+  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %28 = load atomic i64, ptr %27 monotonic, align 8
+  %29 = and i64 %28, %.046.ph.i
+  %.not2962.i = icmp ne i64 %29, 0
   br label %mi_bitmap_is_claimedx_across.exit
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %field.022.i = phi ptr [ %field.0.i, %while.body.i ], [ %field.017.i, %while.body.i.preheader ]
-  %mid_count.021.i = phi i64 [ %dec.i, %while.body.i ], [ %div14.i.i, %while.body.i.preheader ]
-  %any_ones.119.i = phi i1 [ %any_ones.2.i, %while.body.i ], [ %cmp3.not.i, %while.body.i.preheader ]
-  %dec.i = add nsw i64 %mid_count.021.i, -1
-  %2 = load atomic i64, ptr %field.022.i monotonic, align 8
-  %cmp14.not.i = icmp ne i64 %2, 0
-  %any_ones.2.i = select i1 %cmp14.not.i, i1 true, i1 %any_ones.119.i
-  %field.0.i = getelementptr inbounds nuw i8, ptr %field.022.i, i64 8
-  %cmp6.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !18
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.02753.i = phi ptr [ %.027.i, %.lr.ph.i ], [ %.02748.i, %.lr.ph.i.preheader ]
+  %.052.i = phi i64 [ %30, %.lr.ph.i ], [ %26, %.lr.ph.i.preheader ]
+  %.12450.i = phi i1 [ %.225.i, %.lr.ph.i ], [ %.not29.i, %.lr.ph.i.preheader ]
+  %30 = add nsw i64 %.052.i, -1
+  %31 = load atomic i64, ptr %.02753.i monotonic, align 8
+  %.not36.i = icmp ne i64 %31, 0
+  %.225.i = select i1 %.not36.i, i1 true, i1 %.12450.i
+  %.027.i = getelementptr inbounds nuw i8, ptr %.02753.i, i64 8
+  %.not30.i = icmp eq i64 %30, 0
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
-while.end.i:                                      ; preds = %while.body.i, %if.else.i.i
-  %any_ones.1.lcssa.i = phi i1 [ %cmp3.not.i, %if.else.i.i ], [ %any_ones.2.i, %while.body.i ]
-  %field.0.lcssa.i = phi ptr [ %field.017.i, %if.else.i.i ], [ %field.0.i, %while.body.i ]
-  %cmp17.not.i = icmp eq i64 %rem.i.i, 0
-  br i1 %cmp17.not.i, label %mi_bitmap_is_claimedx_across.exit, label %if.then18.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %mi_bitmap_mask_.exit24.i.i
+  %.124.lcssa.i = phi i1 [ %.not29.i, %mi_bitmap_mask_.exit24.i.i ], [ %.225.i, %.lr.ph.i ]
+  %.027.lcssa.i = phi ptr [ %.02748.i, %mi_bitmap_mask_.exit24.i.i ], [ %.027.i, %.lr.ph.i ]
+  %.not31.i = icmp eq i64 %21, 0
+  br i1 %.not31.i, label %mi_bitmap_is_claimedx_across.exit, label %32
 
-if.then18.i:                                      ; preds = %while.end.i
-  %3 = load atomic i64, ptr %field.0.lcssa.i monotonic, align 8
-  %and20.i = and i64 %3, %sub.i29.i.i
-  %cmp25.not.i = icmp ne i64 %and20.i, 0
-  %spec.select12.i = select i1 %cmp25.not.i, i1 true, i1 %any_ones.1.lcssa.i
+32:                                               ; preds = %._crit_edge.i
+  %33 = load atomic i64, ptr %.027.lcssa.i monotonic, align 8
+  %34 = and i64 %33, %22
+  %.not33.i = icmp ne i64 %34, 0
+  %spec.select39.i = select i1 %.not33.i, i1 true, i1 %.124.lcssa.i
   br label %mi_bitmap_is_claimedx_across.exit
 
-mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i, %while.end.i, %if.then18.i
-  %any_ones.3.i = phi i1 [ %any_ones.1.lcssa.i, %while.end.i ], [ %spec.select12.i, %if.then18.i ], [ %cmp3.not33.i, %while.end.thread.i ]
-  ret i1 %any_ones.3.i
+mi_bitmap_is_claimedx_across.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i, %32
+  %.326.i = phi i1 [ %.124.lcssa.i, %._crit_edge.i ], [ %spec.select39.i, %32 ], [ %.not2962.i, %._crit_edge.thread.i ]
+  ret i1 %.326.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #2
 
-attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind "no-builtin-malloc" }
-attributes #5 = { "no-builtin-malloc" }
+attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-builtin-malloc" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"_Bool", !7, i64 0}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}

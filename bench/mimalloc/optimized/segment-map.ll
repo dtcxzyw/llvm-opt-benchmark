@@ -1,194 +1,252 @@
 ; ModuleID = 'bench/mimalloc/original/segment-map.ll'
 source_filename = "bench/mimalloc/original/segment-map.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
-%struct.mi_page_queue_s = type { ptr, ptr, i64 }
-%struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
+%struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
+%union.anon = type { %struct.mi_memid_os_info }
+%struct.mi_memid_os_info = type { ptr, i64 }
 
-@mi_segment_map = internal global [20481 x i64] zeroinitializer, align 16
-@_mi_heap_main = external local_unnamed_addr global %struct.mi_heap_s, align 8
+@mi_segment_map = internal global [196 x ptr] zeroinitializer, align 16
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_mi_segment_map_allocated_at(ptr noundef %segment) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp ugt ptr %segment, inttoptr (i64 43980465111039 to ptr)
-  %0 = ptrtoint ptr %segment to i64
-  %div15.i = lshr i64 %0, 31
-  %cmp4 = icmp eq i64 %div15.i, 20480
-  %cmp = or i1 %cmp.i, %cmp4
-  br i1 %cmp, label %do.end, label %if.end
+; Function Attrs: nounwind uwtable
+define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca %struct.mi_memid_s, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = load i32, ptr %3, align 4, !tbaa !3
+  %5 = icmp eq i32 %4, 6
+  br i1 %5, label %mi_segment_map_index_of.exit.thread, label %6
 
-if.end:                                           ; preds = %entry
-  %div4.i = lshr i64 %0, 25
-  %rem.i = and i64 %div4.i, 63
-  %arrayidx = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %2 = shl nuw i64 1, %rem.i
-  br label %do.body
+6:                                                ; preds = %1
+  %7 = ptrtoint ptr %0 to i64
+  %8 = icmp ugt ptr %0, inttoptr (i64 52776558133247 to ptr)
+  br i1 %8, label %mi_segment_map_index_of.exit.thread, label %9
 
-do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %1, %if.end ], [ %5, %do.body ]
-  %or = or i64 %mask.0, %2
-  %3 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %or release monotonic, align 8
-  %4 = extractvalue { i64, i1 } %3, 1
-  %5 = extractvalue { i64, i1 } %3, 0
-  br i1 %4, label %do.end, label %do.body, !llvm.loop !4
+9:                                                ; preds = %6
+  %10 = udiv i64 %7, 270582939648
+  %11 = urem i64 %7, 270582939648
+  %12 = getelementptr inbounds nuw [196 x ptr], ptr @mi_segment_map, i64 0, i64 %10
+  %13 = load atomic i64, ptr %12 monotonic, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = icmp eq i64 %13, 0
+  br i1 %15, label %16, label %mi_segment_map_index_of.exit
 
-do.end:                                           ; preds = %do.body, %entry
+16:                                               ; preds = %9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #5
+  %17 = call ptr @_mi_os_alloc(i64 noundef 8088, ptr noundef nonnull %2) #6
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %.thread42.i, label %19
+
+.thread42.i:                                      ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
+  br label %mi_segment_map_index_of.exit.thread
+
+19:                                               ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !14
+  %20 = ptrtoint ptr %17 to i64
+  %21 = cmpxchg ptr %12, i64 0, i64 %20 release monotonic, align 8
+  %22 = extractvalue { i64, i1 } %21, 1
+  br i1 %22, label %.sink.split.i, label %23
+
+23:                                               ; preds = %19
+  %24 = extractvalue { i64, i1 } %21, 0
+  %25 = inttoptr i64 %24 to ptr
+  call void @_mi_os_free(ptr noundef nonnull %17, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %2) #6
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %23, %19
+  %.029.ph.i = phi ptr [ %25, %23 ], [ %17, %19 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #5
+  br label %mi_segment_map_index_of.exit
+
+mi_segment_map_index_of.exit:                     ; preds = %9, %.sink.split.i
+  %.029.i = phi ptr [ %14, %9 ], [ %.029.ph.i, %.sink.split.i ]
+  %26 = icmp eq ptr %.029.i, null
+  br i1 %26, label %mi_segment_map_index_of.exit.thread, label %27
+
+27:                                               ; preds = %mi_segment_map_index_of.exit
+  %28 = lshr i64 %11, 22
+  %29 = and i64 %28, 63
+  %30 = lshr i64 %11, 28
+  %31 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
+  %32 = getelementptr inbounds nuw [1008 x i64], ptr %31, i64 0, i64 %30
+  %33 = load atomic i64, ptr %32 monotonic, align 8
+  %34 = shl nuw i64 1, %29
+  br label %35
+
+35:                                               ; preds = %35, %27
+  %.0 = phi i64 [ %33, %27 ], [ %39, %35 ]
+  %36 = or i64 %.0, %34
+  %37 = cmpxchg weak ptr %32, i64 %.0, i64 %36 release monotonic, align 8
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  br i1 %38, label %mi_segment_map_index_of.exit.thread, label %35, !llvm.loop !18
+
+mi_segment_map_index_of.exit.thread:              ; preds = %35, %.thread42.i, %6, %mi_segment_map_index_of.exit, %1
   ret void
 }
 
-; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_mi_segment_map_freed_at(ptr noundef %segment) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp ugt ptr %segment, inttoptr (i64 43980465111039 to ptr)
-  %0 = ptrtoint ptr %segment to i64
-  %div15.i = lshr i64 %0, 31
-  %cmp4 = icmp eq i64 %div15.i, 20480
-  %cmp = or i1 %cmp.i, %cmp4
-  br i1 %cmp, label %do.end, label %if.end
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.end:                                           ; preds = %entry
-  %div4.i = lshr i64 %0, 25
-  %rem.i = and i64 %div4.i, 63
-  %arrayidx = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %div15.i
-  %1 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %2 = shl nuw i64 1, %rem.i
-  %3 = xor i64 %2, -1
-  br label %do.body
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-do.body:                                          ; preds = %do.body, %if.end
-  %mask.0 = phi i64 [ %1, %if.end ], [ %6, %do.body ]
-  %and = and i64 %mask.0, %3
-  %4 = cmpxchg weak ptr %arrayidx, i64 %mask.0, i64 %and release monotonic, align 8
-  %5 = extractvalue { i64, i1 } %4, 1
-  %6 = extractvalue { i64, i1 } %4, 0
-  br i1 %5, label %do.end, label %do.body, !llvm.loop !6
+; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr #2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %3 = load i32, ptr %2, align 4, !tbaa !3
+  %4 = icmp eq i32 %3, 6
+  br i1 %4, label %mi_segment_map_index_of.exit.thread, label %5
 
-do.end:                                           ; preds = %do.body, %entry
+5:                                                ; preds = %1
+  %6 = ptrtoint ptr %0 to i64
+  %7 = icmp ugt ptr %0, inttoptr (i64 52776558133247 to ptr)
+  br i1 %7, label %mi_segment_map_index_of.exit.thread, label %8
+
+8:                                                ; preds = %5
+  %9 = udiv i64 %6, 270582939648
+  %10 = urem i64 %6, 270582939648
+  %11 = getelementptr inbounds nuw [196 x ptr], ptr @mi_segment_map, i64 0, i64 %9
+  %12 = load atomic i64, ptr %11 monotonic, align 8
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %mi_segment_map_index_of.exit.thread, label %mi_segment_map_index_of.exit
+
+mi_segment_map_index_of.exit:                     ; preds = %8
+  %14 = inttoptr i64 %12 to ptr
+  %15 = lshr i64 %10, 22
+  %16 = and i64 %15, 63
+  %17 = lshr i64 %10, 28
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw [1008 x i64], ptr %18, i64 0, i64 %17
+  %20 = load atomic i64, ptr %19 monotonic, align 8
+  %21 = shl nuw i64 1, %16
+  %22 = xor i64 %21, -1
+  br label %23
+
+23:                                               ; preds = %23, %mi_segment_map_index_of.exit
+  %.0 = phi i64 [ %20, %mi_segment_map_index_of.exit ], [ %27, %23 ]
+  %24 = and i64 %.0, %22
+  %25 = cmpxchg weak ptr %19, i64 %.0, i64 %24 release monotonic, align 8
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = extractvalue { i64, i1 } %25, 0
+  br i1 %26, label %mi_segment_map_index_of.exit.thread, label %23, !llvm.loop !20
+
+mi_segment_map_index_of.exit.thread:              ; preds = %23, %8, %5, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @mi_is_in_heap_region(ptr noundef %p) local_unnamed_addr #1 {
-entry:
-  %cmp.i.i = icmp eq ptr %p, null
-  br i1 %cmp.i.i, label %lor.rhs.i, label %if.end.i.i
+define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call zeroext i1 @_mi_arena_contains(ptr noundef %0) #6
+  br i1 %2, label %mi_is_valid_pointer.exit, label %3
 
-if.end.i.i:                                       ; preds = %entry
-  %0 = ptrtoint ptr %p to i64
-  %sub.i.i.i = add i64 %0, -1
-  %and.i.i.i = and i64 %sub.i.i.i, -33554432
-  %1 = inttoptr i64 %and.i.i.i to ptr
-  %cmp.i.i.i = icmp ugt i64 %sub.i.i.i, 43980465111039
-  %div4.i.i.i = lshr i64 %sub.i.i.i, 25
-  %rem.i.i.i = and i64 %div4.i.i.i, 63
-  %rem.sink.i.i.i = select i1 %cmp.i.i.i, i64 0, i64 %rem.i.i.i
-  %2 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 43980465111040)
-  %retval.0.i.i.i = lshr i64 %2, 31
-  %arrayidx.i.i = getelementptr inbounds nuw [20481 x i64], ptr @mi_segment_map, i64 0, i64 %retval.0.i.i.i
-  %3 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %shl.i.i = shl nuw i64 1, %rem.sink.i.i.i
-  %and.i.i = and i64 %3, %shl.i.i
-  %cmp2.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp2.not.i.i, label %if.end5.i.i, label %_mi_segment_of.exit.i
+3:                                                ; preds = %1
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %mi_is_valid_pointer.exit, label %5
 
-if.end5.i.i:                                      ; preds = %if.end.i.i
-  %cmp6.i.i = icmp eq i64 %retval.0.i.i.i, 20480
-  br i1 %cmp6.i.i, label %lor.rhs.i, label %if.end9.i.i
+5:                                                ; preds = %3
+  %6 = ptrtoint ptr %0 to i64
+  %7 = add i64 %6, -1
+  %8 = and i64 %7, -4194304
+  %9 = inttoptr i64 %8 to ptr
+  %10 = icmp slt i64 %7, 4194304
+  %11 = select i1 %10, ptr null, ptr %9
+  %12 = ptrtoint ptr %11 to i64
+  %13 = icmp ugt ptr %11, inttoptr (i64 52776558133247 to ptr)
+  br i1 %13, label %mi_is_valid_pointer.exit, label %14
 
-if.end9.i.i:                                      ; preds = %if.end5.i.i
-  %sub.i.i = add i64 %shl.i.i, -1
-  %and11.i.i = and i64 %3, %sub.i.i
-  %cmp12.not.i.i = icmp eq i64 %and11.i.i, 0
-  br i1 %cmp12.not.i.i, label %if.else.i.i, label %if.end32.i.i
+14:                                               ; preds = %5
+  %15 = udiv i64 %12, 270582939648
+  %16 = urem i64 %12, 270582939648
+  %17 = getelementptr inbounds nuw [196 x ptr], ptr @mi_segment_map, i64 0, i64 %15
+  %18 = load atomic i64, ptr %17 monotonic, align 8
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %mi_is_valid_pointer.exit, label %mi_segment_map_index_of.exit.i.i
 
-if.else.i.i:                                      ; preds = %if.end9.i.i
-  %cmp16.i.i = icmp ult ptr %p, inttoptr (i64 2147483649 to ptr)
-  br i1 %cmp16.i.i, label %lor.rhs.i, label %do.body.i.i
-
-do.body.i.i:                                      ; preds = %if.else.i.i, %do.body.i.i
-  %loindex.1.i.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %retval.0.i.i.i, %if.else.i.i ]
-  %dec.i.i = add nsw i64 %loindex.1.i.i, -1
-  %arrayidx20.i.i = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %dec.i.i
-  %4 = load atomic i64, ptr %arrayidx20.i.i monotonic, align 8
-  %cmp22.i.i = icmp ne i64 %4, 0
-  %cmp24.i.i = icmp ne i64 %dec.i.i, 0
-  %5 = and i1 %cmp22.i.i, %cmp24.i.i
-  br i1 %5, label %do.body.i.i, label %do.end.i.i, !llvm.loop !7
-
-do.end.i.i:                                       ; preds = %do.body.i.i
-  %cmp26.i.i = icmp eq i64 %4, 0
-  br i1 %cmp26.i.i, label %lor.rhs.i, label %if.end32.i.i
-
-if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end9.i.i
-  %.lcssa.sink.i.i = phi i64 [ %and11.i.i, %if.end9.i.i ], [ %4, %do.end.i.i ]
-  %loindex.0.i.i = phi i64 [ %retval.0.i.i.i, %if.end9.i.i ], [ %dec.i.i, %do.end.i.i ]
-  %6 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.lcssa.sink.i.i, i1 true)
-  %lobitidx.0.i.i = xor i64 %6, 63
-  %sub33.neg.i.i = sub i64 %loindex.0.i.i, %retval.0.i.i.i
-  %add.neg.i.i = sub nsw i64 %lobitidx.0.i.i, %rem.sink.i.i.i
-  %7 = shl i64 %sub33.neg.i.i, 31
-  %8 = shl nsw i64 %add.neg.i.i, 25
-  %9 = getelementptr i8, ptr %1, i64 %7
-  %add.ptr.i.i = getelementptr i8, ptr %9, i64 %8
-  %cmp36.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp36.i.i, label %lor.rhs.i, label %if.end39.i.i
-
-if.end39.i.i:                                     ; preds = %if.end32.i.i
-  %10 = ptrtoint ptr %add.ptr.i.i to i64
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_main, i64 2864), align 8
-  %xor.i.i.i = xor i64 %11, %10
-  %cookie.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 216
-  %12 = load i64, ptr %cookie.i.i, align 8
-  %cmp41.not.i.i = icmp eq i64 %xor.i.i.i, %12
-  br i1 %cmp41.not.i.i, label %if.end53.i.i, label %lor.rhs.i
-
-if.end53.i.i:                                     ; preds = %if.end39.i.i
-  %13 = getelementptr i8, ptr %add.ptr.i.i, i64 224
-  %add.ptr.val.i.i = load i64, ptr %13, align 32
-  %mul.i.i.i = shl i64 %add.ptr.val.i.i, 16
-  %add.ptr55.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i.i
-  %cmp56.not.i.i = icmp ugt ptr %add.ptr55.i.i, %p
-  br i1 %cmp56.not.i.i, label %mi_is_valid_pointer.exit, label %lor.rhs.i
-
-_mi_segment_of.exit.i:                            ; preds = %if.end.i.i
-  %cmp.not.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.not.i, label %lor.rhs.i, label %mi_is_valid_pointer.exit
-
-lor.rhs.i:                                        ; preds = %_mi_segment_of.exit.i, %if.end53.i.i, %if.end39.i.i, %if.end32.i.i, %do.end.i.i, %if.else.i.i, %if.end5.i.i, %entry
-  %call1.i = tail call zeroext i1 @_mi_arena_contains(ptr noundef %p) #5
+mi_segment_map_index_of.exit.i.i:                 ; preds = %14
+  %20 = inttoptr i64 %18 to ptr
+  %21 = lshr exact i64 %16, 22
+  %22 = and i64 %21, 63
+  %23 = lshr i64 %16, 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %25 = getelementptr inbounds nuw [1008 x i64], ptr %24, i64 0, i64 %23
+  %26 = load atomic i64, ptr %25 monotonic, align 8
+  %27 = shl nuw i64 1, %22
+  %28 = and i64 %26, %27
+  %.not.i.i = icmp ne i64 %28, 0
+  %29 = icmp ne ptr %11, null
+  %30 = and i1 %29, %.not.i.i
   br label %mi_is_valid_pointer.exit
 
-mi_is_valid_pointer.exit:                         ; preds = %if.end53.i.i, %_mi_segment_of.exit.i, %lor.rhs.i
-  %14 = phi i1 [ true, %_mi_segment_of.exit.i ], [ %call1.i, %lor.rhs.i ], [ true, %if.end53.i.i ]
-  ret i1 %14
+mi_is_valid_pointer.exit:                         ; preds = %1, %3, %5, %14, %mi_segment_map_index_of.exit.i.i
+  %31 = phi i1 [ true, %1 ], [ false, %3 ], [ false, %5 ], [ false, %14 ], [ %30, %mi_segment_map_index_of.exit.i.i ]
+  ret i1 %31
 }
 
-declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind uwtable
+define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
+  br label %2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
+1:                                                ; preds = %7
+  ret void
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+2:                                                ; preds = %0, %7
+  %.08 = phi i64 [ 0, %0 ], [ %8, %7 ]
+  %3 = getelementptr inbounds nuw [196 x ptr], ptr @mi_segment_map, i64 0, i64 %.08
+  %4 = atomicrmw xchg ptr %3, i64 0 monotonic, align 8
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %7, label %5
 
-attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind "no-builtin-malloc" }
+5:                                                ; preds = %2
+  %6 = inttoptr i64 %4 to ptr
+  tail call void @_mi_os_free(ptr noundef nonnull %6, i64 noundef 8088, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %6) #6
+  br label %7
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+7:                                                ; preds = %5, %2
+  %8 = add nuw nsw i64 %.08, 1
+  %exitcond.not = icmp eq i64 %8, 196
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !21
+}
+
+declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
+
+declare ptr @_mi_os_alloc(i64 noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+declare zeroext i1 @_mi_arena_contains(ptr noundef) local_unnamed_addr #3
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind "no-builtin-malloc" }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !9, i64 20}
+!4 = !{!"mi_segment_s", !5, i64 0, !8, i64 24, !8, i64 25, !10, i64 32, !11, i64 40, !13, i64 48, !13, i64 56, !8, i64 64, !8, i64 65, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !13, i64 120, !13, i64 128, !6, i64 136, !10, i64 144, !9, i64 152, !6, i64 160}
+!5 = !{!"mi_memid_s", !6, i64 0, !8, i64 16, !8, i64 17, !8, i64 18, !9, i64 20}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"_Bool", !6, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!"p1 _ZTS12mi_subproc_s", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!"p1 _ZTS12mi_segment_s", !12, i64 0}
+!14 = !{i64 0, i64 16, !15, i64 16, i64 1, !16, i64 17, i64 1, !16, i64 18, i64 1, !16, i64 20, i64 4, !17}
+!15 = !{!6, !6, i64 0}
+!16 = !{!8, !8, i64 0}
+!17 = !{!9, !9, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}

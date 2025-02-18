@@ -1,44 +1,40 @@
 ; ModuleID = 'bench/mimalloc/original/alloc-posix.ll'
 source_filename = "bench/mimalloc/original/alloc-posix.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i64 @mi_malloc_size(ptr noundef %p) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @mi_usable_size(ptr noundef %p) #7
-  ret i64 %call
+define hidden i64 @mi_malloc_size(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @mi_usable_size(ptr noundef %0) #7
+  ret i64 %2
 }
 
 declare i64 @mi_usable_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @mi_malloc_usable_size(ptr noundef %p) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @mi_usable_size(ptr noundef %p) #7
-  ret i64 %call
+define hidden i64 @mi_malloc_usable_size(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @mi_usable_size(ptr noundef %0) #7
+  ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @mi_malloc_good_size(i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @mi_good_size(i64 noundef %size) #7
-  ret i64 %call
+define hidden i64 @mi_malloc_good_size(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @mi_good_size(i64 noundef %0) #7
+  ret i64 %2
 }
 
 declare i64 @mi_good_size(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mi_cfree(ptr noundef %p) local_unnamed_addr #0 {
-entry:
-  %call = tail call zeroext i1 @mi_is_in_heap_region(ptr noundef %p) #7
-  br i1 %call, label %if.then, label %if.end
+define hidden void @mi_cfree(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call zeroext i1 @mi_is_in_heap_region(ptr noundef %0) #7
+  br i1 %2, label %3, label %4
 
-if.then:                                          ; preds = %entry
-  tail call void @mi_free(ptr noundef %p) #7
-  br label %if.end
+3:                                                ; preds = %1
+  tail call void @mi_free(ptr noundef %0) #7
+  br label %4
 
-if.end:                                           ; preds = %if.then, %entry
+4:                                                ; preds = %3, %1
   ret void
 }
 
@@ -47,110 +43,104 @@ declare zeroext i1 @mi_is_in_heap_region(ptr noundef) local_unnamed_addr #1
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly captures(address_is_null) %p, i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp ne ptr %p, null
-  %rem = and i64 %alignment, 7
-  %cmp1.not = icmp eq i64 %rem, 0
-  %or.cond7.not10.not12 = and i1 %cmp, %cmp1.not
-  %cmp4 = icmp ne i64 %alignment, 0
-  %or.cond8.not11 = and i1 %cmp4, %or.cond7.not10.not12
-  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %alignment)
-  %cmp.i = icmp samesign ult i64 %0, 2
-  %or.cond9 = select i1 %or.cond8.not11, i1 %cmp.i, i1 false
-  br i1 %or.cond9, label %if.end6, label %return
+define hidden range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp ne ptr %0, null
+  %5 = and i64 %1, 7
+  %.not = icmp eq i64 %5, 0
+  %or.cond13.not18.not22 = and i1 %4, %.not
+  %6 = icmp ne i64 %1, 0
+  %or.cond14.not20 = and i1 %6, %or.cond13.not18.not22
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 range(i64 1, 0) %1)
+  %8 = icmp samesign ult i64 %7, 2
+  %or.cond16 = select i1 %or.cond14.not20, i1 %8, i1 false
+  br i1 %or.cond16, label %9, label %14
 
-if.end6:                                          ; preds = %entry
-  %call7 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment) #7
-  %cmp8 = icmp eq ptr %call7, null
-  %cmp9 = icmp ne i64 %size, 0
-  %or.cond = and i1 %cmp9, %cmp8
-  br i1 %or.cond, label %return, label %if.end11
+9:                                                ; preds = %3
+  %10 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %2, i64 noundef %1) #7
+  %11 = icmp eq ptr %10, null
+  %12 = icmp ne i64 %2, 0
+  %or.cond = and i1 %12, %11
+  br i1 %or.cond, label %14, label %13
 
-if.end11:                                         ; preds = %if.end6
-  store ptr %call7, ptr %p, align 8
-  br label %return
+13:                                               ; preds = %9
+  store ptr %10, ptr %0, align 8, !tbaa !3
+  br label %14
 
-return:                                           ; preds = %if.end6, %entry, %if.end11
-  %retval.0 = phi i32 [ 0, %if.end11 ], [ 22, %entry ], [ 12, %if.end6 ]
-  ret i32 %retval.0
+14:                                               ; preds = %13, %9, %3
+  %.0 = phi i32 [ 22, %3 ], [ 0, %13 ], [ 12, %9 ]
+  ret i32 %.0
 }
 
 declare noalias ptr @mi_malloc_aligned(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_memalign(i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment) #7
-  ret ptr %call
+define hidden noalias ptr @mi_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %1, i64 noundef %0) #7
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_valloc(i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @_mi_os_page_size() #7
-  %call.i = tail call noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %call) #7
-  ret ptr %call.i
+define hidden noalias ptr @mi_valloc(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @_mi_os_page_size() #7
+  %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %0, i64 noundef %2) #7
+  ret ptr %3
 }
 
 declare i64 @_mi_os_page_size() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_pvalloc(i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call i64 @_mi_os_page_size() #7
-  %sub = xor i64 %call, -1
-  %cmp.not = icmp ult i64 %size, %sub
-  br i1 %cmp.not, label %if.end, label %return
+define hidden noalias ptr @mi_pvalloc(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i64 @_mi_os_page_size() #7
+  %3 = xor i64 %2, -1
+  %.not = icmp ult i64 %0, %3
+  br i1 %.not, label %4, label %16
 
-if.end:                                           ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call)
-  %cmp.i = icmp samesign ult i64 %0, 2
-  %sub.i = add i64 %size, -1
-  %add.i = add i64 %sub.i, %call
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+4:                                                ; preds = %1
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %6 = icmp samesign ult i64 %5, 2
+  %7 = add i64 %0, -1
+  %8 = add i64 %7, %2
+  br i1 %6, label %9, label %12
 
-if.then.i:                                        ; preds = %if.end
-  %not.i = sub i64 0, %call
-  %and1.i = and i64 %add.i, %not.i
+9:                                                ; preds = %4
+  %10 = sub i64 0, %2
+  %11 = and i64 %8, %10
   br label %_mi_align_up.exit
 
-if.else.i:                                        ; preds = %if.end
-  %1 = urem i64 %add.i, %call
-  %mul.i = sub nuw i64 %add.i, %1
+12:                                               ; preds = %4
+  %13 = urem i64 %8, %2
+  %14 = sub nuw i64 %8, %13
   br label %_mi_align_up.exit
 
-_mi_align_up.exit:                                ; preds = %if.then.i, %if.else.i
-  %retval.0.i = phi i64 [ %and1.i, %if.then.i ], [ %mul.i, %if.else.i ]
-  %call2 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %retval.0.i, i64 noundef %call) #7
-  br label %return
+_mi_align_up.exit:                                ; preds = %9, %12
+  %.0.i = phi i64 [ %11, %9 ], [ %14, %12 ]
+  %15 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %.0.i, i64 noundef %2) #7
+  br label %16
 
-return:                                           ; preds = %entry, %_mi_align_up.exit
-  %retval.0 = phi ptr [ %call2, %_mi_align_up.exit ], [ null, %entry ]
-  ret ptr %retval.0
+16:                                               ; preds = %1, %_mi_align_up.exit
+  %.0 = phi ptr [ %15, %_mi_align_up.exit ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_aligned_alloc(i64 noundef %alignment, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %alignment) #7
-  ret ptr %call
+define hidden noalias ptr @mi_aligned_alloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call noalias ptr @mi_malloc_aligned(i64 noundef %1, i64 noundef %0) #7
+  ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mi_reallocarray(ptr noundef %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @mi_reallocn(ptr noundef %p, i64 noundef %count, i64 noundef %size) #7
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @mi_reallocarray(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call ptr @mi_reallocn(ptr noundef %0, i64 noundef %1, i64 noundef %2) #7
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %6, label %8
 
-if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #8
-  store i32 12, ptr %call1, align 4
-  br label %if.end
+6:                                                ; preds = %3
+  %7 = tail call ptr @__errno_location() #8
+  store i32 12, ptr %7, align 4, !tbaa !7
+  br label %8
 
-if.end:                                           ; preds = %if.then, %entry
-  ret ptr %call
+8:                                                ; preds = %6, %3
+  ret ptr %4
 }
 
 declare ptr @mi_reallocn(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -159,136 +149,131 @@ declare ptr @mi_reallocn(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @mi_reallocarr(ptr noundef captures(address_is_null) %p, i64 noundef %count, i64 noundef %size) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %p, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden range(i32 0, 23) i32 @mi_reallocarr(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  br i1 %4, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #8
-  store i32 22, ptr %call, align 4
-  br label %return
+5:                                                ; preds = %3
+  %6 = tail call ptr @__errno_location() #8
+  store i32 22, ptr %6, align 4, !tbaa !7
+  br label %13
 
-if.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %p, align 8
-  %call.i = tail call ptr @mi_reallocn(ptr noundef %0, i64 noundef %count, i64 noundef %size) #7
-  %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %if.then4, label %if.end6
+7:                                                ; preds = %3
+  %8 = load ptr, ptr %0, align 8, !tbaa !3
+  %9 = tail call ptr @mi_reallocn(ptr noundef %8, i64 noundef %1, i64 noundef %2) #7
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %mi_reallocarray.exit
 
-if.then4:                                         ; preds = %if.end
-  %call1.i = tail call ptr @__errno_location() #8
-  store i32 12, ptr %call1.i, align 4
-  br label %return
+11:                                               ; preds = %7
+  %12 = tail call ptr @__errno_location() #8
+  store i32 12, ptr %12, align 4, !tbaa !7
+  br label %13
 
-if.end6:                                          ; preds = %if.end
-  store ptr %call.i, ptr %p, align 8
-  br label %return
+mi_reallocarray.exit:                             ; preds = %7
+  store ptr %9, ptr %0, align 8, !tbaa !3
+  br label %13
 
-return:                                           ; preds = %if.end6, %if.then4, %if.then
-  %retval.0 = phi i32 [ 22, %if.then ], [ 12, %if.then4 ], [ 0, %if.end6 ]
-  ret i32 %retval.0
+13:                                               ; preds = %11, %mi_reallocarray.exit, %5
+  %.0 = phi i32 [ 22, %5 ], [ 12, %11 ], [ 0, %mi_reallocarray.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mi__expand(ptr noundef %p, i64 noundef %newsize) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @mi_expand(ptr noundef %p, i64 noundef %newsize) #7
-  %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %if.then, label %if.end
+define hidden ptr @mi__expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call ptr @mi_expand(ptr noundef %0, i64 noundef %1) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
 
-if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #8
-  store i32 12, ptr %call1, align 4
-  br label %if.end
+5:                                                ; preds = %2
+  %6 = tail call ptr @__errno_location() #8
+  store i32 12, ptr %6, align 4, !tbaa !7
+  br label %7
 
-if.end:                                           ; preds = %if.then, %entry
-  ret ptr %call
+7:                                                ; preds = %5, %2
+  ret ptr %3
 }
 
 declare ptr @mi_expand(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_null) %s) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %s, null
-  br i1 %cmp, label %return, label %for.cond
+define hidden noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+  %2 = icmp eq ptr %0, null
+  br i1 %2, label %11, label %.preheader
 
-for.cond:                                         ; preds = %entry, %for.cond
-  %len.0 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i16, ptr %s, i64 %len.0
-  %0 = load i16, ptr %arrayidx, align 2
-  %cmp1.not = icmp eq i16 %0, 0
-  %inc = add i64 %len.0, 1
-  br i1 %cmp1.not, label %for.end, label %for.cond, !llvm.loop !4
+.preheader:                                       ; preds = %1, %.preheader
+  %.011 = phi i64 [ %5, %.preheader ], [ 0, %1 ]
+  %3 = getelementptr inbounds nuw i16, ptr %0, i64 %.011
+  %4 = load i16, ptr %3, align 2, !tbaa !9
+  %.not = icmp eq i16 %4, 0
+  %5 = add i64 %.011, 1
+  br i1 %.not, label %6, label %.preheader, !llvm.loop !11
 
-for.end:                                          ; preds = %for.cond
-  %add = shl i64 %len.0, 1
-  %mul = add i64 %add, 2
-  %call = tail call noalias ptr @mi_malloc(i64 noundef %mul) #7
-  %cmp3.not = icmp eq ptr %call, null
-  br i1 %cmp3.not, label %return, label %if.then5
+6:                                                ; preds = %.preheader
+  %7 = shl i64 %.011, 1
+  %8 = add i64 %7, 2
+  %9 = tail call noalias ptr @mi_malloc(i64 noundef %8) #7
+  %.not14 = icmp eq ptr %9, null
+  br i1 %.not14, label %11, label %10
 
-if.then5:                                         ; preds = %for.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr nonnull readonly align 1 %s, i64 %mul, i1 false)
-  br label %return
+10:                                               ; preds = %6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %0, i64 %8, i1 false)
+  br label %11
 
-return:                                           ; preds = %for.end, %if.then5, %entry
-  %retval.0 = phi ptr [ null, %entry ], [ %call, %if.then5 ], [ null, %for.end ]
-  ret ptr %retval.0
+11:                                               ; preds = %6, %10, %1
+  %.0 = phi ptr [ null, %1 ], [ %9, %10 ], [ null, %6 ]
+  ret ptr %.0
 }
 
 declare noalias ptr @mi_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @mi_mbsdup(ptr noundef %s) local_unnamed_addr #0 {
-entry:
-  %call = tail call noalias ptr @mi_strdup(ptr noundef %s) #7
-  ret ptr %call
+define hidden noalias ptr @mi_mbsdup(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias ptr @mi_strdup(ptr noundef %0) #7
+  ret ptr %2
 }
 
 declare noalias ptr @mi_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(address_is_null) %buf, ptr noundef writeonly captures(address_is_null) %size, ptr noundef readonly captures(address_is_null) %name) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %buf, null
-  %cmp1 = icmp eq ptr %name, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+  %4 = icmp eq ptr %0, null
+  %5 = icmp eq ptr %2, null
+  %or.cond = or i1 %4, %5
+  br i1 %or.cond, label %17, label %6
 
-if.end:                                           ; preds = %entry
-  %cmp2.not = icmp eq ptr %size, null
-  br i1 %cmp2.not, label %if.end4, label %if.then3
+6:                                                ; preds = %3
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %8, label %7
 
-if.then3:                                         ; preds = %if.end
-  store i64 0, ptr %size, align 8
-  br label %if.end4
+7:                                                ; preds = %6
+  store i64 0, ptr %1, align 8, !tbaa !13
+  br label %8
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  %call = tail call ptr @getenv(ptr noundef nonnull %name) #7
-  %cmp5 = icmp eq ptr %call, null
-  br i1 %cmp5, label %if.then6, label %if.else
+8:                                                ; preds = %7, %6
+  %9 = tail call ptr @getenv(ptr noundef nonnull %2) #7
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-if.then6:                                         ; preds = %if.end4
-  store ptr null, ptr %buf, align 8
-  br label %return
+11:                                               ; preds = %8
+  store ptr null, ptr %0, align 8, !tbaa !15
+  br label %17
 
-if.else:                                          ; preds = %if.end4
-  %call7 = tail call noalias ptr @mi_strdup(ptr noundef nonnull %call) #7
-  store ptr %call7, ptr %buf, align 8
-  %cmp8 = icmp eq ptr %call7, null
-  %brmerge = or i1 %cmp2.not, %cmp8
-  %.mux = select i1 %cmp8, i32 12, i32 0
-  br i1 %brmerge, label %return, label %if.then12
+12:                                               ; preds = %8
+  %13 = tail call noalias ptr @mi_strdup(ptr noundef nonnull %9) #7
+  store ptr %13, ptr %0, align 8, !tbaa !15
+  %14 = icmp eq ptr %13, null
+  %brmerge = or i1 %.not, %14
+  %.mux = select i1 %14, i32 12, i32 0
+  br i1 %brmerge, label %17, label %15
 
-if.then12:                                        ; preds = %if.else
-  %call13 = tail call i64 @_mi_strlen(ptr noundef nonnull %call) #7
-  store i64 %call13, ptr %size, align 8
-  br label %return
+15:                                               ; preds = %12
+  %16 = tail call i64 @_mi_strlen(ptr noundef nonnull %9) #7
+  store i64 %16, ptr %1, align 8, !tbaa !13
+  br label %17
 
-return:                                           ; preds = %if.else, %if.then6, %if.then12, %entry
-  %retval.0 = phi i32 [ 22, %entry ], [ %.mux, %if.else ], [ 0, %if.then12 ], [ 0, %if.then6 ]
-  ret i32 %retval.0
+17:                                               ; preds = %12, %15, %11, %3
+  %.0 = phi i32 [ 22, %3 ], [ %.mux, %12 ], [ 0, %15 ], [ 0, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -297,43 +282,40 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 declare i64 @_mi_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @mi_wdupenv_s(ptr noundef writeonly captures(address_is_null) %buf, ptr noundef writeonly captures(address_is_null) %size, ptr noundef readnone captures(address_is_null) %name) local_unnamed_addr #4 {
-entry:
-  %cmp = icmp eq ptr %buf, null
-  %cmp1 = icmp eq ptr %name, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #4 {
+  %4 = icmp eq ptr %0, null
+  %5 = icmp eq ptr %2, null
+  %or.cond = or i1 %4, %5
+  br i1 %or.cond, label %9, label %6
 
-if.end:                                           ; preds = %entry
-  %cmp2.not = icmp eq ptr %size, null
-  br i1 %cmp2.not, label %if.end4, label %if.then3
+6:                                                ; preds = %3
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %8, label %7
 
-if.then3:                                         ; preds = %if.end
-  store i64 0, ptr %size, align 8
-  br label %if.end4
+7:                                                ; preds = %6
+  store i64 0, ptr %1, align 8, !tbaa !13
+  br label %8
 
-if.end4:                                          ; preds = %if.then3, %if.end
-  store ptr null, ptr %buf, align 8
-  br label %return
+8:                                                ; preds = %7, %6
+  store ptr null, ptr %0, align 8, !tbaa !17
+  br label %9
 
-return:                                           ; preds = %entry, %if.end4
+9:                                                ; preds = %3, %8
   ret i32 22
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mi_aligned_offset_recalloc(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @mi_recalloc_aligned_at(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment, i64 noundef %offset) #7
-  ret ptr %call
+define hidden ptr @mi_aligned_offset_recalloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+  %6 = tail call ptr @mi_recalloc_aligned_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #7
+  ret ptr %6
 }
 
 declare ptr @mi_recalloc_aligned_at(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @mi_aligned_recalloc(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
-entry:
-  %call = tail call ptr @mi_recalloc_aligned(ptr noundef %p, i64 noundef %newcount, i64 noundef %size, i64 noundef %alignment) #7
-  ret ptr %call
+define hidden ptr @mi_aligned_recalloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call ptr @mi_recalloc_aligned(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #7
+  ret ptr %5
 }
 
 declare ptr @mi_recalloc_aligned(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -344,21 +326,34 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind memory(read) "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind "no-builtin-malloc" }
 attributes #8 = { nounwind willreturn memory(none) "no-builtin-malloc" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"short", !5, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !4, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 short", !4, i64 0}

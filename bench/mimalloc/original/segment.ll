@@ -1,5548 +1,4931 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%struct.mi_stats_s = type { %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s }
-%struct.mi_stat_count_s = type { i64, i64, i64, i64 }
-%struct.mi_stat_counter_s = type { i64, i64 }
-%struct.mi_heap_s = type { ptr, [129 x ptr], [75 x %struct.mi_page_queue_s], ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8 }
-%struct.mi_page_queue_s = type { ptr, ptr, i64 }
+%struct.mi_heap_s = type { ptr, ptr, i64, i32, i64, [2 x i64], %struct.mi_random_cxt_s, i64, i64, i64, ptr, i8, i8, [129 x ptr], [75 x %struct.mi_page_queue_s] }
 %struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
-%struct.mi_commit_mask_s = type { [8 x i64] }
-%struct.mi_page_s = type { i32, i32, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, i32, i32, ptr, i64, i64, ptr, ptr, [1 x i64] }
+%struct.mi_page_queue_s = type { ptr, ptr, i64 }
+%struct.mi_page_s = type { i8, i8, i16, i16, %union.mi_page_flags_s, i8, ptr, ptr, i16, i8, i8, i64, ptr, i64, i64, ptr, ptr }
 %union.mi_page_flags_s = type { i8 }
-%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, i64, %struct.mi_commit_mask_s, %struct.mi_commit_mask_s, ptr, ptr, i64, i64, i64, i64, i64, i64, i32, i64, i64, [513 x %struct.mi_page_s] }
+%struct.mi_segment_s = type { %struct.mi_memid_s, i8, i8, i64, ptr, ptr, ptr, i8, i8, i64, i64, i64, i64, i64, i64, ptr, ptr, i64, i64, i32, [1 x %struct.mi_page_s] }
 %struct.mi_memid_s = type { %union.anon, i8, i8, i8, i32 }
 %union.anon = type { %struct.mi_memid_os_info }
 %struct.mi_memid_os_info = type { ptr, i64 }
-%struct.mi_segments_tld_s = type { [36 x %struct.mi_span_queue_s], i64, i64, i64, i64, ptr, ptr }
-%struct.mi_span_queue_s = type { ptr, ptr, i64 }
+%struct.mi_segments_tld_s = type { %struct.mi_segment_queue_s, %struct.mi_segment_queue_s, %struct.mi_page_queue_s, i64, i64, i64, i64, i64, ptr, ptr }
+%struct.mi_segment_queue_s = type { ptr, ptr }
+%struct.mi_stats_s = type { %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_count_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s, %struct.mi_stat_counter_s }
+%struct.mi_stat_count_s = type { i64, i64, i64, i64 }
+%struct.mi_stat_counter_s = type { i64, i64 }
+%struct.mi_tld_s = type { i64, i8, ptr, ptr, %struct.mi_segments_tld_s, %struct.mi_stats_s }
+%struct.mi_arena_field_cursor_s = type { i64, i64, i64, i64, ptr, i8, i8 }
+%struct.mi_heap_area_s = type { ptr, i64, i64, i64, i64, i64, i32 }
+%struct.mi_subproc_s = type { i64, i64, %union.pthread_mutex_t, %union.pthread_mutex_t, ptr, ptr, %struct.mi_memid_s }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
 
-@abandoned_readers = internal global i64 0, align 64
-@_mi_stats_main = external global %struct.mi_stats_s, align 64
-@.str = private unnamed_addr constant [88 x i8] c"commit mask overflow: idx=%zu count=%zu start=%zx end=%zx p=0x%p size=%zu fullsize=%zu\0A\00", align 1
-@abandoned = internal global i64 0, align 64
-@abandoned_count = internal global i64 0, align 64
-@abandoned_visited = internal global ptr null, align 64
-@abandoned_visited_count = internal global i64 0, align 64
-@_mi_heap_main = external global %struct.mi_heap_s, align 8
+@.str = private unnamed_addr constant [94 x i8] c"page with tag %u cannot be reclaimed by a heap with the same tag (using heap tag %u instead)\0A\00", align 1
+@_mi_heap_main = external hidden global %struct.mi_heap_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_commit_mask_committed_size(ptr noundef %cm, i64 noundef %total) #0 {
-entry:
-  %cm.addr = alloca ptr, align 8
-  %total.addr = alloca i64, align 8
-  %count = alloca i64, align 8
-  %i = alloca i64, align 8
-  %mask = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 %total, ptr %total.addr, align 8
-  store i64 0, ptr %count, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = call ptr @mi_segment_raw_page_start(ptr noundef %11, ptr noundef %12, ptr noundef %7) #8
+  store ptr %13, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %14 = load ptr, ptr %5, align 8, !tbaa !8
+  %15 = call i64 @mi_page_block_size(ptr noundef %14) #8
+  store i64 %15, ptr %9, align 8, !tbaa !14
+  %16 = load i64, ptr %9, align 8, !tbaa !14
+  %17 = icmp ugt i64 %16, 0
+  br i1 %17, label %18, label %45
 
-for.cond:                                         ; preds = %for.inc9, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end11
+18:                                               ; preds = %3
+  %19 = load i64, ptr %9, align 8, !tbaa !14
+  %20 = icmp ule i64 %19, 65536
+  br i1 %20, label %21, label %45
 
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  store i64 %3, ptr %mask, align 8
-  %4 = load i64, ptr %mask, align 8
-  %not = xor i64 %4, -1
-  %cmp2 = icmp eq i64 %not, 0
-  br i1 %cmp2, label %if.then, label %if.else
+21:                                               ; preds = %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %22 = load i64, ptr %9, align 8, !tbaa !14
+  %23 = load ptr, ptr %8, align 8, !tbaa !12
+  %24 = ptrtoint ptr %23 to i64
+  %25 = load i64, ptr %9, align 8, !tbaa !14
+  %26 = urem i64 %24, %25
+  %27 = sub i64 %22, %26
+  store i64 %27, ptr %10, align 8, !tbaa !14
+  %28 = load i64, ptr %10, align 8, !tbaa !14
+  %29 = load i64, ptr %9, align 8, !tbaa !14
+  %30 = icmp ult i64 %28, %29
+  br i1 %30, label %31, label %44
 
-if.then:                                          ; preds = %for.body
-  %5 = load i64, ptr %count, align 8
-  %add = add i64 %5, 64
-  store i64 %add, ptr %count, align 8
-  br label %if.end8
+31:                                               ; preds = %21
+  %32 = load i64, ptr %7, align 8, !tbaa !14
+  %33 = load i64, ptr %9, align 8, !tbaa !14
+  %34 = load i64, ptr %10, align 8, !tbaa !14
+  %35 = add i64 %33, %34
+  %36 = icmp uge i64 %32, %35
+  br i1 %36, label %37, label %44
 
-if.else:                                          ; preds = %for.body
-  br label %for.cond3
+37:                                               ; preds = %31
+  %38 = load i64, ptr %10, align 8, !tbaa !14
+  %39 = load ptr, ptr %8, align 8, !tbaa !12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %38
+  store ptr %40, ptr %8, align 8, !tbaa !12
+  %41 = load i64, ptr %10, align 8, !tbaa !14
+  %42 = load i64, ptr %7, align 8, !tbaa !14
+  %43 = sub i64 %42, %41
+  store i64 %43, ptr %7, align 8, !tbaa !14
+  br label %44
 
-for.cond3:                                        ; preds = %for.inc, %if.else
-  %6 = load i64, ptr %mask, align 8
-  %cmp4 = icmp ne i64 %6, 0
-  br i1 %cmp4, label %for.body5, label %for.end
+44:                                               ; preds = %37, %31, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %45
 
-for.body5:                                        ; preds = %for.cond3
-  %7 = load i64, ptr %mask, align 8
-  %and = and i64 %7, 1
-  %cmp6 = icmp ne i64 %and, 0
-  br i1 %cmp6, label %if.then7, label %if.end
+45:                                               ; preds = %44, %18, %3
+  %46 = load ptr, ptr %6, align 8, !tbaa !10
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %51
 
-if.then7:                                         ; preds = %for.body5
-  %8 = load i64, ptr %count, align 8
-  %inc = add i64 %8, 1
-  store i64 %inc, ptr %count, align 8
-  br label %if.end
+48:                                               ; preds = %45
+  %49 = load i64, ptr %7, align 8, !tbaa !14
+  %50 = load ptr, ptr %6, align 8, !tbaa !10
+  store i64 %49, ptr %50, align 8, !tbaa !14
+  br label %51
 
-if.end:                                           ; preds = %if.then7, %for.body5
-  br label %for.inc
+51:                                               ; preds = %48, %45
+  %52 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %52
+}
 
-for.inc:                                          ; preds = %if.end
-  %9 = load i64, ptr %mask, align 8
-  %shr = lshr i64 %9, 1
-  store i64 %shr, ptr %mask, align 8
-  br label %for.cond3, !llvm.loop !4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-for.end:                                          ; preds = %for.cond3
-  br label %if.end8
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_raw_page_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = call i64 @mi_segment_raw_page_size(ptr noundef %9) #8
+  store i64 %10, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load ptr, ptr %4, align 8, !tbaa !3
+  %12 = load ptr, ptr %5, align 8, !tbaa !8
+  %13 = getelementptr inbounds nuw %struct.mi_page_s, ptr %12, i32 0, i32 0
+  %14 = load i8, ptr %13, align 8, !tbaa !16
+  %15 = zext i8 %14 to i64
+  %16 = load i64, ptr %7, align 8, !tbaa !14
+  %17 = mul i64 %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %17
+  store ptr %18, ptr %8, align 8, !tbaa !12
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = getelementptr inbounds nuw %struct.mi_page_s, ptr %19, i32 0, i32 0
+  %21 = load i8, ptr %20, align 8, !tbaa !16
+  %22 = zext i8 %21 to i32
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %35
 
-if.end8:                                          ; preds = %for.end, %if.then
-  br label %for.inc9
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %25, i32 0, i32 13
+  %27 = load i64, ptr %26, align 8, !tbaa !20
+  %28 = load ptr, ptr %8, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %27
+  store ptr %29, ptr %8, align 8, !tbaa !12
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %30, i32 0, i32 13
+  %32 = load i64, ptr %31, align 8, !tbaa !20
+  %33 = load i64, ptr %7, align 8, !tbaa !14
+  %34 = sub i64 %33, %32
+  store i64 %34, ptr %7, align 8, !tbaa !14
+  br label %35
 
-for.inc9:                                         ; preds = %if.end8
-  %10 = load i64, ptr %i, align 8
-  %inc10 = add i64 %10, 1
-  store i64 %inc10, ptr %i, align 8
-  br label %for.cond, !llvm.loop !6
+35:                                               ; preds = %24, %3
+  %36 = load ptr, ptr %6, align 8, !tbaa !10
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %41
 
-for.end11:                                        ; preds = %for.cond
-  %11 = load i64, ptr %total.addr, align 8
-  %div = udiv i64 %11, 512
-  %12 = load i64, ptr %count, align 8
-  %mul = mul i64 %div, %12
-  ret i64 %mul
+38:                                               ; preds = %35
+  %39 = load i64, ptr %7, align 8, !tbaa !14
+  %40 = load ptr, ptr %6, align 8, !tbaa !10
+  store i64 %39, ptr %40, align 8, !tbaa !14
+  br label %41
+
+41:                                               ; preds = %38, %35
+  %42 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret ptr %42
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @mi_page_block_size(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.mi_page_s, ptr %3, i32 0, i32 11
+  %5 = load i64, ptr %4, align 8, !tbaa !26
+  ret i64 %5
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define hidden void @_mi_segments_collect(i1 noundef zeroext %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = zext i1 %0 to i8
+  store i8 %5, ptr %3, align 1, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %6 = load i8, ptr %3, align 1, !tbaa !27, !range !30, !noundef !31
+  %7 = trunc i8 %6 to i1
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_pages_try_purge(i1 noundef zeroext %7, ptr noundef %8) #8
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @_mi_commit_mask_next_run(ptr noundef %cm, ptr noundef %idx) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %cm.addr = alloca ptr, align 8
-  %idx.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %ofs = alloca i64, align 8
-  %mask = alloca i64, align 8
-  %count = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store ptr %idx, ptr %idx.addr, align 8
-  %0 = load ptr, ptr %idx.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %div = udiv i64 %1, 64
-  store i64 %div, ptr %i, align 8
-  %2 = load ptr, ptr %idx.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %rem = urem i64 %3, 64
-  store i64 %rem, ptr %ofs, align 8
-  store i64 0, ptr %mask, align 8
-  br label %while.cond
+define internal void @mi_pages_try_purge(i1 noundef zeroext %0, ptr noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = zext i1 %0 to i8
+  store i8 %9, ptr %3, align 1, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %10 = call i64 @mi_option_get(i32 noundef 15) #8
+  %11 = icmp slt i64 %10, 0
+  br i1 %11, label %12, label %13
 
-while.cond:                                       ; preds = %if.end, %entry
-  %4 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %4, 8
-  br i1 %cmp, label %while.body, label %while.end8
+12:                                               ; preds = %2
+  br label %58
 
-while.body:                                       ; preds = %while.cond
-  %5 = load ptr, ptr %cm.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %5, i32 0, i32 0
-  %6 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %6
-  %7 = load i64, ptr %arrayidx, align 8
-  store i64 %7, ptr %mask, align 8
-  %8 = load i64, ptr %ofs, align 8
-  %9 = load i64, ptr %mask, align 8
-  %shr = lshr i64 %9, %8
-  store i64 %shr, ptr %mask, align 8
-  %10 = load i64, ptr %mask, align 8
-  %cmp2 = icmp ne i64 %10, 0
-  br i1 %cmp2, label %if.then, label %if.end
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %14 = call i64 @_mi_clock_now() #8
+  store i64 %14, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %15 = load ptr, ptr %4, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %15, i32 0, i32 2
+  store ptr %16, ptr %6, align 8, !tbaa !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %17 = load ptr, ptr %6, align 8, !tbaa !32
+  %18 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  store ptr %19, ptr %7, align 8, !tbaa !8
+  br label %20
 
-if.then:                                          ; preds = %while.body
-  br label %while.cond3
+20:                                               ; preds = %34, %13
+  %21 = load ptr, ptr %7, align 8, !tbaa !8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %32
 
-while.cond3:                                      ; preds = %while.body5, %if.then
-  %11 = load i64, ptr %mask, align 8
-  %and = and i64 %11, 1
-  %cmp4 = icmp eq i64 %and, 0
-  br i1 %cmp4, label %while.body5, label %while.end
+23:                                               ; preds = %20
+  %24 = load i8, ptr %3, align 1, !tbaa !27, !range !30, !noundef !31
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %30, label %26
 
-while.body5:                                      ; preds = %while.cond3
-  %12 = load i64, ptr %mask, align 8
-  %shr6 = lshr i64 %12, 1
-  store i64 %shr6, ptr %mask, align 8
-  %13 = load i64, ptr %ofs, align 8
-  %inc = add i64 %13, 1
-  store i64 %inc, ptr %ofs, align 8
-  br label %while.cond3, !llvm.loop !7
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %7, align 8, !tbaa !8
+  %28 = load i64, ptr %5, align 8, !tbaa !14
+  %29 = call zeroext i1 @mi_page_purge_is_expired(ptr noundef %27, i64 noundef %28) #8
+  br label %30
 
-while.end:                                        ; preds = %while.cond3
-  br label %while.end8
+30:                                               ; preds = %26, %23
+  %31 = phi i1 [ true, %23 ], [ %29, %26 ]
+  br label %32
 
-if.end:                                           ; preds = %while.body
-  %14 = load i64, ptr %i, align 8
-  %inc7 = add i64 %14, 1
-  store i64 %inc7, ptr %i, align 8
-  store i64 0, ptr %ofs, align 8
-  br label %while.cond, !llvm.loop !8
+32:                                               ; preds = %30, %20
+  %33 = phi i1 [ false, %20 ], [ %31, %30 ]
+  br i1 %33, label %34, label %45
 
-while.end8:                                       ; preds = %while.end, %while.cond
-  %15 = load i64, ptr %i, align 8
-  %cmp9 = icmp uge i64 %15, 8
-  br i1 %cmp9, label %if.then10, label %if.else
+34:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %35 = load ptr, ptr %7, align 8, !tbaa !8
+  %36 = getelementptr inbounds nuw %struct.mi_page_s, ptr %35, i32 0, i32 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !36
+  store ptr %37, ptr %8, align 8, !tbaa !8
+  %38 = load ptr, ptr %7, align 8, !tbaa !8
+  %39 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_page_purge_remove(ptr noundef %38, ptr noundef %39) #8
+  %40 = load ptr, ptr %7, align 8, !tbaa !8
+  %41 = call ptr @_mi_page_segment(ptr noundef %40) #8
+  %42 = load ptr, ptr %7, align 8, !tbaa !8
+  %43 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_page_purge(ptr noundef %41, ptr noundef %42, ptr noundef %43) #8
+  %44 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %44, ptr %7, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %20, !llvm.loop !37
 
-if.then10:                                        ; preds = %while.end8
-  %16 = load ptr, ptr %idx.addr, align 8
-  store i64 512, ptr %16, align 8
-  store i64 0, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %32
+  %46 = load ptr, ptr %7, align 8, !tbaa !8
+  %47 = load ptr, ptr %6, align 8, !tbaa !32
+  %48 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %47, i32 0, i32 1
+  store ptr %46, ptr %48, align 8, !tbaa !34
+  %49 = load ptr, ptr %7, align 8, !tbaa !8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %54
 
-if.else:                                          ; preds = %while.end8
-  store i64 0, ptr %count, align 8
-  %17 = load i64, ptr %i, align 8
-  %mul = mul i64 %17, 64
-  %18 = load i64, ptr %ofs, align 8
-  %add = add i64 %mul, %18
-  %19 = load ptr, ptr %idx.addr, align 8
-  store i64 %add, ptr %19, align 8
-  br label %do.body
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %7, align 8, !tbaa !8
+  %53 = getelementptr inbounds nuw %struct.mi_page_s, ptr %52, i32 0, i32 15
+  store ptr null, ptr %53, align 8, !tbaa !39
+  br label %57
 
-do.body:                                          ; preds = %do.cond27, %if.else
-  br label %do.body11
+54:                                               ; preds = %45
+  %55 = load ptr, ptr %6, align 8, !tbaa !32
+  %56 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %55, i32 0, i32 0
+  store ptr null, ptr %56, align 8, !tbaa !40
+  br label %57
 
-do.body11:                                        ; preds = %do.cond, %do.body
-  %20 = load i64, ptr %count, align 8
-  %inc12 = add i64 %20, 1
-  store i64 %inc12, ptr %count, align 8
-  %21 = load i64, ptr %mask, align 8
-  %shr13 = lshr i64 %21, 1
-  store i64 %shr13, ptr %mask, align 8
-  br label %do.cond
+57:                                               ; preds = %54, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %58
 
-do.cond:                                          ; preds = %do.body11
-  %22 = load i64, ptr %mask, align 8
-  %and14 = and i64 %22, 1
-  %cmp15 = icmp eq i64 %and14, 1
-  br i1 %cmp15, label %do.body11, label %do.end, !llvm.loop !9
-
-do.end:                                           ; preds = %do.cond
-  %23 = load ptr, ptr %idx.addr, align 8
-  %24 = load i64, ptr %23, align 8
-  %25 = load i64, ptr %count, align 8
-  %add16 = add i64 %24, %25
-  %rem17 = urem i64 %add16, 64
-  %cmp18 = icmp eq i64 %rem17, 0
-  br i1 %cmp18, label %if.then19, label %if.end26
-
-if.then19:                                        ; preds = %do.end
-  %26 = load i64, ptr %i, align 8
-  %inc20 = add i64 %26, 1
-  store i64 %inc20, ptr %i, align 8
-  %27 = load i64, ptr %i, align 8
-  %cmp21 = icmp uge i64 %27, 8
-  br i1 %cmp21, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.then19
-  br label %do.end30
-
-if.end23:                                         ; preds = %if.then19
-  %28 = load ptr, ptr %cm.addr, align 8
-  %mask24 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %28, i32 0, i32 0
-  %29 = load i64, ptr %i, align 8
-  %arrayidx25 = getelementptr inbounds [8 x i64], ptr %mask24, i64 0, i64 %29
-  %30 = load i64, ptr %arrayidx25, align 8
-  store i64 %30, ptr %mask, align 8
-  store i64 0, ptr %ofs, align 8
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end23, %do.end
-  br label %do.cond27
-
-do.cond27:                                        ; preds = %if.end26
-  %31 = load i64, ptr %mask, align 8
-  %and28 = and i64 %31, 1
-  %cmp29 = icmp eq i64 %and28, 1
-  br i1 %cmp29, label %do.body, label %do.end30, !llvm.loop !10
-
-do.end30:                                         ; preds = %do.cond27, %if.then22
-  %32 = load i64, ptr %count, align 8
-  store i64 %32, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %do.end30, %if.then10
-  %33 = load i64, ptr %retval, align 8
-  ret i64 %33
+58:                                               ; preds = %57, %12
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_start(ptr noundef %segment, ptr noundef %page, ptr noundef %page_size) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %page.addr = alloca ptr, align 8
-  %page_size.addr = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %page_size, ptr %page_size.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @mi_page_to_slice(ptr noundef %0) #6
-  store ptr %call, ptr %slice, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %2 = load ptr, ptr %slice, align 8
-  %3 = load ptr, ptr %page.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %3, i32 0, i32 9
-  %4 = load i32, ptr %xblock_size, align 4
-  %conv = zext i32 %4 to i64
-  %5 = load ptr, ptr %page_size.addr, align 8
-  %call1 = call ptr @_mi_segment_page_start_from_slice(ptr noundef %1, ptr noundef %2, i64 noundef %conv, ptr noundef %5) #6
-  store ptr %call1, ptr %p, align 8
-  %6 = load ptr, ptr %p, align 8
+define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  %8 = zext i1 %1 to i8
+  store i8 %8, ptr %5, align 1, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %9 = load ptr, ptr %4, align 8, !tbaa !8
+  %10 = call ptr @_mi_page_segment(ptr noundef %9) #8
+  store ptr %10, ptr %7, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_pages_try_purge(i1 noundef zeroext false, ptr noundef %11) #8
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  %13 = load ptr, ptr %4, align 8, !tbaa !8
+  %14 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_page_clear(ptr noundef %12, ptr noundef %13, ptr noundef %14) #8
+  %15 = load ptr, ptr %7, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %15, i32 0, i32 11
+  %17 = load i64, ptr %16, align 8, !tbaa !41
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %7, align 8, !tbaa !3
+  %21 = load i8, ptr %5, align 1, !tbaa !27, !range !30, !noundef !31
+  %22 = trunc i8 %21 to i1
+  %23 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_free(ptr noundef %20, i1 noundef zeroext %22, ptr noundef %23) #8
+  br label %55
+
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %25, i32 0, i32 11
+  %27 = load i64, ptr %26, align 8, !tbaa !41
+  %28 = load ptr, ptr %7, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %28, i32 0, i32 9
+  %30 = load i64, ptr %29, align 8, !tbaa !42
+  %31 = icmp eq i64 %27, %30
+  br i1 %31, label %32, label %35
+
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %34 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_abandon(ptr noundef %33, ptr noundef %34) #8
+  br label %54
+
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %7, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %36, i32 0, i32 11
+  %38 = load i64, ptr %37, align 8, !tbaa !41
+  %39 = add i64 %38, 1
+  %40 = load ptr, ptr %7, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %40, i32 0, i32 12
+  %42 = load i64, ptr %41, align 8, !tbaa !43
+  %43 = icmp eq i64 %39, %42
+  br i1 %43, label %44, label %53
+
+44:                                               ; preds = %35
+  %45 = load ptr, ptr %7, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %45, i32 0, i32 19
+  %47 = load i32, ptr %46, align 8, !tbaa !44
+  %48 = icmp ule i32 %47, 1
+  br i1 %48, label %49, label %52
+
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %7, align 8, !tbaa !3
+  %51 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_insert_in_free_queue(ptr noundef %50, ptr noundef %51) #8
+  br label %52
+
+52:                                               ; preds = %49, %44
+  br label %53
+
+53:                                               ; preds = %52, %35
+  br label %54
+
+54:                                               ; preds = %53, %32
+  br label %55
+
+55:                                               ; preds = %54, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_page_segment(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
+  %5 = call ptr @_mi_ptr_segment(ptr noundef %4) #8
+  store ptr %5, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_page_to_slice(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  ret ptr %0
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_segment_page_start_from_slice(ptr noundef %segment, ptr noundef %slice, i64 noundef %xblock_size, ptr noundef %page_size) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  %xblock_size.addr = alloca i64, align 8
-  %page_size.addr = alloca ptr, align 8
-  %idx = alloca i64, align 8
-  %psize = alloca i64, align 8
-  %start_offset = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  store i64 %xblock_size, ptr %xblock_size.addr, align 8
-  store ptr %page_size, ptr %page_size.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %1, i32 0, i32 18
-  %arraydecay = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %arraydecay to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 80
-  store i64 %sub.ptr.div, ptr %idx, align 8
-  %2 = load ptr, ptr %slice.addr, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %slice_count, align 8
-  %conv = zext i32 %3 to i64
-  %mul = mul i64 %conv, 65536
-  store i64 %mul, ptr %psize, align 8
-  store i64 0, ptr %start_offset, align 8
-  %4 = load i64, ptr %xblock_size.addr, align 8
-  %cmp = icmp uge i64 %4, 8
-  br i1 %cmp, label %if.then, label %if.end10
-
-if.then:                                          ; preds = %entry
-  %5 = load i64, ptr %xblock_size.addr, align 8
-  %cmp2 = icmp ule i64 %5, 64
-  br i1 %cmp2, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %if.then
-  %6 = load i64, ptr %xblock_size.addr, align 8
-  %mul5 = mul i64 3, %6
-  store i64 %mul5, ptr %start_offset, align 8
-  br label %if.end9
-
-if.else:                                          ; preds = %if.then
-  %7 = load i64, ptr %xblock_size.addr, align 8
-  %cmp6 = icmp ule i64 %7, 512
-  br i1 %cmp6, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %if.else
-  %8 = load i64, ptr %xblock_size.addr, align 8
-  store i64 %8, ptr %start_offset, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then8, %if.else
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end, %if.then4
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.end9, %entry
-  %9 = load ptr, ptr %page_size.addr, align 8
-  %cmp11 = icmp ne ptr %9, null
-  br i1 %cmp11, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.end10
-  %10 = load i64, ptr %psize, align 8
-  %11 = load i64, ptr %start_offset, align 8
-  %sub = sub i64 %10, %11
-  %12 = load ptr, ptr %page_size.addr, align 8
-  store i64 %sub, ptr %12, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then13, %if.end10
-  %13 = load ptr, ptr %segment.addr, align 8
-  %14 = load i64, ptr %idx, align 8
-  %mul15 = mul i64 %14, 65536
-  %15 = load i64, ptr %start_offset, align 8
-  %add = add i64 %mul15, %15
-  %add.ptr = getelementptr inbounds i8, ptr %13, i64 %add
-  ret ptr %add.ptr
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_thread_collect(ptr noundef %tld) #0 {
-entry:
-  %tld.addr = alloca ptr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
+define internal void @mi_segment_page_clear(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i8, align 1
+  %10 = alloca i8, align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i16, align 2
+  %13 = alloca i16, align 2
+  %14 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %15 = load ptr, ptr %5, align 8, !tbaa !8
+  %16 = getelementptr inbounds nuw %struct.mi_page_s, ptr %15, i32 0, i32 2
+  %17 = load i16, ptr %16, align 2, !tbaa !45
+  %18 = zext i16 %17 to i64
+  %19 = load ptr, ptr %5, align 8, !tbaa !8
+  %20 = call i64 @mi_page_block_size(ptr noundef %19) #8
+  %21 = mul i64 %18, %20
+  store i64 %21, ptr %7, align 8, !tbaa !14
+  %22 = load ptr, ptr %6, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %22, i32 0, i32 9
+  %24 = load ptr, ptr %23, align 8, !tbaa !46
+  %25 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %24, i32 0, i32 6
+  %26 = load i64, ptr %7, align 8, !tbaa !14
+  call void @_mi_stat_decrease(ptr noundef %25, i64 noundef %26) #8
+  %27 = load ptr, ptr %6, align 8, !tbaa !28
+  %28 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %27, i32 0, i32 9
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
+  %30 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %29, i32 0, i32 1
+  call void @_mi_stat_decrease(ptr noundef %30, i64 noundef 1) #8
+  %31 = load ptr, ptr %5, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.mi_page_s, ptr %31, i32 0, i32 1
+  %33 = load i8, ptr %32, align 1
+  %34 = and i8 %33, -5
+  %35 = or i8 %34, 0
+  store i8 %35, ptr %32, align 1
+  %36 = load ptr, ptr %5, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw %struct.mi_page_s, ptr %36, i32 0, i32 1
+  %38 = load i8, ptr %37, align 1
+  %39 = and i8 %38, -2
+  %40 = or i8 %39, 0
+  store i8 %40, ptr %37, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %41 = load ptr, ptr %5, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.mi_page_s, ptr %41, i32 0, i32 11
+  %43 = load i64, ptr %42, align 8, !tbaa !26
+  store i64 %43, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %44 = load ptr, ptr %5, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mi_page_s, ptr %44, i32 0, i32 9
+  %46 = load i8, ptr %45, align 2, !tbaa !50
+  store i8 %46, ptr %9, align 1, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  %47 = load ptr, ptr %5, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.mi_page_s, ptr %47, i32 0, i32 10
+  %49 = load i8, ptr %48, align 1, !tbaa !52
+  store i8 %49, ptr %10, align 1, !tbaa !51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %50 = load ptr, ptr %5, align 8, !tbaa !8
+  %51 = getelementptr inbounds nuw %struct.mi_page_s, ptr %50, i32 0, i32 12
+  %52 = load ptr, ptr %51, align 8, !tbaa !53
+  store ptr %52, ptr %11, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #7
+  %53 = load ptr, ptr %5, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.mi_page_s, ptr %53, i32 0, i32 2
+  %55 = load i16, ptr %54, align 2, !tbaa !45
+  store i16 %55, ptr %12, align 2, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  %56 = load ptr, ptr %5, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw %struct.mi_page_s, ptr %56, i32 0, i32 3
+  %58 = load i16, ptr %57, align 4, !tbaa !55
+  store i16 %58, ptr %13, align 2, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store i64 2, ptr %14, align 8, !tbaa !14
+  %59 = load ptr, ptr %5, align 8, !tbaa !8
+  %60 = load i64, ptr %14, align 8, !tbaa !14
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
+  %62 = load i64, ptr %14, align 8, !tbaa !14
+  %63 = sub i64 80, %62
+  call void @_mi_memzero(ptr noundef %61, i64 noundef %63) #8
+  %64 = load i16, ptr %12, align 2, !tbaa !54
+  %65 = load ptr, ptr %5, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw %struct.mi_page_s, ptr %65, i32 0, i32 2
+  store i16 %64, ptr %66, align 2, !tbaa !45
+  %67 = load i16, ptr %13, align 2, !tbaa !54
+  %68 = load ptr, ptr %5, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.mi_page_s, ptr %68, i32 0, i32 3
+  store i16 %67, ptr %69, align 4, !tbaa !55
+  %70 = load i64, ptr %8, align 8, !tbaa !14
+  %71 = load ptr, ptr %5, align 8, !tbaa !8
+  %72 = getelementptr inbounds nuw %struct.mi_page_s, ptr %71, i32 0, i32 11
+  store i64 %70, ptr %72, align 8, !tbaa !26
+  %73 = load i8, ptr %9, align 1, !tbaa !51
+  %74 = load ptr, ptr %5, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.mi_page_s, ptr %74, i32 0, i32 9
+  store i8 %73, ptr %75, align 2, !tbaa !50
+  %76 = load i8, ptr %10, align 1, !tbaa !51
+  %77 = load ptr, ptr %5, align 8, !tbaa !8
+  %78 = getelementptr inbounds nuw %struct.mi_page_s, ptr %77, i32 0, i32 10
+  store i8 %76, ptr %78, align 1, !tbaa !52
+  %79 = load ptr, ptr %11, align 8, !tbaa !12
+  %80 = load ptr, ptr %5, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.mi_page_s, ptr %80, i32 0, i32 12
+  store ptr %79, ptr %81, align 8, !tbaa !53
+  %82 = load ptr, ptr %4, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %82, i32 0, i32 11
+  %84 = load i64, ptr %83, align 8, !tbaa !41
+  %85 = add i64 %84, -1
+  store i64 %85, ptr %83, align 8, !tbaa !41
+  %86 = load ptr, ptr %4, align 8, !tbaa !3
+  %87 = load ptr, ptr %5, align 8, !tbaa !8
+  %88 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_schedule_purge(ptr noundef %86, ptr noundef %87, ptr noundef %88) #8
+  %89 = load ptr, ptr %5, align 8, !tbaa !8
+  %90 = getelementptr inbounds nuw %struct.mi_page_s, ptr %89, i32 0, i32 2
+  store i16 0, ptr %90, align 2, !tbaa !45
+  %91 = load ptr, ptr %5, align 8, !tbaa !8
+  %92 = getelementptr inbounds nuw %struct.mi_page_s, ptr %91, i32 0, i32 3
+  store i16 0, ptr %92, align 4, !tbaa !55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_free(ptr noundef %page, i1 noundef zeroext %force, ptr noundef %tld) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %force.addr = alloca i8, align 1
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %frombool = zext i1 %force to i8
-  store i8 %frombool, ptr %force.addr, align 1
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @_mi_page_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %page.addr, align 8
-  %2 = load ptr, ptr %tld.addr, align 8
-  %call1 = call ptr @mi_segment_page_clear(ptr noundef %1, ptr noundef %2) #6
-  %3 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 11
-  %4 = load i64, ptr %used, align 8
-  %cmp = icmp eq i64 %4, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @mi_segment_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  %7 = zext i1 %1 to i8
+  store i8 %7, ptr %5, align 1, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %8, i32 0, i32 8
+  %10 = load i8, ptr %9, align 1, !tbaa !56, !range !30, !noundef !31
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %12, label %13
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %segment, align 8
-  %6 = load i8, ptr %force.addr, align 1
-  %tobool = trunc i8 %6 to i1
-  %7 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_free(ptr noundef %5, i1 noundef zeroext %tobool, ptr noundef %7) #6
-  br label %if.end5
+12:                                               ; preds = %3
+  br label %30
 
-if.else:                                          ; preds = %entry
-  %8 = load ptr, ptr %segment, align 8
-  %used2 = getelementptr inbounds %struct.mi_segment_s, ptr %8, i32 0, i32 11
-  %9 = load i64, ptr %used2, align 8
-  %10 = load ptr, ptr %segment, align 8
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 9
-  %11 = load i64, ptr %abandoned, align 8
-  %cmp3 = icmp eq i64 %9, %11
-  br i1 %cmp3, label %if.then4, label %if.end
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_remove_all_purges(ptr noundef %14, i1 noundef zeroext false, ptr noundef %15) #8
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_remove_from_free_queue(ptr noundef %16, ptr noundef %17) #8
+  %18 = load ptr, ptr %6, align 8, !tbaa !28
+  %19 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %18, i32 0, i32 9
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
+  %21 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %22, i32 0, i32 13
+  %24 = load i64, ptr %23, align 8, !tbaa !20
+  call void @_mi_stat_decrease(ptr noundef %21, i64 noundef %24) #8
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %26, i32 0, i32 3
+  %28 = load i64, ptr %27, align 8, !tbaa !57
+  %29 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_os_free(ptr noundef %25, i64 noundef %28, ptr noundef %29) #8
+  br label %30
 
-if.then4:                                         ; preds = %if.else
-  %12 = load ptr, ptr %segment, align 8
-  %13 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_abandon(ptr noundef %12, ptr noundef %13) #6
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.else
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.end, %if.then
+30:                                               ; preds = %13, %12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_mi_page_segment(ptr noundef %page) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %segment, align 8
-  ret ptr %1
-}
+define internal void @mi_segment_abandon(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_pages_try_purge(i1 noundef zeroext false, ptr noundef %6) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %8, i32 0, i32 4
+  %10 = load i32, ptr %9, align 4, !tbaa !58
+  %11 = icmp ne i32 %10, 6
+  br i1 %11, label %14, label %12
 
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_page_clear(ptr noundef %page, ptr noundef %tld) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %inuse = alloca i64, align 8
-  %psize = alloca i64, align 8
-  %start = alloca ptr, align 8
-  %ofs = alloca i64, align 8
-  %slice = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %page.addr, align 8
-  %capacity = getelementptr inbounds %struct.mi_page_s, ptr %1, i32 0, i32 3
-  %2 = load i16, ptr %capacity, align 2
-  %conv = zext i16 %2 to i64
-  %3 = load ptr, ptr %page.addr, align 8
-  %call1 = call i64 @mi_page_block_size(ptr noundef %3) #6
-  %mul = mul i64 %conv, %call1
-  store i64 %mul, ptr %inuse, align 8
-  %4 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %stats, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %5, i32 0, i32 6
-  %6 = load i64, ptr %inuse, align 8
-  call void @_mi_stat_decrease(ptr noundef %page_committed, i64 noundef %6) #6
-  %7 = load ptr, ptr %tld.addr, align 8
-  %stats2 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %stats2, align 8
-  %pages = getelementptr inbounds %struct.mi_stats_s, ptr %8, i32 0, i32 1
-  call void @_mi_stat_decrease(ptr noundef %pages, i64 noundef 1) #6
-  %9 = load ptr, ptr %segment, align 8
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %9, i32 0, i32 1
-  %10 = load i8, ptr %allow_decommit, align 8
-  %tobool = trunc i8 %10 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end
+12:                                               ; preds = %2
+  %13 = call zeroext i1 @mi_option_is_enabled(i32 noundef 12) #8
+  br label %14
 
-land.lhs.true:                                    ; preds = %entry
-  %call4 = call zeroext i1 @mi_option_is_enabled(i32 noundef 11) #6
-  br i1 %call4, label %if.then, label %if.end
+14:                                               ; preds = %12, %2
+  %15 = phi i1 [ true, %2 ], [ %13, %12 ]
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %5, align 1, !tbaa !27
+  %17 = load ptr, ptr %3, align 8, !tbaa !3
+  %18 = load i8, ptr %5, align 1, !tbaa !27, !range !30, !noundef !31
+  %19 = trunc i8 %18 to i1
+  %20 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segment_remove_all_purges(ptr noundef %17, i1 noundef zeroext %19, ptr noundef %20) #8
+  %21 = load ptr, ptr %3, align 8, !tbaa !3
+  %22 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segment_remove_from_free_queue(ptr noundef %21, ptr noundef %22) #8
+  %23 = load ptr, ptr %4, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %23, i32 0, i32 9
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
+  %26 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %25, i32 0, i32 7
+  call void @_mi_stat_increase(ptr noundef %26, i64 noundef 1) #8
+  %27 = load ptr, ptr %3, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %27, i32 0, i32 3
+  %29 = load i64, ptr %28, align 8, !tbaa !57
+  %30 = sub nsw i64 0, %29
+  %31 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segments_track_size(i64 noundef %30, ptr noundef %31) #8
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %32, i32 0, i32 10
+  store i64 0, ptr %33, align 8, !tbaa !59
+  %34 = load ptr, ptr %3, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %34, i32 0, i32 7
+  %36 = load i8, ptr %35, align 8, !tbaa !60, !range !30, !noundef !31
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %38, label %45
 
-if.then:                                          ; preds = %land.lhs.true
-  %11 = load ptr, ptr %segment, align 8
-  %12 = load ptr, ptr %page.addr, align 8
-  %call6 = call ptr @_mi_page_start(ptr noundef %11, ptr noundef %12, ptr noundef %psize) #6
-  store ptr %call6, ptr %start, align 8
-  %13 = load ptr, ptr %start, align 8
-  %14 = load i64, ptr %psize, align 8
-  %15 = load ptr, ptr %tld.addr, align 8
-  %stats7 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %stats7, align 8
-  %call8 = call zeroext i1 @_mi_os_reset(ptr noundef %13, i64 noundef %14, ptr noundef %16) #6
-  br label %if.end
+38:                                               ; preds = %14
+  %39 = load ptr, ptr %4, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %39, i32 0, i32 7
+  %41 = load i64, ptr %40, align 8, !tbaa !61
+  %42 = add i64 %41, -1
+  store i64 %42, ptr %40, align 8, !tbaa !61
+  %43 = load ptr, ptr %3, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %43, i32 0, i32 7
+  store i8 0, ptr %44, align 8, !tbaa !60
+  br label %45
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %17 = load ptr, ptr %page.addr, align 8
-  %is_zero_init = getelementptr inbounds %struct.mi_page_s, ptr %17, i32 0, i32 2
-  %bf.load = load i8, ptr %is_zero_init, align 8
-  %bf.clear = and i8 %bf.load, -3
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %is_zero_init, align 8
-  store i64 10, ptr %ofs, align 8
-  %18 = load ptr, ptr %page.addr, align 8
-  %19 = load i64, ptr %ofs, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %18, i64 %19
-  %20 = load i64, ptr %ofs, align 8
-  %sub = sub i64 80, %20
-  call void @_mi_memzero(ptr noundef %add.ptr, i64 noundef %sub) #6
-  %21 = load ptr, ptr %page.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %21, i32 0, i32 9
-  store i32 1, ptr %xblock_size, align 4
-  %22 = load ptr, ptr %page.addr, align 8
-  %call9 = call ptr @mi_page_to_slice(ptr noundef %22) #6
-  %23 = load ptr, ptr %tld.addr, align 8
-  %call10 = call ptr @mi_segment_span_free_coalesce(ptr noundef %call9, ptr noundef %23) #6
-  store ptr %call10, ptr %slice, align 8
-  %24 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %24, i32 0, i32 11
-  %25 = load i64, ptr %used, align 8
-  %dec = add i64 %25, -1
-  store i64 %dec, ptr %used, align 8
-  %26 = load ptr, ptr %slice, align 8
-  ret ptr %26
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_free(ptr noundef %segment, i1 noundef zeroext %force, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %force.addr = alloca i8, align 1
-  %tld.addr = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %frombool = zext i1 %force to i8
-  store i8 %frombool, ptr %force.addr, align 1
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 18
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  store ptr %arrayidx, ptr %slice, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %call = call ptr @mi_segment_slices_end(ptr noundef %1) #6
-  store ptr %call, ptr %end, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end, %entry
-  %2 = load ptr, ptr %slice, align 8
-  %3 = load ptr, ptr %end, align 8
-  %cmp = icmp ult ptr %2, %3
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %slice, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %4, i32 0, i32 9
-  %5 = load i32, ptr %xblock_size, align 4
-  %cmp1 = icmp eq i32 %5, 0
-  br i1 %cmp1, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %while.body
-  %6 = load ptr, ptr %segment.addr, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %6, i32 0, i32 15
-  %7 = load i32, ptr %kind, align 8
-  %cmp2 = icmp ne i32 %7, 1
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  %8 = load ptr, ptr %slice, align 8
-  %9 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_remove_from_queue(ptr noundef %8, ptr noundef %9) #6
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.lhs.true, %while.body
-  %10 = load ptr, ptr %slice, align 8
-  %11 = load ptr, ptr %slice, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %11, i32 0, i32 0
-  %12 = load i32, ptr %slice_count, align 8
-  %idx.ext = zext i32 %12 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %10, i64 %idx.ext
-  store ptr %add.ptr, ptr %slice, align 8
-  br label %while.cond, !llvm.loop !11
-
-while.end:                                        ; preds = %while.cond
-  %13 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %stats, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %14, i32 0, i32 6
-  %15 = load ptr, ptr %segment.addr, align 8
-  %call3 = call i64 @mi_segment_info_size(ptr noundef %15) #6
-  call void @_mi_stat_decrease(ptr noundef %page_committed, i64 noundef %call3) #6
-  %16 = load ptr, ptr %segment.addr, align 8
-  %17 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_os_free(ptr noundef %16, ptr noundef %17) #6
+45:                                               ; preds = %38, %14
+  %46 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @_mi_arena_segment_mark_abandoned(ptr noundef %46) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_segment_abandon(ptr noundef %segment, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %.atomictmp = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 18
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  store ptr %arrayidx, ptr %slice, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %call = call ptr @mi_segment_slices_end(ptr noundef %1) #6
-  store ptr %call, ptr %end, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end, %entry
-  %2 = load ptr, ptr %slice, align 8
-  %3 = load ptr, ptr %end, align 8
-  %cmp = icmp ult ptr %2, %3
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %4 = load ptr, ptr %slice, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %4, i32 0, i32 9
-  %5 = load i32, ptr %xblock_size, align 4
-  %cmp1 = icmp eq i32 %5, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %while.body
-  %6 = load ptr, ptr %slice, align 8
-  %7 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_remove_from_queue(ptr noundef %6, ptr noundef %7) #6
-  %8 = load ptr, ptr %slice, align 8
-  %xblock_size2 = getelementptr inbounds %struct.mi_page_s, ptr %8, i32 0, i32 9
-  store i32 0, ptr %xblock_size2, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %while.body
-  %9 = load ptr, ptr %slice, align 8
-  %10 = load ptr, ptr %slice, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %10, i32 0, i32 0
-  %11 = load i32, ptr %slice_count, align 8
-  %idx.ext = zext i32 %11 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %9, i64 %idx.ext
-  store ptr %add.ptr, ptr %slice, align 8
-  br label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %while.cond
-  %12 = load ptr, ptr %segment.addr, align 8
-  %call3 = call zeroext i1 @mi_option_is_enabled(i32 noundef 12) #6
-  %13 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %stats, align 8
-  call void @mi_segment_try_purge(ptr noundef %12, i1 noundef zeroext %call3, ptr noundef %14) #6
-  %15 = load ptr, ptr %tld.addr, align 8
-  %stats4 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %15, i32 0, i32 5
-  %16 = load ptr, ptr %stats4, align 8
-  %segments_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %16, i32 0, i32 7
-  call void @_mi_stat_increase(ptr noundef %segments_abandoned, i64 noundef 1) #6
-  %17 = load ptr, ptr %segment.addr, align 8
-  %call5 = call i64 @mi_segment_size(ptr noundef %17) #6
-  %sub = sub nsw i64 0, %call5
-  %18 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segments_track_size(i64 noundef %sub, ptr noundef %18) #6
-  %19 = load ptr, ptr %segment.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %19, i32 0, i32 17
-  store atomic i64 0, ptr %thread_id seq_cst, align 8
-  %20 = load ptr, ptr %segment.addr, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %20, i32 0, i32 7
-  store ptr null, ptr %.atomictmp, align 8
-  %21 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %21, ptr %abandoned_next release, align 8
-  %22 = load ptr, ptr %segment.addr, align 8
-  %abandoned_visits = getelementptr inbounds %struct.mi_segment_s, ptr %22, i32 0, i32 10
-  store i64 1, ptr %abandoned_visits, align 8
-  %23 = load ptr, ptr %segment.addr, align 8
-  call void @mi_abandoned_push(ptr noundef %23) #6
+define internal void @mi_segment_insert_in_free_queue(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call ptr @mi_segment_free_queue(ptr noundef %5, ptr noundef %6) #8
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @mi_segment_enqueue(ptr noundef %7, ptr noundef %8) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_await_readers() #0 {
-entry:
-  %n = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  br label %do.body
+define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = call ptr @_mi_page_segment(ptr noundef %6) #8
+  store ptr %7, ptr %5, align 8, !tbaa !3
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %8, i32 0, i32 9
+  %10 = load i64, ptr %9, align 8, !tbaa !42
+  %11 = add i64 %10, 1
+  store i64 %11, ptr %9, align 8, !tbaa !42
+  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %12, i32 0, i32 9
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
+  %15 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %14, i32 0, i32 8
+  call void @_mi_stat_increase(ptr noundef %15, i64 noundef 1) #8
+  %16 = load ptr, ptr %5, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %16, i32 0, i32 11
+  %18 = load i64, ptr %17, align 8, !tbaa !41
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %19, i32 0, i32 9
+  %21 = load i64, ptr %20, align 8, !tbaa !42
+  %22 = icmp eq i64 %18, %21
+  br i1 %22, label %23, label %26
 
-do.body:                                          ; preds = %do.cond, %entry
-  %0 = load atomic i64, ptr @abandoned_readers acquire, align 64
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  store i64 %1, ptr %n, align 8
-  %2 = load i64, ptr %n, align 8
-  %cmp = icmp ne i64 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %5, align 8, !tbaa !3
+  %25 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segment_abandon(ptr noundef %24, ptr noundef %25) #8
+  br label %26
 
-if.then:                                          ; preds = %do.body
-  call void @mi_atomic_yield() #6
-  br label %if.end
+26:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
 
-if.end:                                           ; preds = %if.then, %do.body
-  br label %do.cond
+declare void @_mi_stat_increase(ptr noundef, i64 noundef) #3
 
-do.cond:                                          ; preds = %if.end
-  %3 = load i64, ptr %n, align 8
-  %cmp1 = icmp ne i64 %3, 0
-  br i1 %cmp1, label %do.body, label %do.end, !llvm.loop !13
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @_mi_segment_attempt_reclaim(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !62
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %10, i32 0, i32 17
+  %12 = load atomic i64, ptr %11 monotonic, align 8
+  store i64 %12, ptr %6, align 8
+  %13 = load i64, ptr %6, align 8, !tbaa !14
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %16
 
-do.end:                                           ; preds = %do.cond
+15:                                               ; preds = %2
+  store i1 false, ptr %3, align 1
+  br label %85
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %17, i32 0, i32 4
+  %19 = load ptr, ptr %18, align 8, !tbaa !64
+  %20 = load ptr, ptr %4, align 8, !tbaa !62
+  %21 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !65
+  %23 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %22, i32 0, i32 4
+  %24 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %23, i32 0, i32 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
+  %26 = icmp ne ptr %19, %25
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %16
+  store i1 false, ptr %3, align 1
+  br label %85
+
+28:                                               ; preds = %16
+  %29 = load ptr, ptr %4, align 8, !tbaa !62
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %30, i32 0, i32 0
+  %32 = call zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef %29, ptr noundef byval(%struct.mi_memid_s) align 8 %31) #8
+  br i1 %32, label %34, label %33
+
+33:                                               ; preds = %28
+  store i1 false, ptr %3, align 1
+  br label %85
+
+34:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %35 = call i64 @_mi_option_get_fast(i32 noundef 35) #8
+  store i64 %35, ptr %7, align 8, !tbaa !14
+  %36 = load i64, ptr %7, align 8, !tbaa !14
+  %37 = icmp sgt i64 %36, 0
+  br i1 %37, label %38, label %48
+
+38:                                               ; preds = %34
+  %39 = load i64, ptr %7, align 8, !tbaa !14
+  %40 = load ptr, ptr %4, align 8, !tbaa !62
+  %41 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %40, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !65
+  %43 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %42, i32 0, i32 4
+  %44 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %43, i32 0, i32 3
+  %45 = load i64, ptr %44, align 8, !tbaa !75
+  %46 = icmp ule i64 %39, %45
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %38
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %84
+
+48:                                               ; preds = %38, %34
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %49, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %50, i32 0, i32 4
+  %52 = load i32, ptr %51, align 4, !tbaa !58
+  %53 = icmp eq i32 %52, 6
+  br i1 %53, label %54, label %70
+
+54:                                               ; preds = %48
+  %55 = load ptr, ptr %4, align 8, !tbaa !62
+  %56 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %55, i32 0, i32 0
+  %57 = load ptr, ptr %56, align 8, !tbaa !65
+  %58 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %57, i32 0, i32 4
+  %59 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %58, i32 0, i32 7
+  %60 = load i64, ptr %59, align 8, !tbaa !76
+  %61 = mul i64 %60, 2
+  %62 = load ptr, ptr %4, align 8, !tbaa !62
+  %63 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %62, i32 0, i32 0
+  %64 = load ptr, ptr %63, align 8, !tbaa !65
+  %65 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %64, i32 0, i32 4
+  %66 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %65, i32 0, i32 3
+  %67 = load i64, ptr %66, align 8, !tbaa !75
+  %68 = icmp ugt i64 %61, %67
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %54
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %84
+
+70:                                               ; preds = %54, %48
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = call zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef %71) #8
+  br i1 %72, label %73, label %83
+
+73:                                               ; preds = %70
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = load ptr, ptr %4, align 8, !tbaa !62
+  %76 = load ptr, ptr %4, align 8, !tbaa !62
+  %77 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !65
+  %79 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %78, i32 0, i32 4
+  %80 = call ptr @mi_segment_reclaim(ptr noundef %74, ptr noundef %75, i64 noundef 0, ptr noundef null, ptr noundef %79) #8
+  store ptr %80, ptr %9, align 8, !tbaa !3
+  %81 = load ptr, ptr %9, align 8, !tbaa !3
+  %82 = icmp ne ptr %81, null
+  store i1 %82, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  br label %84
+
+83:                                               ; preds = %70
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %8, align 4
+  br label %84
+
+84:                                               ; preds = %83, %73, %69, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %85
+
+85:                                               ; preds = %84, %33, %27, %15
+  %86 = load i1, ptr %3, align 1
+  ret i1 %86
+}
+
+declare zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef, ptr noundef byval(%struct.mi_memid_s) align 8) #3
+
+declare i64 @_mi_option_get_fast(i32 noundef) #3
+
+declare zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !62
+  store i64 %2, ptr %9, align 8, !tbaa !14
+  store ptr %3, ptr %10, align 8, !tbaa !77
+  store ptr %4, ptr %11, align 8, !tbaa !28
+  %16 = load ptr, ptr %10, align 8, !tbaa !77
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %20
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %10, align 8, !tbaa !77
+  store i8 0, ptr %19, align 1, !tbaa !27
+  br label %20
+
+20:                                               ; preds = %18, %5
+  %21 = load ptr, ptr %7, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %21, i32 0, i32 17
+  %23 = call i64 @_mi_thread_id() #8
+  store i64 %23, ptr %12, align 8, !tbaa !14
+  %24 = load i64, ptr %12, align 8
+  store atomic i64 %24, ptr %22 release, align 8
+  %25 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %25, i32 0, i32 10
+  store i64 0, ptr %26, align 8, !tbaa !59
+  %27 = load ptr, ptr %7, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %27, i32 0, i32 7
+  store i8 1, ptr %28, align 8, !tbaa !60
+  %29 = load ptr, ptr %11, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %29, i32 0, i32 7
+  %31 = load i64, ptr %30, align 8, !tbaa !61
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %30, align 8, !tbaa !61
+  %33 = load ptr, ptr %7, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %33, i32 0, i32 3
+  %35 = load i64, ptr %34, align 8, !tbaa !57
+  %36 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @mi_segments_track_size(i64 noundef %35, ptr noundef %36) #8
+  %37 = load ptr, ptr %11, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %37, i32 0, i32 9
+  %39 = load ptr, ptr %38, align 8, !tbaa !46
+  %40 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %39, i32 0, i32 7
+  call void @_mi_stat_decrease(ptr noundef %40, i64 noundef 1) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  store i64 0, ptr %13, align 8, !tbaa !14
+  br label %41
+
+41:                                               ; preds = %118, %20
+  %42 = load i64, ptr %13, align 8, !tbaa !14
+  %43 = load ptr, ptr %7, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %43, i32 0, i32 12
+  %45 = load i64, ptr %44, align 8, !tbaa !43
+  %46 = icmp ult i64 %42, %45
+  br i1 %46, label %48, label %47
+
+47:                                               ; preds = %41
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  br label %121
+
+48:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %49 = load ptr, ptr %7, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %49, i32 0, i32 20
+  %51 = load i64, ptr %13, align 8, !tbaa !14
+  %52 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %50, i64 0, i64 %51
+  store ptr %52, ptr %14, align 8, !tbaa !8
+  %53 = load ptr, ptr %14, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.mi_page_s, ptr %53, i32 0, i32 1
+  %55 = load i8, ptr %54, align 1
+  %56 = and i8 %55, 1
+  %57 = icmp ne i8 %56, 0
+  br i1 %57, label %58, label %117
+
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %7, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %59, i32 0, i32 9
+  %61 = load i64, ptr %60, align 8, !tbaa !42
+  %62 = add i64 %61, -1
+  store i64 %62, ptr %60, align 8, !tbaa !42
+  %63 = load ptr, ptr %11, align 8, !tbaa !28
+  %64 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %63, i32 0, i32 9
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
+  %66 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %65, i32 0, i32 8
+  call void @_mi_stat_decrease(ptr noundef %66, i64 noundef 1) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %67 = load ptr, ptr %8, align 8, !tbaa !62
+  %68 = load ptr, ptr %14, align 8, !tbaa !8
+  %69 = getelementptr inbounds nuw %struct.mi_page_s, ptr %68, i32 0, i32 10
+  %70 = load i8, ptr %69, align 1, !tbaa !52
+  %71 = call ptr @_mi_heap_by_tag(ptr noundef %67, i8 noundef zeroext %70) #8
+  store ptr %71, ptr %15, align 8, !tbaa !62
+  %72 = load ptr, ptr %15, align 8, !tbaa !62
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %84
+
+74:                                               ; preds = %58
+  %75 = load ptr, ptr %8, align 8, !tbaa !62
+  store ptr %75, ptr %15, align 8, !tbaa !62
+  %76 = load ptr, ptr %14, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw %struct.mi_page_s, ptr %76, i32 0, i32 10
+  %78 = load i8, ptr %77, align 1, !tbaa !52
+  %79 = zext i8 %78 to i32
+  %80 = load ptr, ptr %8, align 8, !tbaa !62
+  %81 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %80, i32 0, i32 12
+  %82 = load i8, ptr %81, align 1, !tbaa !79
+  %83 = zext i8 %82 to i32
+  call void (i32, ptr, ...) @_mi_error_message(i32 noundef 14, ptr noundef @.str, i32 noundef %79, i32 noundef %83) #8
+  br label %84
+
+84:                                               ; preds = %74, %58
+  %85 = load ptr, ptr %14, align 8, !tbaa !8
+  %86 = load ptr, ptr %15, align 8, !tbaa !62
+  call void @mi_page_set_heap(ptr noundef %85, ptr noundef %86) #8
+  %87 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @_mi_page_use_delayed_free(ptr noundef %87, i32 noundef 0, i1 noundef zeroext true) #8
+  %88 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @_mi_page_free_collect(ptr noundef %88, i1 noundef zeroext false) #8
+  %89 = load ptr, ptr %14, align 8, !tbaa !8
+  %90 = call zeroext i1 @mi_page_all_free(ptr noundef %89) #8
+  br i1 %90, label %91, label %95
+
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %7, align 8, !tbaa !3
+  %93 = load ptr, ptr %14, align 8, !tbaa !8
+  %94 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @mi_segment_page_clear(ptr noundef %92, ptr noundef %93, ptr noundef %94) #8
+  br label %116
+
+95:                                               ; preds = %84
+  %96 = load ptr, ptr %15, align 8, !tbaa !62
+  %97 = load ptr, ptr %14, align 8, !tbaa !8
+  call void @_mi_page_reclaim(ptr noundef %96, ptr noundef %97) #8
+  %98 = load i64, ptr %9, align 8, !tbaa !14
+  %99 = load ptr, ptr %14, align 8, !tbaa !8
+  %100 = call i64 @mi_page_block_size(ptr noundef %99) #8
+  %101 = icmp eq i64 %98, %100
+  br i1 %101, label %102, label %115
+
+102:                                              ; preds = %95
+  %103 = load ptr, ptr %14, align 8, !tbaa !8
+  %104 = call zeroext i1 @mi_page_has_any_available(ptr noundef %103) #8
+  br i1 %104, label %105, label %115
+
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %8, align 8, !tbaa !62
+  %107 = load ptr, ptr %15, align 8, !tbaa !62
+  %108 = icmp eq ptr %106, %107
+  br i1 %108, label %109, label %115
+
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %10, align 8, !tbaa !77
+  %111 = icmp ne ptr %110, null
+  br i1 %111, label %112, label %114
+
+112:                                              ; preds = %109
+  %113 = load ptr, ptr %10, align 8, !tbaa !77
+  store i8 1, ptr %113, align 1, !tbaa !27
+  br label %114
+
+114:                                              ; preds = %112, %109
+  br label %115
+
+115:                                              ; preds = %114, %105, %102, %95
+  br label %116
+
+116:                                              ; preds = %115, %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %117
+
+117:                                              ; preds = %116, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = load i64, ptr %13, align 8, !tbaa !14
+  %120 = add i64 %119, 1
+  store i64 %120, ptr %13, align 8, !tbaa !14
+  br label %41, !llvm.loop !80
+
+121:                                              ; preds = %47
+  %122 = load ptr, ptr %7, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %122, i32 0, i32 11
+  %124 = load i64, ptr %123, align 8, !tbaa !41
+  %125 = icmp eq i64 %124, 0
+  br i1 %125, label %126, label %129
+
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %7, align 8, !tbaa !3
+  %128 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @mi_segment_free(ptr noundef %127, i1 noundef zeroext false, ptr noundef %128) #8
+  store ptr null, ptr %6, align 8
+  br label %142
+
+129:                                              ; preds = %121
+  %130 = load ptr, ptr %7, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %130, i32 0, i32 19
+  %132 = load i32, ptr %131, align 8, !tbaa !44
+  %133 = icmp ule i32 %132, 1
+  br i1 %133, label %134, label %140
+
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %7, align 8, !tbaa !3
+  %136 = call zeroext i1 @mi_segment_has_free(ptr noundef %135) #8
+  br i1 %136, label %137, label %140
+
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %7, align 8, !tbaa !3
+  %139 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @mi_segment_insert_in_free_queue(ptr noundef %138, ptr noundef %139) #8
+  br label %140
+
+140:                                              ; preds = %137, %134, %129
+  %141 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %141, ptr %6, align 8
+  br label %142
+
+142:                                              ; preds = %140, %126
+  %143 = load ptr, ptr %6, align 8
+  ret ptr %143
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.mi_arena_field_cursor_s, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 48, ptr %6) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !62
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %8, i32 0, i32 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
+  call void @_mi_arena_field_cursor_init(ptr noundef %7, ptr noundef %10, i1 noundef zeroext true, ptr noundef %6) #8
+  br label %11
+
+11:                                               ; preds = %14, %2
+  %12 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef %6) #8
+  store ptr %12, ptr %5, align 8, !tbaa !3
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %19
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %5, align 8, !tbaa !3
+  %16 = load ptr, ptr %3, align 8, !tbaa !62
+  %17 = load ptr, ptr %4, align 8, !tbaa !28
+  %18 = call ptr @mi_segment_reclaim(ptr noundef %15, ptr noundef %16, i64 noundef 0, ptr noundef null, ptr noundef %17) #8
+  br label %11, !llvm.loop !82
+
+19:                                               ; preds = %11
+  call void @_mi_arena_field_cursor_done(ptr noundef %6) #8
+  call void @llvm.lifetime.end.p0(i64 48, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+declare void @_mi_arena_field_cursor_init(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) #3
+
+declare ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef) #3
+
+declare void @_mi_arena_field_cursor_done(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define hidden void @mi_collect_reduce(i64 noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !14
+  call void @mi_collect(i1 noundef zeroext true) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %6 = call ptr @mi_heap_get_default() #8
+  store ptr %6, ptr %3, align 8, !tbaa !62
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !62
+  %8 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %10 = getelementptr inbounds nuw %struct.mi_tld_s, ptr %9, i32 0, i32 4
+  store ptr %10, ptr %4, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %11 = load i64, ptr %2, align 8, !tbaa !14
+  %12 = udiv i64 %11, 4194304
+  store i64 %12, ptr %5, align 8, !tbaa !14
+  %13 = load i64, ptr %5, align 8, !tbaa !14
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %1
+  %16 = call i64 @mi_option_get_clamp(i32 noundef 35, i64 noundef 1, i64 noundef 1024) #8
+  store i64 %16, ptr %5, align 8, !tbaa !14
+  br label %17
+
+17:                                               ; preds = %15, %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !62
+  %19 = load i64, ptr %5, align 8, !tbaa !14
+  %20 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segments_try_abandon_to_target(ptr noundef %18, i64 noundef %19, ptr noundef %20) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret void
+}
+
+declare void @mi_collect(i1 noundef zeroext) #3
+
+declare ptr @mi_heap_get_default() #3
+
+declare i64 @mi_option_get_clamp(i32 noundef, i64 noundef, i64 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segments_try_abandon_to_target(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !62
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %12 = load i64, ptr %5, align 8, !tbaa !14
+  %13 = icmp ule i64 %12, 1
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %3
+  br label %73
+
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %16 = load i64, ptr %5, align 8, !tbaa !14
+  %17 = icmp ugt i64 %16, 4
+  br i1 %17, label %18, label %22
+
+18:                                               ; preds = %15
+  %19 = load i64, ptr %5, align 8, !tbaa !14
+  %20 = mul i64 %19, 3
+  %21 = udiv i64 %20, 4
+  br label %24
+
+22:                                               ; preds = %15
+  %23 = load i64, ptr %5, align 8, !tbaa !14
+  br label %24
+
+24:                                               ; preds = %22, %18
+  %25 = phi i64 [ %21, %18 ], [ %23, %22 ]
+  store i64 %25, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  store i32 0, ptr %8, align 4, !tbaa !83
+  br label %26
+
+26:                                               ; preds = %68, %24
+  %27 = load i32, ptr %8, align 4, !tbaa !83
+  %28 = icmp slt i32 %27, 64
+  br i1 %28, label %29, label %35
+
+29:                                               ; preds = %26
+  %30 = load ptr, ptr %6, align 8, !tbaa !28
+  %31 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %30, i32 0, i32 3
+  %32 = load i64, ptr %31, align 8, !tbaa !84
+  %33 = load i64, ptr %7, align 8, !tbaa !14
+  %34 = icmp uge i64 %32, %33
+  br label %35
+
+35:                                               ; preds = %29, %26
+  %36 = phi i1 [ false, %26 ], [ %34, %29 ]
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %35
+  store i32 2, ptr %9, align 4
+  br label %71
+
+38:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %39 = load ptr, ptr %4, align 8, !tbaa !62
+  %40 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %39, i32 0, i32 14
+  %41 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %40, i64 0, i64 74
+  %42 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8, !tbaa !40
+  store ptr %43, ptr %10, align 8, !tbaa !8
+  br label %44
+
+44:                                               ; preds = %52, %38
+  %45 = load ptr, ptr %10, align 8, !tbaa !8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %50
+
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %10, align 8, !tbaa !8
+  %49 = call zeroext i1 @mi_page_is_huge(ptr noundef %48) #8
+  br label %50
+
+50:                                               ; preds = %47, %44
+  %51 = phi i1 [ false, %44 ], [ %49, %47 ]
+  br i1 %51, label %52, label %56
+
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %10, align 8, !tbaa !8
+  %54 = getelementptr inbounds nuw %struct.mi_page_s, ptr %53, i32 0, i32 15
+  %55 = load ptr, ptr %54, align 8, !tbaa !39
+  store ptr %55, ptr %10, align 8, !tbaa !8
+  br label %44, !llvm.loop !85
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %10, align 8, !tbaa !8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %60
+
+59:                                               ; preds = %56
+  store i32 2, ptr %9, align 4
+  br label %65
+
+60:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %61 = load ptr, ptr %10, align 8, !tbaa !8
+  %62 = call ptr @_mi_page_segment(ptr noundef %61) #8
+  store ptr %62, ptr %11, align 8, !tbaa !3
+  %63 = load ptr, ptr %11, align 8, !tbaa !3
+  %64 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segment_force_abandon(ptr noundef %63, ptr noundef %64) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  store i32 0, ptr %9, align 4
+  br label %65
+
+65:                                               ; preds = %60, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %66 = load i32, ptr %9, align 4
+  switch i32 %66, label %71 [
+    i32 0, label %67
+  ]
+
+67:                                               ; preds = %65
+  br label %68
+
+68:                                               ; preds = %67
+  %69 = load i32, ptr %8, align 4, !tbaa !83
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %8, align 4, !tbaa !83
+  br label %26, !llvm.loop !86
+
+71:                                               ; preds = %65, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  br label %72
+
+72:                                               ; preds = %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %73
+
+73:                                               ; preds = %72, %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_atomic_yield() #0 {
-entry:
-  call void @llvm.x86.sse2.pause()
+define hidden void @_mi_segment_huge_page_reset(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !87
+  %9 = load ptr, ptr %4, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %9, i32 0, i32 1
+  %11 = load i8, ptr %10, align 8, !tbaa !88, !range !30, !noundef !31
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %35
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.mi_page_s, ptr %14, i32 0, i32 1
+  %16 = load i8, ptr %15, align 1
+  %17 = lshr i8 %16, 1
+  %18 = and i8 %17, 1
+  %19 = zext i8 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %35
+
+21:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %22 = load ptr, ptr %6, align 8, !tbaa !87
+  %23 = call i64 @mi_usable_size(ptr noundef %22) #8
+  store i64 %23, ptr %7, align 8, !tbaa !14
+  %24 = load i64, ptr %7, align 8, !tbaa !14
+  %25 = icmp ugt i64 %24, 8
+  br i1 %25, label %26, label %34
+
+26:                                               ; preds = %21
+  %27 = load i64, ptr %7, align 8, !tbaa !14
+  %28 = sub i64 %27, 8
+  store i64 %28, ptr %7, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %29 = load ptr, ptr %6, align 8, !tbaa !87
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %30, ptr %8, align 8, !tbaa !12
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
+  %32 = load i64, ptr %7, align 8, !tbaa !14
+  %33 = call zeroext i1 @_mi_os_reset(ptr noundef %31, i64 noundef %32) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %34
+
+34:                                               ; preds = %26, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %35
+
+35:                                               ; preds = %34, %13, %3
+  ret void
+}
+
+declare i64 @mi_usable_size(ptr noundef) #3
+
+declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !62
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store i64 %2, ptr %7, align 8, !tbaa !14
+  store ptr %3, ptr %8, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %10 = load i64, ptr %7, align 8, !tbaa !14
+  %11 = icmp ugt i64 %10, 2097152
+  %12 = xor i1 %11, true
+  %13 = xor i1 %12, true
+  %14 = zext i1 %13 to i32
+  %15 = sext i32 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %30
+
+18:                                               ; preds = %4
+  %19 = load i64, ptr %7, align 8, !tbaa !14
+  %20 = icmp ult i64 %19, 4194304
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %18
+  store i64 4194304, ptr %7, align 8, !tbaa !14
+  br label %22
+
+22:                                               ; preds = %21, %18
+  %23 = load i64, ptr %6, align 8, !tbaa !14
+  %24 = load i64, ptr %7, align 8, !tbaa !14
+  %25 = load ptr, ptr %5, align 8, !tbaa !62
+  %26 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %25, i32 0, i32 3
+  %27 = load i32, ptr %26, align 8, !tbaa !89
+  %28 = load ptr, ptr %8, align 8, !tbaa !28
+  %29 = call ptr @mi_segment_huge_page_alloc(i64 noundef %23, i64 noundef %24, i32 noundef %27, ptr noundef %28) #8
+  store ptr %29, ptr %9, align 8, !tbaa !8
+  br label %65
+
+30:                                               ; preds = %4
+  %31 = load i64, ptr %6, align 8, !tbaa !14
+  %32 = icmp ule i64 %31, 8192
+  br i1 %32, label %33, label %38
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %5, align 8, !tbaa !62
+  %35 = load i64, ptr %6, align 8, !tbaa !14
+  %36 = load ptr, ptr %8, align 8, !tbaa !28
+  %37 = call ptr @mi_segment_small_page_alloc(ptr noundef %34, i64 noundef %35, ptr noundef %36) #8
+  store ptr %37, ptr %9, align 8, !tbaa !8
+  br label %64
+
+38:                                               ; preds = %30
+  %39 = load i64, ptr %6, align 8, !tbaa !14
+  %40 = icmp ule i64 %39, 65536
+  br i1 %40, label %41, label %46
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %5, align 8, !tbaa !62
+  %43 = load i64, ptr %6, align 8, !tbaa !14
+  %44 = load ptr, ptr %8, align 8, !tbaa !28
+  %45 = call ptr @mi_segment_medium_page_alloc(ptr noundef %42, i64 noundef %43, ptr noundef %44) #8
+  store ptr %45, ptr %9, align 8, !tbaa !8
+  br label %63
+
+46:                                               ; preds = %38
+  %47 = load i64, ptr %6, align 8, !tbaa !14
+  %48 = icmp ule i64 %47, 1048576
+  br i1 %48, label %49, label %54
+
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %5, align 8, !tbaa !62
+  %51 = load i64, ptr %6, align 8, !tbaa !14
+  %52 = load ptr, ptr %8, align 8, !tbaa !28
+  %53 = call ptr @mi_segment_large_page_alloc(ptr noundef %50, i64 noundef %51, ptr noundef %52) #8
+  store ptr %53, ptr %9, align 8, !tbaa !8
+  br label %62
+
+54:                                               ; preds = %46
+  %55 = load i64, ptr %6, align 8, !tbaa !14
+  %56 = load i64, ptr %7, align 8, !tbaa !14
+  %57 = load ptr, ptr %5, align 8, !tbaa !62
+  %58 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 8, !tbaa !89
+  %60 = load ptr, ptr %8, align 8, !tbaa !28
+  %61 = call ptr @mi_segment_huge_page_alloc(i64 noundef %55, i64 noundef %56, i32 noundef %59, ptr noundef %60) #8
+  store ptr %61, ptr %9, align 8, !tbaa !8
+  br label %62
+
+62:                                               ; preds = %54, %49
+  br label %63
+
+63:                                               ; preds = %62, %41
+  br label %64
+
+64:                                               ; preds = %63, %33
+  br label %65
+
+65:                                               ; preds = %64, %22
+  %66 = load ptr, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret ptr %66
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_huge_page_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !14
+  store i64 %1, ptr %7, align 8, !tbaa !14
+  store i32 %2, ptr %8, align 4, !tbaa !83
+  store ptr %3, ptr %9, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %18 = load i64, ptr %6, align 8, !tbaa !14
+  %19 = load i64, ptr %7, align 8, !tbaa !14
+  %20 = load i32, ptr %8, align 4, !tbaa !83
+  %21 = load ptr, ptr %9, align 8, !tbaa !28
+  %22 = call ptr @mi_segment_alloc(i64 noundef %18, i32 noundef 3, i64 noundef 23, i64 noundef %19, i32 noundef %20, ptr noundef %21) #8
+  store ptr %22, ptr %10, align 8, !tbaa !3
+  %23 = load ptr, ptr %10, align 8, !tbaa !3
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %4
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  br label %69
+
+26:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %27 = load ptr, ptr %10, align 8, !tbaa !3
+  %28 = load ptr, ptr %9, align 8, !tbaa !28
+  %29 = call ptr @mi_segment_find_free(ptr noundef %27, ptr noundef %28) #8
+  store ptr %29, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %30 = load ptr, ptr %10, align 8, !tbaa !3
+  %31 = load ptr, ptr %12, align 8, !tbaa !8
+  %32 = call ptr @mi_segment_raw_page_start(ptr noundef %30, ptr noundef %31, ptr noundef %13) #8
+  store ptr %32, ptr %14, align 8, !tbaa !12
+  %33 = load i64, ptr %13, align 8, !tbaa !14
+  %34 = load ptr, ptr %12, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.mi_page_s, ptr %34, i32 0, i32 11
+  store i64 %33, ptr %35, align 8, !tbaa !26
+  %36 = load i64, ptr %7, align 8, !tbaa !14
+  %37 = icmp ugt i64 %36, 0
+  br i1 %37, label %38, label %67
+
+38:                                               ; preds = %26
+  %39 = load ptr, ptr %10, align 8, !tbaa !3
+  %40 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %39, i32 0, i32 1
+  %41 = load i8, ptr %40, align 8, !tbaa !88, !range !30, !noundef !31
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %67
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %12, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mi_page_s, ptr %44, i32 0, i32 1
+  %46 = load i8, ptr %45, align 1
+  %47 = lshr i8 %46, 1
+  %48 = and i8 %47, 1
+  %49 = zext i8 %48 to i32
+  %50 = icmp ne i32 %49, 0
+  br i1 %50, label %51, label %67
+
+51:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %52 = load ptr, ptr %14, align 8, !tbaa !12
+  %53 = ptrtoint ptr %52 to i64
+  %54 = load i64, ptr %7, align 8, !tbaa !14
+  %55 = call i64 @_mi_align_up(i64 noundef %53, i64 noundef %54) #8
+  %56 = inttoptr i64 %55 to ptr
+  store ptr %56, ptr %15, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  %57 = load ptr, ptr %14, align 8, !tbaa !12
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %58, ptr %16, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  %59 = load ptr, ptr %15, align 8, !tbaa !12
+  %60 = load ptr, ptr %16, align 8, !tbaa !12
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  store i64 %63, ptr %17, align 8, !tbaa !14
+  %64 = load ptr, ptr %16, align 8, !tbaa !12
+  %65 = load i64, ptr %17, align 8, !tbaa !14
+  %66 = call zeroext i1 @_mi_os_reset(ptr noundef %64, i64 noundef %65) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %67
+
+67:                                               ; preds = %51, %43, %38, %26
+  %68 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %68, ptr %5, align 8
+  store i32 1, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  br label %69
+
+69:                                               ; preds = %67, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %70 = load ptr, ptr %5, align 8
+  ret ptr %70
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_small_page_alloc(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !62
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !62
+  %8 = load i64, ptr %5, align 8, !tbaa !14
+  %9 = load ptr, ptr %6, align 8, !tbaa !28
+  %10 = call ptr @mi_segment_page_alloc(ptr noundef %7, i64 noundef %8, i32 noundef 0, i64 noundef 16, ptr noundef %9) #8
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_medium_page_alloc(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !62
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !62
+  %8 = load i64, ptr %5, align 8, !tbaa !14
+  %9 = load ptr, ptr %6, align 8, !tbaa !28
+  %10 = call ptr @mi_segment_page_alloc(ptr noundef %7, i64 noundef %8, i32 noundef 1, i64 noundef 19, ptr noundef %9) #8
+  ret ptr %10
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_large_page_alloc(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !62
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load ptr, ptr %5, align 8, !tbaa !62
+  %12 = load i64, ptr %6, align 8, !tbaa !14
+  %13 = load ptr, ptr %7, align 8, !tbaa !28
+  %14 = call ptr @mi_segment_reclaim_or_alloc(ptr noundef %11, i64 noundef %12, i32 noundef 2, i64 noundef 22, ptr noundef %13) #8
+  store ptr %14, ptr %8, align 8, !tbaa !3
+  %15 = load ptr, ptr %8, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  br label %23
+
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %19 = load ptr, ptr %8, align 8, !tbaa !3
+  %20 = load ptr, ptr %7, align 8, !tbaa !28
+  %21 = call ptr @mi_segment_find_free(ptr noundef %19, ptr noundef %20) #8
+  store ptr %21, ptr %10, align 8, !tbaa !8
+  %22 = load ptr, ptr %10, align 8, !tbaa !8
+  store ptr %22, ptr %4, align 8
+  store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %23
+
+23:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %24 = load ptr, ptr %4, align 8
+  ret ptr %24
+}
+
+; Function Attrs: nounwind uwtable
+define hidden zeroext i1 @_mi_segment_visit_blocks(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store i32 %1, ptr %8, align 4, !tbaa !83
+  %15 = zext i1 %2 to i8
+  store i8 %15, ptr %9, align 1, !tbaa !27
+  store ptr %3, ptr %10, align 8, !tbaa !90
+  store ptr %4, ptr %11, align 8, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  store i64 0, ptr %12, align 8, !tbaa !14
+  br label %16
+
+16:                                               ; preds = %57, %5
+  %17 = load i64, ptr %12, align 8, !tbaa !14
+  %18 = load ptr, ptr %7, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 12
+  %20 = load i64, ptr %19, align 8, !tbaa !43
+  %21 = icmp ult i64 %17, %20
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %16
+  store i32 2, ptr %13, align 4
+  br label %60
+
+23:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %24 = load ptr, ptr %7, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %24, i32 0, i32 20
+  %26 = load i64, ptr %12, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %25, i64 0, i64 %26
+  store ptr %27, ptr %14, align 8, !tbaa !8
+  %28 = load ptr, ptr %14, align 8, !tbaa !8
+  %29 = getelementptr inbounds nuw %struct.mi_page_s, ptr %28, i32 0, i32 1
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, 1
+  %32 = icmp ne i8 %31, 0
+  br i1 %32, label %33, label %53
+
+33:                                               ; preds = %23
+  %34 = load i32, ptr %8, align 4, !tbaa !83
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %43, label %36
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %14, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.mi_page_s, ptr %37, i32 0, i32 10
+  %39 = load i8, ptr %38, align 1, !tbaa !52
+  %40 = zext i8 %39 to i32
+  %41 = load i32, ptr %8, align 4, !tbaa !83
+  %42 = icmp eq i32 %40, %41
+  br i1 %42, label %43, label %52
+
+43:                                               ; preds = %36, %33
+  %44 = load ptr, ptr %14, align 8, !tbaa !8
+  %45 = load i8, ptr %9, align 1, !tbaa !27, !range !30, !noundef !31
+  %46 = trunc i8 %45 to i1
+  %47 = load ptr, ptr %10, align 8, !tbaa !90
+  %48 = load ptr, ptr %11, align 8, !tbaa !90
+  %49 = call zeroext i1 @mi_segment_visit_page(ptr noundef %44, i1 noundef zeroext %46, ptr noundef %47, ptr noundef %48) #8
+  br i1 %49, label %51, label %50
+
+50:                                               ; preds = %43
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %13, align 4
+  br label %54
+
+51:                                               ; preds = %43
+  br label %52
+
+52:                                               ; preds = %51, %36
+  br label %53
+
+53:                                               ; preds = %52, %23
+  store i32 0, ptr %13, align 4
+  br label %54
+
+54:                                               ; preds = %53, %50
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %55 = load i32, ptr %13, align 4
+  switch i32 %55, label %60 [
+    i32 0, label %56
+  ]
+
+56:                                               ; preds = %54
+  br label %57
+
+57:                                               ; preds = %56
+  %58 = load i64, ptr %12, align 8, !tbaa !14
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %12, align 8, !tbaa !14
+  br label %16, !llvm.loop !91
+
+60:                                               ; preds = %54, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %61 = load i32, ptr %13, align 4
+  switch i32 %61, label %65 [
+    i32 2, label %62
+    i32 1, label %63
+  ]
+
+62:                                               ; preds = %60
+  store i1 true, ptr %6, align 1
+  br label %63
+
+63:                                               ; preds = %62, %60
+  %64 = load i1, ptr %6, align 1
+  ret i1 %64
+
+65:                                               ; preds = %60
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_segment_visit_page(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %struct.mi_heap_area_s, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !8
+  %12 = zext i1 %1 to i8
+  store i8 %12, ptr %7, align 1, !tbaa !27
+  store ptr %2, ptr %8, align 8, !tbaa !90
+  store ptr %3, ptr %9, align 8, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 56, ptr %10) #7
+  %13 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @_mi_heap_area_init(ptr noundef %10, ptr noundef %13) #8
+  %14 = load ptr, ptr %8, align 8, !tbaa !90
+  %15 = getelementptr inbounds nuw %struct.mi_heap_area_s, ptr %10, i32 0, i32 4
+  %16 = load i64, ptr %15, align 8, !tbaa !92
+  %17 = load ptr, ptr %9, align 8, !tbaa !90
+  %18 = call zeroext i1 %14(ptr noundef null, ptr noundef %10, ptr noundef null, i64 noundef %16, ptr noundef %17) #8
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %29
+
+20:                                               ; preds = %4
+  %21 = load i8, ptr %7, align 1, !tbaa !27, !range !30, !noundef !31
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %23, label %28
+
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %6, align 8, !tbaa !8
+  %25 = load ptr, ptr %8, align 8, !tbaa !90
+  %26 = load ptr, ptr %9, align 8, !tbaa !90
+  %27 = call zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef %10, ptr noundef %24, ptr noundef %25, ptr noundef %26) #8
+  store i1 %27, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %29
+
+28:                                               ; preds = %20
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %29
+
+29:                                               ; preds = %28, %23, %19
+  call void @llvm.lifetime.end.p0(i64 56, ptr %10) #7
+  %30 = load i1, ptr %5, align 1
+  ret i1 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @mi_segment_raw_page_size(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %3, i32 0, i32 19
+  %5 = load i32, ptr %4, align 8, !tbaa !44
+  %6 = icmp eq i32 %5, 3
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %8, i32 0, i32 3
+  %10 = load i64, ptr %9, align 8, !tbaa !57
+  br label %16
+
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %12, i32 0, i32 18
+  %14 = load i64, ptr %13, align 8, !tbaa !94
+  %15 = shl i64 1, %14
+  br label %16
+
+16:                                               ; preds = %11, %7
+  %17 = phi i64 [ %10, %7 ], [ %15, %11 ]
+  ret i64 %17
+}
+
+declare i64 @mi_option_get(i32 noundef) #3
+
+declare i64 @_mi_clock_now() #3
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_page_purge_is_expired(ptr noundef %0, i64 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = call i32 @mi_page_get_expire(ptr noundef %6) #8
+  store i32 %7, ptr %5, align 4, !tbaa !83
+  %8 = load i64, ptr %4, align 8, !tbaa !14
+  %9 = trunc i64 %8 to i32
+  %10 = load i32, ptr %5, align 4, !tbaa !83
+  %11 = sub nsw i32 %9, %10
+  %12 = icmp sge i32 %11, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  ret i1 %12
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_page_purge_remove(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = call zeroext i1 @mi_page_not_in_queue(ptr noundef %6, ptr noundef %7) #8
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  br label %68
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %11 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %11, i32 0, i32 2
+  store ptr %12, ptr %5, align 8, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !8
+  %14 = getelementptr inbounds nuw %struct.mi_page_s, ptr %13, i32 0, i32 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %25
+
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %3, align 8, !tbaa !8
+  %19 = getelementptr inbounds nuw %struct.mi_page_s, ptr %18, i32 0, i32 15
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
+  %21 = load ptr, ptr %3, align 8, !tbaa !8
+  %22 = getelementptr inbounds nuw %struct.mi_page_s, ptr %21, i32 0, i32 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %24 = getelementptr inbounds nuw %struct.mi_page_s, ptr %23, i32 0, i32 15
+  store ptr %20, ptr %24, align 8, !tbaa !39
+  br label %25
+
+25:                                               ; preds = %17, %10
+  %26 = load ptr, ptr %3, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mi_page_s, ptr %26, i32 0, i32 15
+  %28 = load ptr, ptr %27, align 8, !tbaa !39
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %38
+
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %3, align 8, !tbaa !8
+  %32 = getelementptr inbounds nuw %struct.mi_page_s, ptr %31, i32 0, i32 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %34 = load ptr, ptr %3, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.mi_page_s, ptr %34, i32 0, i32 15
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %37 = getelementptr inbounds nuw %struct.mi_page_s, ptr %36, i32 0, i32 16
+  store ptr %33, ptr %37, align 8, !tbaa !36
+  br label %38
+
+38:                                               ; preds = %30, %25
+  %39 = load ptr, ptr %3, align 8, !tbaa !8
+  %40 = load ptr, ptr %5, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8, !tbaa !34
+  %43 = icmp eq ptr %39, %42
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %38
+  %45 = load ptr, ptr %3, align 8, !tbaa !8
+  %46 = getelementptr inbounds nuw %struct.mi_page_s, ptr %45, i32 0, i32 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !36
+  %48 = load ptr, ptr %5, align 8, !tbaa !32
+  %49 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %48, i32 0, i32 1
+  store ptr %47, ptr %49, align 8, !tbaa !34
+  br label %50
+
+50:                                               ; preds = %44, %38
+  %51 = load ptr, ptr %3, align 8, !tbaa !8
+  %52 = load ptr, ptr %5, align 8, !tbaa !32
+  %53 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !40
+  %55 = icmp eq ptr %51, %54
+  br i1 %55, label %56, label %62
+
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %3, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.mi_page_s, ptr %57, i32 0, i32 15
+  %59 = load ptr, ptr %58, align 8, !tbaa !39
+  %60 = load ptr, ptr %5, align 8, !tbaa !32
+  %61 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %60, i32 0, i32 0
+  store ptr %59, ptr %61, align 8, !tbaa !40
+  br label %62
+
+62:                                               ; preds = %56, %50
+  %63 = load ptr, ptr %3, align 8, !tbaa !8
+  %64 = getelementptr inbounds nuw %struct.mi_page_s, ptr %63, i32 0, i32 16
+  store ptr null, ptr %64, align 8, !tbaa !36
+  %65 = load ptr, ptr %3, align 8, !tbaa !8
+  %66 = getelementptr inbounds nuw %struct.mi_page_s, ptr %65, i32 0, i32 15
+  store ptr null, ptr %66, align 8, !tbaa !39
+  %67 = load ptr, ptr %3, align 8, !tbaa !8
+  call void @mi_page_set_expire(ptr noundef %67, i32 noundef 0) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  br label %68
+
+68:                                               ; preds = %62, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_abandon(ptr noundef %page, ptr noundef %tld) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @_mi_page_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %segment, align 8
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %1, i32 0, i32 9
-  %2 = load i64, ptr %abandoned, align 8
-  %inc = add i64 %2, 1
-  store i64 %inc, ptr %abandoned, align 8
-  %3 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %stats, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %4, i32 0, i32 8
-  call void @_mi_stat_increase(ptr noundef %pages_abandoned, i64 noundef 1) #6
-  %5 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 11
-  %6 = load i64, ptr %used, align 8
-  %7 = load ptr, ptr %segment, align 8
-  %abandoned1 = getelementptr inbounds %struct.mi_segment_s, ptr %7, i32 0, i32 9
-  %8 = load i64, ptr %abandoned1, align 8
-  %cmp = icmp eq i64 %6, %8
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @mi_page_purge(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %10, i32 0, i32 2
+  %12 = load i8, ptr %11, align 1, !tbaa !95, !range !30, !noundef !31
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %15, label %14
 
-if.then:                                          ; preds = %entry
-  %9 = load ptr, ptr %segment, align 8
-  %10 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_abandon(ptr noundef %9, ptr noundef %10) #6
-  br label %if.end
+14:                                               ; preds = %3
+  br label %32
 
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
+15:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %16 = load ptr, ptr %4, align 8, !tbaa !3
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = call ptr @mi_segment_raw_page_start(ptr noundef %16, ptr noundef %17, ptr noundef %7) #8
+  store ptr %18, ptr %8, align 8, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %19 = load ptr, ptr %8, align 8, !tbaa !90
+  %20 = load i64, ptr %7, align 8, !tbaa !14
+  %21 = call zeroext i1 @_mi_os_purge(ptr noundef %19, i64 noundef %20) #8
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %9, align 1, !tbaa !27
+  %23 = load i8, ptr %9, align 1, !tbaa !27, !range !30, !noundef !31
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %31
 
-declare void @_mi_stat_increase(ptr noundef, i64 noundef) #1
+25:                                               ; preds = %15
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %27 = getelementptr inbounds nuw %struct.mi_page_s, ptr %26, i32 0, i32 1
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, -3
+  %30 = or i8 %29, 0
+  store i8 %30, ptr %27, align 1
+  br label %31
 
-; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_reclaim_all(ptr noundef %heap, ptr noundef %tld) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  br label %while.cond
+31:                                               ; preds = %25, %15
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %32
 
-while.cond:                                       ; preds = %while.body, %entry
-  %call = call ptr @mi_abandoned_pop() #6
-  store ptr %call, ptr %segment, align 8
-  %cmp = icmp ne ptr %call, null
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %0 = load ptr, ptr %segment, align 8
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = load ptr, ptr %tld.addr, align 8
-  %call1 = call ptr @mi_segment_reclaim(ptr noundef %0, ptr noundef %1, i64 noundef 0, ptr noundef null, ptr noundef %2) #6
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %while.cond
+32:                                               ; preds = %31, %14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_abandoned_pop() #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %ts = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp = alloca i64, align 8
-  %atomic-temp13 = alloca i64, align 8
-  %next = alloca i64, align 8
-  %atomic-temp14 = alloca i64, align 8
-  %anext = alloca ptr, align 8
-  %atomic-temp19 = alloca ptr, align 8
-  %.atomictmp24 = alloca i64, align 8
-  %cmpxchg.bool = alloca i8, align 1
-  %.atomictmp28 = alloca i64, align 8
-  %atomic-temp29 = alloca i64, align 8
-  %.atomictmp34 = alloca ptr, align 8
-  %.atomictmp35 = alloca i64, align 8
-  %atomic-temp36 = alloca i64, align 8
-  %0 = load atomic i64, ptr @abandoned monotonic, align 64
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  store i64 %1, ptr %ts, align 8
-  %2 = load i64, ptr %ts, align 8
-  %call = call ptr @mi_tagged_segment_ptr(i64 noundef %2) #6
-  store ptr %call, ptr %segment, align 8
-  %3 = load ptr, ptr %segment, align 8
-  %cmp = icmp eq ptr %3, null
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.end12
-
-if.then:                                          ; preds = %entry
-  %call2 = call zeroext i1 @mi_abandoned_visited_revisit() #6
-  %lnot3 = xor i1 %call2, true
-  %lnot5 = xor i1 %lnot3, true
-  %lnot7 = xor i1 %lnot5, true
-  %lnot.ext8 = zext i1 %lnot7 to i32
-  %conv9 = sext i32 %lnot.ext8 to i64
-  %tobool10 = icmp ne i64 %conv9, 0
-  br i1 %tobool10, label %if.then11, label %if.end
-
-if.then11:                                        ; preds = %if.then
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end, %entry
-  store i64 1, ptr %.atomictmp, align 8
-  %4 = load i64, ptr %.atomictmp, align 8
-  %5 = atomicrmw add ptr @abandoned_readers, i64 %4 monotonic, align 64
-  store i64 %5, ptr %atomic-temp13, align 8
-  store i64 0, ptr %next, align 8
-  %6 = load atomic i64, ptr @abandoned acquire, align 64
-  store i64 %6, ptr %atomic-temp14, align 8
-  %7 = load i64, ptr %atomic-temp14, align 8
-  store i64 %7, ptr %ts, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %land.end, %if.end12
-  %8 = load i64, ptr %ts, align 8
-  %call15 = call ptr @mi_tagged_segment_ptr(i64 noundef %8) #6
-  store ptr %call15, ptr %segment, align 8
-  %9 = load ptr, ptr %segment, align 8
-  %cmp16 = icmp ne ptr %9, null
-  br i1 %cmp16, label %if.then18, label %if.end21
-
-if.then18:                                        ; preds = %do.body
-  %10 = load ptr, ptr %segment, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 7
-  %11 = load atomic i64, ptr %abandoned_next monotonic, align 8
-  store i64 %11, ptr %atomic-temp19, align 8
-  %12 = load ptr, ptr %atomic-temp19, align 8
-  store ptr %12, ptr %anext, align 8
-  %13 = load ptr, ptr %anext, align 8
-  %14 = load i64, ptr %ts, align 8
-  %call20 = call i64 @mi_tagged_segment(ptr noundef %13, i64 noundef %14) #6
-  store i64 %call20, ptr %next, align 8
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then18, %do.body
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end21
-  %15 = load ptr, ptr %segment, align 8
-  %cmp22 = icmp ne ptr %15, null
-  br i1 %cmp22, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %do.cond
-  %16 = load i64, ptr %next, align 8
-  store i64 %16, ptr %.atomictmp24, align 8
-  %17 = load i64, ptr %ts, align 8
-  %18 = load i64, ptr %.atomictmp24, align 8
-  %19 = cmpxchg weak ptr @abandoned, i64 %17, i64 %18 acq_rel acquire, align 64
-  %20 = extractvalue { i64, i1 } %19, 0
-  %21 = extractvalue { i64, i1 } %19, 1
-  br i1 %21, label %cmpxchg.continue, label %cmpxchg.store_expected
-
-cmpxchg.store_expected:                           ; preds = %land.rhs
-  store i64 %20, ptr %ts, align 8
-  br label %cmpxchg.continue
-
-cmpxchg.continue:                                 ; preds = %cmpxchg.store_expected, %land.rhs
-  %frombool = zext i1 %21 to i8
-  store i8 %frombool, ptr %cmpxchg.bool, align 1
-  %22 = load i8, ptr %cmpxchg.bool, align 1
-  %tobool25 = trunc i8 %22 to i1
-  %lnot26 = xor i1 %tobool25, true
-  br label %land.end
-
-land.end:                                         ; preds = %cmpxchg.continue, %do.cond
-  %23 = phi i1 [ false, %do.cond ], [ %lnot26, %cmpxchg.continue ]
-  br i1 %23, label %do.body, label %do.end, !llvm.loop !15
-
-do.end:                                           ; preds = %land.end
-  store i64 1, ptr %.atomictmp28, align 8
-  %24 = load i64, ptr %.atomictmp28, align 8
-  %25 = atomicrmw sub ptr @abandoned_readers, i64 %24 monotonic, align 64
-  store i64 %25, ptr %atomic-temp29, align 8
-  %26 = load ptr, ptr %segment, align 8
-  %cmp30 = icmp ne ptr %26, null
-  br i1 %cmp30, label %if.then32, label %if.end37
-
-if.then32:                                        ; preds = %do.end
-  %27 = load ptr, ptr %segment, align 8
-  %abandoned_next33 = getelementptr inbounds %struct.mi_segment_s, ptr %27, i32 0, i32 7
-  store ptr null, ptr %.atomictmp34, align 8
-  %28 = load i64, ptr %.atomictmp34, align 8
-  store atomic i64 %28, ptr %abandoned_next33 release, align 8
-  store i64 1, ptr %.atomictmp35, align 8
-  %29 = load i64, ptr %.atomictmp35, align 8
-  %30 = atomicrmw sub ptr @abandoned_count, i64 %29 monotonic, align 64
-  store i64 %30, ptr %atomic-temp36, align 8
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.then32, %do.end
-  %31 = load ptr, ptr %segment, align 8
-  store ptr %31, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end37, %if.then11
-  %32 = load ptr, ptr %retval, align 8
-  ret ptr %32
+define internal i32 @mi_page_get_expire(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.mi_page_s, ptr %3, i32 0, i32 6
+  %5 = load ptr, ptr %4, align 8, !tbaa !96
+  %6 = ptrtoint ptr %5 to i64
+  %7 = trunc i64 %6 to i32
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_reclaim(ptr noundef %segment, ptr noundef %heap, i64 noundef %requested_block_size, ptr noundef %right_page_reclaimed, ptr noundef %tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %segment.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %requested_block_size.addr = alloca i64, align 8
-  %right_page_reclaimed.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %requested_block_size, ptr %requested_block_size.addr, align 8
-  store ptr %right_page_reclaimed, ptr %right_page_reclaimed.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %right_page_reclaimed.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal zeroext i1 @mi_page_not_in_queue(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %4, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.mi_page_s, ptr %6, i32 0, i32 15
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %15, label %10
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %right_page_reclaimed.addr, align 8
-  store i8 0, ptr %1, align 1
-  br label %if.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %4, align 8, !tbaa !8
+  %12 = getelementptr inbounds nuw %struct.mi_page_s, ptr %11, i32 0, i32 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %call = call i64 @_mi_thread_id() #6
-  %2 = load ptr, ptr %segment.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 17
-  store atomic i64 %call, ptr %thread_id seq_cst, align 8
-  %3 = load ptr, ptr %segment.addr, align 8
-  %abandoned_visits = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 10
-  store i64 0, ptr %abandoned_visits, align 8
-  %4 = load ptr, ptr %segment.addr, align 8
-  %call1 = call i64 @mi_segment_size(ptr noundef %4) #6
-  %5 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segments_track_size(i64 noundef %call1, ptr noundef %5) #6
-  %6 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %stats, align 8
-  %segments_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %7, i32 0, i32 7
-  call void @_mi_stat_decrease(ptr noundef %segments_abandoned, i64 noundef 1) #6
-  %8 = load ptr, ptr %segment.addr, align 8
-  %call2 = call ptr @mi_slices_start_iterate(ptr noundef %8, ptr noundef %end) #6
-  store ptr %call2, ptr %slice, align 8
-  br label %while.cond
+15:                                               ; preds = %10, %2
+  store i1 false, ptr %3, align 1
+  br label %32
 
-while.cond:                                       ; preds = %if.end24, %if.end
-  %9 = load ptr, ptr %slice, align 8
-  %10 = load ptr, ptr %end, align 8
-  %cmp3 = icmp ult ptr %9, %10
-  br i1 %cmp3, label %while.body, label %while.end
+16:                                               ; preds = %10
+  %17 = load ptr, ptr %5, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %17, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !97
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  %22 = icmp ne ptr %20, %21
+  br i1 %22, label %23, label %30
 
-while.body:                                       ; preds = %while.cond
-  %11 = load ptr, ptr %slice, align 8
-  %call4 = call zeroext i1 @mi_slice_is_used(ptr noundef %11) #6
-  br i1 %call4, label %if.then5, label %if.else22
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %5, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %26, align 8, !tbaa !98
+  %28 = load ptr, ptr %4, align 8, !tbaa !8
+  %29 = icmp ne ptr %27, %28
+  br label %30
 
-if.then5:                                         ; preds = %while.body
-  %12 = load ptr, ptr %slice, align 8
-  %call6 = call ptr @mi_slice_to_page(ptr noundef %12) #6
-  store ptr %call6, ptr %page, align 8
-  %13 = load ptr, ptr %tld.addr, align 8
-  %stats7 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %stats7, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %14, i32 0, i32 8
-  call void @_mi_stat_decrease(ptr noundef %pages_abandoned, i64 noundef 1) #6
-  %15 = load ptr, ptr %segment.addr, align 8
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %15, i32 0, i32 9
-  %16 = load i64, ptr %abandoned, align 8
-  %dec = add i64 %16, -1
-  store i64 %dec, ptr %abandoned, align 8
-  %17 = load ptr, ptr %page, align 8
-  %18 = load ptr, ptr %heap.addr, align 8
-  call void @mi_page_set_heap(ptr noundef %17, ptr noundef %18) #6
-  %19 = load ptr, ptr %page, align 8
-  call void @_mi_page_use_delayed_free(ptr noundef %19, i32 noundef 0, i1 noundef zeroext true) #6
-  %20 = load ptr, ptr %page, align 8
-  call void @_mi_page_free_collect(ptr noundef %20, i1 noundef zeroext false) #6
-  %21 = load ptr, ptr %page, align 8
-  %call8 = call zeroext i1 @mi_page_all_free(ptr noundef %21) #6
-  br i1 %call8, label %if.then9, label %if.else
+30:                                               ; preds = %23, %16
+  %31 = phi i1 [ false, %16 ], [ %29, %23 ]
+  store i1 %31, ptr %3, align 1
+  br label %32
 
-if.then9:                                         ; preds = %if.then5
-  %22 = load ptr, ptr %page, align 8
-  %23 = load ptr, ptr %tld.addr, align 8
-  %call10 = call ptr @mi_segment_page_clear(ptr noundef %22, ptr noundef %23) #6
-  store ptr %call10, ptr %slice, align 8
-  br label %if.end21
+32:                                               ; preds = %30, %15
+  %33 = load i1, ptr %3, align 1
+  ret i1 %33
+}
 
-if.else:                                          ; preds = %if.then5
-  %24 = load ptr, ptr %heap.addr, align 8
-  %25 = load ptr, ptr %page, align 8
-  call void @_mi_page_reclaim(ptr noundef %24, ptr noundef %25) #6
-  %26 = load i64, ptr %requested_block_size.addr, align 8
-  %27 = load ptr, ptr %page, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %27, i32 0, i32 9
-  %28 = load i32, ptr %xblock_size, align 4
-  %conv = zext i32 %28 to i64
-  %cmp11 = icmp eq i64 %26, %conv
-  br i1 %cmp11, label %land.lhs.true, label %if.end20
+; Function Attrs: nounwind uwtable
+define internal void @mi_page_set_expire(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store i32 %1, ptr %4, align 4, !tbaa !83
+  %5 = load i32, ptr %4, align 4, !tbaa !83
+  %6 = zext i32 %5 to i64
+  %7 = inttoptr i64 %6 to ptr
+  %8 = load ptr, ptr %3, align 8, !tbaa !8
+  %9 = getelementptr inbounds nuw %struct.mi_page_s, ptr %8, i32 0, i32 6
+  store ptr %7, ptr %9, align 8, !tbaa !96
+  ret void
+}
 
-land.lhs.true:                                    ; preds = %if.else
-  %29 = load ptr, ptr %page, align 8
-  %call13 = call zeroext i1 @mi_page_has_any_available(ptr noundef %29) #6
-  br i1 %call13, label %if.then15, label %if.end20
+declare zeroext i1 @_mi_os_purge(ptr noundef, i64 noundef) #3
 
-if.then15:                                        ; preds = %land.lhs.true
-  %30 = load ptr, ptr %right_page_reclaimed.addr, align 8
-  %cmp16 = icmp ne ptr %30, null
-  br i1 %cmp16, label %if.then18, label %if.end19
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @_mi_ptr_segment(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !90
+  %5 = ptrtoint ptr %4 to i64
+  %6 = sub i64 %5, 1
+  %7 = and i64 %6, -4194304
+  %8 = inttoptr i64 %7 to ptr
+  store ptr %8, ptr %3, align 8, !tbaa !3
+  %9 = load ptr, ptr %3, align 8, !tbaa !3
+  %10 = ptrtoint ptr %9 to i64
+  %11 = icmp sle i64 %10, 0
+  br i1 %11, label %12, label %13
 
-if.then18:                                        ; preds = %if.then15
-  %31 = load ptr, ptr %right_page_reclaimed.addr, align 8
-  store i8 1, ptr %31, align 1
-  br label %if.end19
+12:                                               ; preds = %1
+  br label %15
 
-if.end19:                                         ; preds = %if.then18, %if.then15
-  br label %if.end20
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  br label %15
 
-if.end20:                                         ; preds = %if.end19, %land.lhs.true, %if.else
-  br label %if.end21
+15:                                               ; preds = %13, %12
+  %16 = phi ptr [ null, %12 ], [ %14, %13 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  ret ptr %16
+}
 
-if.end21:                                         ; preds = %if.end20, %if.then9
-  br label %if.end24
+declare void @_mi_stat_decrease(ptr noundef, i64 noundef) #3
 
-if.else22:                                        ; preds = %while.body
-  %32 = load ptr, ptr %slice, align 8
-  %33 = load ptr, ptr %tld.addr, align 8
-  %call23 = call ptr @mi_segment_span_free_coalesce(ptr noundef %32, ptr noundef %33) #6
-  store ptr %call23, ptr %slice, align 8
-  br label %if.end24
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @_mi_memzero(ptr noundef %0, i64 noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !90
+  store i64 %1, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !90
+  %6 = load i64, ptr %4, align 8, !tbaa !14
+  call void @llvm.memset.p0.i64(ptr align 1 %5, i8 0, i64 %6, i1 false)
+  ret void
+}
 
-if.end24:                                         ; preds = %if.else22, %if.end21
-  %34 = load ptr, ptr %slice, align 8
-  %35 = load ptr, ptr %slice, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %35, i32 0, i32 0
-  %36 = load i32, ptr %slice_count, align 8
-  %idx.ext = zext i32 %36 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %34, i64 %idx.ext
-  store ptr %add.ptr, ptr %slice, align 8
-  br label %while.cond, !llvm.loop !16
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_schedule_purge(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %8, i32 0, i32 2
+  %10 = load i8, ptr %9, align 1, !tbaa !95, !range !30, !noundef !31
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %13, label %12
 
-while.end:                                        ; preds = %while.cond
-  %37 = load ptr, ptr %segment.addr, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %37, i32 0, i32 11
-  %38 = load i64, ptr %used, align 8
-  %cmp25 = icmp eq i64 %38, 0
-  br i1 %cmp25, label %if.then27, label %if.else28
+12:                                               ; preds = %3
+  br label %55
 
-if.then27:                                        ; preds = %while.end
-  %39 = load ptr, ptr %segment.addr, align 8
-  %40 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_free(ptr noundef %39, i1 noundef zeroext false, ptr noundef %40) #6
-  store ptr null, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %3
+  %14 = call i64 @mi_option_get(i32 noundef 15) #8
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %16, label %20
 
-if.else28:                                        ; preds = %while.end
-  %41 = load ptr, ptr %segment.addr, align 8
-  store ptr %41, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %5, align 8, !tbaa !8
+  %19 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_page_purge(ptr noundef %17, ptr noundef %18, ptr noundef %19) #8
+  br label %55
 
-return:                                           ; preds = %if.else28, %if.then27
-  %42 = load ptr, ptr %retval, align 8
+20:                                               ; preds = %13
+  %21 = call i64 @mi_option_get(i32 noundef 15) #8
+  %22 = icmp sgt i64 %21, 0
+  br i1 %22, label %23, label %54
+
+23:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %24 = load ptr, ptr %6, align 8, !tbaa !28
+  %25 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %24, i32 0, i32 2
+  store ptr %25, ptr %7, align 8, !tbaa !32
+  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @mi_page_purge_set_expire(ptr noundef %26) #8
+  %27 = load ptr, ptr %7, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !40
+  %30 = load ptr, ptr %5, align 8, !tbaa !8
+  %31 = getelementptr inbounds nuw %struct.mi_page_s, ptr %30, i32 0, i32 15
+  store ptr %29, ptr %31, align 8, !tbaa !39
+  %32 = load ptr, ptr %5, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.mi_page_s, ptr %32, i32 0, i32 16
+  store ptr null, ptr %33, align 8, !tbaa !36
+  %34 = load ptr, ptr %7, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %44
+
+38:                                               ; preds = %23
+  %39 = load ptr, ptr %5, align 8, !tbaa !8
+  %40 = load ptr, ptr %7, align 8, !tbaa !32
+  %41 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %40, i32 0, i32 1
+  store ptr %39, ptr %41, align 8, !tbaa !34
+  %42 = load ptr, ptr %7, align 8, !tbaa !32
+  %43 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %42, i32 0, i32 0
+  store ptr %39, ptr %43, align 8, !tbaa !40
+  br label %53
+
+44:                                               ; preds = %23
+  %45 = load ptr, ptr %5, align 8, !tbaa !8
+  %46 = load ptr, ptr %7, align 8, !tbaa !32
+  %47 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %46, i32 0, i32 0
+  %48 = load ptr, ptr %47, align 8, !tbaa !40
+  %49 = getelementptr inbounds nuw %struct.mi_page_s, ptr %48, i32 0, i32 16
+  store ptr %45, ptr %49, align 8, !tbaa !36
+  %50 = load ptr, ptr %5, align 8, !tbaa !8
+  %51 = load ptr, ptr %7, align 8, !tbaa !32
+  %52 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %51, i32 0, i32 0
+  store ptr %50, ptr %52, align 8, !tbaa !40
+  br label %53
+
+53:                                               ; preds = %44, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %54
+
+54:                                               ; preds = %53, %20
+  br label %55
+
+55:                                               ; preds = %12, %54, %16
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_page_purge_set_expire(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  %4 = call i64 @_mi_clock_now() #8
+  %5 = trunc i64 %4 to i32
+  %6 = zext i32 %5 to i64
+  %7 = call i64 @mi_option_get(i32 noundef 15) #8
+  %8 = add nsw i64 %6, %7
+  %9 = trunc i64 %8 to i32
+  store i32 %9, ptr %3, align 4, !tbaa !83
+  %10 = load ptr, ptr %2, align 8, !tbaa !8
+  %11 = load i32, ptr %3, align 4, !tbaa !83
+  call void @mi_page_set_expire(ptr noundef %10, i32 noundef %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_remove_all_purges(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  %9 = zext i1 %1 to i8
+  store i8 %9, ptr %5, align 1, !tbaa !27
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %10, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %11, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !99, !range !30, !noundef !31
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %3
+  br label %57
+
+16:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store i64 0, ptr %7, align 8, !tbaa !14
+  br label %17
+
+17:                                               ; preds = %54, %16
+  %18 = load i64, ptr %7, align 8, !tbaa !14
+  %19 = load ptr, ptr %4, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %19, i32 0, i32 12
+  %21 = load i64, ptr %20, align 8, !tbaa !43
+  %22 = icmp ult i64 %18, %21
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  br label %57
+
+24:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %25, i32 0, i32 20
+  %27 = load i64, ptr %7, align 8, !tbaa !14
+  %28 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %26, i64 0, i64 %27
+  store ptr %28, ptr %8, align 8, !tbaa !8
+  %29 = load ptr, ptr %8, align 8, !tbaa !8
+  %30 = getelementptr inbounds nuw %struct.mi_page_s, ptr %29, i32 0, i32 1
+  %31 = load i8, ptr %30, align 1
+  %32 = and i8 %31, 1
+  %33 = icmp ne i8 %32, 0
+  br i1 %33, label %52, label %34
+
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %8, align 8, !tbaa !8
+  %36 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_page_purge_remove(ptr noundef %35, ptr noundef %36) #8
+  %37 = load i8, ptr %5, align 1, !tbaa !27, !range !30, !noundef !31
+  %38 = trunc i8 %37 to i1
+  br i1 %38, label %39, label %51
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %8, align 8, !tbaa !8
+  %41 = getelementptr inbounds nuw %struct.mi_page_s, ptr %40, i32 0, i32 1
+  %42 = load i8, ptr %41, align 1
+  %43 = lshr i8 %42, 1
+  %44 = and i8 %43, 1
+  %45 = zext i8 %44 to i32
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %4, align 8, !tbaa !3
+  %49 = load ptr, ptr %8, align 8, !tbaa !8
+  %50 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_page_purge(ptr noundef %48, ptr noundef %49, ptr noundef %50) #8
+  br label %51
+
+51:                                               ; preds = %47, %39, %34
+  br label %53
+
+52:                                               ; preds = %24
+  br label %53
+
+53:                                               ; preds = %52, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load i64, ptr %7, align 8, !tbaa !14
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %7, align 8, !tbaa !14
+  br label %17, !llvm.loop !100
+
+57:                                               ; preds = %15, %23
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_remove_from_free_queue(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = call ptr @mi_segment_free_queue(ptr noundef %7, ptr noundef %8) #8
+  store ptr %9, ptr %5, align 8, !tbaa !101
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #7
+  %10 = load ptr, ptr %5, align 8, !tbaa !101
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %30
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %3, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !103
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %28, label %17
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 6
+  %20 = load ptr, ptr %19, align 8, !tbaa !104
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %28, label %22
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8, !tbaa !101
+  %24 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !105
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = icmp eq ptr %25, %26
+  br label %28
+
+28:                                               ; preds = %22, %17, %12
+  %29 = phi i1 [ true, %17 ], [ true, %12 ], [ %27, %22 ]
+  br label %30
+
+30:                                               ; preds = %28, %2
+  %31 = phi i1 [ false, %2 ], [ %29, %28 ]
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %6, align 1, !tbaa !27
+  %33 = load i8, ptr %6, align 1, !tbaa !27, !range !30, !noundef !31
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %5, align 8, !tbaa !101
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @mi_segment_queue_remove(ptr noundef %36, ptr noundef %37) #8
+  br label %38
+
+38:                                               ; preds = %35, %30
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_os_free(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %12, i32 0, i32 17
+  store atomic i64 0, ptr %13 seq_cst, align 8, !tbaa !106
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_mi_segment_map_freed_at(ptr noundef %14) #8
+  %15 = load i64, ptr %5, align 8, !tbaa !14
+  %16 = sub nsw i64 0, %15
+  %17 = load ptr, ptr %6, align 8, !tbaa !28
+  call void @mi_segments_track_size(i64 noundef %16, ptr noundef %17) #8
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 7
+  %20 = load i8, ptr %19, align 8, !tbaa !60, !range !30, !noundef !31
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %29
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %6, align 8, !tbaa !28
+  %24 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %23, i32 0, i32 7
+  %25 = load i64, ptr %24, align 8, !tbaa !61
+  %26 = add i64 %25, -1
+  store i64 %26, ptr %24, align 8, !tbaa !61
+  %27 = load ptr, ptr %4, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %27, i32 0, i32 7
+  store i8 0, ptr %28, align 8, !tbaa !60
+  br label %29
+
+29:                                               ; preds = %22, %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #7
+  store i8 1, ptr %7, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %30 = load ptr, ptr %4, align 8, !tbaa !3
+  %31 = call i64 @mi_segment_raw_page_size(ptr noundef %30) #8
+  store i64 %31, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !14
+  br label %32
+
+32:                                               ; preds = %63, %29
+  %33 = load i64, ptr %10, align 8, !tbaa !14
+  %34 = load ptr, ptr %4, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %34, i32 0, i32 12
+  %36 = load i64, ptr %35, align 8, !tbaa !43
+  %37 = icmp ult i64 %33, %36
+  br i1 %37, label %39, label %38
+
+38:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %66
+
+39:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %40 = load ptr, ptr %4, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %40, i32 0, i32 20
+  %42 = load i64, ptr %10, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %41, i64 0, i64 %42
+  store ptr %43, ptr %11, align 8, !tbaa !8
+  %44 = load ptr, ptr %11, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.mi_page_s, ptr %44, i32 0, i32 1
+  %46 = load i8, ptr %45, align 1
+  %47 = lshr i8 %46, 1
+  %48 = and i8 %47, 1
+  %49 = icmp ne i8 %48, 0
+  br i1 %49, label %50, label %54
+
+50:                                               ; preds = %39
+  %51 = load i64, ptr %9, align 8, !tbaa !14
+  %52 = load i64, ptr %8, align 8, !tbaa !14
+  %53 = add i64 %52, %51
+  store i64 %53, ptr %8, align 8, !tbaa !14
+  br label %54
+
+54:                                               ; preds = %50, %39
+  %55 = load ptr, ptr %11, align 8, !tbaa !8
+  %56 = getelementptr inbounds nuw %struct.mi_page_s, ptr %55, i32 0, i32 1
+  %57 = load i8, ptr %56, align 1
+  %58 = lshr i8 %57, 1
+  %59 = and i8 %58, 1
+  %60 = icmp ne i8 %59, 0
+  br i1 %60, label %62, label %61
+
+61:                                               ; preds = %54
+  store i8 0, ptr %7, align 1, !tbaa !27
+  br label %62
+
+62:                                               ; preds = %61, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load i64, ptr %10, align 8, !tbaa !14
+  %65 = add i64 %64, 1
+  store i64 %65, ptr %10, align 8, !tbaa !14
+  br label %32, !llvm.loop !107
+
+66:                                               ; preds = %38
+  %67 = load ptr, ptr %4, align 8, !tbaa !3
+  %68 = load i64, ptr %5, align 8, !tbaa !14
+  %69 = load i64, ptr %8, align 8, !tbaa !14
+  %70 = load ptr, ptr %4, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %70, i32 0, i32 0
+  call void @_mi_arena_free(ptr noundef %67, i64 noundef %68, i64 noundef %69, ptr noundef byval(%struct.mi_memid_s) align 8 %71) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #7
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_free_queue(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %5, i32 0, i32 19
+  %7 = load i32, ptr %6, align 8, !tbaa !44
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = call ptr @mi_segment_free_queue_of_kind(i32 noundef %7, ptr noundef %8) #8
+  ret ptr %9
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_queue_remove(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %5, i32 0, i32 6
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %17
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %10, i32 0, i32 5
+  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %13, i32 0, i32 6
+  %15 = load ptr, ptr %14, align 8, !tbaa !104
+  %16 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %15, i32 0, i32 5
+  store ptr %12, ptr %16, align 8, !tbaa !103
+  br label %17
+
+17:                                               ; preds = %9, %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !103
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %30
+
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %4, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %23, i32 0, i32 6
+  %25 = load ptr, ptr %24, align 8, !tbaa !104
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !103
+  %29 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %28, i32 0, i32 6
+  store ptr %25, ptr %29, align 8, !tbaa !104
+  br label %30
+
+30:                                               ; preds = %22, %17
+  %31 = load ptr, ptr %4, align 8, !tbaa !3
+  %32 = load ptr, ptr %3, align 8, !tbaa !101
+  %33 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !105
+  %35 = icmp eq ptr %31, %34
+  br i1 %35, label %36, label %42
+
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8, !tbaa !103
+  %40 = load ptr, ptr %3, align 8, !tbaa !101
+  %41 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %40, i32 0, i32 0
+  store ptr %39, ptr %41, align 8, !tbaa !105
+  br label %42
+
+42:                                               ; preds = %36, %30
+  %43 = load ptr, ptr %4, align 8, !tbaa !3
+  %44 = load ptr, ptr %3, align 8, !tbaa !101
+  %45 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !108
+  %47 = icmp eq ptr %43, %46
+  br i1 %47, label %48, label %54
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %49, i32 0, i32 6
+  %51 = load ptr, ptr %50, align 8, !tbaa !104
+  %52 = load ptr, ptr %3, align 8, !tbaa !101
+  %53 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %52, i32 0, i32 1
+  store ptr %51, ptr %53, align 8, !tbaa !108
+  br label %54
+
+54:                                               ; preds = %48, %42
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %55, i32 0, i32 5
+  store ptr null, ptr %56, align 8, !tbaa !103
+  %57 = load ptr, ptr %4, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %57, i32 0, i32 6
+  store ptr null, ptr %58, align 8, !tbaa !104
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_free_queue_of_kind(i32 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store i32 %0, ptr %4, align 4, !tbaa !83
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  %6 = load i32, ptr %4, align 4, !tbaa !83
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %11
+
+8:                                                ; preds = %2
+  %9 = load ptr, ptr %5, align 8, !tbaa !28
+  %10 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %9, i32 0, i32 0
+  store ptr %10, ptr %3, align 8
+  br label %18
+
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !83
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %5, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %15, i32 0, i32 1
+  store ptr %16, ptr %3, align 8
+  br label %18
+
+17:                                               ; preds = %11
+  store ptr null, ptr %3, align 8
+  br label %18
+
+18:                                               ; preds = %17, %14, %8
+  %19 = load ptr, ptr %3, align 8
+  ret ptr %19
+}
+
+declare void @_mi_segment_map_freed_at(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segments_track_size(i64 noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !14
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load i64, ptr %3, align 8, !tbaa !14
+  %6 = icmp sge i64 %5, 0
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %8, i32 0, i32 9
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  %11 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %10, i32 0, i32 0
+  call void @_mi_stat_increase(ptr noundef %11, i64 noundef 1) #8
+  br label %17
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !28
+  %14 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %13, i32 0, i32 9
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %16 = getelementptr inbounds nuw %struct.mi_stats_s, ptr %15, i32 0, i32 0
+  call void @_mi_stat_decrease(ptr noundef %16, i64 noundef 1) #8
+  br label %17
+
+17:                                               ; preds = %12, %7
+  %18 = load i64, ptr %3, align 8, !tbaa !14
+  %19 = icmp sge i64 %18, 0
+  %20 = select i1 %19, i32 1, i32 -1
+  %21 = sext i32 %20 to i64
+  %22 = load ptr, ptr %4, align 8, !tbaa !28
+  %23 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %22, i32 0, i32 3
+  %24 = load i64, ptr %23, align 8, !tbaa !84
+  %25 = add i64 %24, %21
+  store i64 %25, ptr %23, align 8, !tbaa !84
+  %26 = load ptr, ptr %4, align 8, !tbaa !28
+  %27 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %26, i32 0, i32 3
+  %28 = load i64, ptr %27, align 8, !tbaa !84
+  %29 = load ptr, ptr %4, align 8, !tbaa !28
+  %30 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %29, i32 0, i32 4
+  %31 = load i64, ptr %30, align 8, !tbaa !109
+  %32 = icmp ugt i64 %28, %31
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %17
+  %34 = load ptr, ptr %4, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %34, i32 0, i32 3
+  %36 = load i64, ptr %35, align 8, !tbaa !84
+  %37 = load ptr, ptr %4, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %37, i32 0, i32 4
+  store i64 %36, ptr %38, align 8, !tbaa !109
+  br label %39
+
+39:                                               ; preds = %33, %17
+  %40 = load i64, ptr %3, align 8, !tbaa !14
+  %41 = load ptr, ptr %4, align 8, !tbaa !28
+  %42 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %41, i32 0, i32 5
+  %43 = load i64, ptr %42, align 8, !tbaa !110
+  %44 = add i64 %43, %40
+  store i64 %44, ptr %42, align 8, !tbaa !110
+  %45 = load ptr, ptr %4, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %45, i32 0, i32 5
+  %47 = load i64, ptr %46, align 8, !tbaa !110
+  %48 = load ptr, ptr %4, align 8, !tbaa !28
+  %49 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %48, i32 0, i32 6
+  %50 = load i64, ptr %49, align 8, !tbaa !111
+  %51 = icmp ugt i64 %47, %50
+  br i1 %51, label %52, label %58
+
+52:                                               ; preds = %39
+  %53 = load ptr, ptr %4, align 8, !tbaa !28
+  %54 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %53, i32 0, i32 5
+  %55 = load i64, ptr %54, align 8, !tbaa !110
+  %56 = load ptr, ptr %4, align 8, !tbaa !28
+  %57 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %56, i32 0, i32 6
+  store i64 %55, ptr %57, align 8, !tbaa !111
+  br label %58
+
+58:                                               ; preds = %52, %39
+  ret void
+}
+
+declare void @_mi_arena_free(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) #3
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_enqueue(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %5, i32 0, i32 5
+  store ptr null, ptr %6, align 8, !tbaa !103
+  %7 = load ptr, ptr %3, align 8, !tbaa !101
+  %8 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !108
+  %10 = load ptr, ptr %4, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %10, i32 0, i32 6
+  store ptr %9, ptr %11, align 8, !tbaa !104
+  %12 = load ptr, ptr %3, align 8, !tbaa !101
+  %13 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !108
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %25
+
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %4, align 8, !tbaa !3
+  %18 = load ptr, ptr %3, align 8, !tbaa !101
+  %19 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !108
+  %21 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %20, i32 0, i32 5
+  store ptr %17, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %4, align 8, !tbaa !3
+  %23 = load ptr, ptr %3, align 8, !tbaa !101
+  %24 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %23, i32 0, i32 1
+  store ptr %22, ptr %24, align 8, !tbaa !108
+  br label %31
+
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = load ptr, ptr %3, align 8, !tbaa !101
+  %28 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %27, i32 0, i32 0
+  store ptr %26, ptr %28, align 8, !tbaa !105
+  %29 = load ptr, ptr %3, align 8, !tbaa !101
+  %30 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %29, i32 0, i32 1
+  store ptr %26, ptr %30, align 8, !tbaa !108
+  br label %31
+
+31:                                               ; preds = %25, %16
+  ret void
+}
+
+declare zeroext i1 @mi_option_is_enabled(i32 noundef) #3
+
+declare void @_mi_arena_segment_mark_abandoned(ptr noundef) #3
+
+declare i64 @_mi_thread_id() #3
+
+declare ptr @_mi_heap_by_tag(ptr noundef, i8 noundef zeroext) #3
+
+declare void @_mi_error_message(i32 noundef, ptr noundef, ...) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @mi_page_set_heap(ptr noundef %0, ptr noundef %1) #2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !8
+  store ptr %1, ptr %4, align 8, !tbaa !62
+  %6 = load ptr, ptr %3, align 8, !tbaa !8
+  %7 = getelementptr inbounds nuw %struct.mi_page_s, ptr %6, i32 0, i32 14
+  %8 = load ptr, ptr %4, align 8, !tbaa !62
+  %9 = ptrtoint ptr %8 to i64
+  store i64 %9, ptr %5, align 8, !tbaa !14
+  %10 = load i64, ptr %5, align 8
+  store atomic i64 %10, ptr %7 release, align 8
+  %11 = load ptr, ptr %4, align 8, !tbaa !62
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !62
+  %15 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %14, i32 0, i32 12
+  %16 = load i8, ptr %15, align 1, !tbaa !79
+  %17 = load ptr, ptr %3, align 8, !tbaa !8
+  %18 = getelementptr inbounds nuw %struct.mi_page_s, ptr %17, i32 0, i32 10
+  store i8 %16, ptr %18, align 1, !tbaa !52
+  br label %19
+
+19:                                               ; preds = %13, %2
+  ret void
+}
+
+declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) #3
+
+declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @mi_page_all_free(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.mi_page_s, ptr %3, i32 0, i32 8
+  %5 = load i16, ptr %4, align 8, !tbaa !112
+  %6 = zext i16 %5 to i32
+  %7 = icmp eq i32 %6, 0
+  ret i1 %7
+}
+
+declare void @_mi_page_reclaim(ptr noundef, ptr noundef) #3
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @mi_page_has_any_available(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.mi_page_s, ptr %3, i32 0, i32 8
+  %5 = load i16, ptr %4, align 8, !tbaa !112
+  %6 = zext i16 %5 to i32
+  %7 = load ptr, ptr %2, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw %struct.mi_page_s, ptr %7, i32 0, i32 3
+  %9 = load i16, ptr %8, align 4, !tbaa !55
+  %10 = zext i16 %9 to i32
+  %11 = icmp slt i32 %6, %10
+  br i1 %11, label %16, label %12
+
+12:                                               ; preds = %1
+  %13 = load ptr, ptr %2, align 8, !tbaa !8
+  %14 = call ptr @mi_page_thread_free(ptr noundef %13) #8
+  %15 = icmp ne ptr %14, null
+  br label %16
+
+16:                                               ; preds = %12, %1
+  %17 = phi i1 [ true, %1 ], [ %15, %12 ]
+  ret i1 %17
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_segment_has_free(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %3, i32 0, i32 11
+  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %6, i32 0, i32 12
+  %8 = load i64, ptr %7, align 8, !tbaa !43
+  %9 = icmp ult i64 %5, %8
+  ret i1 %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @mi_page_thread_free(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %4 = load ptr, ptr %2, align 8, !tbaa !8
+  %5 = getelementptr inbounds nuw %struct.mi_page_s, ptr %4, i32 0, i32 13
+  %6 = load atomic i64, ptr %5 monotonic, align 8
+  store i64 %6, ptr %3, align 8
+  %7 = load i64, ptr %3, align 8, !tbaa !14
+  %8 = and i64 %7, -4
+  %9 = inttoptr i64 %8 to ptr
+  ret ptr %9
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal zeroext i1 @mi_page_is_huge(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8, !tbaa !8
+  %4 = getelementptr inbounds nuw %struct.mi_page_s, ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 1
+  %6 = lshr i8 %5, 3
+  %7 = and i8 %6, 1
+  %8 = icmp ne i8 %7, 0
+  ret i1 %8
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_force_abandon(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %8 = load ptr, ptr %3, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %8, i32 0, i32 8
+  store i8 1, ptr %9, align 1, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store i64 0, ptr %5, align 8, !tbaa !14
+  br label %10
+
+10:                                               ; preds = %47, %2
+  %11 = load i64, ptr %5, align 8, !tbaa !14
+  %12 = load ptr, ptr %3, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %12, i32 0, i32 12
+  %14 = load i64, ptr %13, align 8, !tbaa !43
+  %15 = icmp ult i64 %11, %14
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %10
+  store i32 2, ptr %6, align 4
+  br label %50
+
+17:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  %18 = load ptr, ptr %3, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 20
+  %20 = load i64, ptr %5, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %19, i64 0, i64 %20
+  store ptr %21, ptr %7, align 8, !tbaa !8
+  %22 = load ptr, ptr %7, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.mi_page_s, ptr %22, i32 0, i32 1
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, 1
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %27, label %43
+
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %3, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %28, i32 0, i32 11
+  %30 = load i64, ptr %29, align 8, !tbaa !41
+  %31 = load ptr, ptr %3, align 8, !tbaa !3
+  %32 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %31, i32 0, i32 9
+  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %34 = add i64 %33, 1
+  %35 = icmp eq i64 %30, %34
+  br i1 %35, label %36, label %40
+
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %3, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %37, i32 0, i32 8
+  store i8 0, ptr %38, align 1, !tbaa !56
+  %39 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @_mi_page_force_abandon(ptr noundef %39) #8
+  store i32 1, ptr %6, align 4
+  br label %44
+
+40:                                               ; preds = %27
+  %41 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @_mi_page_force_abandon(ptr noundef %41) #8
+  br label %42
+
+42:                                               ; preds = %40
+  br label %43
+
+43:                                               ; preds = %42, %17
+  store i32 0, ptr %6, align 4
+  br label %44
+
+44:                                               ; preds = %43, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  %45 = load i32, ptr %6, align 4
+  switch i32 %45, label %50 [
+    i32 0, label %46
+  ]
+
+46:                                               ; preds = %44
+  br label %47
+
+47:                                               ; preds = %46
+  %48 = load i64, ptr %5, align 8, !tbaa !14
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %5, align 8, !tbaa !14
+  br label %10, !llvm.loop !113
+
+50:                                               ; preds = %44, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %51 = load i32, ptr %6, align 4
+  switch i32 %51, label %65 [
+    i32 2, label %52
+    i32 1, label %64
+  ]
+
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %3, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %53, i32 0, i32 8
+  store i8 0, ptr %54, align 1, !tbaa !56
+  %55 = load ptr, ptr %3, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %55, i32 0, i32 11
+  %57 = load i64, ptr %56, align 8, !tbaa !41
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %59, label %62
+
+59:                                               ; preds = %52
+  %60 = load ptr, ptr %3, align 8, !tbaa !3
+  %61 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segment_free(ptr noundef %60, i1 noundef zeroext false, ptr noundef %61) #8
+  br label %64
+
+62:                                               ; preds = %52
+  %63 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_pages_try_purge(i1 noundef zeroext false, ptr noundef %63) #8
+  br label %64
+
+64:                                               ; preds = %50, %62, %59
+  ret void
+
+65:                                               ; preds = %50
+  unreachable
+}
+
+declare void @_mi_page_force_abandon(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_alloc(i64 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca ptr, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i8, align 1
+  %20 = alloca i8, align 1
+  %21 = alloca i8, align 1
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i64, align 8
+  %25 = alloca i8, align 1
+  %26 = alloca i64, align 8
+  store i64 %0, ptr %8, align 8, !tbaa !14
+  store i32 %1, ptr %9, align 4, !tbaa !83
+  store i64 %2, ptr %10, align 8, !tbaa !14
+  store i64 %3, ptr %11, align 8, !tbaa !14
+  store i32 %4, ptr %12, align 4, !tbaa !83
+  store ptr %5, ptr %13, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  %27 = load i32, ptr %9, align 4, !tbaa !83
+  %28 = icmp eq i32 %27, 3
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %6
+  store i64 1, ptr %14, align 8, !tbaa !14
+  br label %35
+
+30:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %31 = load i64, ptr %10, align 8, !tbaa !14
+  %32 = shl i64 1, %31
+  store i64 %32, ptr %15, align 8, !tbaa !14
+  %33 = load i64, ptr %15, align 8, !tbaa !14
+  %34 = udiv i64 4194304, %33
+  store i64 %34, ptr %14, align 8, !tbaa !14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %35
+
+35:                                               ; preds = %30, %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  %36 = load i64, ptr %14, align 8, !tbaa !14
+  %37 = load i64, ptr %8, align 8, !tbaa !14
+  %38 = call i64 @mi_segment_calculate_sizes(i64 noundef %36, i64 noundef %37, ptr noundef %17, ptr noundef %16) #8
+  store i64 %38, ptr %18, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %39 = load i32, ptr %9, align 4, !tbaa !83
+  %40 = icmp ule i32 %39, 1
+  br i1 %40, label %41, label %50
+
+41:                                               ; preds = %35
+  %42 = call i64 @_mi_current_thread_count() #8
+  %43 = icmp ugt i64 %42, 1
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %13, align 8, !tbaa !28
+  %46 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %45, i32 0, i32 4
+  %47 = load i64, ptr %46, align 8, !tbaa !109
+  %48 = call i64 @mi_option_get(i32 noundef 14) #8
+  %49 = icmp ult i64 %47, %48
+  br label %50
+
+50:                                               ; preds = %44, %41, %35
+  %51 = phi i1 [ false, %41 ], [ false, %35 ], [ %49, %44 ]
+  %52 = zext i1 %51 to i8
+  store i8 %52, ptr %19, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  %53 = load i8, ptr %19, align 1, !tbaa !27, !range !30, !noundef !31
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %57, label %55
+
+55:                                               ; preds = %50
+  %56 = call zeroext i1 @mi_option_is_enabled(i32 noundef 3) #8
+  br label %57
+
+57:                                               ; preds = %55, %50
+  %58 = phi i1 [ false, %50 ], [ %56, %55 ]
+  %59 = zext i1 %58 to i8
+  store i8 %59, ptr %20, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #7
+  %60 = load i8, ptr %20, align 1, !tbaa !27, !range !30, !noundef !31
+  %61 = trunc i8 %60 to i1
+  %62 = zext i1 %61 to i8
+  store i8 %62, ptr %21, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %63 = load i8, ptr %19, align 1, !tbaa !27, !range !30, !noundef !31
+  %64 = trunc i8 %63 to i1
+  %65 = load i64, ptr %11, align 8, !tbaa !14
+  %66 = load i32, ptr %12, align 4, !tbaa !83
+  %67 = load i64, ptr %17, align 8, !tbaa !14
+  %68 = load i64, ptr %16, align 8, !tbaa !14
+  %69 = load i8, ptr %21, align 1, !tbaa !27, !range !30, !noundef !31
+  %70 = trunc i8 %69 to i1
+  %71 = load i64, ptr %18, align 8, !tbaa !14
+  %72 = load ptr, ptr %13, align 8, !tbaa !28
+  %73 = call ptr @mi_segment_os_alloc(i1 noundef zeroext %64, i64 noundef %65, i32 noundef %66, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %70, i64 noundef %71, ptr noundef %72) #8
+  store ptr %73, ptr %22, align 8, !tbaa !3
+  %74 = load ptr, ptr %22, align 8, !tbaa !3
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %57
+  store ptr null, ptr %7, align 8
+  store i32 1, ptr %23, align 4
+  br label %176
+
+77:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #7
+  store i64 48, ptr %24, align 8, !tbaa !14
+  %78 = load ptr, ptr %22, align 8, !tbaa !3
+  %79 = load i64, ptr %24, align 8, !tbaa !14
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %81 = load i64, ptr %16, align 8, !tbaa !14
+  %82 = load i64, ptr %24, align 8, !tbaa !14
+  %83 = sub i64 %81, %82
+  call void @_mi_memzero(ptr noundef %80, i64 noundef %83) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %25) #7
+  %84 = load i32, ptr %9, align 4, !tbaa !83
+  %85 = icmp eq i32 %84, 3
+  %86 = zext i1 %85 to i8
+  store i8 %86, ptr %25, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  store i64 0, ptr %26, align 8, !tbaa !14
+  br label %87
+
+87:                                               ; preds = %145, %77
+  %88 = load i64, ptr %26, align 8, !tbaa !14
+  %89 = load i64, ptr %14, align 8, !tbaa !14
+  %90 = icmp ult i64 %88, %89
+  br i1 %90, label %92, label %91
+
+91:                                               ; preds = %87
+  store i32 2, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  br label %148
+
+92:                                               ; preds = %87
+  %93 = load i64, ptr %26, align 8, !tbaa !14
+  %94 = trunc i64 %93 to i8
+  %95 = load ptr, ptr %22, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %95, i32 0, i32 20
+  %97 = load i64, ptr %26, align 8, !tbaa !14
+  %98 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %96, i64 0, i64 %97
+  %99 = getelementptr inbounds nuw %struct.mi_page_s, ptr %98, i32 0, i32 0
+  store i8 %94, ptr %99, align 8, !tbaa !16
+  %100 = load ptr, ptr %22, align 8, !tbaa !3
+  %101 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %101, i32 0, i32 2
+  %103 = load i8, ptr %102, align 1, !tbaa !114, !range !30, !noundef !31
+  %104 = trunc i8 %103 to i1
+  %105 = zext i1 %104 to i8
+  %106 = load ptr, ptr %22, align 8, !tbaa !3
+  %107 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %106, i32 0, i32 20
+  %108 = load i64, ptr %26, align 8, !tbaa !14
+  %109 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %107, i64 0, i64 %108
+  %110 = getelementptr inbounds nuw %struct.mi_page_s, ptr %109, i32 0, i32 1
+  %111 = load i8, ptr %110, align 1
+  %112 = and i8 %105, 1
+  %113 = shl i8 %112, 1
+  %114 = and i8 %111, -3
+  %115 = or i8 %114, %113
+  store i8 %115, ptr %110, align 1
+  %116 = load ptr, ptr %22, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %116, i32 0, i32 0
+  %118 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %117, i32 0, i32 3
+  %119 = load i8, ptr %118, align 2, !tbaa !115, !range !30, !noundef !31
+  %120 = trunc i8 %119 to i1
+  %121 = zext i1 %120 to i8
+  %122 = load ptr, ptr %22, align 8, !tbaa !3
+  %123 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %122, i32 0, i32 20
+  %124 = load i64, ptr %26, align 8, !tbaa !14
+  %125 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %123, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw %struct.mi_page_s, ptr %125, i32 0, i32 1
+  %127 = load i8, ptr %126, align 1
+  %128 = and i8 %121, 1
+  %129 = shl i8 %128, 2
+  %130 = and i8 %127, -5
+  %131 = or i8 %130, %129
+  store i8 %131, ptr %126, align 1
+  %132 = load i8, ptr %25, align 1, !tbaa !27, !range !30, !noundef !31
+  %133 = trunc i8 %132 to i1
+  %134 = zext i1 %133 to i8
+  %135 = load ptr, ptr %22, align 8, !tbaa !3
+  %136 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %135, i32 0, i32 20
+  %137 = load i64, ptr %26, align 8, !tbaa !14
+  %138 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %136, i64 0, i64 %137
+  %139 = getelementptr inbounds nuw %struct.mi_page_s, ptr %138, i32 0, i32 1
+  %140 = load i8, ptr %139, align 1
+  %141 = and i8 %134, 1
+  %142 = shl i8 %141, 3
+  %143 = and i8 %140, -9
+  %144 = or i8 %143, %142
+  store i8 %144, ptr %139, align 1
+  br label %145
+
+145:                                              ; preds = %92
+  %146 = load i64, ptr %26, align 8, !tbaa !14
+  %147 = add i64 %146, 1
+  store i64 %147, ptr %26, align 8, !tbaa !14
+  br label %87, !llvm.loop !116
+
+148:                                              ; preds = %91
+  %149 = load i32, ptr %9, align 4, !tbaa !83
+  %150 = load ptr, ptr %22, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %150, i32 0, i32 19
+  store i32 %149, ptr %151, align 8, !tbaa !44
+  %152 = load i64, ptr %14, align 8, !tbaa !14
+  %153 = load ptr, ptr %22, align 8, !tbaa !3
+  %154 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %153, i32 0, i32 12
+  store i64 %152, ptr %154, align 8, !tbaa !43
+  %155 = load i64, ptr %10, align 8, !tbaa !14
+  %156 = load ptr, ptr %22, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %156, i32 0, i32 18
+  store i64 %155, ptr %157, align 8, !tbaa !94
+  %158 = load i64, ptr %17, align 8, !tbaa !14
+  %159 = load ptr, ptr %22, align 8, !tbaa !3
+  %160 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %159, i32 0, i32 13
+  store i64 %158, ptr %160, align 8, !tbaa !20
+  %161 = call i64 @_mi_thread_id() #8
+  %162 = load ptr, ptr %22, align 8, !tbaa !3
+  %163 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %162, i32 0, i32 17
+  store atomic i64 %161, ptr %163 seq_cst, align 8, !tbaa !106
+  %164 = load ptr, ptr %22, align 8, !tbaa !3
+  %165 = call i64 @_mi_ptr_cookie(ptr noundef %164) #8
+  %166 = load ptr, ptr %22, align 8, !tbaa !3
+  %167 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %166, i32 0, i32 14
+  store i64 %165, ptr %167, align 8, !tbaa !117
+  %168 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @mi_segment_protect(ptr noundef %168, i1 noundef zeroext true) #8
+  %169 = load i32, ptr %9, align 4, !tbaa !83
+  %170 = icmp ule i32 %169, 1
+  br i1 %170, label %171, label %174
+
+171:                                              ; preds = %148
+  %172 = load ptr, ptr %22, align 8, !tbaa !3
+  %173 = load ptr, ptr %13, align 8, !tbaa !28
+  call void @mi_segment_insert_in_free_queue(ptr noundef %172, ptr noundef %173) #8
+  br label %174
+
+174:                                              ; preds = %171, %148
+  %175 = load ptr, ptr %22, align 8, !tbaa !3
+  store ptr %175, ptr %7, align 8
+  store i32 1, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #7
+  br label %176
+
+176:                                              ; preds = %174, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %177 = load ptr, ptr %7, align 8
+  ret ptr %177
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_find_free(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store i64 0, ptr %6, align 8, !tbaa !14
+  br label %10
+
+10:                                               ; preds = %45, %2
+  %11 = load i64, ptr %6, align 8, !tbaa !14
+  %12 = load ptr, ptr %4, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %12, i32 0, i32 12
+  %14 = load i64, ptr %13, align 8, !tbaa !43
+  %15 = icmp ult i64 %11, %14
+  br i1 %15, label %17, label %16
+
+16:                                               ; preds = %10
+  store i32 2, ptr %7, align 4
+  br label %48
+
+17:                                               ; preds = %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %18, i32 0, i32 20
+  %20 = load i64, ptr %6, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %19, i64 0, i64 %20
+  store ptr %21, ptr %8, align 8, !tbaa !8
+  %22 = load ptr, ptr %8, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.mi_page_s, ptr %22, i32 0, i32 1
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, 1
+  %26 = icmp ne i8 %25, 0
+  br i1 %26, label %41, label %27
+
+27:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  %28 = load ptr, ptr %4, align 8, !tbaa !3
+  %29 = load ptr, ptr %8, align 8, !tbaa !8
+  %30 = load ptr, ptr %5, align 8, !tbaa !28
+  %31 = call zeroext i1 @mi_segment_page_claim(ptr noundef %28, ptr noundef %29, ptr noundef %30) #8
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %9, align 1, !tbaa !27
+  %33 = load i8, ptr %9, align 1, !tbaa !27, !range !30, !noundef !31
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %8, align 8, !tbaa !8
+  store ptr %36, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %38
+
+37:                                               ; preds = %27
+  store i32 0, ptr %7, align 4
+  br label %38
+
+38:                                               ; preds = %37, %35
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  %39 = load i32, ptr %7, align 4
+  switch i32 %39, label %42 [
+    i32 0, label %40
+  ]
+
+40:                                               ; preds = %38
+  br label %41
+
+41:                                               ; preds = %40, %17
+  store i32 0, ptr %7, align 4
+  br label %42
+
+42:                                               ; preds = %41, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %43 = load i32, ptr %7, align 4
+  switch i32 %43, label %48 [
+    i32 0, label %44
+  ]
+
+44:                                               ; preds = %42
+  br label %45
+
+45:                                               ; preds = %44
+  %46 = load i64, ptr %6, align 8, !tbaa !14
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %6, align 8, !tbaa !14
+  br label %10, !llvm.loop !118
+
+48:                                               ; preds = %42, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %49 = load i32, ptr %7, align 4
+  switch i32 %49, label %53 [
+    i32 2, label %50
+    i32 1, label %51
+  ]
+
+50:                                               ; preds = %48
+  store ptr null, ptr %3, align 8
+  br label %51
+
+51:                                               ; preds = %50, %48
+  %52 = load ptr, ptr %3, align 8
+  ret ptr %52
+
+53:                                               ; preds = %48
+  unreachable
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @_mi_align_up(i64 noundef %0, i64 noundef %1) #2 {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
+  store i64 %0, ptr %4, align 8, !tbaa !14
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load i64, ptr %5, align 8, !tbaa !14
+  %9 = sub i64 %8, 1
+  store i64 %9, ptr %6, align 8, !tbaa !14
+  %10 = load i64, ptr %5, align 8, !tbaa !14
+  %11 = load i64, ptr %6, align 8, !tbaa !14
+  %12 = and i64 %10, %11
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %21
+
+14:                                               ; preds = %2
+  %15 = load i64, ptr %4, align 8, !tbaa !14
+  %16 = load i64, ptr %6, align 8, !tbaa !14
+  %17 = add i64 %15, %16
+  %18 = load i64, ptr %6, align 8, !tbaa !14
+  %19 = xor i64 %18, -1
+  %20 = and i64 %17, %19
+  store i64 %20, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %29
+
+21:                                               ; preds = %2
+  %22 = load i64, ptr %4, align 8, !tbaa !14
+  %23 = load i64, ptr %6, align 8, !tbaa !14
+  %24 = add i64 %22, %23
+  %25 = load i64, ptr %5, align 8, !tbaa !14
+  %26 = udiv i64 %24, %25
+  %27 = load i64, ptr %5, align 8, !tbaa !14
+  %28 = mul i64 %26, %27
+  store i64 %28, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %29
+
+29:                                               ; preds = %21, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %30 = load i64, ptr %3, align 8
+  ret i64 %30
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @mi_segment_calculate_sizes(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  store i64 %0, ptr %5, align 8, !tbaa !14
+  store i64 %1, ptr %6, align 8, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !10
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %12 = load i64, ptr %5, align 8, !tbaa !14
+  %13 = sub i64 %12, 1
+  %14 = mul i64 %13, 80
+  %15 = add i64 240, %14
+  %16 = add i64 %15, 16
+  store i64 %16, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  store i64 0, ptr %11, align 8, !tbaa !14
+  %17 = load i64, ptr %9, align 8, !tbaa !14
+  %18 = call i64 @_mi_align_up(i64 noundef %17, i64 noundef 256) #8
+  store i64 %18, ptr %11, align 8, !tbaa !14
+  %19 = load ptr, ptr %8, align 8, !tbaa !10
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %24
+
+21:                                               ; preds = %4
+  %22 = load i64, ptr %11, align 8, !tbaa !14
+  %23 = load ptr, ptr %8, align 8, !tbaa !10
+  store i64 %22, ptr %23, align 8, !tbaa !14
+  br label %24
+
+24:                                               ; preds = %21, %4
+  %25 = load ptr, ptr %7, align 8, !tbaa !10
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %24
+  %28 = load i64, ptr %11, align 8, !tbaa !14
+  %29 = load i64, ptr %10, align 8, !tbaa !14
+  %30 = add i64 %28, %29
+  %31 = load ptr, ptr %7, align 8, !tbaa !10
+  store i64 %30, ptr %31, align 8, !tbaa !14
+  br label %32
+
+32:                                               ; preds = %27, %24
+  %33 = load i64, ptr %6, align 8, !tbaa !14
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %32
+  br label %44
+
+36:                                               ; preds = %32
+  %37 = load i64, ptr %6, align 8, !tbaa !14
+  %38 = load i64, ptr %11, align 8, !tbaa !14
+  %39 = add i64 %37, %38
+  %40 = load i64, ptr %10, align 8, !tbaa !14
+  %41 = mul i64 2, %40
+  %42 = add i64 %39, %41
+  %43 = call i64 @_mi_align_up(i64 noundef %42, i64 noundef 262144) #8
+  br label %44
+
+44:                                               ; preds = %36, %35
+  %45 = phi i64 [ 4194304, %35 ], [ %43, %36 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret i64 %45
+}
+
+declare i64 @_mi_current_thread_count() #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_os_alloc(i1 noundef zeroext %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i64 noundef %6, ptr noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i8, align 1
+  %16 = alloca i64, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca %struct.mi_memid_s, align 8
+  %19 = alloca i8, align 1
+  %20 = alloca i64, align 8
+  %21 = alloca i64, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i8, align 1
+  %25 = zext i1 %0 to i8
+  store i8 %25, ptr %10, align 1, !tbaa !27
+  store i64 %1, ptr %11, align 8, !tbaa !14
+  store i32 %2, ptr %12, align 4, !tbaa !83
+  store i64 %3, ptr %13, align 8, !tbaa !14
+  store i64 %4, ptr %14, align 8, !tbaa !14
+  %26 = zext i1 %5 to i8
+  store i8 %26, ptr %15, align 1, !tbaa !27
+  store i64 %6, ptr %16, align 8, !tbaa !14
+  store ptr %7, ptr %17, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %27 = load i8, ptr %10, align 1, !tbaa !27, !range !30, !noundef !31
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %30, label %29
+
+29:                                               ; preds = %8
+  br label %30
+
+30:                                               ; preds = %29, %8
+  %31 = phi i1 [ false, %8 ], [ true, %29 ]
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %19, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  store i64 0, ptr %20, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  store i64 4194304, ptr %21, align 8, !tbaa !14
+  %33 = load i64, ptr %11, align 8, !tbaa !14
+  %34 = icmp ugt i64 %33, 0
+  br i1 %34, label %35, label %44
+
+35:                                               ; preds = %30
+  %36 = load i64, ptr %11, align 8, !tbaa !14
+  store i64 %36, ptr %21, align 8, !tbaa !14
+  %37 = load i64, ptr %13, align 8, !tbaa !14
+  %38 = call i64 @_mi_align_up(i64 noundef %37, i64 noundef 4194304) #8
+  store i64 %38, ptr %20, align 8, !tbaa !14
+  %39 = load i64, ptr %16, align 8, !tbaa !14
+  %40 = load i64, ptr %20, align 8, !tbaa !14
+  %41 = load i64, ptr %13, align 8, !tbaa !14
+  %42 = sub i64 %40, %41
+  %43 = add i64 %39, %42
+  store i64 %43, ptr %16, align 8, !tbaa !14
+  br label %44
+
+44:                                               ; preds = %35, %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %45 = load i64, ptr %16, align 8, !tbaa !14
+  %46 = load i64, ptr %21, align 8, !tbaa !14
+  %47 = load i64, ptr %20, align 8, !tbaa !14
+  %48 = load i8, ptr %15, align 1, !tbaa !27, !range !30, !noundef !31
+  %49 = trunc i8 %48 to i1
+  %50 = load i8, ptr %19, align 1, !tbaa !27, !range !30, !noundef !31
+  %51 = trunc i8 %50 to i1
+  %52 = load i32, ptr %12, align 4, !tbaa !83
+  %53 = call ptr @_mi_arena_alloc_aligned(i64 noundef %45, i64 noundef %46, i64 noundef %47, i1 noundef zeroext %49, i1 noundef zeroext %51, i32 noundef %52, ptr noundef %18) #8
+  store ptr %53, ptr %22, align 8, !tbaa !3
+  %54 = load ptr, ptr %22, align 8, !tbaa !3
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
+
+56:                                               ; preds = %44
+  store ptr null, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %109
+
+57:                                               ; preds = %44
+  %58 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %18, i32 0, i32 2
+  %59 = load i8, ptr %58, align 1, !tbaa !119, !range !30, !noundef !31
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %75, label %61
+
+61:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #7
+  %62 = load ptr, ptr %22, align 8, !tbaa !3
+  %63 = load i64, ptr %13, align 8, !tbaa !14
+  %64 = call zeroext i1 @_mi_os_commit(ptr noundef %62, i64 noundef %63, ptr noundef null) #8
+  %65 = zext i1 %64 to i8
+  store i8 %65, ptr %24, align 1, !tbaa !27
+  %66 = load i8, ptr %24, align 1, !tbaa !27, !range !30, !noundef !31
+  %67 = trunc i8 %66 to i1
+  br i1 %67, label %71, label %68
+
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %22, align 8, !tbaa !3
+  %70 = load i64, ptr %16, align 8, !tbaa !14
+  call void @_mi_arena_free(ptr noundef %69, i64 noundef %70, i64 noundef 0, ptr noundef byval(%struct.mi_memid_s) align 8 %18) #8
+  store ptr null, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %72
+
+71:                                               ; preds = %61
+  store i32 0, ptr %23, align 4
+  br label %72
+
+72:                                               ; preds = %71, %68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #7
+  %73 = load i32, ptr %23, align 4
+  switch i32 %73, label %109 [
+    i32 0, label %74
+  ]
+
+74:                                               ; preds = %72
+  br label %75
+
+75:                                               ; preds = %74, %57
+  %76 = load ptr, ptr %22, align 8, !tbaa !3
+  %77 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %76, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %77, ptr align 8 %18, i64 24, i1 false), !tbaa.struct !120
+  %78 = getelementptr inbounds nuw %struct.mi_memid_s, ptr %18, i32 0, i32 1
+  %79 = load i8, ptr %78, align 8, !tbaa !121, !range !30, !noundef !31
+  %80 = trunc i8 %79 to i1
+  %81 = xor i1 %80, true
+  %82 = load ptr, ptr %22, align 8, !tbaa !3
+  %83 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %82, i32 0, i32 1
+  %84 = zext i1 %81 to i8
+  store i8 %84, ptr %83, align 8, !tbaa !88
+  %85 = load ptr, ptr %22, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %85, i32 0, i32 1
+  %87 = load i8, ptr %86, align 8, !tbaa !88, !range !30, !noundef !31
+  %88 = trunc i8 %87 to i1
+  br i1 %88, label %89, label %92
+
+89:                                               ; preds = %75
+  %90 = call i64 @mi_option_get(i32 noundef 15) #8
+  %91 = icmp sge i64 %90, 0
+  br label %92
+
+92:                                               ; preds = %89, %75
+  %93 = phi i1 [ false, %75 ], [ %91, %89 ]
+  %94 = load ptr, ptr %22, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %94, i32 0, i32 2
+  %96 = zext i1 %93 to i8
+  store i8 %96, ptr %95, align 1, !tbaa !95
+  %97 = load i64, ptr %16, align 8, !tbaa !14
+  %98 = load ptr, ptr %22, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %98, i32 0, i32 3
+  store i64 %97, ptr %99, align 8, !tbaa !57
+  %100 = load ptr, ptr %17, align 8, !tbaa !28
+  %101 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %100, i32 0, i32 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !81
+  %103 = load ptr, ptr %22, align 8, !tbaa !3
+  %104 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %103, i32 0, i32 4
+  store ptr %102, ptr %104, align 8, !tbaa !64
+  %105 = load i64, ptr %16, align 8, !tbaa !14
+  %106 = load ptr, ptr %17, align 8, !tbaa !28
+  call void @mi_segments_track_size(i64 noundef %105, ptr noundef %106) #8
+  %107 = load ptr, ptr %22, align 8, !tbaa !3
+  call void @_mi_segment_map_allocated_at(ptr noundef %107) #8
+  %108 = load ptr, ptr %22, align 8, !tbaa !3
+  store ptr %108, ptr %9, align 8
+  store i32 1, ptr %23, align 4
+  br label %109
+
+109:                                              ; preds = %92, %72, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #7
+  %110 = load ptr, ptr %9, align 8
+  ret ptr %110
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal i64 @_mi_ptr_cookie(ptr noundef %0) #2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %4 = ptrtoint ptr %3 to i64
+  %5 = load i64, ptr getelementptr inbounds nuw (%struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 4), align 8, !tbaa !122
+  %6 = xor i64 %4, %5
+  ret i64 %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segment_protect(ptr noundef %0, i1 noundef zeroext %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %5 = zext i1 %1 to i8
+  store i8 %5, ptr %4, align 1, !tbaa !27
+  ret void
+}
+
+declare ptr @_mi_arena_alloc_aligned(i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #3
+
+declare zeroext i1 @_mi_os_commit(ptr noundef, i64 noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+declare void @_mi_segment_map_allocated_at(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_segment_page_claim(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %6, align 8, !tbaa !8
+  %9 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @mi_page_purge_remove(ptr noundef %8, ptr noundef %9) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !3
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  %12 = load ptr, ptr %7, align 8, !tbaa !28
+  %13 = call zeroext i1 @mi_page_ensure_committed(ptr noundef %10, ptr noundef %11, ptr noundef %12) #8
+  br i1 %13, label %15, label %14
+
+14:                                               ; preds = %3
+  store i1 false, ptr %4, align 1
+  br label %41
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !8
+  %17 = getelementptr inbounds nuw %struct.mi_page_s, ptr %16, i32 0, i32 1
+  %18 = load i8, ptr %17, align 1
+  %19 = and i8 %18, -2
+  %20 = or i8 %19, 1
+  store i8 %20, ptr %17, align 1
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %21, i32 0, i32 11
+  %23 = load i64, ptr %22, align 8, !tbaa !41
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %22, align 8, !tbaa !41
+  %25 = load ptr, ptr %5, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %25, i32 0, i32 11
+  %27 = load i64, ptr %26, align 8, !tbaa !41
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %28, i32 0, i32 12
+  %30 = load i64, ptr %29, align 8, !tbaa !43
+  %31 = icmp eq i64 %27, %30
+  br i1 %31, label %32, label %40
+
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %5, align 8, !tbaa !3
+  %34 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %33, i32 0, i32 19
+  %35 = load i32, ptr %34, align 8, !tbaa !44
+  %36 = icmp ule i32 %35, 1
+  br i1 %36, label %37, label %40
+
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = load ptr, ptr %7, align 8, !tbaa !28
+  call void @mi_segment_remove_from_free_queue(ptr noundef %38, ptr noundef %39) #8
+  br label %40
+
+40:                                               ; preds = %37, %32, %15
+  store i1 true, ptr %4, align 1
+  br label %41
+
+41:                                               ; preds = %40, %14
+  %42 = load i1, ptr %4, align 1
+  ret i1 %42
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_page_ensure_committed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i64, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  %14 = load ptr, ptr %6, align 8, !tbaa !8
+  %15 = getelementptr inbounds nuw %struct.mi_page_s, ptr %14, i32 0, i32 1
+  %16 = load i8, ptr %15, align 1
+  %17 = lshr i8 %16, 1
+  %18 = and i8 %17, 1
+  %19 = icmp ne i8 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %3
+  store i1 true, ptr %4, align 1
+  br label %54
+
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = load ptr, ptr %6, align 8, !tbaa !8
+  %24 = call ptr @mi_segment_raw_page_start(ptr noundef %22, ptr noundef %23, ptr noundef %8) #8
+  store ptr %24, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
+  store i8 0, ptr %10, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  store i64 0, ptr %11, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %25 = load ptr, ptr %9, align 8, !tbaa !12
+  %26 = load i64, ptr %8, align 8, !tbaa !14
+  %27 = add i64 %26, 0
+  %28 = call zeroext i1 @_mi_os_commit(ptr noundef %25, i64 noundef %27, ptr noundef %10) #8
+  %29 = zext i1 %28 to i8
+  store i8 %29, ptr %12, align 1, !tbaa !27
+  %30 = load i8, ptr %12, align 1, !tbaa !27, !range !30, !noundef !31
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %33, label %32
+
+32:                                               ; preds = %21
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %13, align 4
+  br label %53
+
+33:                                               ; preds = %21
+  %34 = load ptr, ptr %6, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw %struct.mi_page_s, ptr %34, i32 0, i32 1
+  %36 = load i8, ptr %35, align 1
+  %37 = and i8 %36, -3
+  %38 = or i8 %37, 2
+  store i8 %38, ptr %35, align 1
+  %39 = load ptr, ptr %6, align 8, !tbaa !8
+  %40 = getelementptr inbounds nuw %struct.mi_page_s, ptr %39, i32 0, i32 8
+  store i16 0, ptr %40, align 8, !tbaa !112
+  %41 = load ptr, ptr %6, align 8, !tbaa !8
+  %42 = getelementptr inbounds nuw %struct.mi_page_s, ptr %41, i32 0, i32 6
+  store ptr null, ptr %42, align 8, !tbaa !96
+  %43 = load i8, ptr %10, align 1, !tbaa !27, !range !30, !noundef !31
+  %44 = trunc i8 %43 to i1
+  %45 = zext i1 %44 to i8
+  %46 = load ptr, ptr %6, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw %struct.mi_page_s, ptr %46, i32 0, i32 1
+  %48 = load i8, ptr %47, align 1
+  %49 = and i8 %45, 1
+  %50 = shl i8 %49, 2
+  %51 = and i8 %48, -5
+  %52 = or i8 %51, %50
+  store i8 %52, ptr %47, align 1
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %13, align 4
+  br label %53
+
+53:                                               ; preds = %33, %32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %54
+
+54:                                               ; preds = %53, %20
+  %55 = load i1, ptr %4, align 1
+  ret i1 %55
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !62
+  store i64 %1, ptr %8, align 8, !tbaa !14
+  store i32 %2, ptr %9, align 4, !tbaa !83
+  store i64 %3, ptr %10, align 8, !tbaa !14
+  store ptr %4, ptr %11, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %15 = load ptr, ptr %7, align 8, !tbaa !62
+  %16 = load i32, ptr %9, align 4, !tbaa !83
+  %17 = load ptr, ptr %11, align 8, !tbaa !28
+  %18 = call ptr @mi_segment_page_try_alloc_in_queue(ptr noundef %15, i32 noundef %16, ptr noundef %17) #8
+  store ptr %18, ptr %12, align 8, !tbaa !8
+  %19 = load ptr, ptr %12, align 8, !tbaa !8
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %39
+
+21:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %22 = load ptr, ptr %7, align 8, !tbaa !62
+  %23 = load i64, ptr %8, align 8, !tbaa !14
+  %24 = load i32, ptr %9, align 4, !tbaa !83
+  %25 = load i64, ptr %10, align 8, !tbaa !14
+  %26 = load ptr, ptr %11, align 8, !tbaa !28
+  %27 = call ptr @mi_segment_reclaim_or_alloc(ptr noundef %22, i64 noundef %23, i32 noundef %24, i64 noundef %25, ptr noundef %26) #8
+  store ptr %27, ptr %13, align 8, !tbaa !3
+  %28 = load ptr, ptr %13, align 8, !tbaa !3
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %21
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %36
+
+31:                                               ; preds = %21
+  %32 = load ptr, ptr %7, align 8, !tbaa !62
+  %33 = load i32, ptr %9, align 4, !tbaa !83
+  %34 = load ptr, ptr %11, align 8, !tbaa !28
+  %35 = call ptr @mi_segment_page_try_alloc_in_queue(ptr noundef %32, i32 noundef %33, ptr noundef %34) #8
+  store ptr %35, ptr %12, align 8, !tbaa !8
+  store i32 0, ptr %14, align 4
+  br label %36
+
+36:                                               ; preds = %31, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  %37 = load i32, ptr %14, align 4
+  switch i32 %37, label %41 [
+    i32 0, label %38
+  ]
+
+38:                                               ; preds = %36
+  br label %39
+
+39:                                               ; preds = %38, %5
+  %40 = load ptr, ptr %12, align 8, !tbaa !8
+  store ptr %40, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %41
+
+41:                                               ; preds = %39, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %42 = load ptr, ptr %6, align 8
   ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_collect(ptr noundef %heap, i1 noundef zeroext %force, ptr noundef %tld) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %force.addr = alloca i8, align 1
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %max_tries = alloca i32, align 4
-  store ptr %heap, ptr %heap.addr, align 8
-  %frombool = zext i1 %force to i8
-  store i8 %frombool, ptr %force.addr, align 1
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load i8, ptr %force.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  %cond = select i1 %tobool, i32 16384, i32 1024
-  store i32 %cond, ptr %max_tries, align 4
-  %1 = load i8, ptr %force.addr, align 1
-  %tobool1 = trunc i8 %1 to i1
-  br i1 %tobool1, label %if.then, label %if.end
+define internal ptr @mi_segment_page_try_alloc_in_queue(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !62
+  store i32 %1, ptr %6, align 4, !tbaa !83
+  store ptr %2, ptr %7, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %11 = load i32, ptr %6, align 4, !tbaa !83
+  %12 = load ptr, ptr %7, align 8, !tbaa !28
+  %13 = call ptr @mi_segment_free_queue_of_kind(i32 noundef %11, ptr noundef %12) #8
+  store ptr %13, ptr %8, align 8, !tbaa !101
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %14 = load ptr, ptr %8, align 8, !tbaa !101
+  %15 = getelementptr inbounds nuw %struct.mi_segment_queue_s, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !105
+  store ptr %16, ptr %9, align 8, !tbaa !3
+  br label %17
 
-if.then:                                          ; preds = %entry
-  %call = call zeroext i1 @mi_abandoned_visited_revisit() #6
-  br label %if.end
+17:                                               ; preds = %36, %3
+  %18 = load ptr, ptr %9, align 8, !tbaa !3
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %21, label %20
 
-if.end:                                           ; preds = %if.then, %entry
-  br label %while.cond
+20:                                               ; preds = %17
+  store i32 2, ptr %10, align 4
+  br label %40
 
-while.cond:                                       ; preds = %if.end9, %if.end
-  %2 = load i32, ptr %max_tries, align 4
-  %dec = add nsw i32 %2, -1
-  store i32 %dec, ptr %max_tries, align 4
-  %cmp = icmp sgt i32 %2, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %9, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %5, align 8, !tbaa !62
+  %25 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %24, i32 0, i32 3
+  %26 = load i32, ptr %25, align 8, !tbaa !89
+  %27 = call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8 %23, i32 noundef %26) #8
+  br i1 %27, label %28, label %35
 
-land.rhs:                                         ; preds = %while.cond
-  %call2 = call ptr @mi_abandoned_pop() #6
-  store ptr %call2, ptr %segment, align 8
-  %cmp3 = icmp ne ptr %call2, null
-  br label %land.end
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %9, align 8, !tbaa !3
+  %30 = call zeroext i1 @mi_segment_has_free(ptr noundef %29) #8
+  br i1 %30, label %31, label %35
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %3 = phi i1 [ false, %while.cond ], [ %cmp3, %land.rhs ]
-  br i1 %3, label %while.body, label %while.end
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %9, align 8, !tbaa !3
+  %33 = load ptr, ptr %7, align 8, !tbaa !28
+  %34 = call ptr @mi_segment_page_alloc_in(ptr noundef %32, ptr noundef %33) #8
+  store ptr %34, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %40
 
-while.body:                                       ; preds = %land.end
-  %4 = load ptr, ptr %segment, align 8
-  %5 = load ptr, ptr %tld.addr, align 8
-  %call4 = call zeroext i1 @mi_segment_check_free(ptr noundef %4, i64 noundef 0, i64 noundef 0, ptr noundef %5) #6
-  %6 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %6, i32 0, i32 11
-  %7 = load i64, ptr %used, align 8
-  %cmp5 = icmp eq i64 %7, 0
-  br i1 %cmp5, label %if.then6, label %if.else
+35:                                               ; preds = %28, %21
+  br label %36
 
-if.then6:                                         ; preds = %while.body
-  %8 = load ptr, ptr %segment, align 8
-  %9 = load ptr, ptr %heap.addr, align 8
-  %10 = load ptr, ptr %tld.addr, align 8
-  %call7 = call ptr @mi_segment_reclaim(ptr noundef %8, ptr noundef %9, i64 noundef 0, ptr noundef null, ptr noundef %10) #6
-  br label %if.end9
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %9, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8, !tbaa !103
+  store ptr %39, ptr %9, align 8, !tbaa !3
+  br label %17, !llvm.loop !123
 
-if.else:                                          ; preds = %while.body
-  %11 = load ptr, ptr %segment, align 8
-  %12 = load i8, ptr %force.addr, align 1
-  %tobool8 = trunc i8 %12 to i1
-  %13 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %13, i32 0, i32 5
-  %14 = load ptr, ptr %stats, align 8
-  call void @mi_segment_try_purge(ptr noundef %11, i1 noundef zeroext %tobool8, ptr noundef %14) #6
-  %15 = load ptr, ptr %segment, align 8
-  call void @mi_abandoned_visited_push(ptr noundef %15) #6
-  br label %if.end9
+40:                                               ; preds = %31, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  %41 = load i32, ptr %10, align 4
+  switch i32 %41, label %43 [
+    i32 2, label %42
+  ]
 
-if.end9:                                          ; preds = %if.else, %if.then6
-  br label %while.cond, !llvm.loop !17
+42:                                               ; preds = %40
+  store ptr null, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %43
 
-while.end:                                        ; preds = %land.end
+43:                                               ; preds = %42, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  %44 = load ptr, ptr %4, align 8
+  ret ptr %44
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_reclaim_or_alloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8, !tbaa !62
+  store i64 %1, ptr %8, align 8, !tbaa !14
+  store i32 %2, ptr %9, align 4, !tbaa !83
+  store i64 %3, ptr %10, align 8, !tbaa !14
+  store ptr %4, ptr %11, align 8, !tbaa !28
+  %15 = load ptr, ptr %7, align 8, !tbaa !62
+  %16 = load ptr, ptr %11, align 8, !tbaa !28
+  call void @mi_segments_try_abandon(ptr noundef %15, ptr noundef %16) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %17 = load ptr, ptr %7, align 8, !tbaa !62
+  %18 = load i64, ptr %8, align 8, !tbaa !14
+  %19 = load i32, ptr %9, align 4, !tbaa !83
+  %20 = load ptr, ptr %11, align 8, !tbaa !28
+  %21 = call ptr @mi_segment_try_reclaim(ptr noundef %17, i64 noundef %18, i32 noundef %19, ptr noundef %12, ptr noundef %20) #8
+  store ptr %21, ptr %13, align 8, !tbaa !3
+  %22 = load i8, ptr %12, align 1, !tbaa !27, !range !30, !noundef !31
+  %23 = trunc i8 %22 to i1
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %39
+
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %13, align 8, !tbaa !3
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %30
+
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %13, align 8, !tbaa !3
+  store ptr %29, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %39
+
+30:                                               ; preds = %25
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load i32, ptr %9, align 4, !tbaa !83
+  %33 = load i64, ptr %10, align 8, !tbaa !14
+  %34 = load ptr, ptr %7, align 8, !tbaa !62
+  %35 = getelementptr inbounds nuw %struct.mi_heap_s, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 8, !tbaa !89
+  %37 = load ptr, ptr %11, align 8, !tbaa !28
+  %38 = call ptr @mi_segment_alloc(i64 noundef 0, i32 noundef %32, i64 noundef %33, i64 noundef 0, i32 noundef %36, ptr noundef %37) #8
+  store ptr %38, ptr %6, align 8
+  store i32 1, ptr %14, align 4
+  br label %39
+
+39:                                               ; preds = %31, %28, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  %40 = load ptr, ptr %6, align 8
+  ret ptr %40
+}
+
+declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8, i32 noundef) #3
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_page_alloc_in(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = call ptr @mi_segment_find_free(ptr noundef %5, ptr noundef %6) #8
+  ret ptr %7
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @mi_segments_try_abandon(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !62
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  store i64 0, ptr %5, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %8 = call zeroext i1 @segment_count_is_within_target(ptr noundef %7, ptr noundef %5) #8
+  br i1 %8, label %9, label %10
+
+9:                                                ; preds = %2
+  store i32 1, ptr %6, align 4
+  br label %14
+
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %3, align 8, !tbaa !62
+  %12 = load i64, ptr %5, align 8, !tbaa !14
+  %13 = load ptr, ptr %4, align 8, !tbaa !28
+  call void @mi_segments_try_abandon_to_target(ptr noundef %11, i64 noundef %12, ptr noundef %13) #8
+  store i32 0, ptr %6, align 4
+  br label %14
+
+14:                                               ; preds = %10, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  %15 = load i32, ptr %6, align 4
+  switch i32 %15, label %17 [
+    i32 0, label %16
+    i32 1, label %16
+  ]
+
+16:                                               ; preds = %14, %14
   ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_abandoned_visited_revisit() #0 {
-entry:
-  %retval = alloca i1, align 1
-  %atomic-temp = alloca ptr, align 8
-  %first = alloca ptr, align 8
-  %.atomictmp = alloca ptr, align 8
-  %atomic-temp1 = alloca ptr, align 8
-  %afirst = alloca i64, align 8
-  %ts = alloca i64, align 8
-  %atomic-temp5 = alloca i64, align 8
-  %count = alloca i64, align 8
-  %atomic-temp8 = alloca i64, align 8
-  %.atomictmp10 = alloca i64, align 8
-  %cmpxchg.bool = alloca i8, align 1
-  %.atomictmp12 = alloca i64, align 8
-  %atomic-temp13 = alloca i64, align 8
-  %.atomictmp14 = alloca i64, align 8
-  %atomic-temp15 = alloca i64, align 8
-  %last = alloca ptr, align 8
-  %next = alloca ptr, align 8
-  %atomic-temp18 = alloca ptr, align 8
-  %anext = alloca i64, align 8
-  %atomic-temp20 = alloca i64, align 8
-  %count21 = alloca i64, align 8
-  %atomic-temp22 = alloca i64, align 8
-  %.atomictmp24 = alloca ptr, align 8
-  %.atomictmp27 = alloca i64, align 8
-  %cmpxchg.bool28 = alloca i8, align 1
-  %.atomictmp33 = alloca i64, align 8
-  %atomic-temp34 = alloca i64, align 8
-  %.atomictmp35 = alloca i64, align 8
-  %atomic-temp36 = alloca i64, align 8
-  %0 = load atomic i64, ptr @abandoned_visited monotonic, align 64
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load ptr, ptr %atomic-temp, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %.atomictmp, align 8
-  %2 = load i64, ptr %.atomictmp, align 8
-  %3 = atomicrmw xchg ptr @abandoned_visited, i64 %2 acq_rel, align 64
-  store i64 %3, ptr %atomic-temp1, align 8
-  %4 = load ptr, ptr %atomic-temp1, align 8
-  store ptr %4, ptr %first, align 8
-  %5 = load ptr, ptr %first, align 8
-  %cmp2 = icmp eq ptr %5, null
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end4:                                          ; preds = %if.end
-  %6 = load atomic i64, ptr @abandoned monotonic, align 64
-  store i64 %6, ptr %atomic-temp5, align 8
-  %7 = load i64, ptr %atomic-temp5, align 8
-  store i64 %7, ptr %ts, align 8
-  %8 = load i64, ptr %ts, align 8
-  %call = call ptr @mi_tagged_segment_ptr(i64 noundef %8) #6
-  %cmp6 = icmp eq ptr %call, null
-  br i1 %cmp6, label %if.then7, label %if.end17
-
-if.then7:                                         ; preds = %if.end4
-  %9 = load atomic i64, ptr @abandoned_visited_count monotonic, align 64
-  store i64 %9, ptr %atomic-temp8, align 8
-  %10 = load i64, ptr %atomic-temp8, align 8
-  store i64 %10, ptr %count, align 8
-  %11 = load ptr, ptr %first, align 8
-  %12 = load i64, ptr %ts, align 8
-  %call9 = call i64 @mi_tagged_segment(ptr noundef %11, i64 noundef %12) #6
-  store i64 %call9, ptr %afirst, align 8
-  %13 = load i64, ptr %afirst, align 8
-  store i64 %13, ptr %.atomictmp10, align 8
-  %14 = load i64, ptr %ts, align 8
-  %15 = load i64, ptr %.atomictmp10, align 8
-  %16 = cmpxchg ptr @abandoned, i64 %14, i64 %15 acq_rel acquire, align 64
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  br i1 %18, label %cmpxchg.continue, label %cmpxchg.store_expected
-
-cmpxchg.store_expected:                           ; preds = %if.then7
-  store i64 %17, ptr %ts, align 8
-  br label %cmpxchg.continue
-
-cmpxchg.continue:                                 ; preds = %cmpxchg.store_expected, %if.then7
-  %frombool = zext i1 %18 to i8
-  store i8 %frombool, ptr %cmpxchg.bool, align 1
-  %19 = load i8, ptr %cmpxchg.bool, align 1
-  %tobool = trunc i8 %19 to i1
-  br i1 %tobool, label %if.then11, label %if.end16
-
-if.then11:                                        ; preds = %cmpxchg.continue
-  %20 = load i64, ptr %count, align 8
-  store i64 %20, ptr %.atomictmp12, align 8
-  %21 = load i64, ptr %.atomictmp12, align 8
-  %22 = atomicrmw add ptr @abandoned_count, i64 %21 monotonic, align 64
-  store i64 %22, ptr %atomic-temp13, align 8
-  %23 = load i64, ptr %count, align 8
-  store i64 %23, ptr %.atomictmp14, align 8
-  %24 = load i64, ptr %.atomictmp14, align 8
-  %25 = atomicrmw sub ptr @abandoned_visited_count, i64 %24 monotonic, align 64
-  store i64 %25, ptr %atomic-temp15, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end16:                                         ; preds = %cmpxchg.continue
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.end16, %if.end4
-  %26 = load ptr, ptr %first, align 8
-  store ptr %26, ptr %last, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end17
-  %27 = load ptr, ptr %last, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %27, i32 0, i32 7
-  %28 = load atomic i64, ptr %abandoned_next monotonic, align 8
-  store i64 %28, ptr %atomic-temp18, align 8
-  %29 = load ptr, ptr %atomic-temp18, align 8
-  store ptr %29, ptr %next, align 8
-  %cmp19 = icmp ne ptr %29, null
-  br i1 %cmp19, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %30 = load ptr, ptr %next, align 8
-  store ptr %30, ptr %last, align 8
-  br label %while.cond, !llvm.loop !18
-
-while.end:                                        ; preds = %while.cond
-  %31 = load atomic i64, ptr @abandoned monotonic, align 64
-  store i64 %31, ptr %atomic-temp20, align 8
-  %32 = load i64, ptr %atomic-temp20, align 8
-  store i64 %32, ptr %anext, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %cmpxchg.continue30, %while.end
-  %33 = load atomic i64, ptr @abandoned_visited_count monotonic, align 64
-  store i64 %33, ptr %atomic-temp22, align 8
-  %34 = load i64, ptr %atomic-temp22, align 8
-  store i64 %34, ptr %count21, align 8
-  %35 = load ptr, ptr %last, align 8
-  %abandoned_next23 = getelementptr inbounds %struct.mi_segment_s, ptr %35, i32 0, i32 7
-  %36 = load i64, ptr %anext, align 8
-  %call25 = call ptr @mi_tagged_segment_ptr(i64 noundef %36) #6
-  store ptr %call25, ptr %.atomictmp24, align 8
-  %37 = load i64, ptr %.atomictmp24, align 8
-  store atomic i64 %37, ptr %abandoned_next23 release, align 8
-  %38 = load ptr, ptr %first, align 8
-  %39 = load i64, ptr %anext, align 8
-  %call26 = call i64 @mi_tagged_segment(ptr noundef %38, i64 noundef %39) #6
-  store i64 %call26, ptr %afirst, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %40 = load i64, ptr %afirst, align 8
-  store i64 %40, ptr %.atomictmp27, align 8
-  %41 = load i64, ptr %anext, align 8
-  %42 = load i64, ptr %.atomictmp27, align 8
-  %43 = cmpxchg weak ptr @abandoned, i64 %41, i64 %42 release monotonic, align 64
-  %44 = extractvalue { i64, i1 } %43, 0
-  %45 = extractvalue { i64, i1 } %43, 1
-  br i1 %45, label %cmpxchg.continue30, label %cmpxchg.store_expected29
-
-cmpxchg.store_expected29:                         ; preds = %do.cond
-  store i64 %44, ptr %anext, align 8
-  br label %cmpxchg.continue30
-
-cmpxchg.continue30:                               ; preds = %cmpxchg.store_expected29, %do.cond
-  %frombool31 = zext i1 %45 to i8
-  store i8 %frombool31, ptr %cmpxchg.bool28, align 1
-  %46 = load i8, ptr %cmpxchg.bool28, align 1
-  %tobool32 = trunc i8 %46 to i1
-  %lnot = xor i1 %tobool32, true
-  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !19
-
-do.end:                                           ; preds = %cmpxchg.continue30
-  %47 = load i64, ptr %count21, align 8
-  store i64 %47, ptr %.atomictmp33, align 8
-  %48 = load i64, ptr %.atomictmp33, align 8
-  %49 = atomicrmw add ptr @abandoned_count, i64 %48 monotonic, align 64
-  store i64 %49, ptr %atomic-temp34, align 8
-  %50 = load i64, ptr %count21, align 8
-  store i64 %50, ptr %.atomictmp35, align 8
-  %51 = load i64, ptr %.atomictmp35, align 8
-  %52 = atomicrmw sub ptr @abandoned_visited_count, i64 %51 monotonic, align 64
-  store i64 %52, ptr %atomic-temp36, align 8
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %do.end, %if.then11, %if.then3, %if.then
-  %53 = load i1, ptr %retval, align 1
-  ret i1 %53
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_segment_check_free(ptr noundef %segment, i64 noundef %slices_needed, i64 noundef %block_size, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %slices_needed.addr = alloca i64, align 8
-  %block_size.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %has_page = alloca i8, align 1
-  %end = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store i64 %slices_needed, ptr %slices_needed.addr, align 8
-  store i64 %block_size, ptr %block_size.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  store i8 0, ptr %has_page, align 1
-  %0 = load ptr, ptr %segment.addr, align 8
-  %call = call ptr @mi_slices_start_iterate(ptr noundef %0, ptr noundef %end) #6
-  store ptr %call, ptr %slice, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end24, %entry
-  %1 = load ptr, ptr %slice, align 8
-  %2 = load ptr, ptr %end, align 8
-  %cmp = icmp ult ptr %1, %2
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load ptr, ptr %slice, align 8
-  %call1 = call zeroext i1 @mi_slice_is_used(ptr noundef %3) #6
-  br i1 %call1, label %if.then, label %if.else17
-
-if.then:                                          ; preds = %while.body
-  %4 = load ptr, ptr %slice, align 8
-  %call2 = call ptr @mi_slice_to_page(ptr noundef %4) #6
-  store ptr %call2, ptr %page, align 8
-  %5 = load ptr, ptr %page, align 8
-  call void @_mi_page_free_collect(ptr noundef %5, i1 noundef zeroext false) #6
-  %6 = load ptr, ptr %page, align 8
-  %call3 = call zeroext i1 @mi_page_all_free(ptr noundef %6) #6
-  br i1 %call3, label %if.then4, label %if.else
-
-if.then4:                                         ; preds = %if.then
-  %7 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %stats, align 8
-  %pages_abandoned = getelementptr inbounds %struct.mi_stats_s, ptr %8, i32 0, i32 8
-  call void @_mi_stat_decrease(ptr noundef %pages_abandoned, i64 noundef 1) #6
-  %9 = load ptr, ptr %segment.addr, align 8
-  %abandoned = getelementptr inbounds %struct.mi_segment_s, ptr %9, i32 0, i32 9
-  %10 = load i64, ptr %abandoned, align 8
-  %dec = add i64 %10, -1
-  store i64 %dec, ptr %abandoned, align 8
-  %11 = load ptr, ptr %page, align 8
-  %12 = load ptr, ptr %tld.addr, align 8
-  %call5 = call ptr @mi_segment_page_clear(ptr noundef %11, ptr noundef %12) #6
-  store ptr %call5, ptr %slice, align 8
-  %13 = load ptr, ptr %slice, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %13, i32 0, i32 0
-  %14 = load i32, ptr %slice_count, align 8
-  %conv = zext i32 %14 to i64
-  %15 = load i64, ptr %slices_needed.addr, align 8
-  %cmp6 = icmp uge i64 %conv, %15
-  br i1 %cmp6, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %if.then4
-  store i8 1, ptr %has_page, align 1
-  br label %if.end
-
-if.end:                                           ; preds = %if.then8, %if.then4
-  br label %if.end16
-
-if.else:                                          ; preds = %if.then
-  %16 = load ptr, ptr %page, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %16, i32 0, i32 9
-  %17 = load i32, ptr %xblock_size, align 4
-  %conv9 = zext i32 %17 to i64
-  %18 = load i64, ptr %block_size.addr, align 8
-  %cmp10 = icmp eq i64 %conv9, %18
-  br i1 %cmp10, label %land.lhs.true, label %if.end15
-
-land.lhs.true:                                    ; preds = %if.else
-  %19 = load ptr, ptr %page, align 8
-  %call12 = call zeroext i1 @mi_page_has_any_available(ptr noundef %19) #6
-  br i1 %call12, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %land.lhs.true
-  store i8 1, ptr %has_page, align 1
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then14, %land.lhs.true, %if.else
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.end15, %if.end
-  br label %if.end24
-
-if.else17:                                        ; preds = %while.body
-  %20 = load ptr, ptr %slice, align 8
-  %slice_count18 = getelementptr inbounds %struct.mi_page_s, ptr %20, i32 0, i32 0
-  %21 = load i32, ptr %slice_count18, align 8
-  %conv19 = zext i32 %21 to i64
-  %22 = load i64, ptr %slices_needed.addr, align 8
-  %cmp20 = icmp uge i64 %conv19, %22
-  br i1 %cmp20, label %if.then22, label %if.end23
-
-if.then22:                                        ; preds = %if.else17
-  store i8 1, ptr %has_page, align 1
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.then22, %if.else17
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end23, %if.end16
-  %23 = load ptr, ptr %slice, align 8
-  %24 = load ptr, ptr %slice, align 8
-  %slice_count25 = getelementptr inbounds %struct.mi_page_s, ptr %24, i32 0, i32 0
-  %25 = load i32, ptr %slice_count25, align 8
-  %idx.ext = zext i32 %25 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %23, i64 %idx.ext
-  store ptr %add.ptr, ptr %slice, align 8
-  br label %while.cond, !llvm.loop !20
-
-while.end:                                        ; preds = %while.cond
-  %26 = load i8, ptr %has_page, align 1
-  %tobool = trunc i8 %26 to i1
-  ret i1 %tobool
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_try_purge(ptr noundef %segment, i1 noundef zeroext %force, ptr noundef %stats) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %force.addr = alloca i8, align 1
-  %stats.addr = alloca ptr, align 8
-  %now = alloca i64, align 8
-  %mask = alloca %struct.mi_commit_mask_s, align 8
-  %idx = alloca i64, align 8
-  %count = alloca i64, align 8
-  %p = alloca ptr, align 8
-  %size = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %frombool = zext i1 %force to i8
-  store i8 %frombool, ptr %force.addr, align 1
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %allow_purge, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %lor.lhs.false, label %if.then
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 5
-  %call = call zeroext i1 @mi_commit_mask_is_empty(ptr noundef %purge_mask) #6
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  br label %while.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %call1 = call i64 @_mi_clock_now() #6
-  store i64 %call1, ptr %now, align 8
-  %3 = load i8, ptr %force.addr, align 1
-  %tobool2 = trunc i8 %3 to i1
-  br i1 %tobool2, label %if.end4, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end
-  %4 = load i64, ptr %now, align 8
-  %5 = load ptr, ptr %segment.addr, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 4
-  %6 = load i64, ptr %purge_expire, align 8
-  %cmp = icmp slt i64 %4, %6
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %land.lhs.true
-  br label %while.end
-
-if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %7 = load ptr, ptr %segment.addr, align 8
-  %purge_mask5 = getelementptr inbounds %struct.mi_segment_s, ptr %7, i32 0, i32 5
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %mask, ptr align 8 %purge_mask5, i64 64, i1 false)
-  %8 = load ptr, ptr %segment.addr, align 8
-  %purge_expire6 = getelementptr inbounds %struct.mi_segment_s, ptr %8, i32 0, i32 4
-  store i64 0, ptr %purge_expire6, align 8
-  %9 = load ptr, ptr %segment.addr, align 8
-  %purge_mask7 = getelementptr inbounds %struct.mi_segment_s, ptr %9, i32 0, i32 5
-  call void @mi_commit_mask_create_empty(ptr noundef %purge_mask7) #6
-  store i64 0, ptr %idx, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end14, %if.end4
-  %call8 = call i64 @_mi_commit_mask_next_run(ptr noundef %mask, ptr noundef %idx) #6
-  store i64 %call8, ptr %count, align 8
-  %cmp9 = icmp ugt i64 %call8, 0
-  br i1 %cmp9, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %10 = load i64, ptr %count, align 8
-  %cmp10 = icmp ugt i64 %10, 0
-  br i1 %cmp10, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %while.body
-  %11 = load ptr, ptr %segment.addr, align 8
-  %12 = load i64, ptr %idx, align 8
-  %mul = mul i64 %12, 65536
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 %mul
-  store ptr %add.ptr, ptr %p, align 8
-  %13 = load i64, ptr %count, align 8
-  %mul12 = mul i64 %13, 65536
-  store i64 %mul12, ptr %size, align 8
-  %14 = load ptr, ptr %segment.addr, align 8
-  %15 = load ptr, ptr %p, align 8
-  %16 = load i64, ptr %size, align 8
-  %17 = load ptr, ptr %stats.addr, align 8
-  %call13 = call zeroext i1 @mi_segment_purge(ptr noundef %14, ptr noundef %15, i64 noundef %16, ptr noundef %17) #6
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then11, %while.body
-  %18 = load i64, ptr %count, align 8
-  %19 = load i64, ptr %idx, align 8
-  %add = add i64 %19, %18
-  store i64 %add, ptr %idx, align 8
-  br label %while.cond, !llvm.loop !21
-
-while.end:                                        ; preds = %while.cond, %if.then3, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_abandoned_visited_push(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %anext = alloca ptr, align 8
-  %atomic-temp = alloca ptr, align 8
-  %.atomictmp = alloca ptr, align 8
-  %.atomictmp1 = alloca ptr, align 8
-  %cmpxchg.bool = alloca i8, align 1
-  %.atomictmp2 = alloca i64, align 8
-  %atomic-temp3 = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load atomic i64, ptr @abandoned_visited monotonic, align 64
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load ptr, ptr %atomic-temp, align 8
-  store ptr %1, ptr %anext, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %cmpxchg.continue, %entry
-  %2 = load ptr, ptr %segment.addr, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 7
-  %3 = load ptr, ptr %anext, align 8
-  store ptr %3, ptr %.atomictmp, align 8
-  %4 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %4, ptr %abandoned_next release, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %5 = load ptr, ptr %segment.addr, align 8
-  store ptr %5, ptr %.atomictmp1, align 8
-  %6 = load i64, ptr %anext, align 8
-  %7 = load i64, ptr %.atomictmp1, align 8
-  %8 = cmpxchg weak ptr @abandoned_visited, i64 %6, i64 %7 release monotonic, align 64
-  %9 = extractvalue { i64, i1 } %8, 0
-  %10 = extractvalue { i64, i1 } %8, 1
-  br i1 %10, label %cmpxchg.continue, label %cmpxchg.store_expected
-
-cmpxchg.store_expected:                           ; preds = %do.cond
-  store i64 %9, ptr %anext, align 8
-  br label %cmpxchg.continue
-
-cmpxchg.continue:                                 ; preds = %cmpxchg.store_expected, %do.cond
-  %frombool = zext i1 %10 to i8
-  store i8 %frombool, ptr %cmpxchg.bool, align 1
-  %11 = load i8, ptr %cmpxchg.bool, align 1
-  %tobool = trunc i8 %11 to i1
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !22
-
-do.end:                                           ; preds = %cmpxchg.continue
-  store i64 1, ptr %.atomictmp2, align 8
-  %12 = load i64, ptr %.atomictmp2, align 8
-  %13 = atomicrmw add ptr @abandoned_visited_count, i64 %12 monotonic, align 64
-  store i64 %13, ptr %atomic-temp3, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_huge_page_reset(ptr noundef %segment, ptr noundef %page, ptr noundef %block) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %page.addr = alloca ptr, align 8
-  %block.addr = alloca ptr, align 8
-  %csize = alloca i64, align 8
-  %p = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %block, ptr %block.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 1
-  %1 = load i8, ptr %allow_decommit, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end3
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %block.addr, align 8
-  %call = call i64 @mi_usable_size(ptr noundef %2) #6
-  store i64 %call, ptr %csize, align 8
-  %3 = load i64, ptr %csize, align 8
-  %cmp = icmp ugt i64 %3, 8
-  br i1 %cmp, label %if.then1, label %if.end
-
-if.then1:                                         ; preds = %if.then
-  %4 = load i64, ptr %csize, align 8
-  %sub = sub i64 %4, 8
-  store i64 %sub, ptr %csize, align 8
-  %5 = load ptr, ptr %block.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %add.ptr, ptr %p, align 8
-  %6 = load ptr, ptr %p, align 8
-  %7 = load i64, ptr %csize, align 8
-  %call2 = call zeroext i1 @_mi_os_reset(ptr noundef %6, i64 noundef %7, ptr noundef @_mi_stats_main) #6
-  br label %if.end
-
-if.end:                                           ; preds = %if.then1, %if.then
-  br label %if.end3
-
-if.end3:                                          ; preds = %if.end, %entry
-  ret void
-}
-
-declare i64 @mi_usable_size(ptr noundef) #1
-
-declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_alloc(ptr noundef %heap, i64 noundef %block_size, i64 noundef %page_alignment, ptr noundef %tld, ptr noundef %os_tld) #0 {
-entry:
-  %heap.addr = alloca ptr, align 8
-  %block_size.addr = alloca i64, align 8
-  %page_alignment.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %block_size, ptr %block_size.addr, align 8
-  store i64 %page_alignment, ptr %page_alignment.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  %0 = load i64, ptr %page_alignment.addr, align 8
-  %cmp = icmp ugt i64 %0, 16777216
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot1 to i32
-  %conv = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %page_alignment.addr, align 8
-  %cmp2 = icmp ult i64 %1, 33554432
-  br i1 %cmp2, label %if.then4, label %if.end
-
-if.then4:                                         ; preds = %if.then
-  store i64 33554432, ptr %page_alignment.addr, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then4, %if.then
-  %2 = load i64, ptr %block_size.addr, align 8
-  %3 = load i64, ptr %page_alignment.addr, align 8
-  %4 = load ptr, ptr %heap.addr, align 8
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %4, i32 0, i32 5
-  %5 = load i32, ptr %arena_id, align 8
-  %6 = load ptr, ptr %tld.addr, align 8
-  %7 = load ptr, ptr %os_tld.addr, align 8
-  %call = call ptr @mi_segment_huge_page_alloc(i64 noundef %2, i64 noundef %3, i32 noundef %5, ptr noundef %6, ptr noundef %7) #6
-  store ptr %call, ptr %page, align 8
-  br label %if.end25
-
-if.else:                                          ; preds = %entry
-  %8 = load i64, ptr %block_size.addr, align 8
-  %cmp5 = icmp ule i64 %8, 16384
-  br i1 %cmp5, label %if.then7, label %if.else9
-
-if.then7:                                         ; preds = %if.else
-  %9 = load ptr, ptr %heap.addr, align 8
-  %10 = load i64, ptr %block_size.addr, align 8
-  %11 = load i64, ptr %block_size.addr, align 8
-  %12 = load ptr, ptr %tld.addr, align 8
-  %13 = load ptr, ptr %os_tld.addr, align 8
-  %call8 = call ptr @mi_segments_page_alloc(ptr noundef %9, i32 noundef 0, i64 noundef %10, i64 noundef %11, ptr noundef %12, ptr noundef %13) #6
-  store ptr %call8, ptr %page, align 8
-  br label %if.end24
-
-if.else9:                                         ; preds = %if.else
-  %14 = load i64, ptr %block_size.addr, align 8
-  %cmp10 = icmp ule i64 %14, 131072
-  br i1 %cmp10, label %if.then12, label %if.else14
-
-if.then12:                                        ; preds = %if.else9
-  %15 = load ptr, ptr %heap.addr, align 8
-  %16 = load i64, ptr %block_size.addr, align 8
-  %17 = load ptr, ptr %tld.addr, align 8
-  %18 = load ptr, ptr %os_tld.addr, align 8
-  %call13 = call ptr @mi_segments_page_alloc(ptr noundef %15, i32 noundef 1, i64 noundef 524288, i64 noundef %16, ptr noundef %17, ptr noundef %18) #6
-  store ptr %call13, ptr %page, align 8
-  br label %if.end23
-
-if.else14:                                        ; preds = %if.else9
-  %19 = load i64, ptr %block_size.addr, align 8
-  %cmp15 = icmp ule i64 %19, 16777216
-  br i1 %cmp15, label %if.then17, label %if.else19
-
-if.then17:                                        ; preds = %if.else14
-  %20 = load ptr, ptr %heap.addr, align 8
-  %21 = load i64, ptr %block_size.addr, align 8
-  %22 = load i64, ptr %block_size.addr, align 8
-  %23 = load ptr, ptr %tld.addr, align 8
-  %24 = load ptr, ptr %os_tld.addr, align 8
-  %call18 = call ptr @mi_segments_page_alloc(ptr noundef %20, i32 noundef 2, i64 noundef %21, i64 noundef %22, ptr noundef %23, ptr noundef %24) #6
-  store ptr %call18, ptr %page, align 8
-  br label %if.end22
-
-if.else19:                                        ; preds = %if.else14
-  %25 = load i64, ptr %block_size.addr, align 8
-  %26 = load i64, ptr %page_alignment.addr, align 8
-  %27 = load ptr, ptr %heap.addr, align 8
-  %arena_id20 = getelementptr inbounds %struct.mi_heap_s, ptr %27, i32 0, i32 5
-  %28 = load i32, ptr %arena_id20, align 8
-  %29 = load ptr, ptr %tld.addr, align 8
-  %30 = load ptr, ptr %os_tld.addr, align 8
-  %call21 = call ptr @mi_segment_huge_page_alloc(i64 noundef %25, i64 noundef %26, i32 noundef %28, ptr noundef %29, ptr noundef %30) #6
-  store ptr %call21, ptr %page, align 8
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else19, %if.then17
-  br label %if.end23
-
-if.end23:                                         ; preds = %if.end22, %if.then12
-  br label %if.end24
-
-if.end24:                                         ; preds = %if.end23, %if.then7
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end24, %if.end
-  %31 = load ptr, ptr %page, align 8
-  ret ptr %31
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_huge_page_alloc(i64 noundef %size, i64 noundef %page_alignment, i32 noundef %req_arena_id, ptr noundef %tld, ptr noundef %os_tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %page_alignment.addr = alloca i64, align 8
-  %req_arena_id.addr = alloca i32, align 4
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %psize = alloca i64, align 8
-  %start = alloca ptr, align 8
-  %aligned_p = alloca ptr, align 8
-  %decommit_start = alloca ptr, align 8
-  %decommit_size = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %page_alignment, ptr %page_alignment.addr, align 8
-  store i32 %req_arena_id, ptr %req_arena_id.addr, align 4
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  store ptr null, ptr %page, align 8
-  %0 = load i64, ptr %size.addr, align 8
-  %1 = load i64, ptr %page_alignment.addr, align 8
-  %2 = load i32, ptr %req_arena_id.addr, align 4
-  %3 = load ptr, ptr %tld.addr, align 8
-  %4 = load ptr, ptr %os_tld.addr, align 8
-  %call = call ptr @mi_segment_alloc(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %page) #6
-  store ptr %call, ptr %segment, align 8
-  %5 = load ptr, ptr %segment, align 8
-  %cmp = icmp eq ptr %5, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %6 = load ptr, ptr %page, align 8
-  %cmp1 = icmp eq ptr %6, null
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %7 = load ptr, ptr %segment, align 8
-  %8 = load ptr, ptr %page, align 8
-  %call2 = call ptr @_mi_segment_page_start(ptr noundef %7, ptr noundef %8, ptr noundef %psize) #6
-  store ptr %call2, ptr %start, align 8
-  %9 = load i64, ptr %psize, align 8
-  %cmp3 = icmp ugt i64 %9, 2147483648
-  br i1 %cmp3, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end
-  %10 = load i64, ptr %psize, align 8
-  %conv = trunc i64 %10 to i32
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -2147483648, %cond.true ], [ %conv, %cond.false ]
-  %11 = load ptr, ptr %page, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %11, i32 0, i32 9
-  store i32 %cond, ptr %xblock_size, align 4
-  %12 = load i64, ptr %page_alignment.addr, align 8
-  %cmp4 = icmp ugt i64 %12, 0
-  br i1 %cmp4, label %land.lhs.true, label %if.end10
-
-land.lhs.true:                                    ; preds = %cond.end
-  %13 = load ptr, ptr %segment, align 8
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 1
-  %14 = load i8, ptr %allow_decommit, align 8
-  %tobool = trunc i8 %14 to i1
-  br i1 %tobool, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %land.lhs.true
-  %15 = load ptr, ptr %start, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = load i64, ptr %page_alignment.addr, align 8
-  %call8 = call i64 @_mi_align_up(i64 noundef %16, i64 noundef %17) #6
-  %18 = inttoptr i64 %call8 to ptr
-  store ptr %18, ptr %aligned_p, align 8
-  %19 = load ptr, ptr %start, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %add.ptr, ptr %decommit_start, align 8
-  %20 = load ptr, ptr %aligned_p, align 8
-  %21 = load ptr, ptr %decommit_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %21 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %decommit_size, align 8
-  %22 = load ptr, ptr %decommit_start, align 8
-  %23 = load i64, ptr %decommit_size, align 8
-  %call9 = call zeroext i1 @_mi_os_reset(ptr noundef %22, i64 noundef %23, ptr noundef @_mi_stats_main) #6
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then7, %land.lhs.true, %cond.end
-  %24 = load ptr, ptr %page, align 8
-  store ptr %24, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end10, %if.then
-  %25 = load ptr, ptr %retval, align 8
-  ret ptr %25
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segments_page_alloc(ptr noundef %heap, i32 noundef %page_kind, i64 noundef %required, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %page_kind.addr = alloca i32, align 4
-  %required.addr = alloca i64, align 8
-  %block_size.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %page_size = alloca i64, align 8
-  %slices_needed = alloca i64, align 8
-  %page = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i32 %page_kind, ptr %page_kind.addr, align 4
-  store i64 %required, ptr %required.addr, align 8
-  store i64 %block_size, ptr %block_size.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  %0 = load i64, ptr %required.addr, align 8
-  %1 = load i64, ptr %required.addr, align 8
-  %cmp = icmp ugt i64 %1, 524288
-  %cond = select i1 %cmp, i64 524288, i64 65536
-  %call = call i64 @_mi_align_up(i64 noundef %0, i64 noundef %cond) #6
-  store i64 %call, ptr %page_size, align 8
-  %2 = load i64, ptr %page_size, align 8
-  %div = udiv i64 %2, 65536
-  store i64 %div, ptr %slices_needed, align 8
-  %3 = load i64, ptr %slices_needed, align 8
-  %4 = load ptr, ptr %heap.addr, align 8
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %4, i32 0, i32 5
-  %5 = load i32, ptr %arena_id, align 8
-  %6 = load ptr, ptr %tld.addr, align 8
-  %call1 = call ptr @mi_segments_page_find_and_allocate(i64 noundef %3, i32 noundef %5, ptr noundef %6) #6
-  store ptr %call1, ptr %page, align 8
-  %7 = load ptr, ptr %page, align 8
-  %cmp2 = icmp eq ptr %7, null
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %heap.addr, align 8
-  %9 = load i64, ptr %slices_needed, align 8
-  %10 = load i64, ptr %block_size.addr, align 8
-  %11 = load ptr, ptr %tld.addr, align 8
-  %12 = load ptr, ptr %os_tld.addr, align 8
-  %call3 = call ptr @mi_segment_reclaim_or_alloc(ptr noundef %8, i64 noundef %9, i64 noundef %10, ptr noundef %11, ptr noundef %12) #6
-  %cmp4 = icmp eq ptr %call3, null
-  br i1 %cmp4, label %if.then5, label %if.else
-
-if.then5:                                         ; preds = %if.then
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %if.then
-  %13 = load ptr, ptr %heap.addr, align 8
-  %14 = load i32, ptr %page_kind.addr, align 4
-  %15 = load i64, ptr %required.addr, align 8
-  %16 = load i64, ptr %block_size.addr, align 8
-  %17 = load ptr, ptr %tld.addr, align 8
-  %18 = load ptr, ptr %os_tld.addr, align 8
-  %call6 = call ptr @mi_segments_page_alloc(ptr noundef %13, i32 noundef %14, i64 noundef %15, i64 noundef %16, ptr noundef %17, ptr noundef %18) #6
-  store ptr %call6, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %19 = load ptr, ptr %page, align 8
-  %call7 = call ptr @_mi_ptr_segment(ptr noundef %19) #6
-  %20 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %stats, align 8
-  call void @mi_segment_try_purge(ptr noundef %call7, i1 noundef zeroext false, ptr noundef %21) #6
-  %22 = load ptr, ptr %page, align 8
-  store ptr %22, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.else, %if.then5
-  %23 = load ptr, ptr %retval, align 8
-  ret ptr %23
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_ptr_segment(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %sub = sub i64 %1, 1
-  %and = and i64 %sub, -33554432
-  %2 = inttoptr i64 %and to ptr
-  ret ptr %2
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_page_block_size(ptr noundef %page) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %page.addr = alloca ptr, align 8
-  %bsize = alloca i64, align 8
-  %psize = alloca i64, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %xblock_size, align 4
-  %conv = zext i32 %1 to i64
-  store i64 %conv, ptr %bsize, align 8
-  %2 = load i64, ptr %bsize, align 8
-  %cmp = icmp ult i64 %2, 2147483648
-  %lnot = xor i1 %cmp, true
-  %lnot2 = xor i1 %lnot, true
-  %lnot.ext = zext i1 %lnot2 to i32
-  %conv3 = sext i32 %lnot.ext to i64
-  %tobool = icmp ne i64 %conv3, 0
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %bsize, align 8
-  store i64 %3, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @_mi_page_segment(ptr noundef %4) #6
-  %5 = load ptr, ptr %page.addr, align 8
-  %call4 = call ptr @_mi_segment_page_start(ptr noundef %call, ptr noundef %5, ptr noundef %psize) #6
-  %6 = load i64, ptr %psize, align 8
-  store i64 %6, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %7 = load i64, ptr %retval, align 8
-  ret i64 %7
-}
-
-declare void @_mi_stat_decrease(ptr noundef, i64 noundef) #1
-
-declare zeroext i1 @mi_option_is_enabled(i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @_mi_page_start(ptr noundef %segment, ptr noundef %page, ptr noundef %page_size) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %page.addr = alloca ptr, align 8
-  %page_size.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %page_size, ptr %page_size.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %1 = load ptr, ptr %page.addr, align 8
-  %2 = load ptr, ptr %page_size.addr, align 8
-  %call = call ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
-  ret ptr %call
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @_mi_memzero(ptr noundef %dst, i64 noundef %n) #0 {
-entry:
-  %dst.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  store ptr %dst, ptr %dst.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %dst.addr, align 8
-  %1 = load i64, ptr %n.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %0, i8 0, i64 %1, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_span_free_coalesce(ptr noundef %slice, ptr noundef %tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %is_abandoned = alloca i8, align 1
-  %slice_count = alloca i64, align 8
-  %next = alloca ptr, align 8
-  %prev = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %segment, align 8
-  %call1 = call zeroext i1 @mi_segment_is_abandoned(ptr noundef %1) #6
-  %frombool = zext i1 %call1 to i8
-  store i8 %frombool, ptr %is_abandoned, align 1
-  %2 = load ptr, ptr %segment, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 15
-  %3 = load i32, ptr %kind, align 8
-  %cmp = icmp eq i32 %3, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %slice.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %4, i32 0, i32 9
-  store i32 0, ptr %xblock_size, align 4
-  %5 = load ptr, ptr %slice.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %slice.addr, align 8
-  %slice_count2 = getelementptr inbounds %struct.mi_page_s, ptr %6, i32 0, i32 0
-  %7 = load i32, ptr %slice_count2, align 8
-  %conv = zext i32 %7 to i64
-  store i64 %conv, ptr %slice_count, align 8
-  %8 = load ptr, ptr %slice.addr, align 8
-  %9 = load ptr, ptr %slice.addr, align 8
-  %slice_count3 = getelementptr inbounds %struct.mi_page_s, ptr %9, i32 0, i32 0
-  %10 = load i32, ptr %slice_count3, align 8
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %8, i64 %idx.ext
-  store ptr %add.ptr, ptr %next, align 8
-  %11 = load ptr, ptr %next, align 8
-  %12 = load ptr, ptr %segment, align 8
-  %call4 = call ptr @mi_segment_slices_end(ptr noundef %12) #6
-  %cmp5 = icmp ult ptr %11, %call4
-  br i1 %cmp5, label %land.lhs.true, label %if.end15
-
-land.lhs.true:                                    ; preds = %if.end
-  %13 = load ptr, ptr %next, align 8
-  %xblock_size7 = getelementptr inbounds %struct.mi_page_s, ptr %13, i32 0, i32 9
-  %14 = load i32, ptr %xblock_size7, align 4
-  %cmp8 = icmp eq i32 %14, 0
-  br i1 %cmp8, label %if.then10, label %if.end15
-
-if.then10:                                        ; preds = %land.lhs.true
-  %15 = load ptr, ptr %next, align 8
-  %slice_count11 = getelementptr inbounds %struct.mi_page_s, ptr %15, i32 0, i32 0
-  %16 = load i32, ptr %slice_count11, align 8
-  %conv12 = zext i32 %16 to i64
-  %17 = load i64, ptr %slice_count, align 8
-  %add = add i64 %17, %conv12
-  store i64 %add, ptr %slice_count, align 8
-  %18 = load i8, ptr %is_abandoned, align 1
-  %tobool = trunc i8 %18 to i1
-  br i1 %tobool, label %if.end14, label %if.then13
-
-if.then13:                                        ; preds = %if.then10
-  %19 = load ptr, ptr %next, align 8
-  %20 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_remove_from_queue(ptr noundef %19, ptr noundef %20) #6
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then13, %if.then10
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end14, %land.lhs.true, %if.end
-  %21 = load ptr, ptr %slice.addr, align 8
-  %22 = load ptr, ptr %segment, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %22, i32 0, i32 18
-  %arraydecay = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  %cmp16 = icmp ugt ptr %21, %arraydecay
-  br i1 %cmp16, label %if.then18, label %if.end32
-
-if.then18:                                        ; preds = %if.end15
-  %23 = load ptr, ptr %slice.addr, align 8
-  %add.ptr19 = getelementptr inbounds %struct.mi_page_s, ptr %23, i64 -1
-  %call20 = call ptr @mi_slice_first(ptr noundef %add.ptr19) #6
-  store ptr %call20, ptr %prev, align 8
-  %24 = load ptr, ptr %prev, align 8
-  %xblock_size21 = getelementptr inbounds %struct.mi_page_s, ptr %24, i32 0, i32 9
-  %25 = load i32, ptr %xblock_size21, align 4
-  %cmp22 = icmp eq i32 %25, 0
-  br i1 %cmp22, label %if.then24, label %if.end31
-
-if.then24:                                        ; preds = %if.then18
-  %26 = load ptr, ptr %prev, align 8
-  %slice_count25 = getelementptr inbounds %struct.mi_page_s, ptr %26, i32 0, i32 0
-  %27 = load i32, ptr %slice_count25, align 8
-  %conv26 = zext i32 %27 to i64
-  %28 = load i64, ptr %slice_count, align 8
-  %add27 = add i64 %28, %conv26
-  store i64 %add27, ptr %slice_count, align 8
-  %29 = load i8, ptr %is_abandoned, align 1
-  %tobool28 = trunc i8 %29 to i1
-  br i1 %tobool28, label %if.end30, label %if.then29
-
-if.then29:                                        ; preds = %if.then24
-  %30 = load ptr, ptr %prev, align 8
-  %31 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_remove_from_queue(ptr noundef %30, ptr noundef %31) #6
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.then29, %if.then24
-  %32 = load ptr, ptr %prev, align 8
-  store ptr %32, ptr %slice.addr, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.end30, %if.then18
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %if.end15
-  %33 = load ptr, ptr %segment, align 8
-  %34 = load ptr, ptr %slice.addr, align 8
-  %call33 = call i64 @mi_slice_index(ptr noundef %34) #6
-  %35 = load i64, ptr %slice_count, align 8
-  %36 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_free(ptr noundef %33, i64 noundef %call33, i64 noundef %35, i1 noundef zeroext true, ptr noundef %36) #6
-  %37 = load ptr, ptr %slice.addr, align 8
-  store ptr %37, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end32, %if.then
-  %38 = load ptr, ptr %retval, align 8
-  ret ptr %38
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_segment_is_abandoned(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 17
-  %atomic-load = load atomic i64, ptr %thread_id seq_cst, align 8
-  %cmp = icmp eq i64 %atomic-load, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_slices_end(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 18
-  %1 = load ptr, ptr %segment.addr, align 8
-  %slice_entries = getelementptr inbounds %struct.mi_segment_s, ptr %1, i32 0, i32 16
-  %2 = load i64, ptr %slice_entries, align 8
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %2
-  ret ptr %arrayidx
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_span_remove_from_queue(ptr noundef %slice, ptr noundef %tld) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %sq = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %slice_count, align 8
-  %conv = zext i32 %1 to i64
-  %2 = load ptr, ptr %tld.addr, align 8
-  %call = call ptr @mi_span_queue_for(i64 noundef %conv, ptr noundef %2) #6
-  store ptr %call, ptr %sq, align 8
-  %3 = load ptr, ptr %sq, align 8
-  %4 = load ptr, ptr %slice.addr, align 8
-  call void @mi_span_queue_delete(ptr noundef %3, ptr noundef %4) #6
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_slice_first(ptr noundef %slice) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %1 = load ptr, ptr %slice.addr, align 8
-  %slice_offset = getelementptr inbounds %struct.mi_page_s, ptr %1, i32 0, i32 1
-  %2 = load i32, ptr %slice_offset, align 4
-  %idx.ext = zext i32 %2 to i64
-  %idx.neg = sub i64 0, %idx.ext
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.neg
-  store ptr %add.ptr, ptr %start, align 8
-  %3 = load ptr, ptr %start, align 8
-  ret ptr %3
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_span_free(ptr noundef %segment, i64 noundef %slice_index, i64 noundef %slice_count, i1 noundef zeroext %allow_purge, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %slice_index.addr = alloca i64, align 8
-  %slice_count.addr = alloca i64, align 8
-  %allow_purge.addr = alloca i8, align 1
-  %tld.addr = alloca ptr, align 8
-  %sq = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %last = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store i64 %slice_index, ptr %slice_index.addr, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  %frombool = zext i1 %allow_purge to i8
-  store i8 %frombool, ptr %allow_purge.addr, align 1
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 15
-  %1 = load i32, ptr %kind, align 8
-  %cmp = icmp eq i32 %1, 1
-  br i1 %cmp, label %cond.true, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load ptr, ptr %segment.addr, align 8
-  %call = call zeroext i1 @mi_segment_is_abandoned(ptr noundef %2) #6
-  br i1 %call, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %lor.lhs.false, %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %lor.lhs.false
-  %3 = load i64, ptr %slice_count.addr, align 8
-  %4 = load ptr, ptr %tld.addr, align 8
-  %call1 = call ptr @mi_span_queue_for(i64 noundef %3, ptr noundef %4) #6
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ null, %cond.true ], [ %call1, %cond.false ]
-  store ptr %cond, ptr %sq, align 8
-  %5 = load i64, ptr %slice_count.addr, align 8
-  %cmp2 = icmp eq i64 %5, 0
-  br i1 %cmp2, label %if.then, label %if.end
-
-if.then:                                          ; preds = %cond.end
-  store i64 1, ptr %slice_count.addr, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %cond.end
-  %6 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %6, i32 0, i32 18
-  %7 = load i64, ptr %slice_index.addr, align 8
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %7
-  store ptr %arrayidx, ptr %slice, align 8
-  %8 = load i64, ptr %slice_count.addr, align 8
-  %conv = trunc i64 %8 to i32
-  %9 = load ptr, ptr %slice, align 8
-  %slice_count3 = getelementptr inbounds %struct.mi_page_s, ptr %9, i32 0, i32 0
-  store i32 %conv, ptr %slice_count3, align 8
-  %10 = load ptr, ptr %slice, align 8
-  %slice_offset = getelementptr inbounds %struct.mi_page_s, ptr %10, i32 0, i32 1
-  store i32 0, ptr %slice_offset, align 4
-  %11 = load i64, ptr %slice_count.addr, align 8
-  %cmp4 = icmp ugt i64 %11, 1
-  br i1 %cmp4, label %if.then6, label %if.end13
-
-if.then6:                                         ; preds = %if.end
-  %12 = load ptr, ptr %segment.addr, align 8
-  %slices7 = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 18
-  %13 = load i64, ptr %slice_index.addr, align 8
-  %14 = load i64, ptr %slice_count.addr, align 8
-  %add = add i64 %13, %14
-  %sub = sub i64 %add, 1
-  %arrayidx8 = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices7, i64 0, i64 %sub
-  store ptr %arrayidx8, ptr %last, align 8
-  %15 = load ptr, ptr %last, align 8
-  %slice_count9 = getelementptr inbounds %struct.mi_page_s, ptr %15, i32 0, i32 0
-  store i32 0, ptr %slice_count9, align 8
-  %16 = load i64, ptr %slice_count.addr, align 8
-  %sub10 = sub i64 %16, 1
-  %mul = mul i64 80, %sub10
-  %conv11 = trunc i64 %mul to i32
-  %17 = load ptr, ptr %last, align 8
-  %slice_offset12 = getelementptr inbounds %struct.mi_page_s, ptr %17, i32 0, i32 1
-  store i32 %conv11, ptr %slice_offset12, align 4
-  %18 = load ptr, ptr %last, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %18, i32 0, i32 9
-  store i32 0, ptr %xblock_size, align 4
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.then6, %if.end
-  %19 = load i8, ptr %allow_purge.addr, align 1
-  %tobool = trunc i8 %19 to i1
-  br i1 %tobool, label %if.then14, label %if.end17
-
-if.then14:                                        ; preds = %if.end13
-  %20 = load ptr, ptr %segment.addr, align 8
-  %21 = load ptr, ptr %slice, align 8
-  %call15 = call ptr @mi_slice_start(ptr noundef %21) #6
-  %22 = load i64, ptr %slice_count.addr, align 8
-  %mul16 = mul i64 %22, 65536
-  %23 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %23, i32 0, i32 5
-  %24 = load ptr, ptr %stats, align 8
-  call void @mi_segment_schedule_purge(ptr noundef %20, ptr noundef %call15, i64 noundef %mul16, ptr noundef %24) #6
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then14, %if.end13
-  %25 = load ptr, ptr %sq, align 8
-  %cmp18 = icmp ne ptr %25, null
-  br i1 %cmp18, label %if.then20, label %if.else
-
-if.then20:                                        ; preds = %if.end17
-  %26 = load ptr, ptr %sq, align 8
-  %27 = load ptr, ptr %slice, align 8
-  call void @mi_span_queue_push(ptr noundef %26, ptr noundef %27) #6
-  br label %if.end22
-
-if.else:                                          ; preds = %if.end17
-  %28 = load ptr, ptr %slice, align 8
-  %xblock_size21 = getelementptr inbounds %struct.mi_page_s, ptr %28, i32 0, i32 9
-  store i32 0, ptr %xblock_size21, align 4
-  br label %if.end22
-
-if.end22:                                         ; preds = %if.else, %if.then20
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_slice_index(ptr noundef %slice) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %index = alloca i64, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %slice.addr, align 8
-  %2 = load ptr, ptr %segment, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 18
-  %arraydecay = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %arraydecay to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 80
-  store i64 %sub.ptr.div, ptr %index, align 8
-  %3 = load i64, ptr %index, align 8
-  ret i64 %3
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_span_queue_for(i64 noundef %slice_count, ptr noundef %tld) #0 {
-entry:
-  %slice_count.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %bin = alloca i64, align 8
-  %sq = alloca ptr, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load i64, ptr %slice_count.addr, align 8
-  %call = call i64 @mi_slice_bin(i64 noundef %0) #6
-  store i64 %call, ptr %bin, align 8
-  %1 = load ptr, ptr %tld.addr, align 8
-  %spans = getelementptr inbounds %struct.mi_segments_tld_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %bin, align 8
-  %arrayidx = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %spans, i64 0, i64 %2
-  store ptr %arrayidx, ptr %sq, align 8
-  %3 = load ptr, ptr %sq, align 8
-  ret ptr %3
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_span_queue_delete(ptr noundef %sq, ptr noundef %slice) #0 {
-entry:
-  %sq.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  store ptr %sq, ptr %sq.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %prev = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 14
-  %1 = load ptr, ptr %prev, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %slice.addr, align 8
-  %next = getelementptr inbounds %struct.mi_page_s, ptr %2, i32 0, i32 13
-  %3 = load ptr, ptr %next, align 8
-  %4 = load ptr, ptr %slice.addr, align 8
-  %prev1 = getelementptr inbounds %struct.mi_page_s, ptr %4, i32 0, i32 14
-  %5 = load ptr, ptr %prev1, align 8
-  %next2 = getelementptr inbounds %struct.mi_page_s, ptr %5, i32 0, i32 13
-  store ptr %3, ptr %next2, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %slice.addr, align 8
-  %7 = load ptr, ptr %sq.addr, align 8
-  %first = getelementptr inbounds %struct.mi_span_queue_s, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %first, align 8
-  %cmp3 = icmp eq ptr %6, %8
-  br i1 %cmp3, label %if.then4, label %if.end7
-
-if.then4:                                         ; preds = %if.end
-  %9 = load ptr, ptr %slice.addr, align 8
-  %next5 = getelementptr inbounds %struct.mi_page_s, ptr %9, i32 0, i32 13
-  %10 = load ptr, ptr %next5, align 8
-  %11 = load ptr, ptr %sq.addr, align 8
-  %first6 = getelementptr inbounds %struct.mi_span_queue_s, ptr %11, i32 0, i32 0
-  store ptr %10, ptr %first6, align 8
-  br label %if.end7
-
-if.end7:                                          ; preds = %if.then4, %if.end
-  %12 = load ptr, ptr %slice.addr, align 8
-  %next8 = getelementptr inbounds %struct.mi_page_s, ptr %12, i32 0, i32 13
-  %13 = load ptr, ptr %next8, align 8
-  %cmp9 = icmp ne ptr %13, null
-  br i1 %cmp9, label %if.then10, label %if.end14
-
-if.then10:                                        ; preds = %if.end7
-  %14 = load ptr, ptr %slice.addr, align 8
-  %prev11 = getelementptr inbounds %struct.mi_page_s, ptr %14, i32 0, i32 14
-  %15 = load ptr, ptr %prev11, align 8
-  %16 = load ptr, ptr %slice.addr, align 8
-  %next12 = getelementptr inbounds %struct.mi_page_s, ptr %16, i32 0, i32 13
-  %17 = load ptr, ptr %next12, align 8
-  %prev13 = getelementptr inbounds %struct.mi_page_s, ptr %17, i32 0, i32 14
-  store ptr %15, ptr %prev13, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then10, %if.end7
-  %18 = load ptr, ptr %slice.addr, align 8
-  %19 = load ptr, ptr %sq.addr, align 8
-  %last = getelementptr inbounds %struct.mi_span_queue_s, ptr %19, i32 0, i32 1
-  %20 = load ptr, ptr %last, align 8
-  %cmp15 = icmp eq ptr %18, %20
-  br i1 %cmp15, label %if.then16, label %if.end19
-
-if.then16:                                        ; preds = %if.end14
-  %21 = load ptr, ptr %slice.addr, align 8
-  %prev17 = getelementptr inbounds %struct.mi_page_s, ptr %21, i32 0, i32 14
-  %22 = load ptr, ptr %prev17, align 8
-  %23 = load ptr, ptr %sq.addr, align 8
-  %last18 = getelementptr inbounds %struct.mi_span_queue_s, ptr %23, i32 0, i32 1
-  store ptr %22, ptr %last18, align 8
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then16, %if.end14
-  %24 = load ptr, ptr %slice.addr, align 8
-  %prev20 = getelementptr inbounds %struct.mi_page_s, ptr %24, i32 0, i32 14
-  store ptr null, ptr %prev20, align 8
-  %25 = load ptr, ptr %slice.addr, align 8
-  %next21 = getelementptr inbounds %struct.mi_page_s, ptr %25, i32 0, i32 13
-  store ptr null, ptr %next21, align 8
-  %26 = load ptr, ptr %slice.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %26, i32 0, i32 9
-  store i32 1, ptr %xblock_size, align 4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_slice_bin(i64 noundef %slice_count) #0 {
-entry:
-  %slice_count.addr = alloca i64, align 8
-  %bin = alloca i64, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  %0 = load i64, ptr %slice_count.addr, align 8
-  %call = call i64 @mi_slice_bin8(i64 noundef %0) #6
-  store i64 %call, ptr %bin, align 8
-  %1 = load i64, ptr %bin, align 8
-  ret i64 %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_slice_bin8(i64 noundef %slice_count) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %slice_count.addr = alloca i64, align 8
-  %s = alloca i64, align 8
-  %bin = alloca i64, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  %0 = load i64, ptr %slice_count.addr, align 8
-  %cmp = icmp ule i64 %0, 1
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %slice_count.addr, align 8
-  store i64 %1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load i64, ptr %slice_count.addr, align 8
-  %dec = add i64 %2, -1
-  store i64 %dec, ptr %slice_count.addr, align 8
-  %3 = load i64, ptr %slice_count.addr, align 8
-  %call = call i64 @mi_bsr(i64 noundef %3) #6
-  store i64 %call, ptr %s, align 8
-  %4 = load i64, ptr %s, align 8
-  %cmp1 = icmp ule i64 %4, 2
-  br i1 %cmp1, label %if.then2, label %if.end3
-
-if.then2:                                         ; preds = %if.end
-  %5 = load i64, ptr %slice_count.addr, align 8
-  %add = add i64 %5, 1
-  store i64 %add, ptr %retval, align 8
-  br label %return
-
-if.end3:                                          ; preds = %if.end
-  %6 = load i64, ptr %s, align 8
-  %shl = shl i64 %6, 2
-  %7 = load i64, ptr %slice_count.addr, align 8
-  %8 = load i64, ptr %s, align 8
-  %sub = sub i64 %8, 2
-  %shr = lshr i64 %7, %sub
-  %and = and i64 %shr, 3
-  %or = or i64 %shl, %and
-  %sub4 = sub i64 %or, 4
-  store i64 %sub4, ptr %bin, align 8
-  %9 = load i64, ptr %bin, align 8
-  store i64 %9, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end3, %if.then2, %if.then
-  %10 = load i64, ptr %retval, align 8
-  ret i64 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_bsr(i64 noundef %x) #0 {
-entry:
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %1 = load i64, ptr %x.addr, align 8
-  %call = call i64 @mi_clz(i64 noundef %1) #6
-  %sub = sub i64 63, %call
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 64, %cond.true ], [ %sub, %cond.false ]
-  ret i64 %cond
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_clz(i64 noundef %x) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %x.addr = alloca i64, align 8
-  store i64 %x, ptr %x.addr, align 8
-  %0 = load i64, ptr %x.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i64 64, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %x.addr, align 8
-  %2 = call i64 @llvm.ctlz.i64(i64 %1, i1 true)
-  %cast = trunc i64 %2 to i32
-  %conv = sext i32 %cast to i64
-  store i64 %conv, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i64, ptr %retval, align 8
-  ret i64 %3
-}
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_schedule_purge(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %stats.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %full_size = alloca i64, align 8
-  %mask = alloca %struct.mi_commit_mask_s, align 8
-  %cmask = alloca %struct.mi_commit_mask_s, align 8
-  %now = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %allow_purge, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  br label %if.end32
-
-if.end:                                           ; preds = %entry
-  %call = call i64 @mi_option_get(i32 noundef 15) #6
-  %cmp = icmp eq i64 %call, 0
-  br i1 %cmp, label %if.then1, label %if.else
-
-if.then1:                                         ; preds = %if.end
-  %2 = load ptr, ptr %segment.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load ptr, ptr %stats.addr, align 8
-  %call2 = call zeroext i1 @mi_segment_purge(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
-  br label %if.end32
-
-if.else:                                          ; preds = %if.end
-  store ptr null, ptr %start, align 8
-  store i64 0, ptr %full_size, align 8
-  %6 = load ptr, ptr %segment.addr, align 8
-  %7 = load ptr, ptr %p.addr, align 8
-  %8 = load i64, ptr %size.addr, align 8
-  call void @mi_segment_commit_mask(ptr noundef %6, i1 noundef zeroext true, ptr noundef %7, i64 noundef %8, ptr noundef %start, ptr noundef %full_size, ptr noundef %mask) #6
-  %call3 = call zeroext i1 @mi_commit_mask_is_empty(ptr noundef %mask) #6
-  br i1 %call3, label %if.then5, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.else
-  %9 = load i64, ptr %full_size, align 8
-  %cmp4 = icmp eq i64 %9, 0
-  br i1 %cmp4, label %if.then5, label %if.end6
-
-if.then5:                                         ; preds = %lor.lhs.false, %if.else
-  br label %if.end32
-
-if.end6:                                          ; preds = %lor.lhs.false
-  %10 = load ptr, ptr %segment.addr, align 8
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 6
-  call void @mi_commit_mask_create_intersect(ptr noundef %commit_mask, ptr noundef %mask, ptr noundef %cmask) #6
-  %11 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 5
-  call void @mi_commit_mask_set(ptr noundef %purge_mask, ptr noundef %cmask) #6
-  %call7 = call i64 @_mi_clock_now() #6
-  store i64 %call7, ptr %now, align 8
-  %12 = load ptr, ptr %segment.addr, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 4
-  %13 = load i64, ptr %purge_expire, align 8
-  %cmp8 = icmp eq i64 %13, 0
-  br i1 %cmp8, label %if.then9, label %if.else12
-
-if.then9:                                         ; preds = %if.end6
-  %14 = load i64, ptr %now, align 8
-  %call10 = call i64 @mi_option_get(i32 noundef 15) #6
-  %add = add nsw i64 %14, %call10
-  %15 = load ptr, ptr %segment.addr, align 8
-  %purge_expire11 = getelementptr inbounds %struct.mi_segment_s, ptr %15, i32 0, i32 4
-  store i64 %add, ptr %purge_expire11, align 8
-  br label %if.end31
-
-if.else12:                                        ; preds = %if.end6
-  %16 = load ptr, ptr %segment.addr, align 8
-  %purge_expire13 = getelementptr inbounds %struct.mi_segment_s, ptr %16, i32 0, i32 4
-  %17 = load i64, ptr %purge_expire13, align 8
-  %18 = load i64, ptr %now, align 8
-  %cmp14 = icmp sle i64 %17, %18
-  br i1 %cmp14, label %if.then15, label %if.else26
-
-if.then15:                                        ; preds = %if.else12
-  %19 = load ptr, ptr %segment.addr, align 8
-  %purge_expire16 = getelementptr inbounds %struct.mi_segment_s, ptr %19, i32 0, i32 4
-  %20 = load i64, ptr %purge_expire16, align 8
-  %call17 = call i64 @mi_option_get(i32 noundef 25) #6
-  %add18 = add nsw i64 %20, %call17
-  %21 = load i64, ptr %now, align 8
-  %cmp19 = icmp sle i64 %add18, %21
-  br i1 %cmp19, label %if.then20, label %if.else21
-
-if.then20:                                        ; preds = %if.then15
-  %22 = load ptr, ptr %segment.addr, align 8
-  %23 = load ptr, ptr %stats.addr, align 8
-  call void @mi_segment_try_purge(ptr noundef %22, i1 noundef zeroext true, ptr noundef %23) #6
-  br label %if.end25
-
-if.else21:                                        ; preds = %if.then15
-  %24 = load i64, ptr %now, align 8
-  %call22 = call i64 @mi_option_get(i32 noundef 25) #6
-  %add23 = add nsw i64 %24, %call22
-  %25 = load ptr, ptr %segment.addr, align 8
-  %purge_expire24 = getelementptr inbounds %struct.mi_segment_s, ptr %25, i32 0, i32 4
-  store i64 %add23, ptr %purge_expire24, align 8
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.else21, %if.then20
-  br label %if.end30
-
-if.else26:                                        ; preds = %if.else12
-  %call27 = call i64 @mi_option_get(i32 noundef 25) #6
-  %26 = load ptr, ptr %segment.addr, align 8
-  %purge_expire28 = getelementptr inbounds %struct.mi_segment_s, ptr %26, i32 0, i32 4
-  %27 = load i64, ptr %purge_expire28, align 8
-  %add29 = add nsw i64 %27, %call27
-  store i64 %add29, ptr %purge_expire28, align 8
-  br label %if.end30
-
-if.end30:                                         ; preds = %if.else26, %if.end25
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.end30, %if.then9
-  br label %if.end32
-
-if.end32:                                         ; preds = %if.end31, %if.then5, %if.then1, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_slice_start(ptr noundef %slice) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %call = call ptr @_mi_ptr_segment(ptr noundef %0) #6
-  store ptr %call, ptr %segment, align 8
-  %1 = load ptr, ptr %segment, align 8
-  %2 = load ptr, ptr %slice.addr, align 8
-  %3 = load ptr, ptr %segment, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 18
-  %arraydecay = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %arraydecay to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 80
-  %mul = mul i64 %sub.ptr.div, 65536
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %mul
-  ret ptr %add.ptr
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_span_queue_push(ptr noundef %sq, ptr noundef %slice) #0 {
-entry:
-  %sq.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  store ptr %sq, ptr %sq.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %prev = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 14
-  store ptr null, ptr %prev, align 8
-  %1 = load ptr, ptr %sq.addr, align 8
-  %first = getelementptr inbounds %struct.mi_span_queue_s, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %first, align 8
-  %3 = load ptr, ptr %slice.addr, align 8
-  %next = getelementptr inbounds %struct.mi_page_s, ptr %3, i32 0, i32 13
-  store ptr %2, ptr %next, align 8
-  %4 = load ptr, ptr %slice.addr, align 8
-  %5 = load ptr, ptr %sq.addr, align 8
-  %first1 = getelementptr inbounds %struct.mi_span_queue_s, ptr %5, i32 0, i32 0
-  store ptr %4, ptr %first1, align 8
-  %6 = load ptr, ptr %slice.addr, align 8
-  %next2 = getelementptr inbounds %struct.mi_page_s, ptr %6, i32 0, i32 13
-  %7 = load ptr, ptr %next2, align 8
-  %cmp = icmp ne ptr %7, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %8 = load ptr, ptr %slice.addr, align 8
-  %9 = load ptr, ptr %slice.addr, align 8
-  %next3 = getelementptr inbounds %struct.mi_page_s, ptr %9, i32 0, i32 13
-  %10 = load ptr, ptr %next3, align 8
-  %prev4 = getelementptr inbounds %struct.mi_page_s, ptr %10, i32 0, i32 14
-  store ptr %8, ptr %prev4, align 8
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %11 = load ptr, ptr %slice.addr, align 8
-  %12 = load ptr, ptr %sq.addr, align 8
-  %last = getelementptr inbounds %struct.mi_span_queue_s, ptr %12, i32 0, i32 1
-  store ptr %11, ptr %last, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %13 = load ptr, ptr %slice.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %13, i32 0, i32 9
-  store i32 0, ptr %xblock_size, align 4
-  ret void
-}
-
-declare i64 @mi_option_get(i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_segment_purge(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %segment.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %stats.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %full_size = alloca i64, align 8
-  %mask = alloca %struct.mi_commit_mask_s, align 8
-  %decommitted = alloca i8, align 1
-  %cmask = alloca %struct.mi_commit_mask_s, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 2
-  %1 = load i8, ptr %allow_purge, align 1
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  store ptr null, ptr %start, align 8
-  store i64 0, ptr %full_size, align 8
-  %2 = load ptr, ptr %segment.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  call void @mi_segment_commit_mask(ptr noundef %2, i1 noundef zeroext true, ptr noundef %3, i64 noundef %4, ptr noundef %start, ptr noundef %full_size, ptr noundef %mask) #6
-  %call = call zeroext i1 @mi_commit_mask_is_empty(ptr noundef %mask) #6
-  br i1 %call, label %if.then1, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.end
-  %5 = load i64, ptr %full_size, align 8
-  %cmp = icmp eq i64 %5, 0
-  br i1 %cmp, label %if.then1, label %if.end2
-
-if.then1:                                         ; preds = %lor.lhs.false, %if.end
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end2:                                          ; preds = %lor.lhs.false
-  %6 = load ptr, ptr %segment.addr, align 8
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %6, i32 0, i32 6
-  %call3 = call zeroext i1 @mi_commit_mask_any_set(ptr noundef %commit_mask, ptr noundef %mask) #6
-  br i1 %call3, label %if.then4, label %if.end12
-
-if.then4:                                         ; preds = %if.end2
-  %7 = load ptr, ptr %start, align 8
-  %8 = load i64, ptr %full_size, align 8
-  %9 = load ptr, ptr %stats.addr, align 8
-  %call5 = call zeroext i1 @_mi_os_purge(ptr noundef %7, i64 noundef %8, ptr noundef %9) #6
-  %frombool = zext i1 %call5 to i8
-  store i8 %frombool, ptr %decommitted, align 1
-  %10 = load i8, ptr %decommitted, align 1
-  %tobool6 = trunc i8 %10 to i1
-  br i1 %tobool6, label %if.then7, label %if.end11
-
-if.then7:                                         ; preds = %if.then4
-  %11 = load ptr, ptr %segment.addr, align 8
-  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 6
-  call void @mi_commit_mask_create_intersect(ptr noundef %commit_mask8, ptr noundef %mask, ptr noundef %cmask) #6
-  %12 = load i64, ptr %full_size, align 8
-  %call9 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432) #6
-  %sub = sub i64 %12, %call9
-  %13 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
-  call void @_mi_stat_increase(ptr noundef %13, i64 noundef %sub) #6
-  %14 = load ptr, ptr %segment.addr, align 8
-  %commit_mask10 = getelementptr inbounds %struct.mi_segment_s, ptr %14, i32 0, i32 6
-  call void @mi_commit_mask_clear(ptr noundef %commit_mask10, ptr noundef %mask) #6
-  br label %if.end11
-
-if.end11:                                         ; preds = %if.then7, %if.then4
-  br label %if.end12
-
-if.end12:                                         ; preds = %if.end11, %if.end2
-  %15 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %15, i32 0, i32 5
-  call void @mi_commit_mask_clear(ptr noundef %purge_mask, ptr noundef %mask) #6
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end12, %if.then1, %if.then
-  %16 = load i1, ptr %retval, align 1
-  ret i1 %16
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr noundef %start_p, ptr noundef %full_size, ptr noundef %cm) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %conservative.addr = alloca i8, align 1
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %start_p.addr = alloca ptr, align 8
-  %full_size.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %segstart = alloca i64, align 8
-  %segsize = alloca i64, align 8
-  %pstart = alloca i64, align 8
-  %start = alloca i64, align 8
-  %end = alloca i64, align 8
-  %bitidx = alloca i64, align 8
-  %bitcount = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %frombool = zext i1 %conservative to i8
-  store i8 %frombool, ptr %conservative.addr, align 1
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %start_p, ptr %start_p.addr, align 8
-  store ptr %full_size, ptr %full_size.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  %0 = load ptr, ptr %cm.addr, align 8
-  call void @mi_commit_mask_create_empty(ptr noundef %0) #6
-  %1 = load i64, ptr %size.addr, align 8
-  %cmp = icmp eq i64 %1, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i64, ptr %size.addr, align 8
-  %cmp1 = icmp ugt i64 %2, 33554432
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
-
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %segment.addr, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 15
-  %4 = load i32, ptr %kind, align 8
-  %cmp3 = icmp eq i32 %4, 1
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false2
-  %5 = load ptr, ptr %segment.addr, align 8
-  %call = call i64 @mi_segment_info_size(ptr noundef %5) #6
-  store i64 %call, ptr %segstart, align 8
-  %6 = load ptr, ptr %segment.addr, align 8
-  %call4 = call i64 @mi_segment_size(ptr noundef %6) #6
-  store i64 %call4, ptr %segsize, align 8
-  %7 = load ptr, ptr %p.addr, align 8
-  %8 = load ptr, ptr %segment.addr, align 8
-  %9 = load i64, ptr %segsize, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %9
-  %cmp5 = icmp uge ptr %7, %add.ptr
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %if.end
-  br label %return
-
-if.end7:                                          ; preds = %if.end
-  %10 = load ptr, ptr %p.addr, align 8
-  %11 = load ptr, ptr %segment.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  store i64 %sub.ptr.sub, ptr %pstart, align 8
-  %12 = load i8, ptr %conservative.addr, align 1
-  %tobool = trunc i8 %12 to i1
-  br i1 %tobool, label %if.then8, label %if.else
-
-if.then8:                                         ; preds = %if.end7
-  %13 = load i64, ptr %pstart, align 8
-  %call9 = call i64 @_mi_align_up(i64 noundef %13, i64 noundef 65536) #6
-  store i64 %call9, ptr %start, align 8
-  %14 = load i64, ptr %pstart, align 8
-  %15 = load i64, ptr %size.addr, align 8
-  %add = add i64 %14, %15
-  %call10 = call i64 @_mi_align_down(i64 noundef %add, i64 noundef 65536) #6
-  store i64 %call10, ptr %end, align 8
-  br label %if.end14
-
-if.else:                                          ; preds = %if.end7
-  %16 = load i64, ptr %pstart, align 8
-  %call11 = call i64 @_mi_align_down(i64 noundef %16, i64 noundef 65536) #6
-  store i64 %call11, ptr %start, align 8
-  %17 = load i64, ptr %pstart, align 8
-  %18 = load i64, ptr %size.addr, align 8
-  %add12 = add i64 %17, %18
-  %call13 = call i64 @_mi_align_up(i64 noundef %add12, i64 noundef 65536) #6
-  store i64 %call13, ptr %end, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.else, %if.then8
-  %19 = load i64, ptr %pstart, align 8
-  %20 = load i64, ptr %segstart, align 8
-  %cmp15 = icmp uge i64 %19, %20
-  br i1 %cmp15, label %land.lhs.true, label %if.end18
-
-land.lhs.true:                                    ; preds = %if.end14
-  %21 = load i64, ptr %start, align 8
-  %22 = load i64, ptr %segstart, align 8
-  %cmp16 = icmp ult i64 %21, %22
-  br i1 %cmp16, label %if.then17, label %if.end18
-
-if.then17:                                        ; preds = %land.lhs.true
-  %23 = load i64, ptr %segstart, align 8
-  store i64 %23, ptr %start, align 8
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then17, %land.lhs.true, %if.end14
-  %24 = load i64, ptr %end, align 8
-  %25 = load i64, ptr %segsize, align 8
-  %cmp19 = icmp ugt i64 %24, %25
-  br i1 %cmp19, label %if.then20, label %if.end21
-
-if.then20:                                        ; preds = %if.end18
-  %26 = load i64, ptr %segsize, align 8
-  store i64 %26, ptr %end, align 8
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.then20, %if.end18
-  %27 = load ptr, ptr %segment.addr, align 8
-  %28 = load i64, ptr %start, align 8
-  %add.ptr22 = getelementptr inbounds i8, ptr %27, i64 %28
-  %29 = load ptr, ptr %start_p.addr, align 8
-  store ptr %add.ptr22, ptr %29, align 8
-  %30 = load i64, ptr %end, align 8
-  %31 = load i64, ptr %start, align 8
-  %cmp23 = icmp ugt i64 %30, %31
-  br i1 %cmp23, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end21
-  %32 = load i64, ptr %end, align 8
-  %33 = load i64, ptr %start, align 8
-  %sub = sub i64 %32, %33
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end21
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %sub, %cond.true ], [ 0, %cond.false ]
-  %34 = load ptr, ptr %full_size.addr, align 8
-  store i64 %cond, ptr %34, align 8
-  %35 = load ptr, ptr %full_size.addr, align 8
-  %36 = load i64, ptr %35, align 8
-  %cmp24 = icmp eq i64 %36, 0
-  br i1 %cmp24, label %if.then25, label %if.end26
-
-if.then25:                                        ; preds = %cond.end
-  br label %return
-
-if.end26:                                         ; preds = %cond.end
-  %37 = load i64, ptr %start, align 8
-  %div = udiv i64 %37, 65536
-  store i64 %div, ptr %bitidx, align 8
-  %38 = load ptr, ptr %full_size.addr, align 8
-  %39 = load i64, ptr %38, align 8
-  %div27 = udiv i64 %39, 65536
-  store i64 %div27, ptr %bitcount, align 8
-  %40 = load i64, ptr %bitidx, align 8
-  %41 = load i64, ptr %bitcount, align 8
-  %add28 = add i64 %40, %41
-  %cmp29 = icmp ugt i64 %add28, 512
-  br i1 %cmp29, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %if.end26
-  %42 = load i64, ptr %bitidx, align 8
-  %43 = load i64, ptr %bitcount, align 8
-  %44 = load i64, ptr %start, align 8
-  %45 = load i64, ptr %end, align 8
-  %46 = load ptr, ptr %p.addr, align 8
-  %47 = load i64, ptr %size.addr, align 8
-  %48 = load ptr, ptr %full_size.addr, align 8
-  %49 = load i64, ptr %48, align 8
-  call void (ptr, ...) @_mi_warning_message(ptr noundef @.str, i64 noundef %42, i64 noundef %43, i64 noundef %44, i64 noundef %45, ptr noundef %46, i64 noundef %47, i64 noundef %49) #6
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then30, %if.end26
-  %50 = load i64, ptr %bitidx, align 8
-  %51 = load i64, ptr %bitcount, align 8
-  %52 = load ptr, ptr %cm.addr, align 8
-  call void @mi_commit_mask_create(i64 noundef %50, i64 noundef %51, ptr noundef %52) #6
-  br label %return
-
-return:                                           ; preds = %if.end31, %if.then25, %if.then6, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_commit_mask_is_empty(ptr noundef %cm) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %cmp1 = icmp ne i64 %3, 0
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !23
-
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_create_intersect(ptr noundef %commit, ptr noundef %cm, ptr noundef %res) #0 {
-entry:
-  %commit.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %res.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store ptr %res, ptr %res.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %commit.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %cm.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx2, align 8
-  %and = and i64 %3, %6
-  %7 = load ptr, ptr %res.addr, align 8
-  %mask3 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %i, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %mask3, i64 0, i64 %8
-  store i64 %and, ptr %arrayidx4, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !24
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_set(ptr noundef %res, ptr noundef %cm) #0 {
-entry:
-  %res.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %res, ptr %res.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %res.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx2, align 8
-  %or = or i64 %6, %3
-  store i64 %or, ptr %arrayidx2, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !25
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-declare i64 @_mi_clock_now() #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_commit_mask_any_set(ptr noundef %commit, ptr noundef %cm) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %commit.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %commit.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %cm.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx2, align 8
-  %and = and i64 %3, %6
-  %cmp3 = icmp ne i64 %and, 0
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !26
-
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %8 = load i1, ptr %retval, align 1
-  ret i1 %8
-}
-
-declare zeroext i1 @_mi_os_purge(ptr noundef, i64 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_clear(ptr noundef %res, ptr noundef %cm) #0 {
-entry:
-  %res.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %res, ptr %res.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %not = xor i64 %3, -1
-  %4 = load ptr, ptr %res.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx2, align 8
-  %and = and i64 %6, %not
-  store i64 %and, ptr %arrayidx2, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %i, align 8
-  %inc = add i64 %7, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !27
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_create_empty(ptr noundef %cm) #0 {
-entry:
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  store i64 0, ptr %arrayidx, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %3 = load i64, ptr %i, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !28
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_segment_info_size(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %segment_info_slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 14
-  %1 = load i64, ptr %segment_info_slices, align 8
-  %mul = mul i64 %1, 65536
-  ret i64 %mul
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_segment_size(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %segment_slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 13
-  %1 = load i64, ptr %segment_slices, align 8
-  %mul = mul i64 %1, 65536
-  ret i64 %mul
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_mi_align_up(i64 noundef %sz, i64 noundef %alignment) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %sz.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %mask = alloca i64, align 8
-  store i64 %sz, ptr %sz.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %0, 1
-  store i64 %sub, ptr %mask, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %2 = load i64, ptr %mask, align 8
-  %and = and i64 %1, %2
-  %cmp = icmp eq i64 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %sz.addr, align 8
-  %4 = load i64, ptr %mask, align 8
-  %add = add i64 %3, %4
-  %5 = load i64, ptr %mask, align 8
-  %not = xor i64 %5, -1
-  %and1 = and i64 %add, %not
-  store i64 %and1, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %6 = load i64, ptr %sz.addr, align 8
-  %7 = load i64, ptr %mask, align 8
-  %add2 = add i64 %6, %7
-  %8 = load i64, ptr %alignment.addr, align 8
-  %div = udiv i64 %add2, %8
-  %9 = load i64, ptr %alignment.addr, align 8
-  %mul = mul i64 %div, %9
-  store i64 %mul, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %10 = load i64, ptr %retval, align 8
-  ret i64 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_mi_align_down(i64 noundef %sz, i64 noundef %alignment) #0 {
-entry:
-  %retval = alloca i64, align 8
-  %sz.addr = alloca i64, align 8
-  %alignment.addr = alloca i64, align 8
-  %mask = alloca i64, align 8
-  store i64 %sz, ptr %sz.addr, align 8
-  store i64 %alignment, ptr %alignment.addr, align 8
-  %0 = load i64, ptr %alignment.addr, align 8
-  %sub = sub i64 %0, 1
-  store i64 %sub, ptr %mask, align 8
-  %1 = load i64, ptr %alignment.addr, align 8
-  %2 = load i64, ptr %mask, align 8
-  %and = and i64 %1, %2
-  %cmp = icmp eq i64 %and, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %3 = load i64, ptr %sz.addr, align 8
-  %4 = load i64, ptr %mask, align 8
-  %not = xor i64 %4, -1
-  %and1 = and i64 %3, %not
-  store i64 %and1, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load i64, ptr %sz.addr, align 8
-  %6 = load i64, ptr %alignment.addr, align 8
-  %div = udiv i64 %5, %6
-  %7 = load i64, ptr %alignment.addr, align 8
-  %mul = mul i64 %div, %7
-  store i64 %mul, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %8 = load i64, ptr %retval, align 8
-  ret i64 %8
-}
-
-declare void @_mi_warning_message(ptr noundef, ...) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_create(i64 noundef %bitidx, i64 noundef %bitcount, ptr noundef %cm) #0 {
-entry:
-  %bitidx.addr = alloca i64, align 8
-  %bitcount.addr = alloca i64, align 8
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %ofs = alloca i64, align 8
-  %avail = alloca i64, align 8
-  %count = alloca i64, align 8
-  %mask = alloca i64, align 8
-  store i64 %bitidx, ptr %bitidx.addr, align 8
-  store i64 %bitcount, ptr %bitcount.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  %0 = load i64, ptr %bitcount.addr, align 8
-  %cmp = icmp eq i64 %0, 512
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %cm.addr, align 8
-  call void @mi_commit_mask_create_full(ptr noundef %1) #6
-  br label %if.end15
-
-if.else:                                          ; preds = %entry
-  %2 = load i64, ptr %bitcount.addr, align 8
-  %cmp1 = icmp eq i64 %2, 0
-  br i1 %cmp1, label %if.then2, label %if.else3
-
-if.then2:                                         ; preds = %if.else
-  %3 = load ptr, ptr %cm.addr, align 8
-  call void @mi_commit_mask_create_empty(ptr noundef %3) #6
-  br label %if.end
-
-if.else3:                                         ; preds = %if.else
-  %4 = load ptr, ptr %cm.addr, align 8
-  call void @mi_commit_mask_create_empty(ptr noundef %4) #6
-  %5 = load i64, ptr %bitidx.addr, align 8
-  %div = udiv i64 %5, 64
-  store i64 %div, ptr %i, align 8
-  %6 = load i64, ptr %bitidx.addr, align 8
-  %rem = urem i64 %6, 64
-  store i64 %rem, ptr %ofs, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %cond.end11, %if.else3
-  %7 = load i64, ptr %bitcount.addr, align 8
-  %cmp4 = icmp ugt i64 %7, 0
-  br i1 %cmp4, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %8 = load i64, ptr %ofs, align 8
-  %sub = sub i64 64, %8
-  store i64 %sub, ptr %avail, align 8
-  %9 = load i64, ptr %bitcount.addr, align 8
-  %10 = load i64, ptr %avail, align 8
-  %cmp5 = icmp ugt i64 %9, %10
-  br i1 %cmp5, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %while.body
-  %11 = load i64, ptr %avail, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %while.body
-  %12 = load i64, ptr %bitcount.addr, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %11, %cond.true ], [ %12, %cond.false ]
-  store i64 %cond, ptr %count, align 8
-  %13 = load i64, ptr %count, align 8
-  %cmp6 = icmp uge i64 %13, 64
-  br i1 %cmp6, label %cond.true7, label %cond.false8
-
-cond.true7:                                       ; preds = %cond.end
-  br label %cond.end11
-
-cond.false8:                                      ; preds = %cond.end
-  %14 = load i64, ptr %count, align 8
-  %shl = shl i64 1, %14
-  %sub9 = sub i64 %shl, 1
-  %15 = load i64, ptr %ofs, align 8
-  %shl10 = shl i64 %sub9, %15
-  br label %cond.end11
-
-cond.end11:                                       ; preds = %cond.false8, %cond.true7
-  %cond12 = phi i64 [ -1, %cond.true7 ], [ %shl10, %cond.false8 ]
-  store i64 %cond12, ptr %mask, align 8
-  %16 = load i64, ptr %mask, align 8
-  %17 = load ptr, ptr %cm.addr, align 8
-  %mask13 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %17, i32 0, i32 0
-  %18 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask13, i64 0, i64 %18
-  store i64 %16, ptr %arrayidx, align 8
-  %19 = load i64, ptr %count, align 8
-  %20 = load i64, ptr %bitcount.addr, align 8
-  %sub14 = sub i64 %20, %19
-  store i64 %sub14, ptr %bitcount.addr, align 8
-  store i64 0, ptr %ofs, align 8
-  %21 = load i64, ptr %i, align 8
-  %inc = add i64 %21, 1
-  store i64 %inc, ptr %i, align 8
-  br label %while.cond, !llvm.loop !29
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end
-
-if.end:                                           ; preds = %while.end, %if.then2
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_commit_mask_create_full(ptr noundef %cm) #0 {
-entry:
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  store i64 -1, ptr %arrayidx, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %3 = load i64, ptr %i, align 8
-  %inc = add i64 %3, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !30
-
-for.end:                                          ; preds = %for.cond
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_os_free(ptr noundef %segment, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %size = alloca i64, align 8
-  %csize = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 17
-  store atomic i64 0, ptr %thread_id seq_cst, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  call void @_mi_segment_map_freed_at(ptr noundef %1) #6
-  %2 = load ptr, ptr %segment.addr, align 8
-  %call = call i64 @mi_segment_size(ptr noundef %2) #6
-  %sub = sub nsw i64 0, %call
-  %3 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segments_track_size(i64 noundef %sub, ptr noundef %3) #6
-  %4 = load ptr, ptr %segment.addr, align 8
-  %call1 = call i64 @mi_segment_size(ptr noundef %4) #6
-  store i64 %call1, ptr %size, align 8
-  %5 = load ptr, ptr %segment.addr, align 8
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 6
-  %6 = load i64, ptr %size, align 8
-  %call2 = call i64 @_mi_commit_mask_committed_size(ptr noundef %commit_mask, i64 noundef %6) #6
-  store i64 %call2, ptr %csize, align 8
-  call void @_mi_abandoned_await_readers() #6
-  %7 = load ptr, ptr %segment.addr, align 8
-  %8 = load ptr, ptr %segment.addr, align 8
-  %call3 = call i64 @mi_segment_size(ptr noundef %8) #6
-  %9 = load i64, ptr %csize, align 8
-  %10 = load ptr, ptr %segment.addr, align 8
-  %memid = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %stats, align 8
-  call void @_mi_arena_free(ptr noundef %7, i64 noundef %call3, i64 noundef %9, ptr noundef byval(%struct.mi_memid_s) align 8 %memid, ptr noundef %12) #6
-  ret void
-}
-
-declare void @_mi_segment_map_freed_at(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segments_track_size(i64 noundef %segment_size, ptr noundef %tld) #0 {
-entry:
-  %segment_size.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  store i64 %segment_size, ptr %segment_size.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load i64, ptr %segment_size.addr, align 8
-  %cmp = icmp sge i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %stats, align 8
-  %segments = getelementptr inbounds %struct.mi_stats_s, ptr %2, i32 0, i32 0
-  call void @_mi_stat_increase(ptr noundef %segments, i64 noundef 1) #6
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %tld.addr, align 8
-  %stats1 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %stats1, align 8
-  %segments2 = getelementptr inbounds %struct.mi_stats_s, ptr %4, i32 0, i32 0
-  call void @_mi_stat_decrease(ptr noundef %segments2, i64 noundef 1) #6
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %5 = load i64, ptr %segment_size.addr, align 8
-  %cmp3 = icmp sge i64 %5, 0
-  %cond = select i1 %cmp3, i32 1, i32 -1
-  %conv = sext i32 %cond to i64
-  %6 = load ptr, ptr %tld.addr, align 8
-  %count = getelementptr inbounds %struct.mi_segments_tld_s, ptr %6, i32 0, i32 1
-  %7 = load i64, ptr %count, align 8
-  %add = add i64 %7, %conv
-  store i64 %add, ptr %count, align 8
-  %8 = load ptr, ptr %tld.addr, align 8
-  %count4 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %8, i32 0, i32 1
-  %9 = load i64, ptr %count4, align 8
-  %10 = load ptr, ptr %tld.addr, align 8
-  %peak_count = getelementptr inbounds %struct.mi_segments_tld_s, ptr %10, i32 0, i32 2
-  %11 = load i64, ptr %peak_count, align 8
-  %cmp5 = icmp ugt i64 %9, %11
-  br i1 %cmp5, label %if.then7, label %if.end10
-
-if.then7:                                         ; preds = %if.end
-  %12 = load ptr, ptr %tld.addr, align 8
-  %count8 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %12, i32 0, i32 1
-  %13 = load i64, ptr %count8, align 8
-  %14 = load ptr, ptr %tld.addr, align 8
-  %peak_count9 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %14, i32 0, i32 2
-  store i64 %13, ptr %peak_count9, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then7, %if.end
-  %15 = load i64, ptr %segment_size.addr, align 8
-  %16 = load ptr, ptr %tld.addr, align 8
-  %current_size = getelementptr inbounds %struct.mi_segments_tld_s, ptr %16, i32 0, i32 3
-  %17 = load i64, ptr %current_size, align 8
-  %add11 = add i64 %17, %15
-  store i64 %add11, ptr %current_size, align 8
-  %18 = load ptr, ptr %tld.addr, align 8
-  %current_size12 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %18, i32 0, i32 3
-  %19 = load i64, ptr %current_size12, align 8
-  %20 = load ptr, ptr %tld.addr, align 8
-  %peak_size = getelementptr inbounds %struct.mi_segments_tld_s, ptr %20, i32 0, i32 4
-  %21 = load i64, ptr %peak_size, align 8
-  %cmp13 = icmp ugt i64 %19, %21
-  br i1 %cmp13, label %if.then15, label %if.end18
-
-if.then15:                                        ; preds = %if.end10
-  %22 = load ptr, ptr %tld.addr, align 8
-  %current_size16 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %22, i32 0, i32 3
-  %23 = load i64, ptr %current_size16, align 8
-  %24 = load ptr, ptr %tld.addr, align 8
-  %peak_size17 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %24, i32 0, i32 4
-  store i64 %23, ptr %peak_size17, align 8
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then15, %if.end10
-  ret void
-}
-
-declare void @_mi_arena_free(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #4
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_abandoned_push(ptr noundef %segment) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %next = alloca i64, align 8
-  %ts = alloca i64, align 8
-  %atomic-temp = alloca i64, align 8
-  %.atomictmp = alloca ptr, align 8
-  %.atomictmp2 = alloca i64, align 8
-  %cmpxchg.bool = alloca i8, align 1
-  %.atomictmp3 = alloca i64, align 8
-  %atomic-temp4 = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  %0 = load atomic i64, ptr @abandoned monotonic, align 64
-  store i64 %0, ptr %atomic-temp, align 8
-  %1 = load i64, ptr %atomic-temp, align 8
-  store i64 %1, ptr %ts, align 8
-  br label %do.body
-
-do.body:                                          ; preds = %cmpxchg.continue, %entry
-  %2 = load ptr, ptr %segment.addr, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %2, i32 0, i32 7
-  %3 = load i64, ptr %ts, align 8
-  %call = call ptr @mi_tagged_segment_ptr(i64 noundef %3) #6
-  store ptr %call, ptr %.atomictmp, align 8
-  %4 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %4, ptr %abandoned_next release, align 8
-  %5 = load ptr, ptr %segment.addr, align 8
-  %6 = load i64, ptr %ts, align 8
-  %call1 = call i64 @mi_tagged_segment(ptr noundef %5, i64 noundef %6) #6
-  store i64 %call1, ptr %next, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %do.body
-  %7 = load i64, ptr %next, align 8
-  store i64 %7, ptr %.atomictmp2, align 8
-  %8 = load i64, ptr %ts, align 8
-  %9 = load i64, ptr %.atomictmp2, align 8
-  %10 = cmpxchg weak ptr @abandoned, i64 %8, i64 %9 release monotonic, align 64
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %cmpxchg.continue, label %cmpxchg.store_expected
-
-cmpxchg.store_expected:                           ; preds = %do.cond
-  store i64 %11, ptr %ts, align 8
-  br label %cmpxchg.continue
-
-cmpxchg.continue:                                 ; preds = %cmpxchg.store_expected, %do.cond
-  %frombool = zext i1 %12 to i8
-  store i8 %frombool, ptr %cmpxchg.bool, align 1
-  %13 = load i8, ptr %cmpxchg.bool, align 1
-  %tobool = trunc i8 %13 to i1
-  %lnot = xor i1 %tobool, true
-  br i1 %lnot, label %do.body, label %do.end, !llvm.loop !31
-
-do.end:                                           ; preds = %cmpxchg.continue
-  store i64 1, ptr %.atomictmp3, align 8
-  %14 = load i64, ptr %.atomictmp3, align 8
-  %15 = atomicrmw add ptr @abandoned_count, i64 %14 monotonic, align 64
-  store i64 %15, ptr %atomic-temp4, align 8
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_tagged_segment_ptr(i64 noundef %ts) #0 {
-entry:
-  %ts.addr = alloca i64, align 8
-  store i64 %ts, ptr %ts.addr, align 8
-  %0 = load i64, ptr %ts.addr, align 8
-  %and = and i64 %0, -33554432
-  %1 = inttoptr i64 %and to ptr
-  ret ptr %1
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_tagged_segment(ptr noundef %segment, i64 noundef %ts) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %ts.addr = alloca i64, align 8
-  %tag = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store i64 %ts, ptr %ts.addr, align 8
-  %0 = load i64, ptr %ts.addr, align 8
-  %and = and i64 %0, 33554431
-  %add = add i64 %and, 1
-  %and1 = and i64 %add, 33554431
-  store i64 %and1, ptr %tag, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  %3 = load i64, ptr %tag, align 8
-  %or = or i64 %2, %3
-  ret i64 %or
-}
-
-declare i64 @_mi_thread_id() #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_slices_start_iterate(ptr noundef %segment, ptr noundef %end) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %end.addr = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %end, ptr %end.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 18
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 0
-  store ptr %arrayidx, ptr %slice, align 8
-  %1 = load ptr, ptr %segment.addr, align 8
-  %call = call ptr @mi_segment_slices_end(ptr noundef %1) #6
-  %2 = load ptr, ptr %end.addr, align 8
-  store ptr %call, ptr %2, align 8
-  %3 = load ptr, ptr %slice, align 8
-  %4 = load ptr, ptr %slice, align 8
-  %slice_count = getelementptr inbounds %struct.mi_page_s, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %slice_count, align 8
-  %idx.ext = zext i32 %5 to i64
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %3, i64 %idx.ext
-  store ptr %add.ptr, ptr %slice, align 8
-  %6 = load ptr, ptr %slice, align 8
-  ret ptr %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_slice_is_used(ptr noundef %slice) #0 {
-entry:
-  %slice.addr = alloca ptr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %xblock_size, align 4
-  %cmp = icmp ugt i32 %1, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_slice_to_page(ptr noundef %s) #0 {
-entry:
-  %s.addr = alloca ptr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  %0 = load ptr, ptr %s.addr, align 8
-  ret ptr %0
-}
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_page_set_heap(ptr noundef %page, ptr noundef %heap) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %.atomictmp = alloca i64, align 8
-  store ptr %page, ptr %page.addr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %xheap = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 12
-  %1 = load ptr, ptr %heap.addr, align 8
-  %2 = ptrtoint ptr %1 to i64
-  store i64 %2, ptr %.atomictmp, align 8
-  %3 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %3, ptr %xheap release, align 8
-  ret void
-}
-
-declare void @_mi_page_use_delayed_free(ptr noundef, i32 noundef, i1 noundef zeroext) #1
-
-declare void @_mi_page_free_collect(ptr noundef, i1 noundef zeroext) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_page_all_free(ptr noundef %page) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %used = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %used, align 8
-  %cmp = icmp eq i32 %1, 0
-  ret i1 %cmp
-}
-
-declare void @_mi_page_reclaim(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_page_has_any_available(ptr noundef %page) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %used = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 8
-  %1 = load i32, ptr %used, align 8
-  %2 = load ptr, ptr %page.addr, align 8
-  %reserved = getelementptr inbounds %struct.mi_page_s, ptr %2, i32 0, i32 4
-  %3 = load i16, ptr %reserved, align 4
-  %conv = zext i16 %3 to i32
-  %cmp = icmp ult i32 %1, %conv
-  br i1 %cmp, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %entry
-  %4 = load ptr, ptr %page.addr, align 8
-  %call = call ptr @mi_page_thread_free(ptr noundef %4) #6
-  %cmp2 = icmp ne ptr %call, null
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %5 = phi i1 [ true, %entry ], [ %cmp2, %lor.rhs ]
-  ret i1 %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_page_thread_free(ptr noundef %page) #0 {
-entry:
-  %page.addr = alloca ptr, align 8
-  %atomic-temp = alloca i64, align 8
-  store ptr %page, ptr %page.addr, align 8
-  %0 = load ptr, ptr %page.addr, align 8
-  %xthread_free = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 11
-  %1 = load atomic i64, ptr %xthread_free monotonic, align 8
-  store i64 %1, ptr %atomic-temp, align 8
-  %2 = load i64, ptr %atomic-temp, align 8
-  %and = and i64 %2, -4
-  %3 = inttoptr i64 %and to ptr
-  ret ptr %3
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_alloc(i64 noundef %required, i64 noundef %page_alignment, i32 noundef %req_arena_id, ptr noundef %tld, ptr noundef %os_tld, ptr noundef %huge_page) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %required.addr = alloca i64, align 8
-  %page_alignment.addr = alloca i64, align 8
-  %req_arena_id.addr = alloca i32, align 4
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %huge_page.addr = alloca ptr, align 8
-  %info_slices = alloca i64, align 8
-  %pre_size = alloca i64, align 8
-  %segment_slices = alloca i64, align 8
-  %eager_delay = alloca i8, align 1
-  %eager = alloca i8, align 1
-  %commit = alloca i8, align 1
-  %segment = alloca ptr, align 8
-  %ofs = alloca i64, align 8
-  %prefix = alloca i64, align 8
-  %zsize = alloca i64, align 8
-  %slice_entries = alloca i64, align 8
-  %guard_slices = alloca i64, align 8
-  %page0 = alloca ptr, align 8
-  store i64 %required, ptr %required.addr, align 8
-  store i64 %page_alignment, ptr %page_alignment.addr, align 8
-  store i32 %req_arena_id, ptr %req_arena_id.addr, align 4
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  store ptr %huge_page, ptr %huge_page.addr, align 8
-  %0 = load i64, ptr %required.addr, align 8
-  %call = call i64 @mi_segment_calculate_slices(i64 noundef %0, ptr noundef %pre_size, ptr noundef %info_slices) #6
-  store i64 %call, ptr %segment_slices, align 8
-  %call1 = call i64 @_mi_current_thread_count() #6
-  %cmp = icmp ugt i64 %call1, 1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %tld.addr, align 8
-  %count = getelementptr inbounds %struct.mi_segments_tld_s, ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %count, align 8
-  %call2 = call i64 @mi_option_get(i32 noundef 14) #6
-  %cmp3 = icmp ult i64 %2, %call2
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %cmp3, %land.rhs ]
-  %frombool = zext i1 %3 to i8
-  store i8 %frombool, ptr %eager_delay, align 1
-  %4 = load i8, ptr %eager_delay, align 1
-  %tobool = trunc i8 %4 to i1
-  br i1 %tobool, label %land.end6, label %land.rhs4
-
-land.rhs4:                                        ; preds = %land.end
-  %call5 = call zeroext i1 @mi_option_is_enabled(i32 noundef 3) #6
-  br label %land.end6
-
-land.end6:                                        ; preds = %land.rhs4, %land.end
-  %5 = phi i1 [ false, %land.end ], [ %call5, %land.rhs4 ]
-  %frombool7 = zext i1 %5 to i8
-  store i8 %frombool7, ptr %eager, align 1
-  %6 = load i8, ptr %eager, align 1
-  %tobool8 = trunc i8 %6 to i1
-  br i1 %tobool8, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %land.end6
-  %7 = load i64, ptr %required.addr, align 8
-  %cmp9 = icmp ugt i64 %7, 0
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %land.end6
-  %8 = phi i1 [ true, %land.end6 ], [ %cmp9, %lor.rhs ]
-  %frombool10 = zext i1 %8 to i8
-  store i8 %frombool10, ptr %commit, align 1
-  %9 = load i64, ptr %required.addr, align 8
-  %10 = load i64, ptr %page_alignment.addr, align 8
-  %11 = load i8, ptr %eager_delay, align 1
-  %tobool11 = trunc i8 %11 to i1
-  %12 = load i32, ptr %req_arena_id.addr, align 4
-  %13 = load i8, ptr %commit, align 1
-  %tobool12 = trunc i8 %13 to i1
-  %14 = load ptr, ptr %tld.addr, align 8
-  %15 = load ptr, ptr %os_tld.addr, align 8
-  %call13 = call ptr @mi_segment_os_alloc(i64 noundef %9, i64 noundef %10, i1 noundef zeroext %tobool11, i32 noundef %12, ptr noundef %segment_slices, ptr noundef %pre_size, ptr noundef %info_slices, i1 noundef zeroext %tobool12, ptr noundef %14, ptr noundef %15) #6
-  store ptr %call13, ptr %segment, align 8
-  %16 = load ptr, ptr %segment, align 8
-  %cmp14 = icmp eq ptr %16, null
-  br i1 %cmp14, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %lor.end
-  %17 = load ptr, ptr %segment, align 8
-  %memid = getelementptr inbounds %struct.mi_segment_s, ptr %17, i32 0, i32 0
-  %initially_zero = getelementptr inbounds %struct.mi_memid_s, ptr %memid, i32 0, i32 3
-  %18 = load i8, ptr %initially_zero, align 2
-  %tobool15 = trunc i8 %18 to i1
-  br i1 %tobool15, label %if.end18, label %if.then16
-
-if.then16:                                        ; preds = %if.end
-  store i64 184, ptr %ofs, align 8
-  %19 = load i64, ptr %ofs, align 8
-  %sub = sub i64 264, %19
-  store i64 %sub, ptr %prefix, align 8
-  %20 = load i64, ptr %prefix, align 8
-  %21 = load i64, ptr %segment_slices, align 8
-  %add = add i64 %21, 1
-  %mul = mul i64 80, %add
-  %add17 = add i64 %20, %mul
-  store i64 %add17, ptr %zsize, align 8
-  %22 = load ptr, ptr %segment, align 8
-  %23 = load i64, ptr %ofs, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %22, i64 %23
-  %24 = load i64, ptr %zsize, align 8
-  call void @_mi_memzero(ptr noundef %add.ptr, i64 noundef %24) #6
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then16, %if.end
-  %25 = load i64, ptr %segment_slices, align 8
-  %cmp19 = icmp ugt i64 %25, 512
-  br i1 %cmp19, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end18
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end18
-  %26 = load i64, ptr %segment_slices, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 512, %cond.true ], [ %26, %cond.false ]
-  store i64 %cond, ptr %slice_entries, align 8
-  %27 = load i64, ptr %segment_slices, align 8
-  %28 = load ptr, ptr %segment, align 8
-  %segment_slices20 = getelementptr inbounds %struct.mi_segment_s, ptr %28, i32 0, i32 13
-  store i64 %27, ptr %segment_slices20, align 8
-  %29 = load i64, ptr %info_slices, align 8
-  %30 = load ptr, ptr %segment, align 8
-  %segment_info_slices = getelementptr inbounds %struct.mi_segment_s, ptr %30, i32 0, i32 14
-  store i64 %29, ptr %segment_info_slices, align 8
-  %call21 = call i64 @_mi_thread_id() #6
-  %31 = load ptr, ptr %segment, align 8
-  %thread_id = getelementptr inbounds %struct.mi_segment_s, ptr %31, i32 0, i32 17
-  store atomic i64 %call21, ptr %thread_id seq_cst, align 8
-  %32 = load ptr, ptr %segment, align 8
-  %call22 = call i64 @_mi_ptr_cookie(ptr noundef %32) #6
-  %33 = load ptr, ptr %segment, align 8
-  %cookie = getelementptr inbounds %struct.mi_segment_s, ptr %33, i32 0, i32 12
-  store i64 %call22, ptr %cookie, align 8
-  %34 = load i64, ptr %slice_entries, align 8
-  %35 = load ptr, ptr %segment, align 8
-  %slice_entries23 = getelementptr inbounds %struct.mi_segment_s, ptr %35, i32 0, i32 16
-  store i64 %34, ptr %slice_entries23, align 8
-  %36 = load i64, ptr %required.addr, align 8
-  %cmp24 = icmp eq i64 %36, 0
-  %cond25 = select i1 %cmp24, i32 0, i32 1
-  %37 = load ptr, ptr %segment, align 8
-  %kind = getelementptr inbounds %struct.mi_segment_s, ptr %37, i32 0, i32 15
-  store i32 %cond25, ptr %kind, align 8
-  %38 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %38, i32 0, i32 5
-  %39 = load ptr, ptr %stats, align 8
-  %page_committed = getelementptr inbounds %struct.mi_stats_s, ptr %39, i32 0, i32 6
-  %40 = load ptr, ptr %segment, align 8
-  %call26 = call i64 @mi_segment_info_size(ptr noundef %40) #6
-  call void @_mi_stat_increase(ptr noundef %page_committed, i64 noundef %call26) #6
-  store i64 0, ptr %guard_slices, align 8
-  %41 = load ptr, ptr %segment, align 8
-  %42 = load i64, ptr %info_slices, align 8
-  %43 = load ptr, ptr %tld.addr, align 8
-  %call27 = call ptr @mi_segment_span_allocate(ptr noundef %41, i64 noundef 0, i64 noundef %42, ptr noundef %43) #6
-  store ptr %call27, ptr %page0, align 8
-  %44 = load ptr, ptr %page0, align 8
-  %cmp28 = icmp eq ptr %44, null
-  br i1 %cmp28, label %if.then29, label %if.end30
-
-if.then29:                                        ; preds = %cond.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end30:                                         ; preds = %cond.end
-  %45 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %45, i32 0, i32 11
-  store i64 0, ptr %used, align 8
-  %46 = load ptr, ptr %segment, align 8
-  %kind31 = getelementptr inbounds %struct.mi_segment_s, ptr %46, i32 0, i32 15
-  %47 = load i32, ptr %kind31, align 8
-  %cmp32 = icmp eq i32 %47, 0
-  br i1 %cmp32, label %if.then33, label %if.else
-
-if.then33:                                        ; preds = %if.end30
-  %48 = load ptr, ptr %segment, align 8
-  %49 = load i64, ptr %info_slices, align 8
-  %50 = load ptr, ptr %segment, align 8
-  %slice_entries34 = getelementptr inbounds %struct.mi_segment_s, ptr %50, i32 0, i32 16
-  %51 = load i64, ptr %slice_entries34, align 8
-  %52 = load i64, ptr %info_slices, align 8
-  %sub35 = sub i64 %51, %52
-  %53 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_free(ptr noundef %48, i64 noundef %49, i64 noundef %sub35, i1 noundef zeroext false, ptr noundef %53) #6
-  br label %if.end39
-
-if.else:                                          ; preds = %if.end30
-  %54 = load ptr, ptr %segment, align 8
-  %55 = load i64, ptr %info_slices, align 8
-  %56 = load i64, ptr %segment_slices, align 8
-  %57 = load i64, ptr %info_slices, align 8
-  %sub36 = sub i64 %56, %57
-  %58 = load i64, ptr %guard_slices, align 8
-  %sub37 = sub i64 %sub36, %58
-  %59 = load ptr, ptr %tld.addr, align 8
-  %call38 = call ptr @mi_segment_span_allocate(ptr noundef %54, i64 noundef %55, i64 noundef %sub37, ptr noundef %59) #6
-  %60 = load ptr, ptr %huge_page.addr, align 8
-  store ptr %call38, ptr %60, align 8
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.else, %if.then33
-  %61 = load ptr, ptr %segment, align 8
-  store ptr %61, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end39, %if.then29, %if.then
-  %62 = load ptr, ptr %retval, align 8
-  ret ptr %62
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @mi_segment_calculate_slices(i64 noundef %required, ptr noundef %pre_size, ptr noundef %info_slices) #0 {
-entry:
-  %required.addr = alloca i64, align 8
-  %pre_size.addr = alloca ptr, align 8
-  %info_slices.addr = alloca ptr, align 8
-  %page_size = alloca i64, align 8
-  %isize = alloca i64, align 8
-  %guardsize = alloca i64, align 8
-  %segment_size = alloca i64, align 8
-  store i64 %required, ptr %required.addr, align 8
-  store ptr %pre_size, ptr %pre_size.addr, align 8
-  store ptr %info_slices, ptr %info_slices.addr, align 8
-  %call = call i64 @_mi_os_page_size() #6
-  store i64 %call, ptr %page_size, align 8
-  %0 = load i64, ptr %page_size, align 8
-  %call1 = call i64 @_mi_align_up(i64 noundef 41304, i64 noundef %0) #6
-  store i64 %call1, ptr %isize, align 8
-  store i64 0, ptr %guardsize, align 8
-  %1 = load ptr, ptr %pre_size.addr, align 8
-  %cmp = icmp ne ptr %1, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %isize, align 8
-  %3 = load ptr, ptr %pre_size.addr, align 8
-  store i64 %2, ptr %3, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load i64, ptr %isize, align 8
-  %5 = load i64, ptr %guardsize, align 8
-  %add = add i64 %4, %5
-  %call2 = call i64 @_mi_align_up(i64 noundef %add, i64 noundef 65536) #6
-  store i64 %call2, ptr %isize, align 8
-  %6 = load ptr, ptr %info_slices.addr, align 8
-  %cmp3 = icmp ne ptr %6, null
-  br i1 %cmp3, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.end
-  %7 = load i64, ptr %isize, align 8
-  %div = udiv i64 %7, 65536
-  %8 = load ptr, ptr %info_slices.addr, align 8
-  store i64 %div, ptr %8, align 8
-  br label %if.end5
-
-if.end5:                                          ; preds = %if.then4, %if.end
-  %9 = load i64, ptr %required.addr, align 8
-  %cmp6 = icmp eq i64 %9, 0
-  br i1 %cmp6, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end5
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end5
-  %10 = load i64, ptr %required.addr, align 8
-  %11 = load i64, ptr %isize, align 8
-  %add7 = add i64 %10, %11
-  %12 = load i64, ptr %guardsize, align 8
-  %add8 = add i64 %add7, %12
-  %call9 = call i64 @_mi_align_up(i64 noundef %add8, i64 noundef 65536) #6
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 33554432, %cond.true ], [ %call9, %cond.false ]
-  store i64 %cond, ptr %segment_size, align 8
-  %13 = load i64, ptr %segment_size, align 8
-  %div10 = udiv i64 %13, 65536
-  ret i64 %div10
-}
-
-declare i64 @_mi_current_thread_count() #1
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_os_alloc(i64 noundef %required, i64 noundef %page_alignment, i1 noundef zeroext %eager_delayed, i32 noundef %req_arena_id, ptr noundef %psegment_slices, ptr noundef %ppre_size, ptr noundef %pinfo_slices, i1 noundef zeroext %commit, ptr noundef %tld, ptr noundef %os_tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %required.addr = alloca i64, align 8
-  %page_alignment.addr = alloca i64, align 8
-  %eager_delayed.addr = alloca i8, align 1
-  %req_arena_id.addr = alloca i32, align 4
-  %psegment_slices.addr = alloca ptr, align 8
-  %ppre_size.addr = alloca ptr, align 8
-  %pinfo_slices.addr = alloca ptr, align 8
-  %commit.addr = alloca i8, align 1
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %memid = alloca %struct.mi_memid_s, align 8
-  %allow_large = alloca i8, align 1
-  %align_offset = alloca i64, align 8
-  %alignment = alloca i64, align 8
-  %info_size = alloca i64, align 8
-  %extra = alloca i64, align 8
-  %segment_size = alloca i64, align 8
-  %segment = alloca ptr, align 8
-  %commit_mask = alloca %struct.mi_commit_mask_s, align 8
-  %commit_needed = alloca i64, align 8
-  %.atomictmp = alloca ptr, align 8
-  store i64 %required, ptr %required.addr, align 8
-  store i64 %page_alignment, ptr %page_alignment.addr, align 8
-  %frombool = zext i1 %eager_delayed to i8
-  store i8 %frombool, ptr %eager_delayed.addr, align 1
-  store i32 %req_arena_id, ptr %req_arena_id.addr, align 4
-  store ptr %psegment_slices, ptr %psegment_slices.addr, align 8
-  store ptr %ppre_size, ptr %ppre_size.addr, align 8
-  store ptr %pinfo_slices, ptr %pinfo_slices.addr, align 8
-  %frombool1 = zext i1 %commit to i8
-  store i8 %frombool1, ptr %commit.addr, align 1
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  %0 = load i8, ptr %eager_delayed.addr, align 1
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %land.end, label %land.rhs
-
-land.rhs:                                         ; preds = %entry
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %1 = phi i1 [ false, %entry ], [ true, %land.rhs ]
-  %frombool2 = zext i1 %1 to i8
-  store i8 %frombool2, ptr %allow_large, align 1
-  store i64 0, ptr %align_offset, align 8
-  store i64 33554432, ptr %alignment, align 8
-  %2 = load i64, ptr %page_alignment.addr, align 8
-  %cmp = icmp ugt i64 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.end
-  %3 = load i64, ptr %page_alignment.addr, align 8
-  store i64 %3, ptr %alignment, align 8
-  %4 = load ptr, ptr %pinfo_slices.addr, align 8
-  %5 = load i64, ptr %4, align 8
-  %mul = mul i64 %5, 65536
-  store i64 %mul, ptr %info_size, align 8
-  %6 = load i64, ptr %info_size, align 8
-  %call = call i64 @_mi_align_up(i64 noundef %6, i64 noundef 33554432) #6
-  store i64 %call, ptr %align_offset, align 8
-  %7 = load i64, ptr %align_offset, align 8
-  %8 = load i64, ptr %info_size, align 8
-  %sub = sub i64 %7, %8
-  store i64 %sub, ptr %extra, align 8
-  %9 = load i64, ptr %required.addr, align 8
-  %10 = load i64, ptr %extra, align 8
-  %add = add i64 %9, %10
-  %11 = load ptr, ptr %ppre_size.addr, align 8
-  %12 = load ptr, ptr %pinfo_slices.addr, align 8
-  %call3 = call i64 @mi_segment_calculate_slices(i64 noundef %add, ptr noundef %11, ptr noundef %12) #6
-  %13 = load ptr, ptr %psegment_slices.addr, align 8
-  store i64 %call3, ptr %13, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %land.end
-  %14 = load ptr, ptr %psegment_slices.addr, align 8
-  %15 = load i64, ptr %14, align 8
-  %mul4 = mul i64 %15, 65536
-  store i64 %mul4, ptr %segment_size, align 8
-  %16 = load i64, ptr %segment_size, align 8
-  %17 = load i64, ptr %alignment, align 8
-  %18 = load i64, ptr %align_offset, align 8
-  %19 = load i8, ptr %commit.addr, align 1
-  %tobool5 = trunc i8 %19 to i1
-  %20 = load i8, ptr %allow_large, align 1
-  %tobool6 = trunc i8 %20 to i1
-  %21 = load i32, ptr %req_arena_id.addr, align 4
-  %22 = load ptr, ptr %os_tld.addr, align 8
-  %call7 = call ptr @_mi_arena_alloc_aligned(i64 noundef %16, i64 noundef %17, i64 noundef %18, i1 noundef zeroext %tobool5, i1 noundef zeroext %tobool6, i32 noundef %21, ptr noundef %memid, ptr noundef %22) #6
-  store ptr %call7, ptr %segment, align 8
-  %23 = load ptr, ptr %segment, align 8
-  %cmp8 = icmp eq ptr %23, null
-  br i1 %cmp8, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end10:                                         ; preds = %if.end
-  %initially_committed = getelementptr inbounds %struct.mi_memid_s, ptr %memid, i32 0, i32 2
-  %24 = load i8, ptr %initially_committed, align 1
-  %tobool11 = trunc i8 %24 to i1
-  br i1 %tobool11, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %if.end10
-  call void @mi_commit_mask_create_full(ptr noundef %commit_mask) #6
-  br label %if.end20
-
-if.else:                                          ; preds = %if.end10
-  %25 = load ptr, ptr %pinfo_slices.addr, align 8
-  %26 = load i64, ptr %25, align 8
-  %mul13 = mul i64 %26, 65536
-  %call14 = call i64 @_mi_divide_up(i64 noundef %mul13, i64 noundef 65536) #6
-  store i64 %call14, ptr %commit_needed, align 8
-  %27 = load i64, ptr %commit_needed, align 8
-  call void @mi_commit_mask_create(i64 noundef 0, i64 noundef %27, ptr noundef %commit_mask) #6
-  %28 = load ptr, ptr %segment, align 8
-  %29 = load i64, ptr %commit_needed, align 8
-  %mul15 = mul i64 %29, 65536
-  %30 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %stats, align 8
-  %call16 = call zeroext i1 @_mi_os_commit(ptr noundef %28, i64 noundef %mul15, ptr noundef null, ptr noundef %31) #6
-  br i1 %call16, label %if.end19, label %if.then17
-
-if.then17:                                        ; preds = %if.else
-  %32 = load ptr, ptr %segment, align 8
-  %33 = load i64, ptr %segment_size, align 8
-  %34 = load ptr, ptr %tld.addr, align 8
-  %stats18 = getelementptr inbounds %struct.mi_segments_tld_s, ptr %34, i32 0, i32 5
-  %35 = load ptr, ptr %stats18, align 8
-  call void @_mi_arena_free(ptr noundef %32, i64 noundef %33, i64 noundef 0, ptr noundef byval(%struct.mi_memid_s) align 8 %memid, ptr noundef %35) #6
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end19:                                         ; preds = %if.else
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end19, %if.then12
-  %36 = load ptr, ptr %segment, align 8
-  %memid21 = getelementptr inbounds %struct.mi_segment_s, ptr %36, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %memid21, ptr align 8 %memid, i64 24, i1 false)
-  %is_pinned = getelementptr inbounds %struct.mi_memid_s, ptr %memid, i32 0, i32 1
-  %37 = load i8, ptr %is_pinned, align 8
-  %tobool22 = trunc i8 %37 to i1
-  %lnot = xor i1 %tobool22, true
-  %38 = load ptr, ptr %segment, align 8
-  %allow_decommit = getelementptr inbounds %struct.mi_segment_s, ptr %38, i32 0, i32 1
-  %frombool23 = zext i1 %lnot to i8
-  store i8 %frombool23, ptr %allow_decommit, align 8
-  %39 = load ptr, ptr %segment, align 8
-  %allow_decommit24 = getelementptr inbounds %struct.mi_segment_s, ptr %39, i32 0, i32 1
-  %40 = load i8, ptr %allow_decommit24, align 8
-  %tobool25 = trunc i8 %40 to i1
-  br i1 %tobool25, label %land.rhs26, label %land.end29
-
-land.rhs26:                                       ; preds = %if.end20
-  %call27 = call i64 @mi_option_get(i32 noundef 15) #6
-  %cmp28 = icmp sge i64 %call27, 0
-  br label %land.end29
-
-land.end29:                                       ; preds = %land.rhs26, %if.end20
-  %41 = phi i1 [ false, %if.end20 ], [ %cmp28, %land.rhs26 ]
-  %42 = load ptr, ptr %segment, align 8
-  %allow_purge = getelementptr inbounds %struct.mi_segment_s, ptr %42, i32 0, i32 2
-  %frombool30 = zext i1 %41 to i8
-  store i8 %frombool30, ptr %allow_purge, align 1
-  %43 = load i64, ptr %segment_size, align 8
-  %44 = load ptr, ptr %segment, align 8
-  %segment_size31 = getelementptr inbounds %struct.mi_segment_s, ptr %44, i32 0, i32 3
-  store i64 %43, ptr %segment_size31, align 8
-  %45 = load ptr, ptr %segment, align 8
-  %commit_mask32 = getelementptr inbounds %struct.mi_segment_s, ptr %45, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %commit_mask32, ptr align 8 %commit_mask, i64 64, i1 false)
-  %46 = load ptr, ptr %segment, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %46, i32 0, i32 4
-  store i64 0, ptr %purge_expire, align 8
-  %47 = load ptr, ptr %segment, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %47, i32 0, i32 5
-  call void @mi_commit_mask_create_empty(ptr noundef %purge_mask) #6
-  %48 = load ptr, ptr %segment, align 8
-  %abandoned_next = getelementptr inbounds %struct.mi_segment_s, ptr %48, i32 0, i32 7
-  store ptr null, ptr %.atomictmp, align 8
-  %49 = load i64, ptr %.atomictmp, align 8
-  store atomic i64 %49, ptr %abandoned_next release, align 8
-  %50 = load i64, ptr %segment_size, align 8
-  %51 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segments_track_size(i64 noundef %50, ptr noundef %51) #6
-  %52 = load ptr, ptr %segment, align 8
-  call void @_mi_segment_map_allocated_at(ptr noundef %52) #6
-  %53 = load ptr, ptr %segment, align 8
-  store ptr %53, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %land.end29, %if.then17, %if.then9
-  %54 = load ptr, ptr %retval, align 8
-  ret ptr %54
-}
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_mi_ptr_cookie(ptr noundef %p) #0 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %2 = getelementptr inbounds %struct.mi_heap_s, ptr @_mi_heap_main, i32 0, i32 6
-  %3 = load i64, ptr %2, align 8
-  %xor = xor i64 %1, %3
-  ret i64 %xor
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_span_allocate(ptr noundef %segment, i64 noundef %slice_index, i64 noundef %slice_count, ptr noundef %tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %segment.addr = alloca ptr, align 8
-  %slice_index.addr = alloca i64, align 8
-  %slice_count.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %bsize = alloca i64, align 8
-  %page = alloca ptr, align 8
-  %extra = alloca i64, align 8
-  %slice_next = alloca ptr, align 8
-  %i = alloca i64, align 8
-  %last = alloca ptr, align 8
-  %end = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store i64 %slice_index, ptr %slice_index.addr, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %slices = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 18
-  %1 = load i64, ptr %slice_index.addr, align 8
-  %arrayidx = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices, i64 0, i64 %1
-  store ptr %arrayidx, ptr %slice, align 8
-  %2 = load ptr, ptr %segment.addr, align 8
-  %3 = load ptr, ptr %segment.addr, align 8
-  %4 = load ptr, ptr %slice, align 8
-  %call = call ptr @_mi_segment_page_start_from_slice(ptr noundef %3, ptr noundef %4, i64 noundef 0, ptr noundef null) #6
-  %5 = load i64, ptr %slice_count.addr, align 8
-  %mul = mul i64 %5, 65536
-  %6 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %6, i32 0, i32 5
-  %7 = load ptr, ptr %stats, align 8
-  %call1 = call zeroext i1 @mi_segment_ensure_committed(ptr noundef %2, ptr noundef %call, i64 noundef %mul, ptr noundef %7) #6
-  br i1 %call1, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %8 = load ptr, ptr %slice, align 8
-  %slice_offset = getelementptr inbounds %struct.mi_page_s, ptr %8, i32 0, i32 1
-  store i32 0, ptr %slice_offset, align 4
-  %9 = load i64, ptr %slice_count.addr, align 8
-  %conv = trunc i64 %9 to i32
-  %10 = load ptr, ptr %slice, align 8
-  %slice_count2 = getelementptr inbounds %struct.mi_page_s, ptr %10, i32 0, i32 0
-  store i32 %conv, ptr %slice_count2, align 8
-  %11 = load i64, ptr %slice_count.addr, align 8
-  %mul3 = mul i64 %11, 65536
-  store i64 %mul3, ptr %bsize, align 8
-  %12 = load i64, ptr %bsize, align 8
-  %cmp = icmp uge i64 %12, 2147483648
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %if.end
-  br label %cond.end
-
-cond.false:                                       ; preds = %if.end
-  %13 = load i64, ptr %bsize, align 8
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 2147483648, %cond.true ], [ %13, %cond.false ]
-  %conv5 = trunc i64 %cond to i32
-  %14 = load ptr, ptr %slice, align 8
-  %xblock_size = getelementptr inbounds %struct.mi_page_s, ptr %14, i32 0, i32 9
-  store i32 %conv5, ptr %xblock_size, align 4
-  %15 = load ptr, ptr %slice, align 8
-  %call6 = call ptr @mi_slice_to_page(ptr noundef %15) #6
-  store ptr %call6, ptr %page, align 8
-  %16 = load i64, ptr %slice_count.addr, align 8
-  %sub = sub i64 %16, 1
-  store i64 %sub, ptr %extra, align 8
-  %17 = load i64, ptr %extra, align 8
-  %cmp7 = icmp ugt i64 %17, 255
-  br i1 %cmp7, label %if.then9, label %if.end10
-
-if.then9:                                         ; preds = %cond.end
-  store i64 255, ptr %extra, align 8
-  br label %if.end10
-
-if.end10:                                         ; preds = %if.then9, %cond.end
-  %18 = load i64, ptr %slice_index.addr, align 8
-  %19 = load i64, ptr %extra, align 8
-  %add = add i64 %18, %19
-  %20 = load ptr, ptr %segment.addr, align 8
-  %slice_entries = getelementptr inbounds %struct.mi_segment_s, ptr %20, i32 0, i32 16
-  %21 = load i64, ptr %slice_entries, align 8
-  %cmp11 = icmp uge i64 %add, %21
-  br i1 %cmp11, label %if.then13, label %if.end17
-
-if.then13:                                        ; preds = %if.end10
-  %22 = load ptr, ptr %segment.addr, align 8
-  %slice_entries14 = getelementptr inbounds %struct.mi_segment_s, ptr %22, i32 0, i32 16
-  %23 = load i64, ptr %slice_entries14, align 8
-  %24 = load i64, ptr %slice_index.addr, align 8
-  %sub15 = sub i64 %23, %24
-  %sub16 = sub i64 %sub15, 1
-  store i64 %sub16, ptr %extra, align 8
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.then13, %if.end10
-  %25 = load ptr, ptr %slice, align 8
-  %add.ptr = getelementptr inbounds %struct.mi_page_s, ptr %25, i64 1
-  store ptr %add.ptr, ptr %slice_next, align 8
-  store i64 1, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end17
-  %26 = load i64, ptr %i, align 8
-  %27 = load i64, ptr %extra, align 8
-  %cmp18 = icmp ule i64 %26, %27
-  br i1 %cmp18, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %28 = load i64, ptr %i, align 8
-  %mul20 = mul i64 80, %28
-  %conv21 = trunc i64 %mul20 to i32
-  %29 = load ptr, ptr %slice_next, align 8
-  %slice_offset22 = getelementptr inbounds %struct.mi_page_s, ptr %29, i32 0, i32 1
-  store i32 %conv21, ptr %slice_offset22, align 4
-  %30 = load ptr, ptr %slice_next, align 8
-  %slice_count23 = getelementptr inbounds %struct.mi_page_s, ptr %30, i32 0, i32 0
-  store i32 0, ptr %slice_count23, align 8
-  %31 = load ptr, ptr %slice_next, align 8
-  %xblock_size24 = getelementptr inbounds %struct.mi_page_s, ptr %31, i32 0, i32 9
-  store i32 1, ptr %xblock_size24, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %32 = load i64, ptr %i, align 8
-  %inc = add i64 %32, 1
-  store i64 %inc, ptr %i, align 8
-  %33 = load ptr, ptr %slice_next, align 8
-  %incdec.ptr = getelementptr inbounds %struct.mi_page_s, ptr %33, i32 1
-  store ptr %incdec.ptr, ptr %slice_next, align 8
-  br label %for.cond, !llvm.loop !32
-
-for.end:                                          ; preds = %for.cond
-  %34 = load ptr, ptr %slice, align 8
-  %35 = load i64, ptr %slice_count.addr, align 8
-  %add.ptr25 = getelementptr inbounds %struct.mi_page_s, ptr %34, i64 %35
-  %add.ptr26 = getelementptr inbounds %struct.mi_page_s, ptr %add.ptr25, i64 -1
-  store ptr %add.ptr26, ptr %last, align 8
-  %36 = load ptr, ptr %segment.addr, align 8
-  %call27 = call ptr @mi_segment_slices_end(ptr noundef %36) #6
-  store ptr %call27, ptr %end, align 8
-  %37 = load ptr, ptr %last, align 8
-  %38 = load ptr, ptr %end, align 8
-  %cmp28 = icmp ugt ptr %37, %38
-  br i1 %cmp28, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %for.end
-  %39 = load ptr, ptr %end, align 8
-  store ptr %39, ptr %last, align 8
-  br label %if.end31
-
-if.end31:                                         ; preds = %if.then30, %for.end
-  %40 = load ptr, ptr %last, align 8
-  %41 = load ptr, ptr %slice, align 8
-  %cmp32 = icmp ugt ptr %40, %41
-  br i1 %cmp32, label %if.then34, label %if.end40
-
-if.then34:                                        ; preds = %if.end31
-  %42 = load ptr, ptr %last, align 8
-  %43 = load ptr, ptr %slice, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %43 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 80
-  %mul35 = mul i64 80, %sub.ptr.div
-  %conv36 = trunc i64 %mul35 to i32
-  %44 = load ptr, ptr %last, align 8
-  %slice_offset37 = getelementptr inbounds %struct.mi_page_s, ptr %44, i32 0, i32 1
-  store i32 %conv36, ptr %slice_offset37, align 4
-  %45 = load ptr, ptr %last, align 8
-  %slice_count38 = getelementptr inbounds %struct.mi_page_s, ptr %45, i32 0, i32 0
-  store i32 0, ptr %slice_count38, align 8
-  %46 = load ptr, ptr %last, align 8
-  %xblock_size39 = getelementptr inbounds %struct.mi_page_s, ptr %46, i32 0, i32 9
-  store i32 1, ptr %xblock_size39, align 4
-  br label %if.end40
-
-if.end40:                                         ; preds = %if.then34, %if.end31
-  %47 = load ptr, ptr %page, align 8
-  %is_committed = getelementptr inbounds %struct.mi_page_s, ptr %47, i32 0, i32 2
-  %bf.load = load i8, ptr %is_committed, align 8
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 1
-  store i8 %bf.set, ptr %is_committed, align 8
-  %48 = load ptr, ptr %segment.addr, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %48, i32 0, i32 11
-  %49 = load i64, ptr %used, align 8
-  %inc41 = add i64 %49, 1
-  store i64 %inc41, ptr %used, align 8
-  %50 = load ptr, ptr %page, align 8
-  store ptr %50, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end40, %if.then
-  %51 = load ptr, ptr %retval, align 8
-  ret ptr %51
-}
-
-declare i64 @_mi_os_page_size() #1
-
-declare ptr @_mi_arena_alloc_aligned(i64 noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i64 @_mi_divide_up(i64 noundef %size, i64 noundef %divider) #0 {
-entry:
-  %size.addr = alloca i64, align 8
-  %divider.addr = alloca i64, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store i64 %divider, ptr %divider.addr, align 8
-  %0 = load i64, ptr %divider.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %size.addr, align 8
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %2 = load i64, ptr %size.addr, align 8
-  %3 = load i64, ptr %divider.addr, align 8
-  %add = add i64 %2, %3
-  %sub = sub i64 %add, 1
-  %4 = load i64, ptr %divider.addr, align 8
-  %div = udiv i64 %sub, %4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %1, %cond.true ], [ %div, %cond.false ]
-  ret i64 %cond
-}
-
-declare zeroext i1 @_mi_os_commit(ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
-
-declare void @_mi_segment_map_allocated_at(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_segment_ensure_committed(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %segment.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %stats.addr = alloca ptr, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %0, i32 0, i32 6
-  %call = call zeroext i1 @mi_commit_mask_is_full(ptr noundef %commit_mask) #6
-  br i1 %call, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %1, i32 0, i32 5
-  %call1 = call zeroext i1 @mi_commit_mask_is_empty(ptr noundef %purge_mask) #6
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %land.lhs.true
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %2 = load ptr, ptr %segment.addr, align 8
-  %3 = load ptr, ptr %p.addr, align 8
-  %4 = load i64, ptr %size.addr, align 8
-  %5 = load ptr, ptr %stats.addr, align 8
-  %call2 = call zeroext i1 @mi_segment_commit(ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #6
-  store i1 %call2, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i1, ptr %retval, align 1
-  ret i1 %6
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_commit_mask_is_full(ptr noundef %cm) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %cm.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %cmp1 = icmp ne i64 %3, -1
-  br i1 %cmp1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %4 = load i64, ptr %i, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !33
-
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %5 = load i1, ptr %retval, align 1
-  ret i1 %5
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_segment_commit(ptr noundef %segment, ptr noundef %p, i64 noundef %size, ptr noundef %stats) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %segment.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %stats.addr = alloca ptr, align 8
-  %start = alloca ptr, align 8
-  %full_size = alloca i64, align 8
-  %mask = alloca %struct.mi_commit_mask_s, align 8
-  %is_zero = alloca i8, align 1
-  %cmask = alloca %struct.mi_commit_mask_s, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %stats, ptr %stats.addr, align 8
-  store ptr null, ptr %start, align 8
-  store i64 0, ptr %full_size, align 8
-  %0 = load ptr, ptr %segment.addr, align 8
-  %1 = load ptr, ptr %p.addr, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  call void @mi_segment_commit_mask(ptr noundef %0, i1 noundef zeroext false, ptr noundef %1, i64 noundef %2, ptr noundef %start, ptr noundef %full_size, ptr noundef %mask) #6
-  %call = call zeroext i1 @mi_commit_mask_is_empty(ptr noundef %mask) #6
-  br i1 %call, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
-  %3 = load i64, ptr %full_size, align 8
-  %cmp = icmp eq i64 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %segment.addr, align 8
-  %commit_mask = getelementptr inbounds %struct.mi_segment_s, ptr %4, i32 0, i32 6
-  %call1 = call zeroext i1 @mi_commit_mask_all_set(ptr noundef %commit_mask, ptr noundef %mask) #6
-  br i1 %call1, label %if.end9, label %if.then2
-
-if.then2:                                         ; preds = %if.end
-  store i8 0, ptr %is_zero, align 1
-  %5 = load ptr, ptr %segment.addr, align 8
-  %commit_mask3 = getelementptr inbounds %struct.mi_segment_s, ptr %5, i32 0, i32 6
-  call void @mi_commit_mask_create_intersect(ptr noundef %commit_mask3, ptr noundef %mask, ptr noundef %cmask) #6
-  %call4 = call i64 @_mi_commit_mask_committed_size(ptr noundef %cmask, i64 noundef 33554432) #6
-  %6 = getelementptr inbounds %struct.mi_stats_s, ptr @_mi_stats_main, i32 0, i32 3
-  call void @_mi_stat_decrease(ptr noundef %6, i64 noundef %call4) #6
-  %7 = load ptr, ptr %start, align 8
-  %8 = load i64, ptr %full_size, align 8
-  %9 = load ptr, ptr %stats.addr, align 8
-  %call5 = call zeroext i1 @_mi_os_commit(ptr noundef %7, i64 noundef %8, ptr noundef %is_zero, ptr noundef %9) #6
-  br i1 %call5, label %if.end7, label %if.then6
-
-if.then6:                                         ; preds = %if.then2
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end7:                                          ; preds = %if.then2
-  %10 = load ptr, ptr %segment.addr, align 8
-  %commit_mask8 = getelementptr inbounds %struct.mi_segment_s, ptr %10, i32 0, i32 6
-  call void @mi_commit_mask_set(ptr noundef %commit_mask8, ptr noundef %mask) #6
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end7, %if.end
-  %11 = load ptr, ptr %segment.addr, align 8
-  %purge_mask = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 5
-  %call10 = call zeroext i1 @mi_commit_mask_any_set(ptr noundef %purge_mask, ptr noundef %mask) #6
-  br i1 %call10, label %if.then11, label %if.end14
-
-if.then11:                                        ; preds = %if.end9
-  %call12 = call i64 @_mi_clock_now() #6
-  %call13 = call i64 @mi_option_get(i32 noundef 15) #6
-  %add = add nsw i64 %call12, %call13
-  %12 = load ptr, ptr %segment.addr, align 8
-  %purge_expire = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 4
-  store i64 %add, ptr %purge_expire, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.then11, %if.end9
-  %13 = load ptr, ptr %segment.addr, align 8
-  %purge_mask15 = getelementptr inbounds %struct.mi_segment_s, ptr %13, i32 0, i32 5
-  call void @mi_commit_mask_clear(ptr noundef %purge_mask15, ptr noundef %mask) #6
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.end14, %if.then6, %if.then
-  %14 = load i1, ptr %retval, align 1
-  ret i1 %14
-}
-
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @mi_commit_mask_all_set(ptr noundef %commit, ptr noundef %cm) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %commit.addr = alloca ptr, align 8
-  %cm.addr = alloca ptr, align 8
-  %i = alloca i64, align 8
-  store ptr %commit, ptr %commit.addr, align 8
-  store ptr %cm, ptr %cm.addr, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 8
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %1 = load ptr, ptr %commit.addr, align 8
-  %mask = getelementptr inbounds %struct.mi_commit_mask_s, ptr %1, i32 0, i32 0
-  %2 = load i64, ptr %i, align 8
-  %arrayidx = getelementptr inbounds [8 x i64], ptr %mask, i64 0, i64 %2
-  %3 = load i64, ptr %arrayidx, align 8
-  %4 = load ptr, ptr %cm.addr, align 8
-  %mask1 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %4, i32 0, i32 0
-  %5 = load i64, ptr %i, align 8
-  %arrayidx2 = getelementptr inbounds [8 x i64], ptr %mask1, i64 0, i64 %5
-  %6 = load i64, ptr %arrayidx2, align 8
-  %and = and i64 %3, %6
-  %7 = load ptr, ptr %cm.addr, align 8
-  %mask3 = getelementptr inbounds %struct.mi_commit_mask_s, ptr %7, i32 0, i32 0
-  %8 = load i64, ptr %i, align 8
-  %arrayidx4 = getelementptr inbounds [8 x i64], ptr %mask3, i64 0, i64 %8
-  %9 = load i64, ptr %arrayidx4, align 8
-  %cmp5 = icmp ne i64 %and, %9
-  br i1 %cmp5, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %10 = load i64, ptr %i, align 8
-  %inc = add i64 %10, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !34
-
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %for.end, %if.then
-  %11 = load i1, ptr %retval, align 1
-  ret i1 %11
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segments_page_find_and_allocate(i64 noundef %slice_count, i32 noundef %req_arena_id, ptr noundef %tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %slice_count.addr = alloca i64, align 8
-  %req_arena_id.addr = alloca i32, align 4
-  %tld.addr = alloca ptr, align 8
-  %sq = alloca ptr, align 8
-  %slice = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %page = alloca ptr, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  store i32 %req_arena_id, ptr %req_arena_id.addr, align 4
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load i64, ptr %slice_count.addr, align 8
-  %1 = load ptr, ptr %tld.addr, align 8
-  %call = call ptr @mi_span_queue_for(i64 noundef %0, ptr noundef %1) #6
-  store ptr %call, ptr %sq, align 8
-  %2 = load i64, ptr %slice_count.addr, align 8
-  %cmp = icmp eq i64 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i64 1, ptr %slice_count.addr, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %for.end, %if.end
-  %3 = load ptr, ptr %sq, align 8
-  %4 = load ptr, ptr %tld.addr, align 8
-  %spans = getelementptr inbounds %struct.mi_segments_tld_s, ptr %4, i32 0, i32 0
-  %arrayidx = getelementptr inbounds [36 x %struct.mi_span_queue_s], ptr %spans, i64 0, i64 35
-  %cmp1 = icmp ule ptr %3, %arrayidx
-  br i1 %cmp1, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %5 = load ptr, ptr %sq, align 8
-  %first = getelementptr inbounds %struct.mi_span_queue_s, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %first, align 8
-  store ptr %6, ptr %slice, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %while.body
-  %7 = load ptr, ptr %slice, align 8
-  %cmp2 = icmp ne ptr %7, null
-  br i1 %cmp2, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %8 = load ptr, ptr %slice, align 8
-  %slice_count3 = getelementptr inbounds %struct.mi_page_s, ptr %8, i32 0, i32 0
-  %9 = load i32, ptr %slice_count3, align 8
-  %conv = zext i32 %9 to i64
-  %10 = load i64, ptr %slice_count.addr, align 8
-  %cmp4 = icmp uge i64 %conv, %10
-  br i1 %cmp4, label %if.then6, label %if.end26
-
-if.then6:                                         ; preds = %for.body
-  %11 = load ptr, ptr %slice, align 8
-  %call7 = call ptr @_mi_ptr_segment(ptr noundef %11) #6
-  store ptr %call7, ptr %segment, align 8
-  %12 = load ptr, ptr %segment, align 8
-  %memid = getelementptr inbounds %struct.mi_segment_s, ptr %12, i32 0, i32 0
-  %13 = load i32, ptr %req_arena_id.addr, align 4
-  %call8 = call zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8 %memid, i32 noundef %13) #6
-  br i1 %call8, label %if.then9, label %if.end25
-
-if.then9:                                         ; preds = %if.then6
-  %14 = load ptr, ptr %sq, align 8
-  %15 = load ptr, ptr %slice, align 8
-  call void @mi_span_queue_delete(ptr noundef %14, ptr noundef %15) #6
-  %16 = load ptr, ptr %slice, align 8
-  %slice_count10 = getelementptr inbounds %struct.mi_page_s, ptr %16, i32 0, i32 0
-  %17 = load i32, ptr %slice_count10, align 8
-  %conv11 = zext i32 %17 to i64
-  %18 = load i64, ptr %slice_count.addr, align 8
-  %cmp12 = icmp ugt i64 %conv11, %18
-  br i1 %cmp12, label %if.then14, label %if.end15
-
-if.then14:                                        ; preds = %if.then9
-  %19 = load ptr, ptr %segment, align 8
-  %20 = load ptr, ptr %slice, align 8
-  %21 = load i64, ptr %slice_count.addr, align 8
-  %22 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_slice_split(ptr noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef %22) #6
-  br label %if.end15
-
-if.end15:                                         ; preds = %if.then14, %if.then9
-  %23 = load ptr, ptr %segment, align 8
-  %24 = load ptr, ptr %slice, align 8
-  %call16 = call i64 @mi_slice_index(ptr noundef %24) #6
-  %25 = load ptr, ptr %slice, align 8
-  %slice_count17 = getelementptr inbounds %struct.mi_page_s, ptr %25, i32 0, i32 0
-  %26 = load i32, ptr %slice_count17, align 8
-  %conv18 = zext i32 %26 to i64
-  %27 = load ptr, ptr %tld.addr, align 8
-  %call19 = call ptr @mi_segment_span_allocate(ptr noundef %23, i64 noundef %call16, i64 noundef %conv18, ptr noundef %27) #6
-  store ptr %call19, ptr %page, align 8
-  %28 = load ptr, ptr %page, align 8
-  %cmp20 = icmp eq ptr %28, null
-  br i1 %cmp20, label %if.then22, label %if.end24
-
-if.then22:                                        ; preds = %if.end15
-  %29 = load ptr, ptr %slice, align 8
-  %30 = load ptr, ptr %tld.addr, align 8
-  %call23 = call ptr @mi_segment_span_free_coalesce(ptr noundef %29, ptr noundef %30) #6
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.end24:                                         ; preds = %if.end15
-  %31 = load ptr, ptr %page, align 8
-  store ptr %31, ptr %retval, align 8
-  br label %return
-
-if.end25:                                         ; preds = %if.then6
-  br label %if.end26
-
-if.end26:                                         ; preds = %if.end25, %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end26
-  %32 = load ptr, ptr %slice, align 8
-  %next = getelementptr inbounds %struct.mi_page_s, ptr %32, i32 0, i32 13
-  %33 = load ptr, ptr %next, align 8
-  store ptr %33, ptr %slice, align 8
-  br label %for.cond, !llvm.loop !35
-
-for.end:                                          ; preds = %for.cond
-  %34 = load ptr, ptr %sq, align 8
-  %incdec.ptr = getelementptr inbounds %struct.mi_span_queue_s, ptr %34, i32 1
-  store ptr %incdec.ptr, ptr %sq, align 8
-  br label %while.cond, !llvm.loop !36
-
-while.end:                                        ; preds = %while.cond
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.end24, %if.then22
-  %35 = load ptr, ptr %retval, align 8
-  ret ptr %35
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_reclaim_or_alloc(ptr noundef %heap, i64 noundef %needed_slices, i64 noundef %block_size, ptr noundef %tld, ptr noundef %os_tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %needed_slices.addr = alloca i64, align 8
-  %block_size.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %os_tld.addr = alloca ptr, align 8
-  %reclaimed = alloca i8, align 1
-  %segment = alloca ptr, align 8
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %needed_slices, ptr %needed_slices.addr, align 8
-  store i64 %block_size, ptr %block_size.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  store ptr %os_tld, ptr %os_tld.addr, align 8
-  %0 = load ptr, ptr %heap.addr, align 8
-  %1 = load i64, ptr %needed_slices.addr, align 8
-  %2 = load i64, ptr %block_size.addr, align 8
-  %3 = load ptr, ptr %tld.addr, align 8
-  %call = call ptr @mi_segment_try_reclaim(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %reclaimed, ptr noundef %3) #6
-  store ptr %call, ptr %segment, align 8
-  %4 = load i8, ptr %reclaimed, align 1
-  %tobool = trunc i8 %4 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %segment, align 8
-  %cmp = icmp ne ptr %5, null
-  br i1 %cmp, label %if.then1, label %if.end
-
-if.then1:                                         ; preds = %if.else
-  %6 = load ptr, ptr %segment, align 8
-  store ptr %6, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %if.else
-  br label %if.end2
-
-if.end2:                                          ; preds = %if.end
-  %7 = load ptr, ptr %heap.addr, align 8
-  %arena_id = getelementptr inbounds %struct.mi_heap_s, ptr %7, i32 0, i32 5
-  %8 = load i32, ptr %arena_id, align 8
-  %9 = load ptr, ptr %tld.addr, align 8
-  %10 = load ptr, ptr %os_tld.addr, align 8
-  %call3 = call ptr @mi_segment_alloc(i64 noundef 0, i64 noundef 0, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null) #6
-  store ptr %call3, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end2, %if.then1, %if.then
-  %11 = load ptr, ptr %retval, align 8
-  ret ptr %11
-}
-
-declare zeroext i1 @_mi_arena_memid_is_suitable(ptr noundef byval(%struct.mi_memid_s) align 8, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal void @mi_segment_slice_split(ptr noundef %segment, ptr noundef %slice, i64 noundef %slice_count, ptr noundef %tld) #0 {
-entry:
-  %segment.addr = alloca ptr, align 8
-  %slice.addr = alloca ptr, align 8
-  %slice_count.addr = alloca i64, align 8
-  %tld.addr = alloca ptr, align 8
-  %next_index = alloca i64, align 8
-  %next_count = alloca i64, align 8
-  store ptr %segment, ptr %segment.addr, align 8
-  store ptr %slice, ptr %slice.addr, align 8
-  store i64 %slice_count, ptr %slice_count.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %slice.addr, align 8
-  %slice_count1 = getelementptr inbounds %struct.mi_page_s, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %slice_count1, align 8
-  %conv = zext i32 %1 to i64
-  %2 = load i64, ptr %slice_count.addr, align 8
-  %cmp = icmp ule i64 %conv, %2
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %slice.addr, align 8
-  %call = call i64 @mi_slice_index(ptr noundef %3) #6
-  %4 = load i64, ptr %slice_count.addr, align 8
-  %add = add i64 %call, %4
-  store i64 %add, ptr %next_index, align 8
-  %5 = load ptr, ptr %slice.addr, align 8
-  %slice_count3 = getelementptr inbounds %struct.mi_page_s, ptr %5, i32 0, i32 0
-  %6 = load i32, ptr %slice_count3, align 8
-  %conv4 = zext i32 %6 to i64
-  %7 = load i64, ptr %slice_count.addr, align 8
-  %sub = sub i64 %conv4, %7
-  store i64 %sub, ptr %next_count, align 8
-  %8 = load ptr, ptr %segment.addr, align 8
-  %9 = load i64, ptr %next_index, align 8
-  %10 = load i64, ptr %next_count, align 8
-  %11 = load ptr, ptr %tld.addr, align 8
-  call void @mi_segment_span_free(ptr noundef %8, i64 noundef %9, i64 noundef %10, i1 noundef zeroext false, ptr noundef %11) #6
-  %12 = load i64, ptr %slice_count.addr, align 8
-  %conv5 = trunc i64 %12 to i32
-  %13 = load ptr, ptr %slice.addr, align 8
-  %slice_count6 = getelementptr inbounds %struct.mi_page_s, ptr %13, i32 0, i32 0
-  store i32 %conv5, ptr %slice_count6, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define internal ptr @mi_segment_try_reclaim(ptr noundef %heap, i64 noundef %needed_slices, i64 noundef %block_size, ptr noundef %reclaimed, ptr noundef %tld) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %heap.addr = alloca ptr, align 8
-  %needed_slices.addr = alloca i64, align 8
-  %block_size.addr = alloca i64, align 8
-  %reclaimed.addr = alloca ptr, align 8
-  %tld.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %max_tries = alloca i64, align 8
-  %is_suitable = alloca i8, align 1
-  %has_page = alloca i8, align 1
-  store ptr %heap, ptr %heap.addr, align 8
-  store i64 %needed_slices, ptr %needed_slices.addr, align 8
-  store i64 %block_size, ptr %block_size.addr, align 8
-  store ptr %reclaimed, ptr %reclaimed.addr, align 8
-  store ptr %tld, ptr %tld.addr, align 8
-  %0 = load ptr, ptr %reclaimed.addr, align 8
-  store i8 0, ptr %0, align 1
-  %call = call i64 @mi_option_get_clamp(i32 noundef 21, i64 noundef 8, i64 noundef 1024) #6
-  store i64 %call, ptr %max_tries, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %if.end20, %entry
-  %1 = load i64, ptr %max_tries, align 8
-  %dec = add nsw i64 %1, -1
-  store i64 %dec, ptr %max_tries, align 8
-  %cmp = icmp sgt i64 %1, 0
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %call1 = call ptr @mi_abandoned_pop() #6
-  store ptr %call1, ptr %segment, align 8
-  %cmp2 = icmp ne ptr %call1, null
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %2 = phi i1 [ false, %while.cond ], [ %cmp2, %land.rhs ]
-  br i1 %2, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %3 = load ptr, ptr %segment, align 8
-  %abandoned_visits = getelementptr inbounds %struct.mi_segment_s, ptr %3, i32 0, i32 10
-  %4 = load i64, ptr %abandoned_visits, align 8
-  %inc = add i64 %4, 1
-  store i64 %inc, ptr %abandoned_visits, align 8
-  %5 = load ptr, ptr %heap.addr, align 8
-  %6 = load ptr, ptr %segment, align 8
-  %memid = getelementptr inbounds %struct.mi_segment_s, ptr %6, i32 0, i32 0
-  %call3 = call zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef %5, ptr noundef byval(%struct.mi_memid_s) align 8 %memid) #6
-  %frombool = zext i1 %call3 to i8
-  store i8 %frombool, ptr %is_suitable, align 1
-  %7 = load ptr, ptr %segment, align 8
-  %8 = load i64, ptr %needed_slices.addr, align 8
-  %9 = load i64, ptr %block_size.addr, align 8
-  %10 = load ptr, ptr %tld.addr, align 8
-  %call4 = call zeroext i1 @mi_segment_check_free(ptr noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10) #6
-  %frombool5 = zext i1 %call4 to i8
-  store i8 %frombool5, ptr %has_page, align 1
-  %11 = load ptr, ptr %segment, align 8
-  %used = getelementptr inbounds %struct.mi_segment_s, ptr %11, i32 0, i32 11
-  %12 = load i64, ptr %used, align 8
-  %cmp6 = icmp eq i64 %12, 0
-  br i1 %cmp6, label %if.then, label %if.else
-
-if.then:                                          ; preds = %while.body
-  %13 = load ptr, ptr %segment, align 8
-  %14 = load ptr, ptr %heap.addr, align 8
-  %15 = load ptr, ptr %tld.addr, align 8
-  %call7 = call ptr @mi_segment_reclaim(ptr noundef %13, ptr noundef %14, i64 noundef 0, ptr noundef null, ptr noundef %15) #6
-  br label %if.end20
-
-if.else:                                          ; preds = %while.body
-  %16 = load i8, ptr %has_page, align 1
-  %tobool = trunc i8 %16 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.else11
-
-land.lhs.true:                                    ; preds = %if.else
-  %17 = load i8, ptr %is_suitable, align 1
-  %tobool8 = trunc i8 %17 to i1
-  br i1 %tobool8, label %if.then9, label %if.else11
-
-if.then9:                                         ; preds = %land.lhs.true
-  %18 = load ptr, ptr %segment, align 8
-  %19 = load ptr, ptr %heap.addr, align 8
-  %20 = load i64, ptr %block_size.addr, align 8
-  %21 = load ptr, ptr %reclaimed.addr, align 8
-  %22 = load ptr, ptr %tld.addr, align 8
-  %call10 = call ptr @mi_segment_reclaim(ptr noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %21, ptr noundef %22) #6
-  store ptr %call10, ptr %retval, align 8
-  br label %return
-
-if.else11:                                        ; preds = %land.lhs.true, %if.else
-  %23 = load ptr, ptr %segment, align 8
-  %abandoned_visits12 = getelementptr inbounds %struct.mi_segment_s, ptr %23, i32 0, i32 10
-  %24 = load i64, ptr %abandoned_visits12, align 8
-  %cmp13 = icmp ugt i64 %24, 3
-  br i1 %cmp13, label %land.lhs.true14, label %if.else18
-
-land.lhs.true14:                                  ; preds = %if.else11
-  %25 = load i8, ptr %is_suitable, align 1
-  %tobool15 = trunc i8 %25 to i1
-  br i1 %tobool15, label %if.then16, label %if.else18
-
-if.then16:                                        ; preds = %land.lhs.true14
-  %26 = load ptr, ptr %segment, align 8
-  %27 = load ptr, ptr %heap.addr, align 8
-  %28 = load ptr, ptr %tld.addr, align 8
-  %call17 = call ptr @mi_segment_reclaim(ptr noundef %26, ptr noundef %27, i64 noundef 0, ptr noundef null, ptr noundef %28) #6
-  br label %if.end
-
-if.else18:                                        ; preds = %land.lhs.true14, %if.else11
-  %29 = load ptr, ptr %segment, align 8
-  %30 = load ptr, ptr %tld.addr, align 8
-  %stats = getelementptr inbounds %struct.mi_segments_tld_s, ptr %30, i32 0, i32 5
-  %31 = load ptr, ptr %stats, align 8
-  call void @mi_segment_try_purge(ptr noundef %29, i1 noundef zeroext true, ptr noundef %31) #6
-  %32 = load ptr, ptr %segment, align 8
-  call void @mi_abandoned_visited_push(ptr noundef %32) #6
-  br label %if.end
-
-if.end:                                           ; preds = %if.else18, %if.then16
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.end
-  br label %if.end20
-
-if.end20:                                         ; preds = %if.end19, %if.then
-  br label %while.cond, !llvm.loop !37
-
-while.end:                                        ; preds = %land.end
-  store ptr null, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %while.end, %if.then9
-  %33 = load ptr, ptr %retval, align 8
-  ret ptr %33
-}
-
-declare i64 @mi_option_get_clamp(i32 noundef, i64 noundef, i64 noundef) #1
-
-declare zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef, ptr noundef byval(%struct.mi_memid_s) align 8) #1
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-builtin-malloc" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+17:                                               ; preds = %14
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal ptr @mi_segment_try_reclaim(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca %struct.mi_arena_field_cursor_s, align 8
+  %17 = alloca i8, align 1
+  %18 = alloca i8, align 1
+  %19 = alloca i8, align 1
+  store ptr %0, ptr %7, align 8, !tbaa !62
+  store i64 %1, ptr %8, align 8, !tbaa !14
+  store i32 %2, ptr %9, align 4, !tbaa !83
+  store ptr %3, ptr %10, align 8, !tbaa !77
+  store ptr %4, ptr %11, align 8, !tbaa !28
+  %20 = load ptr, ptr %10, align 8, !tbaa !77
+  store i8 0, ptr %20, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %21 = load ptr, ptr %11, align 8, !tbaa !28
+  %22 = call i64 @mi_segment_get_reclaim_tries(ptr noundef %21) #8
+  store i64 %22, ptr %12, align 8, !tbaa !14
+  %23 = load i64, ptr %12, align 8, !tbaa !14
+  %24 = icmp sle i64 %23, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %5
+  store ptr null, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  br label %108
+
+26:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  store ptr null, ptr %14, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  store ptr null, ptr %15, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 48, ptr %16) #7
+  %27 = load ptr, ptr %7, align 8, !tbaa !62
+  %28 = load ptr, ptr %11, align 8, !tbaa !28
+  %29 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %28, i32 0, i32 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !81
+  call void @_mi_arena_field_cursor_init(ptr noundef %27, ptr noundef %30, i1 noundef zeroext false, ptr noundef %16) #8
+  br label %31
+
+31:                                               ; preds = %105, %26
+  %32 = load ptr, ptr %11, align 8, !tbaa !28
+  %33 = call zeroext i1 @segment_count_is_within_target(ptr noundef %32, ptr noundef null) #8
+  br i1 %33, label %34, label %41
+
+34:                                               ; preds = %31
+  %35 = load i64, ptr %12, align 8, !tbaa !14
+  %36 = add nsw i64 %35, -1
+  store i64 %36, ptr %12, align 8, !tbaa !14
+  %37 = icmp sgt i64 %35, 0
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %34
+  %39 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef %16) #8
+  store ptr %39, ptr %15, align 8, !tbaa !3
+  %40 = icmp ne ptr %39, null
+  br label %41
+
+41:                                               ; preds = %38, %34, %31
+  %42 = phi i1 [ false, %34 ], [ false, %31 ], [ %40, %38 ]
+  br i1 %42, label %43, label %106
+
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %15, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %44, i32 0, i32 10
+  %46 = load i64, ptr %45, align 8, !tbaa !59
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %45, align 8, !tbaa !59
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #7
+  %48 = load ptr, ptr %7, align 8, !tbaa !62
+  %49 = load ptr, ptr %15, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %49, i32 0, i32 0
+  %51 = call zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef %48, ptr noundef byval(%struct.mi_memid_s) align 8 %50) #8
+  %52 = zext i1 %51 to i8
+  store i8 %52, ptr %17, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #7
+  %53 = load ptr, ptr %15, align 8, !tbaa !3
+  %54 = load i64, ptr %8, align 8, !tbaa !14
+  %55 = call zeroext i1 @mi_segment_check_free(ptr noundef %53, i64 noundef %54, ptr noundef %18) #8
+  %56 = zext i1 %55 to i8
+  store i8 %56, ptr %19, align 1, !tbaa !27
+  %57 = load i8, ptr %18, align 1, !tbaa !27, !range !30, !noundef !31
+  %58 = trunc i8 %57 to i1
+  br i1 %58, label %59, label %64
+
+59:                                               ; preds = %43
+  %60 = load ptr, ptr %15, align 8, !tbaa !3
+  %61 = load ptr, ptr %7, align 8, !tbaa !62
+  %62 = load ptr, ptr %11, align 8, !tbaa !28
+  %63 = call ptr @mi_segment_reclaim(ptr noundef %60, ptr noundef %61, i64 noundef 0, ptr noundef null, ptr noundef %62) #8
+  br label %102
+
+64:                                               ; preds = %43
+  %65 = load i8, ptr %19, align 1, !tbaa !27, !range !30, !noundef !31
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %83
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %15, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %68, i32 0, i32 19
+  %70 = load i32, ptr %69, align 8, !tbaa !44
+  %71 = load i32, ptr %9, align 4, !tbaa !83
+  %72 = icmp eq i32 %70, %71
+  br i1 %72, label %73, label %83
+
+73:                                               ; preds = %67
+  %74 = load i8, ptr %17, align 1, !tbaa !27, !range !30, !noundef !31
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %83
+
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %15, align 8, !tbaa !3
+  %78 = load ptr, ptr %7, align 8, !tbaa !62
+  %79 = load i64, ptr %8, align 8, !tbaa !14
+  %80 = load ptr, ptr %10, align 8, !tbaa !77
+  %81 = load ptr, ptr %11, align 8, !tbaa !28
+  %82 = call ptr @mi_segment_reclaim(ptr noundef %77, ptr noundef %78, i64 noundef %79, ptr noundef %80, ptr noundef %81) #8
+  store ptr %82, ptr %14, align 8, !tbaa !3
+  store i32 3, ptr %13, align 4
+  br label %103
+
+83:                                               ; preds = %73, %67, %64
+  %84 = load ptr, ptr %15, align 8, !tbaa !3
+  %85 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %84, i32 0, i32 10
+  %86 = load i64, ptr %85, align 8, !tbaa !59
+  %87 = icmp ugt i64 %86, 3
+  br i1 %87, label %88, label %96
+
+88:                                               ; preds = %83
+  %89 = load i8, ptr %17, align 1, !tbaa !27, !range !30, !noundef !31
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %96
+
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %15, align 8, !tbaa !3
+  %93 = load ptr, ptr %7, align 8, !tbaa !62
+  %94 = load ptr, ptr %11, align 8, !tbaa !28
+  %95 = call ptr @mi_segment_reclaim(ptr noundef %92, ptr noundef %93, i64 noundef 0, ptr noundef null, ptr noundef %94) #8
+  br label %100
+
+96:                                               ; preds = %88, %83
+  %97 = load i64, ptr %12, align 8, !tbaa !14
+  %98 = add nsw i64 %97, 1
+  store i64 %98, ptr %12, align 8, !tbaa !14
+  %99 = load ptr, ptr %15, align 8, !tbaa !3
+  call void @_mi_arena_segment_mark_abandoned(ptr noundef %99) #8
+  br label %100
+
+100:                                              ; preds = %96, %91
+  br label %101
+
+101:                                              ; preds = %100
+  br label %102
+
+102:                                              ; preds = %101, %59
+  store i32 0, ptr %13, align 4
+  br label %103
+
+103:                                              ; preds = %102, %76
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #7
+  %104 = load i32, ptr %13, align 4
+  switch i32 %104, label %110 [
+    i32 0, label %105
+    i32 3, label %106
+  ]
+
+105:                                              ; preds = %103
+  br label %31, !llvm.loop !124
+
+106:                                              ; preds = %103, %41
+  call void @_mi_arena_field_cursor_done(ptr noundef %16) #8
+  %107 = load ptr, ptr %14, align 8, !tbaa !3
+  store ptr %107, ptr %6, align 8
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 48, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  br label %108
+
+108:                                              ; preds = %106, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %109 = load ptr, ptr %6, align 8
+  ret ptr %109
+
+110:                                              ; preds = %103
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @segment_count_is_within_target(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = call i64 @mi_option_get_clamp(i32 noundef 35, i64 noundef 0, i64 noundef 1024) #8
+  store i64 %6, ptr %5, align 8, !tbaa !14
+  %7 = load ptr, ptr %4, align 8, !tbaa !10
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %12
+
+9:                                                ; preds = %2
+  %10 = load i64, ptr %5, align 8, !tbaa !14
+  %11 = load ptr, ptr %4, align 8, !tbaa !10
+  store i64 %10, ptr %11, align 8, !tbaa !14
+  br label %12
+
+12:                                               ; preds = %9, %2
+  %13 = load i64, ptr %5, align 8, !tbaa !14
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %21, label %15
+
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %3, align 8, !tbaa !28
+  %17 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %16, i32 0, i32 3
+  %18 = load i64, ptr %17, align 8, !tbaa !84
+  %19 = load i64, ptr %5, align 8, !tbaa !14
+  %20 = icmp ult i64 %18, %19
+  br label %21
+
+21:                                               ; preds = %15, %12
+  %22 = phi i1 [ true, %12 ], [ %20, %15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  ret i1 %22
+}
+
+; Function Attrs: nounwind uwtable
+define internal i64 @mi_segment_get_reclaim_tries(ptr noundef %0) #0 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  %10 = call i64 @mi_option_get_clamp(i32 noundef 21, i64 noundef 0, i64 noundef 100) #8
+  store i64 %10, ptr %4, align 8, !tbaa !14
+  %11 = load i64, ptr %4, align 8, !tbaa !14
+  %12 = icmp ule i64 %11, 0
+  br i1 %12, label %13, label %14
+
+13:                                               ; preds = %1
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %61
+
+14:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %15 = load ptr, ptr %3, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw %struct.mi_segments_tld_s, ptr %15, i32 0, i32 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !81
+  %18 = getelementptr inbounds nuw %struct.mi_subproc_s, ptr %17, i32 0, i32 0
+  %19 = load atomic i64, ptr %18 monotonic, align 8
+  store i64 %19, ptr %7, align 8
+  %20 = load i64, ptr %7, align 8, !tbaa !14
+  store i64 %20, ptr %6, align 8, !tbaa !14
+  %21 = load i64, ptr %6, align 8, !tbaa !14
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %24
+
+23:                                               ; preds = %14
+  store i64 0, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %60
+
+24:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  %25 = load i64, ptr %6, align 8, !tbaa !14
+  %26 = icmp ugt i64 %25, 10000
+  br i1 %26, label %27, label %32
+
+27:                                               ; preds = %24
+  %28 = load i64, ptr %6, align 8, !tbaa !14
+  %29 = udiv i64 %28, 100
+  %30 = load i64, ptr %4, align 8, !tbaa !14
+  %31 = mul i64 %29, %30
+  br label %37
+
+32:                                               ; preds = %24
+  %33 = load i64, ptr %6, align 8, !tbaa !14
+  %34 = load i64, ptr %4, align 8, !tbaa !14
+  %35 = mul i64 %33, %34
+  %36 = udiv i64 %35, 100
+  br label %37
+
+37:                                               ; preds = %32, %27
+  %38 = phi i64 [ %31, %27 ], [ %36, %32 ]
+  store i64 %38, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  %39 = load i64, ptr %8, align 8, !tbaa !14
+  %40 = icmp ule i64 %39, 1
+  br i1 %40, label %41, label %42
+
+41:                                               ; preds = %37
+  br label %50
+
+42:                                               ; preds = %37
+  %43 = load i64, ptr %8, align 8, !tbaa !14
+  %44 = icmp ugt i64 %43, 1024
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
+  br label %48
+
+46:                                               ; preds = %42
+  %47 = load i64, ptr %8, align 8, !tbaa !14
+  br label %48
+
+48:                                               ; preds = %46, %45
+  %49 = phi i64 [ 1024, %45 ], [ %47, %46 ]
+  br label %50
+
+50:                                               ; preds = %48, %41
+  %51 = phi i64 [ 1, %41 ], [ %49, %48 ]
+  store i64 %51, ptr %9, align 8, !tbaa !14
+  %52 = load i64, ptr %9, align 8, !tbaa !14
+  %53 = icmp slt i64 %52, 8
+  br i1 %53, label %54, label %58
+
+54:                                               ; preds = %50
+  %55 = load i64, ptr %6, align 8, !tbaa !14
+  %56 = icmp ugt i64 %55, 8
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %54
+  store i64 8, ptr %9, align 8, !tbaa !14
+  br label %58
+
+58:                                               ; preds = %57, %54, %50
+  %59 = load i64, ptr %9, align 8, !tbaa !14
+  store i64 %59, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  br label %60
+
+60:                                               ; preds = %58, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %61
+
+61:                                               ; preds = %60, %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  %62 = load i64, ptr %2, align 8
+  ret i64 %62
+}
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @mi_segment_check_free(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !14
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #7
+  store i8 0, ptr %7, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  store i64 0, ptr %8, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  store i64 0, ptr %9, align 8, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  store i64 0, ptr %10, align 8, !tbaa !14
+  br label %12
+
+12:                                               ; preds = %51, %3
+  %13 = load i64, ptr %10, align 8, !tbaa !14
+  %14 = load ptr, ptr %4, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %14, i32 0, i32 12
+  %16 = load i64, ptr %15, align 8, !tbaa !43
+  %17 = icmp ult i64 %13, %16
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  br label %54
+
+19:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %20 = load ptr, ptr %4, align 8, !tbaa !3
+  %21 = getelementptr inbounds nuw %struct.mi_segment_s, ptr %20, i32 0, i32 20
+  %22 = load i64, ptr %10, align 8, !tbaa !14
+  %23 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %21, i64 0, i64 %22
+  store ptr %23, ptr %11, align 8, !tbaa !8
+  %24 = load ptr, ptr %11, align 8, !tbaa !8
+  %25 = getelementptr inbounds nuw %struct.mi_page_s, ptr %24, i32 0, i32 1
+  %26 = load i8, ptr %25, align 1
+  %27 = and i8 %26, 1
+  %28 = icmp ne i8 %27, 0
+  br i1 %28, label %29, label %49
+
+29:                                               ; preds = %19
+  %30 = load i64, ptr %8, align 8, !tbaa !14
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %8, align 8, !tbaa !14
+  %32 = load ptr, ptr %11, align 8, !tbaa !8
+  call void @_mi_page_free_collect(ptr noundef %32, i1 noundef zeroext false) #8
+  %33 = load ptr, ptr %11, align 8, !tbaa !8
+  %34 = call zeroext i1 @mi_page_all_free(ptr noundef %33) #8
+  br i1 %34, label %35, label %38
+
+35:                                               ; preds = %29
+  %36 = load i64, ptr %9, align 8, !tbaa !14
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %9, align 8, !tbaa !14
+  store i8 1, ptr %7, align 1, !tbaa !27
+  br label %48
+
+38:                                               ; preds = %29
+  %39 = load ptr, ptr %11, align 8, !tbaa !8
+  %40 = call i64 @mi_page_block_size(ptr noundef %39) #8
+  %41 = load i64, ptr %5, align 8, !tbaa !14
+  %42 = icmp eq i64 %40, %41
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %11, align 8, !tbaa !8
+  %45 = call zeroext i1 @mi_page_has_any_available(ptr noundef %44) #8
+  br i1 %45, label %46, label %47
+
+46:                                               ; preds = %43
+  store i8 1, ptr %7, align 1, !tbaa !27
+  br label %47
+
+47:                                               ; preds = %46, %43, %38
+  br label %48
+
+48:                                               ; preds = %47, %35
+  br label %50
+
+49:                                               ; preds = %19
+  store i8 1, ptr %7, align 1, !tbaa !27
+  br label %50
+
+50:                                               ; preds = %49, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  br label %51
+
+51:                                               ; preds = %50
+  %52 = load i64, ptr %10, align 8, !tbaa !14
+  %53 = add i64 %52, 1
+  store i64 %53, ptr %10, align 8, !tbaa !14
+  br label %12, !llvm.loop !125
+
+54:                                               ; preds = %18
+  %55 = load ptr, ptr %6, align 8, !tbaa !77
+  %56 = icmp ne ptr %55, null
+  br i1 %56, label %57, label %64
+
+57:                                               ; preds = %54
+  %58 = load i64, ptr %8, align 8, !tbaa !14
+  %59 = load i64, ptr %9, align 8, !tbaa !14
+  %60 = sub i64 %58, %59
+  %61 = icmp eq i64 %60, 0
+  %62 = load ptr, ptr %6, align 8, !tbaa !77
+  %63 = zext i1 %61 to i8
+  store i8 %63, ptr %62, align 1, !tbaa !27
+  br label %64
+
+64:                                               ; preds = %57, %54
+  %65 = load i8, ptr %7, align 1, !tbaa !27, !range !30, !noundef !31
+  %66 = trunc i8 %65 to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #7
+  ret i1 %66
+}
+
+declare void @_mi_heap_area_init(ptr noundef, ptr noundef) #3
+
+declare zeroext i1 @_mi_heap_area_visit_blocks(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { "no-builtin-malloc" }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS12mi_segment_s", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS9mi_page_s", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 long", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!17, !6, i64 0}
+!17 = !{!"mi_page_s", !6, i64 0, !6, i64 1, !6, i64 1, !6, i64 1, !6, i64 1, !18, i64 2, !18, i64 4, !6, i64 6, !6, i64 7, !6, i64 7, !19, i64 8, !19, i64 16, !18, i64 24, !6, i64 26, !6, i64 27, !15, i64 32, !13, i64 40, !6, i64 48, !6, i64 56, !9, i64 64, !9, i64 72}
+!18 = !{!"short", !6, i64 0}
+!19 = !{!"p1 _ZTS10mi_block_s", !5, i64 0}
+!20 = !{!21, !15, i64 104}
+!21 = !{!"mi_segment_s", !22, i64 0, !23, i64 24, !23, i64 25, !15, i64 32, !25, i64 40, !4, i64 48, !4, i64 56, !23, i64 64, !23, i64 65, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !4, i64 120, !4, i64 128, !6, i64 136, !15, i64 144, !24, i64 152, !6, i64 160}
+!22 = !{!"mi_memid_s", !6, i64 0, !23, i64 16, !23, i64 17, !23, i64 18, !24, i64 20}
+!23 = !{!"_Bool", !6, i64 0}
+!24 = !{!"int", !6, i64 0}
+!25 = !{!"p1 _ZTS12mi_subproc_s", !5, i64 0}
+!26 = !{!17, !15, i64 32}
+!27 = !{!23, !23, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS17mi_segments_tld_s", !5, i64 0}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS15mi_page_queue_s", !5, i64 0}
+!34 = !{!35, !9, i64 8}
+!35 = !{!"mi_page_queue_s", !9, i64 0, !9, i64 8, !15, i64 16}
+!36 = !{!17, !9, i64 72}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!17, !9, i64 64}
+!40 = !{!35, !9, i64 0}
+!41 = !{!21, !15, i64 88}
+!42 = !{!21, !15, i64 72}
+!43 = !{!21, !15, i64 96}
+!44 = !{!21, !24, i64 152}
+!45 = !{!17, !18, i64 2}
+!46 = !{!47, !49, i64 104}
+!47 = !{!"mi_segments_tld_s", !48, i64 0, !48, i64 16, !35, i64 32, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !25, i64 96, !49, i64 104}
+!48 = !{!"mi_segment_queue_s", !4, i64 0, !4, i64 8}
+!49 = !{!"p1 _ZTS10mi_stats_s", !5, i64 0}
+!50 = !{!17, !6, i64 26}
+!51 = !{!6, !6, i64 0}
+!52 = !{!17, !6, i64 27}
+!53 = !{!17, !13, i64 40}
+!54 = !{!18, !18, i64 0}
+!55 = !{!17, !18, i64 4}
+!56 = !{!21, !23, i64 65}
+!57 = !{!21, !15, i64 32}
+!58 = !{!21, !24, i64 20}
+!59 = !{!21, !15, i64 80}
+!60 = !{!21, !23, i64 64}
+!61 = !{!47, !15, i64 88}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTS9mi_heap_s", !5, i64 0}
+!64 = !{!21, !25, i64 40}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"mi_heap_s", !67, i64 0, !6, i64 8, !15, i64 16, !24, i64 24, !15, i64 32, !6, i64 40, !68, i64 56, !15, i64 192, !15, i64 200, !15, i64 208, !63, i64 216, !23, i64 224, !6, i64 225, !6, i64 232, !6, i64 1264}
+!67 = !{!"p1 _ZTS8mi_tld_s", !5, i64 0}
+!68 = !{!"mi_random_cxt_s", !6, i64 0, !6, i64 64, !24, i64 128, !23, i64 132}
+!69 = !{!70, !25, i64 128}
+!70 = !{!"mi_tld_s", !71, i64 0, !23, i64 8, !63, i64 16, !63, i64 24, !47, i64 32, !72, i64 144}
+!71 = !{!"long long", !6, i64 0}
+!72 = !{!"mi_stats_s", !73, i64 0, !73, i64 32, !73, i64 64, !73, i64 96, !73, i64 128, !73, i64 160, !73, i64 192, !73, i64 224, !73, i64 256, !73, i64 288, !73, i64 320, !73, i64 352, !73, i64 384, !73, i64 416, !73, i64 448, !74, i64 480, !74, i64 496, !74, i64 512, !74, i64 528, !74, i64 544, !74, i64 560, !74, i64 576, !74, i64 592, !74, i64 608, !74, i64 624, !74, i64 640, !74, i64 656, !74, i64 672}
+!73 = !{!"mi_stat_count_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24}
+!74 = !{!"mi_stat_counter_s", !15, i64 0, !15, i64 8}
+!75 = !{!70, !15, i64 88}
+!76 = !{!70, !15, i64 120}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _Bool", !5, i64 0}
+!79 = !{!66, !6, i64 225}
+!80 = distinct !{!80, !38}
+!81 = !{!47, !25, i64 96}
+!82 = distinct !{!82, !38}
+!83 = !{!24, !24, i64 0}
+!84 = !{!47, !15, i64 56}
+!85 = distinct !{!85, !38}
+!86 = distinct !{!86, !38}
+!87 = !{!19, !19, i64 0}
+!88 = !{!21, !23, i64 24}
+!89 = !{!66, !24, i64 24}
+!90 = !{!5, !5, i64 0}
+!91 = distinct !{!91, !38}
+!92 = !{!93, !15, i64 32}
+!93 = !{!"mi_heap_area_s", !5, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !24, i64 48}
+!94 = !{!21, !15, i64 144}
+!95 = !{!21, !23, i64 25}
+!96 = !{!17, !19, i64 8}
+!97 = !{!47, !9, i64 32}
+!98 = !{!47, !9, i64 40}
+!99 = !{!21, !23, i64 16}
+!100 = distinct !{!100, !38}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"p1 _ZTS18mi_segment_queue_s", !5, i64 0}
+!103 = !{!21, !4, i64 48}
+!104 = !{!21, !4, i64 56}
+!105 = !{!48, !4, i64 0}
+!106 = !{!21, !6, i64 136}
+!107 = distinct !{!107, !38}
+!108 = !{!48, !4, i64 8}
+!109 = !{!47, !15, i64 64}
+!110 = !{!47, !15, i64 72}
+!111 = !{!47, !15, i64 80}
+!112 = !{!17, !18, i64 24}
+!113 = distinct !{!113, !38}
+!114 = !{!21, !23, i64 17}
+!115 = !{!21, !23, i64 18}
+!116 = distinct !{!116, !38}
+!117 = !{!21, !15, i64 112}
+!118 = distinct !{!118, !38}
+!119 = !{!22, !23, i64 17}
+!120 = !{i64 0, i64 16, !51, i64 16, i64 1, !27, i64 17, i64 1, !27, i64 18, i64 1, !27, i64 20, i64 4, !83}
+!121 = !{!22, !23, i64 16}
+!122 = !{!66, !15, i64 32}
+!123 = distinct !{!123, !38}
+!124 = distinct !{!124, !38}
+!125 = distinct !{!125, !38}
