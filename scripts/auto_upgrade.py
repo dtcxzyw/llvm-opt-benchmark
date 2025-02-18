@@ -43,6 +43,7 @@ supported_project = [
     "nanosvg",
     "nuklear",
     "openmpi",
+    "oniguruma",
 ]
 
 modify_only = [
@@ -53,6 +54,7 @@ modify_only = [
     "libquic",
     "libsodium",
     "openmpi",
+    "oniguruma",
 ]
 
 
