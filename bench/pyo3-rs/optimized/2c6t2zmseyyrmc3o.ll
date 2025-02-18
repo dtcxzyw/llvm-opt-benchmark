@@ -6698,7 +6698,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 150:                                              ; preds = %149
   %151 = load i64, ptr %11, align 8
   %152 = icmp eq i64 %151, -9223372036854775808
-  br i1 %152, label %153, label %.split.loop.exit
+  br i1 %152, label %153, label %154
 
 153:                                              ; preds = %191, %187, %150
   %.sink = phi ptr [ %46, %150 ], [ %49, %187 ], [ %50, %191 ]
@@ -6706,8 +6706,8 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %194 unwind label %.loopexit127
 
-.split.loop.exit:                                 ; preds = %150
-  %.sink140.sroa.gep142.le = getelementptr inbounds nuw i8, ptr %11, i64 32
+154:                                              ; preds = %150
+  %.sink140.sroa.phi = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %154
 
 .split.loop.exit143:                              ; preds = %191
@@ -7253,7 +7253,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 151:                                              ; preds = %150
   %152 = load i64, ptr %11, align 8
   %153 = icmp eq i64 %152, -9223372036854775808
-  br i1 %153, label %154, label %.split.loop.exit
+  br i1 %153, label %154, label %155
 
 154:                                              ; preds = %192, %188, %151
   %.sink = phi ptr [ %47, %151 ], [ %50, %188 ], [ %51, %192 ]
@@ -7261,8 +7261,8 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
   invoke void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hab6cb1eb31f61c0eE"(ptr nonnull align 8 %18)
           to label %195 unwind label %.loopexit127
 
-.split.loop.exit:                                 ; preds = %151
-  %.sink140.sroa.gep142.le = getelementptr inbounds nuw i8, ptr %11, i64 32
+155:                                              ; preds = %151
+  %.sink140.sroa.phi = getelementptr inbounds nuw i8, ptr %11, i64 32
   br label %155
 
 .split.loop.exit143:                              ; preds = %192

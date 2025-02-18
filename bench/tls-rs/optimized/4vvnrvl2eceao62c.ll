@@ -10305,8 +10305,8 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   br label %17
 
 28:                                               ; preds = %20, %.thread
-  %.sroa.3.032 = phi i64 [ 22, %20 ], [ 13, %.thread ]
-  %.sroa.010.031 = phi ptr [ @anon.ad5063a02d8bdc6ace820a31447ddce3.49, %20 ], [ @anon.ad5063a02d8bdc6ace820a31447ddce3.48, %.thread ]
+  %.sroa.3.031 = phi i64 [ 22, %20 ], [ 13, %.thread ]
+  %.sroa.010.030 = phi ptr [ @anon.ad5063a02d8bdc6ace820a31447ddce3.49, %20 ], [ @anon.ad5063a02d8bdc6ace820a31447ddce3.48, %.thread ]
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sroa.312.0..sroa_idx29, %.thread ]
   %.pn1.i = phi i64 [ %23, %20 ], [ 64, %.thread ]
   %29 = load ptr, ptr %7, align 8, !nonnull !7, !align !72, !noundef !7
@@ -10314,7 +10314,7 @@ define hidden void @_ZN6rustls5tls1217ConnectionSecrets17from_key_exchange17h466
   %30 = load ptr, ptr %.in, align 8, !nonnull !7, !align !81, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !invariant.load !7, !nonnull !7
-  invoke void %32(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.031, i64 noundef %.sroa.3.032, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.pn1.i)
+  invoke void %32(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 1 dereferenceable(48) %14, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %.sroa.010.030, i64 noundef %.sroa.3.031, ptr noalias noundef nonnull readonly align 1 %.sink.i.sroa.phi, i64 noundef %.pn1.i)
           to label %33 unwind label %26
 
 33:                                               ; preds = %28

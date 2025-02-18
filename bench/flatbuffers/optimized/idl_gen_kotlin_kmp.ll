@@ -28302,8 +28302,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i224: ; p
   %394 = select i1 %390, i64 15, i64 %393
   %395 = icmp ule i64 %388, %394
   %.not.i229 = icmp ugt i64 %388, 15
-  %or.cond454 = or i1 %395, %.not.i229
-  br i1 %or.cond454, label %410, label %.critedge.i230
+  %or.cond452 = or i1 %395, %.not.i229
+  br i1 %or.cond452, label %410, label %.critedge.i230
 
 .critedge.i230:                                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i224
   %396 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %17, i64 noundef 0, i64 noundef 0, ptr noundef %389, i64 noundef %387)
@@ -49662,8 +49662,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   br label %_ZNK11flatbuffers6kotlin18KotlinKMPGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeE.exit
 
 _ZNK11flatbuffers6kotlin18KotlinKMPGenerator12GenTypeBasicB5cxx11ERKNS_8BaseTypeE.exit: ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i4.i, %._crit_edge.i.i8.i, %._crit_edge.i.i12.i, %._crit_edge.i.i16.i, %._crit_edge.i.i20.i, %._crit_edge.i.i24.i, %._crit_edge.i.i28.i, %._crit_edge.i.i32.i, %._crit_edge.i.i36.i, %._crit_edge.i.i40.i, %._crit_edge.i.i44.i, %._crit_edge.i.i48.i, %._crit_edge.i.i52.i, %._crit_edge.i.i56.i, %._crit_edge.i.i60.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i.i ], [ %.sink.sroa.gep107, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep108, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep109, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep110, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep111, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep112, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep113, %._crit_edge.i.i28.i ], [ %.sink.sroa.gep114, %._crit_edge.i.i32.i ], [ %.sink.sroa.gep115, %._crit_edge.i.i36.i ], [ %.sink.sroa.gep116, %._crit_edge.i.i40.i ], [ %.sink.sroa.gep117, %._crit_edge.i.i44.i ], [ %.sink.sroa.gep118, %._crit_edge.i.i48.i ], [ %.sink.sroa.gep119, %._crit_edge.i.i52.i ], [ %.sink.sroa.gep120, %._crit_edge.i.i56.i ], [ %.sink.sroa.gep121, %._crit_edge.i.i60.i ]
-  %.sink.i = phi i64 [ 5, %._crit_edge.i.i.i ], [ 7, %._crit_edge.i.i4.i ], [ 4, %._crit_edge.i.i8.i ], [ 5, %._crit_edge.i.i12.i ], [ 5, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i20.i ], [ 3, %._crit_edge.i.i24.i ], [ 4, %._crit_edge.i.i28.i ], [ 4, %._crit_edge.i.i32.i ], [ 5, %._crit_edge.i.i36.i ], [ 5, %._crit_edge.i.i40.i ], [ 6, %._crit_edge.i.i44.i ], [ 6, %._crit_edge.i.i48.i ], [ 11, %._crit_edge.i.i52.i ], [ 12, %._crit_edge.i.i56.i ], [ 3, %._crit_edge.i.i60.i ]
+  %.sink.i = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i.i ], [ %.sink.sroa.gep107, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep108, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep109, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep110, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep111, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep112, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep113, %._crit_edge.i.i28.i ], [ %.sink.sroa.gep114, %._crit_edge.i.i32.i ], [ %.sink.sroa.gep115, %._crit_edge.i.i36.i ], [ %.sink.sroa.gep116, %._crit_edge.i.i40.i ], [ %.sink.sroa.gep117, %._crit_edge.i.i44.i ], [ %.sink.sroa.gep118, %._crit_edge.i.i48.i ], [ %.sink.sroa.gep119, %._crit_edge.i.i52.i ], [ %.sink.sroa.gep120, %._crit_edge.i.i56.i ], [ %.sink.sroa.gep121, %._crit_edge.i.i60.i ]
+  %.sink79.i.sroa.phi = phi i64 [ 5, %._crit_edge.i.i.i ], [ 7, %._crit_edge.i.i4.i ], [ 4, %._crit_edge.i.i8.i ], [ 5, %._crit_edge.i.i12.i ], [ 5, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i20.i ], [ 3, %._crit_edge.i.i24.i ], [ 4, %._crit_edge.i.i28.i ], [ 4, %._crit_edge.i.i32.i ], [ 5, %._crit_edge.i.i36.i ], [ 5, %._crit_edge.i.i40.i ], [ 6, %._crit_edge.i.i44.i ], [ 6, %._crit_edge.i.i48.i ], [ 11, %._crit_edge.i.i52.i ], [ 12, %._crit_edge.i.i56.i ], [ 3, %._crit_edge.i.i60.i ]
   %223 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.sink.i, ptr %223, align 8, !tbaa !14, !alias.scope !1156
   store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !15, !alias.scope !1156

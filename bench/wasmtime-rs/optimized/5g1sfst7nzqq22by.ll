@@ -1958,11 +1958,11 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %11 = alloca { ptr, i64, {} }, align 8
   %12 = alloca { { ptr, [1 x i64] }, i64, { {} }, {} }, align 8
   %13 = icmp eq i64 %2, 0
-  %14 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %14)
+  %.0114.sroa.gep = icmp ne ptr %1, null
+  tail call void @llvm.assume(i1 %.0114.sroa.gep)
   br i1 %13, label %15, label %23
 
-15:                                               ; preds = %3
+14:                                               ; preds = %3
   call void @"_ZN59_$LT$alloc..alloc..Global$u20$as$u20$core..clone..Clone$GT$5clone17h4dd38584f056157bE"(ptr nonnull align 1 %4)
   %16 = call { ptr, i64 } @"_ZN5alloc11collections5btree4node117NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$8new_leaf17ha101c571cfe8d1fdE"()
   %17 = extractvalue { ptr, i64 } %16, 0
@@ -1977,7 +1977,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %22 = icmp eq i64 %18, 0
   br i1 %22, label %31, label %35
 
-23:                                               ; preds = %3
+23:; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
   %26 = add i64 %2, -1
@@ -2006,7 +2006,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
 30:                                               ; preds = %56, %35
   unreachable
 
-31:                                               ; preds = %15
+31:                                               ; preds = %14
   store ptr %17, ptr %11, align 8
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %32, align 8
@@ -2020,7 +2020,7 @@ define void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %36
 
-35:                                               ; preds = %15
+35:                                               ; preds = %14
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.cc93a16c7526641d1978c81d652b70db.6, i64 40, ptr nonnull align 8 @anon.cc93a16c7526641d1978c81d652b70db.7) #9
           to label %30 unwind label %.loopexit.split-lp
 

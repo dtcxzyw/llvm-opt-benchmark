@@ -5025,13 +5025,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %100, %102, %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   %119 = load ptr, ptr %1, align 8
   %.not.i57 = icmp eq ptr %119, null
-  br i1 %.not.i57, label %.invoke.split.loop.exit, label %120
+  br i1 %.not.i57, label %.invoke, label %120
 
-.invoke.split.loop.exit:                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
-  %.sink.sroa.gep241.le = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink.sroa.gep244.le = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink.sroa.gep247.le = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink.sroa.gep250.le = getelementptr inbounds nuw i8, ptr %12, i64 32
+.invoke:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+  %.sink.sroa.phi = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink.sroa.phi242 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink.sroa.phi245 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink.sroa.phi248 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %.invoke
 
 .invoke.split.loop.exit255:                       ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit

@@ -9504,7 +9504,7 @@ if.end553.us:                                     ; preds = %invoke.cont550.us, 
   %.str.149..str.142 = select i1 %cmp555.us, ptr @.str.149, ptr @.str.142
   %call559.us = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull %.str.149..str.142, i32 noundef %v.0.us) #26
   %cmp565.us = icmp slt i32 %call559.us, 0
-  br i1 %cmp565.us, label %if.then566.invoke.loopexit, label %if.end572.us
+  br i1 %cmp565.us, label %if.then566.invoke, label %if.end572.us
 
 if.end572.us:                                     ; preds = %if.end553.us
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp576) #26
@@ -9621,9 +9621,9 @@ for.cond524.preheader.lr.ph.split:                ; preds = %for.cond524.prehead
   store i32 %conv, ptr %i520, align 4
   br label %if.end604
 
-if.then566.invoke.loopexit:                       ; preds = %if.end553.us
-  %ref.tmp80.sink806.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp569, i64 8
-  %ref.tmp78.sink807.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp567, i64 8
+if.then566.invoke:                                ; preds = %if.end553.us
+  %ref.tmp78.sink807.sroa.phi = getelementptr inbounds nuw i8, ptr %ref.tmp569, i64 8
+  %ref.tmp78.sink807 = getelementptr inbounds nuw i8, ptr %ref.tmp567, i64 8
   br label %if.then566.invoke
 
 if.then566.invoke.loopexit816:                    ; preds = %if.end452

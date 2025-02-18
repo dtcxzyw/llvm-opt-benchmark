@@ -2037,7 +2037,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge:     ; preds = %235
   br i1 %3, label %.thread137, label %.thread142
 
 .thread142.sink.split:                            ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge
-  %.sink160.sroa.phi = phi ptr [ %.sink160.sroa.gep, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %.sink160.sroa.gep163, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
+  %.sink = phi ptr [ %.sink160.sroa.gep, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %.sink160.sroa.gep163, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
   %.sink160 = phi ptr [ %11, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit68.critedge ], [ %10, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge ]
   store i32 0, ptr %.sink160, align 4
   store i32 0, ptr %.sink160.sroa.phi, align 4

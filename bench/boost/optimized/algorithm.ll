@@ -141596,9 +141596,9 @@ __cxx_global_var_init.36.exit:                    ; preds = %0, %28, %30
   br label %.critedge49.i.i
 
 .critedge49.i.i:                                  ; preds = %._crit_edge.i.i53.i.i, %._crit_edge.i.i.i.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i53.i.i ], [ %.sink.sroa.gep5, %._crit_edge.i.i.i.i ]
+  %.sink15.i.sroa.phi.i = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i53.i.i ], [ %.sink.sroa.gep5, %._crit_edge.i.i.i.i ]
   %32 = phi i64 [ 3, %._crit_edge.i.i53.i.i ], [ 9, %._crit_edge.i.i.i.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !24
+  store i8 0, ptr %.sink15.i.sroa.phi.i, align 1, !tbaa !24
   store ptr %.ptr14.i.i, ptr %15, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZN5boost5debug12_GLOBAL__N_16s_infoE, i64 16), ptr noundef nonnull align 8 dereferenceable(1) %.ptr14.i.i, i64 %32, i1 false)
   store i64 %32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost5debug12_GLOBAL__N_16s_infoE, i64 8), align 8, !tbaa !11

@@ -2869,13 +2869,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__23Trace_JSONSeri
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   %13 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %.invoke.loopexit, label %14
+  br i1 %.not.i, label %.invoke, label %14
 
-.invoke.loopexit:                                 ; preds = %12
-  %.sink.sroa.gep32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink.sroa.gep35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sink.sroa.gep38 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sink.sroa.gep41 = getelementptr inbounds nuw i8, ptr %4, i64 32
+.invoke:                                          ; preds = %12
+  %.sink.sroa.phi = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink.sroa.phi33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink.sroa.phi36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink.sroa.phi39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.loopexit, %._crit_edge

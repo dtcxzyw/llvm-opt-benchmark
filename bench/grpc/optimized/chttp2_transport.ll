@@ -16548,9 +16548,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i9
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont3, %invoke.cont5, %if.then.i.i9
-  %nrefs.0147 = phi i64 [ 1, %invoke.cont5 ], [ 1, %if.then.i.i9 ], [ 0, %invoke.cont3 ]
-  %nrefs.0.sroa.phi146 = phi ptr [ %nrefs.0.sroa.phi, %invoke.cont5 ], [ %nrefs.0.sroa.phi153, %if.then.i.i9 ], [ %refs, %invoke.cont3 ]
-  %cmp.i.i130145 = phi i1 [ false, %invoke.cont5 ], [ false, %if.then.i.i9 ], [ true, %invoke.cont3 ]
+  %nrefs.0142 = phi i64 [ 1, %invoke.cont5 ], [ 1, %if.then.i.i9 ], [ 0, %invoke.cont3 ]
+  %nrefs.0.sroa.phi141 = phi ptr [ %nrefs.0.sroa.phi, %invoke.cont5 ], [ %nrefs.0.sroa.phi153, %if.then.i.i9 ], [ %refs, %invoke.cont3 ]
+  %cmp.i.i130140 = phi i1 [ false, %invoke.cont5 ], [ false, %if.then.i.i9 ], [ true, %invoke.cont3 ]
   %write_closed_error = getelementptr inbounds nuw i8, ptr %s, i64 384
   %10 = load i64, ptr %write_closed_error, align 8
   store i64 %10, ptr %agg.tmp6, align 8
@@ -16571,7 +16571,7 @@ invoke.cont7:                                     ; preds = %if.then.i.i12, %_ZN
   br i1 %cmp.i.i15, label %invoke.cont10, label %for.cond.preheader.i16
 
 for.cond.preheader.i16:                           ; preds = %invoke.cont7
-  br i1 %cmp.i.i130145, label %for.end.i28, label %for.body.i18.preheader
+  br i1 %cmp.i.i130140, label %for.end.i28, label %for.body.i18.preheader
 
 for.body.i18.preheader:                           ; preds = %for.cond.preheader.i16
   %14 = load i64, ptr %refs, align 16
@@ -16591,7 +16591,7 @@ call.i.i.noexc44:                                 ; preds = %_ZN4absl12lts_20230
 
 for.end.i28:                                      ; preds = %for.cond.i23, %for.cond.preheader.i16
   %15 = phi i64 [ %13, %for.cond.preheader.i16 ], [ %.pre.i27, %for.cond.i23 ]
-  %16 = load i64, ptr %nrefs.0.sroa.phi146, align 8
+  %16 = load i64, ptr %nrefs.0.sroa.phi141, align 8
   %cmp.not.i.i31 = icmp eq i64 %15, %16
   br i1 %cmp.not.i.i31, label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, label %if.then.i.i32
 
@@ -16609,7 +16609,7 @@ if.then.i.i.i35:                                  ; preds = %if.then.i.i32
 
 _ZN4absl12lts_202308026Status3RefEm.exit.i.i38:   ; preds = %if.then.i.i.i35, %if.then.i.i32
   %19 = phi i64 [ %15, %if.then.i.i32 ], [ %.pre.i.i37, %if.then.i.i.i35 ]
-  store i64 %19, ptr %nrefs.0.sroa.phi146, align 8
+  store i64 %19, ptr %nrefs.0.sroa.phi141, align 8
   %and.i.i5.i.i39 = and i64 %16, 1
   %cmp.i.i6.i.i40 = icmp eq i64 %and.i.i5.i.i39, 0
   br i1 %cmp.i.i6.i.i40, label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, label %if.then.i7.i.i41
@@ -16619,11 +16619,11 @@ if.then.i7.i.i41:                                 ; preds = %_ZN4absl12lts_20230
           to label %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 unwind label %lpad9.loopexit.split-lp
 
 _ZN4absl12lts_202308026StatusaSERKS1_.exit.i42:   ; preds = %if.then.i7.i.i41, %_ZN4absl12lts_202308026Status3RefEm.exit.i.i38, %for.end.i28
-  %inc6.i43 = add nuw nsw i64 %nrefs.0147, 1
+  %inc6.i43 = add nuw nsw i64 %nrefs.0142, 1
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %call.i.i.noexc44, %for.body.i18.preheader, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42, %invoke.cont7
-  %nrefs.1 = phi i64 [ %nrefs.0147, %invoke.cont7 ], [ %inc6.i43, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 ], [ %nrefs.0147, %for.body.i18.preheader ], [ %nrefs.0147, %call.i.i.noexc44 ]
+  %nrefs.1 = phi i64 [ %nrefs.0142, %invoke.cont7 ], [ %inc6.i43, %_ZN4absl12lts_202308026StatusaSERKS1_.exit.i42 ], [ %nrefs.0142, %for.body.i18.preheader ], [ %nrefs.0142, %call.i.i.noexc44 ]
   %20 = load i64, ptr %agg.tmp6, align 8
   %and.i.i.i48 = and i64 %20, 1
   %cmp.i.i.i49 = icmp eq i64 %and.i.i.i48, 0

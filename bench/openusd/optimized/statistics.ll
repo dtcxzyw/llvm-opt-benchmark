@@ -898,7 +898,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__14Pcp_Statistics2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %72 = load ptr, ptr %65, align 8
   %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %.invoke.loopexit, label %73
+  br i1 %.not.i, label %.invoke, label %73
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -1580,14 +1580,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorINS_9TfHashSetINS_14PcpMapFunct
   %.sink.sroa.gep309 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %.not.i93, label %.invoke, label %368
 
-.invoke.loopexit:                                 ; preds = %71
-  %.sink.sroa.gep301 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink.sroa.gep304 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink.sroa.gep307 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink.sroa.gep310 = getelementptr inbounds nuw i8, ptr %7, i64 32
+.invoke:                                          ; preds = %71
+  %.sink.sroa.phi = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.phi302 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink.sroa.phi305 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink.sroa.phi308 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %.invoke
 
-.invoke:                                          ; preds = %.invoke.loopexit, %._crit_edge239
+.invoke:; preds = %.invoke.loopexit, %._crit_edge239
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge239 ], [ %.sink.sroa.gep301, %.invoke.loopexit ]
   %.sink.sroa.phi302 = phi ptr [ %.sink.sroa.gep303, %._crit_edge239 ], [ %.sink.sroa.gep304, %.invoke.loopexit ]
   %.sink.sroa.phi305 = phi ptr [ %.sink.sroa.gep306, %._crit_edge239 ], [ %.sink.sroa.gep307, %.invoke.loopexit ]

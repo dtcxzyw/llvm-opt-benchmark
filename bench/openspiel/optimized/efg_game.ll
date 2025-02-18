@@ -1895,7 +1895,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.071.084, i64 8
   %.not = icmp eq ptr %61, %50
-  br i1 %.not, label %._crit_edge87.invoke.loopexit, label %54
+  br i1 %.not, label %._crit_edge87.invoke, label %54
 
 62:                                               ; preds = %.noexc, %2
   %63 = landingpad { ptr, i32 }
@@ -1932,8 +1932,8 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #29
   br label %176
 
-._crit_edge87.invoke.loopexit:                    ; preds = %60
-  %.sink.sroa.gep101 = getelementptr inbounds nuw i8, ptr %11, i64 8
+._crit_edge87.invoke:                             ; preds = %60
+  %.sink.sroa.phi = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %._crit_edge87.invoke
 
 ._crit_edge87.invoke.loopexit97:                  ; preds = %122

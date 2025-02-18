@@ -10304,8 +10304,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131.i145: ; preds 
   br label %_ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit
 
 _ZN5folly12_GLOBAL__N_115dynamicTypenameB5cxx11ERKNS_7dynamicE.exit: ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i4.i, %._crit_edge.i.i8.i, %._crit_edge.i.i12.i, %._crit_edge.i.i16.i, %._crit_edge.i.i20.i, %._crit_edge.i.i24.i, %._crit_edge.i.i28.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i.i ], [ %.sink.sroa.gep1310, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep1311, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep1312, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep1313, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep1314, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep1315, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep1316, %._crit_edge.i.i28.i ]
-  %.sink.i = phi i64 [ 4, %._crit_edge.i.i.i ], [ 5, %._crit_edge.i.i4.i ], [ 7, %._crit_edge.i.i8.i ], [ 6, %._crit_edge.i.i12.i ], [ 7, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i20.i ], [ 6, %._crit_edge.i.i24.i ], [ 12, %._crit_edge.i.i28.i ]
+  %.sink.i = phi ptr [ %.sink.sroa.gep, %._crit_edge.i.i.i ], [ %.sink.sroa.gep1310, %._crit_edge.i.i4.i ], [ %.sink.sroa.gep1311, %._crit_edge.i.i8.i ], [ %.sink.sroa.gep1312, %._crit_edge.i.i12.i ], [ %.sink.sroa.gep1313, %._crit_edge.i.i16.i ], [ %.sink.sroa.gep1314, %._crit_edge.i.i20.i ], [ %.sink.sroa.gep1315, %._crit_edge.i.i24.i ], [ %.sink.sroa.gep1316, %._crit_edge.i.i28.i ]
+  %.sink8.i.sroa.phi = phi i64 [ 4, %._crit_edge.i.i.i ], [ 5, %._crit_edge.i.i4.i ], [ 7, %._crit_edge.i.i8.i ], [ 6, %._crit_edge.i.i12.i ], [ 7, %._crit_edge.i.i16.i ], [ 6, %._crit_edge.i.i20.i ], [ 6, %._crit_edge.i.i24.i ], [ 12, %._crit_edge.i.i28.i ]
   %782 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %.sink.i, ptr %782, align 8, !tbaa !39, !alias.scope !232, !noalias !229
   store i8 0, ptr %.sink.sroa.phi, align 1, !tbaa !7, !alias.scope !232, !noalias !229

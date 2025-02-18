@@ -1972,7 +1972,7 @@ if.else.i:                                        ; preds = %if.end
   %tobool6.not.i = icmp eq i16 %3, 0
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
-if.then7.i:                                       ; preds = %if.else.i
+if.then7.i:; preds = %if.else.i
   %fBuffer.i = getelementptr inbounds nuw i8, ptr %dest, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -2151,7 +2151,7 @@ if.else.i172:                                     ; preds = %if.end76
   %tobool6.not.i173 = icmp eq i16 %29, 0
   br i1 %tobool6.not.i173, label %if.else9.i176, label %if.then7.i174
 
-if.then7.i174:                                    ; preds = %if.else.i172
+if.then7.i174:; preds = %if.else.i172
   %fBuffer.i175 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit178
 
@@ -2165,7 +2165,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit178:   ; preds = %if.end76, %if.then7
   %cmp.i.i = icmp slt i16 %27, 0
   %31 = ashr i16 %27, 5
   %shr.i.i = sext i16 %31 to i32
-  %fLength.i = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 12
   %32 = load i32, ptr %fLength.i, align 4
   %cond.i179 = select i1 %cmp.i.i, i32 %32, i32 %shr.i.i
   %labelString.0.sroa.gep243 = getelementptr inbounds nuw i8, ptr %fromPunycode, i64 10
@@ -2175,7 +2175,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit178:   ; preds = %if.end76, %if.then7
 if.end81:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit178, %_ZNK6icu_7513UnicodeString9getBufferEv.exit
   %label.0 = phi ptr [ %retval.0.i171, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %add.ptr, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %labelString.0.sroa.phi = phi ptr [ %fUnion2.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %fUnion.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
-  %labelString.0.sroa.phi228 = phi ptr [ %fLength.i, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep234, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
+  %labelString.0.sroa.phi228 = phi ptr [ %32, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep234, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %labelString.0.sroa.phi242 = phi ptr [ %labelString.0.sroa.gep243, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep248, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %labelString.0.sroa.phi249 = phi ptr [ %labelString.0.sroa.gep250, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %labelString.0.sroa.gep255, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
   %labelString.0 = phi ptr [ %fromPunycode, %_ZNK6icu_7513UnicodeString9getBufferEv.exit178 ], [ %dest, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ]
@@ -2192,8 +2192,8 @@ if.then83:                                        ; preds = %if.end81
   %34 = load i32, ptr %errorCode, align 4
   %cmp.i.i180 = icmp sgt i32 %34, 0
   %cmp.not.i = icmp eq ptr %labelString.0, %dest
-  %or.cond324 = or i1 %cmp.not.i, %cmp.i.i180
-  br i1 %or.cond324, label %cleanup310, label %if.then1.i
+  %or.cond326 = or i1 %cmp.not.i, %cmp.i.i180
+  br i1 %or.cond326, label %cleanup310, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then83
   %35 = load i16, ptr %labelString.0.sroa.phi, align 8

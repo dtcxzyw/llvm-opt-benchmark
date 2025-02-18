@@ -7085,11 +7085,11 @@ _ZN22contour_point_vector_tD2Ev.exit372:          ; preds = %78, %70, %_ZN2OT18T
 
 _ZN22contour_point_vector_tD2Ev.exit378:          ; preds = %656, %_ZN22contour_point_vector_tD2Ev.exit376, %105
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %106, %105 ], [ %171, %_ZN22contour_point_vector_tD2Ev.exit376 ], [ %171, %656 ]
-  %662 = load i32, ptr %9, align 8
-  %.not.i.i381 = icmp eq i32 %662, 0
-  br i1 %.not.i.i381, label %_ZN11hb_vector_tIjLb0EED2Ev.exit382, label %663
+  %660 = load i32, ptr %9, align 8
+  %.not.i.i381 = icmp eq i32 %660, 0
+  br i1 %.not.i.i381, label %_ZN11hb_vector_tIjLb0EED2Ev.exit382, label %661
 
-663:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378
+661:                                              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378
   %664 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %664, align 4
   %665 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -7097,7 +7097,7 @@ _ZN22contour_point_vector_tD2Ev.exit378:          ; preds = %656, %_ZN22contour_
   call void @free(ptr noundef %666) #26
   br label %_ZN11hb_vector_tIjLb0EED2Ev.exit382
 
-_ZN11hb_vector_tIjLb0EED2Ev.exit382:              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378, %663
+_ZN11hb_vector_tIjLb0EED2Ev.exit382:              ; preds = %_ZN22contour_point_vector_tD2Ev.exit378, %661
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 _ZN11hb_vector_tIjLb0EED2Ev.exit380:              ; preds = %658, %_ZN22contour_point_vector_tD2Ev.exit372, %14, %7

@@ -187,12 +187,12 @@ entry:
   %addr4_normalized.sroa.0 = alloca i16, align 2
   %addr4_normalized.sroa.2 = alloca i32, align 4
   %0 = load i16, ptr %resolved_addr, align 2
-  %tobool.not.sroa.gep23 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 4
-  %tobool.not.sroa.gep27 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 8
+  %tobool.not.sroa.gep26 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 4
+  %tobool.not.sroa.gep30 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 8
   %tobool.not.sroa.gep31 = getelementptr inbounds nuw i8, ptr %resolved_addr, i64 2
   switch i16 %0, label %return [
     i16 10, label %if.then6.i
-    i16 2, label %if.then2
+    i16 2, label %if.then2thread-pre-split
   ]
 
 if.then6.i:                                       ; preds = %entry
@@ -208,10 +208,10 @@ _Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread: ; preds =
   store i16 %2, ptr %addr4_normalized.sroa.0, align 2
   br label %if.then2
 
-if.then2:                                         ; preds = %entry, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread
-  %tobool.not.sroa.phi2840 = phi ptr [ %addr4_normalized.sroa.0, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ], [ %tobool.not.sroa.gep31, %entry ]
-  %tobool.not.sroa.phi39 = phi ptr [ %addr4_normalized.sroa.2, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ], [ %tobool.not.sroa.gep23, %entry ]
-  %3 = load i32, ptr %tobool.not.sroa.phi39, align 4
+if.then2thread-pre-split:                         ; preds = %entry, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread
+  %tobool.not.sroa.gep22 = phi ptr [ %addr4_normalized.sroa.0, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ], [ %tobool.not.sroa.gep31, %entry ]
+  %.pr = phi ptr [ %addr4_normalized.sroa.2, %_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_.exit.thread ], [ %tobool.not.sroa.gep23, %entry ]
+  %3 = load i32, ptr %.pr, align 4
   %cmp3.not = icmp eq i32 %3, 0
   br i1 %cmp3.not, label %return.sink.split, label %return
 
@@ -382,11 +382,11 @@ if.then6.i:                                       ; preds = %do.end.i
 
 if.end:                                           ; preds = %2, %do.end.i, %if.then6.i, %entry
   %resolved_addr.addr.0.sroa.phi = phi ptr [ %resolved_addr, %entry ], [ %addr_normalized, %2 ], [ %resolved_addr, %do.end.i ], [ %resolved_addr, %if.then6.i ]
-  %resolved_addr.addr.0.sroa.phi.sroa.phi145 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 128
-  %resolved_addr.addr.0.sroa.phi.sroa.phi140 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
-  %resolved_addr.addr.0.sroa.phi.sroa.phi135 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 4
-  %resolved_addr.addr.0.sroa.phi.sroa.phi120 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 4
-  %resolved_addr.addr.0.sroa.phi.sroa.phi115 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 24
+  %resolved_addr.addr.0.sroa.phi25 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 128
+  %resolved_addr.addr.0.sroa.phi.sroa.phi136 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
+  %resolved_addr.addr.0.sroa.phi.sroa.phi131 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 4
+  %resolved_addr.addr.0.sroa.phi.sroa.phi116 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 4
+  %resolved_addr.addr.0.sroa.phi.sroa.phi111 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 24
   %resolved_addr.addr.0.sroa.phi.sroa.phi = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %out) #20
   %6 = load i16, ptr %resolved_addr.addr.0.sroa.phi, align 2
@@ -398,12 +398,12 @@ if.end:                                           ; preds = %2, %do.end.i, %if.t
   ]
 
 if.then4:                                         ; preds = %if.end
-  %7 = load i8, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi140, align 2
+  %7 = load i8, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi136, align 2
   %cmp6 = icmp eq i8 %7, 0
   br i1 %cmp6, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.then4
-  %8 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi145, align 4
+  %8 = load i32, ptr %resolved_addr.addr.0.sroa.phi25, align 4
   %sub = add i32 %8, -2
   %cmp13 = icmp slt i32 %sub, 1
   br i1 %cmp13, label %if.then14, label %if.end17
@@ -455,7 +455,7 @@ lpad:                                             ; preds = %invoke.cont112, %in
 if.end17:                                         ; preds = %if.then9
   %conv21 = zext nneg i32 %sub to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22) #20
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull %resolved_addr.addr.0.sroa.phi.sroa.phi140, i64 noundef %conv21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18, ptr noundef nonnull %resolved_addr.addr.0.sroa.phi.sroa.phi136, i64 noundef %conv21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22)
           to label %if.end44 unwind label %lpad23
 
 lpad23:                                           ; preds = %if.end17
@@ -465,7 +465,7 @@ lpad23:                                           ; preds = %if.end17
   br label %ehcleanup126
 
 if.else:                                          ; preds = %if.then4
-  %call28 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %resolved_addr.addr.0.sroa.phi.sroa.phi140, i64 noundef 108) #22
+  %call28 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %resolved_addr.addr.0.sroa.phi.sroa.phi136, i64 noundef 108) #22
   %cmp29 = icmp eq i64 %call28, 108
   br i1 %cmp29, label %if.then30, label %if.end36
 
@@ -518,9 +518,9 @@ call.i.noexc:                                     ; preds = %if.end36
           to label %.noexc unwind label %lpad41
 
 .noexc:                                           ; preds = %call.i.noexc
-  %call.i.i45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %resolved_addr.addr.0.sroa.phi.sroa.phi140) #20
-  %add.ptr.i = getelementptr inbounds i8, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi140, i64 %call.i.i45
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull %resolved_addr.addr.0.sroa.phi.sroa.phi140, ptr noundef nonnull %add.ptr.i)
+  %call.i.i45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %resolved_addr.addr.0.sroa.phi.sroa.phi136) #20
+  %add.ptr.i = getelementptr inbounds i8, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi136, i64 %call.i.i45
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull %resolved_addr.addr.0.sroa.phi.sroa.phi136, ptr noundef nonnull %add.ptr.i)
           to label %if.end44 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -540,10 +540,10 @@ lpad41.body:                                      ; preds = %lpad.i, %lpad41
   br label %ehcleanup126
 
 if.end44:                                         ; preds = %.noexc, %if.end17
-  %ref.tmp37.sink106 = phi ptr [ %ref.tmp18, %if.end17 ], [ %ref.tmp37, %.noexc ]
+  %ref.tmp37.sink102 = phi ptr [ %ref.tmp18, %if.end17 ], [ %ref.tmp37, %.noexc ]
   %ref.tmp40.sink = phi ptr [ %ref.tmp22, %if.end17 ], [ %ref.tmp40, %.noexc ]
-  %call43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.sink106) #20
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.sink106) #20
+  %call43 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.sink102) #20
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.sink102) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40.sink) #20
   %21 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %out) #20
@@ -551,8 +551,8 @@ if.end44:                                         ; preds = %.noexc, %if.end17
   br label %cleanup
 
 if.then50:                                        ; preds = %if.end
-  %resolved_addr.addr.0.sroa.phi.sroa.phi130 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 8
-  %22 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi130, align 4
+  %resolved_addr.addr.0.sroa.phi.sroa.phi126 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 8
+  %22 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi126, align 4
   %digits_.i = getelementptr inbounds nuw i8, ptr %ref.tmp52, i64 16
   %call.i50 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %22, ptr noundef nonnull %digits_.i)
           to label %invoke.cont55 unwind label %lpad
@@ -567,7 +567,7 @@ invoke.cont55:                                    ; preds = %if.then50
   store i64 1, ptr %ref.tmp54, align 8
   %23 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
   store ptr @.str.6, ptr %23, align 8
-  %24 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi135, align 4
+  %24 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi131, align 4
   %digits_.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp56, i64 16
   %call.i57 = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef %24, ptr noundef nonnull %digits_.i51)
           to label %invoke.cont57 unwind label %lpad
@@ -591,25 +591,25 @@ invoke.cont58:                                    ; preds = %invoke.cont57
   br label %cleanup
 
 if.then65:                                        ; preds = %if.end
-  %resolved_addr.addr.0.sroa.phi.sroa.phi125 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
-  %26 = load i16, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi125, align 2
+  %resolved_addr.addr.0.sroa.phi.sroa.phi121 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
+  %26 = load i16, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi121, align 2
   %call67 = invoke noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %26)
           to label %land.lhs.true81 unwind label %lpad
 
 if.then73:                                        ; preds = %if.end
-  %resolved_addr.addr.0.sroa.phi.sroa.phi110 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
-  %27 = load i16, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi110, align 2
+  %resolved_addr.addr.0.sroa.phi.sroa.phi106 = getelementptr inbounds nuw i8, ptr %resolved_addr.addr.0.sroa.phi, i64 2
+  %27 = load i16, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi106, align 2
   %call75 = invoke noundef zeroext i16 @_Z10grpc_ntohst(i16 noundef zeroext %27)
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %if.then73
-  %28 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi115, align 4
+  %28 = load i32, ptr %resolved_addr.addr.0.sroa.phi.sroa.phi111, align 4
   br label %land.lhs.true81
 
 land.lhs.true81:                                  ; preds = %if.then65, %invoke.cont74
   %sin6_scope_id.0.ph = phi i32 [ %28, %invoke.cont74 ], [ 0, %if.then65 ]
   %port.0.shrunk.ph = phi i16 [ %call75, %invoke.cont74 ], [ %call67, %if.then65 ]
-  %ip.0.ph = phi ptr [ %resolved_addr.addr.0.sroa.phi.sroa.phi, %invoke.cont74 ], [ %resolved_addr.addr.0.sroa.phi.sroa.phi120, %if.then65 ]
+  %ip.0.ph = phi ptr [ %resolved_addr.addr.0.sroa.phi.sroa.phi, %invoke.cont74 ], [ %resolved_addr.addr.0.sroa.phi.sroa.phi116, %if.then65 ]
   %port.084 = zext i16 %port.0.shrunk.ph to i32
   %29 = load i16, ptr %resolved_addr.addr.0.sroa.phi, align 2
   %conv83 = zext i16 %29 to i32

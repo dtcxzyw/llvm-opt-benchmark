@@ -11392,8 +11392,8 @@ call.i.i.noexc:                                   ; preds = %if.end7.i
   br i1 %call.i.i1341, label %if.then9.i, label %invoke.cont.thread
 
 if.then9.i:                                       ; preds = %call.i.i.noexc
-  %chbegin10.i = getelementptr inbounds nuw i8, ptr %roi, i64 24
-  %8 = load i32, ptr %chbegin10.i, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %roi, i64 24
+  %9 = load i32, ptr %chbegin10.i, align 8
   %chend11.i = getelementptr inbounds nuw i8, ptr %roi, i64 28
   %9 = load i32, ptr %chend11.i, align 4
   %10 = load i32, ptr %call1.i1338, align 8, !noalias !46

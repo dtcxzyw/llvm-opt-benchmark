@@ -237,7 +237,7 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl
 
 7:                                                ; preds = %.lr.ph, %Curl_shutdown_timeleft.exit.thread
   %.pre3435 = phi i32 [ %5, %.lr.ph ], [ %.pre3436, %Curl_shutdown_timeleft.exit.thread ]
-  %8 = phi i32 [ %5, %.lr.ph ], [ %24, %Curl_shutdown_timeleft.exit.thread ]
+  %8 = phi i32 [ %5, %.lr.ph ], [ %25, %Curl_shutdown_timeleft.exit.thread ]
   %9 = phi i1 [ true, %.lr.ph ], [ false, %Curl_shutdown_timeleft.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %Curl_shutdown_timeleft.exit.thread ]
   %.030 = phi ptr [ %1, %.lr.ph ], [ %.1, %Curl_shutdown_timeleft.exit.thread ]
@@ -260,43 +260,43 @@ define dso_local range(i64 -9223372036854775807, -9223372036854775808) i64 @Curl
   %.pre = load i64, ptr %10, align 8, !tbaa !92
   %.pre34.pre = load i32, ptr %4, align 8, !tbaa !83
   %.not.i = icmp eq i64 %.pre, 0
-  br i1 %.not.i, label %Curl_shutdown_timeleft.exit.thread, label %.thread
+  br i1 %.not.i, label %Curl_shutdown_timeleft.exit.thread, label %17
 
-.thread:                                          ; preds = %12, %13
-  %.242 = phi ptr [ %3, %13 ], [ %.030, %12 ]
-  %17 = phi i64 [ %.pre, %13 ], [ %11, %12 ]
-  %.pre3441 = phi i32 [ %.pre34.pre, %13 ], [ %.pre3435, %12 ]
-  %.not16.i = icmp eq i32 %.pre3441, 0
+17:                                               ; preds = %12, %13
+  %.010.sroa.gep13.i44 = phi ptr [ %3, %13 ], [ %.030, %12 ]
+  %.243 = phi i64 [ %.pre, %13 ], [ %11, %12 ]
+  %18 = phi i32 [ %.pre34.pre, %13 ], [ %.pre3435, %12 ]
+  %.pre3442 = icmp eq i32 %.pre3441, 0
   br i1 %.not16.i, label %._crit_edge, label %Curl_shutdown_timeleft.exit.thread23
 
-Curl_shutdown_timeleft.exit.thread23:             ; preds = %.thread
-  %.010.sroa.gep13.i = getelementptr inbounds nuw i8, ptr %.242, i64 8
-  %.pre19.i = load i64, ptr %.242, align 8
-  %.pre20.i = load i32, ptr %.010.sroa.gep13.i, align 8
-  %18 = zext i32 %.pre3441 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %20 = load i32, ptr %19, align 8
-  %21 = call i64 @Curl_timediff(i64 %.pre19.i, i32 %.pre20.i, i64 %17, i32 %20) #10
-  %.not18.i = icmp eq i64 %21, %18
-  %22 = sub nsw i64 %18, %21
+Curl_shutdown_timeleft.exit.thread23:             ; preds = %17
+  %.pre19.i = getelementptr inbounds nuw i8, ptr %.242, i64 8
+  %.pre20.i = load i64, ptr %.010.sroa.gep13.i44, align 8
+  %19 = load i32, ptr %.pre20.i, align 8
+  %20 = zext i32 %18 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %22 = load i32, ptr %19, align 8
+  %.not18.i = call i64 @Curl_timediff(i64 %.pre19.i, i32 %19, i64 %.243, i32 %20) #10
+  %23 = icmp eq i64 %21, %22
+  %spec.select27 = sub nsw i64 %18, %.not18.i
   %spec.select27 = select i1 %.not18.i, i64 -1, i64 %22
   %.not20 = icmp eq i64 %.01429, 0
-  %23 = call i64 @llvm.smin.i64(i64 %spec.select27, i64 %.01429)
-  %spec.select = select i1 %.not20, i64 %spec.select27, i64 %23
+  %24 = call i64 @llvm.smin.i64(i64 %spec.select27, i64 %.01429)
+  %spec.select = select i1 %.not20, i64 %spec.select27, i64 %24
   %.pre33 = load i32, ptr %4, align 8, !tbaa !83
   br label %Curl_shutdown_timeleft.exit.thread
 
 Curl_shutdown_timeleft.exit.thread:               ; preds = %13, %Curl_shutdown_timeleft.exit.thread23, %7
   %.pre3436 = phi i32 [ %.pre3435, %7 ], [ %.pre33, %Curl_shutdown_timeleft.exit.thread23 ], [ %.pre34.pre, %13 ]
-  %24 = phi i32 [ %8, %7 ], [ %.pre33, %Curl_shutdown_timeleft.exit.thread23 ], [ %.pre34.pre, %13 ]
+  %25 = phi i32 [ %8, %7 ], [ %.pre33, %Curl_shutdown_timeleft.exit.thread23 ], [ %.pre34.pre, %13 ]
   %.115 = phi i64 [ %.01429, %7 ], [ %spec.select, %Curl_shutdown_timeleft.exit.thread23 ], [ %.01429, %13 ]
   %.1 = phi ptr [ %.030, %7 ], [ %.242, %Curl_shutdown_timeleft.exit.thread23 ], [ %3, %13 ]
-  %25 = icmp ne i32 %24, 0
-  %26 = and i1 %25, %9
-  br i1 %26, label %7, label %._crit_edge, !llvm.loop !93
+  %26 = icmp ne i32 %25, 0
+  %27 = and i1 %26, %9
+  br i1 %27, label %7, label %._crit_edge, !llvm.loop !93
 
-._crit_edge:                                      ; preds = %.thread, %Curl_shutdown_timeleft.exit.thread, %2
-  %.014.lcssa = phi i64 [ 0, %2 ], [ %.01429, %.thread ], [ %.115, %Curl_shutdown_timeleft.exit.thread ]
+._crit_edge:                                      ; preds = %17, %Curl_shutdown_timeleft.exit.thread, %2
+  %.014.lcssa = phi i64 [ 0, %2 ], [ %.01429, %17 ], [ %.115, %Curl_shutdown_timeleft.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   ret i64 %.014.lcssa
 }

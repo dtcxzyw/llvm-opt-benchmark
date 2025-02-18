@@ -186,22 +186,22 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.
 
 _ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph:   ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  %indvars.iv27.i.sroa.gep91 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %indvars.iv120.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 4
-  br label %_ZNK5ZXing11PatternView7isValidEv.exit53
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.not102139 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  br label %_ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split
 
-_ZNK5ZXing11PatternView7isValidEv.exit53:         ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph, %_ZN5ZXing11PatternView10skipSymbolEv.exit
-  %57 = phi ptr [ %53, %_ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph ], [ %156, %_ZN5ZXing11PatternView10skipSymbolEv.exit ]
+_ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split: ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph, %_ZN5ZXing11PatternView10skipSymbolEv.exit
+  %.pr = phi ptr [ %53, %_ZNK5ZXing11PatternView7isValidEv.exit53.lr.ph ], [ %156, %_ZN5ZXing11PatternView10skipSymbolEv.exit ]
   %58 = load i32, ptr %21, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i16, ptr %57, i64 %59
-  %61 = load ptr, ptr %25, align 8
-  %.not102 = icmp ugt ptr %60, %61
+  %.not102 = load ptr, ptr %25, align 8
+  %.not102 = icmp ugt ptr %60, %.not102
   br i1 %.not102, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread, label %62
 
-62:                                               ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit53
+62: ; preds = %_ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %.sroa.089)
@@ -436,7 +436,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %152
   store ptr %156, ptr %3, align 8
   %157 = load ptr, ptr %19, align 8
   %.not1.i.i51 = icmp ult ptr %156, %157
-  br i1 %.not1.i.i51, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit53
+  br i1 %.not1.i.i51, label %_ZNK5ZXing11PatternView7isValidEv.exit53.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit53thread-pre-split
 
 _ZNK5ZXing11PatternView7isValidEv.exit53.thread:  ; preds = %152, %128, %.loopexit105, %_ZNK5ZXing11PatternView7isValidEv.exit53, %_ZN5ZXing11PatternView10skipSymbolEv.exit, %.loopexit105.thread, %52
   store i32 3, ptr %21, align 8

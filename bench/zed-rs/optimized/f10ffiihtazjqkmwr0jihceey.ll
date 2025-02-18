@@ -4486,7 +4486,7 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
 20:                                               ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   %.not.i.i.i.i = icmp eq i64 %18, -9223372036854775806
-  br i1 %.not.i.i.i.i, label %29, label %21
+  br i1 %.not.i.i.i.i, label %28, label %21
 
 21:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
@@ -4519,12 +4519,12 @@ define hidden void @"_ZN4core3ptr112drop_in_place$LT$gpui..executor..Task$LT$cor
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
 
-29:                                               ; preds = %20
+28:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h326580d051edbc1bE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
   br label %"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit"
 
-"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit": ; preds = %16, %22, %23, %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i", %27, %29
+"_ZN4core3ptr114drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17hb228cad78ec873b2E.exit": ; preds = %16, %22, %23, %"_ZN4core3ptr43drop_in_place$LT$client..DevServerToken$GT$17hfea20e5524067f3aE.exit.sink.split.i.i.i.i.i.i", %27, %28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !797
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$client..Credentials$C$anyhow..Error$GT$$GT$$GT$17h2bf1d5e919b322a8E.llvm.5075531295563288024.exit"
 

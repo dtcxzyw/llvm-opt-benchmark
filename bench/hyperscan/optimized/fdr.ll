@@ -268,7 +268,7 @@ entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %7
   %sub.i = sub i64 %4, %7
   %cmp.i = icmp ult i64 %sub.i, 17
-  %add.ptr.i1745 = getelementptr inbounds nuw i8, ptr %zones, i64 64
+  %numZone.i.0.sroa.gep = getelementptr inbounds nuw i8, ptr %zones, i64 64
   %floodPtr.i = getelementptr inbounds nuw i8, ptr %zones, i64 96
   store ptr %add.ptr.i1745, ptr %floodPtr.i, align 32
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -392,7 +392,7 @@ createShortZone.exit:                             ; preds = %sw.default.i1771, %
 
 if.end.i:                                         ; preds = %entry
   %add.ptr.i1784 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  store i8 0, ptr %add.ptr.i1745, align 64
+  store i8 0, ptr %numZone.i.0.sroa.gep, align 64
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr3, i64 -8
   %24 = load i64, ptr %add.ptr5.i, align 1
   store i64 %24, ptr %zones, align 64

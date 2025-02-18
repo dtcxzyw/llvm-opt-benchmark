@@ -455,7 +455,7 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   %.sroa.018.1 = phi double [ %41, %39 ], [ %.sroa.018.0, %35 ], [ %.sroa.018.0, %33 ]
   %43 = add nuw nsw i32 %.0, 1
   %exitcond.not = icmp eq i32 %.0, 999
-  br i1 %exitcond.not, label %.critedge.thread.sink.split.split.loop.exit, label %44
+  br i1 %exitcond.not, label %.critedge.thread.sink.split, label %44
 
 44:                                               ; preds = %42
   %45 = fsub double %15, %0
@@ -472,8 +472,8 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
 .critedge2.backedge:                              ; preds = %48, %44
   br label %.critedge2, !llvm.loop !4
 
-.critedge.thread.sink.split.split.loop.exit:      ; preds = %42
-  %.sink47.sroa.gep48.le = getelementptr inbounds nuw i8, ptr %6, i64 8
+.critedge.thread.sink.split:                      ; preds = %42
+  %.sink47.sroa.phi = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.critedge.thread.sink.split
 
 .critedge.thread.sink.split.split.loop.exit49:    ; preds = %24

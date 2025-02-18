@@ -3614,11 +3614,11 @@ lpad.i.i:                                         ; preds = %if.else66.i.i
   br label %lpad86.body.i
 
 if.end67.i.i:                                     ; preds = %if.then56.i.i, %if.then.i84.i
-  %.sink45.sroa.phi = phi ptr [ %.sink45.sroa.gep, %if.then56.i.i ], [ %.sink45.sroa.gep71, %if.then.i84.i ]
+  %.sink85.i.sroa.phi.i = phi ptr [ %.sink45.sroa.gep, %if.then56.i.i ], [ %.sink45.sroa.gep71, %if.then.i84.i ]
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then56.i.i ], [ %.sink.sroa.gep70, %if.then.i84.i ]
   %.sink84.i.i = phi i64 [ %131, %if.then56.i.i ], [ %add42.i.i, %if.then.i84.i ]
   %corners.0.i.i = phi i64 [ 4, %if.then56.i.i ], [ 8, %if.then.i84.i ]
-  store i64 %.sink84.i.i, ptr %.sink45.sroa.phi, align 16
+  store i64 %.sink84.i.i, ptr %.sink85.i.sroa.phi.i, align 16
   %add64.i.i = add i64 %.sink84.i.i, 1
   store i64 %add64.i.i, ptr %.sink.sroa.phi, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minVal.i.i, i8 0, i64 16, i1 false)

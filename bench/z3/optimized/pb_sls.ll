@@ -4523,7 +4523,7 @@ if.then189:                                       ; preds = %invoke.cont187
 for.inc196:                                       ; preds = %if.then189, %invoke.cont187, %if.end169
   %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next417, %wide.trip.count419
-  br i1 %exitcond420.not, label %invoke.cont225.invoke.loopexit, label %for.body159, !llvm.loop !36
+  br i1 %exitcond420.not, label %invoke.cont225.invoke, label %for.body159, !llvm.loop !36
 
 if.else205:                                       ; preds = %land.rhs.i.i, %if.else151, %invoke.cont153
   %193 = load ptr, ptr %this, align 8
@@ -4559,9 +4559,9 @@ invoke.cont220:                                   ; preds = %if.end218
   invoke void @_ZN22_scoped_numeral_vectorI11mpz_managerILb0EEE9push_backERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %m_weights222, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp223)
           to label %invoke.cont225.invoke unwind label %lpad18.loopexit.split-lp.loopexit.split-lp
 
-invoke.cont225.invoke.loopexit:                   ; preds = %for.inc196
-  %ref.tmp200.sink432.sroa.gep440 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
-  %ref.tmp200.sink432.sroa.gep444 = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
+invoke.cont225.invoke:                            ; preds = %for.inc196
+  %.sink = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 4
+  %ref.tmp200.sink432.sroa.phi = getelementptr inbounds nuw i8, ptr %ref.tmp200, i64 8
   br label %invoke.cont225.invoke
 
 invoke.cont225.invoke:                            ; preds = %invoke.cont225.invoke.loopexit, %invoke.cont220, %for.cond157.preheader

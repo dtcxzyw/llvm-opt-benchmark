@@ -5177,97 +5177,97 @@ pipe_nocrash.exit:                                ; preds = %21, %58
   %72 = call i32 @close(i32 noundef %71) #27
   %73 = load i32, ptr %9, align 4, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #27
-  %74 = call fastcc i64 @read_retry(i32 noundef %73, ptr noundef %8, i64 noundef 4)
-  %75 = icmp slt i64 %74, 0
-  br i1 %75, label %.thread.i39, label %78
+  %73 = call fastcc i64 @read_retry(i32 noundef %73, ptr noundef %8, i64 noundef 4)
+  %74 = icmp slt i64 %73, 0
+  br i1 %74, label %.thread.i39, label %77
 
 .thread.i39:                                      ; preds = %69
-  %76 = call ptr @rb_errno_ptr() #27
-  %77 = load i32, ptr %76, align 4, !tbaa !60
+  %75 = call ptr @rb_errno_ptr() #27
+  %76 = load i32, ptr %75, align 4, !tbaa !60
   br label %recv_child_error.exit.thread
 
-78:                                               ; preds = %69
+77:                                               ; preds = %69
   %.pre.i = load i32, ptr %8, align 4, !tbaa !60
-  %79 = icmp eq i64 %74, 4
-  %80 = icmp ne ptr %4, null
-  %or.cond.i = and i1 %80, %79
-  %81 = icmp ne i64 %5, 0
-  %or.cond3.i = and i1 %81, %or.cond.i
-  br i1 %or.cond3.i, label %82, label %recv_child_error.exit
+  %78 = icmp eq i64 %73, 4
+  %79 = icmp ne ptr %4, null
+  %or.cond.i = and i1 %79, %78
+  %80 = icmp ne i64 %5, 0
+  %or.cond3.i = and i1 %80, %or.cond.i
+  br i1 %or.cond3.i, label %81, label %recv_child_error.exit
 
-82:                                               ; preds = %78
-  %83 = add i64 %5, -1
-  %84 = call fastcc i64 @read_retry(i32 noundef %73, ptr noundef %4, i64 noundef %83)
-  %85 = icmp sgt i64 %84, -1
-  br i1 %85, label %86, label %recv_child_error.exit.thread
+81:                                               ; preds = %77
+  %82 = add i64 %5, -1
+  %83 = call fastcc i64 @read_retry(i32 noundef %73, ptr noundef %4, i64 noundef %82)
+  %84 = icmp sgt i64 %83, -1
+  br i1 %84, label %85, label %recv_child_error.exit.thread
 
-86:                                               ; preds = %82
-  %87 = getelementptr i8, ptr %4, i64 %84
-  store i8 0, ptr %87, align 1, !tbaa !67
+85:                                               ; preds = %81
+  %86 = getelementptr i8, ptr %4, i64 %83
+  store i8 0, ptr %86, align 1, !tbaa !67
   br label %recv_child_error.exit.thread
 
-recv_child_error.exit.thread:                     ; preds = %.thread.i39, %82, %86
-  %.042.ph = phi i32 [ %.pre.i, %82 ], [ %.pre.i, %86 ], [ %77, %.thread.i39 ]
+recv_child_error.exit.thread:                     ; preds = %.thread.i39, %81, %85
+  %.042.ph = phi i32 [ %.pre.i, %81 ], [ %.pre.i, %85 ], [ %76, %.thread.i39 ]
+  %87 = call i32 @close(i32 noundef %73) #27
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
+  br label %89
+
+recv_child_error.exit:                            ; preds = %77
   %88 = call i32 @close(i32 noundef %73) #27
+  %.not46 = icmp eq i64 %73, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
-  br label %90
+  br i1 %.not46, label %pipe_nocrash.exit.thread, label %89
 
-recv_child_error.exit:                            ; preds = %78
-  %89 = call i32 @close(i32 noundef %73) #27
-  %.not46 = icmp eq i64 %74, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #27
-  br i1 %.not46, label %pipe_nocrash.exit.thread, label %90
-
-90:                                               ; preds = %recv_child_error.exit.thread, %recv_child_error.exit
+89:                                               ; preds = %recv_child_error.exit.thread, %recv_child_error.exit
   %.04251 = phi i32 [ %.042.ph, %recv_child_error.exit.thread ], [ %.pre.i, %recv_child_error.exit ]
-  br i1 %.not35, label %97, label %91
+  br i1 %.not35, label %96, label %90
 
-91:                                               ; preds = %90
+90:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #27
   store i32 0, ptr %10, align 4, !tbaa !60
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.04251, ptr %92, align 4, !tbaa !52
-  %93 = zext nneg i32 %61 to i64
-  %94 = call i64 @rb_protect(ptr noundef nonnull @proc_syswait, i64 noundef %93, ptr noundef nonnull %10) #27
-  %95 = load i32, ptr %10, align 4, !tbaa !60
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %95, ptr %96, align 4, !tbaa !51
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.04251, ptr %91, align 4, !tbaa !52
+  %92 = zext nneg i32 %61 to i64
+  %93 = call i64 @rb_protect(ptr noundef nonnull @proc_syswait, i64 noundef %92, ptr noundef nonnull %10) #27
+  %94 = load i32, ptr %10, align 4, !tbaa !60
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %94, ptr %95, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
   br label %rb_syswait.exit
 
-97:                                               ; preds = %90
-  br i1 %.not38, label %98, label %rb_syswait.exit
+96:                                               ; preds = %89
+  br i1 %.not38, label %97, label %rb_syswait.exit
 
-98:                                               ; preds = %97
-  %99 = call i64 @rb_process_status_wait(i32 noundef %61, i32 noundef 0)
-  %100 = icmp eq i64 %99, 4
-  br i1 %100, label %rb_syswait.exit, label %101
+97:                                               ; preds = %96
+  %98 = call i64 @rb_process_status_wait(i32 noundef %61, i32 noundef 0)
+  %99 = icmp eq i64 %98, 4
+  br i1 %99, label %rb_syswait.exit, label %100
 
-101:                                              ; preds = %98
-  %102 = call ptr @rb_check_typeddata(i64 noundef %99, ptr noundef nonnull @rb_process_status_type) #27
-  %103 = load i32, ptr %102, align 4, !tbaa !49
-  %104 = icmp eq i32 %103, -1
-  br i1 %104, label %105, label %109
+100:                                              ; preds = %97
+  %101 = call ptr @rb_check_typeddata(i64 noundef %98, ptr noundef nonnull @rb_process_status_type) #27
+  %102 = load i32, ptr %101, align 4, !tbaa !49
+  %103 = icmp eq i32 %102, -1
+  br i1 %103, label %104, label %108
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %107 = load i32, ptr %106, align 4, !tbaa !52
-  %108 = call ptr @rb_errno_ptr() #27
-  store i32 %107, ptr %108, align 4, !tbaa !60
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %106 = load i32, ptr %105, align 4, !tbaa !52
+  %107 = call ptr @rb_errno_ptr() #27
+  store i32 %106, ptr %107, align 4, !tbaa !60
   br label %rb_syswait.exit
 
-109:                                              ; preds = %101
-  %110 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %111 = load ptr, ptr %110, align 8, !tbaa !7
-  %112 = getelementptr i8, ptr %111, i64 48
-  %.val.i.i.i = load ptr, ptr %112, align 8, !tbaa !12
-  %113 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 208
-  store i64 %99, ptr %113, align 8, !tbaa !24
+108:                                              ; preds = %100
+  %109 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %110 = load ptr, ptr %109, align 8, !tbaa !7
+  %111 = getelementptr i8, ptr %110, i64 48
+  %.val.i.i.i = load ptr, ptr %111, align 8, !tbaa !12
+  %112 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 208
+  store i64 %98, ptr %112, align 8, !tbaa !24
   br label %rb_syswait.exit
 
-rb_syswait.exit:                                  ; preds = %109, %105, %98, %97, %91
-  %114 = call ptr @rb_errno_ptr() #27
-  store i32 %.04251, ptr %114, align 4, !tbaa !60
+rb_syswait.exit:                                  ; preds = %108, %104, %97, %96, %90
+  %113 = call ptr @rb_errno_ptr() #27
+  store i32 %.04251, ptr %113, align 4, !tbaa !60
   br label %pipe_nocrash.exit.thread
 
 pipe_nocrash.exit.thread:                         ; preds = %.thread.i, %18, %62, %recv_child_error.exit, %65, %pipe_nocrash.exit, %rb_syswait.exit

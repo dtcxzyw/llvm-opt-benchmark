@@ -245,13 +245,13 @@ if.else46:                                        ; preds = %if.else38
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else46, %if.then40
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.else46 ], [ %.sink.sroa.gep56, %if.then40 ]
+  %i27.1.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.else46 ], [ %.sink.sroa.gep56, %if.then40 ]
   %i27.1 = phi i64 [ 3, %if.else46 ], [ 2, %if.then40 ]
   %shr59 = lshr i32 %2, 6
   %10 = trunc i32 %shr59 to i8
   %11 = and i8 %10, 63
   %conv62 = or disjoint i8 %11, -128
-  store i8 %conv62, ptr %.sink.sroa.phi, align 1
+  store i8 %conv62, ptr %i27.1.sroa.phi, align 1
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end58, %if.then34

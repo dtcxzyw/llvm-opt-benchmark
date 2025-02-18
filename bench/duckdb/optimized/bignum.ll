@@ -3177,14 +3177,14 @@ mbedtls_mpi_grow.exit.sink.split:                 ; preds = %._crit_edge115, %70
 mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.exit.sink.split, %48, %35, %._crit_edge104, %13, %9
   %.038 = phi i32 [ %10, %9 ], [ %14, %13 ], [ -16, %._crit_edge104 ], [ -16, %35 ], [ -16, %48 ], [ 0, %mbedtls_mpi_grow.exit.sink.split ]
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !11
+  %.not.i79 = load ptr, ptr %74, align 8, !tbaa !11
   %.not.i79 = icmp eq ptr %75, null
   br i1 %.not.i79, label %mbedtls_mpi_free.exit, label %76
 
-76:                                               ; preds = %mbedtls_mpi_grow.exit
+76:; preds = %mbedtls_mpi_grow.exit
   %77 = load i64, ptr %7, align 8, !tbaa !12
   %78 = shl i64 %77, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %75, i64 noundef %78)
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %.not.i79, i64 noundef %78)
   %79 = load ptr, ptr %74, align 8, !tbaa !11
   call void @free(ptr noundef %79) #15
   br label %mbedtls_mpi_free.exit
@@ -3192,15 +3192,15 @@ mbedtls_mpi_grow.exit:                            ; preds = %mbedtls_mpi_grow.ex
 mbedtls_mpi_free.exit:                            ; preds = %mbedtls_mpi_grow.exit, %76
   store i32 1, ptr %5, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !11
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.not.i80 = load ptr, ptr %79, align 8, !tbaa !11
   %.not.i80 = icmp eq ptr %81, null
   br i1 %.not.i80, label %mbedtls_mpi_free.exit81, label %82
 
-82:                                               ; preds = %mbedtls_mpi_free.exit
-  %83 = load i64, ptr %6, align 8, !tbaa !12
-  %84 = shl i64 %83, 3
-  call void @mbedtls_platform_zeroize(ptr noundef nonnull %81, i64 noundef %84)
+82:; preds = %mbedtls_mpi_free.exit
+  %82 = load i64, ptr %6, align 8, !tbaa !12
+  %84 = shl i64 %82, 3
+  call void @mbedtls_platform_zeroize(ptr noundef nonnull %.not.i80, i64 noundef %84)
   %85 = load ptr, ptr %80, align 8, !tbaa !11
   call void @free(ptr noundef %85) #15
   br label %mbedtls_mpi_free.exit81

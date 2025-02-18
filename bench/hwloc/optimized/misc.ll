@@ -47,11 +47,11 @@ hwloc_get_info_by_name.exit:                      ; preds = %9
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %hwloc_get_info_by_name.exit.thread, label %39
 
-hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2, %hwloc_get_info_by_name.exit
+hwloc_get_info_by_name.exit.thread:; preds = %8, %2, %hwloc_get_info_by_name.exit
   %.not47 = icmp eq ptr %1, null
   br i1 %.not47, label %16, label %15
 
-15:                                               ; preds = %hwloc_get_info_by_name.exit.thread
+16:                                               ; preds = %hwloc_get_info_by_name.exit.thread
   %.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %1, i64 130
   %.0.sroa.gep30 = getelementptr inbounds nuw i8, ptr %1, i64 195
   %.0.sroa.gep36 = getelementptr inbounds nuw i8, ptr %1, i64 65
@@ -67,12 +67,12 @@ hwloc_get_info_by_name.exit.thread:               ; preds = %8, %2, %hwloc_get_i
   %.0.sroa.gep43 = getelementptr inbounds nuw i8, ptr %3, i64 260
   br i1 %18, label %39, label %19
 
-19:                                               ; preds = %16, %15
-  %.0.sroa.phi20 = phi ptr [ %1, %15 ], [ %3, %16 ]
-  %.0.sroa.phi26 = phi ptr [ %.0.sroa.gep24, %15 ], [ %.0.sroa.gep25, %16 ]
-  %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep30, %15 ], [ %.0.sroa.gep31, %16 ]
-  %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep36, %15 ], [ %.0.sroa.gep37, %16 ]
-  %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep42, %15 ], [ %.0.sroa.gep43, %16 ]
+19:                                               ; preds = %16, %16
+  %.0.sroa.phi20 = phi ptr [ %1, %16 ], [ %3, %16 ]
+  %.0.sroa.phi26 = phi ptr [ %.0.sroa.gep24, %16 ], [ %.0.sroa.gep25, %16 ]
+  %.0.sroa.phi32 = phi ptr [ %.0.sroa.gep30, %16 ], [ %.0.sroa.gep31, %16 ]
+  %.0.sroa.phi38 = phi ptr [ %.0.sroa.gep36, %16 ], [ %.0.sroa.gep37, %16 ]
+  %.0.sroa.phi44 = phi ptr [ %.0.sroa.gep42, %16 ], [ %.0.sroa.gep43, %16 ]
   %20 = load i8, ptr %.0.sroa.phi20, align 1, !tbaa !17
   %.not48 = icmp eq i8 %20, 0
   br i1 %.not48, label %23, label %21

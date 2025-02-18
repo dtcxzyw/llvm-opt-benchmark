@@ -44658,14 +44658,14 @@ entry.split:                                      ; preds = %entry
   %SkipItems = getelementptr inbounds nuw i8, ptr %window, i64 195
   %20 = load i8, ptr %SkipItems, align 1
   %tobool42 = trunc i8 %20 to i1
-  br i1 %tobool42, label %for.body.us56.preheader, label %for.body.preheader
+  br i1 %tobool42, label %for.body.us56.preheader, label %for.body.us56
 
-for.body.preheader:                               ; preds = %entry.split
-  %retval.4.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  %retval.4.gep137.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
+for.body.us56:                                    ; preds = %entry.split
+  %cmp.us94 = getelementptr inbounds nuw i8, ptr %retval, i64 4
+  %indvars.iv98.sroa.phi124 = getelementptr inbounds nuw i8, ptr %retval, i64 4
   br label %for.body
 
-for.body.us56.preheader:                          ; preds = %entry.split
+for.body.us56.preheader: ; preds = %entry.split
   %retval.4.gep.sroa_idx146 = getelementptr inbounds nuw i8, ptr %retval, i64 4
   %retval.4.gep140.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 4
   br label %for.body.us56
@@ -44743,12 +44743,12 @@ if.end33.us85:                                    ; preds = %for.body.us56.if.en
   store float %conv39.us91, ptr %indvars.iv98.sroa.phi134, align 4
   br i1 %cmp.us94, label %for.body.us56, label %for.end, !llvm.loop !106
 
-for.body:                                         ; preds = %for.body.preheader, %if.end33
-  %cmp = phi i1 [ false, %if.end33 ], [ true, %for.body.preheader ]
-  %indvars.iv.sroa.phi121 = phi ptr [ %decoration_size.sroa.7, %if.end33 ], [ %decoration_size.sroa.0, %for.body.preheader ]
-  %indvars.iv.sroa.phi130 = phi ptr [ %retval.4.gep.sroa_idx, %if.end33 ], [ %retval, %for.body.preheader ]
-  %indvars.iv.sroa.phi136 = phi ptr [ %retval.4.gep137.sroa_idx, %if.end33 ], [ %retval, %for.body.preheader ]
-  %indvars.iv = phi i64 [ 1, %if.end33 ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.us56, %if.end33
+  %cmp = phi i1 [ false, %if.end33 ], [ true, %for.body.us56 ]
+  %indvars.iv.sroa.phi121 = phi ptr [ %decoration_size.sroa.7, %if.end33 ], [ %decoration_size.sroa.0, %for.body.us56 ]
+  %indvars.iv.sroa.phi130 = phi ptr [ %retval.4.gep.sroa_idx, %if.end33 ], [ %retval, %for.body.us56 ]
+  %indvars.iv.sroa.phi136 = phi ptr [ %retval.4.gep137.sroa_idx, %if.end33 ], [ %retval, %for.body.us56 ]
+  %indvars.iv = phi i64 [ 1, %if.end33 ], [ 0, %for.body.us56 ]
   %arrayidx.i = getelementptr inbounds nuw float, ptr %ScrollTarget, i64 %indvars.iv
   %33 = load float, ptr %arrayidx.i, align 4
   %cmp4 = fcmp olt float %33, 0x47EFFFFFE0000000
@@ -62232,8 +62232,8 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br label %_Z16ImTextCharToUtf8Pcj.exit
 
 _Z16ImTextCharToUtf8Pcj.exit:                     ; preds = %if.then.i.i, %if.then2.i.i, %if.end11.i.i
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then.i.i ], [ %.sink.sroa.gep144, %if.then2.i.i ], [ %.sink.sroa.gep145, %if.end11.i.i ]
-  store i8 0, ptr %.sink.sroa.phi, align 1
+  %retval.0.i.i.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.then.i.i ], [ %.sink.sroa.gep144, %if.then2.i.i ], [ %.sink.sroa.gep145, %if.end11.i.i ]
+  store i8 0, ptr %retval.0.i.i.sroa.phi, align 1
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.345, ptr noundef nonnull %c_str, i32 noundef %conv16)
   %EllipsisChar = getelementptr inbounds nuw i8, ptr %font, i64 84
   %58 = load i16, ptr %EllipsisChar, align 4
@@ -62284,8 +62284,8 @@ if.end11.i.i96:                                   ; preds = %if.end.i.i94
   br label %_Z16ImTextCharToUtf8Pcj.exit113
 
 _Z16ImTextCharToUtf8Pcj.exit113:                  ; preds = %if.then.i.i111, %if.then2.i.i106, %if.end11.i.i96
-  %.sink143.sroa.phi = phi ptr [ %.sink143.sroa.gep, %if.then.i.i111 ], [ %.sink143.sroa.gep146, %if.then2.i.i106 ], [ %.sink143.sroa.gep147, %if.end11.i.i96 ]
-  store i8 0, ptr %.sink143.sroa.phi, align 1
+  %retval.0.i.i97.sroa.phi = phi ptr [ %.sink143.sroa.gep, %if.then.i.i111 ], [ %.sink143.sroa.gep146, %if.then2.i.i106 ], [ %.sink143.sroa.gep147, %if.end11.i.i96 ]
+  store i8 0, ptr %retval.0.i.i97.sroa.phi, align 1
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.346, ptr noundef nonnull %c_str, i32 noundef %conv21)
   %MetricsTotalSurface = getelementptr inbounds nuw i8, ptr %font, i64 112
   %67 = load i32, ptr %MetricsTotalSurface, align 8

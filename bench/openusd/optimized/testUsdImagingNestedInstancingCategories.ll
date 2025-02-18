@@ -1293,17 +1293,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %244, %242
   %395 = ashr exact i64 %394, 3
   %396 = trunc i64 %395 to i32
   %.not172.i = icmp slt i32 %258, %396
-  br i1 %.not172.i, label %400, label %.invoke111.split.loop.exit
+  br i1 %.not172.i, label %400, label %.invoke111
 
-.invoke111.split.loop.exit:                       ; preds = %389
-  %.sink118.sroa.gep130.le = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.sink118.sroa.gep133.le = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %.sink118.sroa.gep136.le = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %.sink118.sroa.gep139.le = getelementptr inbounds nuw i8, ptr %53, i64 32
+.invoke111:                                       ; preds = %389
+  %.sink118.sroa.phi = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sink118.sroa.phi131 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sink118.sroa.phi134 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sink118.sroa.phi137 = getelementptr inbounds nuw i8, ptr %53, i64 32
   br label %.invoke111
 
-.invoke111.split.loop.exit152:                    ; preds = %257
-  %.sink118.sroa.gep.le = getelementptr inbounds nuw i8, ptr %52, i64 8
+.invoke111.split.loop.exit152:; preds = %257
+  %398 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sink118.sroa.gep132.le = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.sink118.sroa.gep135.le = getelementptr inbounds nuw i8, ptr %52, i64 24
   %.sink118.sroa.gep138.le = getelementptr inbounds nuw i8, ptr %52, i64 32

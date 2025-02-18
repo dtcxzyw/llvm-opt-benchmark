@@ -1903,7 +1903,7 @@ cleanup43.i:                                      ; preds = %nrvo.unused36.i
   br i1 %tobool.i.i300, label %sw.epilog.i.sink.split, label %sw.epilog.i
 
 invoke.cont3.i295:                                ; preds = %lpad24.i
-  %callback_buffer_.i.i.i.i296 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
   %125 = load ptr, ptr %callback_buffer_.i.i.i.i296, align 8
   %_M_finish.i.i.i.i297 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %126 = load ptr, ptr %_M_finish.i.i.i.i297, align 8
@@ -2007,7 +2007,7 @@ ehcleanup93.i:                                    ; preds = %lpad67.i, %lpad63.i
   br i1 %tobool.i.i270, label %invoke.cont3.i271, label %ehcleanup268.i
 
 invoke.cont3.i271:                                ; preds = %ehcleanup93.i
-  %callback_buffer_.i.i.i.i272 = getelementptr inbounds nuw i8, ptr %pop52.i, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %pop52.i, i64 8
   %145 = load ptr, ptr %callback_buffer_.i.i.i.i272, align 8
   %_M_finish.i.i.i.i273 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %146 = load ptr, ptr %_M_finish.i.i.i.i273, align 8
@@ -2117,7 +2117,7 @@ ehcleanup146.i:                                   ; preds = %lpad117.i, %lpad112
   br i1 %tobool.i.i248, label %invoke.cont3.i249, label %ehcleanup268.i
 
 invoke.cont3.i249:                                ; preds = %ehcleanup146.i
-  %callback_buffer_.i.i.i.i250 = getelementptr inbounds nuw i8, ptr %pop101.i, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %pop101.i, i64 8
   %166 = load ptr, ptr %callback_buffer_.i.i.i.i250, align 8
   %_M_finish.i.i.i.i251 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %167 = load ptr, ptr %_M_finish.i.i.i.i251, align 8
@@ -2208,7 +2208,7 @@ cleanup216.i:                                     ; preds = %nrvo.unused207.i.in
   br i1 %tobool.i.i230, label %sw.epilog.i.sink.split, label %sw.epilog.i
 
 invoke.cont3.i225:                                ; preds = %lpad165.i
-  %callback_buffer_.i.i.i.i226 = getelementptr inbounds nuw i8, ptr %pop154.i, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %pop154.i, i64 8
   %182 = load ptr, ptr %callback_buffer_.i.i.i.i226, align 8
   %_M_finish.i.i.i.i227 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %183 = load ptr, ptr %_M_finish.i.i.i.i227, align 8
@@ -2366,7 +2366,7 @@ cleanup267.critedge73.i:                          ; preds = %cleanup34.i
   br i1 %tobool.i.i188, label %invoke.cont3.i189, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i189:                                ; preds = %cleanup267.critedge73.i
-  %callback_buffer_.i.i.i.i190 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
   %215 = load ptr, ptr %callback_buffer_.i.i.i.i190, align 8
   %_M_finish.i.i.i.i191 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %216 = load ptr, ptr %_M_finish.i.i.i.i191, align 8
@@ -2382,7 +2382,7 @@ cleanup267.critedge74.i:                          ; preds = %cleanup77.i38
   br i1 %tobool.i.i182, label %invoke.cont3.i183, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i183:                                ; preds = %cleanup267.critedge74.i
-  %callback_buffer_.i.i.i.i184 = getelementptr inbounds nuw i8, ptr %pop52.i, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %pop52.i, i64 8
   %218 = load ptr, ptr %callback_buffer_.i.i.i.i184, align 8
   %_M_finish.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %219 = load ptr, ptr %_M_finish.i.i.i.i185, align 8
@@ -2398,7 +2398,7 @@ cleanup267.critedge75.i:                          ; preds = %cleanup125.i
   br i1 %tobool.i.i176, label %invoke.cont3.i177, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i177:                                ; preds = %cleanup267.critedge75.i
-  %callback_buffer_.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %pop101.i, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %pop101.i, i64 8
   %221 = load ptr, ptr %callback_buffer_.i.i.i.i178, align 8
   %_M_finish.i.i.i.i179 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %222 = load ptr, ptr %_M_finish.i.i.i.i179, align 8
@@ -2413,7 +2413,7 @@ cleanup267.critedge77.i:                          ; preds = %cleanup205.i, %clea
   br i1 %tobool.i.i175, label %invoke.cont3.i, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i:                                   ; preds = %cleanup267.critedge77.i
-  %callback_buffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %pop154.i, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %pop154.i, i64 8
   %224 = load ptr, ptr %callback_buffer_.i.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %224, i64 8
   %225 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -5227,7 +5227,7 @@ cleanup40.i:                                      ; preds = %nrvo.unused33.i
   br i1 %tobool.i.i330, label %sw.epilog.i.sink.split, label %sw.epilog.i
 
 invoke.cont3.i325:                                ; preds = %lpad23.i
-  %callback_buffer_.i.i.i.i326 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
   %132 = load ptr, ptr %callback_buffer_.i.i.i.i326, align 8
   %_M_finish.i.i.i.i327 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %133 = load ptr, ptr %_M_finish.i.i.i.i327, align 8
@@ -5335,7 +5335,7 @@ ehcleanup88.i:                                    ; preds = %lpad64.i36, %lpad59
   br i1 %tobool.i.i296, label %invoke.cont3.i297, label %ehcleanup257.i
 
 invoke.cont3.i297:                                ; preds = %ehcleanup88.i
-  %callback_buffer_.i.i.i.i298 = getelementptr inbounds nuw i8, ptr %pop48.i, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %pop48.i, i64 8
   %157 = load ptr, ptr %callback_buffer_.i.i.i.i298, align 8
   %_M_finish.i.i.i.i299 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %158 = load ptr, ptr %_M_finish.i.i.i.i299, align 8
@@ -5449,7 +5449,7 @@ ehcleanup140.i:                                   ; preds = %lpad111.i, %lpad106
   br i1 %tobool.i.i270, label %invoke.cont3.i271, label %ehcleanup257.i
 
 invoke.cont3.i271:                                ; preds = %ehcleanup140.i
-  %callback_buffer_.i.i.i.i272 = getelementptr inbounds nuw i8, ptr %pop95.i, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %pop95.i, i64 8
   %183 = load ptr, ptr %callback_buffer_.i.i.i.i272, align 8
   %_M_finish.i.i.i.i273 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %184 = load ptr, ptr %_M_finish.i.i.i.i273, align 8
@@ -5544,7 +5544,7 @@ cleanup207.i:                                     ; preds = %nrvo.unused198.i.in
   br i1 %tobool.i.i248, label %sw.epilog.i.sink.split, label %sw.epilog.i
 
 invoke.cont3.i243:                                ; preds = %lpad158.i
-  %callback_buffer_.i.i.i.i244 = getelementptr inbounds nuw i8, ptr %pop147.i, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %pop147.i, i64 8
   %204 = load ptr, ptr %callback_buffer_.i.i.i.i244, align 8
   %_M_finish.i.i.i.i245 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %205 = load ptr, ptr %_M_finish.i.i.i.i245, align 8
@@ -5710,7 +5710,7 @@ cleanup256.critedge73.i:                          ; preds = %cleanup31.i
   br i1 %tobool.i.i200, label %invoke.cont3.i201, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i201:                                ; preds = %cleanup256.critedge73.i
-  %callback_buffer_.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %pop.i, i64 8
   %247 = load ptr, ptr %callback_buffer_.i.i.i.i202, align 8
   %_M_finish.i.i.i.i203 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %248 = load ptr, ptr %_M_finish.i.i.i.i203, align 8
@@ -5726,7 +5726,7 @@ cleanup256.critedge74.i:                          ; preds = %cleanup72.i
   br i1 %tobool.i.i194, label %invoke.cont3.i195, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i195:                                ; preds = %cleanup256.critedge74.i
-  %callback_buffer_.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %pop48.i, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %pop48.i, i64 8
   %250 = load ptr, ptr %callback_buffer_.i.i.i.i196, align 8
   %_M_finish.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %251 = load ptr, ptr %_M_finish.i.i.i.i197, align 8
@@ -5742,7 +5742,7 @@ cleanup256.critedge75.i:                          ; preds = %cleanup119.i
   br i1 %tobool.i.i188, label %invoke.cont3.i189, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i189:                                ; preds = %cleanup256.critedge75.i
-  %callback_buffer_.i.i.i.i190 = getelementptr inbounds nuw i8, ptr %pop95.i, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %pop95.i, i64 8
   %253 = load ptr, ptr %callback_buffer_.i.i.i.i190, align 8
   %_M_finish.i.i.i.i191 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %254 = load ptr, ptr %_M_finish.i.i.i.i191, align 8
@@ -5757,7 +5757,7 @@ cleanup256.critedge77.i:                          ; preds = %cleanup196.i, %clea
   br i1 %tobool.i.i187, label %invoke.cont3.i, label %_ZN6google8protobuf13json_internal12_GLOBAL__N_110ParseValueINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE.exit
 
 invoke.cont3.i:                                   ; preds = %cleanup256.critedge77.i
-  %callback_buffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %pop147.i, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %pop147.i, i64 8
   %256 = load ptr, ptr %callback_buffer_.i.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %256, i64 8
   %257 = load ptr, ptr %_M_finish.i.i.i.i, align 8

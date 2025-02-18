@@ -1807,7 +1807,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 29:                                               ; preds = %18, %21
   %.047 = phi ptr [ %25, %21 ], [ %spec.select, %18 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
-  br label %64
+  br label %65
 
 30:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
@@ -1815,7 +1815,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %31 = xor i1 %3, true
   %32 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %6, i1 noundef zeroext %31)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
-  br label %64
+  br label %65
 
 33:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
@@ -1829,13 +1829,13 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 36:                                               ; preds = %33, %34
   %.2 = phi ptr [ %35, %34 ], [ null, %33 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #8
-  br label %64
+  br label %65
 
 37:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
-  br i1 %3, label %63, label %38
+  br i1 %3, label %64, label %38
 
 38:                                               ; preds = %37
   call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %8) #8
@@ -1854,9 +1854,9 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   br i1 %43, label %44, label %63
 
 44:                                               ; preds = %41, %38
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %38 ], [ %.sink.sroa.gep65, %41 ]
-  %.sink.sroa.phi66 = phi ptr [ %.sink.sroa.gep67, %38 ], [ %.sink.sroa.gep68, %41 ]
-  %45 = phi i32 [ %39, %38 ], [ %42, %41 ]
+  %45 = phi ptr [ %.sink.sroa.gep, %38 ], [ %.sink.sroa.gep65, %41 ]
+  %.046 = phi ptr [ %.sink.sroa.gep67, %38 ], [ %.sink.sroa.gep68, %41 ]
+  %.0.sroa.phi61 = phi i32 [ %39, %38 ], [ %42, %41 ]
   %.046 = phi ptr [ %9, %38 ], [ %8, %41 ]
   switch i32 %45, label %default.unreachable [
     i32 0, label %46
@@ -1867,7 +1867,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 
 46:                                               ; preds = %44
   store i32 0, ptr %10, align 8
-  br label %61
+  br label %62
 
 47:                                               ; preds = %44
   store i32 3, ptr %10, align 8
@@ -1877,14 +1877,14 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %52 = zext i1 %50 to i8
   store i8 %52, ptr %51, align 8
-  br label %61
+  br label %62
 
 53:                                               ; preds = %44
   store i32 2, ptr %10, align 8
   %54 = load ptr, ptr %.sink.sroa.phi, align 8
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %54, ptr %55, align 8
-  br label %61
+  br label %62
 
 56:                                               ; preds = %44
   store i32 1, ptr %10, align 8
@@ -1899,19 +1899,19 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 default.unreachable:                              ; preds = %44
   unreachable
 
-61:                                               ; preds = %56, %53, %47, %46
-  %62 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %.046, ptr noundef nonnull %10)
-  br label %63
+62:                                               ; preds = %56, %53, %47, %46
+  %63 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %.046, ptr noundef nonnull %10)
+  br label %64
 
-63:                                               ; preds = %41, %37, %61
-  %.3 = phi ptr [ %62, %61 ], [ null, %37 ], [ null, %41 ]
+64:                                               ; preds = %41, %37, %62
+  %.3 = phi ptr [ %63, %62 ], [ null, %37 ], [ null, %41 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #8
-  br label %64
+  br label %65
 
-64:                                               ; preds = %4, %63, %36, %30, %29
-  %.1 = phi ptr [ %.3, %63 ], [ %.2, %36 ], [ %32, %30 ], [ %.047, %29 ], [ null, %4 ]
+65:                                               ; preds = %4, %64, %36, %30, %29
+  %.1 = phi ptr [ %.3, %64 ], [ %.2, %36 ], [ %32, %30 ], [ %.047, %29 ], [ null, %4 ]
   ret ptr %.1
 }
 

@@ -5113,17 +5113,17 @@ define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(pt
 44:                                               ; preds = %41
   %45 = add i8 %42, -48
   %or.cond1.i = icmp ult i8 %45, 10
-  br i1 %or.cond1.i, label %50, label %.invoke9.split.loop.exit
+  br i1 %or.cond1.i, label %50, label %.invoke9
 
 46:                                               ; preds = %41
   %47 = add nsw i8 %42, -87
   br label %50
 
-.invoke9.split.loop.exit:                         ; preds = %44
-  %.sink.sroa.gep15.le = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink.sroa.gep18.le = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sink.sroa.gep21.le = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sink.sroa.gep24.le = getelementptr inbounds nuw i8, ptr %5, i64 24
+.invoke9:                                         ; preds = %44
+  %.sink.sroa.phi = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.phi16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink.sroa.phi19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink.sroa.phi22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.invoke9
 
 .invoke9.split.loop.exit25:                       ; preds = %56

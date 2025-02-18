@@ -2310,7 +2310,7 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr noundef readonly capture
 
 .critedge:                                        ; preds = %24, %18, %12
   tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.20) #12
-  br label %57
+  br label %56
 
 30:                                               ; preds = %24
   store i8 %14, ptr %4, align 1, !tbaa !3
@@ -2321,39 +2321,39 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr noundef readonly capture
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
   br label %43
 
-33:                                               ; preds = %3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %35 = load i8, ptr %34, align 1, !tbaa !151
+33:; preds = %3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %35 = load i8, ptr %35, align 1, !tbaa !151
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %41, label %37
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 625
-  %39 = load i8, ptr %38, align 1, !tbaa !53
+37:; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 625
+  %39 = load i8, ptr %39, align 1, !tbaa !53
   %40 = icmp ugt i8 %35, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37, %33
   tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.20) #12
-  br label %57
+  br label %56
 
 42:                                               ; preds = %37
   store i8 %35, ptr %4, align 1, !tbaa !3
-  %.sink.sroa.gep44 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  br label %43
+  %.1 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  br label %44
 
-43:                                               ; preds = %30, %42
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %30 ], [ %.sink.sroa.gep44, %42 ]
-  %.sink = phi i64 [ 3, %30 ], [ 1, %42 ]
-  %44 = and i32 %2, 4
-  %.not37 = icmp eq i32 %44, 0
+44:                                               ; preds = %30, %42
+  %45 = phi ptr [ %.sink.sroa.gep, %30 ], [ %.1, %42 ]
+  %46 = phi i64 [ 3, %30 ], [ 1, %42 ]
+  %47 = and i32 %2, 4
+  %.not37 = icmp eq i32 %50, 0
   br i1 %.not37, label %56, label %45
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = load i8, ptr %46, align 1, !tbaa !152
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %53, label %49
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %50 = load i8, ptr %49, align 1, !tbaa !152
+  %51 = icmp eq i8 %47, 0
+  br i1 %51, label %52, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 625
@@ -2361,21 +2361,21 @@ define void @png_write_sBIT(ptr noalias noundef %0, ptr noundef readonly capture
   %52 = icmp ugt i8 %47, %51
   br i1 %52, label %53, label %54
 
-53:                                               ; preds = %49, %45
+52:                                               ; preds = %49, %45
   tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.20) #12
-  br label %57
-
-54:                                               ; preds = %49
-  %55 = add nuw nsw i64 %.sink, 1
-  store i8 %47, ptr %.sink.sroa.phi, align 1, !tbaa !3
   br label %56
 
-56:                                               ; preds = %54, %43
-  %.2 = phi i64 [ %55, %54 ], [ %.sink, %43 ]
-  call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1933723988, ptr noundef nonnull %4, i64 noundef %.2)
-  br label %57
+53:                                               ; preds = %49
+  %54 = add nuw nsw i64 %46, 1
+  store i8 %47, ptr %.sink.sroa.phi, align 1, !tbaa !3
+  br label %55
 
-57:                                               ; preds = %.critedge, %56, %53, %41
+55:                                               ; preds = %53, %43
+  %.2 = phi i64 [ %54, %53 ], [ %46, %43 ]
+  call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1933723988, ptr noundef nonnull %4, i64 noundef %.2)
+  br label %56
+
+56:                                               ; preds = %.critedge, %55, %52, %41
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   ret void
 }
