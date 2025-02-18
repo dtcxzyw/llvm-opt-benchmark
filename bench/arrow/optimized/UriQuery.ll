@@ -1,1813 +1,1818 @@
 ; ModuleID = 'bench/arrow/original/UriQuery.ll'
 source_filename = "bench/arrow/original/UriQuery.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UriMemoryManagerStruct = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @defaultMemoryManager = external global %struct.UriMemoryManagerStruct, align 8
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly captures(address_is_null) %queryList, ptr noundef writeonly captures(address_is_null) %charsRequired) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp eq ptr %queryList, null
-  %cmp1.i = icmp eq ptr %charsRequired, null
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %uriComposeQueryCharsRequiredExA.exit, label %if.end.i
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredA(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond.i = or i1 %3, %4
+  br i1 %or.cond.i, label %uriComposeQueryCharsRequiredExA.exit, label %5
 
-if.end.i:                                         ; preds = %entry
-  store i32 0, ptr %charsRequired, align 4
-  br label %while.body.us.i.i
+5:                                                ; preds = %2
+  store i32 0, ptr %1, align 4, !tbaa !3
+  br label %.split.us.i.i
 
-while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %if.end.i
-  %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
-  %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
-  %2 = load ptr, ptr %value3.us.i.i, align 8
-  %cmp5.us.i.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
+.split.us.i.i:                                    ; preds = %22, %5
+  %6 = phi i32 [ %29, %22 ], [ 0, %5 ]
+  %.063100.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
+  %.06999.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
+  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !7
+  %8 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  %10 = icmp eq ptr %7, null
+  br i1 %10, label %14, label %11
 
-cond.false.us.i.i:                                ; preds = %while.body.us.i.i
-  %call.us.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
-  %conv.us.i.i = trunc i64 %call.us.i.i to i32
-  br label %cond.end.us.i.i
+11:                                               ; preds = %.split.us.i.i
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #6
+  %13 = trunc i64 %12 to i32
+  br label %14
 
-cond.end.us.i.i:                                  ; preds = %cond.false.us.i.i, %while.body.us.i.i
-  %cond6.us.i.i = phi i32 [ %conv.us.i.i, %cond.false.us.i.i ], [ 0, %while.body.us.i.i ]
-  %cmp7.us.i.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i.i, label %cond.end13.us.i.i, label %cond.false10.us.i.i
+14:                                               ; preds = %11, %.split.us.i.i
+  %15 = phi i32 [ %13, %11 ], [ 0, %.split.us.i.i ]
+  %16 = icmp eq ptr %9, null
+  br i1 %16, label %20, label %17
 
-cond.false10.us.i.i:                              ; preds = %cond.end.us.i.i
-  %call11.us.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %conv12.us.i.i = trunc i64 %call11.us.i.i to i32
-  br label %cond.end13.us.i.i
+17:                                               ; preds = %14
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #6
+  %19 = trunc i64 %18 to i32
+  br label %20
 
-cond.end13.us.i.i:                                ; preds = %cond.false10.us.i.i, %cond.end.us.i.i
-  %cond14.us.i.i = phi i32 [ %conv12.us.i.i, %cond.false10.us.i.i ], [ 0, %cond.end.us.i.i ]
-  %cmp15.not.us.i.i = icmp slt i32 %cond6.us.i.i, 357913941
-  %cmp18.not.us.i.i = icmp slt i32 %cond14.us.i.i, 357913941
-  %or.cond.us.i.i = select i1 %cmp15.not.us.i.i, i1 %cmp18.not.us.i.i, i1 false
-  br i1 %or.cond.us.i.i, label %if.end21.us.i.i, label %uriComposeQueryCharsRequiredExA.exit
+20:                                               ; preds = %17, %14
+  %21 = phi i32 [ %19, %17 ], [ 0, %14 ]
+  %.not89.us.i.i = icmp slt i32 %15, 357913941
+  %.not90.us.i.i = icmp slt i32 %21, 357913941
+  %or.cond.us.i.i = select i1 %.not89.us.i.i, i1 %.not90.us.i.i, i1 false
+  br i1 %or.cond.us.i.i, label %22, label %uriComposeQueryCharsRequiredExA.exit
 
-if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
-  %mul.us.i.i = mul nsw i32 %cond6.us.i.i, 6
-  %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, 6
-  %add30.us.i.i = or disjoint i32 %mul22.us.i.i, 1
-  %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
-  %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
-  %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
-  %3 = load ptr, ptr %next.us.i.i, align 8
-  %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %while.body.us.i.i, !llvm.loop !4
+22:                                               ; preds = %20
+  %23 = mul nsw i32 %15, 6
+  %24 = mul nsw i32 %21, 6
+  %25 = or disjoint i32 %24, 1
+  %26 = select i1 %16, i32 0, i32 %25
+  %27 = add i32 %.06999.us.i.i, %6
+  %28 = add i32 %27, %23
+  %29 = add i32 %28, %26
+  store i32 %29, ptr %1, align 4, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !13
+  %.not.us.i.i = icmp eq ptr %31, null
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %.split.us.i.i, !llvm.loop !14
 
-uriComposeQueryCharsRequiredExA.exit:             ; preds = %cond.end13.us.i.i, %if.end21.us.i.i, %entry
-  %retval.0.i = phi i32 [ 2, %entry ], [ 4, %cond.end13.us.i.i ], [ 0, %if.end21.us.i.i ]
-  ret i32 %retval.0.i
+uriComposeQueryCharsRequiredExA.exit:             ; preds = %20, %22, %2
+  %.0.i = phi i32 [ 2, %2 ], [ 4, %20 ], [ 0, %22 ]
+  ret i32 %.0.i
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly captures(address_is_null) %queryList, ptr noundef writeonly captures(address_is_null) %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %queryList, null
-  %cmp1 = icmp eq ptr %charsRequired, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExA(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  %6 = icmp eq ptr %1, null
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %uriComposeQueryEngineA.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %cmp454.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i = select i1 %cmp454.i, i32 6, i32 3
-  %div56.i = select i1 %cmp454.i, i32 357913941, i32 715827882
-  store i32 0, ptr %charsRequired, align 4
-  br label %while.body.us.i
+7:                                                ; preds = %4
+  %8 = icmp eq i32 %3, 1
+  %9 = select i1 %8, i32 6, i32 3
+  %10 = select i1 %8, i32 357913941, i32 715827882
+  store i32 0, ptr %1, align 4, !tbaa !3
+  br label %.split.us.i
 
-while.body.us.i:                                  ; preds = %if.end21.us.i, %if.end
-  %0 = phi i32 [ %add34.us.i, %if.end21.us.i ], [ 0, %if.end ]
-  %queryList.addr.050.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %if.end ]
-  %ampersandLen.048.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %if.end ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i, align 8
-  %value3.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 8
-  %2 = load ptr, ptr %value3.us.i, align 8
-  %cmp5.us.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
+.split.us.i:                                      ; preds = %27, %7
+  %11 = phi i32 [ %34, %27 ], [ 0, %7 ]
+  %.063100.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
+  %.06999.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
+  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !7
+  %13 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !12
+  %15 = icmp eq ptr %12, null
+  br i1 %15, label %19, label %16
 
-cond.false.us.i:                                  ; preds = %while.body.us.i
-  %call.us.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
-  %conv.us.i = trunc i64 %call.us.i to i32
-  br label %cond.end.us.i
+16:                                               ; preds = %.split.us.i
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #6
+  %18 = trunc i64 %17 to i32
+  br label %19
 
-cond.end.us.i:                                    ; preds = %cond.false.us.i, %while.body.us.i
-  %cond6.us.i = phi i32 [ %conv.us.i, %cond.false.us.i ], [ 0, %while.body.us.i ]
-  %cmp7.us.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i, label %cond.end13.us.i, label %cond.false10.us.i
+19:                                               ; preds = %16, %.split.us.i
+  %20 = phi i32 [ %18, %16 ], [ 0, %.split.us.i ]
+  %21 = icmp eq ptr %14, null
+  br i1 %21, label %25, label %22
 
-cond.false10.us.i:                                ; preds = %cond.end.us.i
-  %call11.us.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %conv12.us.i = trunc i64 %call11.us.i to i32
-  br label %cond.end13.us.i
+22:                                               ; preds = %19
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-cond.end13.us.i:                                  ; preds = %cond.false10.us.i, %cond.end.us.i
-  %cond14.us.i = phi i32 [ %conv12.us.i, %cond.false10.us.i ], [ 0, %cond.end.us.i ]
-  %cmp15.not.us.i = icmp slt i32 %cond6.us.i, %div56.i
-  %cmp18.not.us.i = icmp slt i32 %cond14.us.i, %div56.i
-  %or.cond.us.i = select i1 %cmp15.not.us.i, i1 %cmp18.not.us.i, i1 false
-  br i1 %or.cond.us.i, label %if.end21.us.i, label %return
+25:                                               ; preds = %22, %19
+  %26 = phi i32 [ %24, %22 ], [ 0, %19 ]
+  %.not89.us.i = icmp slt i32 %20, %10
+  %.not90.us.i = icmp slt i32 %26, %10
+  %or.cond.us.i = select i1 %.not89.us.i, i1 %.not90.us.i, i1 false
+  br i1 %or.cond.us.i, label %27, label %uriComposeQueryEngineA.exit
 
-if.end21.us.i:                                    ; preds = %cond.end13.us.i
-  %mul.us.i = mul nsw i32 %cond6.us.i, %cond55.i
-  %mul22.us.i = mul nsw i32 %cond14.us.i, %cond55.i
-  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.048.us.i
-  %add30.us.i = add nsw i32 %mul22.us.i, 1
-  %cond32.us.i = select i1 %cmp7.us.i, i32 0, i32 %add30.us.i
-  %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
-  %add34.us.i = add nsw i32 %add33.us.i, %0
-  store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 16
-  %3 = load ptr, ptr %next.us.i, align 8
-  %cmp1.not.us.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !4
+27:                                               ; preds = %25
+  %28 = mul nsw i32 %20, %9
+  %29 = mul nsw i32 %26, %9
+  %30 = add nsw i32 %28, %.06999.us.i
+  %31 = add nsw i32 %29, 1
+  %32 = select i1 %21, i32 0, i32 %31
+  %33 = add nsw i32 %30, %32
+  %34 = add nsw i32 %33, %11
+  store i32 %34, ptr %1, align 4, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !13
+  %.not.us.i = icmp eq ptr %36, null
+  br i1 %.not.us.i, label %uriComposeQueryEngineA.exit, label %.split.us.i, !llvm.loop !14
 
-return:                                           ; preds = %cond.end13.us.i, %if.end21.us.i, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end21.us.i ], [ 4, %cond.end13.us.i ]
-  ret i32 %retval.0
+uriComposeQueryEngineA.exit:                      ; preds = %25, %27, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %27 ], [ 4, %25 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind uwtable
+define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+  %5 = tail call i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryA(ptr noundef %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %maxChars, ptr noundef captures(address_is_null) %charsWritten) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1)
-  ret i32 %call
+define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+  %7 = icmp eq ptr %0, null
+  %8 = icmp eq ptr %1, null
+  %or.cond = or i1 %7, %8
+  br i1 %or.cond, label %uriComposeQueryEngineA.exit, label %9
+
+9:                                                ; preds = %6
+  %10 = icmp slt i32 %2, 1
+  br i1 %10, label %uriComposeQueryEngineA.exit, label %.split.preheader.i
+
+.split.preheader.i:                               ; preds = %9
+  %11 = icmp eq i32 %5, 1
+  %12 = select i1 %11, i32 6, i32 3
+  %13 = select i1 %11, i32 357913941, i32 715827882
+  %14 = ptrtoint ptr %0 to i64
+  %15 = add nsw i32 %2, -1
+  %16 = zext nneg i32 %15 to i64
+  br label %.split.i
+
+.split.i:                                         ; preds = %61, %.split.preheader.i
+  %.063100.i = phi ptr [ %63, %61 ], [ %1, %.split.preheader.i ]
+  %17 = phi i1 [ false, %61 ], [ true, %.split.preheader.i ]
+  %.06999.i = phi i32 [ %.372.i, %61 ], [ 0, %.split.preheader.i ]
+  %.07398.i = phi ptr [ %.275.i, %61 ], [ %0, %.split.preheader.i ]
+  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
+  %21 = icmp eq ptr %18, null
+  br i1 %21, label %25, label %22
+
+22:                                               ; preds = %.split.i
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
+
+25:                                               ; preds = %22, %.split.i
+  %26 = phi i32 [ %24, %22 ], [ 0, %.split.i ]
+  %27 = icmp eq ptr %20, null
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %25
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #6
+  %30 = trunc i64 %29 to i32
+  br label %31
+
+31:                                               ; preds = %28, %25
+  %32 = phi i32 [ %30, %28 ], [ 0, %25 ]
+  %.not89.i = icmp slt i32 %26, %13
+  %.not90.i = icmp slt i32 %32, %13
+  %or.cond.i = select i1 %.not89.i, i1 %.not90.i, i1 false
+  br i1 %or.cond.i, label %33, label %uriComposeQueryEngineA.exit
+
+33:                                               ; preds = %31
+  %34 = mul nsw i32 %26, %12
+  %35 = mul nsw i32 %32, %12
+  %36 = ptrtoint ptr %.07398.i to i64
+  %37 = zext nneg i32 %.06999.i to i64
+  %38 = sext i32 %34 to i64
+  %39 = sub i64 %37, %14
+  %40 = add i64 %39, %36
+  %41 = add nsw i64 %40, %38
+  %42 = icmp sgt i64 %41, %16
+  br i1 %42, label %uriComposeQueryEngineA.exit, label %43
+
+43:                                               ; preds = %33
+  br i1 %17, label %46, label %44
+
+44:                                               ; preds = %43
+  store i8 38, ptr %.07398.i, align 1, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %.07398.i, i64 1
+  br label %46
+
+46:                                               ; preds = %44, %43
+  %.376.i = phi ptr [ %45, %44 ], [ %.07398.i, %43 ]
+  %.372.i = phi i32 [ %.06999.i, %44 ], [ 1, %43 ]
+  %47 = sext i32 %26 to i64
+  %48 = getelementptr inbounds i8, ptr %18, i64 %47
+  %49 = tail call ptr @uriEscapeExA(ptr noundef %18, ptr noundef %48, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
+  br i1 %27, label %61, label %50
+
+50:                                               ; preds = %46
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sext i32 %35 to i64
+  %reass.sub = sub i64 %52, %14
+  %53 = add i64 %reass.sub, 1
+  %54 = add i64 %53, %51
+  %55 = icmp sgt i64 %54, %16
+  br i1 %55, label %uriComposeQueryEngineA.exit, label %56
+
+56:                                               ; preds = %50
+  store i8 61, ptr %49, align 1, !tbaa !16
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %58 = sext i32 %32 to i64
+  %59 = getelementptr inbounds i8, ptr %20, i64 %58
+  %60 = tail call ptr @uriEscapeExA(ptr noundef nonnull %20, ptr noundef nonnull %59, ptr noundef nonnull %57, i32 noundef %4, i32 noundef %5) #7
+  br label %61
+
+61:                                               ; preds = %56, %46
+  %.275.i = phi ptr [ %60, %56 ], [ %49, %46 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
+  %63 = load ptr, ptr %62, align 8, !tbaa !13
+  %.not.i = icmp eq ptr %63, null
+  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !14
+
+.split102.us.i:                                   ; preds = %61
+  store i8 0, ptr %.275.i, align 1, !tbaa !16
+  %.not88.i = icmp eq ptr %3, null
+  br i1 %.not88.i, label %uriComposeQueryEngineA.exit, label %64
+
+64:                                               ; preds = %.split102.us.i
+  %65 = ptrtoint ptr %.275.i to i64
+  %66 = sub i64 %65, %14
+  %67 = trunc i64 %66 to i32
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %3, align 4, !tbaa !3
+  br label %uriComposeQueryEngineA.exit
+
+uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split102.us.i, %9, %6
+  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split102.us.i ], [ 0, %64 ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %dest, ptr noundef readonly captures(address_is_null) %queryList, i32 noundef %maxChars, ptr noundef writeonly captures(address_is_null) %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %dest, null
-  %cmp1 = icmp eq ptr %queryList, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %cmp2 = icmp slt i32 %maxChars, 1
-  br i1 %cmp2, label %return, label %while.body.preheader.i
-
-while.body.preheader.i:                           ; preds = %if.end
-  %cmp454.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i = select i1 %cmp454.i, i32 6, i32 3
-  %div56.i = select i1 %cmp454.i, i32 357913941, i32 715827882
-  %sub.ptr.rhs.cast57.i = ptrtoint ptr %dest to i64
-  %dec.i = add nsw i32 %maxChars, -1
-  %conv44.i = zext nneg i32 %dec.i to i64
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %if.end75.i, %while.body.preheader.i
-  %queryList.addr.050.i = phi ptr [ %2, %if.end75.i ], [ %queryList, %while.body.preheader.i ]
-  %cmp4949.i = phi i1 [ false, %if.end75.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.048.i = phi i32 [ %ampersandLen.2.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
-  %write.047.i = phi ptr [ %write.1.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
-  %0 = load ptr, ptr %queryList.addr.050.i, align 8
-  %value3.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 8
-  %1 = load ptr, ptr %value3.i, align 8
-  %cmp5.i = icmp eq ptr %0, null
-  br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
-
-cond.false.i:                                     ; preds = %while.body.i
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
-  %conv.i = trunc i64 %call.i to i32
-  br label %cond.end.i
-
-cond.end.i:                                       ; preds = %cond.false.i, %while.body.i
-  %cond6.i = phi i32 [ %conv.i, %cond.false.i ], [ 0, %while.body.i ]
-  %cmp7.i = icmp eq ptr %1, null
-  br i1 %cmp7.i, label %cond.end13.i, label %cond.false10.i
-
-cond.false10.i:                                   ; preds = %cond.end.i
-  %call11.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
-  %conv12.i = trunc i64 %call11.i to i32
-  br label %cond.end13.i
-
-cond.end13.i:                                     ; preds = %cond.false10.i, %cond.end.i
-  %cond14.i = phi i32 [ %conv12.i, %cond.false10.i ], [ 0, %cond.end.i ]
-  %cmp15.not.i = icmp slt i32 %cond6.i, %div56.i
-  %cmp18.not.i = icmp slt i32 %cond14.i, %div56.i
-  %or.cond.i = select i1 %cmp15.not.i, i1 %cmp18.not.i, i1 false
-  br i1 %or.cond.i, label %if.end21.i, label %return
-
-if.end21.i:                                       ; preds = %cond.end13.i
-  %mul.i = mul nsw i32 %cond6.i, %cond55.i
-  %mul22.i = mul nsw i32 %cond14.i, %cond55.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.047.i to i64
-  %conv40.i = zext nneg i32 %ampersandLen.048.i to i64
-  %conv42.i = sext i32 %mul.i to i64
-  %sub.ptr.sub.i = sub i64 %conv40.i, %sub.ptr.rhs.cast57.i
-  %add41.i = add i64 %sub.ptr.sub.i, %sub.ptr.lhs.cast.i
-  %add43.i = add nsw i64 %add41.i, %conv42.i
-  %cmp45.i = icmp sgt i64 %add43.i, %conv44.i
-  br i1 %cmp45.i, label %return, label %if.end48.i
-
-if.end48.i:                                       ; preds = %if.end21.i
-  br i1 %cmp4949.i, label %if.end53.i, label %if.else52.i
-
-if.else52.i:                                      ; preds = %if.end48.i
-  store i8 38, ptr %write.047.i, align 1
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %write.047.i, i64 1
-  br label %if.end53.i
-
-if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.2.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.047.i, %if.end48.i ]
-  %ampersandLen.2.i = phi i32 [ %ampersandLen.048.i, %if.else52.i ], [ 1, %if.end48.i ]
-  %idx.ext.i = sext i32 %cond6.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
-  %call54.i = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.2.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
-  br i1 %cmp7.i, label %if.end75.i, label %if.then57.i
-
-if.then57.i:                                      ; preds = %if.end53.i
-  %sub.ptr.lhs.cast58.i = ptrtoint ptr %call54.i to i64
-  %conv62.i = sext i32 %mul22.i to i64
-  %reass.sub = sub i64 %conv62.i, %sub.ptr.rhs.cast57.i
-  %add61.i = add i64 %reass.sub, 1
-  %add63.i = add i64 %add61.i, %sub.ptr.lhs.cast58.i
-  %cmp65.i = icmp sgt i64 %add63.i, %conv44.i
-  br i1 %cmp65.i, label %return, label %if.end68.i
-
-if.end68.i:                                       ; preds = %if.then57.i
-  store i8 61, ptr %call54.i, align 1
-  %incdec.ptr70.i = getelementptr inbounds nuw i8, ptr %call54.i, i64 1
-  %idx.ext71.i = sext i32 %cond14.i to i64
-  %add.ptr72.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext71.i
-  %call73.i = tail call ptr @uriEscapeExA(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr72.i, ptr noundef nonnull %incdec.ptr70.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
-  br label %if.end75.i
-
-if.end75.i:                                       ; preds = %if.end68.i, %if.end53.i
-  %write.1.i = phi ptr [ %call73.i, %if.end68.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 16
-  %2 = load ptr, ptr %next.i, align 8
-  %cmp1.not.i = icmp eq ptr %2, null
-  br i1 %cmp1.not.i, label %if.then78.i, label %while.body.i, !llvm.loop !4
-
-if.then78.i:                                      ; preds = %if.end75.i
-  store i8 0, ptr %write.1.i, align 1
-  %cmp80.not.i = icmp eq ptr %charsWritten, null
-  br i1 %cmp80.not.i, label %return, label %if.then82.i
-
-if.then82.i:                                      ; preds = %if.then78.i
-  %sub.ptr.lhs.cast83.i = ptrtoint ptr %write.1.i to i64
-  %sub.ptr.sub85.i = sub i64 %sub.ptr.lhs.cast83.i, %sub.ptr.rhs.cast57.i
-  %conv86.i = trunc i64 %sub.ptr.sub85.i to i32
-  %add87.i = add nsw i32 %conv86.i, 1
-  store i32 %add87.i, ptr %charsWritten, align 4
-  br label %return
-
-return:                                           ; preds = %if.then57.i, %if.end21.i, %cond.end13.i, %if.then82.i, %if.then78.i, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 4, %if.end ], [ 0, %if.then78.i ], [ 0, %if.then82.i ], [ 4, %cond.end13.i ], [ 4, %if.end21.i ], [ 4, %if.then57.i ]
-  ret i32 %retval.0
+define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocA(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList) local_unnamed_addr #1 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+  %5 = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExA(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriComposeQueryMallocExMmA(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %uriComposeQueryCharsRequiredExA.exit.thread, label %7
+
+7:                                                ; preds = %5
+  %8 = icmp eq ptr %4, null
+  br i1 %8, label %11, label %9
+
+9:                                                ; preds = %7
+  %10 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %4) #7
+  %.not = icmp eq i32 %10, 1
+  br i1 %.not, label %11, label %uriComposeQueryCharsRequiredExA.exit.thread
+
+11:                                               ; preds = %7, %9
+  %.022 = phi ptr [ %4, %9 ], [ @defaultMemoryManager, %7 ]
+  %12 = icmp eq ptr %1, null
+  br i1 %12, label %uriComposeQueryCharsRequiredExA.exit.thread, label %13
+
+13:                                               ; preds = %11
+  %14 = icmp eq i32 %3, 1
+  %15 = select i1 %14, i32 6, i32 3
+  %16 = select i1 %14, i32 357913941, i32 715827882
+  br label %.split.us.i.i
+
+.split.us.i.i:                                    ; preds = %33, %13
+  %17 = phi i32 [ %40, %33 ], [ 0, %13 ]
+  %.063100.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
+  %.06999.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
+  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !7
+  %19 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !12
+  %21 = icmp eq ptr %18, null
+  br i1 %21, label %25, label %22
+
+22:                                               ; preds = %.split.us.i.i
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
+
+25:                                               ; preds = %22, %.split.us.i.i
+  %26 = phi i32 [ %24, %22 ], [ 0, %.split.us.i.i ]
+  %27 = icmp eq ptr %20, null
+  br i1 %27, label %31, label %28
+
+28:                                               ; preds = %25
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #6
+  %30 = trunc i64 %29 to i32
+  br label %31
+
+31:                                               ; preds = %28, %25
+  %32 = phi i32 [ %30, %28 ], [ 0, %25 ]
+  %.not89.us.i.i = icmp slt i32 %26, %16
+  %.not90.us.i.i = icmp slt i32 %32, %16
+  %or.cond.us.i.i = select i1 %.not89.us.i.i, i1 %.not90.us.i.i, i1 false
+  br i1 %or.cond.us.i.i, label %33, label %uriComposeQueryCharsRequiredExA.exit.thread
+
+33:                                               ; preds = %31
+  %34 = mul nsw i32 %26, %15
+  %35 = mul nsw i32 %32, %15
+  %36 = add nsw i32 %35, 1
+  %37 = select i1 %27, i32 0, i32 %36
+  %38 = add i32 %.06999.us.i.i, %17
+  %39 = add i32 %38, %34
+  %40 = add i32 %39, %37
+  %41 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !13
+  %.not.us.i.i = icmp eq ptr %42, null
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %.split.us.i.i, !llvm.loop !14
+
+uriComposeQueryCharsRequiredExA.exit:             ; preds = %33
+  %43 = add nsw i32 %40, 1
+  %44 = load ptr, ptr %.022, align 8, !tbaa !17
+  %45 = sext i32 %43 to i64
+  %46 = tail call ptr %44(ptr noundef nonnull %.022, i64 noundef %45) #7
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %uriComposeQueryCharsRequiredExA.exit.thread, label %48
+
+48:                                               ; preds = %uriComposeQueryCharsRequiredExA.exit
+  %49 = tail call i32 @uriComposeQueryExA(ptr noundef nonnull %46, ptr noundef nonnull %1, i32 noundef %43, ptr noundef null, i32 noundef %2, i32 noundef %3)
+  %.not29 = icmp eq i32 %49, 0
+  br i1 %.not29, label %53, label %50
+
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %.022, i64 32
+  %52 = load ptr, ptr %51, align 8, !tbaa !19
+  tail call void %52(ptr noundef nonnull %.022, ptr noundef nonnull %46) #7
+  br label %uriComposeQueryCharsRequiredExA.exit.thread
+
+53:                                               ; preds = %48
+  store ptr %46, ptr %0, align 8, !tbaa !20
+  br label %uriComposeQueryCharsRequiredExA.exit.thread
+
+uriComposeQueryCharsRequiredExA.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExA.exit, %9, %5, %53, %50
+  %.0 = phi i32 [ %49, %50 ], [ 0, %53 ], [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExA.exit ], [ 2, %11 ], [ 4, %31 ]
+  ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmA(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %dest, null
-  br i1 %cmp, label %return, label %do.body
-
-do.body:                                          ; preds = %entry
-  %cmp1 = icmp eq ptr %memory, null
-  br i1 %cmp1, label %do.end, label %if.else
-
-if.else:                                          ; preds = %do.body
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp3.not = icmp eq i32 %call, 1
-  br i1 %cmp3.not, label %do.end, label %return
-
-do.end:                                           ; preds = %do.body, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  %cmp.i = icmp eq ptr %queryList, null
-  br i1 %cmp.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %do.end
-  %cmp454.i.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i.i = select i1 %cmp454.i.i, i32 6, i32 3
-  %div56.i.i = select i1 %cmp454.i.i, i32 357913941, i32 715827882
-  br label %while.body.us.i.i
-
-while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %if.end.i
-  %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
-  %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
-  %2 = load ptr, ptr %value3.us.i.i, align 8
-  %cmp5.us.i.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
-
-cond.false.us.i.i:                                ; preds = %while.body.us.i.i
-  %call.us.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
-  %conv.us.i.i = trunc i64 %call.us.i.i to i32
-  br label %cond.end.us.i.i
-
-cond.end.us.i.i:                                  ; preds = %cond.false.us.i.i, %while.body.us.i.i
-  %cond6.us.i.i = phi i32 [ %conv.us.i.i, %cond.false.us.i.i ], [ 0, %while.body.us.i.i ]
-  %cmp7.us.i.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i.i, label %cond.end13.us.i.i, label %cond.false10.us.i.i
-
-cond.false10.us.i.i:                              ; preds = %cond.end.us.i.i
-  %call11.us.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
-  %conv12.us.i.i = trunc i64 %call11.us.i.i to i32
-  br label %cond.end13.us.i.i
-
-cond.end13.us.i.i:                                ; preds = %cond.false10.us.i.i, %cond.end.us.i.i
-  %cond14.us.i.i = phi i32 [ %conv12.us.i.i, %cond.false10.us.i.i ], [ 0, %cond.end.us.i.i ]
-  %cmp15.not.us.i.i = icmp slt i32 %cond6.us.i.i, %div56.i.i
-  %cmp18.not.us.i.i = icmp slt i32 %cond14.us.i.i, %div56.i.i
-  %or.cond.us.i.i = select i1 %cmp15.not.us.i.i, i1 %cmp18.not.us.i.i, i1 false
-  br i1 %or.cond.us.i.i, label %if.end21.us.i.i, label %return
-
-if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
-  %mul.us.i.i = mul nsw i32 %cond6.us.i.i, %cond55.i.i
-  %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, %cond55.i.i
-  %add30.us.i.i = add nsw i32 %mul22.us.i.i, 1
-  %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
-  %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
-  %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
-  %3 = load ptr, ptr %next.us.i.i, align 8
-  %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !4
-
-if.end10:                                         ; preds = %if.end21.us.i.i
-  %inc = add nsw i32 %add34.us.i.i, 1
-  %4 = load ptr, ptr %memory.addr.0, align 8
-  %conv = sext i32 %inc to i64
-  %call11 = tail call ptr %4(ptr noundef nonnull %memory.addr.0, i64 noundef %conv) #6
-  %cmp12 = icmp eq ptr %call11, null
-  br i1 %cmp12, label %return, label %if.end15
-
-if.end15:                                         ; preds = %if.end10
-  %call16 = tail call i32 @uriComposeQueryExA(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks)
-  %cmp17.not = icmp eq i32 %call16, 0
-  br i1 %cmp17.not, label %if.end20, label %if.then19
-
-if.then19:                                        ; preds = %if.end15
-  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %5 = load ptr, ptr %free, align 8
-  tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %call11) #6
-  br label %return
-
-if.end20:                                         ; preds = %if.end15
-  store ptr %call11, ptr %dest, align 8
-  br label %return
-
-return:                                           ; preds = %cond.end13.us.i.i, %do.end, %if.end10, %if.else, %entry, %if.end20, %if.then19
-  %retval.0 = phi i32 [ %call16, %if.then19 ], [ 0, %if.end20 ], [ 2, %entry ], [ 10, %if.else ], [ 3, %if.end10 ], [ 2, %do.end ], [ 4, %cond.end13.us.i.i ]
-  ret i32 %retval.0
-}
-
-declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #2
+declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeQueryListA(ptr noundef %queryList) local_unnamed_addr #1 {
-entry:
-  %cmp4.not12.i = icmp eq ptr %queryList, null
-  br i1 %cmp4.not12.i, label %uriFreeQueryListMmA.exit, label %while.body.i
+define void @uriFreeQueryListA(ptr noundef %0) local_unnamed_addr #2 {
+  %.not1718.i = icmp eq ptr %0, null
+  br i1 %.not1718.i, label %uriFreeQueryListMmA.exit, label %.lr.ph.i
 
-while.body.i:                                     ; preds = %entry, %while.body.i
-  %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
-  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
-  %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %2 = load ptr, ptr %queryList.addr.013.i, align 8
-  tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
-  %4 = load ptr, ptr %value.i, align 8
-  tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
-  %cmp4.not.i = icmp eq ptr %0, null
-  br i1 %cmp4.not.i, label %uriFreeQueryListMmA.exit, label %while.body.i, !llvm.loop !6
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.01519.i = phi ptr [ %3, %.lr.ph.i ], [ %0, %1 ]
+  %2 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !13
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %5 = load ptr, ptr %.01519.i, align 8, !tbaa !7
+  tail call void %4(ptr noundef nonnull @defaultMemoryManager, ptr noundef %5) #7
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  tail call void %6(ptr noundef nonnull @defaultMemoryManager, ptr noundef %8) #7
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  tail call void %9(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %.01519.i) #7
+  %.not17.i = icmp eq ptr %3, null
+  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %.lr.ph.i, !llvm.loop !21
 
-uriFreeQueryListMmA.exit:                         ; preds = %while.body.i, %entry
+uriFreeQueryListMmA.exit:                         ; preds = %.lr.ph.i, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %memory, null
-  br i1 %cmp, label %do.end, label %if.else
+define range(i32 0, 11) i32 @uriFreeQueryListMmA(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = icmp eq ptr %1, null
+  br i1 %3, label %6, label %4
 
-if.else:                                          ; preds = %entry
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp1.not = icmp eq i32 %call, 1
-  br i1 %cmp1.not, label %do.end, label %return
+4:                                                ; preds = %2
+  %5 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %1) #7
+  %.not = icmp eq i32 %5, 1
+  br i1 %.not, label %6, label %.loopexit
 
-do.end:                                           ; preds = %entry, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %entry ]
-  %cmp4.not12 = icmp eq ptr %queryList, null
-  br i1 %cmp4.not12, label %return, label %while.body.lr.ph
+6:                                                ; preds = %2, %4
+  %.014 = phi ptr [ %1, %4 ], [ @defaultMemoryManager, %2 ]
+  %.not1718 = icmp eq ptr %0, null
+  br i1 %.not1718, label %.loopexit, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %do.end
-  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body
+.lr.ph:                                           ; preds = %6
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 32
+  br label %8
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %queryList.addr.013 = phi ptr [ %queryList, %while.body.lr.ph ], [ %0, %while.body ]
-  %next = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 16
-  %0 = load ptr, ptr %next, align 8
-  %1 = load ptr, ptr %free, align 8
-  %2 = load ptr, ptr %queryList.addr.013, align 8
-  tail call void %1(ptr noundef nonnull %memory.addr.0, ptr noundef %2) #6
-  %3 = load ptr, ptr %free, align 8
-  %value = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 8
-  %4 = load ptr, ptr %value, align 8
-  tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef %4) #6
-  %5 = load ptr, ptr %free, align 8
-  tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013) #6
-  %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !6
+8:                                                ; preds = %.lr.ph, %8
+  %.01519 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01519, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  %11 = load ptr, ptr %7, align 8, !tbaa !19
+  %12 = load ptr, ptr %.01519, align 8, !tbaa !7
+  tail call void %11(ptr noundef nonnull %.014, ptr noundef %12) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  tail call void %13(ptr noundef nonnull %.014, ptr noundef %15) #7
+  %16 = load ptr, ptr %7, align 8, !tbaa !19
+  tail call void %16(ptr noundef nonnull %.014, ptr noundef nonnull %.01519) #7
+  %.not17 = icmp eq ptr %10, null
+  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !21
 
-return:                                           ; preds = %while.body, %do.end, %if.else
-  %retval.0 = phi i32 [ 10, %if.else ], [ 0, %do.end ], [ 0, %while.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %8, %6, %4
+  %.0 = phi i32 [ 10, %4 ], [ 0, %6 ], [ 0, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef captures(address) %afterLast) local_unnamed_addr #1 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriDissectQueryMallocA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #2 {
+  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef captures(address) %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriDissectQueryMallocExA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+  %7 = tail call i32 @uriDissectQueryMallocExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef readnone captures(address) %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %first153 = ptrtoint ptr %first to i64
-  %afterLast152 = ptrtoint ptr %afterLast to i64
-  %nullCounter = alloca i32, align 4
-  %cmp = icmp eq ptr %itemCount, null
-  %cond = select i1 %cmp, ptr %nullCounter, ptr %itemCount
-  %cmp1 = icmp eq ptr %dest, null
-  %cmp2 = icmp eq ptr %first, null
-  %or.cond = or i1 %cmp1, %cmp2
-  %cmp4 = icmp eq ptr %afterLast, null
-  %or.cond1 = or i1 %or.cond, %cmp4
-  br i1 %or.cond1, label %return, label %if.end
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmA(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+  %8 = ptrtoint ptr %2 to i64
+  %9 = ptrtoint ptr %3 to i64
+  %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  %11 = icmp eq ptr %1, null
+  %12 = select i1 %11, ptr %10, ptr %1
+  %13 = icmp eq ptr %0, null
+  %14 = icmp eq ptr %2, null
+  %or.cond = or i1 %13, %14
+  %15 = icmp eq ptr %3, null
+  %or.cond3 = or i1 %or.cond, %15
+  br i1 %or.cond3, label %uriFreeQueryListMmA.exit, label %16
 
-if.end:                                           ; preds = %entry
-  %cmp5 = icmp ugt ptr %first, %afterLast
-  br i1 %cmp5, label %return, label %do.body
+16:                                               ; preds = %7
+  %17 = icmp ugt ptr %2, %3
+  br i1 %17, label %uriFreeQueryListMmA.exit, label %18
 
-do.body:                                          ; preds = %if.end
-  %cmp8 = icmp eq ptr %memory, null
-  br i1 %cmp8, label %do.end, label %if.else
+18:                                               ; preds = %16
+  %19 = icmp eq ptr %6, null
+  br i1 %19, label %22, label %20
 
-if.else:                                          ; preds = %do.body
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp10.not = icmp eq i32 %call, 1
-  br i1 %cmp10.not, label %do.end, label %return
+20:                                               ; preds = %18
+  %21 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %6) #7
+  %.not = icmp eq i32 %21, 1
+  br i1 %.not, label %22, label %uriFreeQueryListMmA.exit
 
-do.end:                                           ; preds = %do.body, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  store ptr null, ptr %dest, align 8
-  store i32 0, ptr %cond, align 4
-  %cmp14136 = icmp ult ptr %first, %afterLast
-  br i1 %cmp14136, label %for.body.preheader, label %if.else53.split
+22:                                               ; preds = %18, %20
+  %.077 = phi ptr [ %6, %20 ], [ @defaultMemoryManager, %18 ]
+  store ptr null, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %12, align 4, !tbaa !3
+  %23 = icmp ult ptr %2, %3
+  br i1 %23, label %.lr.ph.preheader, label %.split83
 
-for.body.preheader:                               ; preds = %do.end
-  %0 = sub i64 %afterLast152, %first153
-  %scevgep = getelementptr i8, ptr %first, i64 %0
-  br label %for.body.outer
+.lr.ph.preheader:                                 ; preds = %22
+  %24 = sub i64 %9, %8
+  %scevgep = getelementptr i8, ptr %2, i64 %24
+  br label %.lr.ph.outer
 
-for.body.outer:                                   ; preds = %for.inc.thread, %for.body.preheader
-  %prevNext.0143.ph = phi ptr [ %spec.select, %for.inc.thread ], [ %dest, %for.body.preheader ]
-  %keyFirst.0139.ph = phi ptr [ %keyFirst.1, %for.inc.thread ], [ %first, %for.body.preheader ]
-  %walk.0137.ph = phi ptr [ %incdec.ptr170, %for.inc.thread ], [ %first, %for.body.preheader ]
-  br label %for.body
+.lr.ph.outer:                                     ; preds = %.thread, %.lr.ph.preheader
+  %.063140.ph = phi ptr [ %spec.select, %.thread ], [ %0, %.lr.ph.preheader ]
+  %.073136.ph = phi ptr [ %.174, %.thread ], [ %2, %.lr.ph.preheader ]
+  %.076134.ph = phi ptr [ %87, %.thread ], [ %2, %.lr.ph.preheader ]
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.outer, %for.inc
-  %valueAfter.0142 = phi ptr [ %valueAfter.2, %for.inc ], [ null, %for.body.outer ]
-  %valueFirst.0141 = phi ptr [ %valueFirst.1, %for.inc ], [ null, %for.body.outer ]
-  %keyAfter.0140 = phi ptr [ %keyAfter.2, %for.inc ], [ null, %for.body.outer ]
-  %walk.0137 = phi ptr [ %incdec.ptr, %for.inc ], [ %walk.0137.ph, %for.body.outer ]
-  %1 = load i8, ptr %walk.0137, align 1
-  switch i8 %1, label %for.inc [
-    i8 38, label %sw.bb
-    i8 61, label %sw.bb38
+.lr.ph:                                           ; preds = %.lr.ph.outer, %81
+  %.064139 = phi ptr [ %.266, %81 ], [ null, %.lr.ph.outer ]
+  %.067138 = phi ptr [ %.168, %81 ], [ null, %.lr.ph.outer ]
+  %.069137 = phi ptr [ %.271, %81 ], [ null, %.lr.ph.outer ]
+  %.076134 = phi ptr [ %82, %81 ], [ %.076134.ph, %.lr.ph.outer ]
+  %25 = load i8, ptr %.076134, align 1, !tbaa !16
+  switch i8 %25, label %81 [
+    i8 38, label %26
+    i8 61, label %77
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %cmp15.not = icmp eq ptr %valueFirst.0141, null
-  br i1 %cmp15.not, label %if.else18.split, label %if.end19
+26:                                               ; preds = %.lr.ph
+  %.not94 = icmp eq ptr %.067138, null
+  br i1 %.not94, label %.split79, label %uriAppendQueryItemA.exit
 
-if.else18.split:                                  ; preds = %sw.bb
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %walk.0137 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %keyFirst.0139.ph to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %conv.i = trunc i64 %sub.ptr.sub.i to i32
-  %cmp9.i = icmp eq ptr %keyFirst.0139.ph, null
-  %cmp15.i = icmp ugt ptr %keyFirst.0139.ph, %walk.0137
-  %or.cond.i = or i1 %cmp15.i, %cmp9.i
-  br i1 %or.cond.i, label %for.inc.thread, label %lor.lhs.false20.i
+.split79:                                         ; preds = %26
+  %27 = ptrtoint ptr %.076134 to i64
+  %28 = ptrtoint ptr %.073136.ph to i64
+  %29 = sub i64 %27, %28
+  %30 = trunc i64 %29 to i32
+  %31 = icmp eq ptr %.073136.ph, null
+  %32 = icmp ugt ptr %.073136.ph, %.076134
+  %or.cond.i = or i1 %32, %31
+  br i1 %or.cond.i, label %.thread, label %33
 
-lor.lhs.false20.i:                                ; preds = %if.else18.split
-  %cmp21.i = icmp eq ptr %keyFirst.0139.ph, %walk.0137
-  %cmp26.i = icmp eq ptr %valueAfter.0142, null
-  %2 = and i1 %cmp21.i, %cmp26.i
-  br i1 %2, label %for.inc.thread, label %if.end.i
+33:                                               ; preds = %.split79
+  %34 = icmp eq ptr %.073136.ph, %.076134
+  %35 = icmp eq ptr %.064139, null
+  %36 = and i1 %34, %35
+  br i1 %36, label %.thread, label %37
 
-if.end.i:                                         ; preds = %lor.lhs.false20.i
-  %3 = load ptr, ptr %memory.addr.0, align 8
-  %call.i = call ptr %3(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
-  store ptr %call.i, ptr %prevNext.0143.ph, align 8
-  %cmp28.i = icmp eq ptr %call.i, null
-  br i1 %cmp28.i, label %if.then23, label %if.end31.i
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %.077, align 8, !tbaa !17
+  %39 = call ptr %38(ptr noundef nonnull %.077, i64 noundef 24) #7
+  store ptr %39, ptr %.063140.ph, align 8, !tbaa !22
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %uriAppendQueryItemA.exit.thread113, label %41
 
-if.end31.i:                                       ; preds = %if.end.i
-  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr null, ptr %next.i, align 8
-  %4 = load ptr, ptr %memory.addr.0, align 8
-  %add.i = shl i64 %sub.ptr.sub.i, 32
-  %sext.i = add i64 %add.i, 4294967296
-  %conv33.i = ashr exact i64 %sext.i, 32
-  %call34.i = call ptr %4(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i) #6
-  %cmp35.i = icmp eq ptr %call34.i, null
-  br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr null, ptr %42, align 8, !tbaa !13
+  %43 = load ptr, ptr %.077, align 8, !tbaa !17
+  %44 = shl i64 %29, 32
+  %sext.i = add i64 %44, 4294967296
+  %45 = ashr exact i64 %sext.i, 32
+  %46 = call ptr %43(ptr noundef nonnull %.077, i64 noundef %45) #7
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %52
 
-if.then37.i:                                      ; preds = %if.end31.i
-  %free.i = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %5 = load ptr, ptr %free.i, align 8
-  %6 = load ptr, ptr %prevNext.0143.ph, align 8
-  call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef %6) #6
-  store ptr null, ptr %prevNext.0143.ph, align 8
-  br label %if.then23
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %51 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  call void %50(ptr noundef nonnull %.077, ptr noundef %51) #7
+  store ptr null, ptr %.063140.ph, align 8, !tbaa !22
+  br label %uriAppendQueryItemA.exit.thread113
 
-if.end38.i:                                       ; preds = %if.end31.i
-  %idxprom.i = ashr exact i64 %add.i, 32
-  %arrayidx.i = getelementptr inbounds i8, ptr %call34.i, i64 %idxprom.i
-  store i8 0, ptr %arrayidx.i, align 1
-  %cmp39.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp39.i, label %if.then41.i, label %if.end45.i
+52:                                               ; preds = %41
+  %53 = ashr exact i64 %44, 32
+  %54 = getelementptr inbounds i8, ptr %46, i64 %53
+  store i8 0, ptr %54, align 1, !tbaa !16
+  %55 = icmp sgt i32 %30, 0
+  br i1 %55, label %56, label %58
 
-if.then41.i:                                      ; preds = %if.end38.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call34.i, ptr nonnull align 1 %keyFirst.0139.ph, i64 %idxprom.i, i1 false)
-  %call44.i = call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %call34.i, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end45.i
+56:                                               ; preds = %52
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %.073136.ph, i64 %53, i1 false)
+  %57 = call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %46, i32 noundef %4, i32 noundef %5) #7
+  br label %58
 
-if.end45.i:                                       ; preds = %if.then41.i, %if.end38.i
-  %7 = load ptr, ptr %prevNext.0143.ph, align 8
-  store ptr %call34.i, ptr %7, align 8
-  %8 = load ptr, ptr %prevNext.0143.ph, align 8
-  %value72.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %value72.i, align 8
-  %9 = load i32, ptr %cond, align 4
-  %inc.i = add nsw i32 %9, 1
-  store i32 %inc.i, ptr %cond, align 4
-  br label %for.inc.thread
+58:                                               ; preds = %56, %52
+  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  store ptr %46, ptr %59, align 8, !tbaa !7
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr null, ptr %60, align 8, !tbaa !12
+  %61 = load i32, ptr %12, align 4, !tbaa !3
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %12, align 4, !tbaa !3
+  br label %.thread
 
-if.end19:                                         ; preds = %sw.bb
-  %call2048 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0143.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0139.ph, ptr noundef %keyAfter.0140, ptr noundef nonnull %valueFirst.0141, ptr noundef nonnull %walk.0137, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
-  %cmp21 = icmp eq i32 %call2048, 0
-  br i1 %cmp21, label %if.then23, label %for.inc.thread
+uriAppendQueryItemA.exit:                         ; preds = %26
+  %63 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %.063140.ph, ptr noundef nonnull %12, ptr noundef %.073136.ph, ptr noundef %.069137, ptr noundef nonnull %.067138, ptr noundef nonnull %.076134, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.077)
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %uriAppendQueryItemA.exit.thread113, label %.thread
 
-if.then23:                                        ; preds = %if.end.i, %if.end19, %if.then37.i
-  store i32 0, ptr %cond, align 4
-  %10 = load ptr, ptr %dest, align 8
-  %call.i55 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
-  %cmp1.not.i = icmp ne i32 %call.i55, 1
-  %cmp4.not12.i = icmp eq ptr %10, null
-  %or.cond121 = select i1 %cmp1.not.i, i1 true, i1 %cmp4.not12.i
-  br i1 %or.cond121, label %return, label %while.body.lr.ph.i
+uriAppendQueryItemA.exit.thread113:               ; preds = %37, %uriAppendQueryItemA.exit, %48
+  store i32 0, ptr %12, align 4, !tbaa !3
+  %65 = load ptr, ptr %0, align 8, !tbaa !22
+  %66 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
+  %.not.i = icmp ne i32 %66, 1
+  %.not1718.i = icmp eq ptr %65, null
+  %or.cond119 = select i1 %.not.i, i1 true, i1 %.not1718.i
+  br i1 %or.cond119, label %uriFreeQueryListMmA.exit, label %.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %if.then23
-  %free.i57 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body.i
+.lr.ph.i:                                         ; preds = %uriAppendQueryItemA.exit.thread113
+  %67 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  br label %68
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %queryList.addr.013.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %while.body.i ]
-  %next.i58 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
-  %11 = load ptr, ptr %next.i58, align 8
-  %12 = load ptr, ptr %free.i57, align 8
-  %13 = load ptr, ptr %queryList.addr.013.i, align 8
-  call void %12(ptr noundef nonnull %memory.addr.0, ptr noundef %13) #6
-  %14 = load ptr, ptr %free.i57, align 8
-  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
-  %15 = load ptr, ptr %value.i, align 8
-  call void %14(ptr noundef nonnull %memory.addr.0, ptr noundef %15) #6
-  %16 = load ptr, ptr %free.i57, align 8
-  call void %16(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
-  %cmp4.not.i = icmp eq ptr %11, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !6
+68:                                               ; preds = %68, %.lr.ph.i
+  %.01519.i = phi ptr [ %65, %.lr.ph.i ], [ %70, %68 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !13
+  %71 = load ptr, ptr %67, align 8, !tbaa !19
+  %72 = load ptr, ptr %.01519.i, align 8, !tbaa !7
+  call void %71(ptr noundef nonnull %.077, ptr noundef %72) #7
+  %73 = load ptr, ptr %67, align 8, !tbaa !19
+  %74 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !12
+  call void %73(ptr noundef nonnull %.077, ptr noundef %75) #7
+  %76 = load ptr, ptr %67, align 8, !tbaa !19
+  call void %76(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i) #7
+  %.not17.i = icmp eq ptr %70, null
+  br i1 %.not17.i, label %uriFreeQueryListMmA.exit, label %68, !llvm.loop !21
 
-sw.bb38:                                          ; preds = %for.body
-  %cmp39 = icmp eq ptr %keyAfter.0140, null
-  br i1 %cmp39, label %if.then41, label %for.inc
+77:                                               ; preds = %.lr.ph
+  %78 = icmp eq ptr %.069137, null
+  br i1 %78, label %79, label %81
 
-if.then41:                                        ; preds = %sw.bb38
-  %add.ptr42 = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
-  br label %for.inc
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
+  br label %81
 
-for.inc:                                          ; preds = %if.then41, %sw.bb38, %for.body
-  %keyAfter.2 = phi ptr [ %keyAfter.0140, %for.body ], [ %keyAfter.0140, %sw.bb38 ], [ %walk.0137, %if.then41 ]
-  %valueFirst.1 = phi ptr [ %valueFirst.0141, %for.body ], [ %valueFirst.0141, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
-  %valueAfter.2 = phi ptr [ %valueAfter.0142, %for.body ], [ %valueAfter.0142, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
-  %exitcond.not = icmp eq ptr %incdec.ptr, %afterLast
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
+81:                                               ; preds = %79, %77, %.lr.ph
+  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.069137, %77 ], [ %.076134, %79 ]
+  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %.067138, %77 ], [ %80, %79 ]
+  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %80, %79 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
+  %exitcond.not = icmp eq ptr %82, %3
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-for.inc.thread:                                   ; preds = %if.end19, %if.end45.i, %lor.lhs.false20.i, %if.else18.split
-  %17 = load ptr, ptr %prevNext.0143.ph, align 8
-  %cmp28.not = icmp eq ptr %17, null
-  %next = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %spec.select = select i1 %cmp28.not, ptr %prevNext.0143.ph, ptr %next
-  %add.ptr = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
-  %cmp32 = icmp ult ptr %add.ptr, %afterLast
-  %keyFirst.1 = select i1 %cmp32, ptr %add.ptr, ptr null
-  %incdec.ptr170 = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
-  %exitcond.not171 = icmp eq ptr %incdec.ptr170, %afterLast
-  br i1 %exitcond.not171, label %if.else53.split, label %for.body.outer, !llvm.loop !7
+.thread:                                          ; preds = %uriAppendQueryItemA.exit, %58, %33, %.split79
+  %83 = load ptr, ptr %.063140.ph, align 8, !tbaa !22
+  %.not95 = icmp eq ptr %83, null
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %spec.select = select i1 %.not95, ptr %.063140.ph, ptr %84
+  %85 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
+  %86 = icmp ult ptr %85, %3
+  %.174 = select i1 %86, ptr %85, ptr null
+  %87 = getelementptr inbounds nuw i8, ptr %.076134, i64 1
+  %exitcond.not165 = icmp eq ptr %87, %3
+  br i1 %exitcond.not165, label %.split83, label %.lr.ph.outer, !llvm.loop !23
 
-for.end:                                          ; preds = %for.inc
-  %18 = icmp eq ptr %valueAfter.2, null
-  %cmp50.not = icmp eq ptr %valueFirst.1, null
-  br i1 %cmp50.not, label %if.else53.split, label %if.end54
+._crit_edge:                                      ; preds = %81
+  %88 = icmp eq ptr %.266, null
+  %.not92 = icmp eq ptr %.168, null
+  br i1 %.not92, label %.split83, label %uriAppendQueryItemA.exit103
 
-if.else53.split:                                  ; preds = %for.inc.thread, %do.end, %for.end
-  %prevNext.0.lcssa164 = phi ptr [ %prevNext.0143.ph, %for.end ], [ %dest, %do.end ], [ %spec.select, %for.inc.thread ]
-  %valueAfter.0.lcssa163 = phi i1 [ %18, %for.end ], [ true, %do.end ], [ true, %for.inc.thread ]
-  %keyFirst.0.lcssa162 = phi ptr [ %keyFirst.0139.ph, %for.end ], [ %first, %do.end ], [ %keyFirst.1, %for.inc.thread ]
-  %walk.0.lcssa161 = phi ptr [ %scevgep, %for.end ], [ %first, %do.end ], [ %scevgep, %for.inc.thread ]
-  %sub.ptr.lhs.cast.i59 = ptrtoint ptr %walk.0.lcssa161 to i64
-  %sub.ptr.rhs.cast.i60 = ptrtoint ptr %keyFirst.0.lcssa162 to i64
-  %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i59, %sub.ptr.rhs.cast.i60
-  %conv.i62 = trunc i64 %sub.ptr.sub.i61 to i32
-  %cmp9.i65 = icmp eq ptr %keyFirst.0.lcssa162, null
-  %cmp15.i68 = icmp ugt ptr %keyFirst.0.lcssa162, %walk.0.lcssa161
-  %or.cond.i69 = or i1 %cmp15.i68, %cmp9.i65
-  %cmp21.i71 = icmp eq ptr %keyFirst.0.lcssa162, %walk.0.lcssa161
-  %19 = and i1 %cmp21.i71, %valueAfter.0.lcssa163
-  %or.cond195 = select i1 %or.cond.i69, i1 true, i1 %19
-  br i1 %or.cond195, label %return, label %if.end.i73
+.split83:                                         ; preds = %.thread, %22, %._crit_edge
+  %.063.lcssa159 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %22 ], [ %spec.select, %.thread ]
+  %.064.lcssa158 = phi i1 [ %88, %._crit_edge ], [ true, %22 ], [ true, %.thread ]
+  %.073.lcssa157 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %22 ], [ %.174, %.thread ]
+  %.076.lcssa156 = phi ptr [ %scevgep, %._crit_edge ], [ %2, %22 ], [ %scevgep, %.thread ]
+  %89 = ptrtoint ptr %.076.lcssa156 to i64
+  %90 = ptrtoint ptr %.073.lcssa157 to i64
+  %91 = sub i64 %89, %90
+  %92 = trunc i64 %91 to i32
+  %93 = icmp eq ptr %.073.lcssa157, null
+  %94 = icmp ugt ptr %.073.lcssa157, %.076.lcssa156
+  %or.cond.i99 = or i1 %94, %93
+  %95 = icmp eq ptr %.073.lcssa157, %.076.lcssa156
+  %96 = and i1 %95, %.064.lcssa158
+  %or.cond190 = select i1 %or.cond.i99, i1 true, i1 %96
+  br i1 %or.cond190, label %uriFreeQueryListMmA.exit, label %97
 
-if.end.i73:                                       ; preds = %if.else53.split
-  %20 = load ptr, ptr %memory.addr.0, align 8
-  %call.i74 = call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
-  store ptr %call.i74, ptr %prevNext.0.lcssa164, align 8
-  %cmp28.i75 = icmp eq ptr %call.i74, null
-  br i1 %cmp28.i75, label %if.then58, label %if.end31.i76
+97:                                               ; preds = %.split83
+  %98 = load ptr, ptr %.077, align 8, !tbaa !17
+  %99 = call ptr %98(ptr noundef nonnull %.077, i64 noundef 24) #7
+  store ptr %99, ptr %.063.lcssa159, align 8, !tbaa !22
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %uriAppendQueryItemA.exit103.thread117, label %101
 
-if.end31.i76:                                     ; preds = %if.end.i73
-  %next.i77 = getelementptr inbounds nuw i8, ptr %call.i74, i64 16
-  store ptr null, ptr %next.i77, align 8
-  %21 = load ptr, ptr %memory.addr.0, align 8
-  %add.i78 = shl i64 %sub.ptr.sub.i61, 32
-  %sext.i79 = add i64 %add.i78, 4294967296
-  %conv33.i80 = ashr exact i64 %sext.i79, 32
-  %call34.i81 = call ptr %21(ptr noundef nonnull %memory.addr.0, i64 noundef %conv33.i80) #6
-  %cmp35.i82 = icmp eq ptr %call34.i81, null
-  br i1 %cmp35.i82, label %if.then37.i93, label %if.end38.i83
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  store ptr null, ptr %102, align 8, !tbaa !13
+  %103 = load ptr, ptr %.077, align 8, !tbaa !17
+  %104 = shl i64 %91, 32
+  %sext.i100 = add i64 %104, 4294967296
+  %105 = ashr exact i64 %sext.i100, 32
+  %106 = call ptr %103(ptr noundef nonnull %.077, i64 noundef %105) #7
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %108, label %112
 
-if.then37.i93:                                    ; preds = %if.end31.i76
-  %free.i94 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %22 = load ptr, ptr %free.i94, align 8
-  %23 = load ptr, ptr %prevNext.0.lcssa164, align 8
-  call void %22(ptr noundef nonnull %memory.addr.0, ptr noundef %23) #6
-  store ptr null, ptr %prevNext.0.lcssa164, align 8
-  br label %if.then58
+108:                                              ; preds = %101
+  %109 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  %110 = load ptr, ptr %109, align 8, !tbaa !19
+  %111 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  call void %110(ptr noundef nonnull %.077, ptr noundef %111) #7
+  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !22
+  br label %uriAppendQueryItemA.exit103.thread117
 
-if.end38.i83:                                     ; preds = %if.end31.i76
-  %idxprom.i84 = ashr exact i64 %add.i78, 32
-  %arrayidx.i85 = getelementptr inbounds i8, ptr %call34.i81, i64 %idxprom.i84
-  store i8 0, ptr %arrayidx.i85, align 1
-  %cmp39.i86 = icmp sgt i32 %conv.i62, 0
-  br i1 %cmp39.i86, label %if.then41.i91, label %if.end45.i87
+112:                                              ; preds = %101
+  %113 = ashr exact i64 %104, 32
+  %114 = getelementptr inbounds i8, ptr %106, i64 %113
+  store i8 0, ptr %114, align 1, !tbaa !16
+  %115 = icmp sgt i32 %92, 0
+  br i1 %115, label %116, label %118
 
-if.then41.i91:                                    ; preds = %if.end38.i83
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call34.i81, ptr nonnull align 1 %keyFirst.0.lcssa162, i64 %idxprom.i84, i1 false)
-  %call44.i92 = call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %call34.i81, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end45.i87
+116:                                              ; preds = %112
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %106, ptr nonnull align 1 %.073.lcssa157, i64 %113, i1 false)
+  %117 = call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %106, i32 noundef %4, i32 noundef %5) #7
+  br label %118
 
-if.end45.i87:                                     ; preds = %if.then41.i91, %if.end38.i83
-  %24 = load ptr, ptr %prevNext.0.lcssa164, align 8
-  store ptr %call34.i81, ptr %24, align 8
-  %25 = load ptr, ptr %prevNext.0.lcssa164, align 8
-  %value72.i88 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr null, ptr %value72.i88, align 8
-  %26 = load i32, ptr %cond, align 4
-  %inc.i89 = add nsw i32 %26, 1
-  store i32 %inc.i89, ptr %cond, align 4
-  br label %return
+118:                                              ; preds = %116, %112
+  %119 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !22
+  store ptr %106, ptr %119, align 8, !tbaa !7
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store ptr null, ptr %120, align 8, !tbaa !12
+  %121 = load i32, ptr %12, align 4, !tbaa !3
+  %122 = add nsw i32 %121, 1
+  store i32 %122, ptr %12, align 4, !tbaa !3
+  br label %uriFreeQueryListMmA.exit
 
-if.end54:                                         ; preds = %for.end
-  %call5550 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %prevNext.0143.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0139.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %scevgep, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
-  %cmp56 = icmp eq i32 %call5550, 0
-  br i1 %cmp56, label %if.then58, label %return
+uriAppendQueryItemA.exit103:                      ; preds = %._crit_edge
+  %123 = call fastcc i32 @uriAppendQueryItemA(ptr noundef %.063140.ph, ptr noundef nonnull %12, ptr noundef %.073136.ph, ptr noundef %.271, ptr noundef nonnull %.168, ptr noundef nonnull %scevgep, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.077)
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %uriAppendQueryItemA.exit103.thread117, label %uriFreeQueryListMmA.exit
 
-if.then58:                                        ; preds = %if.end.i73, %if.then37.i93, %if.end54
-  store i32 0, ptr %cond, align 4
-  %27 = load ptr, ptr %dest, align 8
-  %call.i96 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
-  %cmp1.not.i97 = icmp ne i32 %call.i96, 1
-  %cmp4.not12.i100 = icmp eq ptr %27, null
-  %or.cond122 = select i1 %cmp1.not.i97, i1 true, i1 %cmp4.not12.i100
-  br i1 %or.cond122, label %return, label %while.body.lr.ph.i101
+uriAppendQueryItemA.exit103.thread117:            ; preds = %97, %108, %uriAppendQueryItemA.exit103
+  store i32 0, ptr %12, align 4, !tbaa !3
+  %125 = load ptr, ptr %0, align 8, !tbaa !22
+  %126 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
+  %.not.i104 = icmp ne i32 %126, 1
+  %.not1718.i106 = icmp eq ptr %125, null
+  %or.cond120 = select i1 %.not.i104, i1 true, i1 %.not1718.i106
+  br i1 %or.cond120, label %uriFreeQueryListMmA.exit, label %.lr.ph.i107
 
-while.body.lr.ph.i101:                            ; preds = %if.then58
-  %free.i102 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body.i103
+.lr.ph.i107:                                      ; preds = %uriAppendQueryItemA.exit103.thread117
+  %127 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  br label %128
 
-while.body.i103:                                  ; preds = %while.body.i103, %while.body.lr.ph.i101
-  %queryList.addr.013.i104 = phi ptr [ %27, %while.body.lr.ph.i101 ], [ %28, %while.body.i103 ]
-  %next.i105 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i104, i64 16
-  %28 = load ptr, ptr %next.i105, align 8
-  %29 = load ptr, ptr %free.i102, align 8
-  %30 = load ptr, ptr %queryList.addr.013.i104, align 8
-  call void %29(ptr noundef nonnull %memory.addr.0, ptr noundef %30) #6
-  %31 = load ptr, ptr %free.i102, align 8
-  %value.i106 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i104, i64 8
-  %32 = load ptr, ptr %value.i106, align 8
-  call void %31(ptr noundef nonnull %memory.addr.0, ptr noundef %32) #6
-  %33 = load ptr, ptr %free.i102, align 8
-  call void %33(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i104) #6
-  %cmp4.not.i107 = icmp eq ptr %28, null
-  br i1 %cmp4.not.i107, label %return, label %while.body.i103, !llvm.loop !6
+128:                                              ; preds = %128, %.lr.ph.i107
+  %.01519.i108 = phi ptr [ %125, %.lr.ph.i107 ], [ %130, %128 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 16
+  %130 = load ptr, ptr %129, align 8, !tbaa !13
+  %131 = load ptr, ptr %127, align 8, !tbaa !19
+  %132 = load ptr, ptr %.01519.i108, align 8, !tbaa !7
+  call void %131(ptr noundef nonnull %.077, ptr noundef %132) #7
+  %133 = load ptr, ptr %127, align 8, !tbaa !19
+  %134 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !12
+  call void %133(ptr noundef nonnull %.077, ptr noundef %135) #7
+  %136 = load ptr, ptr %127, align 8, !tbaa !19
+  call void %136(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i108) #7
+  %.not17.i109 = icmp eq ptr %130, null
+  br i1 %.not17.i109, label %uriFreeQueryListMmA.exit, label %128, !llvm.loop !21
 
-return:                                           ; preds = %while.body.i, %while.body.i103, %if.else53.split, %if.end45.i87, %if.then58, %if.then23, %if.end54, %if.else, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 9, %if.end ], [ 10, %if.else ], [ 0, %if.end54 ], [ 3, %if.then23 ], [ 3, %if.then58 ], [ 0, %if.end45.i87 ], [ 0, %if.else53.split ], [ 3, %while.body.i103 ], [ 3, %while.body.i ]
-  ret i32 %retval.0
+uriFreeQueryListMmA.exit:                         ; preds = %68, %128, %.split83, %118, %uriAppendQueryItemA.exit103.thread117, %uriAppendQueryItemA.exit.thread113, %uriAppendQueryItemA.exit103, %20, %16, %7
+  %.0 = phi i32 [ 2, %7 ], [ 9, %16 ], [ 10, %20 ], [ 0, %uriAppendQueryItemA.exit103 ], [ 3, %uriAppendQueryItemA.exit.thread113 ], [ 3, %uriAppendQueryItemA.exit103.thread117 ], [ 0, %118 ], [ 0, %.split83 ], [ 3, %128 ], [ 3, %68 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonnull captures(none) %prevNext, ptr noundef captures(address_is_null) %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
-entry:
-  %sub.ptr.lhs.cast = ptrtoint ptr %keyAfter to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %keyFirst to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %sub.ptr.lhs.cast1 = ptrtoint ptr %valueAfter to i64
-  %sub.ptr.rhs.cast2 = ptrtoint ptr %valueFirst to i64
-  %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
-  %conv4 = trunc i64 %sub.ptr.sub3 to i32
-  %cmp6 = icmp eq ptr %itemCount, null
-  %cmp9 = icmp eq ptr %keyFirst, null
-  %or.cond1 = or i1 %cmp6, %cmp9
-  %cmp12 = icmp eq ptr %keyAfter, null
-  %or.cond2 = or i1 %or.cond1, %cmp12
-  %cmp15 = icmp ugt ptr %keyFirst, %keyAfter
-  %or.cond = or i1 %cmp15, %or.cond2
-  %cmp18 = icmp ugt ptr %valueFirst, %valueAfter
-  %or.cond61 = or i1 %or.cond, %cmp18
-  br i1 %or.cond61, label %return, label %lor.lhs.false20
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemA(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #2 {
+  %10 = ptrtoint ptr %3 to i64
+  %11 = ptrtoint ptr %2 to i64
+  %12 = sub i64 %10, %11
+  %13 = trunc i64 %12 to i32
+  %14 = ptrtoint ptr %5 to i64
+  %15 = ptrtoint ptr %4 to i64
+  %16 = sub i64 %14, %15
+  %17 = trunc i64 %16 to i32
+  %18 = icmp eq ptr %1, null
+  %19 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %18, %19
+  %20 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %or.cond3, %20
+  %21 = icmp ugt ptr %2, %3
+  %or.cond = or i1 %21, %or.cond5
+  %22 = icmp ugt ptr %4, %5
+  %or.cond88 = or i1 %or.cond, %22
+  br i1 %or.cond88, label %76, label %23
 
-lor.lhs.false20:                                  ; preds = %entry
-  %cmp21 = icmp eq ptr %keyFirst, %keyAfter
-  %cmp23 = icmp eq ptr %valueFirst, null
-  %cmp26 = icmp eq ptr %valueAfter, null
-  %0 = and i1 %cmp21, %cmp26
-  br i1 %0, label %return, label %if.end
+23:                                               ; preds = %9
+  %24 = icmp eq ptr %2, %3
+  %25 = icmp eq ptr %4, null
+  %26 = icmp eq ptr %5, null
+  %27 = and i1 %24, %26
+  br i1 %27, label %76, label %28
 
-if.end:                                           ; preds = %lor.lhs.false20
-  %1 = load ptr, ptr %memory, align 8
-  %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 24) #6
-  store ptr %call, ptr %prevNext, align 8
-  %cmp28 = icmp eq ptr %call, null
-  br i1 %cmp28, label %return, label %if.end31
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %8, align 8, !tbaa !17
+  %30 = tail call ptr %29(ptr noundef nonnull %8, i64 noundef 24) #7
+  store ptr %30, ptr %0, align 8, !tbaa !22
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %76, label %32
 
-if.end31:                                         ; preds = %if.end
-  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr null, ptr %next, align 8
-  %2 = load ptr, ptr %memory, align 8
-  %add = shl i64 %sub.ptr.sub, 32
-  %sext = add i64 %add, 4294967296
-  %conv33 = ashr exact i64 %sext, 32
-  %call34 = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef %conv33) #6
-  %cmp35 = icmp eq ptr %call34, null
-  br i1 %cmp35, label %if.then37, label %if.end38
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr null, ptr %33, align 8, !tbaa !13
+  %34 = load ptr, ptr %8, align 8, !tbaa !17
+  %35 = shl i64 %12, 32
+  %sext = add i64 %35, 4294967296
+  %36 = ashr exact i64 %sext, 32
+  %37 = tail call ptr %34(ptr noundef nonnull %8, i64 noundef %36) #7
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %43
 
-if.then37:                                        ; preds = %if.end31
-  %free = getelementptr inbounds nuw i8, ptr %memory, i64 32
-  %3 = load ptr, ptr %free, align 8
-  %4 = load ptr, ptr %prevNext, align 8
-  tail call void %3(ptr noundef nonnull %memory, ptr noundef %4) #6
-  store ptr null, ptr %prevNext, align 8
-  br label %return
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !19
+  %42 = load ptr, ptr %0, align 8, !tbaa !22
+  tail call void %41(ptr noundef nonnull %8, ptr noundef %42) #7
+  store ptr null, ptr %0, align 8, !tbaa !22
+  br label %76
 
-if.end38:                                         ; preds = %if.end31
-  %idxprom = ashr exact i64 %add, 32
-  %arrayidx = getelementptr inbounds i8, ptr %call34, i64 %idxprom
-  store i8 0, ptr %arrayidx, align 1
-  %cmp39 = icmp sgt i32 %conv, 0
-  br i1 %cmp39, label %if.then41, label %if.end45
+43:                                               ; preds = %32
+  %44 = ashr exact i64 %35, 32
+  %45 = getelementptr inbounds i8, ptr %37, i64 %44
+  store i8 0, ptr %45, align 1, !tbaa !16
+  %46 = icmp sgt i32 %13, 0
+  br i1 %46, label %47, label %49
 
-if.then41:                                        ; preds = %if.end38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call34, ptr nonnull align 1 %keyFirst, i64 %idxprom, i1 false)
-  %call44 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %call34, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end45
+47:                                               ; preds = %43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %2, i64 %44, i1 false)
+  %48 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %37, i32 noundef %6, i32 noundef %7) #7
+  br label %49
 
-if.end45:                                         ; preds = %if.then41, %if.end38
-  %5 = load ptr, ptr %prevNext, align 8
-  store ptr %call34, ptr %5, align 8
-  br i1 %cmp23, label %if.end71, label %if.then49
+49:                                               ; preds = %47, %43
+  %50 = load ptr, ptr %0, align 8, !tbaa !22
+  store ptr %37, ptr %50, align 8, !tbaa !7
+  br i1 %25, label %71, label %51
 
-if.then49:                                        ; preds = %if.end45
-  %6 = load ptr, ptr %memory, align 8
-  %add51 = shl i64 %sub.ptr.sub3, 32
-  %sext59 = add i64 %add51, 4294967296
-  %conv52 = ashr exact i64 %sext59, 32
-  %call54 = tail call ptr %6(ptr noundef nonnull %memory, i64 noundef %conv52) #6
-  %cmp55 = icmp eq ptr %call54, null
-  br i1 %cmp55, label %if.then57, label %if.end60
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %8, align 8, !tbaa !17
+  %53 = shl i64 %16, 32
+  %sext86 = add i64 %53, 4294967296
+  %54 = ashr exact i64 %sext86, 32
+  %55 = tail call ptr %52(ptr noundef nonnull %8, i64 noundef %54) #7
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %62
 
-if.then57:                                        ; preds = %if.then49
-  %free58 = getelementptr inbounds nuw i8, ptr %memory, i64 32
-  %7 = load ptr, ptr %free58, align 8
-  tail call void %7(ptr noundef nonnull %memory, ptr noundef nonnull %call34) #6
-  %8 = load ptr, ptr %free58, align 8
-  %9 = load ptr, ptr %prevNext, align 8
-  tail call void %8(ptr noundef nonnull %memory, ptr noundef %9) #6
-  store ptr null, ptr %prevNext, align 8
-  br label %return
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %59 = load ptr, ptr %58, align 8, !tbaa !19
+  tail call void %59(ptr noundef nonnull %8, ptr noundef nonnull %37) #7
+  %60 = load ptr, ptr %58, align 8, !tbaa !19
+  %61 = load ptr, ptr %0, align 8, !tbaa !22
+  tail call void %60(ptr noundef nonnull %8, ptr noundef %61) #7
+  store ptr null, ptr %0, align 8, !tbaa !22
+  br label %76
 
-if.end60:                                         ; preds = %if.then49
-  %idxprom61 = ashr exact i64 %add51, 32
-  %arrayidx62 = getelementptr inbounds i8, ptr %call54, i64 %idxprom61
-  store i8 0, ptr %arrayidx62, align 1
-  %cmp63 = icmp sgt i32 %conv4, 0
-  br i1 %cmp63, label %if.then65, label %if.end69
+62:                                               ; preds = %51
+  %63 = ashr exact i64 %53, 32
+  %64 = getelementptr inbounds i8, ptr %55, i64 %63
+  store i8 0, ptr %64, align 1, !tbaa !16
+  %65 = icmp sgt i32 %17, 0
+  br i1 %65, label %66, label %68
 
-if.then65:                                        ; preds = %if.end60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call54, ptr nonnull align 1 %valueFirst, i64 %idxprom61, i1 false)
-  %call68 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %call54, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end69
+66:                                               ; preds = %62
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %4, i64 %63, i1 false)
+  %67 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef nonnull %55, i32 noundef %6, i32 noundef %7) #7
+  br label %68
 
-if.end69:                                         ; preds = %if.then65, %if.end60
-  %10 = load ptr, ptr %prevNext, align 8
-  %value70 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %call54, ptr %value70, align 8
-  br label %if.end71
+68:                                               ; preds = %66, %62
+  %69 = load ptr, ptr %0, align 8, !tbaa !22
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr %55, ptr %70, align 8, !tbaa !12
+  br label %71
 
-if.end71:                                         ; preds = %if.end45, %if.end69
-  %value.0 = phi ptr [ %call54, %if.end69 ], [ null, %if.end45 ]
-  %11 = load ptr, ptr %prevNext, align 8
-  %value72 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %value.0, ptr %value72, align 8
-  %12 = load i32, ptr %itemCount, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %itemCount, align 4
-  br label %return
+71:                                               ; preds = %49, %68
+  %72 = phi ptr [ %69, %68 ], [ %50, %49 ]
+  %.0 = phi ptr [ %55, %68 ], [ null, %49 ]
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %.0, ptr %73, align 8, !tbaa !12
+  %74 = load i32, ptr %1, align 4, !tbaa !3
+  %75 = add nsw i32 %74, 1
+  store i32 %75, ptr %1, align 4, !tbaa !3
+  br label %76
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false20, %if.end71, %if.then57, %if.then37
-  %retval.0 = phi i32 [ 0, %if.then37 ], [ 0, %if.then57 ], [ 1, %if.end71 ], [ 1, %lor.lhs.false20 ], [ 1, %entry ], [ 0, %if.end ]
-  ret i32 %retval.0
+76:                                               ; preds = %28, %9, %23, %71, %57, %39
+  %.075 = phi i32 [ 0, %39 ], [ 0, %57 ], [ 1, %71 ], [ 1, %23 ], [ 1, %9 ], [ 0, %28 ]
+  ret i32 %.075
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly captures(address_is_null) %queryList, ptr noundef writeonly captures(address_is_null) %charsRequired) local_unnamed_addr #0 {
-entry:
-  %cmp.i = icmp eq ptr %queryList, null
-  %cmp1.i = icmp eq ptr %charsRequired, null
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %uriComposeQueryCharsRequiredExW.exit, label %if.end.i
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredW(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = icmp eq ptr %0, null
+  %4 = icmp eq ptr %1, null
+  %or.cond.i = or i1 %3, %4
+  br i1 %or.cond.i, label %uriComposeQueryCharsRequiredExW.exit, label %5
 
-if.end.i:                                         ; preds = %entry
-  store i32 0, ptr %charsRequired, align 4
-  br label %while.body.us.i.i
+5:                                                ; preds = %2
+  store i32 0, ptr %1, align 4, !tbaa !3
+  br label %.split.us.i.i
 
-while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %if.end.i
-  %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
-  %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
-  %2 = load ptr, ptr %value3.us.i.i, align 8
-  %cmp5.us.i.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
+.split.us.i.i:                                    ; preds = %22, %5
+  %6 = phi i32 [ %29, %22 ], [ 0, %5 ]
+  %.063100.us.i.i = phi ptr [ %31, %22 ], [ %0, %5 ]
+  %.06999.us.i.i = phi i32 [ 1, %22 ], [ 0, %5 ]
+  %7 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !24
+  %8 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %10 = icmp eq ptr %7, null
+  br i1 %10, label %14, label %11
 
-cond.false.us.i.i:                                ; preds = %while.body.us.i.i
-  %call.us.i.i = tail call i64 @wcslen(ptr noundef nonnull %1) #5
-  %conv.us.i.i = trunc i64 %call.us.i.i to i32
-  br label %cond.end.us.i.i
+11:                                               ; preds = %.split.us.i.i
+  %12 = tail call i64 @wcslen(ptr noundef nonnull %7) #6
+  %13 = trunc i64 %12 to i32
+  br label %14
 
-cond.end.us.i.i:                                  ; preds = %cond.false.us.i.i, %while.body.us.i.i
-  %cond6.us.i.i = phi i32 [ %conv.us.i.i, %cond.false.us.i.i ], [ 0, %while.body.us.i.i ]
-  %cmp7.us.i.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i.i, label %cond.end13.us.i.i, label %cond.false10.us.i.i
+14:                                               ; preds = %11, %.split.us.i.i
+  %15 = phi i32 [ %13, %11 ], [ 0, %.split.us.i.i ]
+  %16 = icmp eq ptr %9, null
+  br i1 %16, label %20, label %17
 
-cond.false10.us.i.i:                              ; preds = %cond.end.us.i.i
-  %call11.us.i.i = tail call i64 @wcslen(ptr noundef nonnull %2) #5
-  %conv12.us.i.i = trunc i64 %call11.us.i.i to i32
-  br label %cond.end13.us.i.i
+17:                                               ; preds = %14
+  %18 = tail call i64 @wcslen(ptr noundef nonnull %9) #6
+  %19 = trunc i64 %18 to i32
+  br label %20
 
-cond.end13.us.i.i:                                ; preds = %cond.false10.us.i.i, %cond.end.us.i.i
-  %cond14.us.i.i = phi i32 [ %conv12.us.i.i, %cond.false10.us.i.i ], [ 0, %cond.end.us.i.i ]
-  %cmp15.not.us.i.i = icmp slt i32 %cond6.us.i.i, 357913941
-  %cmp18.not.us.i.i = icmp slt i32 %cond14.us.i.i, 357913941
-  %or.cond.us.i.i = select i1 %cmp15.not.us.i.i, i1 %cmp18.not.us.i.i, i1 false
-  br i1 %or.cond.us.i.i, label %if.end21.us.i.i, label %uriComposeQueryCharsRequiredExW.exit
+20:                                               ; preds = %17, %14
+  %21 = phi i32 [ %19, %17 ], [ 0, %14 ]
+  %.not89.us.i.i = icmp slt i32 %15, 357913941
+  %.not90.us.i.i = icmp slt i32 %21, 357913941
+  %or.cond.us.i.i = select i1 %.not89.us.i.i, i1 %.not90.us.i.i, i1 false
+  br i1 %or.cond.us.i.i, label %22, label %uriComposeQueryCharsRequiredExW.exit
 
-if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
-  %mul.us.i.i = mul nsw i32 %cond6.us.i.i, 6
-  %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, 6
-  %add30.us.i.i = or disjoint i32 %mul22.us.i.i, 1
-  %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
-  %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
-  %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
-  %3 = load ptr, ptr %next.us.i.i, align 8
-  %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %while.body.us.i.i, !llvm.loop !8
+22:                                               ; preds = %20
+  %23 = mul nsw i32 %15, 6
+  %24 = mul nsw i32 %21, 6
+  %25 = or disjoint i32 %24, 1
+  %26 = select i1 %16, i32 0, i32 %25
+  %27 = add i32 %.06999.us.i.i, %6
+  %28 = add i32 %27, %23
+  %29 = add i32 %28, %26
+  store i32 %29, ptr %1, align 4, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %.not.us.i.i = icmp eq ptr %31, null
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !30
 
-uriComposeQueryCharsRequiredExW.exit:             ; preds = %cond.end13.us.i.i, %if.end21.us.i.i, %entry
-  %retval.0.i = phi i32 [ 2, %entry ], [ 4, %cond.end13.us.i.i ], [ 0, %if.end21.us.i.i ]
-  ret i32 %retval.0.i
+uriComposeQueryCharsRequiredExW.exit:             ; preds = %20, %22, %2
+  %.0.i = phi i32 [ 2, %2 ], [ 4, %20 ], [ 0, %22 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly captures(address_is_null) %queryList, ptr noundef writeonly captures(address_is_null) %charsRequired, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %queryList, null
-  %cmp1 = icmp eq ptr %charsRequired, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define range(i32 0, 5) i32 @uriComposeQueryCharsRequiredExW(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = icmp eq ptr %0, null
+  %6 = icmp eq ptr %1, null
+  %or.cond = or i1 %5, %6
+  br i1 %or.cond, label %uriComposeQueryEngineW.exit, label %7
 
-if.end:                                           ; preds = %entry
-  %cmp454.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i = select i1 %cmp454.i, i32 6, i32 3
-  %div56.i = select i1 %cmp454.i, i32 357913941, i32 715827882
-  store i32 0, ptr %charsRequired, align 4
-  br label %while.body.us.i
+7:                                                ; preds = %4
+  %8 = icmp eq i32 %3, 1
+  %9 = select i1 %8, i32 6, i32 3
+  %10 = select i1 %8, i32 357913941, i32 715827882
+  store i32 0, ptr %1, align 4, !tbaa !3
+  br label %.split.us.i
 
-while.body.us.i:                                  ; preds = %if.end21.us.i, %if.end
-  %0 = phi i32 [ %add34.us.i, %if.end21.us.i ], [ 0, %if.end ]
-  %queryList.addr.050.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %if.end ]
-  %ampersandLen.048.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %if.end ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i, align 8
-  %value3.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 8
-  %2 = load ptr, ptr %value3.us.i, align 8
-  %cmp5.us.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
+.split.us.i:                                      ; preds = %27, %7
+  %11 = phi i32 [ %34, %27 ], [ 0, %7 ]
+  %.063100.us.i = phi ptr [ %36, %27 ], [ %0, %7 ]
+  %.06999.us.i = phi i32 [ 1, %27 ], [ 0, %7 ]
+  %12 = load ptr, ptr %.063100.us.i, align 8, !tbaa !24
+  %13 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %15 = icmp eq ptr %12, null
+  br i1 %15, label %19, label %16
 
-cond.false.us.i:                                  ; preds = %while.body.us.i
-  %call.us.i = tail call i64 @wcslen(ptr noundef nonnull %1) #5
-  %conv.us.i = trunc i64 %call.us.i to i32
-  br label %cond.end.us.i
+16:                                               ; preds = %.split.us.i
+  %17 = tail call i64 @wcslen(ptr noundef nonnull %12) #6
+  %18 = trunc i64 %17 to i32
+  br label %19
 
-cond.end.us.i:                                    ; preds = %cond.false.us.i, %while.body.us.i
-  %cond6.us.i = phi i32 [ %conv.us.i, %cond.false.us.i ], [ 0, %while.body.us.i ]
-  %cmp7.us.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i, label %cond.end13.us.i, label %cond.false10.us.i
+19:                                               ; preds = %16, %.split.us.i
+  %20 = phi i32 [ %18, %16 ], [ 0, %.split.us.i ]
+  %21 = icmp eq ptr %14, null
+  br i1 %21, label %25, label %22
 
-cond.false10.us.i:                                ; preds = %cond.end.us.i
-  %call11.us.i = tail call i64 @wcslen(ptr noundef nonnull %2) #5
-  %conv12.us.i = trunc i64 %call11.us.i to i32
-  br label %cond.end13.us.i
+22:                                               ; preds = %19
+  %23 = tail call i64 @wcslen(ptr noundef nonnull %14) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-cond.end13.us.i:                                  ; preds = %cond.false10.us.i, %cond.end.us.i
-  %cond14.us.i = phi i32 [ %conv12.us.i, %cond.false10.us.i ], [ 0, %cond.end.us.i ]
-  %cmp15.not.us.i = icmp slt i32 %cond6.us.i, %div56.i
-  %cmp18.not.us.i = icmp slt i32 %cond14.us.i, %div56.i
-  %or.cond.us.i = select i1 %cmp15.not.us.i, i1 %cmp18.not.us.i, i1 false
-  br i1 %or.cond.us.i, label %if.end21.us.i, label %return
+25:                                               ; preds = %22, %19
+  %26 = phi i32 [ %24, %22 ], [ 0, %19 ]
+  %.not89.us.i = icmp slt i32 %20, %10
+  %.not90.us.i = icmp slt i32 %26, %10
+  %or.cond.us.i = select i1 %.not89.us.i, i1 %.not90.us.i, i1 false
+  br i1 %or.cond.us.i, label %27, label %uriComposeQueryEngineW.exit
 
-if.end21.us.i:                                    ; preds = %cond.end13.us.i
-  %mul.us.i = mul nsw i32 %cond6.us.i, %cond55.i
-  %mul22.us.i = mul nsw i32 %cond14.us.i, %cond55.i
-  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.048.us.i
-  %add30.us.i = add nsw i32 %mul22.us.i, 1
-  %cond32.us.i = select i1 %cmp7.us.i, i32 0, i32 %add30.us.i
-  %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
-  %add34.us.i = add nsw i32 %add33.us.i, %0
-  store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 16
-  %3 = load ptr, ptr %next.us.i, align 8
-  %cmp1.not.us.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !8
+27:                                               ; preds = %25
+  %28 = mul nsw i32 %20, %9
+  %29 = mul nsw i32 %26, %9
+  %30 = add nsw i32 %28, %.06999.us.i
+  %31 = add nsw i32 %29, 1
+  %32 = select i1 %21, i32 0, i32 %31
+  %33 = add nsw i32 %30, %32
+  %34 = add nsw i32 %33, %11
+  store i32 %34, ptr %1, align 4, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %.063100.us.i, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %.not.us.i = icmp eq ptr %36, null
+  br i1 %.not.us.i, label %uriComposeQueryEngineW.exit, label %.split.us.i, !llvm.loop !30
 
-return:                                           ; preds = %cond.end13.us.i, %if.end21.us.i, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 0, %if.end21.us.i ], [ 4, %cond.end13.us.i ]
-  ret i32 %retval.0
+uriComposeQueryEngineW.exit:                      ; preds = %25, %27, %4
+  %.0 = phi i32 [ 2, %4 ], [ 0, %27 ], [ 4, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %maxChars, ptr noundef captures(address_is_null) %charsWritten) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %maxChars, ptr noundef %charsWritten, i32 noundef 1, i32 noundef 1)
-  ret i32 %call
+define range(i32 0, 5) i32 @uriComposeQueryW(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+  %5 = tail call i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 1)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %dest, ptr noundef readonly captures(address_is_null) %queryList, i32 noundef %maxChars, ptr noundef writeonly captures(address_is_null) %charsWritten, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %dest, null
-  %cmp1 = icmp eq ptr %queryList, null
-  %or.cond = or i1 %cmp, %cmp1
-  br i1 %or.cond, label %return, label %if.end
+define range(i32 0, 5) i32 @uriComposeQueryExW(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+  %7 = icmp eq ptr %0, null
+  %8 = icmp eq ptr %1, null
+  %or.cond = or i1 %7, %8
+  br i1 %or.cond, label %uriComposeQueryEngineW.exit, label %9
 
-if.end:                                           ; preds = %entry
-  %cmp2 = icmp slt i32 %maxChars, 1
-  br i1 %cmp2, label %return, label %while.body.preheader.i
+9:                                                ; preds = %6
+  %10 = icmp slt i32 %2, 1
+  br i1 %10, label %uriComposeQueryEngineW.exit, label %.split.preheader.i
 
-while.body.preheader.i:                           ; preds = %if.end
-  %cmp454.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i = select i1 %cmp454.i, i32 6, i32 3
-  %div56.i = select i1 %cmp454.i, i32 357913941, i32 715827882
-  %sub.ptr.rhs.cast57.i = ptrtoint ptr %dest to i64
-  %dec.i = add nsw i32 %maxChars, -1
-  %conv44.i = zext nneg i32 %dec.i to i64
-  br label %while.body.i
+.split.preheader.i:                               ; preds = %9
+  %11 = icmp eq i32 %5, 1
+  %12 = select i1 %11, i32 6, i32 3
+  %13 = select i1 %11, i32 357913941, i32 715827882
+  %14 = ptrtoint ptr %0 to i64
+  %15 = add nsw i32 %2, -1
+  %16 = zext nneg i32 %15 to i64
+  br label %.split.i
 
-while.body.i:                                     ; preds = %if.end76.i, %while.body.preheader.i
-  %queryList.addr.050.i = phi ptr [ %2, %if.end76.i ], [ %queryList, %while.body.preheader.i ]
-  %cmp4949.i = phi i1 [ false, %if.end76.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.048.i = phi i32 [ %ampersandLen.2.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
-  %write.047.i = phi ptr [ %write.1.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
-  %0 = load ptr, ptr %queryList.addr.050.i, align 8
-  %value3.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 8
-  %1 = load ptr, ptr %value3.i, align 8
-  %cmp5.i = icmp eq ptr %0, null
-  br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
+.split.i:                                         ; preds = %64, %.split.preheader.i
+  %.063100.i = phi ptr [ %66, %64 ], [ %1, %.split.preheader.i ]
+  %17 = phi i1 [ false, %64 ], [ true, %.split.preheader.i ]
+  %.06999.i = phi i32 [ %.372.i, %64 ], [ 0, %.split.preheader.i ]
+  %.07398.i = phi ptr [ %.275.i, %64 ], [ %0, %.split.preheader.i ]
+  %18 = load ptr, ptr %.063100.i, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = icmp eq ptr %18, null
+  br i1 %21, label %25, label %22
 
-cond.false.i:                                     ; preds = %while.body.i
-  %call.i = tail call i64 @wcslen(ptr noundef nonnull %0) #5
-  %conv.i = trunc i64 %call.i to i32
-  br label %cond.end.i
+22:                                               ; preds = %.split.i
+  %23 = tail call i64 @wcslen(ptr noundef nonnull %18) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-cond.end.i:                                       ; preds = %cond.false.i, %while.body.i
-  %cond6.i = phi i32 [ %conv.i, %cond.false.i ], [ 0, %while.body.i ]
-  %cmp7.i = icmp eq ptr %1, null
-  br i1 %cmp7.i, label %cond.end13.i, label %cond.false10.i
+25:                                               ; preds = %22, %.split.i
+  %26 = phi i32 [ %24, %22 ], [ 0, %.split.i ]
+  %27 = icmp eq ptr %20, null
+  br i1 %27, label %31, label %28
 
-cond.false10.i:                                   ; preds = %cond.end.i
-  %call11.i = tail call i64 @wcslen(ptr noundef nonnull %1) #5
-  %conv12.i = trunc i64 %call11.i to i32
-  br label %cond.end13.i
+28:                                               ; preds = %25
+  %29 = tail call i64 @wcslen(ptr noundef nonnull %20) #6
+  %30 = trunc i64 %29 to i32
+  br label %31
 
-cond.end13.i:                                     ; preds = %cond.false10.i, %cond.end.i
-  %cond14.i = phi i32 [ %conv12.i, %cond.false10.i ], [ 0, %cond.end.i ]
-  %cmp15.not.i = icmp slt i32 %cond6.i, %div56.i
-  %cmp18.not.i = icmp slt i32 %cond14.i, %div56.i
-  %or.cond.i = select i1 %cmp15.not.i, i1 %cmp18.not.i, i1 false
-  br i1 %or.cond.i, label %if.end21.i, label %return
+31:                                               ; preds = %28, %25
+  %32 = phi i32 [ %30, %28 ], [ 0, %25 ]
+  %.not89.i = icmp slt i32 %26, %13
+  %.not90.i = icmp slt i32 %32, %13
+  %or.cond.i = select i1 %.not89.i, i1 %.not90.i, i1 false
+  br i1 %or.cond.i, label %33, label %uriComposeQueryEngineW.exit
 
-if.end21.i:                                       ; preds = %cond.end13.i
-  %mul.i = mul nsw i32 %cond6.i, %cond55.i
-  %mul22.i = mul nsw i32 %cond14.i, %cond55.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.047.i to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast57.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %conv40.i = zext nneg i32 %ampersandLen.048.i to i64
-  %add41.i = add nsw i64 %sub.ptr.div.i, %conv40.i
-  %conv42.i = sext i32 %mul.i to i64
-  %add43.i = add nsw i64 %add41.i, %conv42.i
-  %cmp45.i = icmp sgt i64 %add43.i, %conv44.i
-  br i1 %cmp45.i, label %return, label %if.end48.i
+33:                                               ; preds = %31
+  %34 = mul nsw i32 %26, %12
+  %35 = mul nsw i32 %32, %12
+  %36 = ptrtoint ptr %.07398.i to i64
+  %37 = sub i64 %36, %14
+  %38 = ashr exact i64 %37, 2
+  %39 = zext nneg i32 %.06999.i to i64
+  %40 = add nsw i64 %38, %39
+  %41 = sext i32 %34 to i64
+  %42 = add nsw i64 %40, %41
+  %43 = icmp sgt i64 %42, %16
+  br i1 %43, label %uriComposeQueryEngineW.exit, label %44
 
-if.end48.i:                                       ; preds = %if.end21.i
-  br i1 %cmp4949.i, label %if.end53.i, label %if.else52.i
+44:                                               ; preds = %33
+  br i1 %17, label %47, label %45
 
-if.else52.i:                                      ; preds = %if.end48.i
-  store i32 38, ptr %write.047.i, align 4
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %write.047.i, i64 4
-  br label %if.end53.i
+45:                                               ; preds = %44
+  store i32 38, ptr %.07398.i, align 4, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %.07398.i, i64 4
+  br label %47
 
-if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.2.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.047.i, %if.end48.i ]
-  %ampersandLen.2.i = phi i32 [ %ampersandLen.048.i, %if.else52.i ], [ 1, %if.end48.i ]
-  %idx.ext.i = sext i32 %cond6.i to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %idx.ext.i
-  %call54.i = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.2.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
-  br i1 %cmp7.i, label %if.end76.i, label %if.then57.i
+47:                                               ; preds = %45, %44
+  %.376.i = phi ptr [ %46, %45 ], [ %.07398.i, %44 ]
+  %.372.i = phi i32 [ %.06999.i, %45 ], [ 1, %44 ]
+  %48 = sext i32 %26 to i64
+  %49 = getelementptr inbounds i32, ptr %18, i64 %48
+  %50 = tail call ptr @uriEscapeExW(ptr noundef %18, ptr noundef %49, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
+  br i1 %27, label %64, label %51
 
-if.then57.i:                                      ; preds = %if.end53.i
-  %sub.ptr.lhs.cast58.i = ptrtoint ptr %call54.i to i64
-  %sub.ptr.sub60.i = sub i64 %sub.ptr.lhs.cast58.i, %sub.ptr.rhs.cast57.i
-  %sub.ptr.div61.i = ashr exact i64 %sub.ptr.sub60.i, 2
-  %conv63.i = sext i32 %mul22.i to i64
-  %add62.i = add nsw i64 %conv63.i, 1
-  %add64.i = add nsw i64 %add62.i, %sub.ptr.div61.i
-  %cmp66.i = icmp sgt i64 %add64.i, %conv44.i
-  br i1 %cmp66.i, label %return, label %if.end69.i
+51:                                               ; preds = %47
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %52, %14
+  %54 = ashr exact i64 %53, 2
+  %55 = sext i32 %35 to i64
+  %56 = add nsw i64 %55, 1
+  %57 = add nsw i64 %56, %54
+  %58 = icmp sgt i64 %57, %16
+  br i1 %58, label %uriComposeQueryEngineW.exit, label %59
 
-if.end69.i:                                       ; preds = %if.then57.i
-  store i32 61, ptr %call54.i, align 4
-  %incdec.ptr71.i = getelementptr inbounds nuw i8, ptr %call54.i, i64 4
-  %idx.ext72.i = sext i32 %cond14.i to i64
-  %add.ptr73.i = getelementptr inbounds i32, ptr %1, i64 %idx.ext72.i
-  %call74.i = tail call ptr @uriEscapeExW(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr73.i, ptr noundef nonnull %incdec.ptr71.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
-  br label %if.end76.i
+59:                                               ; preds = %51
+  store i32 61, ptr %50, align 4, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %61 = sext i32 %32 to i64
+  %62 = getelementptr inbounds i32, ptr %20, i64 %61
+  %63 = tail call ptr @uriEscapeExW(ptr noundef nonnull %20, ptr noundef nonnull %62, ptr noundef nonnull %60, i32 noundef %4, i32 noundef %5) #7
+  br label %64
 
-if.end76.i:                                       ; preds = %if.end69.i, %if.end53.i
-  %write.1.i = phi ptr [ %call74.i, %if.end69.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 16
-  %2 = load ptr, ptr %next.i, align 8
-  %cmp1.not.i = icmp eq ptr %2, null
-  br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !8
+64:                                               ; preds = %59, %47
+  %.275.i = phi ptr [ %63, %59 ], [ %50, %47 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.063100.i, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !29
+  %.not.i = icmp eq ptr %66, null
+  br i1 %.not.i, label %.split102.us.i, label %.split.i, !llvm.loop !30
 
-if.then79.i:                                      ; preds = %if.end76.i
-  store i32 0, ptr %write.1.i, align 4
-  %cmp81.not.i = icmp eq ptr %charsWritten, null
-  br i1 %cmp81.not.i, label %return, label %if.then83.i
+.split102.us.i:                                   ; preds = %64
+  store i32 0, ptr %.275.i, align 4, !tbaa !3
+  %.not88.i = icmp eq ptr %3, null
+  br i1 %.not88.i, label %uriComposeQueryEngineW.exit, label %67
 
-if.then83.i:                                      ; preds = %if.then79.i
-  %sub.ptr.lhs.cast84.i = ptrtoint ptr %write.1.i to i64
-  %sub.ptr.sub86.i = sub i64 %sub.ptr.lhs.cast84.i, %sub.ptr.rhs.cast57.i
-  %sub.ptr.div87.i = lshr exact i64 %sub.ptr.sub86.i, 2
-  %conv88.i = trunc i64 %sub.ptr.div87.i to i32
-  %add89.i = add nsw i32 %conv88.i, 1
-  store i32 %add89.i, ptr %charsWritten, align 4
-  br label %return
+67:                                               ; preds = %.split102.us.i
+  %68 = ptrtoint ptr %.275.i to i64
+  %69 = sub i64 %68, %14
+  %70 = lshr exact i64 %69, 2
+  %71 = trunc i64 %70 to i32
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %3, align 4, !tbaa !3
+  br label %uriComposeQueryEngineW.exit
 
-return:                                           ; preds = %if.then57.i, %if.end21.i, %cond.end13.i, %if.then83.i, %if.then79.i, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 4, %if.end ], [ 0, %if.then79.i ], [ 0, %if.then83.i ], [ 4, %cond.end13.i ], [ 4, %if.end21.i ], [ 4, %if.then57.i ]
-  ret i32 %retval.0
+uriComposeQueryEngineW.exit:                      ; preds = %51, %33, %31, %67, %.split102.us.i, %9, %6
+  %.0 = phi i32 [ 2, %6 ], [ 4, %9 ], [ 0, %.split102.us.i ], [ 0, %67 ], [ 4, %31 ], [ 4, %33 ], [ 4, %51 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList) local_unnamed_addr #1 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef 1, i32 noundef 1, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriComposeQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+  %3 = tail call range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef %1, i32 noundef 1, i32 noundef 1, ptr noundef null)
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %dest, ptr noundef %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriComposeQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+  %5 = tail call i32 @uriComposeQueryMallocExMmW(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %dest, ptr noundef captures(address_is_null) %queryList, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %dest, null
-  br i1 %cmp, label %return, label %do.body
+define range(i32 0, 11) i32 @uriComposeQueryMallocExMmW(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+  %6 = icmp eq ptr %0, null
+  br i1 %6, label %uriComposeQueryCharsRequiredExW.exit.thread, label %7
 
-do.body:                                          ; preds = %entry
-  %cmp1 = icmp eq ptr %memory, null
-  br i1 %cmp1, label %do.end, label %if.else
+7:                                                ; preds = %5
+  %8 = icmp eq ptr %4, null
+  br i1 %8, label %11, label %9
 
-if.else:                                          ; preds = %do.body
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp3.not = icmp eq i32 %call, 1
-  br i1 %cmp3.not, label %do.end, label %return
+9:                                                ; preds = %7
+  %10 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %4) #7
+  %.not = icmp eq i32 %10, 1
+  br i1 %.not, label %11, label %uriComposeQueryCharsRequiredExW.exit.thread
 
-do.end:                                           ; preds = %do.body, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  %cmp.i = icmp eq ptr %queryList, null
-  br i1 %cmp.i, label %return, label %if.end.i
+11:                                               ; preds = %7, %9
+  %.022 = phi ptr [ %4, %9 ], [ @defaultMemoryManager, %7 ]
+  %12 = icmp eq ptr %1, null
+  br i1 %12, label %uriComposeQueryCharsRequiredExW.exit.thread, label %13
 
-if.end.i:                                         ; preds = %do.end
-  %cmp454.i.i = icmp eq i32 %normalizeBreaks, 1
-  %cond55.i.i = select i1 %cmp454.i.i, i32 6, i32 3
-  %div56.i.i = select i1 %cmp454.i.i, i32 357913941, i32 715827882
-  br label %while.body.us.i.i
+13:                                               ; preds = %11
+  %14 = icmp eq i32 %3, 1
+  %15 = select i1 %14, i32 6, i32 3
+  %16 = select i1 %14, i32 357913941, i32 715827882
+  br label %.split.us.i.i
 
-while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %if.end.i
-  %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
-  %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
-  %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
-  %2 = load ptr, ptr %value3.us.i.i, align 8
-  %cmp5.us.i.i = icmp eq ptr %1, null
-  br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
+.split.us.i.i:                                    ; preds = %33, %13
+  %17 = phi i32 [ %40, %33 ], [ 0, %13 ]
+  %.063100.us.i.i = phi ptr [ %42, %33 ], [ %1, %13 ]
+  %.06999.us.i.i = phi i32 [ 1, %33 ], [ 0, %13 ]
+  %18 = load ptr, ptr %.063100.us.i.i, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %21 = icmp eq ptr %18, null
+  br i1 %21, label %25, label %22
 
-cond.false.us.i.i:                                ; preds = %while.body.us.i.i
-  %call.us.i.i = tail call i64 @wcslen(ptr noundef nonnull %1) #5
-  %conv.us.i.i = trunc i64 %call.us.i.i to i32
-  br label %cond.end.us.i.i
+22:                                               ; preds = %.split.us.i.i
+  %23 = tail call i64 @wcslen(ptr noundef nonnull %18) #6
+  %24 = trunc i64 %23 to i32
+  br label %25
 
-cond.end.us.i.i:                                  ; preds = %cond.false.us.i.i, %while.body.us.i.i
-  %cond6.us.i.i = phi i32 [ %conv.us.i.i, %cond.false.us.i.i ], [ 0, %while.body.us.i.i ]
-  %cmp7.us.i.i = icmp eq ptr %2, null
-  br i1 %cmp7.us.i.i, label %cond.end13.us.i.i, label %cond.false10.us.i.i
+25:                                               ; preds = %22, %.split.us.i.i
+  %26 = phi i32 [ %24, %22 ], [ 0, %.split.us.i.i ]
+  %27 = icmp eq ptr %20, null
+  br i1 %27, label %31, label %28
 
-cond.false10.us.i.i:                              ; preds = %cond.end.us.i.i
-  %call11.us.i.i = tail call i64 @wcslen(ptr noundef nonnull %2) #5
-  %conv12.us.i.i = trunc i64 %call11.us.i.i to i32
-  br label %cond.end13.us.i.i
+28:                                               ; preds = %25
+  %29 = tail call i64 @wcslen(ptr noundef nonnull %20) #6
+  %30 = trunc i64 %29 to i32
+  br label %31
 
-cond.end13.us.i.i:                                ; preds = %cond.false10.us.i.i, %cond.end.us.i.i
-  %cond14.us.i.i = phi i32 [ %conv12.us.i.i, %cond.false10.us.i.i ], [ 0, %cond.end.us.i.i ]
-  %cmp15.not.us.i.i = icmp slt i32 %cond6.us.i.i, %div56.i.i
-  %cmp18.not.us.i.i = icmp slt i32 %cond14.us.i.i, %div56.i.i
-  %or.cond.us.i.i = select i1 %cmp15.not.us.i.i, i1 %cmp18.not.us.i.i, i1 false
-  br i1 %or.cond.us.i.i, label %if.end21.us.i.i, label %return
+31:                                               ; preds = %28, %25
+  %32 = phi i32 [ %30, %28 ], [ 0, %25 ]
+  %.not89.us.i.i = icmp slt i32 %26, %16
+  %.not90.us.i.i = icmp slt i32 %32, %16
+  %or.cond.us.i.i = select i1 %.not89.us.i.i, i1 %.not90.us.i.i, i1 false
+  br i1 %or.cond.us.i.i, label %33, label %uriComposeQueryCharsRequiredExW.exit.thread
 
-if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
-  %mul.us.i.i = mul nsw i32 %cond6.us.i.i, %cond55.i.i
-  %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, %cond55.i.i
-  %add30.us.i.i = add nsw i32 %mul22.us.i.i, 1
-  %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
-  %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
-  %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
-  %3 = load ptr, ptr %next.us.i.i, align 8
-  %cmp1.not.us.i.i = icmp eq ptr %3, null
-  br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !8
+33:                                               ; preds = %31
+  %34 = mul nsw i32 %26, %15
+  %35 = mul nsw i32 %32, %15
+  %36 = add nsw i32 %35, 1
+  %37 = select i1 %27, i32 0, i32 %36
+  %38 = add i32 %.06999.us.i.i, %17
+  %39 = add i32 %38, %34
+  %40 = add i32 %39, %37
+  %41 = getelementptr inbounds nuw i8, ptr %.063100.us.i.i, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %.not.us.i.i = icmp eq ptr %42, null
+  br i1 %.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %.split.us.i.i, !llvm.loop !30
 
-if.end10:                                         ; preds = %if.end21.us.i.i
-  %inc = add nsw i32 %add34.us.i.i, 1
-  %4 = load ptr, ptr %memory.addr.0, align 8
-  %conv = sext i32 %inc to i64
-  %mul = shl nsw i64 %conv, 2
-  %call11 = tail call ptr %4(ptr noundef nonnull %memory.addr.0, i64 noundef %mul) #6
-  %cmp12 = icmp eq ptr %call11, null
-  br i1 %cmp12, label %return, label %if.end15
+uriComposeQueryCharsRequiredExW.exit:             ; preds = %33
+  %43 = add nsw i32 %40, 1
+  %44 = load ptr, ptr %.022, align 8, !tbaa !17
+  %45 = sext i32 %43 to i64
+  %46 = shl nsw i64 %45, 2
+  %47 = tail call ptr %44(ptr noundef nonnull %.022, i64 noundef %46) #7
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %uriComposeQueryCharsRequiredExW.exit.thread, label %49
 
-if.end15:                                         ; preds = %if.end10
-  %call16 = tail call i32 @uriComposeQueryExW(ptr noundef nonnull %call11, ptr noundef nonnull %queryList, i32 noundef %inc, ptr noundef null, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks)
-  %cmp17.not = icmp eq i32 %call16, 0
-  br i1 %cmp17.not, label %if.end20, label %if.then19
+49:                                               ; preds = %uriComposeQueryCharsRequiredExW.exit
+  %50 = tail call i32 @uriComposeQueryExW(ptr noundef nonnull %47, ptr noundef nonnull %1, i32 noundef %43, ptr noundef null, i32 noundef %2, i32 noundef %3)
+  %.not29 = icmp eq i32 %50, 0
+  br i1 %.not29, label %54, label %51
 
-if.then19:                                        ; preds = %if.end15
-  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %5 = load ptr, ptr %free, align 8
-  tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %call11) #6
-  br label %return
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %.022, i64 32
+  %53 = load ptr, ptr %52, align 8, !tbaa !19
+  tail call void %53(ptr noundef nonnull %.022, ptr noundef nonnull %47) #7
+  br label %uriComposeQueryCharsRequiredExW.exit.thread
 
-if.end20:                                         ; preds = %if.end15
-  store ptr %call11, ptr %dest, align 8
-  br label %return
+54:                                               ; preds = %49
+  store ptr %47, ptr %0, align 8, !tbaa !31
+  br label %uriComposeQueryCharsRequiredExW.exit.thread
 
-return:                                           ; preds = %cond.end13.us.i.i, %do.end, %if.end10, %if.else, %entry, %if.end20, %if.then19
-  %retval.0 = phi i32 [ %call16, %if.then19 ], [ 0, %if.end20 ], [ 2, %entry ], [ 10, %if.else ], [ 3, %if.end10 ], [ 2, %do.end ], [ 4, %cond.end13.us.i.i ]
-  ret i32 %retval.0
+uriComposeQueryCharsRequiredExW.exit.thread:      ; preds = %31, %11, %uriComposeQueryCharsRequiredExW.exit, %9, %5, %54, %51
+  %.0 = phi i32 [ %50, %51 ], [ 0, %54 ], [ 2, %5 ], [ 10, %9 ], [ 3, %uriComposeQueryCharsRequiredExW.exit ], [ 2, %11 ], [ 4, %31 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFreeQueryListW(ptr noundef %queryList) local_unnamed_addr #1 {
-entry:
-  %cmp4.not12.i = icmp eq ptr %queryList, null
-  br i1 %cmp4.not12.i, label %uriFreeQueryListMmW.exit, label %while.body.i
+define void @uriFreeQueryListW(ptr noundef %0) local_unnamed_addr #2 {
+  %.not1718.i = icmp eq ptr %0, null
+  br i1 %.not1718.i, label %uriFreeQueryListMmW.exit, label %.lr.ph.i
 
-while.body.i:                                     ; preds = %entry, %while.body.i
-  %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
-  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
-  %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %2 = load ptr, ptr %queryList.addr.013.i, align 8
-  tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
-  %4 = load ptr, ptr %value.i, align 8
-  tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
-  tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
-  %cmp4.not.i = icmp eq ptr %0, null
-  br i1 %cmp4.not.i, label %uriFreeQueryListMmW.exit, label %while.body.i, !llvm.loop !9
+.lr.ph.i:                                         ; preds = %1, %.lr.ph.i
+  %.01519.i = phi ptr [ %3, %.lr.ph.i ], [ %0, %1 ]
+  %2 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %5 = load ptr, ptr %.01519.i, align 8, !tbaa !24
+  tail call void %4(ptr noundef nonnull @defaultMemoryManager, ptr noundef %5) #7
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  tail call void %6(ptr noundef nonnull @defaultMemoryManager, ptr noundef %8) #7
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8, !tbaa !19
+  tail call void %9(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %.01519.i) #7
+  %.not17.i = icmp eq ptr %3, null
+  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %.lr.ph.i, !llvm.loop !32
 
-uriFreeQueryListMmW.exit:                         ; preds = %while.body.i, %entry
+uriFreeQueryListMmW.exit:                         ; preds = %.lr.ph.i, %1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %queryList, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %cmp = icmp eq ptr %memory, null
-  br i1 %cmp, label %do.end, label %if.else
+define range(i32 0, 11) i32 @uriFreeQueryListMmW(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+  %3 = icmp eq ptr %1, null
+  br i1 %3, label %6, label %4
 
-if.else:                                          ; preds = %entry
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp1.not = icmp eq i32 %call, 1
-  br i1 %cmp1.not, label %do.end, label %return
+4:                                                ; preds = %2
+  %5 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %1) #7
+  %.not = icmp eq i32 %5, 1
+  br i1 %.not, label %6, label %.loopexit
 
-do.end:                                           ; preds = %entry, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %entry ]
-  %cmp4.not12 = icmp eq ptr %queryList, null
-  br i1 %cmp4.not12, label %return, label %while.body.lr.ph
+6:                                                ; preds = %2, %4
+  %.014 = phi ptr [ %1, %4 ], [ @defaultMemoryManager, %2 ]
+  %.not1718 = icmp eq ptr %0, null
+  br i1 %.not1718, label %.loopexit, label %.lr.ph
 
-while.body.lr.ph:                                 ; preds = %do.end
-  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body
+.lr.ph:                                           ; preds = %6
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 32
+  br label %8
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %queryList.addr.013 = phi ptr [ %queryList, %while.body.lr.ph ], [ %0, %while.body ]
-  %next = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 16
-  %0 = load ptr, ptr %next, align 8
-  %1 = load ptr, ptr %free, align 8
-  %2 = load ptr, ptr %queryList.addr.013, align 8
-  tail call void %1(ptr noundef nonnull %memory.addr.0, ptr noundef %2) #6
-  %3 = load ptr, ptr %free, align 8
-  %value = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 8
-  %4 = load ptr, ptr %value, align 8
-  tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef %4) #6
-  %5 = load ptr, ptr %free, align 8
-  tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013) #6
-  %cmp4.not = icmp eq ptr %0, null
-  br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !9
+8:                                                ; preds = %.lr.ph, %8
+  %.01519 = phi ptr [ %0, %.lr.ph ], [ %10, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01519, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  %11 = load ptr, ptr %7, align 8, !tbaa !19
+  %12 = load ptr, ptr %.01519, align 8, !tbaa !24
+  tail call void %11(ptr noundef nonnull %.014, ptr noundef %12) #7
+  %13 = load ptr, ptr %7, align 8, !tbaa !19
+  %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  tail call void %13(ptr noundef nonnull %.014, ptr noundef %15) #7
+  %16 = load ptr, ptr %7, align 8, !tbaa !19
+  tail call void %16(ptr noundef nonnull %.014, ptr noundef nonnull %.01519) #7
+  %.not17 = icmp eq ptr %10, null
+  br i1 %.not17, label %.loopexit, label %8, !llvm.loop !32
 
-return:                                           ; preds = %while.body, %do.end, %if.else
-  %retval.0 = phi i32 [ 10, %if.else ], [ 0, %do.end ], [ 0, %while.body ]
-  ret i32 %retval.0
+.loopexit:                                        ; preds = %8, %6, %4
+  %.0 = phi i32 [ 10, %4 ], [ 0, %6 ], [ 0, %8 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef captures(address) %afterLast) local_unnamed_addr #1 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef 1, i32 noundef 3, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriDissectQueryMallocW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #2 {
+  %5 = tail call range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, i32 noundef 3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef captures(address) %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %dest, ptr noundef %itemCount, ptr noundef %first, ptr noundef %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriDissectQueryMallocExW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+  %7 = tail call i32 @uriDissectQueryMallocExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef null)
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(address_is_null) %dest, ptr noundef captures(address_is_null) %itemCount, ptr noundef %first, ptr noundef readnone captures(address) %afterLast, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) local_unnamed_addr #1 {
-entry:
-  %nullCounter = alloca i32, align 4
-  %cmp = icmp eq ptr %itemCount, null
-  %cond = select i1 %cmp, ptr %nullCounter, ptr %itemCount
-  %cmp1 = icmp eq ptr %dest, null
-  %cmp2 = icmp eq ptr %first, null
-  %or.cond = or i1 %cmp1, %cmp2
-  %cmp4 = icmp eq ptr %afterLast, null
-  %or.cond1 = or i1 %or.cond, %cmp4
-  br i1 %or.cond1, label %return, label %if.end
+define range(i32 0, 11) i32 @uriDissectQueryMallocExMmW(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
+  %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  %9 = icmp eq ptr %1, null
+  %10 = select i1 %9, ptr %8, ptr %1
+  %11 = icmp eq ptr %0, null
+  %12 = icmp eq ptr %2, null
+  %or.cond = or i1 %11, %12
+  %13 = icmp eq ptr %3, null
+  %or.cond3 = or i1 %or.cond, %13
+  br i1 %or.cond3, label %uriFreeQueryListMmW.exit, label %14
 
-if.end:                                           ; preds = %entry
-  %cmp5 = icmp ugt ptr %first, %afterLast
-  br i1 %cmp5, label %return, label %do.body
+14:                                               ; preds = %7
+  %15 = icmp ugt ptr %2, %3
+  br i1 %15, label %uriFreeQueryListMmW.exit, label %16
 
-do.body:                                          ; preds = %if.end
-  %cmp8 = icmp eq ptr %memory, null
-  br i1 %cmp8, label %do.end, label %if.else
+16:                                               ; preds = %14
+  %17 = icmp eq ptr %6, null
+  br i1 %17, label %20, label %18
 
-if.else:                                          ; preds = %do.body
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #6
-  %cmp10.not = icmp eq i32 %call, 1
-  br i1 %cmp10.not, label %do.end, label %return
+18:                                               ; preds = %16
+  %19 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %6) #7
+  %.not = icmp eq i32 %19, 1
+  br i1 %.not, label %20, label %uriFreeQueryListMmW.exit
 
-do.end:                                           ; preds = %do.body, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %do.body ]
-  store ptr null, ptr %dest, align 8
-  store i32 0, ptr %cond, align 4
-  %cmp14139 = icmp ult ptr %first, %afterLast
-  br i1 %cmp14139, label %for.body.outer, label %if.else45.split
+20:                                               ; preds = %16, %18
+  %.077 = phi ptr [ %6, %18 ], [ @defaultMemoryManager, %16 ]
+  store ptr null, ptr %0, align 8, !tbaa !33
+  store i32 0, ptr %10, align 4, !tbaa !3
+  %21 = icmp ult ptr %2, %3
+  br i1 %21, label %.lr.ph.outer, label %.split83
 
-for.body.outer:                                   ; preds = %do.end, %for.inc.thread
-  %prevNext.0146.ph = phi ptr [ %spec.select, %for.inc.thread ], [ %dest, %do.end ]
-  %keyFirst.0142.ph = phi ptr [ %keyFirst.1, %for.inc.thread ], [ %first, %do.end ]
-  %walk.0140.ph = phi ptr [ %incdec.ptr171, %for.inc.thread ], [ %first, %do.end ]
-  br label %for.body
+.lr.ph.outer:                                     ; preds = %20, %.thread
+  %.063140.ph = phi ptr [ %spec.select, %.thread ], [ %0, %20 ]
+  %.073136.ph = phi ptr [ %.174, %.thread ], [ %2, %20 ]
+  %.076134.ph = phi ptr [ %88, %.thread ], [ %2, %20 ]
+  br label %.lr.ph
 
-for.body:                                         ; preds = %for.body.outer, %for.inc
-  %valueAfter.0145 = phi ptr [ %valueAfter.2, %for.inc ], [ null, %for.body.outer ]
-  %valueFirst.0144 = phi ptr [ %valueFirst.1, %for.inc ], [ null, %for.body.outer ]
-  %keyAfter.0143 = phi ptr [ %keyAfter.2, %for.inc ], [ null, %for.body.outer ]
-  %walk.0140 = phi ptr [ %incdec.ptr, %for.inc ], [ %walk.0140.ph, %for.body.outer ]
-  %0 = load i32, ptr %walk.0140, align 4
-  switch i32 %0, label %for.inc [
-    i32 38, label %sw.bb
-    i32 61, label %sw.bb33
+.lr.ph:                                           ; preds = %.lr.ph.outer, %81
+  %.064139 = phi ptr [ %.266, %81 ], [ null, %.lr.ph.outer ]
+  %.067138 = phi ptr [ %.168, %81 ], [ null, %.lr.ph.outer ]
+  %.069137 = phi ptr [ %.271, %81 ], [ null, %.lr.ph.outer ]
+  %.076134 = phi ptr [ %82, %81 ], [ %.076134.ph, %.lr.ph.outer ]
+  %22 = load i32, ptr %.076134, align 4, !tbaa !3
+  switch i32 %22, label %81 [
+    i32 38, label %23
+    i32 61, label %77
   ]
 
-sw.bb:                                            ; preds = %for.body
-  %cmp15.not = icmp eq ptr %valueFirst.0144, null
-  br i1 %cmp15.not, label %if.else17.split, label %if.end18
+23:                                               ; preds = %.lr.ph
+  %.not94 = icmp eq ptr %.067138, null
+  br i1 %.not94, label %.split79, label %uriAppendQueryItemW.exit
 
-if.else17.split:                                  ; preds = %sw.bb
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %walk.0140 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %keyFirst.0142.ph to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
-  %conv.i = trunc i64 %sub.ptr.div.i to i32
-  %cmp10.i = icmp eq ptr %keyFirst.0142.ph, null
-  %cmp16.i = icmp ugt ptr %keyFirst.0142.ph, %walk.0140
-  %or.cond.i = or i1 %cmp16.i, %cmp10.i
-  br i1 %or.cond.i, label %for.inc.thread, label %lor.lhs.false21.i
+.split79:                                         ; preds = %23
+  %24 = ptrtoint ptr %.076134 to i64
+  %25 = ptrtoint ptr %.073136.ph to i64
+  %26 = sub i64 %24, %25
+  %27 = lshr exact i64 %26, 2
+  %28 = trunc i64 %27 to i32
+  %29 = icmp eq ptr %.073136.ph, null
+  %30 = icmp ugt ptr %.073136.ph, %.076134
+  %or.cond.i = or i1 %30, %29
+  br i1 %or.cond.i, label %.thread, label %31
 
-lor.lhs.false21.i:                                ; preds = %if.else17.split
-  %cmp22.i = icmp eq ptr %keyFirst.0142.ph, %walk.0140
-  %cmp27.i = icmp eq ptr %valueAfter.0145, null
-  %1 = and i1 %cmp22.i, %cmp27.i
-  br i1 %1, label %for.inc.thread, label %if.end.i
+31:                                               ; preds = %.split79
+  %32 = icmp eq ptr %.073136.ph, %.076134
+  %33 = icmp eq ptr %.064139, null
+  %34 = and i1 %32, %33
+  br i1 %34, label %.thread, label %35
 
-if.end.i:                                         ; preds = %lor.lhs.false21.i
-  %2 = load ptr, ptr %memory.addr.0, align 8
-  %call.i = call ptr %2(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
-  store ptr %call.i, ptr %prevNext.0146.ph, align 8
-  %cmp29.i = icmp eq ptr %call.i, null
-  br i1 %cmp29.i, label %if.then21, label %if.end32.i
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %.077, align 8, !tbaa !17
+  %37 = call ptr %36(ptr noundef nonnull %.077, i64 noundef 24) #7
+  store ptr %37, ptr %.063140.ph, align 8, !tbaa !33
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %uriAppendQueryItemW.exit.thread113, label %39
 
-if.end32.i:                                       ; preds = %if.end.i
-  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr null, ptr %next.i, align 8
-  %3 = load ptr, ptr %memory.addr.0, align 8
-  %add.i = shl i64 %sub.ptr.sub.i, 30
-  %sext.i = add i64 %add.i, 4294967296
-  %4 = ashr exact i64 %sext.i, 30
-  %mul.i = and i64 %4, -4
-  %call35.i = call ptr %3(ptr noundef nonnull %memory.addr.0, i64 noundef %mul.i) #6
-  %cmp36.i = icmp eq ptr %call35.i, null
-  br i1 %cmp36.i, label %if.then38.i, label %if.end39.i
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr null, ptr %40, align 8, !tbaa !29
+  %41 = load ptr, ptr %.077, align 8, !tbaa !17
+  %42 = shl i64 %26, 30
+  %sext.i = add i64 %42, 4294967296
+  %43 = ashr exact i64 %sext.i, 30
+  %44 = and i64 %43, -4
+  %45 = call ptr %41(ptr noundef nonnull %.077, i64 noundef %44) #7
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %51
 
-if.then38.i:                                      ; preds = %if.end32.i
-  %free.i = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %5 = load ptr, ptr %free.i, align 8
-  %6 = load ptr, ptr %prevNext.0146.ph, align 8
-  call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef %6) #6
-  store ptr null, ptr %prevNext.0146.ph, align 8
-  br label %if.then21
+47:                                               ; preds = %39
+  %48 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
+  %50 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
+  call void %49(ptr noundef nonnull %.077, ptr noundef %50) #7
+  store ptr null, ptr %.063140.ph, align 8, !tbaa !33
+  br label %uriAppendQueryItemW.exit.thread113
 
-if.end39.i:                                       ; preds = %if.end32.i
-  %idxprom.i = ashr i64 %add.i, 32
-  %arrayidx.i = getelementptr inbounds i32, ptr %call35.i, i64 %idxprom.i
-  store i32 0, ptr %arrayidx.i, align 4
-  %cmp40.i = icmp sgt i32 %conv.i, 0
-  br i1 %cmp40.i, label %if.then42.i, label %if.end46.i
+51:                                               ; preds = %39
+  %52 = ashr i64 %42, 32
+  %53 = getelementptr inbounds i32, ptr %45, i64 %52
+  store i32 0, ptr %53, align 4, !tbaa !3
+  %54 = icmp sgt i32 %28, 0
+  br i1 %54, label %55, label %58
 
-if.then42.i:                                      ; preds = %if.end39.i
-  %mul44.i = shl nsw i64 %idxprom.i, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call35.i, ptr nonnull align 4 %keyFirst.0142.ph, i64 %mul44.i, i1 false)
-  %call45.i = call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %call35.i, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end46.i
+55:                                               ; preds = %51
+  %56 = shl nsw i64 %52, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr nonnull align 4 %.073136.ph, i64 %56, i1 false)
+  %57 = call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %45, i32 noundef %4, i32 noundef %5) #7
+  br label %58
 
-if.end46.i:                                       ; preds = %if.then42.i, %if.end39.i
-  %7 = load ptr, ptr %prevNext.0146.ph, align 8
-  store ptr %call35.i, ptr %7, align 8
-  %8 = load ptr, ptr %prevNext.0146.ph, align 8
-  %value73.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr null, ptr %value73.i, align 8
-  %9 = load i32, ptr %cond, align 4
-  %inc.i = add nsw i32 %9, 1
-  store i32 %inc.i, ptr %cond, align 4
-  br label %for.inc.thread
+58:                                               ; preds = %55, %51
+  %59 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
+  store ptr %45, ptr %59, align 8, !tbaa !24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr null, ptr %60, align 8, !tbaa !28
+  %61 = load i32, ptr %10, align 4, !tbaa !3
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %10, align 4, !tbaa !3
+  br label %.thread
 
-if.end18:                                         ; preds = %sw.bb
-  %call1948 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0146.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0142.ph, ptr noundef %keyAfter.0143, ptr noundef nonnull %valueFirst.0144, ptr noundef nonnull %walk.0140, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
-  %cmp20 = icmp eq i32 %call1948, 0
-  br i1 %cmp20, label %if.then21, label %for.inc.thread
+uriAppendQueryItemW.exit:                         ; preds = %23
+  %63 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %.063140.ph, ptr noundef nonnull %10, ptr noundef %.073136.ph, ptr noundef %.069137, ptr noundef nonnull %.067138, ptr noundef nonnull %.076134, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.077)
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %uriAppendQueryItemW.exit.thread113, label %.thread
 
-if.then21:                                        ; preds = %if.end.i, %if.end18, %if.then38.i
-  store i32 0, ptr %cond, align 4
-  %10 = load ptr, ptr %dest, align 8
-  %call.i55 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
-  %cmp1.not.i = icmp ne i32 %call.i55, 1
-  %cmp4.not12.i = icmp eq ptr %10, null
-  %or.cond124 = select i1 %cmp1.not.i, i1 true, i1 %cmp4.not12.i
-  br i1 %or.cond124, label %return, label %while.body.lr.ph.i
+uriAppendQueryItemW.exit.thread113:               ; preds = %35, %uriAppendQueryItemW.exit, %47
+  store i32 0, ptr %10, align 4, !tbaa !3
+  %65 = load ptr, ptr %0, align 8, !tbaa !33
+  %66 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
+  %.not.i = icmp ne i32 %66, 1
+  %.not1718.i = icmp eq ptr %65, null
+  %or.cond119 = select i1 %.not.i, i1 true, i1 %.not1718.i
+  br i1 %or.cond119, label %uriFreeQueryListMmW.exit, label %.lr.ph.i
 
-while.body.lr.ph.i:                               ; preds = %if.then21
-  %free.i57 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body.i
+.lr.ph.i:                                         ; preds = %uriAppendQueryItemW.exit.thread113
+  %67 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  br label %68
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %queryList.addr.013.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %while.body.i ]
-  %next.i58 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
-  %11 = load ptr, ptr %next.i58, align 8
-  %12 = load ptr, ptr %free.i57, align 8
-  %13 = load ptr, ptr %queryList.addr.013.i, align 8
-  call void %12(ptr noundef nonnull %memory.addr.0, ptr noundef %13) #6
-  %14 = load ptr, ptr %free.i57, align 8
-  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
-  %15 = load ptr, ptr %value.i, align 8
-  call void %14(ptr noundef nonnull %memory.addr.0, ptr noundef %15) #6
-  %16 = load ptr, ptr %free.i57, align 8
-  call void %16(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i) #6
-  %cmp4.not.i = icmp eq ptr %11, null
-  br i1 %cmp4.not.i, label %return, label %while.body.i, !llvm.loop !9
+68:                                               ; preds = %68, %.lr.ph.i
+  %.01519.i = phi ptr [ %65, %.lr.ph.i ], [ %70, %68 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 16
+  %70 = load ptr, ptr %69, align 8, !tbaa !29
+  %71 = load ptr, ptr %67, align 8, !tbaa !19
+  %72 = load ptr, ptr %.01519.i, align 8, !tbaa !24
+  call void %71(ptr noundef nonnull %.077, ptr noundef %72) #7
+  %73 = load ptr, ptr %67, align 8, !tbaa !19
+  %74 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  call void %73(ptr noundef nonnull %.077, ptr noundef %75) #7
+  %76 = load ptr, ptr %67, align 8, !tbaa !19
+  call void %76(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i) #7
+  %.not17.i = icmp eq ptr %70, null
+  br i1 %.not17.i, label %uriFreeQueryListMmW.exit, label %68, !llvm.loop !32
 
-sw.bb33:                                          ; preds = %for.body
-  %cmp34 = icmp eq ptr %keyAfter.0143, null
-  br i1 %cmp34, label %if.then35, label %for.inc
+77:                                               ; preds = %.lr.ph
+  %78 = icmp eq ptr %.069137, null
+  br i1 %78, label %79, label %81
 
-if.then35:                                        ; preds = %sw.bb33
-  %add.ptr36 = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
-  %cmp37.not = icmp ugt ptr %add.ptr36, %afterLast
-  %spec.select53 = select i1 %cmp37.not, ptr %valueFirst.0144, ptr %add.ptr36
-  %spec.select54 = select i1 %cmp37.not, ptr %valueAfter.0145, ptr %add.ptr36
-  br label %for.inc
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
+  %.not93 = icmp ugt ptr %80, %3
+  %spec.select96 = select i1 %.not93, ptr %.067138, ptr %80
+  %spec.select97 = select i1 %.not93, ptr %.064139, ptr %80
+  br label %81
 
-for.inc:                                          ; preds = %if.then35, %sw.bb33, %for.body
-  %keyAfter.2 = phi ptr [ %keyAfter.0143, %for.body ], [ %keyAfter.0143, %sw.bb33 ], [ %walk.0140, %if.then35 ]
-  %valueFirst.1 = phi ptr [ %valueFirst.0144, %for.body ], [ %valueFirst.0144, %sw.bb33 ], [ %spec.select53, %if.then35 ]
-  %valueAfter.2 = phi ptr [ %valueAfter.0145, %for.body ], [ %valueAfter.0145, %sw.bb33 ], [ %spec.select54, %if.then35 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
-  %cmp14 = icmp ult ptr %incdec.ptr, %afterLast
-  br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
+81:                                               ; preds = %79, %77, %.lr.ph
+  %.271 = phi ptr [ %.069137, %.lr.ph ], [ %.069137, %77 ], [ %.076134, %79 ]
+  %.168 = phi ptr [ %.067138, %.lr.ph ], [ %.067138, %77 ], [ %spec.select96, %79 ]
+  %.266 = phi ptr [ %.064139, %.lr.ph ], [ %.064139, %77 ], [ %spec.select97, %79 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
+  %83 = icmp ult ptr %82, %3
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
-for.inc.thread:                                   ; preds = %if.end18, %if.end46.i, %lor.lhs.false21.i, %if.else17.split
-  %17 = load ptr, ptr %prevNext.0146.ph, align 8
-  %cmp25.not = icmp eq ptr %17, null
-  %next = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %spec.select = select i1 %cmp25.not, ptr %prevNext.0146.ph, ptr %next
-  %add.ptr = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
-  %cmp28 = icmp ult ptr %add.ptr, %afterLast
-  %keyFirst.1 = select i1 %cmp28, ptr %add.ptr, ptr null
-  %incdec.ptr171 = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
-  %cmp14172 = icmp ult ptr %incdec.ptr171, %afterLast
-  br i1 %cmp14172, label %for.body.outer, label %if.else45.split, !llvm.loop !10
+.thread:                                          ; preds = %uriAppendQueryItemW.exit, %58, %31, %.split79
+  %84 = load ptr, ptr %.063140.ph, align 8, !tbaa !33
+  %.not95 = icmp eq ptr %84, null
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %spec.select = select i1 %.not95, ptr %.063140.ph, ptr %85
+  %86 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
+  %87 = icmp ult ptr %86, %3
+  %.174 = select i1 %87, ptr %86, ptr null
+  %88 = getelementptr inbounds nuw i8, ptr %.076134, i64 4
+  %89 = icmp ult ptr %88, %3
+  br i1 %89, label %.lr.ph.outer, label %.split83, !llvm.loop !34
 
-for.end:                                          ; preds = %for.inc
-  %18 = icmp eq ptr %valueAfter.2, null
-  %cmp43.not = icmp eq ptr %valueFirst.1, null
-  br i1 %cmp43.not, label %if.else45.split, label %if.end46
+._crit_edge:                                      ; preds = %81
+  %90 = icmp eq ptr %.266, null
+  %.not92 = icmp eq ptr %.168, null
+  br i1 %.not92, label %.split83, label %uriAppendQueryItemW.exit103
 
-if.else45.split:                                  ; preds = %for.inc.thread, %do.end, %for.end
-  %prevNext.0.lcssa165 = phi ptr [ %prevNext.0146.ph, %for.end ], [ %dest, %do.end ], [ %spec.select, %for.inc.thread ]
-  %valueAfter.0.lcssa164 = phi i1 [ %18, %for.end ], [ true, %do.end ], [ true, %for.inc.thread ]
-  %keyFirst.0.lcssa163 = phi ptr [ %keyFirst.0142.ph, %for.end ], [ %first, %do.end ], [ %keyFirst.1, %for.inc.thread ]
-  %walk.0.lcssa162 = phi ptr [ %incdec.ptr, %for.end ], [ %first, %do.end ], [ %incdec.ptr171, %for.inc.thread ]
-  %sub.ptr.lhs.cast.i59 = ptrtoint ptr %walk.0.lcssa162 to i64
-  %sub.ptr.rhs.cast.i60 = ptrtoint ptr %keyFirst.0.lcssa163 to i64
-  %sub.ptr.sub.i61 = sub i64 %sub.ptr.lhs.cast.i59, %sub.ptr.rhs.cast.i60
-  %sub.ptr.div.i62 = lshr exact i64 %sub.ptr.sub.i61, 2
-  %conv.i63 = trunc i64 %sub.ptr.div.i62 to i32
-  %cmp10.i67 = icmp eq ptr %keyFirst.0.lcssa163, null
-  %cmp16.i70 = icmp ugt ptr %keyFirst.0.lcssa163, %walk.0.lcssa162
-  %or.cond.i71 = or i1 %cmp16.i70, %cmp10.i67
-  %cmp22.i73 = icmp eq ptr %keyFirst.0.lcssa163, %walk.0.lcssa162
-  %19 = and i1 %cmp22.i73, %valueAfter.0.lcssa164
-  %or.cond198 = select i1 %or.cond.i71, i1 true, i1 %19
-  br i1 %or.cond198, label %return, label %if.end.i75
+.split83:                                         ; preds = %.thread, %20, %._crit_edge
+  %.063.lcssa159 = phi ptr [ %.063140.ph, %._crit_edge ], [ %0, %20 ], [ %spec.select, %.thread ]
+  %.064.lcssa158 = phi i1 [ %90, %._crit_edge ], [ true, %20 ], [ true, %.thread ]
+  %.073.lcssa157 = phi ptr [ %.073136.ph, %._crit_edge ], [ %2, %20 ], [ %.174, %.thread ]
+  %.076.lcssa156 = phi ptr [ %82, %._crit_edge ], [ %2, %20 ], [ %88, %.thread ]
+  %91 = ptrtoint ptr %.076.lcssa156 to i64
+  %92 = ptrtoint ptr %.073.lcssa157 to i64
+  %93 = sub i64 %91, %92
+  %94 = lshr exact i64 %93, 2
+  %95 = trunc i64 %94 to i32
+  %96 = icmp eq ptr %.073.lcssa157, null
+  %97 = icmp ugt ptr %.073.lcssa157, %.076.lcssa156
+  %or.cond.i99 = or i1 %97, %96
+  %98 = icmp eq ptr %.073.lcssa157, %.076.lcssa156
+  %99 = and i1 %98, %.064.lcssa158
+  %or.cond190 = select i1 %or.cond.i99, i1 true, i1 %99
+  br i1 %or.cond190, label %uriFreeQueryListMmW.exit, label %100
 
-if.end.i75:                                       ; preds = %if.else45.split
-  %20 = load ptr, ptr %memory.addr.0, align 8
-  %call.i76 = call ptr %20(ptr noundef nonnull %memory.addr.0, i64 noundef 24) #6
-  store ptr %call.i76, ptr %prevNext.0.lcssa165, align 8
-  %cmp29.i77 = icmp eq ptr %call.i76, null
-  br i1 %cmp29.i77, label %if.then49, label %if.end32.i78
+100:                                              ; preds = %.split83
+  %101 = load ptr, ptr %.077, align 8, !tbaa !17
+  %102 = call ptr %101(ptr noundef nonnull %.077, i64 noundef 24) #7
+  store ptr %102, ptr %.063.lcssa159, align 8, !tbaa !33
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %uriAppendQueryItemW.exit103.thread117, label %104
 
-if.end32.i78:                                     ; preds = %if.end.i75
-  %next.i79 = getelementptr inbounds nuw i8, ptr %call.i76, i64 16
-  store ptr null, ptr %next.i79, align 8
-  %21 = load ptr, ptr %memory.addr.0, align 8
-  %add.i80 = shl i64 %sub.ptr.sub.i61, 30
-  %sext.i81 = add i64 %add.i80, 4294967296
-  %22 = ashr exact i64 %sext.i81, 30
-  %mul.i82 = and i64 %22, -4
-  %call35.i83 = call ptr %21(ptr noundef nonnull %memory.addr.0, i64 noundef %mul.i82) #6
-  %cmp36.i84 = icmp eq ptr %call35.i83, null
-  br i1 %cmp36.i84, label %if.then38.i96, label %if.end39.i85
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  store ptr null, ptr %105, align 8, !tbaa !29
+  %106 = load ptr, ptr %.077, align 8, !tbaa !17
+  %107 = shl i64 %93, 30
+  %sext.i100 = add i64 %107, 4294967296
+  %108 = ashr exact i64 %sext.i100, 30
+  %109 = and i64 %108, -4
+  %110 = call ptr %106(ptr noundef nonnull %.077, i64 noundef %109) #7
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %116
 
-if.then38.i96:                                    ; preds = %if.end32.i78
-  %free.i97 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  %23 = load ptr, ptr %free.i97, align 8
-  %24 = load ptr, ptr %prevNext.0.lcssa165, align 8
-  call void %23(ptr noundef nonnull %memory.addr.0, ptr noundef %24) #6
-  store ptr null, ptr %prevNext.0.lcssa165, align 8
-  br label %if.then49
+112:                                              ; preds = %104
+  %113 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  %114 = load ptr, ptr %113, align 8, !tbaa !19
+  %115 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
+  call void %114(ptr noundef nonnull %.077, ptr noundef %115) #7
+  store ptr null, ptr %.063.lcssa159, align 8, !tbaa !33
+  br label %uriAppendQueryItemW.exit103.thread117
 
-if.end39.i85:                                     ; preds = %if.end32.i78
-  %idxprom.i86 = ashr i64 %add.i80, 32
-  %arrayidx.i87 = getelementptr inbounds i32, ptr %call35.i83, i64 %idxprom.i86
-  store i32 0, ptr %arrayidx.i87, align 4
-  %cmp40.i88 = icmp sgt i32 %conv.i63, 0
-  br i1 %cmp40.i88, label %if.then42.i93, label %if.end46.i89
+116:                                              ; preds = %104
+  %117 = ashr i64 %107, 32
+  %118 = getelementptr inbounds i32, ptr %110, i64 %117
+  store i32 0, ptr %118, align 4, !tbaa !3
+  %119 = icmp sgt i32 %95, 0
+  br i1 %119, label %120, label %123
 
-if.then42.i93:                                    ; preds = %if.end39.i85
-  %mul44.i94 = shl nsw i64 %idxprom.i86, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call35.i83, ptr nonnull align 4 %keyFirst.0.lcssa163, i64 %mul44.i94, i1 false)
-  %call45.i95 = call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %call35.i83, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end46.i89
+120:                                              ; preds = %116
+  %121 = shl nsw i64 %117, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull align 4 %.073.lcssa157, i64 %121, i1 false)
+  %122 = call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %110, i32 noundef %4, i32 noundef %5) #7
+  br label %123
 
-if.end46.i89:                                     ; preds = %if.then42.i93, %if.end39.i85
-  %25 = load ptr, ptr %prevNext.0.lcssa165, align 8
-  store ptr %call35.i83, ptr %25, align 8
-  %26 = load ptr, ptr %prevNext.0.lcssa165, align 8
-  %value73.i90 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr null, ptr %value73.i90, align 8
-  %27 = load i32, ptr %cond, align 4
-  %inc.i91 = add nsw i32 %27, 1
-  store i32 %inc.i91, ptr %cond, align 4
-  br label %return
+123:                                              ; preds = %120, %116
+  %124 = load ptr, ptr %.063.lcssa159, align 8, !tbaa !33
+  store ptr %110, ptr %124, align 8, !tbaa !24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store ptr null, ptr %125, align 8, !tbaa !28
+  %126 = load i32, ptr %10, align 4, !tbaa !3
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %10, align 4, !tbaa !3
+  br label %uriFreeQueryListMmW.exit
 
-if.end46:                                         ; preds = %for.end
-  %call4750 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %prevNext.0146.ph, ptr noundef nonnull %cond, ptr noundef %keyFirst.0142.ph, ptr noundef %keyAfter.2, ptr noundef nonnull %valueFirst.1, ptr noundef nonnull %incdec.ptr, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef nonnull %memory.addr.0)
-  %cmp48 = icmp eq i32 %call4750, 0
-  br i1 %cmp48, label %if.then49, label %return
+uriAppendQueryItemW.exit103:                      ; preds = %._crit_edge
+  %128 = call fastcc i32 @uriAppendQueryItemW(ptr noundef %.063140.ph, ptr noundef nonnull %10, ptr noundef %.073136.ph, ptr noundef %.271, ptr noundef nonnull %.168, ptr noundef nonnull %82, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.077)
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %uriAppendQueryItemW.exit103.thread117, label %uriFreeQueryListMmW.exit
 
-if.then49:                                        ; preds = %if.end.i75, %if.then38.i96, %if.end46
-  store i32 0, ptr %cond, align 4
-  %28 = load ptr, ptr %dest, align 8
-  %call.i99 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory.addr.0) #6
-  %cmp1.not.i100 = icmp ne i32 %call.i99, 1
-  %cmp4.not12.i103 = icmp eq ptr %28, null
-  %or.cond125 = select i1 %cmp1.not.i100, i1 true, i1 %cmp4.not12.i103
-  br i1 %or.cond125, label %return, label %while.body.lr.ph.i104
+uriAppendQueryItemW.exit103.thread117:            ; preds = %100, %112, %uriAppendQueryItemW.exit103
+  store i32 0, ptr %10, align 4, !tbaa !3
+  %130 = load ptr, ptr %0, align 8, !tbaa !33
+  %131 = call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %.077) #7
+  %.not.i104 = icmp ne i32 %131, 1
+  %.not1718.i106 = icmp eq ptr %130, null
+  %or.cond120 = select i1 %.not.i104, i1 true, i1 %.not1718.i106
+  br i1 %or.cond120, label %uriFreeQueryListMmW.exit, label %.lr.ph.i107
 
-while.body.lr.ph.i104:                            ; preds = %if.then49
-  %free.i105 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
-  br label %while.body.i106
+.lr.ph.i107:                                      ; preds = %uriAppendQueryItemW.exit103.thread117
+  %132 = getelementptr inbounds nuw i8, ptr %.077, i64 32
+  br label %133
 
-while.body.i106:                                  ; preds = %while.body.i106, %while.body.lr.ph.i104
-  %queryList.addr.013.i107 = phi ptr [ %28, %while.body.lr.ph.i104 ], [ %29, %while.body.i106 ]
-  %next.i108 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i107, i64 16
-  %29 = load ptr, ptr %next.i108, align 8
-  %30 = load ptr, ptr %free.i105, align 8
-  %31 = load ptr, ptr %queryList.addr.013.i107, align 8
-  call void %30(ptr noundef nonnull %memory.addr.0, ptr noundef %31) #6
-  %32 = load ptr, ptr %free.i105, align 8
-  %value.i109 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i107, i64 8
-  %33 = load ptr, ptr %value.i109, align 8
-  call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef %33) #6
-  %34 = load ptr, ptr %free.i105, align 8
-  call void %34(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %queryList.addr.013.i107) #6
-  %cmp4.not.i110 = icmp eq ptr %29, null
-  br i1 %cmp4.not.i110, label %return, label %while.body.i106, !llvm.loop !9
+133:                                              ; preds = %133, %.lr.ph.i107
+  %.01519.i108 = phi ptr [ %130, %.lr.ph.i107 ], [ %135, %133 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 16
+  %135 = load ptr, ptr %134, align 8, !tbaa !29
+  %136 = load ptr, ptr %132, align 8, !tbaa !19
+  %137 = load ptr, ptr %.01519.i108, align 8, !tbaa !24
+  call void %136(ptr noundef nonnull %.077, ptr noundef %137) #7
+  %138 = load ptr, ptr %132, align 8, !tbaa !19
+  %139 = getelementptr inbounds nuw i8, ptr %.01519.i108, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !28
+  call void %138(ptr noundef nonnull %.077, ptr noundef %140) #7
+  %141 = load ptr, ptr %132, align 8, !tbaa !19
+  call void %141(ptr noundef nonnull %.077, ptr noundef nonnull %.01519.i108) #7
+  %.not17.i109 = icmp eq ptr %135, null
+  br i1 %.not17.i109, label %uriFreeQueryListMmW.exit, label %133, !llvm.loop !32
 
-return:                                           ; preds = %while.body.i, %while.body.i106, %if.else45.split, %if.end46.i89, %if.then49, %if.then21, %if.end46, %if.else, %if.end, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 9, %if.end ], [ 10, %if.else ], [ 0, %if.end46 ], [ 3, %if.then21 ], [ 3, %if.then49 ], [ 0, %if.end46.i89 ], [ 0, %if.else45.split ], [ 3, %while.body.i106 ], [ 3, %while.body.i ]
-  ret i32 %retval.0
+uriFreeQueryListMmW.exit:                         ; preds = %68, %133, %.split83, %123, %uriAppendQueryItemW.exit103.thread117, %uriAppendQueryItemW.exit.thread113, %uriAppendQueryItemW.exit103, %18, %14, %7
+  %.0 = phi i32 [ 2, %7 ], [ 9, %14 ], [ 10, %18 ], [ 0, %uriAppendQueryItemW.exit103 ], [ 3, %uriAppendQueryItemW.exit.thread113 ], [ 3, %uriAppendQueryItemW.exit103.thread117 ], [ 0, %123 ], [ 0, %.split83 ], [ 3, %133 ], [ 3, %68 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonnull captures(none) %prevNext, ptr noundef captures(address_is_null) %itemCount, ptr noundef %keyFirst, ptr noundef %keyAfter, ptr noundef %valueFirst, ptr noundef %valueAfter, i32 noundef %plusToSpace, i32 noundef %breakConversion, ptr noundef %memory) unnamed_addr #1 {
-entry:
-  %sub.ptr.lhs.cast = ptrtoint ptr %keyAfter to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %keyFirst to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
-  %conv = trunc i64 %sub.ptr.div to i32
-  %sub.ptr.lhs.cast1 = ptrtoint ptr %valueAfter to i64
-  %sub.ptr.rhs.cast2 = ptrtoint ptr %valueFirst to i64
-  %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
-  %sub.ptr.div4 = lshr exact i64 %sub.ptr.sub3, 2
-  %conv5 = trunc i64 %sub.ptr.div4 to i32
-  %cmp7 = icmp eq ptr %itemCount, null
-  %cmp10 = icmp eq ptr %keyFirst, null
-  %or.cond1 = or i1 %cmp7, %cmp10
-  %cmp13 = icmp eq ptr %keyAfter, null
-  %or.cond2 = or i1 %or.cond1, %cmp13
-  %cmp16 = icmp ugt ptr %keyFirst, %keyAfter
-  %or.cond = or i1 %cmp16, %or.cond2
-  %cmp19 = icmp ugt ptr %valueFirst, %valueAfter
-  %or.cond61 = or i1 %or.cond, %cmp19
-  br i1 %or.cond61, label %return, label %lor.lhs.false21
+define internal fastcc range(i32 0, 2) i32 @uriAppendQueryItemW(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #2 {
+  %10 = ptrtoint ptr %3 to i64
+  %11 = ptrtoint ptr %2 to i64
+  %12 = sub i64 %10, %11
+  %13 = lshr exact i64 %12, 2
+  %14 = trunc i64 %13 to i32
+  %15 = ptrtoint ptr %5 to i64
+  %16 = ptrtoint ptr %4 to i64
+  %17 = sub i64 %15, %16
+  %18 = lshr exact i64 %17, 2
+  %19 = trunc i64 %18 to i32
+  %20 = icmp eq ptr %1, null
+  %21 = icmp eq ptr %2, null
+  %or.cond3 = or i1 %20, %21
+  %22 = icmp eq ptr %3, null
+  %or.cond5 = or i1 %or.cond3, %22
+  %23 = icmp ugt ptr %2, %3
+  %or.cond = or i1 %23, %or.cond5
+  %24 = icmp ugt ptr %4, %5
+  %or.cond88 = or i1 %or.cond, %24
+  br i1 %or.cond88, label %82, label %25
 
-lor.lhs.false21:                                  ; preds = %entry
-  %cmp22 = icmp eq ptr %keyFirst, %keyAfter
-  %cmp24 = icmp eq ptr %valueFirst, null
-  %cmp27 = icmp eq ptr %valueAfter, null
-  %0 = and i1 %cmp22, %cmp27
-  br i1 %0, label %return, label %if.end
+25:                                               ; preds = %9
+  %26 = icmp eq ptr %2, %3
+  %27 = icmp eq ptr %4, null
+  %28 = icmp eq ptr %5, null
+  %29 = and i1 %26, %28
+  br i1 %29, label %82, label %30
 
-if.end:                                           ; preds = %lor.lhs.false21
-  %1 = load ptr, ptr %memory, align 8
-  %call = tail call ptr %1(ptr noundef nonnull %memory, i64 noundef 24) #6
-  store ptr %call, ptr %prevNext, align 8
-  %cmp29 = icmp eq ptr %call, null
-  br i1 %cmp29, label %return, label %if.end32
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %8, align 8, !tbaa !17
+  %32 = tail call ptr %31(ptr noundef nonnull %8, i64 noundef 24) #7
+  store ptr %32, ptr %0, align 8, !tbaa !33
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %82, label %34
 
-if.end32:                                         ; preds = %if.end
-  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr null, ptr %next, align 8
-  %2 = load ptr, ptr %memory, align 8
-  %add = shl i64 %sub.ptr.sub, 30
-  %sext = add i64 %add, 4294967296
-  %3 = ashr exact i64 %sext, 30
-  %mul = and i64 %3, -4
-  %call35 = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef %mul) #6
-  %cmp36 = icmp eq ptr %call35, null
-  br i1 %cmp36, label %if.then38, label %if.end39
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr null, ptr %35, align 8, !tbaa !29
+  %36 = load ptr, ptr %8, align 8, !tbaa !17
+  %37 = shl i64 %12, 30
+  %sext = add i64 %37, 4294967296
+  %38 = ashr exact i64 %sext, 30
+  %39 = and i64 %38, -4
+  %40 = tail call ptr %36(ptr noundef nonnull %8, i64 noundef %39) #7
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %42, label %46
 
-if.then38:                                        ; preds = %if.end32
-  %free = getelementptr inbounds nuw i8, ptr %memory, i64 32
-  %4 = load ptr, ptr %free, align 8
-  %5 = load ptr, ptr %prevNext, align 8
-  tail call void %4(ptr noundef nonnull %memory, ptr noundef %5) #6
-  store ptr null, ptr %prevNext, align 8
-  br label %return
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %45 = load ptr, ptr %0, align 8, !tbaa !33
+  tail call void %44(ptr noundef nonnull %8, ptr noundef %45) #7
+  store ptr null, ptr %0, align 8, !tbaa !33
+  br label %82
 
-if.end39:                                         ; preds = %if.end32
-  %idxprom = ashr i64 %add, 32
-  %arrayidx = getelementptr inbounds i32, ptr %call35, i64 %idxprom
-  store i32 0, ptr %arrayidx, align 4
-  %cmp40 = icmp sgt i32 %conv, 0
-  br i1 %cmp40, label %if.then42, label %if.end46
+46:                                               ; preds = %34
+  %47 = ashr i64 %37, 32
+  %48 = getelementptr inbounds i32, ptr %40, i64 %47
+  store i32 0, ptr %48, align 4, !tbaa !3
+  %49 = icmp sgt i32 %14, 0
+  br i1 %49, label %50, label %53
 
-if.then42:                                        ; preds = %if.end39
-  %mul44 = shl nsw i64 %idxprom, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call35, ptr nonnull align 4 %keyFirst, i64 %mul44, i1 false)
-  %call45 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %call35, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end46
+50:                                               ; preds = %46
+  %51 = shl nsw i64 %47, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr nonnull align 4 %2, i64 %51, i1 false)
+  %52 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %40, i32 noundef %6, i32 noundef %7) #7
+  br label %53
 
-if.end46:                                         ; preds = %if.then42, %if.end39
-  %6 = load ptr, ptr %prevNext, align 8
-  store ptr %call35, ptr %6, align 8
-  br i1 %cmp24, label %if.end72, label %if.then50
+53:                                               ; preds = %50, %46
+  %54 = load ptr, ptr %0, align 8, !tbaa !33
+  store ptr %40, ptr %54, align 8, !tbaa !24
+  br i1 %27, label %77, label %55
 
-if.then50:                                        ; preds = %if.end46
-  %7 = load ptr, ptr %memory, align 8
-  %add52 = shl i64 %sub.ptr.sub3, 30
-  %sext59 = add i64 %add52, 4294967296
-  %8 = ashr exact i64 %sext59, 30
-  %mul54 = and i64 %8, -4
-  %call55 = tail call ptr %7(ptr noundef nonnull %memory, i64 noundef %mul54) #6
-  %cmp56 = icmp eq ptr %call55, null
-  br i1 %cmp56, label %if.then58, label %if.end61
+55:                                               ; preds = %53
+  %56 = load ptr, ptr %8, align 8, !tbaa !17
+  %57 = shl i64 %17, 30
+  %sext86 = add i64 %57, 4294967296
+  %58 = ashr exact i64 %sext86, 30
+  %59 = and i64 %58, -4
+  %60 = tail call ptr %56(ptr noundef nonnull %8, i64 noundef %59) #7
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %62, label %67
 
-if.then58:                                        ; preds = %if.then50
-  %free59 = getelementptr inbounds nuw i8, ptr %memory, i64 32
-  %9 = load ptr, ptr %free59, align 8
-  tail call void %9(ptr noundef nonnull %memory, ptr noundef nonnull %call35) #6
-  %10 = load ptr, ptr %free59, align 8
-  %11 = load ptr, ptr %prevNext, align 8
-  tail call void %10(ptr noundef nonnull %memory, ptr noundef %11) #6
-  store ptr null, ptr %prevNext, align 8
-  br label %return
+62:                                               ; preds = %55
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %64 = load ptr, ptr %63, align 8, !tbaa !19
+  tail call void %64(ptr noundef nonnull %8, ptr noundef nonnull %40) #7
+  %65 = load ptr, ptr %63, align 8, !tbaa !19
+  %66 = load ptr, ptr %0, align 8, !tbaa !33
+  tail call void %65(ptr noundef nonnull %8, ptr noundef %66) #7
+  store ptr null, ptr %0, align 8, !tbaa !33
+  br label %82
 
-if.end61:                                         ; preds = %if.then50
-  %idxprom62 = ashr i64 %add52, 32
-  %arrayidx63 = getelementptr inbounds i32, ptr %call55, i64 %idxprom62
-  store i32 0, ptr %arrayidx63, align 4
-  %cmp64 = icmp sgt i32 %conv5, 0
-  br i1 %cmp64, label %if.then66, label %if.end70
+67:                                               ; preds = %55
+  %68 = ashr i64 %57, 32
+  %69 = getelementptr inbounds i32, ptr %60, i64 %68
+  store i32 0, ptr %69, align 4, !tbaa !3
+  %70 = icmp sgt i32 %19, 0
+  br i1 %70, label %71, label %74
 
-if.then66:                                        ; preds = %if.end61
-  %mul68 = shl nsw i64 %idxprom62, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call55, ptr nonnull align 4 %valueFirst, i64 %mul68, i1 false)
-  %call69 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %call55, i32 noundef %plusToSpace, i32 noundef %breakConversion) #6
-  br label %if.end70
+71:                                               ; preds = %67
+  %72 = shl nsw i64 %68, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %4, i64 %72, i1 false)
+  %73 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef nonnull %60, i32 noundef %6, i32 noundef %7) #7
+  br label %74
 
-if.end70:                                         ; preds = %if.then66, %if.end61
-  %12 = load ptr, ptr %prevNext, align 8
-  %value71 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %call55, ptr %value71, align 8
-  br label %if.end72
+74:                                               ; preds = %71, %67
+  %75 = load ptr, ptr %0, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store ptr %60, ptr %76, align 8, !tbaa !28
+  br label %77
 
-if.end72:                                         ; preds = %if.end46, %if.end70
-  %value.0 = phi ptr [ %call55, %if.end70 ], [ null, %if.end46 ]
-  %13 = load ptr, ptr %prevNext, align 8
-  %value73 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %value.0, ptr %value73, align 8
-  %14 = load i32, ptr %itemCount, align 4
-  %inc = add nsw i32 %14, 1
-  store i32 %inc, ptr %itemCount, align 4
-  br label %return
+77:                                               ; preds = %53, %74
+  %78 = phi ptr [ %75, %74 ], [ %54, %53 ]
+  %.0 = phi ptr [ %60, %74 ], [ null, %53 ]
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store ptr %.0, ptr %79, align 8, !tbaa !28
+  %80 = load i32, ptr %1, align 4, !tbaa !3
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %1, align 4, !tbaa !3
+  br label %82
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false21, %if.end72, %if.then58, %if.then38
-  %retval.0 = phi i32 [ 0, %if.then38 ], [ 0, %if.then58 ], [ 1, %if.end72 ], [ 1, %lor.lhs.false21 ], [ 1, %entry ], [ 0, %if.end ]
-  ret i32 %retval.0
+82:                                               ; preds = %30, %9, %25, %77, %62, %42
+  %.075 = phi i32 [ 0, %42 ], [ 0, %62 ], [ 1, %77 ], [ 1, %25 ], [ 1, %9 ], [ 0, %30 ]
+  ret i32 %.075
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @uriEscapeExA(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @uriEscapeExA(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @uriUnescapeInPlaceExA(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @uriUnescapeInPlaceExA(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @uriEscapeExW(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @uriEscapeExW(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @uriUnescapeInPlaceExW(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @uriUnescapeInPlaceExW(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-attributes #0 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
+attributes #0 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"UriQueryListStructA", !9, i64 0, !9, i64 8, !11, i64 16}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !5, i64 0}
+!11 = !{!"p1 _ZTS19UriQueryListStructA", !10, i64 0}
+!12 = !{!8, !9, i64 8}
+!13 = !{!8, !11, i64 16}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!5, !5, i64 0}
+!17 = !{!18, !10, i64 0}
+!18 = !{!"UriMemoryManagerStruct", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
+!19 = !{!18, !10, i64 32}
+!20 = !{!9, !9, i64 0}
+!21 = distinct !{!21, !15}
+!22 = !{!11, !11, i64 0}
+!23 = distinct !{!23, !15}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"UriQueryListStructW", !26, i64 0, !26, i64 8, !27, i64 16}
+!26 = !{!"p1 int", !10, i64 0}
+!27 = !{!"p1 _ZTS19UriQueryListStructW", !10, i64 0}
+!28 = !{!25, !26, i64 8}
+!29 = !{!25, !27, i64 16}
+!30 = distinct !{!30, !15}
+!31 = !{!26, !26, i64 0}
+!32 = distinct !{!32, !15}
+!33 = !{!27, !27, i64 0}
+!34 = distinct !{!34, !15}

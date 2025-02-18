@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UriTextRangeStructA = type { ptr, ptr }
 %struct.UriUriStructA = type { %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, %struct.UriHostDataStructA, %struct.UriTextRangeStructA, ptr, ptr, %struct.UriTextRangeStructA, %struct.UriTextRangeStructA, i32, i32, ptr }
@@ -25,3832 +25,4099 @@ target triple = "x86_64-unknown-linux-gnu"
 @uriConstParentW = constant ptr @.str.5, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @uriResetUriA(ptr noundef %uri) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @uriResetUriA(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 160, i1 false)
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 160, i1 false)
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
+8:                                                ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCompareRangeA(ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %diff = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriCompareRangeA(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !8
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %b.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr %a.addr, align 8
-  %cmp2 = icmp eq ptr %2, null
-  %cond = select i1 %cmp2, i32 0, i32 1
-  %3 = load ptr, ptr %b.addr, align 8
-  %cmp3 = icmp eq ptr %3, null
-  %cond4 = select i1 %cmp3, i32 0, i32 1
-  %sub = sub nsw i32 %cond, %cond4
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %10, %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !8
+  %15 = icmp eq ptr %14, null
+  %16 = select i1 %15, i32 0, i32 1
+  %17 = load ptr, ptr %5, align 8, !tbaa !8
+  %18 = icmp eq ptr %17, null
+  %19 = select i1 %18, i32 0, i32 1
+  %20 = sub nsw i32 %16, %19
+  store i32 %20, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %a.addr, align 8
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %first, align 8
-  %cmp5 = icmp eq ptr %5, null
-  br i1 %cmp5, label %if.then9, label %lor.lhs.false6
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %4, align 8, !tbaa !8
+  %23 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %31, label %26
 
-lor.lhs.false6:                                   ; preds = %if.end
-  %6 = load ptr, ptr %b.addr, align 8
-  %first7 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %first7, align 8
-  %cmp8 = icmp eq ptr %7, null
-  br i1 %cmp8, label %if.then9, label %if.end17
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8, !tbaa !8
+  %28 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !10
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %43
 
-if.then9:                                         ; preds = %lor.lhs.false6, %if.end
-  %8 = load ptr, ptr %a.addr, align 8
-  %first10 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %first10, align 8
-  %cmp11 = icmp eq ptr %9, null
-  %cond12 = select i1 %cmp11, i32 0, i32 1
-  %10 = load ptr, ptr %b.addr, align 8
-  %first13 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %first13, align 8
-  %cmp14 = icmp eq ptr %11, null
-  %cond15 = select i1 %cmp14, i32 0, i32 1
-  %sub16 = sub nsw i32 %cond12, %cond15
-  store i32 %sub16, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %26, %21
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = icmp eq ptr %34, null
+  %36 = select i1 %35, i32 0, i32 1
+  %37 = load ptr, ptr %5, align 8, !tbaa !8
+  %38 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !10
+  %40 = icmp eq ptr %39, null
+  %41 = select i1 %40, i32 0, i32 1
+  %42 = sub nsw i32 %36, %41
+  store i32 %42, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.end17:                                         ; preds = %lor.lhs.false6
-  %12 = load ptr, ptr %a.addr, align 8
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %afterLast, align 8
-  %14 = load ptr, ptr %a.addr, align 8
-  %first18 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %first18, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  %16 = load ptr, ptr %b.addr, align 8
-  %afterLast19 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %afterLast19, align 8
-  %18 = load ptr, ptr %b.addr, align 8
-  %first20 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %first20, align 8
-  %sub.ptr.lhs.cast21 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast22 = ptrtoint ptr %19 to i64
-  %sub.ptr.sub23 = sub i64 %sub.ptr.lhs.cast21, %sub.ptr.rhs.cast22
-  %conv24 = trunc i64 %sub.ptr.sub23 to i32
-  %sub25 = sub nsw i32 %conv, %conv24
-  store i32 %sub25, ptr %diff, align 4
-  %20 = load i32, ptr %diff, align 4
-  %cmp26 = icmp sgt i32 %20, 0
-  br i1 %cmp26, label %if.then28, label %if.else
+43:                                               ; preds = %26
+  %44 = load ptr, ptr %4, align 8, !tbaa !8
+  %45 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
+  %47 = load ptr, ptr %4, align 8, !tbaa !8
+  %48 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !10
+  %50 = ptrtoint ptr %46 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = trunc i64 %52 to i32
+  %54 = load ptr, ptr %5, align 8, !tbaa !8
+  %55 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8, !tbaa !13
+  %57 = load ptr, ptr %5, align 8, !tbaa !8
+  %58 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %57, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !10
+  %60 = ptrtoint ptr %56 to i64
+  %61 = ptrtoint ptr %59 to i64
+  %62 = sub i64 %60, %61
+  %63 = trunc i64 %62 to i32
+  %64 = sub nsw i32 %53, %63
+  store i32 %64, ptr %6, align 4, !tbaa !14
+  %65 = load i32, ptr %6, align 4, !tbaa !14
+  %66 = icmp sgt i32 %65, 0
+  br i1 %66, label %67, label %68
 
-if.then28:                                        ; preds = %if.end17
-  store i32 1, ptr %retval, align 4
-  br label %return
+67:                                               ; preds = %43
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.else:                                          ; preds = %if.end17
-  %21 = load i32, ptr %diff, align 4
-  %cmp29 = icmp slt i32 %21, 0
-  br i1 %cmp29, label %if.then31, label %if.end32
+68:                                               ; preds = %43
+  %69 = load i32, ptr %6, align 4, !tbaa !14
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %72
 
-if.then31:                                        ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %68
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.end32:                                         ; preds = %if.else
-  br label %if.end33
+72:                                               ; preds = %68
+  br label %73
 
-if.end33:                                         ; preds = %if.end32
-  %22 = load ptr, ptr %a.addr, align 8
-  %first34 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %first34, align 8
-  %24 = load ptr, ptr %b.addr, align 8
-  %first35 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %first35, align 8
-  %26 = load ptr, ptr %a.addr, align 8
-  %afterLast36 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %afterLast36, align 8
-  %28 = load ptr, ptr %a.addr, align 8
-  %first37 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %first37, align 8
-  %sub.ptr.lhs.cast38 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast39 = ptrtoint ptr %29 to i64
-  %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
-  %call = call i32 @strncmp(ptr noundef %23, ptr noundef %25, i64 noundef %sub.ptr.sub40) #4
-  store i32 %call, ptr %diff, align 4
-  %30 = load i32, ptr %diff, align 4
-  %cmp41 = icmp sgt i32 %30, 0
-  br i1 %cmp41, label %if.then43, label %if.else44
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %4, align 8, !tbaa !8
+  %75 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %74, i32 0, i32 0
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = load ptr, ptr %5, align 8, !tbaa !8
+  %78 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %77, i32 0, i32 0
+  %79 = load ptr, ptr %78, align 8, !tbaa !10
+  %80 = load ptr, ptr %4, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %80, i32 0, i32 1
+  %82 = load ptr, ptr %81, align 8, !tbaa !13
+  %83 = load ptr, ptr %4, align 8, !tbaa !8
+  %84 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !10
+  %86 = ptrtoint ptr %82 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = call i32 @strncmp(ptr noundef %76, ptr noundef %79, i64 noundef %88) #6
+  store i32 %89, ptr %6, align 4, !tbaa !14
+  %90 = load i32, ptr %6, align 4, !tbaa !14
+  %91 = icmp sgt i32 %90, 0
+  br i1 %91, label %92, label %93
 
-if.then43:                                        ; preds = %if.end33
-  store i32 1, ptr %retval, align 4
-  br label %return
+92:                                               ; preds = %73
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.else44:                                        ; preds = %if.end33
-  %31 = load i32, ptr %diff, align 4
-  %cmp45 = icmp slt i32 %31, 0
-  br i1 %cmp45, label %if.then47, label %if.end48
+93:                                               ; preds = %73
+  %94 = load i32, ptr %6, align 4, !tbaa !14
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %97
 
-if.then47:                                        ; preds = %if.else44
-  store i32 -1, ptr %retval, align 4
-  br label %return
+96:                                               ; preds = %93
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-if.end48:                                         ; preds = %if.else44
-  br label %if.end49
+97:                                               ; preds = %93
+  br label %98
 
-if.end49:                                         ; preds = %if.end48
-  %32 = load i32, ptr %diff, align 4
-  store i32 %32, ptr %retval, align 4
-  br label %return
+98:                                               ; preds = %97
+  %99 = load i32, ptr %6, align 4, !tbaa !14
+  store i32 %99, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %100
 
-return:                                           ; preds = %if.end49, %if.then47, %if.then43, %if.then31, %if.then28, %if.then9, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+100:                                              ; preds = %98, %96, %92, %71, %67, %31, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %101 = load i32, ptr %3, align 4
+  ret i32 %101
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsA(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %relative.addr = alloca i32, align 4
-  %memory.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store i32 %relative, ptr %relative.addr, align 4
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @uriRemoveDotSegmentsA(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i32 %1, ptr %6, align 4, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %2 = load i32, ptr %relative.addr, align 4
-  %3 = load ptr, ptr %uri.addr, align 8
-  %owner = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 10
-  %4 = load i32, ptr %owner, align 4
-  %5 = load ptr, ptr %memory.addr, align 8
-  %call = call i32 @uriRemoveDotSegmentsExA(ptr noundef %1, i32 noundef %2, i32 noundef %4, ptr noundef %5)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = load i32, ptr %6, align 4, !tbaa !14
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4, !tbaa !18
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = call i32 @uriRemoveDotSegmentsExA(ptr noundef %12, i32 noundef %13, i32 noundef %16, ptr noundef %17)
+  store i32 %18, ptr %4, align 4
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+19:                                               ; preds = %11, %10
+  %20 = load i32, ptr %4, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsExA(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %relative.addr = alloca i32, align 4
-  %pathOwned.addr = alloca i32, align 4
-  %memory.addr = alloca ptr, align 8
-  %walker = alloca ptr, align 8
-  %removeSegment = alloca i32, align 4
-  %len = alloca i32, align 4
-  %prev = alloca ptr, align 8
-  %nextBackup = alloca ptr, align 8
-  %ch = alloca ptr, align 8
-  %prev113 = alloca ptr, align 8
-  %prevPrev = alloca ptr, align 8
-  %nextBackup115 = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %segment263 = alloca ptr, align 8
-  %anotherNextBackup = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store i32 %relative, ptr %relative.addr, align 4
-  store i32 %pathOwned, ptr %pathOwned.addr, align 4
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriRemoveDotSegmentsExA(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store i32 %1, ptr %7, align 4, !tbaa !14
+  store i32 %2, ptr %8, align 4, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %30, label %25
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %pathHead, align 8
-  %cmp1 = icmp eq ptr %2, null
-  br i1 %cmp1, label %if.then, label %if.end
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %25, %4
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %647
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %uri.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %pathHead2, align 8
-  store ptr %4, ptr %walker, align 8
-  %5 = load ptr, ptr %walker, align 8
-  %reserved = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %5, i32 0, i32 2
-  store ptr null, ptr %reserved, align 8
-  br label %do.body
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
+  store ptr %34, ptr %10, align 8, !tbaa !25
+  %35 = load ptr, ptr %10, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %35, i32 0, i32 2
+  store ptr null, ptr %36, align 8, !tbaa !26
+  br label %37
 
-do.body:                                          ; preds = %do.cond, %if.end
-  store i32 0, ptr %removeSegment, align 4
-  %6 = load ptr, ptr %walker, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %6, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text, i32 0, i32 1
-  %7 = load ptr, ptr %afterLast, align 8
-  %8 = load ptr, ptr %walker, align 8
-  %text3 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %8, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text3, i32 0, i32 0
-  %9 = load ptr, ptr %first, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %conv = trunc i64 %sub.ptr.sub to i32
-  store i32 %conv, ptr %len, align 4
-  %10 = load i32, ptr %len, align 4
-  switch i32 %10, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb98
+37:                                               ; preds = %643, %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 0, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  %38 = load ptr, ptr %10, align 8, !tbaa !25
+  %39 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !28
+  %42 = load ptr, ptr %10, align 8, !tbaa !25
+  %43 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !29
+  %46 = ptrtoint ptr %41 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = trunc i64 %48 to i32
+  store i32 %49, ptr %13, align 4, !tbaa !14
+  %50 = load i32, ptr %13, align 4, !tbaa !14
+  switch i32 %50, label %617 [
+    i32 1, label %51
+    i32 2, label %222
   ]
 
-sw.bb:                                            ; preds = %do.body
-  %11 = load ptr, ptr %walker, align 8
-  %text4 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %11, i32 0, i32 0
-  %first5 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text4, i32 0, i32 0
-  %12 = load ptr, ptr %first5, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 0
-  %13 = load i8, ptr %arrayidx, align 1
-  %conv6 = sext i8 %13 to i32
-  %cmp7 = icmp eq i32 %conv6, 46
-  br i1 %cmp7, label %if.then9, label %if.end97
-
-if.then9:                                         ; preds = %sw.bb
-  %14 = load ptr, ptr %walker, align 8
-  %reserved10 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %reserved10, align 8
-  store ptr %15, ptr %prev, align 8
-  %16 = load ptr, ptr %walker, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %next, align 8
-  store ptr %17, ptr %nextBackup, align 8
-  store i32 1, ptr %removeSegment, align 4
-  %18 = load i32, ptr %relative.addr, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end32
-
-land.lhs.true:                                    ; preds = %if.then9
-  %19 = load ptr, ptr %walker, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathHead11 = getelementptr inbounds %struct.UriUriStructA, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %pathHead11, align 8
-  %cmp12 = icmp eq ptr %19, %21
-  br i1 %cmp12, label %land.lhs.true14, label %if.end32
-
-land.lhs.true14:                                  ; preds = %land.lhs.true
-  %22 = load ptr, ptr %walker, align 8
-  %next15 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %next15, align 8
-  %cmp16 = icmp ne ptr %23, null
-  br i1 %cmp16, label %if.then18, label %if.end32
-
-if.then18:                                        ; preds = %land.lhs.true14
-  %24 = load ptr, ptr %walker, align 8
-  %next19 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %next19, align 8
-  %text20 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %25, i32 0, i32 0
-  %first21 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text20, i32 0, i32 0
-  %26 = load ptr, ptr %first21, align 8
-  store ptr %26, ptr %ch, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then18
-  %27 = load ptr, ptr %ch, align 8
-  %28 = load ptr, ptr %walker, align 8
-  %next22 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %next22, align 8
-  %text23 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %29, i32 0, i32 0
-  %afterLast24 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text23, i32 0, i32 1
-  %30 = load ptr, ptr %afterLast24, align 8
-  %cmp25 = icmp ult ptr %27, %30
-  br i1 %cmp25, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %31 = load ptr, ptr %ch, align 8
-  %32 = load i8, ptr %31, align 1
-  %conv27 = sext i8 %32 to i32
-  %cmp28 = icmp eq i32 %conv27, 58
-  br i1 %cmp28, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %for.body
-  store i32 0, ptr %removeSegment, align 4
-  br label %for.end
-
-if.end31:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end31
-  %33 = load ptr, ptr %ch, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %33, i32 1
-  store ptr %incdec.ptr, ptr %ch, align 8
-  br label %for.cond, !llvm.loop !4
-
-for.end:                                          ; preds = %if.then30, %for.cond
-  br label %if.end32
-
-if.end32:                                         ; preds = %for.end, %land.lhs.true14, %land.lhs.true, %if.then9
-  %34 = load i32, ptr %removeSegment, align 4
-  %tobool33 = icmp ne i32 %34, 0
-  br i1 %tobool33, label %if.then34, label %if.end96
-
-if.then34:                                        ; preds = %if.end32
-  %35 = load ptr, ptr %walker, align 8
-  %next35 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %next35, align 8
-  %cmp36 = icmp ne ptr %36, null
-  br i1 %cmp36, label %if.then38, label %if.else62
-
-if.then38:                                        ; preds = %if.then34
-  %37 = load ptr, ptr %prev, align 8
-  %38 = load ptr, ptr %walker, align 8
-  %next39 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %next39, align 8
-  %reserved40 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %39, i32 0, i32 2
-  store ptr %37, ptr %reserved40, align 8
-  %40 = load ptr, ptr %prev, align 8
-  %cmp41 = icmp eq ptr %40, null
-  br i1 %cmp41, label %if.then43, label %if.else
-
-if.then43:                                        ; preds = %if.then38
-  %41 = load ptr, ptr %walker, align 8
-  %next44 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %next44, align 8
-  %43 = load ptr, ptr %uri.addr, align 8
-  %pathHead45 = getelementptr inbounds %struct.UriUriStructA, ptr %43, i32 0, i32 5
-  store ptr %42, ptr %pathHead45, align 8
-  br label %if.end48
-
-if.else:                                          ; preds = %if.then38
-  %44 = load ptr, ptr %walker, align 8
-  %next46 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %44, i32 0, i32 1
-  %45 = load ptr, ptr %next46, align 8
-  %46 = load ptr, ptr %prev, align 8
-  %next47 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %46, i32 0, i32 1
-  store ptr %45, ptr %next47, align 8
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.else, %if.then43
-  %47 = load i32, ptr %pathOwned.addr, align 4
-  %tobool49 = icmp ne i32 %47, 0
-  br i1 %tobool49, label %land.lhs.true50, label %if.end60
-
-land.lhs.true50:                                  ; preds = %if.end48
-  %48 = load ptr, ptr %walker, align 8
-  %text51 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %48, i32 0, i32 0
-  %first52 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text51, i32 0, i32 0
-  %49 = load ptr, ptr %first52, align 8
-  %50 = load ptr, ptr %walker, align 8
-  %text53 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %50, i32 0, i32 0
-  %afterLast54 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text53, i32 0, i32 1
-  %51 = load ptr, ptr %afterLast54, align 8
-  %cmp55 = icmp ne ptr %49, %51
-  br i1 %cmp55, label %if.then57, label %if.end60
-
-if.then57:                                        ; preds = %land.lhs.true50
-  %52 = load ptr, ptr %memory.addr, align 8
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %52, i32 0, i32 4
-  %53 = load ptr, ptr %free, align 8
-  %54 = load ptr, ptr %memory.addr, align 8
-  %55 = load ptr, ptr %walker, align 8
-  %text58 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %55, i32 0, i32 0
-  %first59 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text58, i32 0, i32 0
-  %56 = load ptr, ptr %first59, align 8
-  call void %53(ptr noundef %54, ptr noundef %56)
-  br label %if.end60
-
-if.end60:                                         ; preds = %if.then57, %land.lhs.true50, %if.end48
-  %57 = load ptr, ptr %memory.addr, align 8
-  %free61 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %57, i32 0, i32 4
-  %58 = load ptr, ptr %free61, align 8
-  %59 = load ptr, ptr %memory.addr, align 8
-  %60 = load ptr, ptr %walker, align 8
-  call void %58(ptr noundef %59, ptr noundef %60)
-  br label %if.end95
-
-if.else62:                                        ; preds = %if.then34
-  %61 = load i32, ptr %pathOwned.addr, align 4
-  %tobool63 = icmp ne i32 %61, 0
-  br i1 %tobool63, label %land.lhs.true64, label %if.end75
-
-land.lhs.true64:                                  ; preds = %if.else62
-  %62 = load ptr, ptr %walker, align 8
-  %text65 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %62, i32 0, i32 0
-  %first66 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text65, i32 0, i32 0
-  %63 = load ptr, ptr %first66, align 8
-  %64 = load ptr, ptr %walker, align 8
-  %text67 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %64, i32 0, i32 0
-  %afterLast68 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text67, i32 0, i32 1
-  %65 = load ptr, ptr %afterLast68, align 8
-  %cmp69 = icmp ne ptr %63, %65
-  br i1 %cmp69, label %if.then71, label %if.end75
-
-if.then71:                                        ; preds = %land.lhs.true64
-  %66 = load ptr, ptr %memory.addr, align 8
-  %free72 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %66, i32 0, i32 4
-  %67 = load ptr, ptr %free72, align 8
-  %68 = load ptr, ptr %memory.addr, align 8
-  %69 = load ptr, ptr %walker, align 8
-  %text73 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %69, i32 0, i32 0
-  %first74 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text73, i32 0, i32 0
-  %70 = load ptr, ptr %first74, align 8
-  call void %67(ptr noundef %68, ptr noundef %70)
-  br label %if.end75
-
-if.end75:                                         ; preds = %if.then71, %land.lhs.true64, %if.else62
-  %71 = load ptr, ptr %prev, align 8
-  %cmp76 = icmp eq ptr %71, null
-  br i1 %cmp76, label %if.then78, label %if.else89
-
-if.then78:                                        ; preds = %if.end75
-  %72 = load ptr, ptr %uri.addr, align 8
-  %call = call i32 @uriIsHostSetA(ptr noundef %72)
-  %tobool79 = icmp ne i32 %call, 0
-  br i1 %tobool79, label %if.then80, label %if.else85
-
-if.then80:                                        ; preds = %if.then78
-  %73 = load ptr, ptr %walker, align 8
-  %text81 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %73, i32 0, i32 0
-  %first82 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text81, i32 0, i32 0
-  store ptr @.str, ptr %first82, align 8
-  %74 = load ptr, ptr %walker, align 8
-  %text83 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %74, i32 0, i32 0
-  %afterLast84 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text83, i32 0, i32 1
-  store ptr @.str, ptr %afterLast84, align 8
-  br label %if.end88
-
-if.else85:                                        ; preds = %if.then78
-  %75 = load ptr, ptr %memory.addr, align 8
-  %free86 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %75, i32 0, i32 4
-  %76 = load ptr, ptr %free86, align 8
-  %77 = load ptr, ptr %memory.addr, align 8
-  %78 = load ptr, ptr %walker, align 8
-  call void %76(ptr noundef %77, ptr noundef %78)
-  %79 = load ptr, ptr %uri.addr, align 8
-  %pathHead87 = getelementptr inbounds %struct.UriUriStructA, ptr %79, i32 0, i32 5
-  store ptr null, ptr %pathHead87, align 8
-  %80 = load ptr, ptr %uri.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructA, ptr %80, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end88
-
-if.end88:                                         ; preds = %if.else85, %if.then80
-  br label %if.end94
-
-if.else89:                                        ; preds = %if.end75
-  %81 = load ptr, ptr %walker, align 8
-  %text90 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %81, i32 0, i32 0
-  %first91 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text90, i32 0, i32 0
-  store ptr @.str, ptr %first91, align 8
-  %82 = load ptr, ptr %walker, align 8
-  %text92 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %82, i32 0, i32 0
-  %afterLast93 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text92, i32 0, i32 1
-  store ptr @.str, ptr %afterLast93, align 8
-  br label %if.end94
-
-if.end94:                                         ; preds = %if.else89, %if.end88
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.end94, %if.end60
-  %83 = load ptr, ptr %nextBackup, align 8
-  store ptr %83, ptr %walker, align 8
-  br label %if.end96
-
-if.end96:                                         ; preds = %if.end95, %if.end32
-  br label %if.end97
-
-if.end97:                                         ; preds = %if.end96, %sw.bb
-  br label %sw.epilog
-
-sw.bb98:                                          ; preds = %do.body
-  %84 = load ptr, ptr %walker, align 8
-  %text99 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %84, i32 0, i32 0
-  %first100 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text99, i32 0, i32 0
-  %85 = load ptr, ptr %first100, align 8
-  %arrayidx101 = getelementptr inbounds i8, ptr %85, i64 0
-  %86 = load i8, ptr %arrayidx101, align 1
-  %conv102 = sext i8 %86 to i32
-  %cmp103 = icmp eq i32 %conv102, 46
-  br i1 %cmp103, label %land.lhs.true105, label %if.end328
-
-land.lhs.true105:                                 ; preds = %sw.bb98
-  %87 = load ptr, ptr %walker, align 8
-  %text106 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %87, i32 0, i32 0
-  %first107 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text106, i32 0, i32 0
-  %88 = load ptr, ptr %first107, align 8
-  %arrayidx108 = getelementptr inbounds i8, ptr %88, i64 1
-  %89 = load i8, ptr %arrayidx108, align 1
-  %conv109 = sext i8 %89 to i32
-  %cmp110 = icmp eq i32 %conv109, 46
-  br i1 %cmp110, label %if.then112, label %if.end328
-
-if.then112:                                       ; preds = %land.lhs.true105
-  %90 = load ptr, ptr %walker, align 8
-  %reserved114 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %90, i32 0, i32 2
-  %91 = load ptr, ptr %reserved114, align 8
-  store ptr %91, ptr %prev113, align 8
-  %92 = load ptr, ptr %walker, align 8
-  %next116 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %92, i32 0, i32 1
-  %93 = load ptr, ptr %next116, align 8
-  store ptr %93, ptr %nextBackup115, align 8
-  store i32 1, ptr %removeSegment, align 4
-  %94 = load i32, ptr %relative.addr, align 4
-  %tobool117 = icmp ne i32 %94, 0
-  br i1 %tobool117, label %if.then118, label %if.end152
-
-if.then118:                                       ; preds = %if.then112
-  %95 = load ptr, ptr %prev113, align 8
-  %cmp119 = icmp eq ptr %95, null
-  br i1 %cmp119, label %if.then121, label %if.else122
-
-if.then121:                                       ; preds = %if.then118
-  store i32 0, ptr %removeSegment, align 4
-  br label %if.end151
-
-if.else122:                                       ; preds = %if.then118
-  %96 = load ptr, ptr %prev113, align 8
-  %cmp123 = icmp ne ptr %96, null
-  br i1 %cmp123, label %land.lhs.true125, label %if.end150
-
-land.lhs.true125:                                 ; preds = %if.else122
-  %97 = load ptr, ptr %prev113, align 8
-  %text126 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %97, i32 0, i32 0
-  %afterLast127 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text126, i32 0, i32 1
-  %98 = load ptr, ptr %afterLast127, align 8
-  %99 = load ptr, ptr %prev113, align 8
-  %text128 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %99, i32 0, i32 0
-  %first129 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text128, i32 0, i32 0
-  %100 = load ptr, ptr %first129, align 8
-  %sub.ptr.lhs.cast130 = ptrtoint ptr %98 to i64
-  %sub.ptr.rhs.cast131 = ptrtoint ptr %100 to i64
-  %sub.ptr.sub132 = sub i64 %sub.ptr.lhs.cast130, %sub.ptr.rhs.cast131
-  %cmp133 = icmp eq i64 %sub.ptr.sub132, 2
-  br i1 %cmp133, label %land.lhs.true135, label %if.end150
-
-land.lhs.true135:                                 ; preds = %land.lhs.true125
-  %101 = load ptr, ptr %prev113, align 8
-  %text136 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %101, i32 0, i32 0
-  %first137 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text136, i32 0, i32 0
-  %102 = load ptr, ptr %first137, align 8
-  %arrayidx138 = getelementptr inbounds i8, ptr %102, i64 0
-  %103 = load i8, ptr %arrayidx138, align 1
-  %conv139 = sext i8 %103 to i32
-  %cmp140 = icmp eq i32 %conv139, 46
-  br i1 %cmp140, label %land.lhs.true142, label %if.end150
-
-land.lhs.true142:                                 ; preds = %land.lhs.true135
-  %104 = load ptr, ptr %prev113, align 8
-  %text143 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %104, i32 0, i32 0
-  %first144 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text143, i32 0, i32 0
-  %105 = load ptr, ptr %first144, align 8
-  %arrayidx145 = getelementptr inbounds i8, ptr %105, i64 1
-  %106 = load i8, ptr %arrayidx145, align 1
-  %conv146 = sext i8 %106 to i32
-  %cmp147 = icmp eq i32 %conv146, 46
-  br i1 %cmp147, label %if.then149, label %if.end150
-
-if.then149:                                       ; preds = %land.lhs.true142
-  store i32 0, ptr %removeSegment, align 4
-  br label %if.end150
-
-if.end150:                                        ; preds = %if.then149, %land.lhs.true142, %land.lhs.true135, %land.lhs.true125, %if.else122
-  br label %if.end151
-
-if.end151:                                        ; preds = %if.end150, %if.then121
-  br label %if.end152
-
-if.end152:                                        ; preds = %if.end151, %if.then112
-  %107 = load i32, ptr %removeSegment, align 4
-  %tobool153 = icmp ne i32 %107, 0
-  br i1 %tobool153, label %if.then154, label %if.end327
-
-if.then154:                                       ; preds = %if.end152
-  %108 = load ptr, ptr %prev113, align 8
-  %cmp155 = icmp ne ptr %108, null
-  br i1 %cmp155, label %if.then157, label %if.else299
-
-if.then157:                                       ; preds = %if.then154
-  %109 = load ptr, ptr %prev113, align 8
-  %reserved158 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %109, i32 0, i32 2
-  %110 = load ptr, ptr %reserved158, align 8
-  store ptr %110, ptr %prevPrev, align 8
-  %111 = load ptr, ptr %prevPrev, align 8
-  %cmp159 = icmp ne ptr %111, null
-  br i1 %cmp159, label %if.then161, label %if.else239
-
-if.then161:                                       ; preds = %if.then157
-  %112 = load ptr, ptr %walker, align 8
-  %next162 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %112, i32 0, i32 1
-  %113 = load ptr, ptr %next162, align 8
-  %114 = load ptr, ptr %prevPrev, align 8
-  %next163 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %114, i32 0, i32 1
-  store ptr %113, ptr %next163, align 8
-  %115 = load ptr, ptr %walker, align 8
-  %next164 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %115, i32 0, i32 1
-  %116 = load ptr, ptr %next164, align 8
-  %cmp165 = icmp ne ptr %116, null
-  br i1 %cmp165, label %if.then167, label %if.else170
-
-if.then167:                                       ; preds = %if.then161
-  %117 = load ptr, ptr %prevPrev, align 8
-  %118 = load ptr, ptr %walker, align 8
-  %next168 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %118, i32 0, i32 1
-  %119 = load ptr, ptr %next168, align 8
-  %reserved169 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %119, i32 0, i32 2
-  store ptr %117, ptr %reserved169, align 8
-  br label %if.end210
-
-if.else170:                                       ; preds = %if.then161
-  %120 = load ptr, ptr %memory.addr, align 8
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %120, i32 0, i32 1
-  %121 = load ptr, ptr %calloc, align 8
-  %122 = load ptr, ptr %memory.addr, align 8
-  %call171 = call ptr %121(ptr noundef %122, i64 noundef 1, i64 noundef 32)
-  store ptr %call171, ptr %segment, align 8
-  %123 = load ptr, ptr %segment, align 8
-  %cmp172 = icmp eq ptr %123, null
-  br i1 %cmp172, label %if.then174, label %if.end203
-
-if.then174:                                       ; preds = %if.else170
-  %124 = load i32, ptr %pathOwned.addr, align 4
-  %tobool175 = icmp ne i32 %124, 0
-  br i1 %tobool175, label %land.lhs.true176, label %if.end187
-
-land.lhs.true176:                                 ; preds = %if.then174
-  %125 = load ptr, ptr %walker, align 8
-  %text177 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %125, i32 0, i32 0
-  %first178 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text177, i32 0, i32 0
-  %126 = load ptr, ptr %first178, align 8
-  %127 = load ptr, ptr %walker, align 8
-  %text179 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %127, i32 0, i32 0
-  %afterLast180 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text179, i32 0, i32 1
-  %128 = load ptr, ptr %afterLast180, align 8
-  %cmp181 = icmp ne ptr %126, %128
-  br i1 %cmp181, label %if.then183, label %if.end187
-
-if.then183:                                       ; preds = %land.lhs.true176
-  %129 = load ptr, ptr %memory.addr, align 8
-  %free184 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %129, i32 0, i32 4
-  %130 = load ptr, ptr %free184, align 8
-  %131 = load ptr, ptr %memory.addr, align 8
-  %132 = load ptr, ptr %walker, align 8
-  %text185 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %132, i32 0, i32 0
-  %first186 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text185, i32 0, i32 0
-  %133 = load ptr, ptr %first186, align 8
-  call void %130(ptr noundef %131, ptr noundef %133)
-  br label %if.end187
-
-if.end187:                                        ; preds = %if.then183, %land.lhs.true176, %if.then174
-  %134 = load ptr, ptr %memory.addr, align 8
-  %free188 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %134, i32 0, i32 4
-  %135 = load ptr, ptr %free188, align 8
-  %136 = load ptr, ptr %memory.addr, align 8
-  %137 = load ptr, ptr %walker, align 8
-  call void %135(ptr noundef %136, ptr noundef %137)
-  %138 = load i32, ptr %pathOwned.addr, align 4
-  %tobool189 = icmp ne i32 %138, 0
-  br i1 %tobool189, label %land.lhs.true190, label %if.end201
-
-land.lhs.true190:                                 ; preds = %if.end187
-  %139 = load ptr, ptr %prev113, align 8
-  %text191 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %139, i32 0, i32 0
-  %first192 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text191, i32 0, i32 0
-  %140 = load ptr, ptr %first192, align 8
-  %141 = load ptr, ptr %prev113, align 8
-  %text193 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %141, i32 0, i32 0
-  %afterLast194 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text193, i32 0, i32 1
-  %142 = load ptr, ptr %afterLast194, align 8
-  %cmp195 = icmp ne ptr %140, %142
-  br i1 %cmp195, label %if.then197, label %if.end201
-
-if.then197:                                       ; preds = %land.lhs.true190
-  %143 = load ptr, ptr %memory.addr, align 8
-  %free198 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %143, i32 0, i32 4
-  %144 = load ptr, ptr %free198, align 8
-  %145 = load ptr, ptr %memory.addr, align 8
-  %146 = load ptr, ptr %prev113, align 8
-  %text199 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %146, i32 0, i32 0
-  %first200 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text199, i32 0, i32 0
-  %147 = load ptr, ptr %first200, align 8
-  call void %144(ptr noundef %145, ptr noundef %147)
-  br label %if.end201
-
-if.end201:                                        ; preds = %if.then197, %land.lhs.true190, %if.end187
-  %148 = load ptr, ptr %memory.addr, align 8
-  %free202 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %148, i32 0, i32 4
-  %149 = load ptr, ptr %free202, align 8
-  %150 = load ptr, ptr %memory.addr, align 8
-  %151 = load ptr, ptr %prev113, align 8
-  call void %149(ptr noundef %150, ptr noundef %151)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end203:                                        ; preds = %if.else170
-  %152 = load ptr, ptr %segment, align 8
-  %text204 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %152, i32 0, i32 0
-  %first205 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text204, i32 0, i32 0
-  store ptr @.str, ptr %first205, align 8
-  %153 = load ptr, ptr %segment, align 8
-  %text206 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %153, i32 0, i32 0
-  %afterLast207 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text206, i32 0, i32 1
-  store ptr @.str, ptr %afterLast207, align 8
-  %154 = load ptr, ptr %segment, align 8
-  %155 = load ptr, ptr %prevPrev, align 8
-  %next208 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %155, i32 0, i32 1
-  store ptr %154, ptr %next208, align 8
-  %156 = load ptr, ptr %segment, align 8
-  %157 = load ptr, ptr %uri.addr, align 8
-  %pathTail209 = getelementptr inbounds %struct.UriUriStructA, ptr %157, i32 0, i32 6
-  store ptr %156, ptr %pathTail209, align 8
-  br label %if.end210
-
-if.end210:                                        ; preds = %if.end203, %if.then167
-  %158 = load i32, ptr %pathOwned.addr, align 4
-  %tobool211 = icmp ne i32 %158, 0
-  br i1 %tobool211, label %land.lhs.true212, label %if.end223
-
-land.lhs.true212:                                 ; preds = %if.end210
-  %159 = load ptr, ptr %walker, align 8
-  %text213 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %159, i32 0, i32 0
-  %first214 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text213, i32 0, i32 0
-  %160 = load ptr, ptr %first214, align 8
-  %161 = load ptr, ptr %walker, align 8
-  %text215 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %161, i32 0, i32 0
-  %afterLast216 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text215, i32 0, i32 1
-  %162 = load ptr, ptr %afterLast216, align 8
-  %cmp217 = icmp ne ptr %160, %162
-  br i1 %cmp217, label %if.then219, label %if.end223
-
-if.then219:                                       ; preds = %land.lhs.true212
-  %163 = load ptr, ptr %memory.addr, align 8
-  %free220 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %163, i32 0, i32 4
-  %164 = load ptr, ptr %free220, align 8
-  %165 = load ptr, ptr %memory.addr, align 8
-  %166 = load ptr, ptr %walker, align 8
-  %text221 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %166, i32 0, i32 0
-  %first222 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text221, i32 0, i32 0
-  %167 = load ptr, ptr %first222, align 8
-  call void %164(ptr noundef %165, ptr noundef %167)
-  br label %if.end223
-
-if.end223:                                        ; preds = %if.then219, %land.lhs.true212, %if.end210
-  %168 = load ptr, ptr %memory.addr, align 8
-  %free224 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %168, i32 0, i32 4
-  %169 = load ptr, ptr %free224, align 8
-  %170 = load ptr, ptr %memory.addr, align 8
-  %171 = load ptr, ptr %walker, align 8
-  call void %169(ptr noundef %170, ptr noundef %171)
-  %172 = load i32, ptr %pathOwned.addr, align 4
-  %tobool225 = icmp ne i32 %172, 0
-  br i1 %tobool225, label %land.lhs.true226, label %if.end237
-
-land.lhs.true226:                                 ; preds = %if.end223
-  %173 = load ptr, ptr %prev113, align 8
-  %text227 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %173, i32 0, i32 0
-  %first228 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text227, i32 0, i32 0
-  %174 = load ptr, ptr %first228, align 8
-  %175 = load ptr, ptr %prev113, align 8
-  %text229 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %175, i32 0, i32 0
-  %afterLast230 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text229, i32 0, i32 1
-  %176 = load ptr, ptr %afterLast230, align 8
-  %cmp231 = icmp ne ptr %174, %176
-  br i1 %cmp231, label %if.then233, label %if.end237
-
-if.then233:                                       ; preds = %land.lhs.true226
-  %177 = load ptr, ptr %memory.addr, align 8
-  %free234 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %177, i32 0, i32 4
-  %178 = load ptr, ptr %free234, align 8
-  %179 = load ptr, ptr %memory.addr, align 8
-  %180 = load ptr, ptr %prev113, align 8
-  %text235 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %180, i32 0, i32 0
-  %first236 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text235, i32 0, i32 0
-  %181 = load ptr, ptr %first236, align 8
-  call void %178(ptr noundef %179, ptr noundef %181)
-  br label %if.end237
-
-if.end237:                                        ; preds = %if.then233, %land.lhs.true226, %if.end223
-  %182 = load ptr, ptr %memory.addr, align 8
-  %free238 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %182, i32 0, i32 4
-  %183 = load ptr, ptr %free238, align 8
-  %184 = load ptr, ptr %memory.addr, align 8
-  %185 = load ptr, ptr %prev113, align 8
-  call void %183(ptr noundef %184, ptr noundef %185)
-  %186 = load ptr, ptr %nextBackup115, align 8
-  store ptr %186, ptr %walker, align 8
-  br label %if.end298
-
-if.else239:                                       ; preds = %if.then157
-  %187 = load ptr, ptr %walker, align 8
-  %next240 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %187, i32 0, i32 1
-  %188 = load ptr, ptr %next240, align 8
-  %cmp241 = icmp ne ptr %188, null
-  br i1 %cmp241, label %if.then243, label %if.else262
-
-if.then243:                                       ; preds = %if.else239
-  %189 = load ptr, ptr %walker, align 8
-  %next244 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %189, i32 0, i32 1
-  %190 = load ptr, ptr %next244, align 8
-  %191 = load ptr, ptr %uri.addr, align 8
-  %pathHead245 = getelementptr inbounds %struct.UriUriStructA, ptr %191, i32 0, i32 5
-  store ptr %190, ptr %pathHead245, align 8
-  %192 = load ptr, ptr %walker, align 8
-  %next246 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %192, i32 0, i32 1
-  %193 = load ptr, ptr %next246, align 8
-  %reserved247 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %193, i32 0, i32 2
-  store ptr null, ptr %reserved247, align 8
-  %194 = load i32, ptr %pathOwned.addr, align 4
-  %tobool248 = icmp ne i32 %194, 0
-  br i1 %tobool248, label %land.lhs.true249, label %if.end260
-
-land.lhs.true249:                                 ; preds = %if.then243
-  %195 = load ptr, ptr %walker, align 8
-  %text250 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %195, i32 0, i32 0
-  %first251 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text250, i32 0, i32 0
-  %196 = load ptr, ptr %first251, align 8
-  %197 = load ptr, ptr %walker, align 8
-  %text252 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %197, i32 0, i32 0
-  %afterLast253 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text252, i32 0, i32 1
-  %198 = load ptr, ptr %afterLast253, align 8
-  %cmp254 = icmp ne ptr %196, %198
-  br i1 %cmp254, label %if.then256, label %if.end260
-
-if.then256:                                       ; preds = %land.lhs.true249
-  %199 = load ptr, ptr %memory.addr, align 8
-  %free257 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %199, i32 0, i32 4
-  %200 = load ptr, ptr %free257, align 8
-  %201 = load ptr, ptr %memory.addr, align 8
-  %202 = load ptr, ptr %walker, align 8
-  %text258 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %202, i32 0, i32 0
-  %first259 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text258, i32 0, i32 0
-  %203 = load ptr, ptr %first259, align 8
-  call void %200(ptr noundef %201, ptr noundef %203)
-  br label %if.end260
-
-if.end260:                                        ; preds = %if.then256, %land.lhs.true249, %if.then243
-  %204 = load ptr, ptr %memory.addr, align 8
-  %free261 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %204, i32 0, i32 4
-  %205 = load ptr, ptr %free261, align 8
-  %206 = load ptr, ptr %memory.addr, align 8
-  %207 = load ptr, ptr %walker, align 8
-  call void %205(ptr noundef %206, ptr noundef %207)
-  br label %if.end283
-
-if.else262:                                       ; preds = %if.else239
-  %208 = load ptr, ptr %walker, align 8
-  store ptr %208, ptr %segment263, align 8
-  %209 = load i32, ptr %pathOwned.addr, align 4
-  %tobool264 = icmp ne i32 %209, 0
-  br i1 %tobool264, label %land.lhs.true265, label %if.end276
-
-land.lhs.true265:                                 ; preds = %if.else262
-  %210 = load ptr, ptr %segment263, align 8
-  %text266 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %210, i32 0, i32 0
-  %first267 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text266, i32 0, i32 0
-  %211 = load ptr, ptr %first267, align 8
-  %212 = load ptr, ptr %segment263, align 8
-  %text268 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %212, i32 0, i32 0
-  %afterLast269 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text268, i32 0, i32 1
-  %213 = load ptr, ptr %afterLast269, align 8
-  %cmp270 = icmp ne ptr %211, %213
-  br i1 %cmp270, label %if.then272, label %if.end276
-
-if.then272:                                       ; preds = %land.lhs.true265
-  %214 = load ptr, ptr %memory.addr, align 8
-  %free273 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %214, i32 0, i32 4
-  %215 = load ptr, ptr %free273, align 8
-  %216 = load ptr, ptr %memory.addr, align 8
-  %217 = load ptr, ptr %segment263, align 8
-  %text274 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %217, i32 0, i32 0
-  %first275 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text274, i32 0, i32 0
-  %218 = load ptr, ptr %first275, align 8
-  call void %215(ptr noundef %216, ptr noundef %218)
-  br label %if.end276
-
-if.end276:                                        ; preds = %if.then272, %land.lhs.true265, %if.else262
-  %219 = load ptr, ptr %segment263, align 8
-  %text277 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %219, i32 0, i32 0
-  %first278 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text277, i32 0, i32 0
-  store ptr @.str, ptr %first278, align 8
-  %220 = load ptr, ptr %segment263, align 8
-  %text279 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %220, i32 0, i32 0
-  %afterLast280 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text279, i32 0, i32 1
-  store ptr @.str, ptr %afterLast280, align 8
-  %221 = load ptr, ptr %segment263, align 8
-  %222 = load ptr, ptr %uri.addr, align 8
-  %pathHead281 = getelementptr inbounds %struct.UriUriStructA, ptr %222, i32 0, i32 5
-  store ptr %221, ptr %pathHead281, align 8
-  %223 = load ptr, ptr %segment263, align 8
-  %224 = load ptr, ptr %uri.addr, align 8
-  %pathTail282 = getelementptr inbounds %struct.UriUriStructA, ptr %224, i32 0, i32 6
-  store ptr %223, ptr %pathTail282, align 8
-  br label %if.end283
-
-if.end283:                                        ; preds = %if.end276, %if.end260
-  %225 = load i32, ptr %pathOwned.addr, align 4
-  %tobool284 = icmp ne i32 %225, 0
-  br i1 %tobool284, label %land.lhs.true285, label %if.end296
-
-land.lhs.true285:                                 ; preds = %if.end283
-  %226 = load ptr, ptr %prev113, align 8
-  %text286 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %226, i32 0, i32 0
-  %first287 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text286, i32 0, i32 0
-  %227 = load ptr, ptr %first287, align 8
-  %228 = load ptr, ptr %prev113, align 8
-  %text288 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %228, i32 0, i32 0
-  %afterLast289 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text288, i32 0, i32 1
-  %229 = load ptr, ptr %afterLast289, align 8
-  %cmp290 = icmp ne ptr %227, %229
-  br i1 %cmp290, label %if.then292, label %if.end296
-
-if.then292:                                       ; preds = %land.lhs.true285
-  %230 = load ptr, ptr %memory.addr, align 8
-  %free293 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %230, i32 0, i32 4
-  %231 = load ptr, ptr %free293, align 8
-  %232 = load ptr, ptr %memory.addr, align 8
-  %233 = load ptr, ptr %prev113, align 8
-  %text294 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %233, i32 0, i32 0
-  %first295 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text294, i32 0, i32 0
-  %234 = load ptr, ptr %first295, align 8
-  call void %231(ptr noundef %232, ptr noundef %234)
-  br label %if.end296
-
-if.end296:                                        ; preds = %if.then292, %land.lhs.true285, %if.end283
-  %235 = load ptr, ptr %memory.addr, align 8
-  %free297 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %235, i32 0, i32 4
-  %236 = load ptr, ptr %free297, align 8
-  %237 = load ptr, ptr %memory.addr, align 8
-  %238 = load ptr, ptr %prev113, align 8
-  call void %236(ptr noundef %237, ptr noundef %238)
-  %239 = load ptr, ptr %nextBackup115, align 8
-  store ptr %239, ptr %walker, align 8
-  br label %if.end298
-
-if.end298:                                        ; preds = %if.end296, %if.end237
-  br label %if.end326
-
-if.else299:                                       ; preds = %if.then154
-  %240 = load ptr, ptr %walker, align 8
-  %next300 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %240, i32 0, i32 1
-  %241 = load ptr, ptr %next300, align 8
-  store ptr %241, ptr %anotherNextBackup, align 8
-  %242 = load ptr, ptr %walker, align 8
-  %next301 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %242, i32 0, i32 1
-  %243 = load ptr, ptr %next301, align 8
-  %244 = load ptr, ptr %uri.addr, align 8
-  %pathHead302 = getelementptr inbounds %struct.UriUriStructA, ptr %244, i32 0, i32 5
-  store ptr %243, ptr %pathHead302, align 8
-  %245 = load ptr, ptr %walker, align 8
-  %next303 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %245, i32 0, i32 1
-  %246 = load ptr, ptr %next303, align 8
-  %cmp304 = icmp ne ptr %246, null
-  br i1 %cmp304, label %if.then306, label %if.else309
-
-if.then306:                                       ; preds = %if.else299
-  %247 = load ptr, ptr %walker, align 8
-  %next307 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %247, i32 0, i32 1
-  %248 = load ptr, ptr %next307, align 8
-  %reserved308 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %248, i32 0, i32 2
-  store ptr null, ptr %reserved308, align 8
-  br label %if.end311
-
-if.else309:                                       ; preds = %if.else299
-  %249 = load ptr, ptr %uri.addr, align 8
-  %pathTail310 = getelementptr inbounds %struct.UriUriStructA, ptr %249, i32 0, i32 6
-  store ptr null, ptr %pathTail310, align 8
-  br label %if.end311
-
-if.end311:                                        ; preds = %if.else309, %if.then306
-  %250 = load i32, ptr %pathOwned.addr, align 4
-  %tobool312 = icmp ne i32 %250, 0
-  br i1 %tobool312, label %land.lhs.true313, label %if.end324
-
-land.lhs.true313:                                 ; preds = %if.end311
-  %251 = load ptr, ptr %walker, align 8
-  %text314 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %251, i32 0, i32 0
-  %first315 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text314, i32 0, i32 0
-  %252 = load ptr, ptr %first315, align 8
-  %253 = load ptr, ptr %walker, align 8
-  %text316 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %253, i32 0, i32 0
-  %afterLast317 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text316, i32 0, i32 1
-  %254 = load ptr, ptr %afterLast317, align 8
-  %cmp318 = icmp ne ptr %252, %254
-  br i1 %cmp318, label %if.then320, label %if.end324
-
-if.then320:                                       ; preds = %land.lhs.true313
-  %255 = load ptr, ptr %memory.addr, align 8
-  %free321 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %255, i32 0, i32 4
-  %256 = load ptr, ptr %free321, align 8
-  %257 = load ptr, ptr %memory.addr, align 8
-  %258 = load ptr, ptr %walker, align 8
-  %text322 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %258, i32 0, i32 0
-  %first323 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text322, i32 0, i32 0
-  %259 = load ptr, ptr %first323, align 8
-  call void %256(ptr noundef %257, ptr noundef %259)
-  br label %if.end324
-
-if.end324:                                        ; preds = %if.then320, %land.lhs.true313, %if.end311
-  %260 = load ptr, ptr %memory.addr, align 8
-  %free325 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %260, i32 0, i32 4
-  %261 = load ptr, ptr %free325, align 8
-  %262 = load ptr, ptr %memory.addr, align 8
-  %263 = load ptr, ptr %walker, align 8
-  call void %261(ptr noundef %262, ptr noundef %263)
-  %264 = load ptr, ptr %anotherNextBackup, align 8
-  store ptr %264, ptr %walker, align 8
-  br label %if.end326
-
-if.end326:                                        ; preds = %if.end324, %if.end298
-  br label %if.end327
-
-if.end327:                                        ; preds = %if.end326, %if.end152
-  br label %if.end328
-
-if.end328:                                        ; preds = %if.end327, %land.lhs.true105, %sw.bb98
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end328, %if.end97, %do.body
-  %265 = load i32, ptr %removeSegment, align 4
-  %tobool329 = icmp ne i32 %265, 0
-  br i1 %tobool329, label %if.end341, label %if.then330
-
-if.then330:                                       ; preds = %sw.epilog
-  %266 = load ptr, ptr %walker, align 8
-  %next331 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %266, i32 0, i32 1
-  %267 = load ptr, ptr %next331, align 8
-  %cmp332 = icmp ne ptr %267, null
-  br i1 %cmp332, label %if.then334, label %if.else337
-
-if.then334:                                       ; preds = %if.then330
-  %268 = load ptr, ptr %walker, align 8
-  %269 = load ptr, ptr %walker, align 8
-  %next335 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %269, i32 0, i32 1
-  %270 = load ptr, ptr %next335, align 8
-  %reserved336 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %270, i32 0, i32 2
-  store ptr %268, ptr %reserved336, align 8
-  br label %if.end339
-
-if.else337:                                       ; preds = %if.then330
-  %271 = load ptr, ptr %walker, align 8
-  %272 = load ptr, ptr %uri.addr, align 8
-  %pathTail338 = getelementptr inbounds %struct.UriUriStructA, ptr %272, i32 0, i32 6
-  store ptr %271, ptr %pathTail338, align 8
-  br label %if.end339
-
-if.end339:                                        ; preds = %if.else337, %if.then334
-  %273 = load ptr, ptr %walker, align 8
-  %next340 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %273, i32 0, i32 1
-  %274 = load ptr, ptr %next340, align 8
-  store ptr %274, ptr %walker, align 8
-  br label %if.end341
-
-if.end341:                                        ; preds = %if.end339, %sw.epilog
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end341
-  %275 = load ptr, ptr %walker, align 8
-  %cmp342 = icmp ne ptr %275, null
-  br i1 %cmp342, label %do.body, label %do.end, !llvm.loop !6
-
-do.end:                                           ; preds = %do.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.end201, %if.then
-  %276 = load i32, ptr %retval, align 4
-  ret i32 %276
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @uriIsHostSetA(ptr noundef %uri) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %1, i32 0, i32 2
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %hostText, i32 0, i32 0
-  %2 = load ptr, ptr %first, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.rhs
-  %3 = load ptr, ptr %uri.addr, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 3
-  %ip4 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData, i32 0, i32 0
-  %4 = load ptr, ptr %ip4, align 8
-  %cmp2 = icmp ne ptr %4, null
-  br i1 %cmp2, label %lor.end, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %uri.addr, align 8
-  %hostData4 = getelementptr inbounds %struct.UriUriStructA, ptr %5, i32 0, i32 3
-  %ip6 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData4, i32 0, i32 1
-  %6 = load ptr, ptr %ip6, align 8
-  %cmp5 = icmp ne ptr %6, null
-  br i1 %cmp5, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false3
-  %7 = load ptr, ptr %uri.addr, align 8
-  %hostData6 = getelementptr inbounds %struct.UriUriStructA, ptr %7, i32 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData6, i32 0, i32 2
-  %first7 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %ipFuture, i32 0, i32 0
-  %8 = load ptr, ptr %first7, align 8
-  %cmp8 = icmp ne ptr %8, null
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false3, %lor.lhs.false, %land.rhs
-  %9 = phi i1 [ true, %lor.lhs.false3 ], [ true, %lor.lhs.false ], [ true, %land.rhs ], [ %cmp8, %lor.rhs ]
-  br label %land.end
-
-land.end:                                         ; preds = %lor.end, %entry
-  %10 = phi i1 [ false, %entry ], [ %9, %lor.end ]
-  %land.ext = zext i1 %10 to i32
-  ret i32 %land.ext
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %ABSOLUTE = alloca i32, align 4
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  store i32 0, ptr %ABSOLUTE, align 4
-  %0 = load ptr, ptr %uri.addr, align 8
-  %1 = load ptr, ptr %memory.addr, align 8
-  %call = call i32 @uriRemoveDotSegmentsA(ptr noundef %0, i32 noundef 0, ptr noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define zeroext i8 @uriHexdigToIntA(i8 noundef signext %hexdig) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %hexdig.addr = alloca i8, align 1
-  store i8 %hexdig, ptr %hexdig.addr, align 1
-  %0 = load i8, ptr %hexdig.addr, align 1
-  %conv = sext i8 %0 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 97, label %sw.bb3
-    i32 98, label %sw.bb3
-    i32 99, label %sw.bb3
-    i32 100, label %sw.bb3
-    i32 101, label %sw.bb3
-    i32 102, label %sw.bb3
-    i32 65, label %sw.bb8
-    i32 66, label %sw.bb8
-    i32 67, label %sw.bb8
-    i32 68, label %sw.bb8
-    i32 69, label %sw.bb8
-    i32 70, label %sw.bb8
+51:                                               ; preds = %37
+  %52 = load ptr, ptr %10, align 8, !tbaa !25
+  %53 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %52, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %53, i32 0, i32 0
+  %55 = load ptr, ptr %54, align 8, !tbaa !29
+  %56 = getelementptr inbounds i8, ptr %55, i64 0
+  %57 = load i8, ptr %56, align 1, !tbaa !30
+  %58 = sext i8 %57 to i32
+  %59 = icmp eq i32 %58, 46
+  br i1 %59, label %60, label %221
+
+60:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %61 = load ptr, ptr %10, align 8, !tbaa !25
+  %62 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  store ptr %63, ptr %14, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %64 = load ptr, ptr %10, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8, !tbaa !31
+  store ptr %66, ptr %15, align 8, !tbaa !25
+  store i32 1, ptr %12, align 4, !tbaa !14
+  %67 = load i32, ptr %7, align 4, !tbaa !14
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %107
+
+69:                                               ; preds = %60
+  %70 = load ptr, ptr %10, align 8, !tbaa !25
+  %71 = load ptr, ptr %6, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = icmp eq ptr %70, %73
+  br i1 %74, label %75, label %107
+
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %10, align 8, !tbaa !25
+  %77 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !31
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %107
+
+80:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %81 = load ptr, ptr %10, align 8, !tbaa !25
+  %82 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !31
+  %84 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !29
+  store ptr %86, ptr %16, align 8, !tbaa !32
+  br label %87
+
+87:                                               ; preds = %103, %80
+  %88 = load ptr, ptr %16, align 8, !tbaa !32
+  %89 = load ptr, ptr %10, align 8, !tbaa !25
+  %90 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !31
+  %92 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %91, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !28
+  %95 = icmp ult ptr %88, %94
+  br i1 %95, label %96, label %106
+
+96:                                               ; preds = %87
+  %97 = load ptr, ptr %16, align 8, !tbaa !32
+  %98 = load i8, ptr %97, align 1, !tbaa !30
+  %99 = sext i8 %98 to i32
+  %100 = icmp eq i32 %99, 58
+  br i1 %100, label %101, label %102
+
+101:                                              ; preds = %96
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %106
+
+102:                                              ; preds = %96
+  br label %103
+
+103:                                              ; preds = %102
+  %104 = load ptr, ptr %16, align 8, !tbaa !32
+  %105 = getelementptr inbounds nuw i8, ptr %104, i32 1
+  store ptr %105, ptr %16, align 8, !tbaa !32
+  br label %87, !llvm.loop !33
+
+106:                                              ; preds = %101, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  br label %107
+
+107:                                              ; preds = %106, %75, %69, %60
+  %108 = load i32, ptr %12, align 4, !tbaa !14
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %220
+
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %10, align 8, !tbaa !25
+  %112 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %111, i32 0, i32 1
+  %113 = load ptr, ptr %112, align 8, !tbaa !31
+  %114 = icmp ne ptr %113, null
+  br i1 %114, label %115, label %163
+
+115:                                              ; preds = %110
+  %116 = load ptr, ptr %14, align 8, !tbaa !25
+  %117 = load ptr, ptr %10, align 8, !tbaa !25
+  %118 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8, !tbaa !31
+  %120 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %119, i32 0, i32 2
+  store ptr %116, ptr %120, align 8, !tbaa !26
+  %121 = load ptr, ptr %14, align 8, !tbaa !25
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %123, label %129
+
+123:                                              ; preds = %115
+  %124 = load ptr, ptr %10, align 8, !tbaa !25
+  %125 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %124, i32 0, i32 1
+  %126 = load ptr, ptr %125, align 8, !tbaa !31
+  %127 = load ptr, ptr %6, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %127, i32 0, i32 5
+  store ptr %126, ptr %128, align 8, !tbaa !24
+  br label %135
+
+129:                                              ; preds = %115
+  %130 = load ptr, ptr %10, align 8, !tbaa !25
+  %131 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %130, i32 0, i32 1
+  %132 = load ptr, ptr %131, align 8, !tbaa !31
+  %133 = load ptr, ptr %14, align 8, !tbaa !25
+  %134 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %133, i32 0, i32 1
+  store ptr %132, ptr %134, align 8, !tbaa !31
+  br label %135
+
+135:                                              ; preds = %129, %123
+  %136 = load i32, ptr %8, align 4, !tbaa !14
+  %137 = icmp ne i32 %136, 0
+  br i1 %137, label %138, label %157
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %10, align 8, !tbaa !25
+  %140 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %139, i32 0, i32 0
+  %141 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %140, i32 0, i32 0
+  %142 = load ptr, ptr %141, align 8, !tbaa !29
+  %143 = load ptr, ptr %10, align 8, !tbaa !25
+  %144 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %143, i32 0, i32 0
+  %145 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %144, i32 0, i32 1
+  %146 = load ptr, ptr %145, align 8, !tbaa !28
+  %147 = icmp ne ptr %142, %146
+  br i1 %147, label %148, label %157
+
+148:                                              ; preds = %138
+  %149 = load ptr, ptr %9, align 8, !tbaa !16
+  %150 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %149, i32 0, i32 4
+  %151 = load ptr, ptr %150, align 8, !tbaa !35
+  %152 = load ptr, ptr %9, align 8, !tbaa !16
+  %153 = load ptr, ptr %10, align 8, !tbaa !25
+  %154 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %153, i32 0, i32 0
+  %155 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %154, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8, !tbaa !29
+  call void %151(ptr noundef %152, ptr noundef %156)
+  br label %157
+
+157:                                              ; preds = %148, %138, %135
+  %158 = load ptr, ptr %9, align 8, !tbaa !16
+  %159 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %158, i32 0, i32 4
+  %160 = load ptr, ptr %159, align 8, !tbaa !35
+  %161 = load ptr, ptr %9, align 8, !tbaa !16
+  %162 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %160(ptr noundef %161, ptr noundef %162)
+  br label %218
+
+163:                                              ; preds = %110
+  %164 = load i32, ptr %8, align 4, !tbaa !14
+  %165 = icmp ne i32 %164, 0
+  br i1 %165, label %166, label %185
+
+166:                                              ; preds = %163
+  %167 = load ptr, ptr %10, align 8, !tbaa !25
+  %168 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %167, i32 0, i32 0
+  %169 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %168, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8, !tbaa !29
+  %171 = load ptr, ptr %10, align 8, !tbaa !25
+  %172 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %171, i32 0, i32 0
+  %173 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8, !tbaa !28
+  %175 = icmp ne ptr %170, %174
+  br i1 %175, label %176, label %185
+
+176:                                              ; preds = %166
+  %177 = load ptr, ptr %9, align 8, !tbaa !16
+  %178 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %177, i32 0, i32 4
+  %179 = load ptr, ptr %178, align 8, !tbaa !35
+  %180 = load ptr, ptr %9, align 8, !tbaa !16
+  %181 = load ptr, ptr %10, align 8, !tbaa !25
+  %182 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %181, i32 0, i32 0
+  %183 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %182, i32 0, i32 0
+  %184 = load ptr, ptr %183, align 8, !tbaa !29
+  call void %179(ptr noundef %180, ptr noundef %184)
+  br label %185
+
+185:                                              ; preds = %176, %166, %163
+  %186 = load ptr, ptr %14, align 8, !tbaa !25
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %210
+
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %6, align 8, !tbaa !3
+  %190 = call i32 @uriIsHostSetA(ptr noundef %189)
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %192, label %199
+
+192:                                              ; preds = %188
+  %193 = load ptr, ptr %10, align 8, !tbaa !25
+  %194 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %193, i32 0, i32 0
+  %195 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %194, i32 0, i32 0
+  store ptr @.str, ptr %195, align 8, !tbaa !29
+  %196 = load ptr, ptr %10, align 8, !tbaa !25
+  %197 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %196, i32 0, i32 0
+  %198 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %197, i32 0, i32 1
+  store ptr @.str, ptr %198, align 8, !tbaa !28
+  br label %209
+
+199:                                              ; preds = %188
+  %200 = load ptr, ptr %9, align 8, !tbaa !16
+  %201 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %200, i32 0, i32 4
+  %202 = load ptr, ptr %201, align 8, !tbaa !35
+  %203 = load ptr, ptr %9, align 8, !tbaa !16
+  %204 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %202(ptr noundef %203, ptr noundef %204)
+  %205 = load ptr, ptr %6, align 8, !tbaa !3
+  %206 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %205, i32 0, i32 5
+  store ptr null, ptr %206, align 8, !tbaa !24
+  %207 = load ptr, ptr %6, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %207, i32 0, i32 6
+  store ptr null, ptr %208, align 8, !tbaa !37
+  br label %209
+
+209:                                              ; preds = %199, %192
+  br label %217
+
+210:                                              ; preds = %185
+  %211 = load ptr, ptr %10, align 8, !tbaa !25
+  %212 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %211, i32 0, i32 0
+  %213 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %212, i32 0, i32 0
+  store ptr @.str, ptr %213, align 8, !tbaa !29
+  %214 = load ptr, ptr %10, align 8, !tbaa !25
+  %215 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %214, i32 0, i32 0
+  %216 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %215, i32 0, i32 1
+  store ptr @.str, ptr %216, align 8, !tbaa !28
+  br label %217
+
+217:                                              ; preds = %210, %209
+  br label %218
+
+218:                                              ; preds = %217, %157
+  %219 = load ptr, ptr %15, align 8, !tbaa !25
+  store ptr %219, ptr %10, align 8, !tbaa !25
+  br label %220
+
+220:                                              ; preds = %218, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %221
+
+221:                                              ; preds = %220, %51
+  br label %617
+
+222:                                              ; preds = %37
+  %223 = load ptr, ptr %10, align 8, !tbaa !25
+  %224 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %223, i32 0, i32 0
+  %225 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8, !tbaa !29
+  %227 = getelementptr inbounds i8, ptr %226, i64 0
+  %228 = load i8, ptr %227, align 1, !tbaa !30
+  %229 = sext i8 %228 to i32
+  %230 = icmp eq i32 %229, 46
+  br i1 %230, label %231, label %616
+
+231:                                              ; preds = %222
+  %232 = load ptr, ptr %10, align 8, !tbaa !25
+  %233 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %232, i32 0, i32 0
+  %234 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %233, i32 0, i32 0
+  %235 = load ptr, ptr %234, align 8, !tbaa !29
+  %236 = getelementptr inbounds i8, ptr %235, i64 1
+  %237 = load i8, ptr %236, align 1, !tbaa !30
+  %238 = sext i8 %237 to i32
+  %239 = icmp eq i32 %238, 46
+  br i1 %239, label %240, label %616
+
+240:                                              ; preds = %231
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %241 = load ptr, ptr %10, align 8, !tbaa !25
+  %242 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %241, i32 0, i32 2
+  %243 = load ptr, ptr %242, align 8, !tbaa !26
+  store ptr %243, ptr %17, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %244 = load ptr, ptr %10, align 8, !tbaa !25
+  %245 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %244, i32 0, i32 1
+  %246 = load ptr, ptr %245, align 8, !tbaa !31
+  store ptr %246, ptr %19, align 8, !tbaa !25
+  store i32 1, ptr %12, align 4, !tbaa !14
+  %247 = load i32, ptr %7, align 4, !tbaa !14
+  %248 = icmp ne i32 %247, 0
+  br i1 %248, label %249, label %290
+
+249:                                              ; preds = %240
+  %250 = load ptr, ptr %17, align 8, !tbaa !25
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %252, label %253
+
+252:                                              ; preds = %249
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %289
+
+253:                                              ; preds = %249
+  %254 = load ptr, ptr %17, align 8, !tbaa !25
+  %255 = icmp ne ptr %254, null
+  br i1 %255, label %256, label %288
+
+256:                                              ; preds = %253
+  %257 = load ptr, ptr %17, align 8, !tbaa !25
+  %258 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %257, i32 0, i32 0
+  %259 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %258, i32 0, i32 1
+  %260 = load ptr, ptr %259, align 8, !tbaa !28
+  %261 = load ptr, ptr %17, align 8, !tbaa !25
+  %262 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %261, i32 0, i32 0
+  %263 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %262, i32 0, i32 0
+  %264 = load ptr, ptr %263, align 8, !tbaa !29
+  %265 = ptrtoint ptr %260 to i64
+  %266 = ptrtoint ptr %264 to i64
+  %267 = sub i64 %265, %266
+  %268 = icmp eq i64 %267, 2
+  br i1 %268, label %269, label %288
+
+269:                                              ; preds = %256
+  %270 = load ptr, ptr %17, align 8, !tbaa !25
+  %271 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %270, i32 0, i32 0
+  %272 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %271, i32 0, i32 0
+  %273 = load ptr, ptr %272, align 8, !tbaa !29
+  %274 = getelementptr inbounds i8, ptr %273, i64 0
+  %275 = load i8, ptr %274, align 1, !tbaa !30
+  %276 = sext i8 %275 to i32
+  %277 = icmp eq i32 %276, 46
+  br i1 %277, label %278, label %288
+
+278:                                              ; preds = %269
+  %279 = load ptr, ptr %17, align 8, !tbaa !25
+  %280 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %279, i32 0, i32 0
+  %281 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %280, i32 0, i32 0
+  %282 = load ptr, ptr %281, align 8, !tbaa !29
+  %283 = getelementptr inbounds i8, ptr %282, i64 1
+  %284 = load i8, ptr %283, align 1, !tbaa !30
+  %285 = sext i8 %284 to i32
+  %286 = icmp eq i32 %285, 46
+  br i1 %286, label %287, label %288
+
+287:                                              ; preds = %278
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %288
+
+288:                                              ; preds = %287, %278, %269, %256, %253
+  br label %289
+
+289:                                              ; preds = %288, %252
+  br label %290
+
+290:                                              ; preds = %289, %240
+  %291 = load i32, ptr %12, align 4, !tbaa !14
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %612
+
+293:                                              ; preds = %290
+  %294 = load ptr, ptr %17, align 8, !tbaa !25
+  %295 = icmp ne ptr %294, null
+  br i1 %295, label %296, label %561
+
+296:                                              ; preds = %293
+  %297 = load ptr, ptr %17, align 8, !tbaa !25
+  %298 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %297, i32 0, i32 2
+  %299 = load ptr, ptr %298, align 8, !tbaa !26
+  store ptr %299, ptr %18, align 8, !tbaa !25
+  %300 = load ptr, ptr %18, align 8, !tbaa !25
+  %301 = icmp ne ptr %300, null
+  br i1 %301, label %302, label %453
+
+302:                                              ; preds = %296
+  %303 = load ptr, ptr %10, align 8, !tbaa !25
+  %304 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %303, i32 0, i32 1
+  %305 = load ptr, ptr %304, align 8, !tbaa !31
+  %306 = load ptr, ptr %18, align 8, !tbaa !25
+  %307 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %306, i32 0, i32 1
+  store ptr %305, ptr %307, align 8, !tbaa !31
+  %308 = load ptr, ptr %10, align 8, !tbaa !25
+  %309 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %308, i32 0, i32 1
+  %310 = load ptr, ptr %309, align 8, !tbaa !31
+  %311 = icmp ne ptr %310, null
+  br i1 %311, label %312, label %318
+
+312:                                              ; preds = %302
+  %313 = load ptr, ptr %18, align 8, !tbaa !25
+  %314 = load ptr, ptr %10, align 8, !tbaa !25
+  %315 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %314, i32 0, i32 1
+  %316 = load ptr, ptr %315, align 8, !tbaa !31
+  %317 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %316, i32 0, i32 2
+  store ptr %313, ptr %317, align 8, !tbaa !26
+  br label %397
+
+318:                                              ; preds = %302
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %319 = load ptr, ptr %9, align 8, !tbaa !16
+  %320 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %319, i32 0, i32 1
+  %321 = load ptr, ptr %320, align 8, !tbaa !38
+  %322 = load ptr, ptr %9, align 8, !tbaa !16
+  %323 = call ptr %321(ptr noundef %322, i64 noundef 1, i64 noundef 32)
+  store ptr %323, ptr %20, align 8, !tbaa !25
+  %324 = load ptr, ptr %20, align 8, !tbaa !25
+  %325 = icmp eq ptr %324, null
+  br i1 %325, label %326, label %381
+
+326:                                              ; preds = %318
+  %327 = load i32, ptr %8, align 4, !tbaa !14
+  %328 = icmp ne i32 %327, 0
+  br i1 %328, label %329, label %348
+
+329:                                              ; preds = %326
+  %330 = load ptr, ptr %10, align 8, !tbaa !25
+  %331 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %330, i32 0, i32 0
+  %332 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %331, i32 0, i32 0
+  %333 = load ptr, ptr %332, align 8, !tbaa !29
+  %334 = load ptr, ptr %10, align 8, !tbaa !25
+  %335 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %334, i32 0, i32 0
+  %336 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %335, i32 0, i32 1
+  %337 = load ptr, ptr %336, align 8, !tbaa !28
+  %338 = icmp ne ptr %333, %337
+  br i1 %338, label %339, label %348
+
+339:                                              ; preds = %329
+  %340 = load ptr, ptr %9, align 8, !tbaa !16
+  %341 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %340, i32 0, i32 4
+  %342 = load ptr, ptr %341, align 8, !tbaa !35
+  %343 = load ptr, ptr %9, align 8, !tbaa !16
+  %344 = load ptr, ptr %10, align 8, !tbaa !25
+  %345 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %344, i32 0, i32 0
+  %346 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %345, i32 0, i32 0
+  %347 = load ptr, ptr %346, align 8, !tbaa !29
+  call void %342(ptr noundef %343, ptr noundef %347)
+  br label %348
+
+348:                                              ; preds = %339, %329, %326
+  %349 = load ptr, ptr %9, align 8, !tbaa !16
+  %350 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %349, i32 0, i32 4
+  %351 = load ptr, ptr %350, align 8, !tbaa !35
+  %352 = load ptr, ptr %9, align 8, !tbaa !16
+  %353 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %351(ptr noundef %352, ptr noundef %353)
+  %354 = load i32, ptr %8, align 4, !tbaa !14
+  %355 = icmp ne i32 %354, 0
+  br i1 %355, label %356, label %375
+
+356:                                              ; preds = %348
+  %357 = load ptr, ptr %17, align 8, !tbaa !25
+  %358 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %357, i32 0, i32 0
+  %359 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %358, i32 0, i32 0
+  %360 = load ptr, ptr %359, align 8, !tbaa !29
+  %361 = load ptr, ptr %17, align 8, !tbaa !25
+  %362 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %361, i32 0, i32 0
+  %363 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %362, i32 0, i32 1
+  %364 = load ptr, ptr %363, align 8, !tbaa !28
+  %365 = icmp ne ptr %360, %364
+  br i1 %365, label %366, label %375
+
+366:                                              ; preds = %356
+  %367 = load ptr, ptr %9, align 8, !tbaa !16
+  %368 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %367, i32 0, i32 4
+  %369 = load ptr, ptr %368, align 8, !tbaa !35
+  %370 = load ptr, ptr %9, align 8, !tbaa !16
+  %371 = load ptr, ptr %17, align 8, !tbaa !25
+  %372 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %371, i32 0, i32 0
+  %373 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %372, i32 0, i32 0
+  %374 = load ptr, ptr %373, align 8, !tbaa !29
+  call void %369(ptr noundef %370, ptr noundef %374)
+  br label %375
+
+375:                                              ; preds = %366, %356, %348
+  %376 = load ptr, ptr %9, align 8, !tbaa !16
+  %377 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %376, i32 0, i32 4
+  %378 = load ptr, ptr %377, align 8, !tbaa !35
+  %379 = load ptr, ptr %9, align 8, !tbaa !16
+  %380 = load ptr, ptr %17, align 8, !tbaa !25
+  call void %378(ptr noundef %379, ptr noundef %380)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %394
+
+381:                                              ; preds = %318
+  %382 = load ptr, ptr %20, align 8, !tbaa !25
+  %383 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %382, i32 0, i32 0
+  %384 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %383, i32 0, i32 0
+  store ptr @.str, ptr %384, align 8, !tbaa !29
+  %385 = load ptr, ptr %20, align 8, !tbaa !25
+  %386 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %385, i32 0, i32 0
+  %387 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %386, i32 0, i32 1
+  store ptr @.str, ptr %387, align 8, !tbaa !28
+  %388 = load ptr, ptr %20, align 8, !tbaa !25
+  %389 = load ptr, ptr %18, align 8, !tbaa !25
+  %390 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %389, i32 0, i32 1
+  store ptr %388, ptr %390, align 8, !tbaa !31
+  %391 = load ptr, ptr %20, align 8, !tbaa !25
+  %392 = load ptr, ptr %6, align 8, !tbaa !3
+  %393 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %392, i32 0, i32 6
+  store ptr %391, ptr %393, align 8, !tbaa !37
+  store i32 0, ptr %11, align 4
+  br label %394
+
+394:                                              ; preds = %381, %375
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  %395 = load i32, ptr %11, align 4
+  switch i32 %395, label %613 [
+    i32 0, label %396
   ]
 
-sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %1 = load i8, ptr %hexdig.addr, align 1
-  %conv1 = sext i8 %1 to i32
-  %add = add nsw i32 9, %conv1
-  %sub = sub nsw i32 %add, 57
-  %conv2 = trunc i32 %sub to i8
-  store i8 %conv2, ptr %retval, align 1
-  br label %return
+396:                                              ; preds = %394
+  br label %397
 
-sw.bb3:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %2 = load i8, ptr %hexdig.addr, align 1
-  %conv4 = sext i8 %2 to i32
-  %add5 = add nsw i32 15, %conv4
-  %sub6 = sub nsw i32 %add5, 102
-  %conv7 = trunc i32 %sub6 to i8
-  store i8 %conv7, ptr %retval, align 1
-  br label %return
+397:                                              ; preds = %396, %312
+  %398 = load i32, ptr %8, align 4, !tbaa !14
+  %399 = icmp ne i32 %398, 0
+  br i1 %399, label %400, label %419
 
-sw.bb8:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %3 = load i8, ptr %hexdig.addr, align 1
-  %conv9 = sext i8 %3 to i32
-  %add10 = add nsw i32 15, %conv9
-  %sub11 = sub nsw i32 %add10, 70
-  %conv12 = trunc i32 %sub11 to i8
-  store i8 %conv12, ptr %retval, align 1
-  br label %return
+400:                                              ; preds = %397
+  %401 = load ptr, ptr %10, align 8, !tbaa !25
+  %402 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %401, i32 0, i32 0
+  %403 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %402, i32 0, i32 0
+  %404 = load ptr, ptr %403, align 8, !tbaa !29
+  %405 = load ptr, ptr %10, align 8, !tbaa !25
+  %406 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %405, i32 0, i32 0
+  %407 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %406, i32 0, i32 1
+  %408 = load ptr, ptr %407, align 8, !tbaa !28
+  %409 = icmp ne ptr %404, %408
+  br i1 %409, label %410, label %419
 
-sw.default:                                       ; preds = %entry
-  store i8 0, ptr %retval, align 1
-  br label %return
+410:                                              ; preds = %400
+  %411 = load ptr, ptr %9, align 8, !tbaa !16
+  %412 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %411, i32 0, i32 4
+  %413 = load ptr, ptr %412, align 8, !tbaa !35
+  %414 = load ptr, ptr %9, align 8, !tbaa !16
+  %415 = load ptr, ptr %10, align 8, !tbaa !25
+  %416 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %415, i32 0, i32 0
+  %417 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %416, i32 0, i32 0
+  %418 = load ptr, ptr %417, align 8, !tbaa !29
+  call void %413(ptr noundef %414, ptr noundef %418)
+  br label %419
 
-return:                                           ; preds = %sw.default, %sw.bb8, %sw.bb3, %sw.bb
-  %4 = load i8, ptr %retval, align 1
+419:                                              ; preds = %410, %400, %397
+  %420 = load ptr, ptr %9, align 8, !tbaa !16
+  %421 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %420, i32 0, i32 4
+  %422 = load ptr, ptr %421, align 8, !tbaa !35
+  %423 = load ptr, ptr %9, align 8, !tbaa !16
+  %424 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %422(ptr noundef %423, ptr noundef %424)
+  %425 = load i32, ptr %8, align 4, !tbaa !14
+  %426 = icmp ne i32 %425, 0
+  br i1 %426, label %427, label %446
+
+427:                                              ; preds = %419
+  %428 = load ptr, ptr %17, align 8, !tbaa !25
+  %429 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %428, i32 0, i32 0
+  %430 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %429, i32 0, i32 0
+  %431 = load ptr, ptr %430, align 8, !tbaa !29
+  %432 = load ptr, ptr %17, align 8, !tbaa !25
+  %433 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %432, i32 0, i32 0
+  %434 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %433, i32 0, i32 1
+  %435 = load ptr, ptr %434, align 8, !tbaa !28
+  %436 = icmp ne ptr %431, %435
+  br i1 %436, label %437, label %446
+
+437:                                              ; preds = %427
+  %438 = load ptr, ptr %9, align 8, !tbaa !16
+  %439 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %438, i32 0, i32 4
+  %440 = load ptr, ptr %439, align 8, !tbaa !35
+  %441 = load ptr, ptr %9, align 8, !tbaa !16
+  %442 = load ptr, ptr %17, align 8, !tbaa !25
+  %443 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %442, i32 0, i32 0
+  %444 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %443, i32 0, i32 0
+  %445 = load ptr, ptr %444, align 8, !tbaa !29
+  call void %440(ptr noundef %441, ptr noundef %445)
+  br label %446
+
+446:                                              ; preds = %437, %427, %419
+  %447 = load ptr, ptr %9, align 8, !tbaa !16
+  %448 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %447, i32 0, i32 4
+  %449 = load ptr, ptr %448, align 8, !tbaa !35
+  %450 = load ptr, ptr %9, align 8, !tbaa !16
+  %451 = load ptr, ptr %17, align 8, !tbaa !25
+  call void %449(ptr noundef %450, ptr noundef %451)
+  %452 = load ptr, ptr %19, align 8, !tbaa !25
+  store ptr %452, ptr %10, align 8, !tbaa !25
+  br label %560
+
+453:                                              ; preds = %296
+  %454 = load ptr, ptr %10, align 8, !tbaa !25
+  %455 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %454, i32 0, i32 1
+  %456 = load ptr, ptr %455, align 8, !tbaa !31
+  %457 = icmp ne ptr %456, null
+  br i1 %457, label %458, label %495
+
+458:                                              ; preds = %453
+  %459 = load ptr, ptr %10, align 8, !tbaa !25
+  %460 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %459, i32 0, i32 1
+  %461 = load ptr, ptr %460, align 8, !tbaa !31
+  %462 = load ptr, ptr %6, align 8, !tbaa !3
+  %463 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %462, i32 0, i32 5
+  store ptr %461, ptr %463, align 8, !tbaa !24
+  %464 = load ptr, ptr %10, align 8, !tbaa !25
+  %465 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %464, i32 0, i32 1
+  %466 = load ptr, ptr %465, align 8, !tbaa !31
+  %467 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %466, i32 0, i32 2
+  store ptr null, ptr %467, align 8, !tbaa !26
+  %468 = load i32, ptr %8, align 4, !tbaa !14
+  %469 = icmp ne i32 %468, 0
+  br i1 %469, label %470, label %489
+
+470:                                              ; preds = %458
+  %471 = load ptr, ptr %10, align 8, !tbaa !25
+  %472 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %471, i32 0, i32 0
+  %473 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %472, i32 0, i32 0
+  %474 = load ptr, ptr %473, align 8, !tbaa !29
+  %475 = load ptr, ptr %10, align 8, !tbaa !25
+  %476 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %475, i32 0, i32 0
+  %477 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %476, i32 0, i32 1
+  %478 = load ptr, ptr %477, align 8, !tbaa !28
+  %479 = icmp ne ptr %474, %478
+  br i1 %479, label %480, label %489
+
+480:                                              ; preds = %470
+  %481 = load ptr, ptr %9, align 8, !tbaa !16
+  %482 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %481, i32 0, i32 4
+  %483 = load ptr, ptr %482, align 8, !tbaa !35
+  %484 = load ptr, ptr %9, align 8, !tbaa !16
+  %485 = load ptr, ptr %10, align 8, !tbaa !25
+  %486 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %485, i32 0, i32 0
+  %487 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %486, i32 0, i32 0
+  %488 = load ptr, ptr %487, align 8, !tbaa !29
+  call void %483(ptr noundef %484, ptr noundef %488)
+  br label %489
+
+489:                                              ; preds = %480, %470, %458
+  %490 = load ptr, ptr %9, align 8, !tbaa !16
+  %491 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %490, i32 0, i32 4
+  %492 = load ptr, ptr %491, align 8, !tbaa !35
+  %493 = load ptr, ptr %9, align 8, !tbaa !16
+  %494 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %492(ptr noundef %493, ptr noundef %494)
+  br label %531
+
+495:                                              ; preds = %453
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %496 = load ptr, ptr %10, align 8, !tbaa !25
+  store ptr %496, ptr %21, align 8, !tbaa !25
+  %497 = load i32, ptr %8, align 4, !tbaa !14
+  %498 = icmp ne i32 %497, 0
+  br i1 %498, label %499, label %518
+
+499:                                              ; preds = %495
+  %500 = load ptr, ptr %21, align 8, !tbaa !25
+  %501 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %500, i32 0, i32 0
+  %502 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %501, i32 0, i32 0
+  %503 = load ptr, ptr %502, align 8, !tbaa !29
+  %504 = load ptr, ptr %21, align 8, !tbaa !25
+  %505 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %504, i32 0, i32 0
+  %506 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %505, i32 0, i32 1
+  %507 = load ptr, ptr %506, align 8, !tbaa !28
+  %508 = icmp ne ptr %503, %507
+  br i1 %508, label %509, label %518
+
+509:                                              ; preds = %499
+  %510 = load ptr, ptr %9, align 8, !tbaa !16
+  %511 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %510, i32 0, i32 4
+  %512 = load ptr, ptr %511, align 8, !tbaa !35
+  %513 = load ptr, ptr %9, align 8, !tbaa !16
+  %514 = load ptr, ptr %21, align 8, !tbaa !25
+  %515 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %514, i32 0, i32 0
+  %516 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %515, i32 0, i32 0
+  %517 = load ptr, ptr %516, align 8, !tbaa !29
+  call void %512(ptr noundef %513, ptr noundef %517)
+  br label %518
+
+518:                                              ; preds = %509, %499, %495
+  %519 = load ptr, ptr %21, align 8, !tbaa !25
+  %520 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %519, i32 0, i32 0
+  %521 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %520, i32 0, i32 0
+  store ptr @.str, ptr %521, align 8, !tbaa !29
+  %522 = load ptr, ptr %21, align 8, !tbaa !25
+  %523 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %522, i32 0, i32 0
+  %524 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %523, i32 0, i32 1
+  store ptr @.str, ptr %524, align 8, !tbaa !28
+  %525 = load ptr, ptr %21, align 8, !tbaa !25
+  %526 = load ptr, ptr %6, align 8, !tbaa !3
+  %527 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %526, i32 0, i32 5
+  store ptr %525, ptr %527, align 8, !tbaa !24
+  %528 = load ptr, ptr %21, align 8, !tbaa !25
+  %529 = load ptr, ptr %6, align 8, !tbaa !3
+  %530 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %529, i32 0, i32 6
+  store ptr %528, ptr %530, align 8, !tbaa !37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %531
+
+531:                                              ; preds = %518, %489
+  %532 = load i32, ptr %8, align 4, !tbaa !14
+  %533 = icmp ne i32 %532, 0
+  br i1 %533, label %534, label %553
+
+534:                                              ; preds = %531
+  %535 = load ptr, ptr %17, align 8, !tbaa !25
+  %536 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %535, i32 0, i32 0
+  %537 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %536, i32 0, i32 0
+  %538 = load ptr, ptr %537, align 8, !tbaa !29
+  %539 = load ptr, ptr %17, align 8, !tbaa !25
+  %540 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %539, i32 0, i32 0
+  %541 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %540, i32 0, i32 1
+  %542 = load ptr, ptr %541, align 8, !tbaa !28
+  %543 = icmp ne ptr %538, %542
+  br i1 %543, label %544, label %553
+
+544:                                              ; preds = %534
+  %545 = load ptr, ptr %9, align 8, !tbaa !16
+  %546 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %545, i32 0, i32 4
+  %547 = load ptr, ptr %546, align 8, !tbaa !35
+  %548 = load ptr, ptr %9, align 8, !tbaa !16
+  %549 = load ptr, ptr %17, align 8, !tbaa !25
+  %550 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %549, i32 0, i32 0
+  %551 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %550, i32 0, i32 0
+  %552 = load ptr, ptr %551, align 8, !tbaa !29
+  call void %547(ptr noundef %548, ptr noundef %552)
+  br label %553
+
+553:                                              ; preds = %544, %534, %531
+  %554 = load ptr, ptr %9, align 8, !tbaa !16
+  %555 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %554, i32 0, i32 4
+  %556 = load ptr, ptr %555, align 8, !tbaa !35
+  %557 = load ptr, ptr %9, align 8, !tbaa !16
+  %558 = load ptr, ptr %17, align 8, !tbaa !25
+  call void %556(ptr noundef %557, ptr noundef %558)
+  %559 = load ptr, ptr %19, align 8, !tbaa !25
+  store ptr %559, ptr %10, align 8, !tbaa !25
+  br label %560
+
+560:                                              ; preds = %553, %446
+  br label %611
+
+561:                                              ; preds = %293
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %562 = load ptr, ptr %10, align 8, !tbaa !25
+  %563 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %562, i32 0, i32 1
+  %564 = load ptr, ptr %563, align 8, !tbaa !31
+  store ptr %564, ptr %22, align 8, !tbaa !25
+  %565 = load ptr, ptr %10, align 8, !tbaa !25
+  %566 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %565, i32 0, i32 1
+  %567 = load ptr, ptr %566, align 8, !tbaa !31
+  %568 = load ptr, ptr %6, align 8, !tbaa !3
+  %569 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %568, i32 0, i32 5
+  store ptr %567, ptr %569, align 8, !tbaa !24
+  %570 = load ptr, ptr %10, align 8, !tbaa !25
+  %571 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %570, i32 0, i32 1
+  %572 = load ptr, ptr %571, align 8, !tbaa !31
+  %573 = icmp ne ptr %572, null
+  br i1 %573, label %574, label %579
+
+574:                                              ; preds = %561
+  %575 = load ptr, ptr %10, align 8, !tbaa !25
+  %576 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %575, i32 0, i32 1
+  %577 = load ptr, ptr %576, align 8, !tbaa !31
+  %578 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %577, i32 0, i32 2
+  store ptr null, ptr %578, align 8, !tbaa !26
+  br label %582
+
+579:                                              ; preds = %561
+  %580 = load ptr, ptr %6, align 8, !tbaa !3
+  %581 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %580, i32 0, i32 6
+  store ptr null, ptr %581, align 8, !tbaa !37
+  br label %582
+
+582:                                              ; preds = %579, %574
+  %583 = load i32, ptr %8, align 4, !tbaa !14
+  %584 = icmp ne i32 %583, 0
+  br i1 %584, label %585, label %604
+
+585:                                              ; preds = %582
+  %586 = load ptr, ptr %10, align 8, !tbaa !25
+  %587 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %586, i32 0, i32 0
+  %588 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %587, i32 0, i32 0
+  %589 = load ptr, ptr %588, align 8, !tbaa !29
+  %590 = load ptr, ptr %10, align 8, !tbaa !25
+  %591 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %590, i32 0, i32 0
+  %592 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %591, i32 0, i32 1
+  %593 = load ptr, ptr %592, align 8, !tbaa !28
+  %594 = icmp ne ptr %589, %593
+  br i1 %594, label %595, label %604
+
+595:                                              ; preds = %585
+  %596 = load ptr, ptr %9, align 8, !tbaa !16
+  %597 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %596, i32 0, i32 4
+  %598 = load ptr, ptr %597, align 8, !tbaa !35
+  %599 = load ptr, ptr %9, align 8, !tbaa !16
+  %600 = load ptr, ptr %10, align 8, !tbaa !25
+  %601 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %600, i32 0, i32 0
+  %602 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %601, i32 0, i32 0
+  %603 = load ptr, ptr %602, align 8, !tbaa !29
+  call void %598(ptr noundef %599, ptr noundef %603)
+  br label %604
+
+604:                                              ; preds = %595, %585, %582
+  %605 = load ptr, ptr %9, align 8, !tbaa !16
+  %606 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %605, i32 0, i32 4
+  %607 = load ptr, ptr %606, align 8, !tbaa !35
+  %608 = load ptr, ptr %9, align 8, !tbaa !16
+  %609 = load ptr, ptr %10, align 8, !tbaa !25
+  call void %607(ptr noundef %608, ptr noundef %609)
+  %610 = load ptr, ptr %22, align 8, !tbaa !25
+  store ptr %610, ptr %10, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %611
+
+611:                                              ; preds = %604, %560
+  br label %612
+
+612:                                              ; preds = %611, %290
+  store i32 0, ptr %11, align 4
+  br label %613
+
+613:                                              ; preds = %612, %394
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  %614 = load i32, ptr %11, align 4
+  switch i32 %614, label %640 [
+    i32 0, label %615
+  ]
+
+615:                                              ; preds = %613
+  br label %616
+
+616:                                              ; preds = %615, %231, %222
+  br label %617
+
+617:                                              ; preds = %37, %616, %221
+  %618 = load i32, ptr %12, align 4, !tbaa !14
+  %619 = icmp ne i32 %618, 0
+  br i1 %619, label %639, label %620
+
+620:                                              ; preds = %617
+  %621 = load ptr, ptr %10, align 8, !tbaa !25
+  %622 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %621, i32 0, i32 1
+  %623 = load ptr, ptr %622, align 8, !tbaa !31
+  %624 = icmp ne ptr %623, null
+  br i1 %624, label %625, label %631
+
+625:                                              ; preds = %620
+  %626 = load ptr, ptr %10, align 8, !tbaa !25
+  %627 = load ptr, ptr %10, align 8, !tbaa !25
+  %628 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %627, i32 0, i32 1
+  %629 = load ptr, ptr %628, align 8, !tbaa !31
+  %630 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %629, i32 0, i32 2
+  store ptr %626, ptr %630, align 8, !tbaa !26
+  br label %635
+
+631:                                              ; preds = %620
+  %632 = load ptr, ptr %10, align 8, !tbaa !25
+  %633 = load ptr, ptr %6, align 8, !tbaa !3
+  %634 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %633, i32 0, i32 6
+  store ptr %632, ptr %634, align 8, !tbaa !37
+  br label %635
+
+635:                                              ; preds = %631, %625
+  %636 = load ptr, ptr %10, align 8, !tbaa !25
+  %637 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %636, i32 0, i32 1
+  %638 = load ptr, ptr %637, align 8, !tbaa !31
+  store ptr %638, ptr %10, align 8, !tbaa !25
+  br label %639
+
+639:                                              ; preds = %635, %617
+  store i32 0, ptr %11, align 4
+  br label %640
+
+640:                                              ; preds = %639, %613
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  %641 = load i32, ptr %11, align 4
+  switch i32 %641, label %647 [
+    i32 0, label %642
+  ]
+
+642:                                              ; preds = %640
+  br label %643
+
+643:                                              ; preds = %642
+  %644 = load ptr, ptr %10, align 8, !tbaa !25
+  %645 = icmp ne ptr %644, null
+  br i1 %645, label %37, label %646, !llvm.loop !39
+
+646:                                              ; preds = %643
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %647
+
+647:                                              ; preds = %646, %640, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %648 = load i32, ptr %5, align 4
+  ret i32 %648
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @uriIsHostSetA(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %32
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %6, i32 0, i32 2
+  %8 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %30, label %11
+
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %30, label %17
+
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !42
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %30, label %23
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %2, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %25, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !43
+  %29 = icmp ne ptr %28, null
+  br label %30
+
+30:                                               ; preds = %23, %17, %11, %5
+  %31 = phi i1 [ true, %17 ], [ true, %11 ], [ true, %5 ], [ %29, %23 ]
+  br label %32
+
+32:                                               ; preds = %30, %1
+  %33 = phi i1 [ false, %1 ], [ %31, %30 ]
+  %34 = zext i1 %33 to i32
+  ret i32 %34
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 0, ptr %5, align 4, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !3
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %8 = call i32 @uriRemoveDotSegmentsA(ptr noundef %6, i32 noundef 0, ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  ret i32 %8
+}
+
+; Function Attrs: nounwind uwtable
+define zeroext i8 @uriHexdigToIntA(i8 noundef signext %0) #0 {
+  %2 = alloca i8, align 1
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1, !tbaa !30
+  %4 = load i8, ptr %3, align 1, !tbaa !30
+  %5 = sext i8 %4 to i32
+  switch i32 %5, label %24 [
+    i32 48, label %6
+    i32 49, label %6
+    i32 50, label %6
+    i32 51, label %6
+    i32 52, label %6
+    i32 53, label %6
+    i32 54, label %6
+    i32 55, label %6
+    i32 56, label %6
+    i32 57, label %6
+    i32 97, label %12
+    i32 98, label %12
+    i32 99, label %12
+    i32 100, label %12
+    i32 101, label %12
+    i32 102, label %12
+    i32 65, label %18
+    i32 66, label %18
+    i32 67, label %18
+    i32 68, label %18
+    i32 69, label %18
+    i32 70, label %18
+  ]
+
+6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %7 = load i8, ptr %3, align 1, !tbaa !30
+  %8 = sext i8 %7 to i32
+  %9 = add nsw i32 9, %8
+  %10 = sub nsw i32 %9, 57
+  %11 = trunc i32 %10 to i8
+  store i8 %11, ptr %2, align 1
+  br label %25
+
+12:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %13 = load i8, ptr %3, align 1, !tbaa !30
+  %14 = sext i8 %13 to i32
+  %15 = add nsw i32 15, %14
+  %16 = sub nsw i32 %15, 102
+  %17 = trunc i32 %16 to i8
+  store i8 %17, ptr %2, align 1
+  br label %25
+
+18:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %19 = load i8, ptr %3, align 1, !tbaa !30
+  %20 = sext i8 %19 to i32
+  %21 = add nsw i32 15, %20
+  %22 = sub nsw i32 %21, 70
+  %23 = trunc i32 %22 to i8
+  store i8 %23, ptr %2, align 1
+  br label %25
+
+24:                                               ; preds = %1
+  store i8 0, ptr %2, align 1
+  br label %25
+
+25:                                               ; preds = %24, %18, %12, %6
+  %26 = load i8, ptr %2, align 1
+  ret i8 %26
+}
+
+; Function Attrs: nounwind uwtable
+define signext i8 @uriHexToLetterA(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call signext i8 @uriHexToLetterExA(i32 noundef %3, i32 noundef 1)
   ret i8 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define signext i8 @uriHexToLetterA(i32 noundef %value) #0 {
-entry:
-  %value.addr = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load i32, ptr %value.addr, align 4
-  %call = call signext i8 @uriHexToLetterExA(i32 noundef %0, i32 noundef 1)
-  ret i8 %call
-}
-
-; Function Attrs: nounwind uwtable
-define signext i8 @uriHexToLetterExA(i32 noundef %value, i32 noundef %uppercase) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %value.addr = alloca i32, align 4
-  %uppercase.addr = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store i32 %uppercase, ptr %uppercase.addr, align 4
-  %0 = load i32, ptr %value.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb5
-    i32 6, label %sw.bb6
-    i32 7, label %sw.bb7
-    i32 8, label %sw.bb8
-    i32 9, label %sw.bb9
-    i32 10, label %sw.bb10
-    i32 11, label %sw.bb11
-    i32 12, label %sw.bb16
-    i32 13, label %sw.bb21
-    i32 14, label %sw.bb26
+define signext i8 @uriHexToLetterExA(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i8, align 1
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  switch i32 %6, label %42 [
+    i32 0, label %7
+    i32 1, label %8
+    i32 2, label %9
+    i32 3, label %10
+    i32 4, label %11
+    i32 5, label %12
+    i32 6, label %13
+    i32 7, label %14
+    i32 8, label %15
+    i32 9, label %16
+    i32 10, label %17
+    i32 11, label %22
+    i32 12, label %27
+    i32 13, label %32
+    i32 14, label %37
   ]
 
-sw.bb:                                            ; preds = %entry
-  store i8 48, ptr %retval, align 1
-  br label %return
+7:                                                ; preds = %2
+  store i8 48, ptr %3, align 1
+  br label %47
 
-sw.bb1:                                           ; preds = %entry
-  store i8 49, ptr %retval, align 1
-  br label %return
+8:                                                ; preds = %2
+  store i8 49, ptr %3, align 1
+  br label %47
 
-sw.bb2:                                           ; preds = %entry
-  store i8 50, ptr %retval, align 1
-  br label %return
+9:                                                ; preds = %2
+  store i8 50, ptr %3, align 1
+  br label %47
 
-sw.bb3:                                           ; preds = %entry
-  store i8 51, ptr %retval, align 1
-  br label %return
+10:                                               ; preds = %2
+  store i8 51, ptr %3, align 1
+  br label %47
 
-sw.bb4:                                           ; preds = %entry
-  store i8 52, ptr %retval, align 1
-  br label %return
+11:                                               ; preds = %2
+  store i8 52, ptr %3, align 1
+  br label %47
 
-sw.bb5:                                           ; preds = %entry
-  store i8 53, ptr %retval, align 1
-  br label %return
+12:                                               ; preds = %2
+  store i8 53, ptr %3, align 1
+  br label %47
 
-sw.bb6:                                           ; preds = %entry
-  store i8 54, ptr %retval, align 1
-  br label %return
+13:                                               ; preds = %2
+  store i8 54, ptr %3, align 1
+  br label %47
 
-sw.bb7:                                           ; preds = %entry
-  store i8 55, ptr %retval, align 1
-  br label %return
+14:                                               ; preds = %2
+  store i8 55, ptr %3, align 1
+  br label %47
 
-sw.bb8:                                           ; preds = %entry
-  store i8 56, ptr %retval, align 1
-  br label %return
+15:                                               ; preds = %2
+  store i8 56, ptr %3, align 1
+  br label %47
 
-sw.bb9:                                           ; preds = %entry
-  store i8 57, ptr %retval, align 1
-  br label %return
+16:                                               ; preds = %2
+  store i8 57, ptr %3, align 1
+  br label %47
 
-sw.bb10:                                          ; preds = %entry
-  %1 = load i32, ptr %uppercase.addr, align 4
-  %cmp = icmp eq i32 %1, 1
-  %cond = select i1 %cmp, i32 65, i32 97
-  %conv = trunc i32 %cond to i8
-  store i8 %conv, ptr %retval, align 1
-  br label %return
+17:                                               ; preds = %2
+  %18 = load i32, ptr %5, align 4, !tbaa !14
+  %19 = icmp eq i32 %18, 1
+  %20 = select i1 %19, i32 65, i32 97
+  %21 = trunc i32 %20 to i8
+  store i8 %21, ptr %3, align 1
+  br label %47
 
-sw.bb11:                                          ; preds = %entry
-  %2 = load i32, ptr %uppercase.addr, align 4
-  %cmp12 = icmp eq i32 %2, 1
-  %cond14 = select i1 %cmp12, i32 66, i32 98
-  %conv15 = trunc i32 %cond14 to i8
-  store i8 %conv15, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %2
+  %23 = load i32, ptr %5, align 4, !tbaa !14
+  %24 = icmp eq i32 %23, 1
+  %25 = select i1 %24, i32 66, i32 98
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %3, align 1
+  br label %47
 
-sw.bb16:                                          ; preds = %entry
-  %3 = load i32, ptr %uppercase.addr, align 4
-  %cmp17 = icmp eq i32 %3, 1
-  %cond19 = select i1 %cmp17, i32 67, i32 99
-  %conv20 = trunc i32 %cond19 to i8
-  store i8 %conv20, ptr %retval, align 1
-  br label %return
+27:                                               ; preds = %2
+  %28 = load i32, ptr %5, align 4, !tbaa !14
+  %29 = icmp eq i32 %28, 1
+  %30 = select i1 %29, i32 67, i32 99
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %3, align 1
+  br label %47
 
-sw.bb21:                                          ; preds = %entry
-  %4 = load i32, ptr %uppercase.addr, align 4
-  %cmp22 = icmp eq i32 %4, 1
-  %cond24 = select i1 %cmp22, i32 68, i32 100
-  %conv25 = trunc i32 %cond24 to i8
-  store i8 %conv25, ptr %retval, align 1
-  br label %return
+32:                                               ; preds = %2
+  %33 = load i32, ptr %5, align 4, !tbaa !14
+  %34 = icmp eq i32 %33, 1
+  %35 = select i1 %34, i32 68, i32 100
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %3, align 1
+  br label %47
 
-sw.bb26:                                          ; preds = %entry
-  %5 = load i32, ptr %uppercase.addr, align 4
-  %cmp27 = icmp eq i32 %5, 1
-  %cond29 = select i1 %cmp27, i32 69, i32 101
-  %conv30 = trunc i32 %cond29 to i8
-  store i8 %conv30, ptr %retval, align 1
-  br label %return
+37:                                               ; preds = %2
+  %38 = load i32, ptr %5, align 4, !tbaa !14
+  %39 = icmp eq i32 %38, 1
+  %40 = select i1 %39, i32 69, i32 101
+  %41 = trunc i32 %40 to i8
+  store i8 %41, ptr %3, align 1
+  br label %47
 
-sw.default:                                       ; preds = %entry
-  %6 = load i32, ptr %uppercase.addr, align 4
-  %cmp31 = icmp eq i32 %6, 1
-  %cond33 = select i1 %cmp31, i32 70, i32 102
-  %conv34 = trunc i32 %cond33 to i8
-  store i8 %conv34, ptr %retval, align 1
-  br label %return
+42:                                               ; preds = %2
+  %43 = load i32, ptr %5, align 4, !tbaa !14
+  %44 = icmp eq i32 %43, 1
+  %45 = select i1 %44, i32 70, i32 102
+  %46 = trunc i32 %45 to i8
+  store i8 %46, ptr %3, align 1
+  br label %47
 
-return:                                           ; preds = %sw.default, %sw.bb26, %sw.bb21, %sw.bb16, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %7 = load i8, ptr %retval, align 1
-  ret i8 %7
+47:                                               ; preds = %42, %37, %32, %27, %22, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+  %48 = load i8, ptr %3, align 1
+  ret i8 %48
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCopyPathA(ptr noundef %dest, ptr noundef %source, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %sourceWalker = alloca ptr, align 8
-  %destPrev = alloca ptr, align 8
-  %cur = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %0, i32 0, i32 5
-  %1 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.else
+define i32 @uriCopyPathA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %12 = load ptr, ptr %6, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %21
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %dest.addr, align 8
-  %pathHead1 = getelementptr inbounds %struct.UriUriStructA, ptr %2, i32 0, i32 5
-  store ptr null, ptr %pathHead1, align 8
-  %3 = load ptr, ptr %dest.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end20
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %17, i32 0, i32 5
+  store ptr null, ptr %18, align 8, !tbaa !24
+  %19 = load ptr, ptr %5, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %19, i32 0, i32 6
+  store ptr null, ptr %20, align 8, !tbaa !37
+  br label %77
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %source.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructA, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %pathHead2, align 8
-  store ptr %5, ptr %sourceWalker, align 8
-  store ptr null, ptr %destPrev, align 8
-  br label %do.body
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %22 = load ptr, ptr %6, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %22, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  store ptr %24, ptr %8, align 8, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr null, ptr %9, align 8, !tbaa !25
+  br label %25
 
-do.body:                                          ; preds = %do.cond, %if.else
-  %6 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %malloc, align 8
-  %8 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %7(ptr noundef %8, i64 noundef 32)
-  store ptr %call, ptr %cur, align 8
-  %9 = load ptr, ptr %cur, align 8
-  %cmp3 = icmp eq ptr %9, null
-  br i1 %cmp3, label %if.then4, label %if.end7
+25:                                               ; preds = %63, %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %26 = load ptr, ptr %7, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %29 = load ptr, ptr %7, align 8, !tbaa !16
+  %30 = call ptr %28(ptr noundef %29, i64 noundef 32)
+  store ptr %30, ptr %10, align 8, !tbaa !25
+  %31 = load ptr, ptr %10, align 8, !tbaa !25
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %40
 
-if.then4:                                         ; preds = %do.body
-  %10 = load ptr, ptr %destPrev, align 8
-  %cmp5 = icmp ne ptr %10, null
-  br i1 %cmp5, label %if.then6, label %if.end
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %9, align 8, !tbaa !25
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %39
 
-if.then6:                                         ; preds = %if.then4
-  %11 = load ptr, ptr %destPrev, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %11, i32 0, i32 1
-  store ptr null, ptr %next, align 8
-  br label %if.end
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %9, align 8, !tbaa !25
+  %38 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %37, i32 0, i32 1
+  store ptr null, ptr %38, align 8, !tbaa !31
+  br label %39
 
-if.end:                                           ; preds = %if.then6, %if.then4
-  store i32 0, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %36, %33
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
 
-if.end7:                                          ; preds = %do.body
-  %12 = load ptr, ptr %cur, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %sourceWalker, align 8
-  %text8 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %13, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %text, ptr align 8 %text8, i64 16, i1 false)
-  %14 = load ptr, ptr %destPrev, align 8
-  %cmp9 = icmp eq ptr %14, null
-  br i1 %cmp9, label %if.then10, label %if.else12
+40:                                               ; preds = %25
+  %41 = load ptr, ptr %10, align 8, !tbaa !25
+  %42 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %8, align 8, !tbaa !25
+  %44 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %43, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 16, i1 false), !tbaa.struct !45
+  %45 = load ptr, ptr %9, align 8, !tbaa !25
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %51
 
-if.then10:                                        ; preds = %if.end7
-  %15 = load ptr, ptr %cur, align 8
-  %16 = load ptr, ptr %dest.addr, align 8
-  %pathHead11 = getelementptr inbounds %struct.UriUriStructA, ptr %16, i32 0, i32 5
-  store ptr %15, ptr %pathHead11, align 8
-  br label %if.end14
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %10, align 8, !tbaa !25
+  %49 = load ptr, ptr %5, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %49, i32 0, i32 5
+  store ptr %48, ptr %50, align 8, !tbaa !24
+  br label %55
 
-if.else12:                                        ; preds = %if.end7
-  %17 = load ptr, ptr %cur, align 8
-  %18 = load ptr, ptr %destPrev, align 8
-  %next13 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %18, i32 0, i32 1
-  store ptr %17, ptr %next13, align 8
-  br label %if.end14
+51:                                               ; preds = %40
+  %52 = load ptr, ptr %10, align 8, !tbaa !25
+  %53 = load ptr, ptr %9, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %53, i32 0, i32 1
+  store ptr %52, ptr %54, align 8, !tbaa !31
+  br label %55
 
-if.end14:                                         ; preds = %if.else12, %if.then10
-  %19 = load ptr, ptr %cur, align 8
-  store ptr %19, ptr %destPrev, align 8
-  %20 = load ptr, ptr %sourceWalker, align 8
-  %next15 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %next15, align 8
-  store ptr %21, ptr %sourceWalker, align 8
-  br label %do.cond
+55:                                               ; preds = %51, %47
+  %56 = load ptr, ptr %10, align 8, !tbaa !25
+  store ptr %56, ptr %9, align 8, !tbaa !25
+  %57 = load ptr, ptr %8, align 8, !tbaa !25
+  %58 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8, !tbaa !31
+  store ptr %59, ptr %8, align 8, !tbaa !25
+  store i32 0, ptr %11, align 4
+  br label %60
 
-do.cond:                                          ; preds = %if.end14
-  %22 = load ptr, ptr %sourceWalker, align 8
-  %cmp16 = icmp ne ptr %22, null
-  br i1 %cmp16, label %do.body, label %do.end, !llvm.loop !7
+60:                                               ; preds = %55, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %61 = load i32, ptr %11, align 4
+  switch i32 %61, label %74 [
+    i32 0, label %62
+  ]
 
-do.end:                                           ; preds = %do.cond
-  %23 = load ptr, ptr %destPrev, align 8
-  %24 = load ptr, ptr %dest.addr, align 8
-  %pathTail17 = getelementptr inbounds %struct.UriUriStructA, ptr %24, i32 0, i32 6
-  store ptr %23, ptr %pathTail17, align 8
-  %25 = load ptr, ptr %dest.addr, align 8
-  %pathTail18 = getelementptr inbounds %struct.UriUriStructA, ptr %25, i32 0, i32 6
-  %26 = load ptr, ptr %pathTail18, align 8
-  %next19 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %26, i32 0, i32 1
-  store ptr null, ptr %next19, align 8
-  br label %if.end20
+62:                                               ; preds = %60
+  br label %63
 
-if.end20:                                         ; preds = %do.end, %if.then
-  %27 = load ptr, ptr %source.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructA, ptr %27, i32 0, i32 9
-  %28 = load i32, ptr %absolutePath, align 8
-  %29 = load ptr, ptr %dest.addr, align 8
-  %absolutePath21 = getelementptr inbounds %struct.UriUriStructA, ptr %29, i32 0, i32 9
-  store i32 %28, ptr %absolutePath21, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %8, align 8, !tbaa !25
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %25, label %66, !llvm.loop !46
 
-return:                                           ; preds = %if.end20, %if.end
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %9, align 8, !tbaa !25
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %68, i32 0, i32 6
+  store ptr %67, ptr %69, align 8, !tbaa !37
+  %70 = load ptr, ptr %5, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %70, i32 0, i32 6
+  %72 = load ptr, ptr %71, align 8, !tbaa !37
+  %73 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %72, i32 0, i32 1
+  store ptr null, ptr %73, align 8, !tbaa !31
+  store i32 0, ptr %11, align 4
+  br label %74
+
+74:                                               ; preds = %66, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %75 = load i32, ptr %11, align 4
+  switch i32 %75, label %85 [
+    i32 0, label %76
+    i32 1, label %83
+  ]
+
+76:                                               ; preds = %74
+  br label %77
+
+77:                                               ; preds = %76, %16
+  %78 = load ptr, ptr %6, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %78, i32 0, i32 9
+  %80 = load i32, ptr %79, align 8, !tbaa !47
+  %81 = load ptr, ptr %5, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %81, i32 0, i32 9
+  store i32 %80, ptr %82, align 8, !tbaa !47
+  store i32 1, ptr %4, align 4
+  br label %83
+
+83:                                               ; preds = %77, %74
+  %84 = load i32, ptr %4, align 4
+  ret i32 %84
+
+85:                                               ; preds = %74
+  unreachable
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCopyAuthorityA(ptr noundef %dest, ptr noundef %source, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %dest.addr, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructA, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %source.addr, align 8
-  %userInfo1 = getelementptr inbounds %struct.UriUriStructA, ptr %1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %userInfo, ptr align 8 %userInfo1, i64 16, i1 false)
-  %2 = load ptr, ptr %dest.addr, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructA, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %source.addr, align 8
-  %hostText2 = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %hostText, ptr align 8 %hostText2, i64 16, i1 false)
-  %4 = load ptr, ptr %source.addr, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructA, ptr %4, i32 0, i32 3
-  %ip4 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData, i32 0, i32 0
-  %5 = load ptr, ptr %ip4, align 8
-  %cmp = icmp ne ptr %5, null
-  br i1 %cmp, label %if.then, label %if.else
+define i32 @uriCopyAuthorityA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %6, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !45
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %14, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 16, i1 false), !tbaa.struct !45
+  %16 = load ptr, ptr %6, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %16, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !41
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %56
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %malloc, align 8
-  %8 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %7(ptr noundef %8, i64 noundef 4)
-  %9 = load ptr, ptr %dest.addr, align 8
-  %hostData3 = getelementptr inbounds %struct.UriUriStructA, ptr %9, i32 0, i32 3
-  %ip44 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData3, i32 0, i32 0
-  store ptr %call, ptr %ip44, align 8
-  %10 = load ptr, ptr %dest.addr, align 8
-  %hostData5 = getelementptr inbounds %struct.UriUriStructA, ptr %10, i32 0, i32 3
-  %ip46 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData5, i32 0, i32 0
-  %11 = load ptr, ptr %ip46, align 8
-  %cmp7 = icmp eq ptr %11, null
-  br i1 %cmp7, label %if.then8, label %if.end
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
+  %25 = load ptr, ptr %7, align 8, !tbaa !16
+  %26 = call ptr %24(ptr noundef %25, i64 noundef 4)
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %28, i32 0, i32 0
+  store ptr %26, ptr %29, align 8, !tbaa !41
+  %30 = load ptr, ptr %5, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-if.then8:                                         ; preds = %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %21
+  store i32 0, ptr %4, align 4
+  br label %116
 
-if.end:                                           ; preds = %if.then
-  %12 = load ptr, ptr %dest.addr, align 8
-  %hostData9 = getelementptr inbounds %struct.UriUriStructA, ptr %12, i32 0, i32 3
-  %ip410 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData9, i32 0, i32 0
-  %13 = load ptr, ptr %ip410, align 8
-  %14 = load ptr, ptr %source.addr, align 8
-  %hostData11 = getelementptr inbounds %struct.UriUriStructA, ptr %14, i32 0, i32 3
-  %ip412 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData11, i32 0, i32 0
-  %15 = load ptr, ptr %ip412, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %15, i64 4, i1 false)
-  %16 = load ptr, ptr %dest.addr, align 8
-  %hostData13 = getelementptr inbounds %struct.UriUriStructA, ptr %16, i32 0, i32 3
-  %ip6 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData13, i32 0, i32 1
-  store ptr null, ptr %ip6, align 8
-  %17 = load ptr, ptr %dest.addr, align 8
-  %hostData14 = getelementptr inbounds %struct.UriUriStructA, ptr %17, i32 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData14, i32 0, i32 2
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %ipFuture, i32 0, i32 0
-  store ptr null, ptr %first, align 8
-  %18 = load ptr, ptr %dest.addr, align 8
-  %hostData15 = getelementptr inbounds %struct.UriUriStructA, ptr %18, i32 0, i32 3
-  %ipFuture16 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData15, i32 0, i32 2
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %ipFuture16, i32 0, i32 1
-  store ptr null, ptr %afterLast, align 8
-  br label %if.end52
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %5, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %37, i32 0, i32 3
+  %39 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
+  %41 = load ptr, ptr %6, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %44, i64 4, i1 false), !tbaa.struct !48
+  %45 = load ptr, ptr %5, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %46, i32 0, i32 1
+  store ptr null, ptr %47, align 8, !tbaa !42
+  %48 = load ptr, ptr %5, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %49, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %50, i32 0, i32 0
+  store ptr null, ptr %51, align 8, !tbaa !43
+  %52 = load ptr, ptr %5, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %53, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %54, i32 0, i32 1
+  store ptr null, ptr %55, align 8, !tbaa !49
+  br label %111
 
-if.else:                                          ; preds = %entry
-  %19 = load ptr, ptr %source.addr, align 8
-  %hostData17 = getelementptr inbounds %struct.UriUriStructA, ptr %19, i32 0, i32 3
-  %ip618 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData17, i32 0, i32 1
-  %20 = load ptr, ptr %ip618, align 8
-  %cmp19 = icmp ne ptr %20, null
-  br i1 %cmp19, label %if.then20, label %if.else42
+56:                                               ; preds = %3
+  %57 = load ptr, ptr %6, align 8, !tbaa !3
+  %58 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !42
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %97
 
-if.then20:                                        ; preds = %if.else
-  %21 = load ptr, ptr %dest.addr, align 8
-  %hostData21 = getelementptr inbounds %struct.UriUriStructA, ptr %21, i32 0, i32 3
-  %ip422 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData21, i32 0, i32 0
-  store ptr null, ptr %ip422, align 8
-  %22 = load ptr, ptr %memory.addr, align 8
-  %malloc23 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %malloc23, align 8
-  %24 = load ptr, ptr %memory.addr, align 8
-  %call24 = call ptr %23(ptr noundef %24, i64 noundef 16)
-  %25 = load ptr, ptr %dest.addr, align 8
-  %hostData25 = getelementptr inbounds %struct.UriUriStructA, ptr %25, i32 0, i32 3
-  %ip626 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData25, i32 0, i32 1
-  store ptr %call24, ptr %ip626, align 8
-  %26 = load ptr, ptr %dest.addr, align 8
-  %hostData27 = getelementptr inbounds %struct.UriUriStructA, ptr %26, i32 0, i32 3
-  %ip628 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData27, i32 0, i32 1
-  %27 = load ptr, ptr %ip628, align 8
-  %cmp29 = icmp eq ptr %27, null
-  br i1 %cmp29, label %if.then30, label %if.end31
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %5, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %64, i32 0, i32 0
+  store ptr null, ptr %65, align 8, !tbaa !41
+  %66 = load ptr, ptr %7, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !44
+  %69 = load ptr, ptr %7, align 8, !tbaa !16
+  %70 = call ptr %68(ptr noundef %69, i64 noundef 16)
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %72, i32 0, i32 1
+  store ptr %70, ptr %73, align 8, !tbaa !42
+  %74 = load ptr, ptr %5, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %74, i32 0, i32 3
+  %76 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %80
 
-if.then30:                                        ; preds = %if.then20
-  store i32 0, ptr %retval, align 4
-  br label %return
+79:                                               ; preds = %62
+  store i32 0, ptr %4, align 4
+  br label %116
 
-if.end31:                                         ; preds = %if.then20
-  %28 = load ptr, ptr %dest.addr, align 8
-  %hostData32 = getelementptr inbounds %struct.UriUriStructA, ptr %28, i32 0, i32 3
-  %ip633 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData32, i32 0, i32 1
-  %29 = load ptr, ptr %ip633, align 8
-  %30 = load ptr, ptr %source.addr, align 8
-  %hostData34 = getelementptr inbounds %struct.UriUriStructA, ptr %30, i32 0, i32 3
-  %ip635 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData34, i32 0, i32 1
-  %31 = load ptr, ptr %ip635, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 16, i1 false)
-  %32 = load ptr, ptr %dest.addr, align 8
-  %hostData36 = getelementptr inbounds %struct.UriUriStructA, ptr %32, i32 0, i32 3
-  %ipFuture37 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData36, i32 0, i32 2
-  %first38 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %ipFuture37, i32 0, i32 0
-  store ptr null, ptr %first38, align 8
-  %33 = load ptr, ptr %dest.addr, align 8
-  %hostData39 = getelementptr inbounds %struct.UriUriStructA, ptr %33, i32 0, i32 3
-  %ipFuture40 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData39, i32 0, i32 2
-  %afterLast41 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %ipFuture40, i32 0, i32 1
-  store ptr null, ptr %afterLast41, align 8
-  br label %if.end51
+80:                                               ; preds = %62
+  %81 = load ptr, ptr %5, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %81, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !42
+  %85 = load ptr, ptr %6, align 8, !tbaa !3
+  %86 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %85, i32 0, i32 3
+  %87 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !42
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %88, i64 16, i1 false), !tbaa.struct !50
+  %89 = load ptr, ptr %5, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %89, i32 0, i32 3
+  %91 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %91, i32 0, i32 0
+  store ptr null, ptr %92, align 8, !tbaa !43
+  %93 = load ptr, ptr %5, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %93, i32 0, i32 3
+  %95 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %94, i32 0, i32 2
+  %96 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %95, i32 0, i32 1
+  store ptr null, ptr %96, align 8, !tbaa !49
+  br label %110
 
-if.else42:                                        ; preds = %if.else
-  %34 = load ptr, ptr %dest.addr, align 8
-  %hostData43 = getelementptr inbounds %struct.UriUriStructA, ptr %34, i32 0, i32 3
-  %ip444 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData43, i32 0, i32 0
-  store ptr null, ptr %ip444, align 8
-  %35 = load ptr, ptr %dest.addr, align 8
-  %hostData45 = getelementptr inbounds %struct.UriUriStructA, ptr %35, i32 0, i32 3
-  %ip646 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData45, i32 0, i32 1
-  store ptr null, ptr %ip646, align 8
-  %36 = load ptr, ptr %dest.addr, align 8
-  %hostData47 = getelementptr inbounds %struct.UriUriStructA, ptr %36, i32 0, i32 3
-  %ipFuture48 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData47, i32 0, i32 2
-  %37 = load ptr, ptr %source.addr, align 8
-  %hostData49 = getelementptr inbounds %struct.UriUriStructA, ptr %37, i32 0, i32 3
-  %ipFuture50 = getelementptr inbounds %struct.UriHostDataStructA, ptr %hostData49, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ipFuture48, ptr align 8 %ipFuture50, i64 16, i1 false)
-  br label %if.end51
+97:                                               ; preds = %56
+  %98 = load ptr, ptr %5, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %98, i32 0, i32 3
+  %100 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %99, i32 0, i32 0
+  store ptr null, ptr %100, align 8, !tbaa !41
+  %101 = load ptr, ptr %5, align 8, !tbaa !3
+  %102 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %101, i32 0, i32 3
+  %103 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %102, i32 0, i32 1
+  store ptr null, ptr %103, align 8, !tbaa !42
+  %104 = load ptr, ptr %5, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %104, i32 0, i32 3
+  %106 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %105, i32 0, i32 2
+  %107 = load ptr, ptr %6, align 8, !tbaa !3
+  %108 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %107, i32 0, i32 3
+  %109 = getelementptr inbounds nuw %struct.UriHostDataStructA, ptr %108, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 8 %109, i64 16, i1 false), !tbaa.struct !45
+  br label %110
 
-if.end51:                                         ; preds = %if.else42, %if.end31
-  br label %if.end52
+110:                                              ; preds = %97, %80
+  br label %111
 
-if.end52:                                         ; preds = %if.end51, %if.end
-  %38 = load ptr, ptr %dest.addr, align 8
-  %portText = getelementptr inbounds %struct.UriUriStructA, ptr %38, i32 0, i32 4
-  %39 = load ptr, ptr %source.addr, align 8
-  %portText53 = getelementptr inbounds %struct.UriUriStructA, ptr %39, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %portText, ptr align 8 %portText53, i64 16, i1 false)
-  store i32 1, ptr %retval, align 4
-  br label %return
+111:                                              ; preds = %110, %36
+  %112 = load ptr, ptr %5, align 8, !tbaa !3
+  %113 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %112, i32 0, i32 4
+  %114 = load ptr, ptr %6, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %114, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %115, i64 16, i1 false), !tbaa.struct !45
+  store i32 1, ptr %4, align 4
+  br label %116
 
-return:                                           ; preds = %if.end52, %if.then30, %if.then8
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
+116:                                              ; preds = %111, %79, %35
+  %117 = load i32, ptr %4, align 4
+  ret i32 %117
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriFixAmbiguityA(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructA, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %absolutePath, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
+define i32 @uriFixAmbiguityA(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %8, i32 0, i32 9
+  %10 = load i32, ptr %9, align 8, !tbaa !47
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %31
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %2, i32 0, i32 5
-  %3 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %land.lhs.true1, label %lor.lhs.false
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %31
 
-land.lhs.true1:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %uri.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructA, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %pathHead2, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %5, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text, i32 0, i32 1
-  %6 = load ptr, ptr %afterLast, align 8
-  %7 = load ptr, ptr %uri.addr, align 8
-  %pathHead3 = getelementptr inbounds %struct.UriUriStructA, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %pathHead3, align 8
-  %text4 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %8, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text4, i32 0, i32 0
-  %9 = load ptr, ptr %first, align 8
-  %cmp5 = icmp eq ptr %6, %9
-  br i1 %cmp5, label %if.then, label %lor.lhs.false
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !3
+  %19 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %21 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = load ptr, ptr %4, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %27 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %30 = icmp eq ptr %23, %29
+  br i1 %30, label %80, label %31
 
-lor.lhs.false:                                    ; preds = %land.lhs.true1, %land.lhs.true, %entry
-  %10 = load ptr, ptr %uri.addr, align 8
-  %absolutePath6 = getelementptr inbounds %struct.UriUriStructA, ptr %10, i32 0, i32 9
-  %11 = load i32, ptr %absolutePath6, align 8
-  %tobool7 = icmp ne i32 %11, 0
-  br i1 %tobool7, label %if.else, label %land.lhs.true8
+31:                                               ; preds = %17, %12, %2
+  %32 = load ptr, ptr %4, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %32, i32 0, i32 9
+  %34 = load i32, ptr %33, align 8, !tbaa !47
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %81, label %36
 
-land.lhs.true8:                                   ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %uri.addr, align 8
-  %pathHead9 = getelementptr inbounds %struct.UriUriStructA, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %pathHead9, align 8
-  %cmp10 = icmp ne ptr %13, null
-  br i1 %cmp10, label %land.lhs.true11, label %if.else
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %4, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %81
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %14 = load ptr, ptr %uri.addr, align 8
-  %pathHead12 = getelementptr inbounds %struct.UriUriStructA, ptr %14, i32 0, i32 5
-  %15 = load ptr, ptr %pathHead12, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %next, align 8
-  %cmp13 = icmp ne ptr %16, null
-  br i1 %cmp13, label %land.lhs.true14, label %if.else
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %42, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %81
 
-land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %17 = load ptr, ptr %uri.addr, align 8
-  %pathHead15 = getelementptr inbounds %struct.UriUriStructA, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %pathHead15, align 8
-  %text16 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %18, i32 0, i32 0
-  %afterLast17 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text16, i32 0, i32 1
-  %19 = load ptr, ptr %afterLast17, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathHead18 = getelementptr inbounds %struct.UriUriStructA, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %pathHead18, align 8
-  %text19 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %21, i32 0, i32 0
-  %first20 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text19, i32 0, i32 0
-  %22 = load ptr, ptr %first20, align 8
-  %cmp21 = icmp eq ptr %19, %22
-  br i1 %cmp21, label %land.lhs.true22, label %if.else
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %4, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8, !tbaa !24
+  %52 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %55, i32 0, i32 5
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
+  %58 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !29
+  %61 = icmp eq ptr %54, %60
+  br i1 %61, label %62, label %81
 
-land.lhs.true22:                                  ; preds = %land.lhs.true14
-  %23 = load ptr, ptr %uri.addr, align 8
-  %pathHead23 = getelementptr inbounds %struct.UriUriStructA, ptr %23, i32 0, i32 5
-  %24 = load ptr, ptr %pathHead23, align 8
-  %next24 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %next24, align 8
-  %text25 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %25, i32 0, i32 0
-  %afterLast26 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text25, i32 0, i32 1
-  %26 = load ptr, ptr %afterLast26, align 8
-  %27 = load ptr, ptr %uri.addr, align 8
-  %pathHead27 = getelementptr inbounds %struct.UriUriStructA, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %pathHead27, align 8
-  %next28 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %next28, align 8
-  %text29 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %29, i32 0, i32 0
-  %first30 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text29, i32 0, i32 0
-  %30 = load ptr, ptr %first30, align 8
-  %cmp31 = icmp eq ptr %26, %30
-  br i1 %cmp31, label %if.then, label %if.else
+62:                                               ; preds = %48
+  %63 = load ptr, ptr %4, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %63, i32 0, i32 5
+  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %66 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !31
+  %68 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !28
+  %71 = load ptr, ptr %4, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8, !tbaa !24
+  %74 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !31
+  %76 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %75, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %79 = icmp eq ptr %70, %78
+  br i1 %79, label %80, label %81
 
-if.then:                                          ; preds = %land.lhs.true22, %land.lhs.true1
-  br label %if.end
+80:                                               ; preds = %62, %17
+  br label %82
 
-if.else:                                          ; preds = %land.lhs.true22, %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %lor.lhs.false
-  store i32 1, ptr %retval, align 4
-  br label %return
+81:                                               ; preds = %62, %48, %41, %36, %31
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
 
-if.end:                                           ; preds = %if.then
-  %31 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %malloc, align 8
-  %33 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %32(ptr noundef %33, i64 noundef 32)
-  store ptr %call, ptr %segment, align 8
-  %34 = load ptr, ptr %segment, align 8
-  %cmp32 = icmp eq ptr %34, null
-  br i1 %cmp32, label %if.then33, label %if.end34
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %5, align 8, !tbaa !16
+  %84 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !44
+  %86 = load ptr, ptr %5, align 8, !tbaa !16
+  %87 = call ptr %85(ptr noundef %86, i64 noundef 32)
+  store ptr %87, ptr %6, align 8, !tbaa !25
+  %88 = load ptr, ptr %6, align 8, !tbaa !25
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %91
 
-if.then33:                                        ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
+90:                                               ; preds = %82
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
 
-if.end34:                                         ; preds = %if.end
-  %35 = load ptr, ptr %uri.addr, align 8
-  %pathHead35 = getelementptr inbounds %struct.UriUriStructA, ptr %35, i32 0, i32 5
-  %36 = load ptr, ptr %pathHead35, align 8
-  %37 = load ptr, ptr %segment, align 8
-  %next36 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %37, i32 0, i32 1
-  store ptr %36, ptr %next36, align 8
-  %38 = load ptr, ptr %segment, align 8
-  %text37 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %38, i32 0, i32 0
-  %first38 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text37, i32 0, i32 0
-  store ptr @.str.1, ptr %first38, align 8
-  %39 = load ptr, ptr %segment, align 8
-  %text39 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %39, i32 0, i32 0
-  %afterLast40 = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text39, i32 0, i32 1
-  %40 = getelementptr inbounds i8, ptr @.str.1, i64 1
-  store ptr %40, ptr %afterLast40, align 8
-  %41 = load ptr, ptr %segment, align 8
-  %42 = load ptr, ptr %uri.addr, align 8
-  %pathHead41 = getelementptr inbounds %struct.UriUriStructA, ptr %42, i32 0, i32 5
-  store ptr %41, ptr %pathHead41, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+91:                                               ; preds = %82
+  %92 = load ptr, ptr %4, align 8, !tbaa !3
+  %93 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %92, i32 0, i32 5
+  %94 = load ptr, ptr %93, align 8, !tbaa !24
+  %95 = load ptr, ptr %6, align 8, !tbaa !25
+  %96 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %95, i32 0, i32 1
+  store ptr %94, ptr %96, align 8, !tbaa !31
+  %97 = load ptr, ptr %6, align 8, !tbaa !25
+  %98 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %98, i32 0, i32 0
+  store ptr @.str.1, ptr %99, align 8, !tbaa !29
+  %100 = load ptr, ptr %6, align 8, !tbaa !25
+  %101 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %101, i32 0, i32 1
+  store ptr getelementptr inbounds (i8, ptr @.str.1, i64 1), ptr %102, align 8, !tbaa !28
+  %103 = load ptr, ptr %6, align 8, !tbaa !25
+  %104 = load ptr, ptr %4, align 8, !tbaa !3
+  %105 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %104, i32 0, i32 5
+  store ptr %103, ptr %105, align 8, !tbaa !24
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
 
-return:                                           ; preds = %if.end34, %if.then33, %if.else
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+106:                                              ; preds = %91, %90, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %107 = load i32, ptr %3, align 4
+  ret i32 %107
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFixEmptyTrailSegmentA(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructA, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %absolutePath, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %land.lhs.true
+define void @uriFixEmptyTrailSegmentA(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %5, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8, !tbaa !47
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %51, label %9
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %uri.addr, align 8
-  %call = call i32 @uriIsHostSetA(ptr noundef %2)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end, label %land.lhs.true2
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !3
+  %11 = call i32 @uriIsHostSetA(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %51, label %13
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %3 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructA, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %land.lhs.true3, label %if.end
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %14, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %51
 
-land.lhs.true3:                                   ; preds = %land.lhs.true2
-  %5 = load ptr, ptr %uri.addr, align 8
-  %pathHead4 = getelementptr inbounds %struct.UriUriStructA, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %pathHead4, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %next, align 8
-  %cmp5 = icmp eq ptr %7, null
-  br i1 %cmp5, label %land.lhs.true6, label %if.end
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %3, align 8, !tbaa !3
+  %20 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  %22 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %51
 
-land.lhs.true6:                                   ; preds = %land.lhs.true3
-  %8 = load ptr, ptr %uri.addr, align 8
-  %pathHead7 = getelementptr inbounds %struct.UriUriStructA, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %pathHead7, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %9, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text, i32 0, i32 0
-  %10 = load ptr, ptr %first, align 8
-  %11 = load ptr, ptr %uri.addr, align 8
-  %pathHead8 = getelementptr inbounds %struct.UriUriStructA, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %pathHead8, align 8
-  %text9 = getelementptr inbounds %struct.UriPathSegmentStructA, ptr %12, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructA, ptr %text9, i32 0, i32 1
-  %13 = load ptr, ptr %afterLast, align 8
-  %cmp10 = icmp eq ptr %10, %13
-  br i1 %cmp10, label %if.then, label %if.end
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %3, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %29 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
+  %35 = getelementptr inbounds nuw %struct.UriPathSegmentStructA, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.UriTextRangeStructA, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
+  %38 = icmp eq ptr %31, %37
+  br i1 %38, label %39, label %51
 
-if.then:                                          ; preds = %land.lhs.true6
-  %14 = load ptr, ptr %memory.addr, align 8
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %14, i32 0, i32 4
-  %15 = load ptr, ptr %free, align 8
-  %16 = load ptr, ptr %memory.addr, align 8
-  %17 = load ptr, ptr %uri.addr, align 8
-  %pathHead11 = getelementptr inbounds %struct.UriUriStructA, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %pathHead11, align 8
-  call void %15(ptr noundef %16, ptr noundef %18)
-  %19 = load ptr, ptr %uri.addr, align 8
-  %pathHead12 = getelementptr inbounds %struct.UriUriStructA, ptr %19, i32 0, i32 5
-  store ptr null, ptr %pathHead12, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructA, ptr %20, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %4, align 8, !tbaa !16
+  %41 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %43 = load ptr, ptr %4, align 8, !tbaa !16
+  %44 = load ptr, ptr %3, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %44, i32 0, i32 5
+  %46 = load ptr, ptr %45, align 8, !tbaa !24
+  call void %42(ptr noundef %43, ptr noundef %46)
+  %47 = load ptr, ptr %3, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %47, i32 0, i32 5
+  store ptr null, ptr %48, align 8, !tbaa !24
+  %49 = load ptr, ptr %3, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw %struct.UriUriStructA, ptr %49, i32 0, i32 6
+  store ptr null, ptr %50, align 8, !tbaa !37
+  br label %51
 
-if.end:                                           ; preds = %if.then, %land.lhs.true6, %land.lhs.true3, %land.lhs.true2, %land.lhs.true, %entry
+51:                                               ; preds = %39, %25, %18, %13, %9, %2
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriResetUriW(ptr noundef %uri) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define void @uriResetUriW(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %8
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 160, i1 false)
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !51
+  call void @llvm.memset.p0.i64(ptr align 8 %7, i8 0, i64 160, i1 false)
+  br label %8
 
-return:                                           ; preds = %if.end, %if.then
+8:                                                ; preds = %6, %5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCompareRangeW(ptr noundef %a, ptr noundef %b) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %diff = alloca i32, align 4
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriCompareRangeW(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !53
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %13, label %10
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %b.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %if.end
+10:                                               ; preds = %2
+  %11 = load ptr, ptr %5, align 8, !tbaa !53
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %21
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %2 = load ptr, ptr %a.addr, align 8
-  %cmp2 = icmp eq ptr %2, null
-  %cond = select i1 %cmp2, i32 0, i32 1
-  %3 = load ptr, ptr %b.addr, align 8
-  %cmp3 = icmp eq ptr %3, null
-  %cond4 = select i1 %cmp3, i32 0, i32 1
-  %sub = sub nsw i32 %cond, %cond4
-  store i32 %sub, ptr %retval, align 4
-  br label %return
+13:                                               ; preds = %10, %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !53
+  %15 = icmp eq ptr %14, null
+  %16 = select i1 %15, i32 0, i32 1
+  %17 = load ptr, ptr %5, align 8, !tbaa !53
+  %18 = icmp eq ptr %17, null
+  %19 = select i1 %18, i32 0, i32 1
+  %20 = sub nsw i32 %16, %19
+  store i32 %20, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.end:                                           ; preds = %lor.lhs.false
-  %4 = load ptr, ptr %a.addr, align 8
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %first, align 8
-  %cmp5 = icmp eq ptr %5, null
-  br i1 %cmp5, label %if.then9, label %lor.lhs.false6
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %4, align 8, !tbaa !53
+  %23 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !55
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %31, label %26
 
-lor.lhs.false6:                                   ; preds = %if.end
-  %6 = load ptr, ptr %b.addr, align 8
-  %first7 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %first7, align 8
-  %cmp8 = icmp eq ptr %7, null
-  br i1 %cmp8, label %if.then9, label %if.end17
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8, !tbaa !53
+  %28 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !55
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %43
 
-if.then9:                                         ; preds = %lor.lhs.false6, %if.end
-  %8 = load ptr, ptr %a.addr, align 8
-  %first10 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %first10, align 8
-  %cmp11 = icmp eq ptr %9, null
-  %cond12 = select i1 %cmp11, i32 0, i32 1
-  %10 = load ptr, ptr %b.addr, align 8
-  %first13 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %10, i32 0, i32 0
-  %11 = load ptr, ptr %first13, align 8
-  %cmp14 = icmp eq ptr %11, null
-  %cond15 = select i1 %cmp14, i32 0, i32 1
-  %sub16 = sub nsw i32 %cond12, %cond15
-  store i32 %sub16, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %26, %21
+  %32 = load ptr, ptr %4, align 8, !tbaa !53
+  %33 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %32, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %35 = icmp eq ptr %34, null
+  %36 = select i1 %35, i32 0, i32 1
+  %37 = load ptr, ptr %5, align 8, !tbaa !53
+  %38 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !55
+  %40 = icmp eq ptr %39, null
+  %41 = select i1 %40, i32 0, i32 1
+  %42 = sub nsw i32 %36, %41
+  store i32 %42, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.end17:                                         ; preds = %lor.lhs.false6
-  %12 = load ptr, ptr %a.addr, align 8
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %12, i32 0, i32 1
-  %13 = load ptr, ptr %afterLast, align 8
-  %14 = load ptr, ptr %a.addr, align 8
-  %first18 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %first18, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %15 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  %conv = trunc i64 %sub.ptr.div to i32
-  %16 = load ptr, ptr %b.addr, align 8
-  %afterLast19 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %afterLast19, align 8
-  %18 = load ptr, ptr %b.addr, align 8
-  %first20 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %18, i32 0, i32 0
-  %19 = load ptr, ptr %first20, align 8
-  %sub.ptr.lhs.cast21 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast22 = ptrtoint ptr %19 to i64
-  %sub.ptr.sub23 = sub i64 %sub.ptr.lhs.cast21, %sub.ptr.rhs.cast22
-  %sub.ptr.div24 = sdiv exact i64 %sub.ptr.sub23, 4
-  %conv25 = trunc i64 %sub.ptr.div24 to i32
-  %sub26 = sub nsw i32 %conv, %conv25
-  store i32 %sub26, ptr %diff, align 4
-  %20 = load i32, ptr %diff, align 4
-  %cmp27 = icmp sgt i32 %20, 0
-  br i1 %cmp27, label %if.then29, label %if.else
+43:                                               ; preds = %26
+  %44 = load ptr, ptr %4, align 8, !tbaa !53
+  %45 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !58
+  %47 = load ptr, ptr %4, align 8, !tbaa !53
+  %48 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !55
+  %50 = ptrtoint ptr %46 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = sdiv exact i64 %52, 4
+  %54 = trunc i64 %53 to i32
+  %55 = load ptr, ptr %5, align 8, !tbaa !53
+  %56 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !58
+  %58 = load ptr, ptr %5, align 8, !tbaa !53
+  %59 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !55
+  %61 = ptrtoint ptr %57 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = sdiv exact i64 %63, 4
+  %65 = trunc i64 %64 to i32
+  %66 = sub nsw i32 %54, %65
+  store i32 %66, ptr %6, align 4, !tbaa !14
+  %67 = load i32, ptr %6, align 4, !tbaa !14
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %69, label %70
 
-if.then29:                                        ; preds = %if.end17
-  store i32 1, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %43
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.else:                                          ; preds = %if.end17
-  %21 = load i32, ptr %diff, align 4
-  %cmp30 = icmp slt i32 %21, 0
-  br i1 %cmp30, label %if.then32, label %if.end33
+70:                                               ; preds = %43
+  %71 = load i32, ptr %6, align 4, !tbaa !14
+  %72 = icmp slt i32 %71, 0
+  br i1 %72, label %73, label %74
 
-if.then32:                                        ; preds = %if.else
-  store i32 -1, ptr %retval, align 4
-  br label %return
+73:                                               ; preds = %70
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.end33:                                         ; preds = %if.else
-  br label %if.end34
+74:                                               ; preds = %70
+  br label %75
 
-if.end34:                                         ; preds = %if.end33
-  %22 = load ptr, ptr %a.addr, align 8
-  %first35 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %first35, align 8
-  %24 = load ptr, ptr %b.addr, align 8
-  %first36 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %24, i32 0, i32 0
-  %25 = load ptr, ptr %first36, align 8
-  %26 = load ptr, ptr %a.addr, align 8
-  %afterLast37 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %26, i32 0, i32 1
-  %27 = load ptr, ptr %afterLast37, align 8
-  %28 = load ptr, ptr %a.addr, align 8
-  %first38 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %28, i32 0, i32 0
-  %29 = load ptr, ptr %first38, align 8
-  %sub.ptr.lhs.cast39 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast40 = ptrtoint ptr %29 to i64
-  %sub.ptr.sub41 = sub i64 %sub.ptr.lhs.cast39, %sub.ptr.rhs.cast40
-  %sub.ptr.div42 = sdiv exact i64 %sub.ptr.sub41, 4
-  %call = call i32 @wcsncmp(ptr noundef %23, ptr noundef %25, i64 noundef %sub.ptr.div42) #4
-  store i32 %call, ptr %diff, align 4
-  %30 = load i32, ptr %diff, align 4
-  %cmp43 = icmp sgt i32 %30, 0
-  br i1 %cmp43, label %if.then45, label %if.else46
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %4, align 8, !tbaa !53
+  %77 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !55
+  %79 = load ptr, ptr %5, align 8, !tbaa !53
+  %80 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !55
+  %82 = load ptr, ptr %4, align 8, !tbaa !53
+  %83 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !58
+  %85 = load ptr, ptr %4, align 8, !tbaa !53
+  %86 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %85, i32 0, i32 0
+  %87 = load ptr, ptr %86, align 8, !tbaa !55
+  %88 = ptrtoint ptr %84 to i64
+  %89 = ptrtoint ptr %87 to i64
+  %90 = sub i64 %88, %89
+  %91 = sdiv exact i64 %90, 4
+  %92 = call i32 @wcsncmp(ptr noundef %78, ptr noundef %81, i64 noundef %91) #6
+  store i32 %92, ptr %6, align 4, !tbaa !14
+  %93 = load i32, ptr %6, align 4, !tbaa !14
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %96
 
-if.then45:                                        ; preds = %if.end34
-  store i32 1, ptr %retval, align 4
-  br label %return
+95:                                               ; preds = %75
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.else46:                                        ; preds = %if.end34
-  %31 = load i32, ptr %diff, align 4
-  %cmp47 = icmp slt i32 %31, 0
-  br i1 %cmp47, label %if.then49, label %if.end50
+96:                                               ; preds = %75
+  %97 = load i32, ptr %6, align 4, !tbaa !14
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %99, label %100
 
-if.then49:                                        ; preds = %if.else46
-  store i32 -1, ptr %retval, align 4
-  br label %return
+99:                                               ; preds = %96
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-if.end50:                                         ; preds = %if.else46
-  br label %if.end51
+100:                                              ; preds = %96
+  br label %101
 
-if.end51:                                         ; preds = %if.end50
-  %32 = load i32, ptr %diff, align 4
-  store i32 %32, ptr %retval, align 4
-  br label %return
+101:                                              ; preds = %100
+  %102 = load i32, ptr %6, align 4, !tbaa !14
+  store i32 %102, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %103
 
-return:                                           ; preds = %if.end51, %if.then49, %if.then45, %if.then32, %if.then29, %if.then9, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+103:                                              ; preds = %101, %99, %95, %73, %69, %31, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  %104 = load i32, ptr %3, align 4
+  ret i32 %104
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsW(ptr noundef %uri, i32 noundef %relative, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %relative.addr = alloca i32, align 4
-  %memory.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store i32 %relative, ptr %relative.addr, align 4
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define i32 @uriRemoveDotSegmentsW(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store i32 %1, ptr %6, align 4, !tbaa !14
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8, !tbaa !51
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %11
 
-if.then:                                          ; preds = %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+10:                                               ; preds = %3
+  store i32 1, ptr %4, align 4
+  br label %19
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %2 = load i32, ptr %relative.addr, align 4
-  %3 = load ptr, ptr %uri.addr, align 8
-  %owner = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 10
-  %4 = load i32, ptr %owner, align 4
-  %5 = load ptr, ptr %memory.addr, align 8
-  %call = call i32 @uriRemoveDotSegmentsExW(ptr noundef %1, i32 noundef %2, i32 noundef %4, ptr noundef %5)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %5, align 8, !tbaa !51
+  %13 = load i32, ptr %6, align 4, !tbaa !14
+  %14 = load ptr, ptr %5, align 8, !tbaa !51
+  %15 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %14, i32 0, i32 10
+  %16 = load i32, ptr %15, align 4, !tbaa !59
+  %17 = load ptr, ptr %7, align 8, !tbaa !16
+  %18 = call i32 @uriRemoveDotSegmentsExW(ptr noundef %12, i32 noundef %13, i32 noundef %16, ptr noundef %17)
+  store i32 %18, ptr %4, align 4
+  br label %19
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load i32, ptr %retval, align 4
-  ret i32 %6
+19:                                               ; preds = %11, %10
+  %20 = load i32, ptr %4, align 4
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsExW(ptr noundef %uri, i32 noundef %relative, i32 noundef %pathOwned, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %relative.addr = alloca i32, align 4
-  %pathOwned.addr = alloca i32, align 4
-  %memory.addr = alloca ptr, align 8
-  %walker = alloca ptr, align 8
-  %removeSegment = alloca i32, align 4
-  %len = alloca i32, align 4
-  %prev = alloca ptr, align 8
-  %nextBackup = alloca ptr, align 8
-  %ch = alloca ptr, align 8
-  %prev109 = alloca ptr, align 8
-  %prevPrev = alloca ptr, align 8
-  %nextBackup111 = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  %segment258 = alloca ptr, align 8
-  %anotherNextBackup = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store i32 %relative, ptr %relative.addr, align 4
-  store i32 %pathOwned, ptr %pathOwned.addr, align 4
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriRemoveDotSegmentsExW(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !51
+  store i32 %1, ptr %7, align 4, !tbaa !14
+  store i32 %2, ptr %8, align 4, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %23 = load ptr, ptr %6, align 8, !tbaa !51
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %30, label %25
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %1, i32 0, i32 5
-  %2 = load ptr, ptr %pathHead, align 8
-  %cmp1 = icmp eq ptr %2, null
-  br i1 %cmp1, label %if.then, label %if.end
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %6, align 8, !tbaa !51
+  %27 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !63
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+30:                                               ; preds = %25, %4
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %643
 
-if.end:                                           ; preds = %lor.lhs.false
-  %3 = load ptr, ptr %uri.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %pathHead2, align 8
-  store ptr %4, ptr %walker, align 8
-  %5 = load ptr, ptr %walker, align 8
-  %reserved = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %5, i32 0, i32 2
-  store ptr null, ptr %reserved, align 8
-  br label %do.body
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %6, align 8, !tbaa !51
+  %33 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !63
+  store ptr %34, ptr %10, align 8, !tbaa !64
+  %35 = load ptr, ptr %10, align 8, !tbaa !64
+  %36 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %35, i32 0, i32 2
+  store ptr null, ptr %36, align 8, !tbaa !65
+  br label %37
 
-do.body:                                          ; preds = %do.cond, %if.end
-  store i32 0, ptr %removeSegment, align 4
-  %6 = load ptr, ptr %walker, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %6, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text, i32 0, i32 1
-  %7 = load ptr, ptr %afterLast, align 8
-  %8 = load ptr, ptr %walker, align 8
-  %text3 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %8, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text3, i32 0, i32 0
-  %9 = load ptr, ptr %first, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 4
-  %conv = trunc i64 %sub.ptr.div to i32
-  store i32 %conv, ptr %len, align 4
-  %10 = load i32, ptr %len, align 4
-  switch i32 %10, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb96
+37:                                               ; preds = %639, %31
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  store i32 0, ptr %12, align 4, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  %38 = load ptr, ptr %10, align 8, !tbaa !64
+  %39 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %38, i32 0, i32 0
+  %40 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
+  %42 = load ptr, ptr %10, align 8, !tbaa !64
+  %43 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %42, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !68
+  %46 = ptrtoint ptr %41 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = sdiv exact i64 %48, 4
+  %50 = trunc i64 %49 to i32
+  store i32 %50, ptr %13, align 4, !tbaa !14
+  %51 = load i32, ptr %13, align 4, !tbaa !14
+  switch i32 %51, label %613 [
+    i32 1, label %52
+    i32 2, label %221
   ]
 
-sw.bb:                                            ; preds = %do.body
-  %11 = load ptr, ptr %walker, align 8
-  %text4 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %11, i32 0, i32 0
-  %first5 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text4, i32 0, i32 0
-  %12 = load ptr, ptr %first5, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %12, i64 0
-  %13 = load i32, ptr %arrayidx, align 4
-  %cmp6 = icmp eq i32 %13, 46
-  br i1 %cmp6, label %if.then8, label %if.end95
-
-if.then8:                                         ; preds = %sw.bb
-  %14 = load ptr, ptr %walker, align 8
-  %reserved9 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %14, i32 0, i32 2
-  %15 = load ptr, ptr %reserved9, align 8
-  store ptr %15, ptr %prev, align 8
-  %16 = load ptr, ptr %walker, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %16, i32 0, i32 1
-  %17 = load ptr, ptr %next, align 8
-  store ptr %17, ptr %nextBackup, align 8
-  store i32 1, ptr %removeSegment, align 4
-  %18 = load i32, ptr %relative.addr, align 4
-  %tobool = icmp ne i32 %18, 0
-  br i1 %tobool, label %land.lhs.true, label %if.end30
-
-land.lhs.true:                                    ; preds = %if.then8
-  %19 = load ptr, ptr %walker, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathHead10 = getelementptr inbounds %struct.UriUriStructW, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %pathHead10, align 8
-  %cmp11 = icmp eq ptr %19, %21
-  br i1 %cmp11, label %land.lhs.true13, label %if.end30
-
-land.lhs.true13:                                  ; preds = %land.lhs.true
-  %22 = load ptr, ptr %walker, align 8
-  %next14 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %22, i32 0, i32 1
-  %23 = load ptr, ptr %next14, align 8
-  %cmp15 = icmp ne ptr %23, null
-  br i1 %cmp15, label %if.then17, label %if.end30
-
-if.then17:                                        ; preds = %land.lhs.true13
-  %24 = load ptr, ptr %walker, align 8
-  %next18 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %next18, align 8
-  %text19 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %25, i32 0, i32 0
-  %first20 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text19, i32 0, i32 0
-  %26 = load ptr, ptr %first20, align 8
-  store ptr %26, ptr %ch, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then17
-  %27 = load ptr, ptr %ch, align 8
-  %28 = load ptr, ptr %walker, align 8
-  %next21 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %next21, align 8
-  %text22 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %29, i32 0, i32 0
-  %afterLast23 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text22, i32 0, i32 1
-  %30 = load ptr, ptr %afterLast23, align 8
-  %cmp24 = icmp ult ptr %27, %30
-  br i1 %cmp24, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %31 = load ptr, ptr %ch, align 8
-  %32 = load i32, ptr %31, align 4
-  %cmp26 = icmp eq i32 %32, 58
-  br i1 %cmp26, label %if.then28, label %if.end29
-
-if.then28:                                        ; preds = %for.body
-  store i32 0, ptr %removeSegment, align 4
-  br label %for.end
-
-if.end29:                                         ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end29
-  %33 = load ptr, ptr %ch, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %33, i32 1
-  store ptr %incdec.ptr, ptr %ch, align 8
-  br label %for.cond, !llvm.loop !8
-
-for.end:                                          ; preds = %if.then28, %for.cond
-  br label %if.end30
-
-if.end30:                                         ; preds = %for.end, %land.lhs.true13, %land.lhs.true, %if.then8
-  %34 = load i32, ptr %removeSegment, align 4
-  %tobool31 = icmp ne i32 %34, 0
-  br i1 %tobool31, label %if.then32, label %if.end94
-
-if.then32:                                        ; preds = %if.end30
-  %35 = load ptr, ptr %walker, align 8
-  %next33 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %35, i32 0, i32 1
-  %36 = load ptr, ptr %next33, align 8
-  %cmp34 = icmp ne ptr %36, null
-  br i1 %cmp34, label %if.then36, label %if.else60
-
-if.then36:                                        ; preds = %if.then32
-  %37 = load ptr, ptr %prev, align 8
-  %38 = load ptr, ptr %walker, align 8
-  %next37 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %38, i32 0, i32 1
-  %39 = load ptr, ptr %next37, align 8
-  %reserved38 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %39, i32 0, i32 2
-  store ptr %37, ptr %reserved38, align 8
-  %40 = load ptr, ptr %prev, align 8
-  %cmp39 = icmp eq ptr %40, null
-  br i1 %cmp39, label %if.then41, label %if.else
-
-if.then41:                                        ; preds = %if.then36
-  %41 = load ptr, ptr %walker, align 8
-  %next42 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %41, i32 0, i32 1
-  %42 = load ptr, ptr %next42, align 8
-  %43 = load ptr, ptr %uri.addr, align 8
-  %pathHead43 = getelementptr inbounds %struct.UriUriStructW, ptr %43, i32 0, i32 5
-  store ptr %42, ptr %pathHead43, align 8
-  br label %if.end46
-
-if.else:                                          ; preds = %if.then36
-  %44 = load ptr, ptr %walker, align 8
-  %next44 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %44, i32 0, i32 1
-  %45 = load ptr, ptr %next44, align 8
-  %46 = load ptr, ptr %prev, align 8
-  %next45 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %46, i32 0, i32 1
-  store ptr %45, ptr %next45, align 8
-  br label %if.end46
-
-if.end46:                                         ; preds = %if.else, %if.then41
-  %47 = load i32, ptr %pathOwned.addr, align 4
-  %tobool47 = icmp ne i32 %47, 0
-  br i1 %tobool47, label %land.lhs.true48, label %if.end58
-
-land.lhs.true48:                                  ; preds = %if.end46
-  %48 = load ptr, ptr %walker, align 8
-  %text49 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %48, i32 0, i32 0
-  %first50 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text49, i32 0, i32 0
-  %49 = load ptr, ptr %first50, align 8
-  %50 = load ptr, ptr %walker, align 8
-  %text51 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %50, i32 0, i32 0
-  %afterLast52 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text51, i32 0, i32 1
-  %51 = load ptr, ptr %afterLast52, align 8
-  %cmp53 = icmp ne ptr %49, %51
-  br i1 %cmp53, label %if.then55, label %if.end58
-
-if.then55:                                        ; preds = %land.lhs.true48
-  %52 = load ptr, ptr %memory.addr, align 8
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %52, i32 0, i32 4
-  %53 = load ptr, ptr %free, align 8
-  %54 = load ptr, ptr %memory.addr, align 8
-  %55 = load ptr, ptr %walker, align 8
-  %text56 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %55, i32 0, i32 0
-  %first57 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text56, i32 0, i32 0
-  %56 = load ptr, ptr %first57, align 8
-  call void %53(ptr noundef %54, ptr noundef %56)
-  br label %if.end58
-
-if.end58:                                         ; preds = %if.then55, %land.lhs.true48, %if.end46
-  %57 = load ptr, ptr %memory.addr, align 8
-  %free59 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %57, i32 0, i32 4
-  %58 = load ptr, ptr %free59, align 8
-  %59 = load ptr, ptr %memory.addr, align 8
-  %60 = load ptr, ptr %walker, align 8
-  call void %58(ptr noundef %59, ptr noundef %60)
-  br label %if.end93
-
-if.else60:                                        ; preds = %if.then32
-  %61 = load i32, ptr %pathOwned.addr, align 4
-  %tobool61 = icmp ne i32 %61, 0
-  br i1 %tobool61, label %land.lhs.true62, label %if.end73
-
-land.lhs.true62:                                  ; preds = %if.else60
-  %62 = load ptr, ptr %walker, align 8
-  %text63 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %62, i32 0, i32 0
-  %first64 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text63, i32 0, i32 0
-  %63 = load ptr, ptr %first64, align 8
-  %64 = load ptr, ptr %walker, align 8
-  %text65 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %64, i32 0, i32 0
-  %afterLast66 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text65, i32 0, i32 1
-  %65 = load ptr, ptr %afterLast66, align 8
-  %cmp67 = icmp ne ptr %63, %65
-  br i1 %cmp67, label %if.then69, label %if.end73
-
-if.then69:                                        ; preds = %land.lhs.true62
-  %66 = load ptr, ptr %memory.addr, align 8
-  %free70 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %66, i32 0, i32 4
-  %67 = load ptr, ptr %free70, align 8
-  %68 = load ptr, ptr %memory.addr, align 8
-  %69 = load ptr, ptr %walker, align 8
-  %text71 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %69, i32 0, i32 0
-  %first72 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text71, i32 0, i32 0
-  %70 = load ptr, ptr %first72, align 8
-  call void %67(ptr noundef %68, ptr noundef %70)
-  br label %if.end73
-
-if.end73:                                         ; preds = %if.then69, %land.lhs.true62, %if.else60
-  %71 = load ptr, ptr %prev, align 8
-  %cmp74 = icmp eq ptr %71, null
-  br i1 %cmp74, label %if.then76, label %if.else87
-
-if.then76:                                        ; preds = %if.end73
-  %72 = load ptr, ptr %uri.addr, align 8
-  %call = call i32 @uriIsHostSetW(ptr noundef %72)
-  %tobool77 = icmp ne i32 %call, 0
-  br i1 %tobool77, label %if.then78, label %if.else83
-
-if.then78:                                        ; preds = %if.then76
-  %73 = load ptr, ptr %walker, align 8
-  %text79 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %73, i32 0, i32 0
-  %first80 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text79, i32 0, i32 0
-  store ptr @.str.3, ptr %first80, align 8
-  %74 = load ptr, ptr %walker, align 8
-  %text81 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %74, i32 0, i32 0
-  %afterLast82 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text81, i32 0, i32 1
-  store ptr @.str.3, ptr %afterLast82, align 8
-  br label %if.end86
-
-if.else83:                                        ; preds = %if.then76
-  %75 = load ptr, ptr %memory.addr, align 8
-  %free84 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %75, i32 0, i32 4
-  %76 = load ptr, ptr %free84, align 8
-  %77 = load ptr, ptr %memory.addr, align 8
-  %78 = load ptr, ptr %walker, align 8
-  call void %76(ptr noundef %77, ptr noundef %78)
-  %79 = load ptr, ptr %uri.addr, align 8
-  %pathHead85 = getelementptr inbounds %struct.UriUriStructW, ptr %79, i32 0, i32 5
-  store ptr null, ptr %pathHead85, align 8
-  %80 = load ptr, ptr %uri.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructW, ptr %80, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end86
-
-if.end86:                                         ; preds = %if.else83, %if.then78
-  br label %if.end92
-
-if.else87:                                        ; preds = %if.end73
-  %81 = load ptr, ptr %walker, align 8
-  %text88 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %81, i32 0, i32 0
-  %first89 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text88, i32 0, i32 0
-  store ptr @.str.3, ptr %first89, align 8
-  %82 = load ptr, ptr %walker, align 8
-  %text90 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %82, i32 0, i32 0
-  %afterLast91 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text90, i32 0, i32 1
-  store ptr @.str.3, ptr %afterLast91, align 8
-  br label %if.end92
-
-if.end92:                                         ; preds = %if.else87, %if.end86
-  br label %if.end93
-
-if.end93:                                         ; preds = %if.end92, %if.end58
-  %83 = load ptr, ptr %nextBackup, align 8
-  store ptr %83, ptr %walker, align 8
-  br label %if.end94
-
-if.end94:                                         ; preds = %if.end93, %if.end30
-  br label %if.end95
-
-if.end95:                                         ; preds = %if.end94, %sw.bb
-  br label %sw.epilog
-
-sw.bb96:                                          ; preds = %do.body
-  %84 = load ptr, ptr %walker, align 8
-  %text97 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %84, i32 0, i32 0
-  %first98 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text97, i32 0, i32 0
-  %85 = load ptr, ptr %first98, align 8
-  %arrayidx99 = getelementptr inbounds i32, ptr %85, i64 0
-  %86 = load i32, ptr %arrayidx99, align 4
-  %cmp100 = icmp eq i32 %86, 46
-  br i1 %cmp100, label %land.lhs.true102, label %if.end323
-
-land.lhs.true102:                                 ; preds = %sw.bb96
-  %87 = load ptr, ptr %walker, align 8
-  %text103 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %87, i32 0, i32 0
-  %first104 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text103, i32 0, i32 0
-  %88 = load ptr, ptr %first104, align 8
-  %arrayidx105 = getelementptr inbounds i32, ptr %88, i64 1
-  %89 = load i32, ptr %arrayidx105, align 4
-  %cmp106 = icmp eq i32 %89, 46
-  br i1 %cmp106, label %if.then108, label %if.end323
-
-if.then108:                                       ; preds = %land.lhs.true102
-  %90 = load ptr, ptr %walker, align 8
-  %reserved110 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %90, i32 0, i32 2
-  %91 = load ptr, ptr %reserved110, align 8
-  store ptr %91, ptr %prev109, align 8
-  %92 = load ptr, ptr %walker, align 8
-  %next112 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %92, i32 0, i32 1
-  %93 = load ptr, ptr %next112, align 8
-  store ptr %93, ptr %nextBackup111, align 8
-  store i32 1, ptr %removeSegment, align 4
-  %94 = load i32, ptr %relative.addr, align 4
-  %tobool113 = icmp ne i32 %94, 0
-  br i1 %tobool113, label %if.then114, label %if.end147
-
-if.then114:                                       ; preds = %if.then108
-  %95 = load ptr, ptr %prev109, align 8
-  %cmp115 = icmp eq ptr %95, null
-  br i1 %cmp115, label %if.then117, label %if.else118
-
-if.then117:                                       ; preds = %if.then114
-  store i32 0, ptr %removeSegment, align 4
-  br label %if.end146
-
-if.else118:                                       ; preds = %if.then114
-  %96 = load ptr, ptr %prev109, align 8
-  %cmp119 = icmp ne ptr %96, null
-  br i1 %cmp119, label %land.lhs.true121, label %if.end145
-
-land.lhs.true121:                                 ; preds = %if.else118
-  %97 = load ptr, ptr %prev109, align 8
-  %text122 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %97, i32 0, i32 0
-  %afterLast123 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text122, i32 0, i32 1
-  %98 = load ptr, ptr %afterLast123, align 8
-  %99 = load ptr, ptr %prev109, align 8
-  %text124 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %99, i32 0, i32 0
-  %first125 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text124, i32 0, i32 0
-  %100 = load ptr, ptr %first125, align 8
-  %sub.ptr.lhs.cast126 = ptrtoint ptr %98 to i64
-  %sub.ptr.rhs.cast127 = ptrtoint ptr %100 to i64
-  %sub.ptr.sub128 = sub i64 %sub.ptr.lhs.cast126, %sub.ptr.rhs.cast127
-  %sub.ptr.div129 = sdiv exact i64 %sub.ptr.sub128, 4
-  %cmp130 = icmp eq i64 %sub.ptr.div129, 2
-  br i1 %cmp130, label %land.lhs.true132, label %if.end145
-
-land.lhs.true132:                                 ; preds = %land.lhs.true121
-  %101 = load ptr, ptr %prev109, align 8
-  %text133 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %101, i32 0, i32 0
-  %first134 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text133, i32 0, i32 0
-  %102 = load ptr, ptr %first134, align 8
-  %arrayidx135 = getelementptr inbounds i32, ptr %102, i64 0
-  %103 = load i32, ptr %arrayidx135, align 4
-  %cmp136 = icmp eq i32 %103, 46
-  br i1 %cmp136, label %land.lhs.true138, label %if.end145
-
-land.lhs.true138:                                 ; preds = %land.lhs.true132
-  %104 = load ptr, ptr %prev109, align 8
-  %text139 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %104, i32 0, i32 0
-  %first140 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text139, i32 0, i32 0
-  %105 = load ptr, ptr %first140, align 8
-  %arrayidx141 = getelementptr inbounds i32, ptr %105, i64 1
-  %106 = load i32, ptr %arrayidx141, align 4
-  %cmp142 = icmp eq i32 %106, 46
-  br i1 %cmp142, label %if.then144, label %if.end145
-
-if.then144:                                       ; preds = %land.lhs.true138
-  store i32 0, ptr %removeSegment, align 4
-  br label %if.end145
-
-if.end145:                                        ; preds = %if.then144, %land.lhs.true138, %land.lhs.true132, %land.lhs.true121, %if.else118
-  br label %if.end146
-
-if.end146:                                        ; preds = %if.end145, %if.then117
-  br label %if.end147
-
-if.end147:                                        ; preds = %if.end146, %if.then108
-  %107 = load i32, ptr %removeSegment, align 4
-  %tobool148 = icmp ne i32 %107, 0
-  br i1 %tobool148, label %if.then149, label %if.end322
-
-if.then149:                                       ; preds = %if.end147
-  %108 = load ptr, ptr %prev109, align 8
-  %cmp150 = icmp ne ptr %108, null
-  br i1 %cmp150, label %if.then152, label %if.else294
-
-if.then152:                                       ; preds = %if.then149
-  %109 = load ptr, ptr %prev109, align 8
-  %reserved153 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %109, i32 0, i32 2
-  %110 = load ptr, ptr %reserved153, align 8
-  store ptr %110, ptr %prevPrev, align 8
-  %111 = load ptr, ptr %prevPrev, align 8
-  %cmp154 = icmp ne ptr %111, null
-  br i1 %cmp154, label %if.then156, label %if.else234
-
-if.then156:                                       ; preds = %if.then152
-  %112 = load ptr, ptr %walker, align 8
-  %next157 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %112, i32 0, i32 1
-  %113 = load ptr, ptr %next157, align 8
-  %114 = load ptr, ptr %prevPrev, align 8
-  %next158 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %114, i32 0, i32 1
-  store ptr %113, ptr %next158, align 8
-  %115 = load ptr, ptr %walker, align 8
-  %next159 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %115, i32 0, i32 1
-  %116 = load ptr, ptr %next159, align 8
-  %cmp160 = icmp ne ptr %116, null
-  br i1 %cmp160, label %if.then162, label %if.else165
-
-if.then162:                                       ; preds = %if.then156
-  %117 = load ptr, ptr %prevPrev, align 8
-  %118 = load ptr, ptr %walker, align 8
-  %next163 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %118, i32 0, i32 1
-  %119 = load ptr, ptr %next163, align 8
-  %reserved164 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %119, i32 0, i32 2
-  store ptr %117, ptr %reserved164, align 8
-  br label %if.end205
-
-if.else165:                                       ; preds = %if.then156
-  %120 = load ptr, ptr %memory.addr, align 8
-  %calloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %120, i32 0, i32 1
-  %121 = load ptr, ptr %calloc, align 8
-  %122 = load ptr, ptr %memory.addr, align 8
-  %call166 = call ptr %121(ptr noundef %122, i64 noundef 1, i64 noundef 32)
-  store ptr %call166, ptr %segment, align 8
-  %123 = load ptr, ptr %segment, align 8
-  %cmp167 = icmp eq ptr %123, null
-  br i1 %cmp167, label %if.then169, label %if.end198
-
-if.then169:                                       ; preds = %if.else165
-  %124 = load i32, ptr %pathOwned.addr, align 4
-  %tobool170 = icmp ne i32 %124, 0
-  br i1 %tobool170, label %land.lhs.true171, label %if.end182
-
-land.lhs.true171:                                 ; preds = %if.then169
-  %125 = load ptr, ptr %walker, align 8
-  %text172 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %125, i32 0, i32 0
-  %first173 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text172, i32 0, i32 0
-  %126 = load ptr, ptr %first173, align 8
-  %127 = load ptr, ptr %walker, align 8
-  %text174 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %127, i32 0, i32 0
-  %afterLast175 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text174, i32 0, i32 1
-  %128 = load ptr, ptr %afterLast175, align 8
-  %cmp176 = icmp ne ptr %126, %128
-  br i1 %cmp176, label %if.then178, label %if.end182
-
-if.then178:                                       ; preds = %land.lhs.true171
-  %129 = load ptr, ptr %memory.addr, align 8
-  %free179 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %129, i32 0, i32 4
-  %130 = load ptr, ptr %free179, align 8
-  %131 = load ptr, ptr %memory.addr, align 8
-  %132 = load ptr, ptr %walker, align 8
-  %text180 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %132, i32 0, i32 0
-  %first181 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text180, i32 0, i32 0
-  %133 = load ptr, ptr %first181, align 8
-  call void %130(ptr noundef %131, ptr noundef %133)
-  br label %if.end182
-
-if.end182:                                        ; preds = %if.then178, %land.lhs.true171, %if.then169
-  %134 = load ptr, ptr %memory.addr, align 8
-  %free183 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %134, i32 0, i32 4
-  %135 = load ptr, ptr %free183, align 8
-  %136 = load ptr, ptr %memory.addr, align 8
-  %137 = load ptr, ptr %walker, align 8
-  call void %135(ptr noundef %136, ptr noundef %137)
-  %138 = load i32, ptr %pathOwned.addr, align 4
-  %tobool184 = icmp ne i32 %138, 0
-  br i1 %tobool184, label %land.lhs.true185, label %if.end196
-
-land.lhs.true185:                                 ; preds = %if.end182
-  %139 = load ptr, ptr %prev109, align 8
-  %text186 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %139, i32 0, i32 0
-  %first187 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text186, i32 0, i32 0
-  %140 = load ptr, ptr %first187, align 8
-  %141 = load ptr, ptr %prev109, align 8
-  %text188 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %141, i32 0, i32 0
-  %afterLast189 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text188, i32 0, i32 1
-  %142 = load ptr, ptr %afterLast189, align 8
-  %cmp190 = icmp ne ptr %140, %142
-  br i1 %cmp190, label %if.then192, label %if.end196
-
-if.then192:                                       ; preds = %land.lhs.true185
-  %143 = load ptr, ptr %memory.addr, align 8
-  %free193 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %143, i32 0, i32 4
-  %144 = load ptr, ptr %free193, align 8
-  %145 = load ptr, ptr %memory.addr, align 8
-  %146 = load ptr, ptr %prev109, align 8
-  %text194 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %146, i32 0, i32 0
-  %first195 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text194, i32 0, i32 0
-  %147 = load ptr, ptr %first195, align 8
-  call void %144(ptr noundef %145, ptr noundef %147)
-  br label %if.end196
-
-if.end196:                                        ; preds = %if.then192, %land.lhs.true185, %if.end182
-  %148 = load ptr, ptr %memory.addr, align 8
-  %free197 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %148, i32 0, i32 4
-  %149 = load ptr, ptr %free197, align 8
-  %150 = load ptr, ptr %memory.addr, align 8
-  %151 = load ptr, ptr %prev109, align 8
-  call void %149(ptr noundef %150, ptr noundef %151)
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end198:                                        ; preds = %if.else165
-  %152 = load ptr, ptr %segment, align 8
-  %text199 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %152, i32 0, i32 0
-  %first200 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text199, i32 0, i32 0
-  store ptr @.str.3, ptr %first200, align 8
-  %153 = load ptr, ptr %segment, align 8
-  %text201 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %153, i32 0, i32 0
-  %afterLast202 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text201, i32 0, i32 1
-  store ptr @.str.3, ptr %afterLast202, align 8
-  %154 = load ptr, ptr %segment, align 8
-  %155 = load ptr, ptr %prevPrev, align 8
-  %next203 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %155, i32 0, i32 1
-  store ptr %154, ptr %next203, align 8
-  %156 = load ptr, ptr %segment, align 8
-  %157 = load ptr, ptr %uri.addr, align 8
-  %pathTail204 = getelementptr inbounds %struct.UriUriStructW, ptr %157, i32 0, i32 6
-  store ptr %156, ptr %pathTail204, align 8
-  br label %if.end205
-
-if.end205:                                        ; preds = %if.end198, %if.then162
-  %158 = load i32, ptr %pathOwned.addr, align 4
-  %tobool206 = icmp ne i32 %158, 0
-  br i1 %tobool206, label %land.lhs.true207, label %if.end218
-
-land.lhs.true207:                                 ; preds = %if.end205
-  %159 = load ptr, ptr %walker, align 8
-  %text208 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %159, i32 0, i32 0
-  %first209 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text208, i32 0, i32 0
-  %160 = load ptr, ptr %first209, align 8
-  %161 = load ptr, ptr %walker, align 8
-  %text210 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %161, i32 0, i32 0
-  %afterLast211 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text210, i32 0, i32 1
-  %162 = load ptr, ptr %afterLast211, align 8
-  %cmp212 = icmp ne ptr %160, %162
-  br i1 %cmp212, label %if.then214, label %if.end218
-
-if.then214:                                       ; preds = %land.lhs.true207
-  %163 = load ptr, ptr %memory.addr, align 8
-  %free215 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %163, i32 0, i32 4
-  %164 = load ptr, ptr %free215, align 8
-  %165 = load ptr, ptr %memory.addr, align 8
-  %166 = load ptr, ptr %walker, align 8
-  %text216 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %166, i32 0, i32 0
-  %first217 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text216, i32 0, i32 0
-  %167 = load ptr, ptr %first217, align 8
-  call void %164(ptr noundef %165, ptr noundef %167)
-  br label %if.end218
-
-if.end218:                                        ; preds = %if.then214, %land.lhs.true207, %if.end205
-  %168 = load ptr, ptr %memory.addr, align 8
-  %free219 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %168, i32 0, i32 4
-  %169 = load ptr, ptr %free219, align 8
-  %170 = load ptr, ptr %memory.addr, align 8
-  %171 = load ptr, ptr %walker, align 8
-  call void %169(ptr noundef %170, ptr noundef %171)
-  %172 = load i32, ptr %pathOwned.addr, align 4
-  %tobool220 = icmp ne i32 %172, 0
-  br i1 %tobool220, label %land.lhs.true221, label %if.end232
-
-land.lhs.true221:                                 ; preds = %if.end218
-  %173 = load ptr, ptr %prev109, align 8
-  %text222 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %173, i32 0, i32 0
-  %first223 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text222, i32 0, i32 0
-  %174 = load ptr, ptr %first223, align 8
-  %175 = load ptr, ptr %prev109, align 8
-  %text224 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %175, i32 0, i32 0
-  %afterLast225 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text224, i32 0, i32 1
-  %176 = load ptr, ptr %afterLast225, align 8
-  %cmp226 = icmp ne ptr %174, %176
-  br i1 %cmp226, label %if.then228, label %if.end232
-
-if.then228:                                       ; preds = %land.lhs.true221
-  %177 = load ptr, ptr %memory.addr, align 8
-  %free229 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %177, i32 0, i32 4
-  %178 = load ptr, ptr %free229, align 8
-  %179 = load ptr, ptr %memory.addr, align 8
-  %180 = load ptr, ptr %prev109, align 8
-  %text230 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %180, i32 0, i32 0
-  %first231 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text230, i32 0, i32 0
-  %181 = load ptr, ptr %first231, align 8
-  call void %178(ptr noundef %179, ptr noundef %181)
-  br label %if.end232
-
-if.end232:                                        ; preds = %if.then228, %land.lhs.true221, %if.end218
-  %182 = load ptr, ptr %memory.addr, align 8
-  %free233 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %182, i32 0, i32 4
-  %183 = load ptr, ptr %free233, align 8
-  %184 = load ptr, ptr %memory.addr, align 8
-  %185 = load ptr, ptr %prev109, align 8
-  call void %183(ptr noundef %184, ptr noundef %185)
-  %186 = load ptr, ptr %nextBackup111, align 8
-  store ptr %186, ptr %walker, align 8
-  br label %if.end293
-
-if.else234:                                       ; preds = %if.then152
-  %187 = load ptr, ptr %walker, align 8
-  %next235 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %187, i32 0, i32 1
-  %188 = load ptr, ptr %next235, align 8
-  %cmp236 = icmp ne ptr %188, null
-  br i1 %cmp236, label %if.then238, label %if.else257
-
-if.then238:                                       ; preds = %if.else234
-  %189 = load ptr, ptr %walker, align 8
-  %next239 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %189, i32 0, i32 1
-  %190 = load ptr, ptr %next239, align 8
-  %191 = load ptr, ptr %uri.addr, align 8
-  %pathHead240 = getelementptr inbounds %struct.UriUriStructW, ptr %191, i32 0, i32 5
-  store ptr %190, ptr %pathHead240, align 8
-  %192 = load ptr, ptr %walker, align 8
-  %next241 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %192, i32 0, i32 1
-  %193 = load ptr, ptr %next241, align 8
-  %reserved242 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %193, i32 0, i32 2
-  store ptr null, ptr %reserved242, align 8
-  %194 = load i32, ptr %pathOwned.addr, align 4
-  %tobool243 = icmp ne i32 %194, 0
-  br i1 %tobool243, label %land.lhs.true244, label %if.end255
-
-land.lhs.true244:                                 ; preds = %if.then238
-  %195 = load ptr, ptr %walker, align 8
-  %text245 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %195, i32 0, i32 0
-  %first246 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text245, i32 0, i32 0
-  %196 = load ptr, ptr %first246, align 8
-  %197 = load ptr, ptr %walker, align 8
-  %text247 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %197, i32 0, i32 0
-  %afterLast248 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text247, i32 0, i32 1
-  %198 = load ptr, ptr %afterLast248, align 8
-  %cmp249 = icmp ne ptr %196, %198
-  br i1 %cmp249, label %if.then251, label %if.end255
-
-if.then251:                                       ; preds = %land.lhs.true244
-  %199 = load ptr, ptr %memory.addr, align 8
-  %free252 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %199, i32 0, i32 4
-  %200 = load ptr, ptr %free252, align 8
-  %201 = load ptr, ptr %memory.addr, align 8
-  %202 = load ptr, ptr %walker, align 8
-  %text253 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %202, i32 0, i32 0
-  %first254 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text253, i32 0, i32 0
-  %203 = load ptr, ptr %first254, align 8
-  call void %200(ptr noundef %201, ptr noundef %203)
-  br label %if.end255
-
-if.end255:                                        ; preds = %if.then251, %land.lhs.true244, %if.then238
-  %204 = load ptr, ptr %memory.addr, align 8
-  %free256 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %204, i32 0, i32 4
-  %205 = load ptr, ptr %free256, align 8
-  %206 = load ptr, ptr %memory.addr, align 8
-  %207 = load ptr, ptr %walker, align 8
-  call void %205(ptr noundef %206, ptr noundef %207)
-  br label %if.end278
-
-if.else257:                                       ; preds = %if.else234
-  %208 = load ptr, ptr %walker, align 8
-  store ptr %208, ptr %segment258, align 8
-  %209 = load i32, ptr %pathOwned.addr, align 4
-  %tobool259 = icmp ne i32 %209, 0
-  br i1 %tobool259, label %land.lhs.true260, label %if.end271
-
-land.lhs.true260:                                 ; preds = %if.else257
-  %210 = load ptr, ptr %segment258, align 8
-  %text261 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %210, i32 0, i32 0
-  %first262 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text261, i32 0, i32 0
-  %211 = load ptr, ptr %first262, align 8
-  %212 = load ptr, ptr %segment258, align 8
-  %text263 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %212, i32 0, i32 0
-  %afterLast264 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text263, i32 0, i32 1
-  %213 = load ptr, ptr %afterLast264, align 8
-  %cmp265 = icmp ne ptr %211, %213
-  br i1 %cmp265, label %if.then267, label %if.end271
-
-if.then267:                                       ; preds = %land.lhs.true260
-  %214 = load ptr, ptr %memory.addr, align 8
-  %free268 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %214, i32 0, i32 4
-  %215 = load ptr, ptr %free268, align 8
-  %216 = load ptr, ptr %memory.addr, align 8
-  %217 = load ptr, ptr %segment258, align 8
-  %text269 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %217, i32 0, i32 0
-  %first270 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text269, i32 0, i32 0
-  %218 = load ptr, ptr %first270, align 8
-  call void %215(ptr noundef %216, ptr noundef %218)
-  br label %if.end271
-
-if.end271:                                        ; preds = %if.then267, %land.lhs.true260, %if.else257
-  %219 = load ptr, ptr %segment258, align 8
-  %text272 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %219, i32 0, i32 0
-  %first273 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text272, i32 0, i32 0
-  store ptr @.str.3, ptr %first273, align 8
-  %220 = load ptr, ptr %segment258, align 8
-  %text274 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %220, i32 0, i32 0
-  %afterLast275 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text274, i32 0, i32 1
-  store ptr @.str.3, ptr %afterLast275, align 8
-  %221 = load ptr, ptr %segment258, align 8
-  %222 = load ptr, ptr %uri.addr, align 8
-  %pathHead276 = getelementptr inbounds %struct.UriUriStructW, ptr %222, i32 0, i32 5
-  store ptr %221, ptr %pathHead276, align 8
-  %223 = load ptr, ptr %segment258, align 8
-  %224 = load ptr, ptr %uri.addr, align 8
-  %pathTail277 = getelementptr inbounds %struct.UriUriStructW, ptr %224, i32 0, i32 6
-  store ptr %223, ptr %pathTail277, align 8
-  br label %if.end278
-
-if.end278:                                        ; preds = %if.end271, %if.end255
-  %225 = load i32, ptr %pathOwned.addr, align 4
-  %tobool279 = icmp ne i32 %225, 0
-  br i1 %tobool279, label %land.lhs.true280, label %if.end291
-
-land.lhs.true280:                                 ; preds = %if.end278
-  %226 = load ptr, ptr %prev109, align 8
-  %text281 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %226, i32 0, i32 0
-  %first282 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text281, i32 0, i32 0
-  %227 = load ptr, ptr %first282, align 8
-  %228 = load ptr, ptr %prev109, align 8
-  %text283 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %228, i32 0, i32 0
-  %afterLast284 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text283, i32 0, i32 1
-  %229 = load ptr, ptr %afterLast284, align 8
-  %cmp285 = icmp ne ptr %227, %229
-  br i1 %cmp285, label %if.then287, label %if.end291
-
-if.then287:                                       ; preds = %land.lhs.true280
-  %230 = load ptr, ptr %memory.addr, align 8
-  %free288 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %230, i32 0, i32 4
-  %231 = load ptr, ptr %free288, align 8
-  %232 = load ptr, ptr %memory.addr, align 8
-  %233 = load ptr, ptr %prev109, align 8
-  %text289 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %233, i32 0, i32 0
-  %first290 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text289, i32 0, i32 0
-  %234 = load ptr, ptr %first290, align 8
-  call void %231(ptr noundef %232, ptr noundef %234)
-  br label %if.end291
-
-if.end291:                                        ; preds = %if.then287, %land.lhs.true280, %if.end278
-  %235 = load ptr, ptr %memory.addr, align 8
-  %free292 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %235, i32 0, i32 4
-  %236 = load ptr, ptr %free292, align 8
-  %237 = load ptr, ptr %memory.addr, align 8
-  %238 = load ptr, ptr %prev109, align 8
-  call void %236(ptr noundef %237, ptr noundef %238)
-  %239 = load ptr, ptr %nextBackup111, align 8
-  store ptr %239, ptr %walker, align 8
-  br label %if.end293
-
-if.end293:                                        ; preds = %if.end291, %if.end232
-  br label %if.end321
-
-if.else294:                                       ; preds = %if.then149
-  %240 = load ptr, ptr %walker, align 8
-  %next295 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %240, i32 0, i32 1
-  %241 = load ptr, ptr %next295, align 8
-  store ptr %241, ptr %anotherNextBackup, align 8
-  %242 = load ptr, ptr %walker, align 8
-  %next296 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %242, i32 0, i32 1
-  %243 = load ptr, ptr %next296, align 8
-  %244 = load ptr, ptr %uri.addr, align 8
-  %pathHead297 = getelementptr inbounds %struct.UriUriStructW, ptr %244, i32 0, i32 5
-  store ptr %243, ptr %pathHead297, align 8
-  %245 = load ptr, ptr %walker, align 8
-  %next298 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %245, i32 0, i32 1
-  %246 = load ptr, ptr %next298, align 8
-  %cmp299 = icmp ne ptr %246, null
-  br i1 %cmp299, label %if.then301, label %if.else304
-
-if.then301:                                       ; preds = %if.else294
-  %247 = load ptr, ptr %walker, align 8
-  %next302 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %247, i32 0, i32 1
-  %248 = load ptr, ptr %next302, align 8
-  %reserved303 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %248, i32 0, i32 2
-  store ptr null, ptr %reserved303, align 8
-  br label %if.end306
-
-if.else304:                                       ; preds = %if.else294
-  %249 = load ptr, ptr %uri.addr, align 8
-  %pathTail305 = getelementptr inbounds %struct.UriUriStructW, ptr %249, i32 0, i32 6
-  store ptr null, ptr %pathTail305, align 8
-  br label %if.end306
-
-if.end306:                                        ; preds = %if.else304, %if.then301
-  %250 = load i32, ptr %pathOwned.addr, align 4
-  %tobool307 = icmp ne i32 %250, 0
-  br i1 %tobool307, label %land.lhs.true308, label %if.end319
-
-land.lhs.true308:                                 ; preds = %if.end306
-  %251 = load ptr, ptr %walker, align 8
-  %text309 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %251, i32 0, i32 0
-  %first310 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text309, i32 0, i32 0
-  %252 = load ptr, ptr %first310, align 8
-  %253 = load ptr, ptr %walker, align 8
-  %text311 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %253, i32 0, i32 0
-  %afterLast312 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text311, i32 0, i32 1
-  %254 = load ptr, ptr %afterLast312, align 8
-  %cmp313 = icmp ne ptr %252, %254
-  br i1 %cmp313, label %if.then315, label %if.end319
-
-if.then315:                                       ; preds = %land.lhs.true308
-  %255 = load ptr, ptr %memory.addr, align 8
-  %free316 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %255, i32 0, i32 4
-  %256 = load ptr, ptr %free316, align 8
-  %257 = load ptr, ptr %memory.addr, align 8
-  %258 = load ptr, ptr %walker, align 8
-  %text317 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %258, i32 0, i32 0
-  %first318 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text317, i32 0, i32 0
-  %259 = load ptr, ptr %first318, align 8
-  call void %256(ptr noundef %257, ptr noundef %259)
-  br label %if.end319
-
-if.end319:                                        ; preds = %if.then315, %land.lhs.true308, %if.end306
-  %260 = load ptr, ptr %memory.addr, align 8
-  %free320 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %260, i32 0, i32 4
-  %261 = load ptr, ptr %free320, align 8
-  %262 = load ptr, ptr %memory.addr, align 8
-  %263 = load ptr, ptr %walker, align 8
-  call void %261(ptr noundef %262, ptr noundef %263)
-  %264 = load ptr, ptr %anotherNextBackup, align 8
-  store ptr %264, ptr %walker, align 8
-  br label %if.end321
-
-if.end321:                                        ; preds = %if.end319, %if.end293
-  br label %if.end322
-
-if.end322:                                        ; preds = %if.end321, %if.end147
-  br label %if.end323
-
-if.end323:                                        ; preds = %if.end322, %land.lhs.true102, %sw.bb96
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %if.end323, %if.end95, %do.body
-  %265 = load i32, ptr %removeSegment, align 4
-  %tobool324 = icmp ne i32 %265, 0
-  br i1 %tobool324, label %if.end336, label %if.then325
-
-if.then325:                                       ; preds = %sw.epilog
-  %266 = load ptr, ptr %walker, align 8
-  %next326 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %266, i32 0, i32 1
-  %267 = load ptr, ptr %next326, align 8
-  %cmp327 = icmp ne ptr %267, null
-  br i1 %cmp327, label %if.then329, label %if.else332
-
-if.then329:                                       ; preds = %if.then325
-  %268 = load ptr, ptr %walker, align 8
-  %269 = load ptr, ptr %walker, align 8
-  %next330 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %269, i32 0, i32 1
-  %270 = load ptr, ptr %next330, align 8
-  %reserved331 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %270, i32 0, i32 2
-  store ptr %268, ptr %reserved331, align 8
-  br label %if.end334
-
-if.else332:                                       ; preds = %if.then325
-  %271 = load ptr, ptr %walker, align 8
-  %272 = load ptr, ptr %uri.addr, align 8
-  %pathTail333 = getelementptr inbounds %struct.UriUriStructW, ptr %272, i32 0, i32 6
-  store ptr %271, ptr %pathTail333, align 8
-  br label %if.end334
-
-if.end334:                                        ; preds = %if.else332, %if.then329
-  %273 = load ptr, ptr %walker, align 8
-  %next335 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %273, i32 0, i32 1
-  %274 = load ptr, ptr %next335, align 8
-  store ptr %274, ptr %walker, align 8
-  br label %if.end336
-
-if.end336:                                        ; preds = %if.end334, %sw.epilog
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end336
-  %275 = load ptr, ptr %walker, align 8
-  %cmp337 = icmp ne ptr %275, null
-  br i1 %cmp337, label %do.body, label %do.end, !llvm.loop !9
-
-do.end:                                           ; preds = %do.cond
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %do.end, %if.end196, %if.then
-  %276 = load i32, ptr %retval, align 4
-  ret i32 %276
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @uriIsHostSetW(ptr noundef %uri) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %uri.addr, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %1, i32 0, i32 2
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %hostText, i32 0, i32 0
-  %2 = load ptr, ptr %first, align 8
-  %cmp1 = icmp ne ptr %2, null
-  br i1 %cmp1, label %lor.end, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %land.rhs
-  %3 = load ptr, ptr %uri.addr, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 3
-  %ip4 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData, i32 0, i32 0
-  %4 = load ptr, ptr %ip4, align 8
-  %cmp2 = icmp ne ptr %4, null
-  br i1 %cmp2, label %lor.end, label %lor.lhs.false3
-
-lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %5 = load ptr, ptr %uri.addr, align 8
-  %hostData4 = getelementptr inbounds %struct.UriUriStructW, ptr %5, i32 0, i32 3
-  %ip6 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData4, i32 0, i32 1
-  %6 = load ptr, ptr %ip6, align 8
-  %cmp5 = icmp ne ptr %6, null
-  br i1 %cmp5, label %lor.end, label %lor.rhs
-
-lor.rhs:                                          ; preds = %lor.lhs.false3
-  %7 = load ptr, ptr %uri.addr, align 8
-  %hostData6 = getelementptr inbounds %struct.UriUriStructW, ptr %7, i32 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData6, i32 0, i32 2
-  %first7 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %ipFuture, i32 0, i32 0
-  %8 = load ptr, ptr %first7, align 8
-  %cmp8 = icmp ne ptr %8, null
-  br label %lor.end
-
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false3, %lor.lhs.false, %land.rhs
-  %9 = phi i1 [ true, %lor.lhs.false3 ], [ true, %lor.lhs.false ], [ true, %land.rhs ], [ %cmp8, %lor.rhs ]
-  br label %land.end
-
-land.end:                                         ; preds = %lor.end, %entry
-  %10 = phi i1 [ false, %entry ], [ %9, %lor.end ]
-  %land.ext = zext i1 %10 to i32
-  ret i32 %land.ext
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %ABSOLUTE = alloca i32, align 4
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  store i32 0, ptr %ABSOLUTE, align 4
-  %0 = load ptr, ptr %uri.addr, align 8
-  %1 = load ptr, ptr %memory.addr, align 8
-  %call = call i32 @uriRemoveDotSegmentsW(ptr noundef %0, i32 noundef 0, ptr noundef %1)
-  ret i32 %call
-}
-
-; Function Attrs: nounwind uwtable
-define zeroext i8 @uriHexdigToIntW(i32 noundef %hexdig) #0 {
-entry:
-  %retval = alloca i8, align 1
-  %hexdig.addr = alloca i32, align 4
-  store i32 %hexdig, ptr %hexdig.addr, align 4
-  %0 = load i32, ptr %hexdig.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
-    i32 97, label %sw.bb1
-    i32 98, label %sw.bb1
-    i32 99, label %sw.bb1
-    i32 100, label %sw.bb1
-    i32 101, label %sw.bb1
-    i32 102, label %sw.bb1
-    i32 65, label %sw.bb5
-    i32 66, label %sw.bb5
-    i32 67, label %sw.bb5
-    i32 68, label %sw.bb5
-    i32 69, label %sw.bb5
-    i32 70, label %sw.bb5
+52:                                               ; preds = %37
+  %53 = load ptr, ptr %10, align 8, !tbaa !64
+  %54 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %53, i32 0, i32 0
+  %55 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %54, i32 0, i32 0
+  %56 = load ptr, ptr %55, align 8, !tbaa !68
+  %57 = getelementptr inbounds i32, ptr %56, i64 0
+  %58 = load i32, ptr %57, align 4, !tbaa !14
+  %59 = icmp eq i32 %58, 46
+  br i1 %59, label %60, label %220
+
+60:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %61 = load ptr, ptr %10, align 8, !tbaa !64
+  %62 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %61, i32 0, i32 2
+  %63 = load ptr, ptr %62, align 8, !tbaa !65
+  store ptr %63, ptr %14, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %64 = load ptr, ptr %10, align 8, !tbaa !64
+  %65 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %64, i32 0, i32 1
+  %66 = load ptr, ptr %65, align 8, !tbaa !69
+  store ptr %66, ptr %15, align 8, !tbaa !64
+  store i32 1, ptr %12, align 4, !tbaa !14
+  %67 = load i32, ptr %7, align 4, !tbaa !14
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %106
+
+69:                                               ; preds = %60
+  %70 = load ptr, ptr %10, align 8, !tbaa !64
+  %71 = load ptr, ptr %6, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8, !tbaa !63
+  %74 = icmp eq ptr %70, %73
+  br i1 %74, label %75, label %106
+
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %10, align 8, !tbaa !64
+  %77 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %76, i32 0, i32 1
+  %78 = load ptr, ptr %77, align 8, !tbaa !69
+  %79 = icmp ne ptr %78, null
+  br i1 %79, label %80, label %106
+
+80:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %81 = load ptr, ptr %10, align 8, !tbaa !64
+  %82 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8, !tbaa !69
+  %84 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %83, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %84, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8, !tbaa !68
+  store ptr %86, ptr %16, align 8, !tbaa !70
+  br label %87
+
+87:                                               ; preds = %102, %80
+  %88 = load ptr, ptr %16, align 8, !tbaa !70
+  %89 = load ptr, ptr %10, align 8, !tbaa !64
+  %90 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8, !tbaa !69
+  %92 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %91, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %92, i32 0, i32 1
+  %94 = load ptr, ptr %93, align 8, !tbaa !67
+  %95 = icmp ult ptr %88, %94
+  br i1 %95, label %96, label %105
+
+96:                                               ; preds = %87
+  %97 = load ptr, ptr %16, align 8, !tbaa !70
+  %98 = load i32, ptr %97, align 4, !tbaa !14
+  %99 = icmp eq i32 %98, 58
+  br i1 %99, label %100, label %101
+
+100:                                              ; preds = %96
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %105
+
+101:                                              ; preds = %96
+  br label %102
+
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %16, align 8, !tbaa !70
+  %104 = getelementptr inbounds nuw i32, ptr %103, i32 1
+  store ptr %104, ptr %16, align 8, !tbaa !70
+  br label %87, !llvm.loop !71
+
+105:                                              ; preds = %100, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  br label %106
+
+106:                                              ; preds = %105, %75, %69, %60
+  %107 = load i32, ptr %12, align 4, !tbaa !14
+  %108 = icmp ne i32 %107, 0
+  br i1 %108, label %109, label %219
+
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %10, align 8, !tbaa !64
+  %111 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8, !tbaa !69
+  %113 = icmp ne ptr %112, null
+  br i1 %113, label %114, label %162
+
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %14, align 8, !tbaa !64
+  %116 = load ptr, ptr %10, align 8, !tbaa !64
+  %117 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8, !tbaa !69
+  %119 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %118, i32 0, i32 2
+  store ptr %115, ptr %119, align 8, !tbaa !65
+  %120 = load ptr, ptr %14, align 8, !tbaa !64
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %128
+
+122:                                              ; preds = %114
+  %123 = load ptr, ptr %10, align 8, !tbaa !64
+  %124 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %123, i32 0, i32 1
+  %125 = load ptr, ptr %124, align 8, !tbaa !69
+  %126 = load ptr, ptr %6, align 8, !tbaa !51
+  %127 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %126, i32 0, i32 5
+  store ptr %125, ptr %127, align 8, !tbaa !63
+  br label %134
+
+128:                                              ; preds = %114
+  %129 = load ptr, ptr %10, align 8, !tbaa !64
+  %130 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %129, i32 0, i32 1
+  %131 = load ptr, ptr %130, align 8, !tbaa !69
+  %132 = load ptr, ptr %14, align 8, !tbaa !64
+  %133 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %132, i32 0, i32 1
+  store ptr %131, ptr %133, align 8, !tbaa !69
+  br label %134
+
+134:                                              ; preds = %128, %122
+  %135 = load i32, ptr %8, align 4, !tbaa !14
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %156
+
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %10, align 8, !tbaa !64
+  %139 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %138, i32 0, i32 0
+  %140 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %139, i32 0, i32 0
+  %141 = load ptr, ptr %140, align 8, !tbaa !68
+  %142 = load ptr, ptr %10, align 8, !tbaa !64
+  %143 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %142, i32 0, i32 0
+  %144 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %143, i32 0, i32 1
+  %145 = load ptr, ptr %144, align 8, !tbaa !67
+  %146 = icmp ne ptr %141, %145
+  br i1 %146, label %147, label %156
+
+147:                                              ; preds = %137
+  %148 = load ptr, ptr %9, align 8, !tbaa !16
+  %149 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %148, i32 0, i32 4
+  %150 = load ptr, ptr %149, align 8, !tbaa !35
+  %151 = load ptr, ptr %9, align 8, !tbaa !16
+  %152 = load ptr, ptr %10, align 8, !tbaa !64
+  %153 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %152, i32 0, i32 0
+  %154 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %153, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8, !tbaa !68
+  call void %150(ptr noundef %151, ptr noundef %155)
+  br label %156
+
+156:                                              ; preds = %147, %137, %134
+  %157 = load ptr, ptr %9, align 8, !tbaa !16
+  %158 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %157, i32 0, i32 4
+  %159 = load ptr, ptr %158, align 8, !tbaa !35
+  %160 = load ptr, ptr %9, align 8, !tbaa !16
+  %161 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %159(ptr noundef %160, ptr noundef %161)
+  br label %217
+
+162:                                              ; preds = %109
+  %163 = load i32, ptr %8, align 4, !tbaa !14
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %184
+
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %10, align 8, !tbaa !64
+  %167 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %166, i32 0, i32 0
+  %168 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %167, i32 0, i32 0
+  %169 = load ptr, ptr %168, align 8, !tbaa !68
+  %170 = load ptr, ptr %10, align 8, !tbaa !64
+  %171 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %170, i32 0, i32 0
+  %172 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %171, i32 0, i32 1
+  %173 = load ptr, ptr %172, align 8, !tbaa !67
+  %174 = icmp ne ptr %169, %173
+  br i1 %174, label %175, label %184
+
+175:                                              ; preds = %165
+  %176 = load ptr, ptr %9, align 8, !tbaa !16
+  %177 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %176, i32 0, i32 4
+  %178 = load ptr, ptr %177, align 8, !tbaa !35
+  %179 = load ptr, ptr %9, align 8, !tbaa !16
+  %180 = load ptr, ptr %10, align 8, !tbaa !64
+  %181 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %180, i32 0, i32 0
+  %182 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %181, i32 0, i32 0
+  %183 = load ptr, ptr %182, align 8, !tbaa !68
+  call void %178(ptr noundef %179, ptr noundef %183)
+  br label %184
+
+184:                                              ; preds = %175, %165, %162
+  %185 = load ptr, ptr %14, align 8, !tbaa !64
+  %186 = icmp eq ptr %185, null
+  br i1 %186, label %187, label %209
+
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %6, align 8, !tbaa !51
+  %189 = call i32 @uriIsHostSetW(ptr noundef %188)
+  %190 = icmp ne i32 %189, 0
+  br i1 %190, label %191, label %198
+
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %10, align 8, !tbaa !64
+  %193 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %192, i32 0, i32 0
+  %194 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %193, i32 0, i32 0
+  store ptr @.str.3, ptr %194, align 8, !tbaa !68
+  %195 = load ptr, ptr %10, align 8, !tbaa !64
+  %196 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %195, i32 0, i32 0
+  %197 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %196, i32 0, i32 1
+  store ptr @.str.3, ptr %197, align 8, !tbaa !67
+  br label %208
+
+198:                                              ; preds = %187
+  %199 = load ptr, ptr %9, align 8, !tbaa !16
+  %200 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %199, i32 0, i32 4
+  %201 = load ptr, ptr %200, align 8, !tbaa !35
+  %202 = load ptr, ptr %9, align 8, !tbaa !16
+  %203 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %201(ptr noundef %202, ptr noundef %203)
+  %204 = load ptr, ptr %6, align 8, !tbaa !51
+  %205 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %204, i32 0, i32 5
+  store ptr null, ptr %205, align 8, !tbaa !63
+  %206 = load ptr, ptr %6, align 8, !tbaa !51
+  %207 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %206, i32 0, i32 6
+  store ptr null, ptr %207, align 8, !tbaa !72
+  br label %208
+
+208:                                              ; preds = %198, %191
+  br label %216
+
+209:                                              ; preds = %184
+  %210 = load ptr, ptr %10, align 8, !tbaa !64
+  %211 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %210, i32 0, i32 0
+  %212 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %211, i32 0, i32 0
+  store ptr @.str.3, ptr %212, align 8, !tbaa !68
+  %213 = load ptr, ptr %10, align 8, !tbaa !64
+  %214 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %213, i32 0, i32 0
+  %215 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %214, i32 0, i32 1
+  store ptr @.str.3, ptr %215, align 8, !tbaa !67
+  br label %216
+
+216:                                              ; preds = %209, %208
+  br label %217
+
+217:                                              ; preds = %216, %156
+  %218 = load ptr, ptr %15, align 8, !tbaa !64
+  store ptr %218, ptr %10, align 8, !tbaa !64
+  br label %219
+
+219:                                              ; preds = %217, %106
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %220
+
+220:                                              ; preds = %219, %52
+  br label %613
+
+221:                                              ; preds = %37
+  %222 = load ptr, ptr %10, align 8, !tbaa !64
+  %223 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %222, i32 0, i32 0
+  %224 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %223, i32 0, i32 0
+  %225 = load ptr, ptr %224, align 8, !tbaa !68
+  %226 = getelementptr inbounds i32, ptr %225, i64 0
+  %227 = load i32, ptr %226, align 4, !tbaa !14
+  %228 = icmp eq i32 %227, 46
+  br i1 %228, label %229, label %612
+
+229:                                              ; preds = %221
+  %230 = load ptr, ptr %10, align 8, !tbaa !64
+  %231 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %230, i32 0, i32 0
+  %232 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %231, i32 0, i32 0
+  %233 = load ptr, ptr %232, align 8, !tbaa !68
+  %234 = getelementptr inbounds i32, ptr %233, i64 1
+  %235 = load i32, ptr %234, align 4, !tbaa !14
+  %236 = icmp eq i32 %235, 46
+  br i1 %236, label %237, label %612
+
+237:                                              ; preds = %229
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %238 = load ptr, ptr %10, align 8, !tbaa !64
+  %239 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %238, i32 0, i32 2
+  %240 = load ptr, ptr %239, align 8, !tbaa !65
+  store ptr %240, ptr %17, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %241 = load ptr, ptr %10, align 8, !tbaa !64
+  %242 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %241, i32 0, i32 1
+  %243 = load ptr, ptr %242, align 8, !tbaa !69
+  store ptr %243, ptr %19, align 8, !tbaa !64
+  store i32 1, ptr %12, align 4, !tbaa !14
+  %244 = load i32, ptr %7, align 4, !tbaa !14
+  %245 = icmp ne i32 %244, 0
+  br i1 %245, label %246, label %286
+
+246:                                              ; preds = %237
+  %247 = load ptr, ptr %17, align 8, !tbaa !64
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %249, label %250
+
+249:                                              ; preds = %246
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %285
+
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %17, align 8, !tbaa !64
+  %252 = icmp ne ptr %251, null
+  br i1 %252, label %253, label %284
+
+253:                                              ; preds = %250
+  %254 = load ptr, ptr %17, align 8, !tbaa !64
+  %255 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %254, i32 0, i32 0
+  %256 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %255, i32 0, i32 1
+  %257 = load ptr, ptr %256, align 8, !tbaa !67
+  %258 = load ptr, ptr %17, align 8, !tbaa !64
+  %259 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %258, i32 0, i32 0
+  %260 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %259, i32 0, i32 0
+  %261 = load ptr, ptr %260, align 8, !tbaa !68
+  %262 = ptrtoint ptr %257 to i64
+  %263 = ptrtoint ptr %261 to i64
+  %264 = sub i64 %262, %263
+  %265 = sdiv exact i64 %264, 4
+  %266 = icmp eq i64 %265, 2
+  br i1 %266, label %267, label %284
+
+267:                                              ; preds = %253
+  %268 = load ptr, ptr %17, align 8, !tbaa !64
+  %269 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %268, i32 0, i32 0
+  %270 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %269, i32 0, i32 0
+  %271 = load ptr, ptr %270, align 8, !tbaa !68
+  %272 = getelementptr inbounds i32, ptr %271, i64 0
+  %273 = load i32, ptr %272, align 4, !tbaa !14
+  %274 = icmp eq i32 %273, 46
+  br i1 %274, label %275, label %284
+
+275:                                              ; preds = %267
+  %276 = load ptr, ptr %17, align 8, !tbaa !64
+  %277 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %276, i32 0, i32 0
+  %278 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %277, i32 0, i32 0
+  %279 = load ptr, ptr %278, align 8, !tbaa !68
+  %280 = getelementptr inbounds i32, ptr %279, i64 1
+  %281 = load i32, ptr %280, align 4, !tbaa !14
+  %282 = icmp eq i32 %281, 46
+  br i1 %282, label %283, label %284
+
+283:                                              ; preds = %275
+  store i32 0, ptr %12, align 4, !tbaa !14
+  br label %284
+
+284:                                              ; preds = %283, %275, %267, %253, %250
+  br label %285
+
+285:                                              ; preds = %284, %249
+  br label %286
+
+286:                                              ; preds = %285, %237
+  %287 = load i32, ptr %12, align 4, !tbaa !14
+  %288 = icmp ne i32 %287, 0
+  br i1 %288, label %289, label %608
+
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %17, align 8, !tbaa !64
+  %291 = icmp ne ptr %290, null
+  br i1 %291, label %292, label %557
+
+292:                                              ; preds = %289
+  %293 = load ptr, ptr %17, align 8, !tbaa !64
+  %294 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %293, i32 0, i32 2
+  %295 = load ptr, ptr %294, align 8, !tbaa !65
+  store ptr %295, ptr %18, align 8, !tbaa !64
+  %296 = load ptr, ptr %18, align 8, !tbaa !64
+  %297 = icmp ne ptr %296, null
+  br i1 %297, label %298, label %449
+
+298:                                              ; preds = %292
+  %299 = load ptr, ptr %10, align 8, !tbaa !64
+  %300 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %299, i32 0, i32 1
+  %301 = load ptr, ptr %300, align 8, !tbaa !69
+  %302 = load ptr, ptr %18, align 8, !tbaa !64
+  %303 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %302, i32 0, i32 1
+  store ptr %301, ptr %303, align 8, !tbaa !69
+  %304 = load ptr, ptr %10, align 8, !tbaa !64
+  %305 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %304, i32 0, i32 1
+  %306 = load ptr, ptr %305, align 8, !tbaa !69
+  %307 = icmp ne ptr %306, null
+  br i1 %307, label %308, label %314
+
+308:                                              ; preds = %298
+  %309 = load ptr, ptr %18, align 8, !tbaa !64
+  %310 = load ptr, ptr %10, align 8, !tbaa !64
+  %311 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %310, i32 0, i32 1
+  %312 = load ptr, ptr %311, align 8, !tbaa !69
+  %313 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %312, i32 0, i32 2
+  store ptr %309, ptr %313, align 8, !tbaa !65
+  br label %393
+
+314:                                              ; preds = %298
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %315 = load ptr, ptr %9, align 8, !tbaa !16
+  %316 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %315, i32 0, i32 1
+  %317 = load ptr, ptr %316, align 8, !tbaa !38
+  %318 = load ptr, ptr %9, align 8, !tbaa !16
+  %319 = call ptr %317(ptr noundef %318, i64 noundef 1, i64 noundef 32)
+  store ptr %319, ptr %20, align 8, !tbaa !64
+  %320 = load ptr, ptr %20, align 8, !tbaa !64
+  %321 = icmp eq ptr %320, null
+  br i1 %321, label %322, label %377
+
+322:                                              ; preds = %314
+  %323 = load i32, ptr %8, align 4, !tbaa !14
+  %324 = icmp ne i32 %323, 0
+  br i1 %324, label %325, label %344
+
+325:                                              ; preds = %322
+  %326 = load ptr, ptr %10, align 8, !tbaa !64
+  %327 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %326, i32 0, i32 0
+  %328 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %327, i32 0, i32 0
+  %329 = load ptr, ptr %328, align 8, !tbaa !68
+  %330 = load ptr, ptr %10, align 8, !tbaa !64
+  %331 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %330, i32 0, i32 0
+  %332 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %331, i32 0, i32 1
+  %333 = load ptr, ptr %332, align 8, !tbaa !67
+  %334 = icmp ne ptr %329, %333
+  br i1 %334, label %335, label %344
+
+335:                                              ; preds = %325
+  %336 = load ptr, ptr %9, align 8, !tbaa !16
+  %337 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %336, i32 0, i32 4
+  %338 = load ptr, ptr %337, align 8, !tbaa !35
+  %339 = load ptr, ptr %9, align 8, !tbaa !16
+  %340 = load ptr, ptr %10, align 8, !tbaa !64
+  %341 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %340, i32 0, i32 0
+  %342 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %341, i32 0, i32 0
+  %343 = load ptr, ptr %342, align 8, !tbaa !68
+  call void %338(ptr noundef %339, ptr noundef %343)
+  br label %344
+
+344:                                              ; preds = %335, %325, %322
+  %345 = load ptr, ptr %9, align 8, !tbaa !16
+  %346 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %345, i32 0, i32 4
+  %347 = load ptr, ptr %346, align 8, !tbaa !35
+  %348 = load ptr, ptr %9, align 8, !tbaa !16
+  %349 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %347(ptr noundef %348, ptr noundef %349)
+  %350 = load i32, ptr %8, align 4, !tbaa !14
+  %351 = icmp ne i32 %350, 0
+  br i1 %351, label %352, label %371
+
+352:                                              ; preds = %344
+  %353 = load ptr, ptr %17, align 8, !tbaa !64
+  %354 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %353, i32 0, i32 0
+  %355 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %354, i32 0, i32 0
+  %356 = load ptr, ptr %355, align 8, !tbaa !68
+  %357 = load ptr, ptr %17, align 8, !tbaa !64
+  %358 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %357, i32 0, i32 0
+  %359 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %358, i32 0, i32 1
+  %360 = load ptr, ptr %359, align 8, !tbaa !67
+  %361 = icmp ne ptr %356, %360
+  br i1 %361, label %362, label %371
+
+362:                                              ; preds = %352
+  %363 = load ptr, ptr %9, align 8, !tbaa !16
+  %364 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %363, i32 0, i32 4
+  %365 = load ptr, ptr %364, align 8, !tbaa !35
+  %366 = load ptr, ptr %9, align 8, !tbaa !16
+  %367 = load ptr, ptr %17, align 8, !tbaa !64
+  %368 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %367, i32 0, i32 0
+  %369 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %368, i32 0, i32 0
+  %370 = load ptr, ptr %369, align 8, !tbaa !68
+  call void %365(ptr noundef %366, ptr noundef %370)
+  br label %371
+
+371:                                              ; preds = %362, %352, %344
+  %372 = load ptr, ptr %9, align 8, !tbaa !16
+  %373 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %372, i32 0, i32 4
+  %374 = load ptr, ptr %373, align 8, !tbaa !35
+  %375 = load ptr, ptr %9, align 8, !tbaa !16
+  %376 = load ptr, ptr %17, align 8, !tbaa !64
+  call void %374(ptr noundef %375, ptr noundef %376)
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %390
+
+377:                                              ; preds = %314
+  %378 = load ptr, ptr %20, align 8, !tbaa !64
+  %379 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %378, i32 0, i32 0
+  %380 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %379, i32 0, i32 0
+  store ptr @.str.3, ptr %380, align 8, !tbaa !68
+  %381 = load ptr, ptr %20, align 8, !tbaa !64
+  %382 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %381, i32 0, i32 0
+  %383 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %382, i32 0, i32 1
+  store ptr @.str.3, ptr %383, align 8, !tbaa !67
+  %384 = load ptr, ptr %20, align 8, !tbaa !64
+  %385 = load ptr, ptr %18, align 8, !tbaa !64
+  %386 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %385, i32 0, i32 1
+  store ptr %384, ptr %386, align 8, !tbaa !69
+  %387 = load ptr, ptr %20, align 8, !tbaa !64
+  %388 = load ptr, ptr %6, align 8, !tbaa !51
+  %389 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %388, i32 0, i32 6
+  store ptr %387, ptr %389, align 8, !tbaa !72
+  store i32 0, ptr %11, align 4
+  br label %390
+
+390:                                              ; preds = %377, %371
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  %391 = load i32, ptr %11, align 4
+  switch i32 %391, label %609 [
+    i32 0, label %392
   ]
 
-sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %1 = load i32, ptr %hexdig.addr, align 4
-  %add = add nsw i32 9, %1
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  store i8 %conv, ptr %retval, align 1
-  br label %return
+392:                                              ; preds = %390
+  br label %393
 
-sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %2 = load i32, ptr %hexdig.addr, align 4
-  %add2 = add nsw i32 15, %2
-  %sub3 = sub nsw i32 %add2, 102
-  %conv4 = trunc i32 %sub3 to i8
-  store i8 %conv4, ptr %retval, align 1
-  br label %return
+393:                                              ; preds = %392, %308
+  %394 = load i32, ptr %8, align 4, !tbaa !14
+  %395 = icmp ne i32 %394, 0
+  br i1 %395, label %396, label %415
 
-sw.bb5:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry
-  %3 = load i32, ptr %hexdig.addr, align 4
-  %add6 = add nsw i32 15, %3
-  %sub7 = sub nsw i32 %add6, 70
-  %conv8 = trunc i32 %sub7 to i8
-  store i8 %conv8, ptr %retval, align 1
-  br label %return
+396:                                              ; preds = %393
+  %397 = load ptr, ptr %10, align 8, !tbaa !64
+  %398 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %397, i32 0, i32 0
+  %399 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %398, i32 0, i32 0
+  %400 = load ptr, ptr %399, align 8, !tbaa !68
+  %401 = load ptr, ptr %10, align 8, !tbaa !64
+  %402 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %401, i32 0, i32 0
+  %403 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %402, i32 0, i32 1
+  %404 = load ptr, ptr %403, align 8, !tbaa !67
+  %405 = icmp ne ptr %400, %404
+  br i1 %405, label %406, label %415
 
-sw.default:                                       ; preds = %entry
-  store i8 0, ptr %retval, align 1
-  br label %return
+406:                                              ; preds = %396
+  %407 = load ptr, ptr %9, align 8, !tbaa !16
+  %408 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %407, i32 0, i32 4
+  %409 = load ptr, ptr %408, align 8, !tbaa !35
+  %410 = load ptr, ptr %9, align 8, !tbaa !16
+  %411 = load ptr, ptr %10, align 8, !tbaa !64
+  %412 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %411, i32 0, i32 0
+  %413 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %412, i32 0, i32 0
+  %414 = load ptr, ptr %413, align 8, !tbaa !68
+  call void %409(ptr noundef %410, ptr noundef %414)
+  br label %415
 
-return:                                           ; preds = %sw.default, %sw.bb5, %sw.bb1, %sw.bb
-  %4 = load i8, ptr %retval, align 1
-  ret i8 %4
-}
+415:                                              ; preds = %406, %396, %393
+  %416 = load ptr, ptr %9, align 8, !tbaa !16
+  %417 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %416, i32 0, i32 4
+  %418 = load ptr, ptr %417, align 8, !tbaa !35
+  %419 = load ptr, ptr %9, align 8, !tbaa !16
+  %420 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %418(ptr noundef %419, ptr noundef %420)
+  %421 = load i32, ptr %8, align 4, !tbaa !14
+  %422 = icmp ne i32 %421, 0
+  br i1 %422, label %423, label %442
 
-; Function Attrs: nounwind uwtable
-define i32 @uriHexToLetterW(i32 noundef %value) #0 {
-entry:
-  %value.addr = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  %0 = load i32, ptr %value.addr, align 4
-  %call = call i32 @uriHexToLetterExW(i32 noundef %0, i32 noundef 1)
-  ret i32 %call
-}
+423:                                              ; preds = %415
+  %424 = load ptr, ptr %17, align 8, !tbaa !64
+  %425 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %424, i32 0, i32 0
+  %426 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %425, i32 0, i32 0
+  %427 = load ptr, ptr %426, align 8, !tbaa !68
+  %428 = load ptr, ptr %17, align 8, !tbaa !64
+  %429 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %428, i32 0, i32 0
+  %430 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %429, i32 0, i32 1
+  %431 = load ptr, ptr %430, align 8, !tbaa !67
+  %432 = icmp ne ptr %427, %431
+  br i1 %432, label %433, label %442
 
-; Function Attrs: nounwind uwtable
-define i32 @uriHexToLetterExW(i32 noundef %value, i32 noundef %uppercase) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %value.addr = alloca i32, align 4
-  %uppercase.addr = alloca i32, align 4
-  store i32 %value, ptr %value.addr, align 4
-  store i32 %uppercase, ptr %uppercase.addr, align 4
-  %0 = load i32, ptr %value.addr, align 4
-  switch i32 %0, label %sw.default [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb2
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb4
-    i32 5, label %sw.bb5
-    i32 6, label %sw.bb6
-    i32 7, label %sw.bb7
-    i32 8, label %sw.bb8
-    i32 9, label %sw.bb9
-    i32 10, label %sw.bb10
-    i32 11, label %sw.bb11
-    i32 12, label %sw.bb14
-    i32 13, label %sw.bb17
-    i32 14, label %sw.bb20
+433:                                              ; preds = %423
+  %434 = load ptr, ptr %9, align 8, !tbaa !16
+  %435 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %434, i32 0, i32 4
+  %436 = load ptr, ptr %435, align 8, !tbaa !35
+  %437 = load ptr, ptr %9, align 8, !tbaa !16
+  %438 = load ptr, ptr %17, align 8, !tbaa !64
+  %439 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %438, i32 0, i32 0
+  %440 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %439, i32 0, i32 0
+  %441 = load ptr, ptr %440, align 8, !tbaa !68
+  call void %436(ptr noundef %437, ptr noundef %441)
+  br label %442
+
+442:                                              ; preds = %433, %423, %415
+  %443 = load ptr, ptr %9, align 8, !tbaa !16
+  %444 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %443, i32 0, i32 4
+  %445 = load ptr, ptr %444, align 8, !tbaa !35
+  %446 = load ptr, ptr %9, align 8, !tbaa !16
+  %447 = load ptr, ptr %17, align 8, !tbaa !64
+  call void %445(ptr noundef %446, ptr noundef %447)
+  %448 = load ptr, ptr %19, align 8, !tbaa !64
+  store ptr %448, ptr %10, align 8, !tbaa !64
+  br label %556
+
+449:                                              ; preds = %292
+  %450 = load ptr, ptr %10, align 8, !tbaa !64
+  %451 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %450, i32 0, i32 1
+  %452 = load ptr, ptr %451, align 8, !tbaa !69
+  %453 = icmp ne ptr %452, null
+  br i1 %453, label %454, label %491
+
+454:                                              ; preds = %449
+  %455 = load ptr, ptr %10, align 8, !tbaa !64
+  %456 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %455, i32 0, i32 1
+  %457 = load ptr, ptr %456, align 8, !tbaa !69
+  %458 = load ptr, ptr %6, align 8, !tbaa !51
+  %459 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %458, i32 0, i32 5
+  store ptr %457, ptr %459, align 8, !tbaa !63
+  %460 = load ptr, ptr %10, align 8, !tbaa !64
+  %461 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %460, i32 0, i32 1
+  %462 = load ptr, ptr %461, align 8, !tbaa !69
+  %463 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %462, i32 0, i32 2
+  store ptr null, ptr %463, align 8, !tbaa !65
+  %464 = load i32, ptr %8, align 4, !tbaa !14
+  %465 = icmp ne i32 %464, 0
+  br i1 %465, label %466, label %485
+
+466:                                              ; preds = %454
+  %467 = load ptr, ptr %10, align 8, !tbaa !64
+  %468 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %467, i32 0, i32 0
+  %469 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %468, i32 0, i32 0
+  %470 = load ptr, ptr %469, align 8, !tbaa !68
+  %471 = load ptr, ptr %10, align 8, !tbaa !64
+  %472 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %471, i32 0, i32 0
+  %473 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %472, i32 0, i32 1
+  %474 = load ptr, ptr %473, align 8, !tbaa !67
+  %475 = icmp ne ptr %470, %474
+  br i1 %475, label %476, label %485
+
+476:                                              ; preds = %466
+  %477 = load ptr, ptr %9, align 8, !tbaa !16
+  %478 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %477, i32 0, i32 4
+  %479 = load ptr, ptr %478, align 8, !tbaa !35
+  %480 = load ptr, ptr %9, align 8, !tbaa !16
+  %481 = load ptr, ptr %10, align 8, !tbaa !64
+  %482 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %481, i32 0, i32 0
+  %483 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %482, i32 0, i32 0
+  %484 = load ptr, ptr %483, align 8, !tbaa !68
+  call void %479(ptr noundef %480, ptr noundef %484)
+  br label %485
+
+485:                                              ; preds = %476, %466, %454
+  %486 = load ptr, ptr %9, align 8, !tbaa !16
+  %487 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %486, i32 0, i32 4
+  %488 = load ptr, ptr %487, align 8, !tbaa !35
+  %489 = load ptr, ptr %9, align 8, !tbaa !16
+  %490 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %488(ptr noundef %489, ptr noundef %490)
+  br label %527
+
+491:                                              ; preds = %449
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  %492 = load ptr, ptr %10, align 8, !tbaa !64
+  store ptr %492, ptr %21, align 8, !tbaa !64
+  %493 = load i32, ptr %8, align 4, !tbaa !14
+  %494 = icmp ne i32 %493, 0
+  br i1 %494, label %495, label %514
+
+495:                                              ; preds = %491
+  %496 = load ptr, ptr %21, align 8, !tbaa !64
+  %497 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %496, i32 0, i32 0
+  %498 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %497, i32 0, i32 0
+  %499 = load ptr, ptr %498, align 8, !tbaa !68
+  %500 = load ptr, ptr %21, align 8, !tbaa !64
+  %501 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %500, i32 0, i32 0
+  %502 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %501, i32 0, i32 1
+  %503 = load ptr, ptr %502, align 8, !tbaa !67
+  %504 = icmp ne ptr %499, %503
+  br i1 %504, label %505, label %514
+
+505:                                              ; preds = %495
+  %506 = load ptr, ptr %9, align 8, !tbaa !16
+  %507 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %506, i32 0, i32 4
+  %508 = load ptr, ptr %507, align 8, !tbaa !35
+  %509 = load ptr, ptr %9, align 8, !tbaa !16
+  %510 = load ptr, ptr %21, align 8, !tbaa !64
+  %511 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %510, i32 0, i32 0
+  %512 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %511, i32 0, i32 0
+  %513 = load ptr, ptr %512, align 8, !tbaa !68
+  call void %508(ptr noundef %509, ptr noundef %513)
+  br label %514
+
+514:                                              ; preds = %505, %495, %491
+  %515 = load ptr, ptr %21, align 8, !tbaa !64
+  %516 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %515, i32 0, i32 0
+  %517 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %516, i32 0, i32 0
+  store ptr @.str.3, ptr %517, align 8, !tbaa !68
+  %518 = load ptr, ptr %21, align 8, !tbaa !64
+  %519 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %518, i32 0, i32 0
+  %520 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %519, i32 0, i32 1
+  store ptr @.str.3, ptr %520, align 8, !tbaa !67
+  %521 = load ptr, ptr %21, align 8, !tbaa !64
+  %522 = load ptr, ptr %6, align 8, !tbaa !51
+  %523 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %522, i32 0, i32 5
+  store ptr %521, ptr %523, align 8, !tbaa !63
+  %524 = load ptr, ptr %21, align 8, !tbaa !64
+  %525 = load ptr, ptr %6, align 8, !tbaa !51
+  %526 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %525, i32 0, i32 6
+  store ptr %524, ptr %526, align 8, !tbaa !72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  br label %527
+
+527:                                              ; preds = %514, %485
+  %528 = load i32, ptr %8, align 4, !tbaa !14
+  %529 = icmp ne i32 %528, 0
+  br i1 %529, label %530, label %549
+
+530:                                              ; preds = %527
+  %531 = load ptr, ptr %17, align 8, !tbaa !64
+  %532 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %531, i32 0, i32 0
+  %533 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %532, i32 0, i32 0
+  %534 = load ptr, ptr %533, align 8, !tbaa !68
+  %535 = load ptr, ptr %17, align 8, !tbaa !64
+  %536 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %535, i32 0, i32 0
+  %537 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %536, i32 0, i32 1
+  %538 = load ptr, ptr %537, align 8, !tbaa !67
+  %539 = icmp ne ptr %534, %538
+  br i1 %539, label %540, label %549
+
+540:                                              ; preds = %530
+  %541 = load ptr, ptr %9, align 8, !tbaa !16
+  %542 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %541, i32 0, i32 4
+  %543 = load ptr, ptr %542, align 8, !tbaa !35
+  %544 = load ptr, ptr %9, align 8, !tbaa !16
+  %545 = load ptr, ptr %17, align 8, !tbaa !64
+  %546 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %545, i32 0, i32 0
+  %547 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %546, i32 0, i32 0
+  %548 = load ptr, ptr %547, align 8, !tbaa !68
+  call void %543(ptr noundef %544, ptr noundef %548)
+  br label %549
+
+549:                                              ; preds = %540, %530, %527
+  %550 = load ptr, ptr %9, align 8, !tbaa !16
+  %551 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %550, i32 0, i32 4
+  %552 = load ptr, ptr %551, align 8, !tbaa !35
+  %553 = load ptr, ptr %9, align 8, !tbaa !16
+  %554 = load ptr, ptr %17, align 8, !tbaa !64
+  call void %552(ptr noundef %553, ptr noundef %554)
+  %555 = load ptr, ptr %19, align 8, !tbaa !64
+  store ptr %555, ptr %10, align 8, !tbaa !64
+  br label %556
+
+556:                                              ; preds = %549, %442
+  br label %607
+
+557:                                              ; preds = %289
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  %558 = load ptr, ptr %10, align 8, !tbaa !64
+  %559 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %558, i32 0, i32 1
+  %560 = load ptr, ptr %559, align 8, !tbaa !69
+  store ptr %560, ptr %22, align 8, !tbaa !64
+  %561 = load ptr, ptr %10, align 8, !tbaa !64
+  %562 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %561, i32 0, i32 1
+  %563 = load ptr, ptr %562, align 8, !tbaa !69
+  %564 = load ptr, ptr %6, align 8, !tbaa !51
+  %565 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %564, i32 0, i32 5
+  store ptr %563, ptr %565, align 8, !tbaa !63
+  %566 = load ptr, ptr %10, align 8, !tbaa !64
+  %567 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %566, i32 0, i32 1
+  %568 = load ptr, ptr %567, align 8, !tbaa !69
+  %569 = icmp ne ptr %568, null
+  br i1 %569, label %570, label %575
+
+570:                                              ; preds = %557
+  %571 = load ptr, ptr %10, align 8, !tbaa !64
+  %572 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %571, i32 0, i32 1
+  %573 = load ptr, ptr %572, align 8, !tbaa !69
+  %574 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %573, i32 0, i32 2
+  store ptr null, ptr %574, align 8, !tbaa !65
+  br label %578
+
+575:                                              ; preds = %557
+  %576 = load ptr, ptr %6, align 8, !tbaa !51
+  %577 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %576, i32 0, i32 6
+  store ptr null, ptr %577, align 8, !tbaa !72
+  br label %578
+
+578:                                              ; preds = %575, %570
+  %579 = load i32, ptr %8, align 4, !tbaa !14
+  %580 = icmp ne i32 %579, 0
+  br i1 %580, label %581, label %600
+
+581:                                              ; preds = %578
+  %582 = load ptr, ptr %10, align 8, !tbaa !64
+  %583 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %582, i32 0, i32 0
+  %584 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %583, i32 0, i32 0
+  %585 = load ptr, ptr %584, align 8, !tbaa !68
+  %586 = load ptr, ptr %10, align 8, !tbaa !64
+  %587 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %586, i32 0, i32 0
+  %588 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %587, i32 0, i32 1
+  %589 = load ptr, ptr %588, align 8, !tbaa !67
+  %590 = icmp ne ptr %585, %589
+  br i1 %590, label %591, label %600
+
+591:                                              ; preds = %581
+  %592 = load ptr, ptr %9, align 8, !tbaa !16
+  %593 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %592, i32 0, i32 4
+  %594 = load ptr, ptr %593, align 8, !tbaa !35
+  %595 = load ptr, ptr %9, align 8, !tbaa !16
+  %596 = load ptr, ptr %10, align 8, !tbaa !64
+  %597 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %596, i32 0, i32 0
+  %598 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %597, i32 0, i32 0
+  %599 = load ptr, ptr %598, align 8, !tbaa !68
+  call void %594(ptr noundef %595, ptr noundef %599)
+  br label %600
+
+600:                                              ; preds = %591, %581, %578
+  %601 = load ptr, ptr %9, align 8, !tbaa !16
+  %602 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %601, i32 0, i32 4
+  %603 = load ptr, ptr %602, align 8, !tbaa !35
+  %604 = load ptr, ptr %9, align 8, !tbaa !16
+  %605 = load ptr, ptr %10, align 8, !tbaa !64
+  call void %603(ptr noundef %604, ptr noundef %605)
+  %606 = load ptr, ptr %22, align 8, !tbaa !64
+  store ptr %606, ptr %10, align 8, !tbaa !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  br label %607
+
+607:                                              ; preds = %600, %556
+  br label %608
+
+608:                                              ; preds = %607, %286
+  store i32 0, ptr %11, align 4
+  br label %609
+
+609:                                              ; preds = %608, %390
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  %610 = load i32, ptr %11, align 4
+  switch i32 %610, label %636 [
+    i32 0, label %611
   ]
 
-sw.bb:                                            ; preds = %entry
-  store i32 48, ptr %retval, align 4
-  br label %return
+611:                                              ; preds = %609
+  br label %612
 
-sw.bb1:                                           ; preds = %entry
-  store i32 49, ptr %retval, align 4
-  br label %return
+612:                                              ; preds = %611, %229, %221
+  br label %613
 
-sw.bb2:                                           ; preds = %entry
-  store i32 50, ptr %retval, align 4
-  br label %return
+613:                                              ; preds = %37, %612, %220
+  %614 = load i32, ptr %12, align 4, !tbaa !14
+  %615 = icmp ne i32 %614, 0
+  br i1 %615, label %635, label %616
 
-sw.bb3:                                           ; preds = %entry
-  store i32 51, ptr %retval, align 4
-  br label %return
+616:                                              ; preds = %613
+  %617 = load ptr, ptr %10, align 8, !tbaa !64
+  %618 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %617, i32 0, i32 1
+  %619 = load ptr, ptr %618, align 8, !tbaa !69
+  %620 = icmp ne ptr %619, null
+  br i1 %620, label %621, label %627
 
-sw.bb4:                                           ; preds = %entry
-  store i32 52, ptr %retval, align 4
-  br label %return
+621:                                              ; preds = %616
+  %622 = load ptr, ptr %10, align 8, !tbaa !64
+  %623 = load ptr, ptr %10, align 8, !tbaa !64
+  %624 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %623, i32 0, i32 1
+  %625 = load ptr, ptr %624, align 8, !tbaa !69
+  %626 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %625, i32 0, i32 2
+  store ptr %622, ptr %626, align 8, !tbaa !65
+  br label %631
 
-sw.bb5:                                           ; preds = %entry
-  store i32 53, ptr %retval, align 4
-  br label %return
+627:                                              ; preds = %616
+  %628 = load ptr, ptr %10, align 8, !tbaa !64
+  %629 = load ptr, ptr %6, align 8, !tbaa !51
+  %630 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %629, i32 0, i32 6
+  store ptr %628, ptr %630, align 8, !tbaa !72
+  br label %631
 
-sw.bb6:                                           ; preds = %entry
-  store i32 54, ptr %retval, align 4
-  br label %return
+631:                                              ; preds = %627, %621
+  %632 = load ptr, ptr %10, align 8, !tbaa !64
+  %633 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %632, i32 0, i32 1
+  %634 = load ptr, ptr %633, align 8, !tbaa !69
+  store ptr %634, ptr %10, align 8, !tbaa !64
+  br label %635
 
-sw.bb7:                                           ; preds = %entry
-  store i32 55, ptr %retval, align 4
-  br label %return
+635:                                              ; preds = %631, %613
+  store i32 0, ptr %11, align 4
+  br label %636
 
-sw.bb8:                                           ; preds = %entry
-  store i32 56, ptr %retval, align 4
-  br label %return
+636:                                              ; preds = %635, %609
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  %637 = load i32, ptr %11, align 4
+  switch i32 %637, label %643 [
+    i32 0, label %638
+  ]
 
-sw.bb9:                                           ; preds = %entry
-  store i32 57, ptr %retval, align 4
-  br label %return
+638:                                              ; preds = %636
+  br label %639
 
-sw.bb10:                                          ; preds = %entry
-  %1 = load i32, ptr %uppercase.addr, align 4
-  %cmp = icmp eq i32 %1, 1
-  %cond = select i1 %cmp, i32 65, i32 97
-  store i32 %cond, ptr %retval, align 4
-  br label %return
+639:                                              ; preds = %638
+  %640 = load ptr, ptr %10, align 8, !tbaa !64
+  %641 = icmp ne ptr %640, null
+  br i1 %641, label %37, label %642, !llvm.loop !73
 
-sw.bb11:                                          ; preds = %entry
-  %2 = load i32, ptr %uppercase.addr, align 4
-  %cmp12 = icmp eq i32 %2, 1
-  %cond13 = select i1 %cmp12, i32 66, i32 98
-  store i32 %cond13, ptr %retval, align 4
-  br label %return
+642:                                              ; preds = %639
+  store i32 1, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %643
 
-sw.bb14:                                          ; preds = %entry
-  %3 = load i32, ptr %uppercase.addr, align 4
-  %cmp15 = icmp eq i32 %3, 1
-  %cond16 = select i1 %cmp15, i32 67, i32 99
-  store i32 %cond16, ptr %retval, align 4
-  br label %return
-
-sw.bb17:                                          ; preds = %entry
-  %4 = load i32, ptr %uppercase.addr, align 4
-  %cmp18 = icmp eq i32 %4, 1
-  %cond19 = select i1 %cmp18, i32 68, i32 100
-  store i32 %cond19, ptr %retval, align 4
-  br label %return
-
-sw.bb20:                                          ; preds = %entry
-  %5 = load i32, ptr %uppercase.addr, align 4
-  %cmp21 = icmp eq i32 %5, 1
-  %cond22 = select i1 %cmp21, i32 69, i32 101
-  store i32 %cond22, ptr %retval, align 4
-  br label %return
-
-sw.default:                                       ; preds = %entry
-  %6 = load i32, ptr %uppercase.addr, align 4
-  %cmp23 = icmp eq i32 %6, 1
-  %cond24 = select i1 %cmp23, i32 70, i32 102
-  store i32 %cond24, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %sw.default, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %7 = load i32, ptr %retval, align 4
-  ret i32 %7
+643:                                              ; preds = %642, %636, %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %644 = load i32, ptr %5, align 4
+  ret i32 %644
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCopyPathW(ptr noundef %dest, ptr noundef %source, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %sourceWalker = alloca ptr, align 8
-  %destPrev = alloca ptr, align 8
-  %cur = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %0, i32 0, i32 5
-  %1 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp eq ptr %1, null
-  br i1 %cmp, label %if.then, label %if.else
+define i32 @uriIsHostSetW(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %32
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %dest.addr, align 8
-  %pathHead1 = getelementptr inbounds %struct.UriUriStructW, ptr %2, i32 0, i32 5
-  store ptr null, ptr %pathHead1, align 8
-  %3 = load ptr, ptr %dest.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end20
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !51
+  %7 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %6, i32 0, i32 2
+  %8 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %30, label %11
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %source.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructW, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %pathHead2, align 8
-  store ptr %5, ptr %sourceWalker, align 8
-  store ptr null, ptr %destPrev, align 8
-  br label %do.body
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %2, align 8, !tbaa !51
+  %13 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %13, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8, !tbaa !75
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %30, label %17
 
-do.body:                                          ; preds = %do.cond, %if.else
-  %6 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %malloc, align 8
-  %8 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %7(ptr noundef %8, i64 noundef 32)
-  store ptr %call, ptr %cur, align 8
-  %9 = load ptr, ptr %cur, align 8
-  %cmp3 = icmp eq ptr %9, null
-  br i1 %cmp3, label %if.then4, label %if.end7
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %2, align 8, !tbaa !51
+  %19 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %30, label %23
 
-if.then4:                                         ; preds = %do.body
-  %10 = load ptr, ptr %destPrev, align 8
-  %cmp5 = icmp ne ptr %10, null
-  br i1 %cmp5, label %if.then6, label %if.end
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %2, align 8, !tbaa !51
+  %25 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %25, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !77
+  %29 = icmp ne ptr %28, null
+  br label %30
 
-if.then6:                                         ; preds = %if.then4
-  %11 = load ptr, ptr %destPrev, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %11, i32 0, i32 1
-  store ptr null, ptr %next, align 8
-  br label %if.end
+30:                                               ; preds = %23, %17, %11, %5
+  %31 = phi i1 [ true, %17 ], [ true, %11 ], [ true, %5 ], [ %29, %23 ]
+  br label %32
 
-if.end:                                           ; preds = %if.then6, %if.then4
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end7:                                          ; preds = %do.body
-  %12 = load ptr, ptr %cur, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %sourceWalker, align 8
-  %text8 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %13, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %text, ptr align 8 %text8, i64 16, i1 false)
-  %14 = load ptr, ptr %destPrev, align 8
-  %cmp9 = icmp eq ptr %14, null
-  br i1 %cmp9, label %if.then10, label %if.else12
-
-if.then10:                                        ; preds = %if.end7
-  %15 = load ptr, ptr %cur, align 8
-  %16 = load ptr, ptr %dest.addr, align 8
-  %pathHead11 = getelementptr inbounds %struct.UriUriStructW, ptr %16, i32 0, i32 5
-  store ptr %15, ptr %pathHead11, align 8
-  br label %if.end14
-
-if.else12:                                        ; preds = %if.end7
-  %17 = load ptr, ptr %cur, align 8
-  %18 = load ptr, ptr %destPrev, align 8
-  %next13 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %18, i32 0, i32 1
-  store ptr %17, ptr %next13, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.else12, %if.then10
-  %19 = load ptr, ptr %cur, align 8
-  store ptr %19, ptr %destPrev, align 8
-  %20 = load ptr, ptr %sourceWalker, align 8
-  %next15 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %20, i32 0, i32 1
-  %21 = load ptr, ptr %next15, align 8
-  store ptr %21, ptr %sourceWalker, align 8
-  br label %do.cond
-
-do.cond:                                          ; preds = %if.end14
-  %22 = load ptr, ptr %sourceWalker, align 8
-  %cmp16 = icmp ne ptr %22, null
-  br i1 %cmp16, label %do.body, label %do.end, !llvm.loop !10
-
-do.end:                                           ; preds = %do.cond
-  %23 = load ptr, ptr %destPrev, align 8
-  %24 = load ptr, ptr %dest.addr, align 8
-  %pathTail17 = getelementptr inbounds %struct.UriUriStructW, ptr %24, i32 0, i32 6
-  store ptr %23, ptr %pathTail17, align 8
-  %25 = load ptr, ptr %dest.addr, align 8
-  %pathTail18 = getelementptr inbounds %struct.UriUriStructW, ptr %25, i32 0, i32 6
-  %26 = load ptr, ptr %pathTail18, align 8
-  %next19 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %26, i32 0, i32 1
-  store ptr null, ptr %next19, align 8
-  br label %if.end20
-
-if.end20:                                         ; preds = %do.end, %if.then
-  %27 = load ptr, ptr %source.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructW, ptr %27, i32 0, i32 9
-  %28 = load i32, ptr %absolutePath, align 8
-  %29 = load ptr, ptr %dest.addr, align 8
-  %absolutePath21 = getelementptr inbounds %struct.UriUriStructW, ptr %29, i32 0, i32 9
-  store i32 %28, ptr %absolutePath21, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end20, %if.end
-  %30 = load i32, ptr %retval, align 4
-  ret i32 %30
+32:                                               ; preds = %30, %1
+  %33 = phi i1 [ false, %1 ], [ %31, %30 ]
+  %34 = zext i1 %33 to i32
+  ret i32 %34
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriCopyAuthorityW(ptr noundef %dest, ptr noundef %source, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %dest.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  store ptr %dest, ptr %dest.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %dest.addr, align 8
-  %userInfo = getelementptr inbounds %struct.UriUriStructW, ptr %0, i32 0, i32 1
-  %1 = load ptr, ptr %source.addr, align 8
-  %userInfo1 = getelementptr inbounds %struct.UriUriStructW, ptr %1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %userInfo, ptr align 8 %userInfo1, i64 16, i1 false)
-  %2 = load ptr, ptr %dest.addr, align 8
-  %hostText = getelementptr inbounds %struct.UriUriStructW, ptr %2, i32 0, i32 2
-  %3 = load ptr, ptr %source.addr, align 8
-  %hostText2 = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %hostText, ptr align 8 %hostText2, i64 16, i1 false)
-  %4 = load ptr, ptr %source.addr, align 8
-  %hostData = getelementptr inbounds %struct.UriUriStructW, ptr %4, i32 0, i32 3
-  %ip4 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData, i32 0, i32 0
-  %5 = load ptr, ptr %ip4, align 8
-  %cmp = icmp ne ptr %5, null
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %malloc, align 8
-  %8 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %7(ptr noundef %8, i64 noundef 4)
-  %9 = load ptr, ptr %dest.addr, align 8
-  %hostData3 = getelementptr inbounds %struct.UriUriStructW, ptr %9, i32 0, i32 3
-  %ip44 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData3, i32 0, i32 0
-  store ptr %call, ptr %ip44, align 8
-  %10 = load ptr, ptr %dest.addr, align 8
-  %hostData5 = getelementptr inbounds %struct.UriUriStructW, ptr %10, i32 0, i32 3
-  %ip46 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData5, i32 0, i32 0
-  %11 = load ptr, ptr %ip46, align 8
-  %cmp7 = icmp eq ptr %11, null
-  br i1 %cmp7, label %if.then8, label %if.end
-
-if.then8:                                         ; preds = %if.then
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %12 = load ptr, ptr %dest.addr, align 8
-  %hostData9 = getelementptr inbounds %struct.UriUriStructW, ptr %12, i32 0, i32 3
-  %ip410 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData9, i32 0, i32 0
-  %13 = load ptr, ptr %ip410, align 8
-  %14 = load ptr, ptr %source.addr, align 8
-  %hostData11 = getelementptr inbounds %struct.UriUriStructW, ptr %14, i32 0, i32 3
-  %ip412 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData11, i32 0, i32 0
-  %15 = load ptr, ptr %ip412, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %15, i64 4, i1 false)
-  %16 = load ptr, ptr %dest.addr, align 8
-  %hostData13 = getelementptr inbounds %struct.UriUriStructW, ptr %16, i32 0, i32 3
-  %ip6 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData13, i32 0, i32 1
-  store ptr null, ptr %ip6, align 8
-  %17 = load ptr, ptr %dest.addr, align 8
-  %hostData14 = getelementptr inbounds %struct.UriUriStructW, ptr %17, i32 0, i32 3
-  %ipFuture = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData14, i32 0, i32 2
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %ipFuture, i32 0, i32 0
-  store ptr null, ptr %first, align 8
-  %18 = load ptr, ptr %dest.addr, align 8
-  %hostData15 = getelementptr inbounds %struct.UriUriStructW, ptr %18, i32 0, i32 3
-  %ipFuture16 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData15, i32 0, i32 2
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %ipFuture16, i32 0, i32 1
-  store ptr null, ptr %afterLast, align 8
-  br label %if.end52
-
-if.else:                                          ; preds = %entry
-  %19 = load ptr, ptr %source.addr, align 8
-  %hostData17 = getelementptr inbounds %struct.UriUriStructW, ptr %19, i32 0, i32 3
-  %ip618 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData17, i32 0, i32 1
-  %20 = load ptr, ptr %ip618, align 8
-  %cmp19 = icmp ne ptr %20, null
-  br i1 %cmp19, label %if.then20, label %if.else42
-
-if.then20:                                        ; preds = %if.else
-  %21 = load ptr, ptr %dest.addr, align 8
-  %hostData21 = getelementptr inbounds %struct.UriUriStructW, ptr %21, i32 0, i32 3
-  %ip422 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData21, i32 0, i32 0
-  store ptr null, ptr %ip422, align 8
-  %22 = load ptr, ptr %memory.addr, align 8
-  %malloc23 = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %22, i32 0, i32 0
-  %23 = load ptr, ptr %malloc23, align 8
-  %24 = load ptr, ptr %memory.addr, align 8
-  %call24 = call ptr %23(ptr noundef %24, i64 noundef 16)
-  %25 = load ptr, ptr %dest.addr, align 8
-  %hostData25 = getelementptr inbounds %struct.UriUriStructW, ptr %25, i32 0, i32 3
-  %ip626 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData25, i32 0, i32 1
-  store ptr %call24, ptr %ip626, align 8
-  %26 = load ptr, ptr %dest.addr, align 8
-  %hostData27 = getelementptr inbounds %struct.UriUriStructW, ptr %26, i32 0, i32 3
-  %ip628 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData27, i32 0, i32 1
-  %27 = load ptr, ptr %ip628, align 8
-  %cmp29 = icmp eq ptr %27, null
-  br i1 %cmp29, label %if.then30, label %if.end31
-
-if.then30:                                        ; preds = %if.then20
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end31:                                         ; preds = %if.then20
-  %28 = load ptr, ptr %dest.addr, align 8
-  %hostData32 = getelementptr inbounds %struct.UriUriStructW, ptr %28, i32 0, i32 3
-  %ip633 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData32, i32 0, i32 1
-  %29 = load ptr, ptr %ip633, align 8
-  %30 = load ptr, ptr %source.addr, align 8
-  %hostData34 = getelementptr inbounds %struct.UriUriStructW, ptr %30, i32 0, i32 3
-  %ip635 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData34, i32 0, i32 1
-  %31 = load ptr, ptr %ip635, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 16, i1 false)
-  %32 = load ptr, ptr %dest.addr, align 8
-  %hostData36 = getelementptr inbounds %struct.UriUriStructW, ptr %32, i32 0, i32 3
-  %ipFuture37 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData36, i32 0, i32 2
-  %first38 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %ipFuture37, i32 0, i32 0
-  store ptr null, ptr %first38, align 8
-  %33 = load ptr, ptr %dest.addr, align 8
-  %hostData39 = getelementptr inbounds %struct.UriUriStructW, ptr %33, i32 0, i32 3
-  %ipFuture40 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData39, i32 0, i32 2
-  %afterLast41 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %ipFuture40, i32 0, i32 1
-  store ptr null, ptr %afterLast41, align 8
-  br label %if.end51
-
-if.else42:                                        ; preds = %if.else
-  %34 = load ptr, ptr %dest.addr, align 8
-  %hostData43 = getelementptr inbounds %struct.UriUriStructW, ptr %34, i32 0, i32 3
-  %ip444 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData43, i32 0, i32 0
-  store ptr null, ptr %ip444, align 8
-  %35 = load ptr, ptr %dest.addr, align 8
-  %hostData45 = getelementptr inbounds %struct.UriUriStructW, ptr %35, i32 0, i32 3
-  %ip646 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData45, i32 0, i32 1
-  store ptr null, ptr %ip646, align 8
-  %36 = load ptr, ptr %dest.addr, align 8
-  %hostData47 = getelementptr inbounds %struct.UriUriStructW, ptr %36, i32 0, i32 3
-  %ipFuture48 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData47, i32 0, i32 2
-  %37 = load ptr, ptr %source.addr, align 8
-  %hostData49 = getelementptr inbounds %struct.UriUriStructW, ptr %37, i32 0, i32 3
-  %ipFuture50 = getelementptr inbounds %struct.UriHostDataStructW, ptr %hostData49, i32 0, i32 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %ipFuture48, ptr align 8 %ipFuture50, i64 16, i1 false)
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.else42, %if.end31
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.end51, %if.end
-  %38 = load ptr, ptr %dest.addr, align 8
-  %portText = getelementptr inbounds %struct.UriUriStructW, ptr %38, i32 0, i32 4
-  %39 = load ptr, ptr %source.addr, align 8
-  %portText53 = getelementptr inbounds %struct.UriUriStructW, ptr %39, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %portText, ptr align 8 %portText53, i64 16, i1 false)
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end52, %if.then30, %if.then8
-  %40 = load i32, ptr %retval, align 4
-  ret i32 %40
+define i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  store i32 0, ptr %5, align 4, !tbaa !14
+  %6 = load ptr, ptr %3, align 8, !tbaa !51
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %8 = call i32 @uriRemoveDotSegmentsW(ptr noundef %6, i32 noundef 0, ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriFixAmbiguityW(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  %segment = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructW, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %absolutePath, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %land.lhs.true, label %lor.lhs.false
+define zeroext i8 @uriHexdigToIntW(i32 noundef %0) #0 {
+  %2 = alloca i8, align 1
+  %3 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !14
+  %4 = load i32, ptr %3, align 4, !tbaa !14
+  switch i32 %4, label %20 [
+    i32 48, label %5
+    i32 49, label %5
+    i32 50, label %5
+    i32 51, label %5
+    i32 52, label %5
+    i32 53, label %5
+    i32 54, label %5
+    i32 55, label %5
+    i32 56, label %5
+    i32 57, label %5
+    i32 97, label %10
+    i32 98, label %10
+    i32 99, label %10
+    i32 100, label %10
+    i32 101, label %10
+    i32 102, label %10
+    i32 65, label %15
+    i32 66, label %15
+    i32 67, label %15
+    i32 68, label %15
+    i32 69, label %15
+    i32 70, label %15
+  ]
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %2, i32 0, i32 5
-  %3 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp ne ptr %3, null
-  br i1 %cmp, label %land.lhs.true1, label %lor.lhs.false
+5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %6 = load i32, ptr %3, align 4, !tbaa !14
+  %7 = add nsw i32 9, %6
+  %8 = sub nsw i32 %7, 57
+  %9 = trunc i32 %8 to i8
+  store i8 %9, ptr %2, align 1
+  br label %21
 
-land.lhs.true1:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %uri.addr, align 8
-  %pathHead2 = getelementptr inbounds %struct.UriUriStructW, ptr %4, i32 0, i32 5
-  %5 = load ptr, ptr %pathHead2, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %5, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text, i32 0, i32 1
-  %6 = load ptr, ptr %afterLast, align 8
-  %7 = load ptr, ptr %uri.addr, align 8
-  %pathHead3 = getelementptr inbounds %struct.UriUriStructW, ptr %7, i32 0, i32 5
-  %8 = load ptr, ptr %pathHead3, align 8
-  %text4 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %8, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text4, i32 0, i32 0
-  %9 = load ptr, ptr %first, align 8
-  %cmp5 = icmp eq ptr %6, %9
-  br i1 %cmp5, label %if.then, label %lor.lhs.false
+10:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %11 = load i32, ptr %3, align 4, !tbaa !14
+  %12 = add nsw i32 15, %11
+  %13 = sub nsw i32 %12, 102
+  %14 = trunc i32 %13 to i8
+  store i8 %14, ptr %2, align 1
+  br label %21
 
-lor.lhs.false:                                    ; preds = %land.lhs.true1, %land.lhs.true, %entry
-  %10 = load ptr, ptr %uri.addr, align 8
-  %absolutePath6 = getelementptr inbounds %struct.UriUriStructW, ptr %10, i32 0, i32 9
-  %11 = load i32, ptr %absolutePath6, align 8
-  %tobool7 = icmp ne i32 %11, 0
-  br i1 %tobool7, label %if.else, label %land.lhs.true8
+15:                                               ; preds = %1, %1, %1, %1, %1, %1
+  %16 = load i32, ptr %3, align 4, !tbaa !14
+  %17 = add nsw i32 15, %16
+  %18 = sub nsw i32 %17, 70
+  %19 = trunc i32 %18 to i8
+  store i8 %19, ptr %2, align 1
+  br label %21
 
-land.lhs.true8:                                   ; preds = %lor.lhs.false
-  %12 = load ptr, ptr %uri.addr, align 8
-  %pathHead9 = getelementptr inbounds %struct.UriUriStructW, ptr %12, i32 0, i32 5
-  %13 = load ptr, ptr %pathHead9, align 8
-  %cmp10 = icmp ne ptr %13, null
-  br i1 %cmp10, label %land.lhs.true11, label %if.else
+20:                                               ; preds = %1
+  store i8 0, ptr %2, align 1
+  br label %21
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %14 = load ptr, ptr %uri.addr, align 8
-  %pathHead12 = getelementptr inbounds %struct.UriUriStructW, ptr %14, i32 0, i32 5
-  %15 = load ptr, ptr %pathHead12, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %15, i32 0, i32 1
-  %16 = load ptr, ptr %next, align 8
-  %cmp13 = icmp ne ptr %16, null
-  br i1 %cmp13, label %land.lhs.true14, label %if.else
-
-land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %17 = load ptr, ptr %uri.addr, align 8
-  %pathHead15 = getelementptr inbounds %struct.UriUriStructW, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %pathHead15, align 8
-  %text16 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %18, i32 0, i32 0
-  %afterLast17 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text16, i32 0, i32 1
-  %19 = load ptr, ptr %afterLast17, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathHead18 = getelementptr inbounds %struct.UriUriStructW, ptr %20, i32 0, i32 5
-  %21 = load ptr, ptr %pathHead18, align 8
-  %text19 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %21, i32 0, i32 0
-  %first20 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text19, i32 0, i32 0
-  %22 = load ptr, ptr %first20, align 8
-  %cmp21 = icmp eq ptr %19, %22
-  br i1 %cmp21, label %land.lhs.true22, label %if.else
-
-land.lhs.true22:                                  ; preds = %land.lhs.true14
-  %23 = load ptr, ptr %uri.addr, align 8
-  %pathHead23 = getelementptr inbounds %struct.UriUriStructW, ptr %23, i32 0, i32 5
-  %24 = load ptr, ptr %pathHead23, align 8
-  %next24 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %24, i32 0, i32 1
-  %25 = load ptr, ptr %next24, align 8
-  %text25 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %25, i32 0, i32 0
-  %afterLast26 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text25, i32 0, i32 1
-  %26 = load ptr, ptr %afterLast26, align 8
-  %27 = load ptr, ptr %uri.addr, align 8
-  %pathHead27 = getelementptr inbounds %struct.UriUriStructW, ptr %27, i32 0, i32 5
-  %28 = load ptr, ptr %pathHead27, align 8
-  %next28 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %28, i32 0, i32 1
-  %29 = load ptr, ptr %next28, align 8
-  %text29 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %29, i32 0, i32 0
-  %first30 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text29, i32 0, i32 0
-  %30 = load ptr, ptr %first30, align 8
-  %cmp31 = icmp eq ptr %26, %30
-  br i1 %cmp31, label %if.then, label %if.else
-
-if.then:                                          ; preds = %land.lhs.true22, %land.lhs.true1
-  br label %if.end
-
-if.else:                                          ; preds = %land.lhs.true22, %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %lor.lhs.false
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %if.then
-  %31 = load ptr, ptr %memory.addr, align 8
-  %malloc = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %31, i32 0, i32 0
-  %32 = load ptr, ptr %malloc, align 8
-  %33 = load ptr, ptr %memory.addr, align 8
-  %call = call ptr %32(ptr noundef %33, i64 noundef 32)
-  store ptr %call, ptr %segment, align 8
-  %34 = load ptr, ptr %segment, align 8
-  %cmp32 = icmp eq ptr %34, null
-  br i1 %cmp32, label %if.then33, label %if.end34
-
-if.then33:                                        ; preds = %if.end
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end34:                                         ; preds = %if.end
-  %35 = load ptr, ptr %uri.addr, align 8
-  %pathHead35 = getelementptr inbounds %struct.UriUriStructW, ptr %35, i32 0, i32 5
-  %36 = load ptr, ptr %pathHead35, align 8
-  %37 = load ptr, ptr %segment, align 8
-  %next36 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %37, i32 0, i32 1
-  store ptr %36, ptr %next36, align 8
-  %38 = load ptr, ptr %segment, align 8
-  %text37 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %38, i32 0, i32 0
-  %first38 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text37, i32 0, i32 0
-  store ptr @.str.4, ptr %first38, align 8
-  %39 = load ptr, ptr %segment, align 8
-  %text39 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %39, i32 0, i32 0
-  %afterLast40 = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text39, i32 0, i32 1
-  %40 = getelementptr inbounds i32, ptr @.str.4, i64 1
-  store ptr %40, ptr %afterLast40, align 8
-  %41 = load ptr, ptr %segment, align 8
-  %42 = load ptr, ptr %uri.addr, align 8
-  %pathHead41 = getelementptr inbounds %struct.UriUriStructW, ptr %42, i32 0, i32 5
-  store ptr %41, ptr %pathHead41, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end34, %if.then33, %if.else
-  %43 = load i32, ptr %retval, align 4
-  ret i32 %43
+21:                                               ; preds = %20, %15, %10, %5
+  %22 = load i8, ptr %2, align 1
+  ret i8 %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @uriFixEmptyTrailSegmentW(ptr noundef %uri, ptr noundef %memory) #0 {
-entry:
-  %uri.addr = alloca ptr, align 8
-  %memory.addr = alloca ptr, align 8
-  store ptr %uri, ptr %uri.addr, align 8
-  store ptr %memory, ptr %memory.addr, align 8
-  %0 = load ptr, ptr %uri.addr, align 8
-  %absolutePath = getelementptr inbounds %struct.UriUriStructW, ptr %0, i32 0, i32 9
-  %1 = load i32, ptr %absolutePath, align 8
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %if.end, label %land.lhs.true
+define i32 @uriHexToLetterW(i32 noundef %0) #0 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !14
+  %3 = load i32, ptr %2, align 4, !tbaa !14
+  %4 = call i32 @uriHexToLetterExW(i32 noundef %3, i32 noundef 1)
+  ret i32 %4
+}
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %uri.addr, align 8
-  %call = call i32 @uriIsHostSetW(ptr noundef %2)
-  %tobool1 = icmp ne i32 %call, 0
-  br i1 %tobool1, label %if.end, label %land.lhs.true2
+; Function Attrs: nounwind uwtable
+define i32 @uriHexToLetterExW(i32 noundef %0, i32 noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !14
+  store i32 %1, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %4, align 4, !tbaa !14
+  switch i32 %6, label %37 [
+    i32 0, label %7
+    i32 1, label %8
+    i32 2, label %9
+    i32 3, label %10
+    i32 4, label %11
+    i32 5, label %12
+    i32 6, label %13
+    i32 7, label %14
+    i32 8, label %15
+    i32 9, label %16
+    i32 10, label %17
+    i32 11, label %21
+    i32 12, label %25
+    i32 13, label %29
+    i32 14, label %33
+  ]
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %3 = load ptr, ptr %uri.addr, align 8
-  %pathHead = getelementptr inbounds %struct.UriUriStructW, ptr %3, i32 0, i32 5
-  %4 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %land.lhs.true3, label %if.end
+7:                                                ; preds = %2
+  store i32 48, ptr %3, align 4
+  br label %41
 
-land.lhs.true3:                                   ; preds = %land.lhs.true2
-  %5 = load ptr, ptr %uri.addr, align 8
-  %pathHead4 = getelementptr inbounds %struct.UriUriStructW, ptr %5, i32 0, i32 5
-  %6 = load ptr, ptr %pathHead4, align 8
-  %next = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %6, i32 0, i32 1
-  %7 = load ptr, ptr %next, align 8
-  %cmp5 = icmp eq ptr %7, null
-  br i1 %cmp5, label %land.lhs.true6, label %if.end
+8:                                                ; preds = %2
+  store i32 49, ptr %3, align 4
+  br label %41
 
-land.lhs.true6:                                   ; preds = %land.lhs.true3
-  %8 = load ptr, ptr %uri.addr, align 8
-  %pathHead7 = getelementptr inbounds %struct.UriUriStructW, ptr %8, i32 0, i32 5
-  %9 = load ptr, ptr %pathHead7, align 8
-  %text = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %9, i32 0, i32 0
-  %first = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text, i32 0, i32 0
-  %10 = load ptr, ptr %first, align 8
-  %11 = load ptr, ptr %uri.addr, align 8
-  %pathHead8 = getelementptr inbounds %struct.UriUriStructW, ptr %11, i32 0, i32 5
-  %12 = load ptr, ptr %pathHead8, align 8
-  %text9 = getelementptr inbounds %struct.UriPathSegmentStructW, ptr %12, i32 0, i32 0
-  %afterLast = getelementptr inbounds %struct.UriTextRangeStructW, ptr %text9, i32 0, i32 1
-  %13 = load ptr, ptr %afterLast, align 8
-  %cmp10 = icmp eq ptr %10, %13
-  br i1 %cmp10, label %if.then, label %if.end
+9:                                                ; preds = %2
+  store i32 50, ptr %3, align 4
+  br label %41
 
-if.then:                                          ; preds = %land.lhs.true6
-  %14 = load ptr, ptr %memory.addr, align 8
-  %free = getelementptr inbounds %struct.UriMemoryManagerStruct, ptr %14, i32 0, i32 4
-  %15 = load ptr, ptr %free, align 8
-  %16 = load ptr, ptr %memory.addr, align 8
-  %17 = load ptr, ptr %uri.addr, align 8
-  %pathHead11 = getelementptr inbounds %struct.UriUriStructW, ptr %17, i32 0, i32 5
-  %18 = load ptr, ptr %pathHead11, align 8
-  call void %15(ptr noundef %16, ptr noundef %18)
-  %19 = load ptr, ptr %uri.addr, align 8
-  %pathHead12 = getelementptr inbounds %struct.UriUriStructW, ptr %19, i32 0, i32 5
-  store ptr null, ptr %pathHead12, align 8
-  %20 = load ptr, ptr %uri.addr, align 8
-  %pathTail = getelementptr inbounds %struct.UriUriStructW, ptr %20, i32 0, i32 6
-  store ptr null, ptr %pathTail, align 8
-  br label %if.end
+10:                                               ; preds = %2
+  store i32 51, ptr %3, align 4
+  br label %41
 
-if.end:                                           ; preds = %if.then, %land.lhs.true6, %land.lhs.true3, %land.lhs.true2, %land.lhs.true, %entry
+11:                                               ; preds = %2
+  store i32 52, ptr %3, align 4
+  br label %41
+
+12:                                               ; preds = %2
+  store i32 53, ptr %3, align 4
+  br label %41
+
+13:                                               ; preds = %2
+  store i32 54, ptr %3, align 4
+  br label %41
+
+14:                                               ; preds = %2
+  store i32 55, ptr %3, align 4
+  br label %41
+
+15:                                               ; preds = %2
+  store i32 56, ptr %3, align 4
+  br label %41
+
+16:                                               ; preds = %2
+  store i32 57, ptr %3, align 4
+  br label %41
+
+17:                                               ; preds = %2
+  %18 = load i32, ptr %5, align 4, !tbaa !14
+  %19 = icmp eq i32 %18, 1
+  %20 = select i1 %19, i32 65, i32 97
+  store i32 %20, ptr %3, align 4
+  br label %41
+
+21:                                               ; preds = %2
+  %22 = load i32, ptr %5, align 4, !tbaa !14
+  %23 = icmp eq i32 %22, 1
+  %24 = select i1 %23, i32 66, i32 98
+  store i32 %24, ptr %3, align 4
+  br label %41
+
+25:                                               ; preds = %2
+  %26 = load i32, ptr %5, align 4, !tbaa !14
+  %27 = icmp eq i32 %26, 1
+  %28 = select i1 %27, i32 67, i32 99
+  store i32 %28, ptr %3, align 4
+  br label %41
+
+29:                                               ; preds = %2
+  %30 = load i32, ptr %5, align 4, !tbaa !14
+  %31 = icmp eq i32 %30, 1
+  %32 = select i1 %31, i32 68, i32 100
+  store i32 %32, ptr %3, align 4
+  br label %41
+
+33:                                               ; preds = %2
+  %34 = load i32, ptr %5, align 4, !tbaa !14
+  %35 = icmp eq i32 %34, 1
+  %36 = select i1 %35, i32 69, i32 101
+  store i32 %36, ptr %3, align 4
+  br label %41
+
+37:                                               ; preds = %2
+  %38 = load i32, ptr %5, align 4, !tbaa !14
+  %39 = icmp eq i32 %38, 1
+  %40 = select i1 %39, i32 70, i32 102
+  store i32 %40, ptr %3, align 4
+  br label %41
+
+41:                                               ; preds = %37, %33, %29, %25, %21, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7
+  %42 = load i32, ptr %3, align 4
+  ret i32 %42
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @uriCopyPathW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %12 = load ptr, ptr %6, align 8, !tbaa !51
+  %13 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %21
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8, !tbaa !51
+  %18 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %17, i32 0, i32 5
+  store ptr null, ptr %18, align 8, !tbaa !63
+  %19 = load ptr, ptr %5, align 8, !tbaa !51
+  %20 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %19, i32 0, i32 6
+  store ptr null, ptr %20, align 8, !tbaa !72
+  br label %77
+
+21:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  %22 = load ptr, ptr %6, align 8, !tbaa !51
+  %23 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %22, i32 0, i32 5
+  %24 = load ptr, ptr %23, align 8, !tbaa !63
+  store ptr %24, ptr %8, align 8, !tbaa !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  store ptr null, ptr %9, align 8, !tbaa !64
+  br label %25
+
+25:                                               ; preds = %63, %21
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %26 = load ptr, ptr %7, align 8, !tbaa !16
+  %27 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %29 = load ptr, ptr %7, align 8, !tbaa !16
+  %30 = call ptr %28(ptr noundef %29, i64 noundef 32)
+  store ptr %30, ptr %10, align 8, !tbaa !64
+  %31 = load ptr, ptr %10, align 8, !tbaa !64
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %40
+
+33:                                               ; preds = %25
+  %34 = load ptr, ptr %9, align 8, !tbaa !64
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %9, align 8, !tbaa !64
+  %38 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %37, i32 0, i32 1
+  store ptr null, ptr %38, align 8, !tbaa !69
+  br label %39
+
+39:                                               ; preds = %36, %33
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
+
+40:                                               ; preds = %25
+  %41 = load ptr, ptr %10, align 8, !tbaa !64
+  %42 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %41, i32 0, i32 0
+  %43 = load ptr, ptr %8, align 8, !tbaa !64
+  %44 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %43, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %44, i64 16, i1 false), !tbaa.struct !78
+  %45 = load ptr, ptr %9, align 8, !tbaa !64
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %51
+
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %10, align 8, !tbaa !64
+  %49 = load ptr, ptr %5, align 8, !tbaa !51
+  %50 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %49, i32 0, i32 5
+  store ptr %48, ptr %50, align 8, !tbaa !63
+  br label %55
+
+51:                                               ; preds = %40
+  %52 = load ptr, ptr %10, align 8, !tbaa !64
+  %53 = load ptr, ptr %9, align 8, !tbaa !64
+  %54 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %53, i32 0, i32 1
+  store ptr %52, ptr %54, align 8, !tbaa !69
+  br label %55
+
+55:                                               ; preds = %51, %47
+  %56 = load ptr, ptr %10, align 8, !tbaa !64
+  store ptr %56, ptr %9, align 8, !tbaa !64
+  %57 = load ptr, ptr %8, align 8, !tbaa !64
+  %58 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8, !tbaa !69
+  store ptr %59, ptr %8, align 8, !tbaa !64
+  store i32 0, ptr %11, align 4
+  br label %60
+
+60:                                               ; preds = %55, %39
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %61 = load i32, ptr %11, align 4
+  switch i32 %61, label %74 [
+    i32 0, label %62
+  ]
+
+62:                                               ; preds = %60
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = load ptr, ptr %8, align 8, !tbaa !64
+  %65 = icmp ne ptr %64, null
+  br i1 %65, label %25, label %66, !llvm.loop !79
+
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %9, align 8, !tbaa !64
+  %68 = load ptr, ptr %5, align 8, !tbaa !51
+  %69 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %68, i32 0, i32 6
+  store ptr %67, ptr %69, align 8, !tbaa !72
+  %70 = load ptr, ptr %5, align 8, !tbaa !51
+  %71 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %70, i32 0, i32 6
+  %72 = load ptr, ptr %71, align 8, !tbaa !72
+  %73 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %72, i32 0, i32 1
+  store ptr null, ptr %73, align 8, !tbaa !69
+  store i32 0, ptr %11, align 4
+  br label %74
+
+74:                                               ; preds = %66, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  %75 = load i32, ptr %11, align 4
+  switch i32 %75, label %85 [
+    i32 0, label %76
+    i32 1, label %83
+  ]
+
+76:                                               ; preds = %74
+  br label %77
+
+77:                                               ; preds = %76, %16
+  %78 = load ptr, ptr %6, align 8, !tbaa !51
+  %79 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %78, i32 0, i32 9
+  %80 = load i32, ptr %79, align 8, !tbaa !80
+  %81 = load ptr, ptr %5, align 8, !tbaa !51
+  %82 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %81, i32 0, i32 9
+  store i32 %80, ptr %82, align 8, !tbaa !80
+  store i32 1, ptr %4, align 4
+  br label %83
+
+83:                                               ; preds = %77, %74
+  %84 = load i32, ptr %4, align 4
+  ret i32 %84
+
+85:                                               ; preds = %74
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @uriCopyAuthorityW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !51
+  store ptr %1, ptr %6, align 8, !tbaa !51
+  store ptr %2, ptr %7, align 8, !tbaa !16
+  %8 = load ptr, ptr %5, align 8, !tbaa !51
+  %9 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %8, i32 0, i32 1
+  %10 = load ptr, ptr %6, align 8, !tbaa !51
+  %11 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 16, i1 false), !tbaa.struct !78
+  %12 = load ptr, ptr %5, align 8, !tbaa !51
+  %13 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %6, align 8, !tbaa !51
+  %15 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %14, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %15, i64 16, i1 false), !tbaa.struct !78
+  %16 = load ptr, ptr %6, align 8, !tbaa !51
+  %17 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %16, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %21, label %56
+
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %7, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
+  %25 = load ptr, ptr %7, align 8, !tbaa !16
+  %26 = call ptr %24(ptr noundef %25, i64 noundef 4)
+  %27 = load ptr, ptr %5, align 8, !tbaa !51
+  %28 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %27, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %28, i32 0, i32 0
+  store ptr %26, ptr %29, align 8, !tbaa !75
+  %30 = load ptr, ptr %5, align 8, !tbaa !51
+  %31 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %21
+  store i32 0, ptr %4, align 4
+  br label %116
+
+36:                                               ; preds = %21
+  %37 = load ptr, ptr %5, align 8, !tbaa !51
+  %38 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %37, i32 0, i32 3
+  %39 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !75
+  %41 = load ptr, ptr %6, align 8, !tbaa !51
+  %42 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %41, i32 0, i32 3
+  %43 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %42, i32 0, i32 0
+  %44 = load ptr, ptr %43, align 8, !tbaa !75
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %44, i64 4, i1 false), !tbaa.struct !48
+  %45 = load ptr, ptr %5, align 8, !tbaa !51
+  %46 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %45, i32 0, i32 3
+  %47 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %46, i32 0, i32 1
+  store ptr null, ptr %47, align 8, !tbaa !76
+  %48 = load ptr, ptr %5, align 8, !tbaa !51
+  %49 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %49, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %50, i32 0, i32 0
+  store ptr null, ptr %51, align 8, !tbaa !77
+  %52 = load ptr, ptr %5, align 8, !tbaa !51
+  %53 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %52, i32 0, i32 3
+  %54 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %53, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %54, i32 0, i32 1
+  store ptr null, ptr %55, align 8, !tbaa !81
+  br label %111
+
+56:                                               ; preds = %3
+  %57 = load ptr, ptr %6, align 8, !tbaa !51
+  %58 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8, !tbaa !76
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %97
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %5, align 8, !tbaa !51
+  %64 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %64, i32 0, i32 0
+  store ptr null, ptr %65, align 8, !tbaa !75
+  %66 = load ptr, ptr %7, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8, !tbaa !44
+  %69 = load ptr, ptr %7, align 8, !tbaa !16
+  %70 = call ptr %68(ptr noundef %69, i64 noundef 16)
+  %71 = load ptr, ptr %5, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %72, i32 0, i32 1
+  store ptr %70, ptr %73, align 8, !tbaa !76
+  %74 = load ptr, ptr %5, align 8, !tbaa !51
+  %75 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %74, i32 0, i32 3
+  %76 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8, !tbaa !76
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %79, label %80
+
+79:                                               ; preds = %62
+  store i32 0, ptr %4, align 4
+  br label %116
+
+80:                                               ; preds = %62
+  %81 = load ptr, ptr %5, align 8, !tbaa !51
+  %82 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %81, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %82, i32 0, i32 1
+  %84 = load ptr, ptr %83, align 8, !tbaa !76
+  %85 = load ptr, ptr %6, align 8, !tbaa !51
+  %86 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %85, i32 0, i32 3
+  %87 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8, !tbaa !76
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %88, i64 16, i1 false), !tbaa.struct !50
+  %89 = load ptr, ptr %5, align 8, !tbaa !51
+  %90 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %89, i32 0, i32 3
+  %91 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %90, i32 0, i32 2
+  %92 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %91, i32 0, i32 0
+  store ptr null, ptr %92, align 8, !tbaa !77
+  %93 = load ptr, ptr %5, align 8, !tbaa !51
+  %94 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %93, i32 0, i32 3
+  %95 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %94, i32 0, i32 2
+  %96 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %95, i32 0, i32 1
+  store ptr null, ptr %96, align 8, !tbaa !81
+  br label %110
+
+97:                                               ; preds = %56
+  %98 = load ptr, ptr %5, align 8, !tbaa !51
+  %99 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %98, i32 0, i32 3
+  %100 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %99, i32 0, i32 0
+  store ptr null, ptr %100, align 8, !tbaa !75
+  %101 = load ptr, ptr %5, align 8, !tbaa !51
+  %102 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %101, i32 0, i32 3
+  %103 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %102, i32 0, i32 1
+  store ptr null, ptr %103, align 8, !tbaa !76
+  %104 = load ptr, ptr %5, align 8, !tbaa !51
+  %105 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %104, i32 0, i32 3
+  %106 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %105, i32 0, i32 2
+  %107 = load ptr, ptr %6, align 8, !tbaa !51
+  %108 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %107, i32 0, i32 3
+  %109 = getelementptr inbounds nuw %struct.UriHostDataStructW, ptr %108, i32 0, i32 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 8 %109, i64 16, i1 false), !tbaa.struct !78
+  br label %110
+
+110:                                              ; preds = %97, %80
+  br label %111
+
+111:                                              ; preds = %110, %36
+  %112 = load ptr, ptr %5, align 8, !tbaa !51
+  %113 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %112, i32 0, i32 4
+  %114 = load ptr, ptr %6, align 8, !tbaa !51
+  %115 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %114, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %113, ptr align 8 %115, i64 16, i1 false), !tbaa.struct !78
+  store i32 1, ptr %4, align 4
+  br label %116
+
+116:                                              ; preds = %111, %79, %35
+  %117 = load i32, ptr %4, align 4
+  ret i32 %117
+}
+
+; Function Attrs: nounwind uwtable
+define i32 @uriFixAmbiguityW(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !51
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  %8 = load ptr, ptr %4, align 8, !tbaa !51
+  %9 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %8, i32 0, i32 9
+  %10 = load i32, ptr %9, align 8, !tbaa !80
+  %11 = icmp ne i32 %10, 0
+  br i1 %11, label %12, label %31
+
+12:                                               ; preds = %2
+  %13 = load ptr, ptr %4, align 8, !tbaa !51
+  %14 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %13, i32 0, i32 5
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %17, label %31
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %4, align 8, !tbaa !51
+  %19 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8, !tbaa !63
+  %21 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %20, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
+  %24 = load ptr, ptr %4, align 8, !tbaa !51
+  %25 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %24, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %27 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %26, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !68
+  %30 = icmp eq ptr %23, %29
+  br i1 %30, label %80, label %31
+
+31:                                               ; preds = %17, %12, %2
+  %32 = load ptr, ptr %4, align 8, !tbaa !51
+  %33 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %32, i32 0, i32 9
+  %34 = load i32, ptr %33, align 8, !tbaa !80
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %81, label %36
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %4, align 8, !tbaa !51
+  %38 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %37, i32 0, i32 5
+  %39 = load ptr, ptr %38, align 8, !tbaa !63
+  %40 = icmp ne ptr %39, null
+  br i1 %40, label %41, label %81
+
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %4, align 8, !tbaa !51
+  %43 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %42, i32 0, i32 5
+  %44 = load ptr, ptr %43, align 8, !tbaa !63
+  %45 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %44, i32 0, i32 1
+  %46 = load ptr, ptr %45, align 8, !tbaa !69
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %81
+
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %4, align 8, !tbaa !51
+  %50 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %49, i32 0, i32 5
+  %51 = load ptr, ptr %50, align 8, !tbaa !63
+  %52 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %51, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
+  %55 = load ptr, ptr %4, align 8, !tbaa !51
+  %56 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %55, i32 0, i32 5
+  %57 = load ptr, ptr %56, align 8, !tbaa !63
+  %58 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %57, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8, !tbaa !68
+  %61 = icmp eq ptr %54, %60
+  br i1 %61, label %62, label %81
+
+62:                                               ; preds = %48
+  %63 = load ptr, ptr %4, align 8, !tbaa !51
+  %64 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %63, i32 0, i32 5
+  %65 = load ptr, ptr %64, align 8, !tbaa !63
+  %66 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %65, i32 0, i32 1
+  %67 = load ptr, ptr %66, align 8, !tbaa !69
+  %68 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %67, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8, !tbaa !67
+  %71 = load ptr, ptr %4, align 8, !tbaa !51
+  %72 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %71, i32 0, i32 5
+  %73 = load ptr, ptr %72, align 8, !tbaa !63
+  %74 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8, !tbaa !69
+  %76 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %75, i32 0, i32 0
+  %77 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !68
+  %79 = icmp eq ptr %70, %78
+  br i1 %79, label %80, label %81
+
+80:                                               ; preds = %62, %17
+  br label %82
+
+81:                                               ; preds = %62, %48, %41, %36, %31
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
+
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %5, align 8, !tbaa !16
+  %84 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %83, i32 0, i32 0
+  %85 = load ptr, ptr %84, align 8, !tbaa !44
+  %86 = load ptr, ptr %5, align 8, !tbaa !16
+  %87 = call ptr %85(ptr noundef %86, i64 noundef 32)
+  store ptr %87, ptr %6, align 8, !tbaa !64
+  %88 = load ptr, ptr %6, align 8, !tbaa !64
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %90, label %91
+
+90:                                               ; preds = %82
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
+
+91:                                               ; preds = %82
+  %92 = load ptr, ptr %4, align 8, !tbaa !51
+  %93 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %92, i32 0, i32 5
+  %94 = load ptr, ptr %93, align 8, !tbaa !63
+  %95 = load ptr, ptr %6, align 8, !tbaa !64
+  %96 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %95, i32 0, i32 1
+  store ptr %94, ptr %96, align 8, !tbaa !69
+  %97 = load ptr, ptr %6, align 8, !tbaa !64
+  %98 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %97, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %98, i32 0, i32 0
+  store ptr @.str.4, ptr %99, align 8, !tbaa !68
+  %100 = load ptr, ptr %6, align 8, !tbaa !64
+  %101 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %100, i32 0, i32 0
+  %102 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %101, i32 0, i32 1
+  store ptr getelementptr inbounds (i32, ptr @.str.4, i64 1), ptr %102, align 8, !tbaa !67
+  %103 = load ptr, ptr %6, align 8, !tbaa !64
+  %104 = load ptr, ptr %4, align 8, !tbaa !51
+  %105 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %104, i32 0, i32 5
+  store ptr %103, ptr %105, align 8, !tbaa !63
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %106
+
+106:                                              ; preds = %91, %90, %81
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %107 = load i32, ptr %3, align 4
+  ret i32 %107
+}
+
+; Function Attrs: nounwind uwtable
+define void @uriFixEmptyTrailSegmentW(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8, !tbaa !51
+  %6 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %5, i32 0, i32 9
+  %7 = load i32, ptr %6, align 8, !tbaa !80
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %51, label %9
+
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %3, align 8, !tbaa !51
+  %11 = call i32 @uriIsHostSetW(ptr noundef %10)
+  %12 = icmp ne i32 %11, 0
+  br i1 %12, label %51, label %13
+
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8, !tbaa !51
+  %15 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %14, i32 0, i32 5
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %51
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %3, align 8, !tbaa !51
+  %20 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !63
+  %22 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !69
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %51
+
+25:                                               ; preds = %18
+  %26 = load ptr, ptr %3, align 8, !tbaa !51
+  %27 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %26, i32 0, i32 5
+  %28 = load ptr, ptr %27, align 8, !tbaa !63
+  %29 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %28, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %29, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8, !tbaa !68
+  %32 = load ptr, ptr %3, align 8, !tbaa !51
+  %33 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %32, i32 0, i32 5
+  %34 = load ptr, ptr %33, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw %struct.UriPathSegmentStructW, ptr %34, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.UriTextRangeStructW, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !67
+  %38 = icmp eq ptr %31, %37
+  br i1 %38, label %39, label %51
+
+39:                                               ; preds = %25
+  %40 = load ptr, ptr %4, align 8, !tbaa !16
+  %41 = getelementptr inbounds nuw %struct.UriMemoryManagerStruct, ptr %40, i32 0, i32 4
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
+  %43 = load ptr, ptr %4, align 8, !tbaa !16
+  %44 = load ptr, ptr %3, align 8, !tbaa !51
+  %45 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %44, i32 0, i32 5
+  %46 = load ptr, ptr %45, align 8, !tbaa !63
+  call void %42(ptr noundef %43, ptr noundef %46)
+  %47 = load ptr, ptr %3, align 8, !tbaa !51
+  %48 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %47, i32 0, i32 5
+  store ptr null, ptr %48, align 8, !tbaa !63
+  %49 = load ptr, ptr %3, align 8, !tbaa !51
+  %50 = getelementptr inbounds nuw %struct.UriUriStructW, ptr %49, i32 0, i32 6
+  store ptr null, ptr %50, align 8, !tbaa !72
+  br label %51
+
+51:                                               ; preds = %39, %25, %18, %13, %9, %2
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS13UriUriStructA", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS19UriTextRangeStructA", !5, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"UriTextRangeStructA", !12, i64 0, !12, i64 8}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!11, !12, i64 8}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS22UriMemoryManagerStruct", !5, i64 0}
+!18 = !{!19, !15, i64 148}
+!19 = !{!"UriUriStructA", !11, i64 0, !11, i64 16, !11, i64 32, !20, i64 48, !11, i64 80, !23, i64 96, !23, i64 104, !11, i64 112, !11, i64 128, !15, i64 144, !15, i64 148, !5, i64 152}
+!20 = !{!"UriHostDataStructA", !21, i64 0, !22, i64 8, !11, i64 16}
+!21 = !{!"p1 _ZTS12UriIp4Struct", !5, i64 0}
+!22 = !{!"p1 _ZTS12UriIp6Struct", !5, i64 0}
+!23 = !{!"p1 _ZTS21UriPathSegmentStructA", !5, i64 0}
+!24 = !{!19, !23, i64 96}
+!25 = !{!23, !23, i64 0}
+!26 = !{!27, !5, i64 24}
+!27 = !{!"UriPathSegmentStructA", !11, i64 0, !23, i64 16, !5, i64 24}
+!28 = !{!27, !12, i64 8}
+!29 = !{!27, !12, i64 0}
+!30 = !{!6, !6, i64 0}
+!31 = !{!27, !23, i64 16}
+!32 = !{!12, !12, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!36, !5, i64 32}
+!36 = !{!"UriMemoryManagerStruct", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!37 = !{!19, !23, i64 104}
+!38 = !{!36, !5, i64 8}
+!39 = distinct !{!39, !34}
+!40 = !{!19, !12, i64 32}
+!41 = !{!19, !21, i64 48}
+!42 = !{!19, !22, i64 56}
+!43 = !{!19, !12, i64 64}
+!44 = !{!36, !5, i64 0}
+!45 = !{i64 0, i64 8, !32, i64 8, i64 8, !32}
+!46 = distinct !{!46, !34}
+!47 = !{!19, !15, i64 144}
+!48 = !{i64 0, i64 4, !30}
+!49 = !{!19, !12, i64 72}
+!50 = !{i64 0, i64 16, !30}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS13UriUriStructW", !5, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS19UriTextRangeStructW", !5, i64 0}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"UriTextRangeStructW", !57, i64 0, !57, i64 8}
+!57 = !{!"p1 int", !5, i64 0}
+!58 = !{!56, !57, i64 8}
+!59 = !{!60, !15, i64 148}
+!60 = !{!"UriUriStructW", !56, i64 0, !56, i64 16, !56, i64 32, !61, i64 48, !56, i64 80, !62, i64 96, !62, i64 104, !56, i64 112, !56, i64 128, !15, i64 144, !15, i64 148, !5, i64 152}
+!61 = !{!"UriHostDataStructW", !21, i64 0, !22, i64 8, !56, i64 16}
+!62 = !{!"p1 _ZTS21UriPathSegmentStructW", !5, i64 0}
+!63 = !{!60, !62, i64 96}
+!64 = !{!62, !62, i64 0}
+!65 = !{!66, !5, i64 24}
+!66 = !{!"UriPathSegmentStructW", !56, i64 0, !62, i64 16, !5, i64 24}
+!67 = !{!66, !57, i64 8}
+!68 = !{!66, !57, i64 0}
+!69 = !{!66, !62, i64 16}
+!70 = !{!57, !57, i64 0}
+!71 = distinct !{!71, !34}
+!72 = !{!60, !62, i64 104}
+!73 = distinct !{!73, !34}
+!74 = !{!60, !57, i64 32}
+!75 = !{!60, !21, i64 48}
+!76 = !{!60, !22, i64 56}
+!77 = !{!60, !57, i64 64}
+!78 = !{i64 0, i64 8, !70, i64 8, i64 8, !70}
+!79 = distinct !{!79, !34}
+!80 = !{!60, !15, i64 144}
+!81 = !{!60, !57, i64 72}

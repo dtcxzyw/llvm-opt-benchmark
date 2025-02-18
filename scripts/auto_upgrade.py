@@ -68,6 +68,7 @@ supported_project = [
     "zstd",
     "abseil-cpp",
     "annoy",
+    "arrow",
 ]
 
 modify_only = [

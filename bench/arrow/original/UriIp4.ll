@@ -1,1026 +1,1058 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UriIp4ParserStruct = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseIpFourAddressA(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %octetOutput.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  %after = alloca ptr, align 8
-  %parser = alloca %struct.UriIp4ParserStruct, align 1
-  store ptr %octetOutput, ptr %octetOutput.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %octetOutput.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.UriIp4ParserStruct, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %20, label %13
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %first.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  %3 = load ptr, ptr %first.addr, align 8
-  %cmp3 = icmp ule ptr %2, %3
-  br i1 %cmp3, label %if.then, label %if.end
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8, !tbaa !3
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = icmp ule ptr %17, %18
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %16, %13, %3
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %stackCount = getelementptr inbounds %struct.UriIp4ParserStruct, ptr %parser, i32 0, i32 0
-  store i8 0, ptr %stackCount, align 1
-  %4 = load ptr, ptr %first.addr, align 8
-  %5 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %4, ptr noundef %5)
-  store ptr %call, ptr %after, align 8
-  %6 = load ptr, ptr %after, align 8
-  %cmp4 = icmp eq ptr %6, null
-  br i1 %cmp4, label %if.then10, label %lor.lhs.false5
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw %struct.UriIp4ParserStruct, ptr %9, i32 0, i32 0
+  store i8 0, ptr %22, align 1, !tbaa !8
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = load ptr, ptr %7, align 8, !tbaa !3
+  %25 = call ptr @uriParseDecOctetA(ptr noundef %9, ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %8, align 8, !tbaa !3
+  %26 = load ptr, ptr %8, align 8, !tbaa !3
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %37, label %28
 
-lor.lhs.false5:                                   ; preds = %if.end
-  %7 = load ptr, ptr %after, align 8
-  %8 = load ptr, ptr %afterLast.addr, align 8
-  %cmp6 = icmp uge ptr %7, %8
-  br i1 %cmp6, label %if.then10, label %lor.lhs.false7
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %8, align 8, !tbaa !3
+  %30 = load ptr, ptr %7, align 8, !tbaa !3
+  %31 = icmp uge ptr %29, %30
+  br i1 %31, label %37, label %32
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %9 = load ptr, ptr %after, align 8
-  %10 = load i8, ptr %9, align 1
-  %conv = sext i8 %10 to i32
-  %cmp8 = icmp ne i32 %conv, 46
-  br i1 %cmp8, label %if.then10, label %if.end11
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %8, align 8, !tbaa !3
+  %34 = load i8, ptr %33, align 1, !tbaa !10
+  %35 = sext i8 %34 to i32
+  %36 = icmp ne i32 %35, 46
+  br i1 %36, label %37, label %38
 
-if.then10:                                        ; preds = %lor.lhs.false7, %lor.lhs.false5, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+37:                                               ; preds = %32, %28, %21
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end11:                                         ; preds = %lor.lhs.false7
-  %11 = load ptr, ptr %octetOutput.addr, align 8
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %11)
-  %12 = load ptr, ptr %after, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %12, i64 1
-  %13 = load ptr, ptr %afterLast.addr, align 8
-  %call12 = call ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef %13)
-  store ptr %call12, ptr %after, align 8
-  %14 = load ptr, ptr %after, align 8
-  %cmp13 = icmp eq ptr %14, null
-  br i1 %cmp13, label %if.then22, label %lor.lhs.false15
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %39)
+  %40 = load ptr, ptr %8, align 8, !tbaa !3
+  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %42 = load ptr, ptr %7, align 8, !tbaa !3
+  %43 = call ptr @uriParseDecOctetA(ptr noundef %9, ptr noundef %41, ptr noundef %42)
+  store ptr %43, ptr %8, align 8, !tbaa !3
+  %44 = load ptr, ptr %8, align 8, !tbaa !3
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %55, label %46
 
-lor.lhs.false15:                                  ; preds = %if.end11
-  %15 = load ptr, ptr %after, align 8
-  %16 = load ptr, ptr %afterLast.addr, align 8
-  %cmp16 = icmp uge ptr %15, %16
-  br i1 %cmp16, label %if.then22, label %lor.lhs.false18
+46:                                               ; preds = %38
+  %47 = load ptr, ptr %8, align 8, !tbaa !3
+  %48 = load ptr, ptr %7, align 8, !tbaa !3
+  %49 = icmp uge ptr %47, %48
+  br i1 %49, label %55, label %50
 
-lor.lhs.false18:                                  ; preds = %lor.lhs.false15
-  %17 = load ptr, ptr %after, align 8
-  %18 = load i8, ptr %17, align 1
-  %conv19 = sext i8 %18 to i32
-  %cmp20 = icmp ne i32 %conv19, 46
-  br i1 %cmp20, label %if.then22, label %if.end23
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %8, align 8, !tbaa !3
+  %52 = load i8, ptr %51, align 1, !tbaa !10
+  %53 = sext i8 %52 to i32
+  %54 = icmp ne i32 %53, 46
+  br i1 %54, label %55, label %56
 
-if.then22:                                        ; preds = %lor.lhs.false18, %lor.lhs.false15, %if.end11
-  store i32 1, ptr %retval, align 4
-  br label %return
+55:                                               ; preds = %50, %46, %38
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end23:                                         ; preds = %lor.lhs.false18
-  %19 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr24 = getelementptr inbounds i8, ptr %19, i64 1
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr24)
-  %20 = load ptr, ptr %after, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr %20, i64 1
-  %21 = load ptr, ptr %afterLast.addr, align 8
-  %call26 = call ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr25, ptr noundef %21)
-  store ptr %call26, ptr %after, align 8
-  %22 = load ptr, ptr %after, align 8
-  %cmp27 = icmp eq ptr %22, null
-  br i1 %cmp27, label %if.then36, label %lor.lhs.false29
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %5, align 8, !tbaa !3
+  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %58)
+  %59 = load ptr, ptr %8, align 8, !tbaa !3
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  %61 = load ptr, ptr %7, align 8, !tbaa !3
+  %62 = call ptr @uriParseDecOctetA(ptr noundef %9, ptr noundef %60, ptr noundef %61)
+  store ptr %62, ptr %8, align 8, !tbaa !3
+  %63 = load ptr, ptr %8, align 8, !tbaa !3
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %74, label %65
 
-lor.lhs.false29:                                  ; preds = %if.end23
-  %23 = load ptr, ptr %after, align 8
-  %24 = load ptr, ptr %afterLast.addr, align 8
-  %cmp30 = icmp uge ptr %23, %24
-  br i1 %cmp30, label %if.then36, label %lor.lhs.false32
+65:                                               ; preds = %56
+  %66 = load ptr, ptr %8, align 8, !tbaa !3
+  %67 = load ptr, ptr %7, align 8, !tbaa !3
+  %68 = icmp uge ptr %66, %67
+  br i1 %68, label %74, label %69
 
-lor.lhs.false32:                                  ; preds = %lor.lhs.false29
-  %25 = load ptr, ptr %after, align 8
-  %26 = load i8, ptr %25, align 1
-  %conv33 = sext i8 %26 to i32
-  %cmp34 = icmp ne i32 %conv33, 46
-  br i1 %cmp34, label %if.then36, label %if.end37
+69:                                               ; preds = %65
+  %70 = load ptr, ptr %8, align 8, !tbaa !3
+  %71 = load i8, ptr %70, align 1, !tbaa !10
+  %72 = sext i8 %71 to i32
+  %73 = icmp ne i32 %72, 46
+  br i1 %73, label %74, label %75
 
-if.then36:                                        ; preds = %lor.lhs.false32, %lor.lhs.false29, %if.end23
-  store i32 1, ptr %retval, align 4
-  br label %return
+74:                                               ; preds = %69, %65, %56
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end37:                                         ; preds = %lor.lhs.false32
-  %27 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr38 = getelementptr inbounds i8, ptr %27, i64 2
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr38)
-  %28 = load ptr, ptr %after, align 8
-  %add.ptr39 = getelementptr inbounds i8, ptr %28, i64 1
-  %29 = load ptr, ptr %afterLast.addr, align 8
-  %call40 = call ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr39, ptr noundef %29)
-  store ptr %call40, ptr %after, align 8
-  %30 = load ptr, ptr %after, align 8
-  %31 = load ptr, ptr %afterLast.addr, align 8
-  %cmp41 = icmp ne ptr %30, %31
-  br i1 %cmp41, label %if.then43, label %if.end44
+75:                                               ; preds = %69
+  %76 = load ptr, ptr %5, align 8, !tbaa !3
+  %77 = getelementptr inbounds i8, ptr %76, i64 2
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %77)
+  %78 = load ptr, ptr %8, align 8, !tbaa !3
+  %79 = getelementptr inbounds i8, ptr %78, i64 1
+  %80 = load ptr, ptr %7, align 8, !tbaa !3
+  %81 = call ptr @uriParseDecOctetA(ptr noundef %9, ptr noundef %79, ptr noundef %80)
+  store ptr %81, ptr %8, align 8, !tbaa !3
+  %82 = load ptr, ptr %8, align 8, !tbaa !3
+  %83 = load ptr, ptr %7, align 8, !tbaa !3
+  %84 = icmp ne ptr %82, %83
+  br i1 %84, label %85, label %86
 
-if.then43:                                        ; preds = %if.end37
-  store i32 1, ptr %retval, align 4
-  br label %return
+85:                                               ; preds = %75
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-if.end44:                                         ; preds = %if.end37
-  %32 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr45 = getelementptr inbounds i8, ptr %32, i64 3
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr45)
-  store i32 0, ptr %retval, align 4
-  br label %return
+86:                                               ; preds = %75
+  %87 = load ptr, ptr %5, align 8, !tbaa !3
+  %88 = getelementptr inbounds i8, ptr %87, i64 3
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %88)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %89
 
-return:                                           ; preds = %if.end44, %if.then43, %if.then36, %if.then22, %if.then10, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+89:                                               ; preds = %86, %85, %74, %55, %37, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %90 = load i32, ptr %4, align 4
+  ret i32 %90
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %12
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %first.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv = sext i8 %3 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb3
-    i32 51, label %sw.bb6
-    i32 52, label %sw.bb6
-    i32 53, label %sw.bb6
-    i32 54, label %sw.bb6
-    i32 55, label %sw.bb6
-    i32 56, label %sw.bb6
-    i32 57, label %sw.bb6
+11:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %48
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  %14 = load i8, ptr %13, align 1, !tbaa !10
+  %15 = sext i8 %14 to i32
+  switch i32 %15, label %47 [
+    i32 48, label %16
+    i32 49, label %20
+    i32 50, label %27
+    i32 51, label %34
+    i32 52, label %34
+    i32 53, label %34
+    i32 54, label %34
+    i32 55, label %34
+    i32 56, label %34
+    i32 57, label %34
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %4 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %4, i8 noundef zeroext 0)
-  %5 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %17, i8 noundef zeroext 0)
+  %18 = load ptr, ptr %6, align 8, !tbaa !3
+  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  store ptr %19, ptr %4, align 8
+  br label %48
 
-sw.bb1:                                           ; preds = %if.end
-  %6 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %6, i8 noundef zeroext 1)
-  %7 = load ptr, ptr %parser.addr, align 8
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %8, i64 1
-  %9 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetOneA(ptr noundef %7, ptr noundef %add.ptr2, ptr noundef %9)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+20:                                               ; preds = %12
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %21, i8 noundef zeroext 1)
+  %22 = load ptr, ptr %5, align 8, !tbaa !11
+  %23 = load ptr, ptr %6, align 8, !tbaa !3
+  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %25 = load ptr, ptr %7, align 8, !tbaa !3
+  %26 = call ptr @uriParseDecOctetOneA(ptr noundef %22, ptr noundef %24, ptr noundef %25)
+  store ptr %26, ptr %4, align 8
+  br label %48
 
-sw.bb3:                                           ; preds = %if.end
-  %10 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %10, i8 noundef zeroext 2)
-  %11 = load ptr, ptr %parser.addr, align 8
-  %12 = load ptr, ptr %first.addr, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %12, i64 1
-  %13 = load ptr, ptr %afterLast.addr, align 8
-  %call5 = call ptr @uriParseDecOctetTwoA(ptr noundef %11, ptr noundef %add.ptr4, ptr noundef %13)
-  store ptr %call5, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %12
+  %28 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %28, i8 noundef zeroext 2)
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = load ptr, ptr %6, align 8, !tbaa !3
+  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %32 = load ptr, ptr %7, align 8, !tbaa !3
+  %33 = call ptr @uriParseDecOctetTwoA(ptr noundef %29, ptr noundef %31, ptr noundef %32)
+  store ptr %33, ptr %4, align 8
+  br label %48
 
-sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %14 = load ptr, ptr %parser.addr, align 8
-  %15 = load ptr, ptr %first.addr, align 8
-  %16 = load i8, ptr %15, align 1
-  %conv7 = sext i8 %16 to i32
-  %add = add nsw i32 9, %conv7
-  %sub = sub nsw i32 %add, 57
-  %conv8 = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %14, i8 noundef zeroext %conv8)
-  %17 = load ptr, ptr %parser.addr, align 8
-  %18 = load ptr, ptr %first.addr, align 8
-  %add.ptr9 = getelementptr inbounds i8, ptr %18, i64 1
-  %19 = load ptr, ptr %afterLast.addr, align 8
-  %call10 = call ptr @uriParseDecOctetThreeA(ptr noundef %17, ptr noundef %add.ptr9, ptr noundef %19)
-  store ptr %call10, ptr %retval, align 8
-  br label %return
+34:                                               ; preds = %12, %12, %12, %12, %12, %12, %12
+  %35 = load ptr, ptr %5, align 8, !tbaa !11
+  %36 = load ptr, ptr %6, align 8, !tbaa !3
+  %37 = load i8, ptr %36, align 1, !tbaa !10
+  %38 = sext i8 %37 to i32
+  %39 = add nsw i32 9, %38
+  %40 = sub nsw i32 %39, 57
+  %41 = trunc i32 %40 to i8
+  call void @uriPushToStack(ptr noundef %35, i8 noundef zeroext %41)
+  %42 = load ptr, ptr %5, align 8, !tbaa !11
+  %43 = load ptr, ptr %6, align 8, !tbaa !3
+  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %45 = load ptr, ptr %7, align 8, !tbaa !3
+  %46 = call ptr @uriParseDecOctetThreeA(ptr noundef %42, ptr noundef %44, ptr noundef %45)
+  store ptr %46, ptr %4, align 8
+  br label %48
 
-sw.default:                                       ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+47:                                               ; preds = %12
+  store ptr null, ptr %4, align 8
+  br label %48
 
-return:                                           ; preds = %sw.default, %sw.bb6, %sw.bb3, %sw.bb1, %sw.bb, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+48:                                               ; preds = %47, %34, %27, %20, %16, %11
+  %49 = load ptr, ptr %4, align 8
+  ret ptr %49
 }
 
-declare void @uriStackToOctet(ptr noundef, ptr noundef) #1
+declare void @uriStackToOctet(ptr noundef, ptr noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @uriParseIpFourAddressW(ptr noundef %octetOutput, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %octetOutput.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  %after = alloca ptr, align 8
-  %parser = alloca %struct.UriIp4ParserStruct, align 1
-  store ptr %octetOutput, ptr %octetOutput.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %octetOutput.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.UriIp4ParserStruct, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %11 = load ptr, ptr %5, align 8, !tbaa !3
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %20, label %13
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = load ptr, ptr %first.addr, align 8
-  %cmp1 = icmp eq ptr %1, null
-  br i1 %cmp1, label %if.then, label %lor.lhs.false2
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  %3 = load ptr, ptr %first.addr, align 8
-  %cmp3 = icmp ule ptr %2, %3
-  br i1 %cmp3, label %if.then, label %if.end
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %7, align 8, !tbaa !13
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
+  %19 = icmp ule ptr %17, %18
+  br i1 %19, label %20, label %21
 
-if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  store i32 1, ptr %retval, align 4
-  br label %return
+20:                                               ; preds = %16, %13, %3
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end:                                           ; preds = %lor.lhs.false2
-  %stackCount = getelementptr inbounds %struct.UriIp4ParserStruct, ptr %parser, i32 0, i32 0
-  store i8 0, ptr %stackCount, align 1
-  %4 = load ptr, ptr %first.addr, align 8
-  %5 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %4, ptr noundef %5)
-  store ptr %call, ptr %after, align 8
-  %6 = load ptr, ptr %after, align 8
-  %cmp4 = icmp eq ptr %6, null
-  br i1 %cmp4, label %if.then9, label %lor.lhs.false5
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw %struct.UriIp4ParserStruct, ptr %9, i32 0, i32 0
+  store i8 0, ptr %22, align 1, !tbaa !8
+  %23 = load ptr, ptr %6, align 8, !tbaa !13
+  %24 = load ptr, ptr %7, align 8, !tbaa !13
+  %25 = call ptr @uriParseDecOctetW(ptr noundef %9, ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %8, align 8, !tbaa !13
+  %26 = load ptr, ptr %8, align 8, !tbaa !13
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %36, label %28
 
-lor.lhs.false5:                                   ; preds = %if.end
-  %7 = load ptr, ptr %after, align 8
-  %8 = load ptr, ptr %afterLast.addr, align 8
-  %cmp6 = icmp uge ptr %7, %8
-  br i1 %cmp6, label %if.then9, label %lor.lhs.false7
+28:                                               ; preds = %21
+  %29 = load ptr, ptr %8, align 8, !tbaa !13
+  %30 = load ptr, ptr %7, align 8, !tbaa !13
+  %31 = icmp uge ptr %29, %30
+  br i1 %31, label %36, label %32
 
-lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %9 = load ptr, ptr %after, align 8
-  %10 = load i32, ptr %9, align 4
-  %cmp8 = icmp ne i32 %10, 46
-  br i1 %cmp8, label %if.then9, label %if.end10
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %8, align 8, !tbaa !13
+  %34 = load i32, ptr %33, align 4, !tbaa !15
+  %35 = icmp ne i32 %34, 46
+  br i1 %35, label %36, label %37
 
-if.then9:                                         ; preds = %lor.lhs.false7, %lor.lhs.false5, %if.end
-  store i32 1, ptr %retval, align 4
-  br label %return
+36:                                               ; preds = %32, %28, %21
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end10:                                         ; preds = %lor.lhs.false7
-  %11 = load ptr, ptr %octetOutput.addr, align 8
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %11)
-  %12 = load ptr, ptr %after, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %12, i64 1
-  %13 = load ptr, ptr %afterLast.addr, align 8
-  %call11 = call ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef %13)
-  store ptr %call11, ptr %after, align 8
-  %14 = load ptr, ptr %after, align 8
-  %cmp12 = icmp eq ptr %14, null
-  br i1 %cmp12, label %if.then17, label %lor.lhs.false13
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %38)
+  %39 = load ptr, ptr %8, align 8, !tbaa !13
+  %40 = getelementptr inbounds i32, ptr %39, i64 1
+  %41 = load ptr, ptr %7, align 8, !tbaa !13
+  %42 = call ptr @uriParseDecOctetW(ptr noundef %9, ptr noundef %40, ptr noundef %41)
+  store ptr %42, ptr %8, align 8, !tbaa !13
+  %43 = load ptr, ptr %8, align 8, !tbaa !13
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %53, label %45
 
-lor.lhs.false13:                                  ; preds = %if.end10
-  %15 = load ptr, ptr %after, align 8
-  %16 = load ptr, ptr %afterLast.addr, align 8
-  %cmp14 = icmp uge ptr %15, %16
-  br i1 %cmp14, label %if.then17, label %lor.lhs.false15
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %8, align 8, !tbaa !13
+  %47 = load ptr, ptr %7, align 8, !tbaa !13
+  %48 = icmp uge ptr %46, %47
+  br i1 %48, label %53, label %49
 
-lor.lhs.false15:                                  ; preds = %lor.lhs.false13
-  %17 = load ptr, ptr %after, align 8
-  %18 = load i32, ptr %17, align 4
-  %cmp16 = icmp ne i32 %18, 46
-  br i1 %cmp16, label %if.then17, label %if.end18
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %8, align 8, !tbaa !13
+  %51 = load i32, ptr %50, align 4, !tbaa !15
+  %52 = icmp ne i32 %51, 46
+  br i1 %52, label %53, label %54
 
-if.then17:                                        ; preds = %lor.lhs.false15, %lor.lhs.false13, %if.end10
-  store i32 1, ptr %retval, align 4
-  br label %return
+53:                                               ; preds = %49, %45, %37
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end18:                                         ; preds = %lor.lhs.false15
-  %19 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr19 = getelementptr inbounds i8, ptr %19, i64 1
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr19)
-  %20 = load ptr, ptr %after, align 8
-  %add.ptr20 = getelementptr inbounds i32, ptr %20, i64 1
-  %21 = load ptr, ptr %afterLast.addr, align 8
-  %call21 = call ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr20, ptr noundef %21)
-  store ptr %call21, ptr %after, align 8
-  %22 = load ptr, ptr %after, align 8
-  %cmp22 = icmp eq ptr %22, null
-  br i1 %cmp22, label %if.then27, label %lor.lhs.false23
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %56)
+  %57 = load ptr, ptr %8, align 8, !tbaa !13
+  %58 = getelementptr inbounds i32, ptr %57, i64 1
+  %59 = load ptr, ptr %7, align 8, !tbaa !13
+  %60 = call ptr @uriParseDecOctetW(ptr noundef %9, ptr noundef %58, ptr noundef %59)
+  store ptr %60, ptr %8, align 8, !tbaa !13
+  %61 = load ptr, ptr %8, align 8, !tbaa !13
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %71, label %63
 
-lor.lhs.false23:                                  ; preds = %if.end18
-  %23 = load ptr, ptr %after, align 8
-  %24 = load ptr, ptr %afterLast.addr, align 8
-  %cmp24 = icmp uge ptr %23, %24
-  br i1 %cmp24, label %if.then27, label %lor.lhs.false25
+63:                                               ; preds = %54
+  %64 = load ptr, ptr %8, align 8, !tbaa !13
+  %65 = load ptr, ptr %7, align 8, !tbaa !13
+  %66 = icmp uge ptr %64, %65
+  br i1 %66, label %71, label %67
 
-lor.lhs.false25:                                  ; preds = %lor.lhs.false23
-  %25 = load ptr, ptr %after, align 8
-  %26 = load i32, ptr %25, align 4
-  %cmp26 = icmp ne i32 %26, 46
-  br i1 %cmp26, label %if.then27, label %if.end28
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %8, align 8, !tbaa !13
+  %69 = load i32, ptr %68, align 4, !tbaa !15
+  %70 = icmp ne i32 %69, 46
+  br i1 %70, label %71, label %72
 
-if.then27:                                        ; preds = %lor.lhs.false25, %lor.lhs.false23, %if.end18
-  store i32 1, ptr %retval, align 4
-  br label %return
+71:                                               ; preds = %67, %63, %54
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end28:                                         ; preds = %lor.lhs.false25
-  %27 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr29 = getelementptr inbounds i8, ptr %27, i64 2
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr29)
-  %28 = load ptr, ptr %after, align 8
-  %add.ptr30 = getelementptr inbounds i32, ptr %28, i64 1
-  %29 = load ptr, ptr %afterLast.addr, align 8
-  %call31 = call ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr30, ptr noundef %29)
-  store ptr %call31, ptr %after, align 8
-  %30 = load ptr, ptr %after, align 8
-  %31 = load ptr, ptr %afterLast.addr, align 8
-  %cmp32 = icmp ne ptr %30, %31
-  br i1 %cmp32, label %if.then33, label %if.end34
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %5, align 8, !tbaa !3
+  %74 = getelementptr inbounds i8, ptr %73, i64 2
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %74)
+  %75 = load ptr, ptr %8, align 8, !tbaa !13
+  %76 = getelementptr inbounds i32, ptr %75, i64 1
+  %77 = load ptr, ptr %7, align 8, !tbaa !13
+  %78 = call ptr @uriParseDecOctetW(ptr noundef %9, ptr noundef %76, ptr noundef %77)
+  store ptr %78, ptr %8, align 8, !tbaa !13
+  %79 = load ptr, ptr %8, align 8, !tbaa !13
+  %80 = load ptr, ptr %7, align 8, !tbaa !13
+  %81 = icmp ne ptr %79, %80
+  br i1 %81, label %82, label %83
 
-if.then33:                                        ; preds = %if.end28
-  store i32 1, ptr %retval, align 4
-  br label %return
+82:                                               ; preds = %72
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-if.end34:                                         ; preds = %if.end28
-  %32 = load ptr, ptr %octetOutput.addr, align 8
-  %add.ptr35 = getelementptr inbounds i8, ptr %32, i64 3
-  call void @uriStackToOctet(ptr noundef %parser, ptr noundef %add.ptr35)
-  store i32 0, ptr %retval, align 4
-  br label %return
+83:                                               ; preds = %72
+  %84 = load ptr, ptr %5, align 8, !tbaa !3
+  %85 = getelementptr inbounds i8, ptr %84, i64 3
+  call void @uriStackToOctet(ptr noundef %9, ptr noundef %85)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %10, align 4
+  br label %86
 
-return:                                           ; preds = %if.end34, %if.then33, %if.then27, %if.then17, %if.then9, %if.then
-  %33 = load i32, ptr %retval, align 4
-  ret i32 %33
+86:                                               ; preds = %83, %82, %71, %53, %36, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  %87 = load i32, ptr %4, align 4
+  ret i32 %87
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  store ptr null, ptr %4, align 8
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %first.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  switch i32 %3, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb3
-    i32 51, label %sw.bb6
-    i32 52, label %sw.bb6
-    i32 53, label %sw.bb6
-    i32 54, label %sw.bb6
-    i32 55, label %sw.bb6
-    i32 56, label %sw.bb6
-    i32 57, label %sw.bb6
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %6, align 8, !tbaa !13
+  %14 = load i32, ptr %13, align 4, !tbaa !15
+  switch i32 %14, label %45 [
+    i32 48, label %15
+    i32 49, label %19
+    i32 50, label %26
+    i32 51, label %33
+    i32 52, label %33
+    i32 53, label %33
+    i32 54, label %33
+    i32 55, label %33
+    i32 56, label %33
+    i32 57, label %33
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %4 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %4, i8 noundef zeroext 0)
-  %5 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %5, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %16, i8 noundef zeroext 0)
+  %17 = load ptr, ptr %6, align 8, !tbaa !13
+  %18 = getelementptr inbounds i32, ptr %17, i64 1
+  store ptr %18, ptr %4, align 8
+  br label %46
 
-sw.bb1:                                           ; preds = %if.end
-  %6 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %6, i8 noundef zeroext 1)
-  %7 = load ptr, ptr %parser.addr, align 8
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr2 = getelementptr inbounds i32, ptr %8, i64 1
-  %9 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetOneW(ptr noundef %7, ptr noundef %add.ptr2, ptr noundef %9)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+19:                                               ; preds = %12
+  %20 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %20, i8 noundef zeroext 1)
+  %21 = load ptr, ptr %5, align 8, !tbaa !11
+  %22 = load ptr, ptr %6, align 8, !tbaa !13
+  %23 = getelementptr inbounds i32, ptr %22, i64 1
+  %24 = load ptr, ptr %7, align 8, !tbaa !13
+  %25 = call ptr @uriParseDecOctetOneW(ptr noundef %21, ptr noundef %23, ptr noundef %24)
+  store ptr %25, ptr %4, align 8
+  br label %46
 
-sw.bb3:                                           ; preds = %if.end
-  %10 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %10, i8 noundef zeroext 2)
-  %11 = load ptr, ptr %parser.addr, align 8
-  %12 = load ptr, ptr %first.addr, align 8
-  %add.ptr4 = getelementptr inbounds i32, ptr %12, i64 1
-  %13 = load ptr, ptr %afterLast.addr, align 8
-  %call5 = call ptr @uriParseDecOctetTwoW(ptr noundef %11, ptr noundef %add.ptr4, ptr noundef %13)
-  store ptr %call5, ptr %retval, align 8
-  br label %return
+26:                                               ; preds = %12
+  %27 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %27, i8 noundef zeroext 2)
+  %28 = load ptr, ptr %5, align 8, !tbaa !11
+  %29 = load ptr, ptr %6, align 8, !tbaa !13
+  %30 = getelementptr inbounds i32, ptr %29, i64 1
+  %31 = load ptr, ptr %7, align 8, !tbaa !13
+  %32 = call ptr @uriParseDecOctetTwoW(ptr noundef %28, ptr noundef %30, ptr noundef %31)
+  store ptr %32, ptr %4, align 8
+  br label %46
 
-sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %14 = load ptr, ptr %parser.addr, align 8
-  %15 = load ptr, ptr %first.addr, align 8
-  %16 = load i32, ptr %15, align 4
-  %add = add nsw i32 9, %16
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %14, i8 noundef zeroext %conv)
-  %17 = load ptr, ptr %parser.addr, align 8
-  %18 = load ptr, ptr %first.addr, align 8
-  %add.ptr7 = getelementptr inbounds i32, ptr %18, i64 1
-  %19 = load ptr, ptr %afterLast.addr, align 8
-  %call8 = call ptr @uriParseDecOctetThreeW(ptr noundef %17, ptr noundef %add.ptr7, ptr noundef %19)
-  store ptr %call8, ptr %retval, align 8
-  br label %return
+33:                                               ; preds = %12, %12, %12, %12, %12, %12, %12
+  %34 = load ptr, ptr %5, align 8, !tbaa !11
+  %35 = load ptr, ptr %6, align 8, !tbaa !13
+  %36 = load i32, ptr %35, align 4, !tbaa !15
+  %37 = add nsw i32 9, %36
+  %38 = sub nsw i32 %37, 57
+  %39 = trunc i32 %38 to i8
+  call void @uriPushToStack(ptr noundef %34, i8 noundef zeroext %39)
+  %40 = load ptr, ptr %5, align 8, !tbaa !11
+  %41 = load ptr, ptr %6, align 8, !tbaa !13
+  %42 = getelementptr inbounds i32, ptr %41, i64 1
+  %43 = load ptr, ptr %7, align 8, !tbaa !13
+  %44 = call ptr @uriParseDecOctetThreeW(ptr noundef %40, ptr noundef %42, ptr noundef %43)
+  store ptr %44, ptr %4, align 8
+  br label %46
 
-sw.default:                                       ; preds = %if.end
-  store ptr null, ptr %retval, align 8
-  br label %return
+45:                                               ; preds = %12
+  store ptr null, ptr %4, align 8
+  br label %46
 
-return:                                           ; preds = %sw.default, %sw.bb6, %sw.bb3, %sw.bb1, %sw.bb, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+46:                                               ; preds = %45, %33, %26, %19, %15, %11
+  %47 = load ptr, ptr %4, align 8
+  ret ptr %47
 }
 
-declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) #1
+declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetOneA(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetOneA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8
+  br label %32
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %16 = sext i8 %15 to i32
+  switch i32 %16, label %30 [
+    i32 48, label %17
+    i32 49, label %17
+    i32 50, label %17
+    i32 51, label %17
+    i32 52, label %17
+    i32 53, label %17
+    i32 54, label %17
+    i32 55, label %17
+    i32 56, label %17
+    i32 57, label %17
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = sext i8 %7 to i32
-  %add = add nsw i32 9, %conv1
-  %sub = sub nsw i32 %add, 57
-  %conv2 = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv2)
-  %8 = load ptr, ptr %parser.addr, align 8
-  %9 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 1
-  %10 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetThreeA(ptr noundef %8, ptr noundef %add.ptr, ptr noundef %10)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = sext i8 %20 to i32
+  %22 = add nsw i32 9, %21
+  %23 = sub nsw i32 %22, 57
+  %24 = trunc i32 %23 to i8
+  call void @uriPushToStack(ptr noundef %18, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %5, align 8, !tbaa !11
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = load ptr, ptr %7, align 8, !tbaa !3
+  %29 = call ptr @uriParseDecOctetThreeA(ptr noundef %25, ptr noundef %27, ptr noundef %28)
+  store ptr %29, ptr %4, align 8
+  br label %32
 
-sw.default:                                       ; preds = %if.end
-  %11 = load ptr, ptr %first.addr, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
+30:                                               ; preds = %13
+  %31 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %31, ptr %4, align 8
+  br label %32
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+32:                                               ; preds = %30, %17, %11
+  %33 = load ptr, ptr %4, align 8
+  ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetTwoA(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetTwoA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8
+  br label %49
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb3
-    i32 54, label %sw.bb6
-    i32 55, label %sw.bb6
-    i32 56, label %sw.bb6
-    i32 57, label %sw.bb6
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %16 = sext i8 %15 to i32
+  switch i32 %16, label %47 [
+    i32 48, label %17
+    i32 49, label %17
+    i32 50, label %17
+    i32 51, label %17
+    i32 52, label %17
+    i32 53, label %30
+    i32 54, label %37
+    i32 55, label %37
+    i32 56, label %37
+    i32 57, label %37
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = sext i8 %7 to i32
-  %add = add nsw i32 9, %conv1
-  %sub = sub nsw i32 %add, 57
-  %conv2 = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv2)
-  %8 = load ptr, ptr %parser.addr, align 8
-  %9 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 1
-  %10 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetThreeA(ptr noundef %8, ptr noundef %add.ptr, ptr noundef %10)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13, %13, %13, %13, %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = sext i8 %20 to i32
+  %22 = add nsw i32 9, %21
+  %23 = sub nsw i32 %22, 57
+  %24 = trunc i32 %23 to i8
+  call void @uriPushToStack(ptr noundef %18, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %5, align 8, !tbaa !11
+  %26 = load ptr, ptr %6, align 8, !tbaa !3
+  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = load ptr, ptr %7, align 8, !tbaa !3
+  %29 = call ptr @uriParseDecOctetThreeA(ptr noundef %25, ptr noundef %27, ptr noundef %28)
+  store ptr %29, ptr %4, align 8
+  br label %49
 
-sw.bb3:                                           ; preds = %if.end
-  %11 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %11, i8 noundef zeroext 5)
-  %12 = load ptr, ptr %parser.addr, align 8
-  %13 = load ptr, ptr %first.addr, align 8
-  %add.ptr4 = getelementptr inbounds i8, ptr %13, i64 1
-  %14 = load ptr, ptr %afterLast.addr, align 8
-  %call5 = call ptr @uriParseDecOctetFourA(ptr noundef %12, ptr noundef %add.ptr4, ptr noundef %14)
-  store ptr %call5, ptr %retval, align 8
-  br label %return
+30:                                               ; preds = %13
+  %31 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %31, i8 noundef zeroext 5)
+  %32 = load ptr, ptr %5, align 8, !tbaa !11
+  %33 = load ptr, ptr %6, align 8, !tbaa !3
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %35 = load ptr, ptr %7, align 8, !tbaa !3
+  %36 = call ptr @uriParseDecOctetFourA(ptr noundef %32, ptr noundef %34, ptr noundef %35)
+  store ptr %36, ptr %4, align 8
+  br label %49
 
-sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end
-  %15 = load ptr, ptr %parser.addr, align 8
-  %16 = load ptr, ptr %first.addr, align 8
-  %17 = load i8, ptr %16, align 1
-  %conv7 = sext i8 %17 to i32
-  %add8 = add nsw i32 9, %conv7
-  %sub9 = sub nsw i32 %add8, 57
-  %conv10 = trunc i32 %sub9 to i8
-  call void @uriPushToStack(ptr noundef %15, i8 noundef zeroext %conv10)
-  %18 = load ptr, ptr %first.addr, align 8
-  %add.ptr11 = getelementptr inbounds i8, ptr %18, i64 1
-  store ptr %add.ptr11, ptr %retval, align 8
-  br label %return
+37:                                               ; preds = %13, %13, %13, %13
+  %38 = load ptr, ptr %5, align 8, !tbaa !11
+  %39 = load ptr, ptr %6, align 8, !tbaa !3
+  %40 = load i8, ptr %39, align 1, !tbaa !10
+  %41 = sext i8 %40 to i32
+  %42 = add nsw i32 9, %41
+  %43 = sub nsw i32 %42, 57
+  %44 = trunc i32 %43 to i8
+  call void @uriPushToStack(ptr noundef %38, i8 noundef zeroext %44)
+  %45 = load ptr, ptr %6, align 8, !tbaa !3
+  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  store ptr %46, ptr %4, align 8
+  br label %49
 
-sw.default:                                       ; preds = %if.end
-  %19 = load ptr, ptr %first.addr, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
+47:                                               ; preds = %13
+  %48 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %48, ptr %4, align 8
+  br label %49
 
-return:                                           ; preds = %sw.default, %sw.bb6, %sw.bb3, %sw.bb, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+49:                                               ; preds = %47, %37, %30, %17, %11
+  %50 = load ptr, ptr %4, align 8
+  ret ptr %50
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetThreeA(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetThreeA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8
+  br label %29
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %16 = sext i8 %15 to i32
+  switch i32 %16, label %27 [
+    i32 48, label %17
+    i32 49, label %17
+    i32 50, label %17
+    i32 51, label %17
+    i32 52, label %17
+    i32 53, label %17
+    i32 54, label %17
+    i32 55, label %17
+    i32 56, label %17
+    i32 57, label %17
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = sext i8 %7 to i32
-  %add = add nsw i32 9, %conv1
-  %sub = sub nsw i32 %add, 57
-  %conv2 = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv2)
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = sext i8 %20 to i32
+  %22 = add nsw i32 9, %21
+  %23 = sub nsw i32 %22, 57
+  %24 = trunc i32 %23 to i8
+  call void @uriPushToStack(ptr noundef %18, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %4, align 8
+  br label %29
 
-sw.default:                                       ; preds = %if.end
-  %9 = load ptr, ptr %first.addr, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %13
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %28, ptr %4, align 8
+  br label %29
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+29:                                               ; preds = %27, %17, %11
+  %30 = load ptr, ptr %4, align 8
+  ret ptr %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetFourA(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetFourA(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store ptr %2, ptr %7, align 8, !tbaa !3
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !3
+  store ptr %12, ptr %4, align 8
+  br label %29
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i8, ptr %3, align 1
-  %conv = sext i8 %4 to i32
-  switch i32 %conv, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !3
+  %15 = load i8, ptr %14, align 1, !tbaa !10
+  %16 = sext i8 %15 to i32
+  switch i32 %16, label %27 [
+    i32 48, label %17
+    i32 49, label %17
+    i32 50, label %17
+    i32 51, label %17
+    i32 52, label %17
+    i32 53, label %17
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i8, ptr %6, align 1
-  %conv1 = sext i8 %7 to i32
-  %add = add nsw i32 9, %conv1
-  %sub = sub nsw i32 %add, 57
-  %conv2 = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv2)
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+17:                                               ; preds = %13, %13, %13, %13, %13, %13
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !3
+  %20 = load i8, ptr %19, align 1, !tbaa !10
+  %21 = sext i8 %20 to i32
+  %22 = add nsw i32 9, %21
+  %23 = sub nsw i32 %22, 57
+  %24 = trunc i32 %23 to i8
+  call void @uriPushToStack(ptr noundef %18, i8 noundef zeroext %24)
+  %25 = load ptr, ptr %6, align 8, !tbaa !3
+  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %26, ptr %4, align 8
+  br label %29
 
-sw.default:                                       ; preds = %if.end
-  %9 = load ptr, ptr %first.addr, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+27:                                               ; preds = %13
+  %28 = load ptr, ptr %6, align 8, !tbaa !3
+  store ptr %28, ptr %4, align 8
+  br label %29
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+29:                                               ; preds = %27, %17, %11
+  %30 = load ptr, ptr %4, align 8
+  ret ptr %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetOneW(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetOneW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %12, ptr %4, align 8
+  br label %30
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  switch i32 %15, label %28 [
+    i32 48, label %16
+    i32 49, label %16
+    i32 50, label %16
+    i32 51, label %16
+    i32 52, label %16
+    i32 53, label %16
+    i32 54, label %16
+    i32 55, label %16
+    i32 56, label %16
+    i32 57, label %16
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %add = add nsw i32 9, %7
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv)
-  %8 = load ptr, ptr %parser.addr, align 8
-  %9 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %9, i64 1
-  %10 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetThreeW(ptr noundef %8, ptr noundef %add.ptr, ptr noundef %10)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
+  %19 = load i32, ptr %18, align 4, !tbaa !15
+  %20 = add nsw i32 9, %19
+  %21 = sub nsw i32 %20, 57
+  %22 = trunc i32 %21 to i8
+  call void @uriPushToStack(ptr noundef %17, i8 noundef zeroext %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !11
+  %24 = load ptr, ptr %6, align 8, !tbaa !13
+  %25 = getelementptr inbounds i32, ptr %24, i64 1
+  %26 = load ptr, ptr %7, align 8, !tbaa !13
+  %27 = call ptr @uriParseDecOctetThreeW(ptr noundef %23, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %4, align 8
+  br label %30
 
-sw.default:                                       ; preds = %if.end
-  %11 = load ptr, ptr %first.addr, align 8
-  store ptr %11, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %13
+  %29 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %29, ptr %4, align 8
+  br label %30
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %12 = load ptr, ptr %retval, align 8
-  ret ptr %12
+30:                                               ; preds = %28, %16, %11
+  %31 = load ptr, ptr %4, align 8
+  ret ptr %31
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetTwoW(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetTwoW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %12, ptr %4, align 8
+  br label %46
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb1
-    i32 54, label %sw.bb4
-    i32 55, label %sw.bb4
-    i32 56, label %sw.bb4
-    i32 57, label %sw.bb4
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  switch i32 %15, label %44 [
+    i32 48, label %16
+    i32 49, label %16
+    i32 50, label %16
+    i32 51, label %16
+    i32 52, label %16
+    i32 53, label %28
+    i32 54, label %35
+    i32 55, label %35
+    i32 56, label %35
+    i32 57, label %35
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %add = add nsw i32 9, %7
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv)
-  %8 = load ptr, ptr %parser.addr, align 8
-  %9 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %9, i64 1
-  %10 = load ptr, ptr %afterLast.addr, align 8
-  %call = call ptr @uriParseDecOctetThreeW(ptr noundef %8, ptr noundef %add.ptr, ptr noundef %10)
-  store ptr %call, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13, %13, %13, %13, %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
+  %19 = load i32, ptr %18, align 4, !tbaa !15
+  %20 = add nsw i32 9, %19
+  %21 = sub nsw i32 %20, 57
+  %22 = trunc i32 %21 to i8
+  call void @uriPushToStack(ptr noundef %17, i8 noundef zeroext %22)
+  %23 = load ptr, ptr %5, align 8, !tbaa !11
+  %24 = load ptr, ptr %6, align 8, !tbaa !13
+  %25 = getelementptr inbounds i32, ptr %24, i64 1
+  %26 = load ptr, ptr %7, align 8, !tbaa !13
+  %27 = call ptr @uriParseDecOctetThreeW(ptr noundef %23, ptr noundef %25, ptr noundef %26)
+  store ptr %27, ptr %4, align 8
+  br label %46
 
-sw.bb1:                                           ; preds = %if.end
-  %11 = load ptr, ptr %parser.addr, align 8
-  call void @uriPushToStack(ptr noundef %11, i8 noundef zeroext 5)
-  %12 = load ptr, ptr %parser.addr, align 8
-  %13 = load ptr, ptr %first.addr, align 8
-  %add.ptr2 = getelementptr inbounds i32, ptr %13, i64 1
-  %14 = load ptr, ptr %afterLast.addr, align 8
-  %call3 = call ptr @uriParseDecOctetFourW(ptr noundef %12, ptr noundef %add.ptr2, ptr noundef %14)
-  store ptr %call3, ptr %retval, align 8
-  br label %return
+28:                                               ; preds = %13
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @uriPushToStack(ptr noundef %29, i8 noundef zeroext 5)
+  %30 = load ptr, ptr %5, align 8, !tbaa !11
+  %31 = load ptr, ptr %6, align 8, !tbaa !13
+  %32 = getelementptr inbounds i32, ptr %31, i64 1
+  %33 = load ptr, ptr %7, align 8, !tbaa !13
+  %34 = call ptr @uriParseDecOctetFourW(ptr noundef %30, ptr noundef %32, ptr noundef %33)
+  store ptr %34, ptr %4, align 8
+  br label %46
 
-sw.bb4:                                           ; preds = %if.end, %if.end, %if.end, %if.end
-  %15 = load ptr, ptr %parser.addr, align 8
-  %16 = load ptr, ptr %first.addr, align 8
-  %17 = load i32, ptr %16, align 4
-  %add5 = add nsw i32 9, %17
-  %sub6 = sub nsw i32 %add5, 57
-  %conv7 = trunc i32 %sub6 to i8
-  call void @uriPushToStack(ptr noundef %15, i8 noundef zeroext %conv7)
-  %18 = load ptr, ptr %first.addr, align 8
-  %add.ptr8 = getelementptr inbounds i32, ptr %18, i64 1
-  store ptr %add.ptr8, ptr %retval, align 8
-  br label %return
+35:                                               ; preds = %13, %13, %13, %13
+  %36 = load ptr, ptr %5, align 8, !tbaa !11
+  %37 = load ptr, ptr %6, align 8, !tbaa !13
+  %38 = load i32, ptr %37, align 4, !tbaa !15
+  %39 = add nsw i32 9, %38
+  %40 = sub nsw i32 %39, 57
+  %41 = trunc i32 %40 to i8
+  call void @uriPushToStack(ptr noundef %36, i8 noundef zeroext %41)
+  %42 = load ptr, ptr %6, align 8, !tbaa !13
+  %43 = getelementptr inbounds i32, ptr %42, i64 1
+  store ptr %43, ptr %4, align 8
+  br label %46
 
-sw.default:                                       ; preds = %if.end
-  %19 = load ptr, ptr %first.addr, align 8
-  store ptr %19, ptr %retval, align 8
-  br label %return
+44:                                               ; preds = %13
+  %45 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %45, ptr %4, align 8
+  br label %46
 
-return:                                           ; preds = %sw.default, %sw.bb4, %sw.bb1, %sw.bb, %if.then
-  %20 = load ptr, ptr %retval, align 8
-  ret ptr %20
+46:                                               ; preds = %44, %35, %28, %16, %11
+  %47 = load ptr, ptr %4, align 8
+  ret ptr %47
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetThreeW(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetThreeW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %12, ptr %4, align 8
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
-    i32 54, label %sw.bb
-    i32 55, label %sw.bb
-    i32 56, label %sw.bb
-    i32 57, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  switch i32 %15, label %25 [
+    i32 48, label %16
+    i32 49, label %16
+    i32 50, label %16
+    i32 51, label %16
+    i32 52, label %16
+    i32 53, label %16
+    i32 54, label %16
+    i32 55, label %16
+    i32 56, label %16
+    i32 57, label %16
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %add = add nsw i32 9, %7
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv)
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %8, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
+  %19 = load i32, ptr %18, align 4, !tbaa !15
+  %20 = add nsw i32 9, %19
+  %21 = sub nsw i32 %20, 57
+  %22 = trunc i32 %21 to i8
+  call void @uriPushToStack(ptr noundef %17, i8 noundef zeroext %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !13
+  %24 = getelementptr inbounds i32, ptr %23, i64 1
+  store ptr %24, ptr %4, align 8
+  br label %27
 
-sw.default:                                       ; preds = %if.end
-  %9 = load ptr, ptr %first.addr, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %26, ptr %4, align 8
+  br label %27
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+27:                                               ; preds = %25, %16, %11
+  %28 = load ptr, ptr %4, align 8
+  ret ptr %28
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @uriParseDecOctetFourW(ptr noundef %parser, ptr noundef %first, ptr noundef %afterLast) #0 {
-entry:
-  %retval = alloca ptr, align 8
-  %parser.addr = alloca ptr, align 8
-  %first.addr = alloca ptr, align 8
-  %afterLast.addr = alloca ptr, align 8
-  store ptr %parser, ptr %parser.addr, align 8
-  store ptr %first, ptr %first.addr, align 8
-  store ptr %afterLast, ptr %afterLast.addr, align 8
-  %0 = load ptr, ptr %first.addr, align 8
-  %1 = load ptr, ptr %afterLast.addr, align 8
-  %cmp = icmp uge ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal ptr @uriParseDecOctetFourW(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !11
+  store ptr %1, ptr %6, align 8, !tbaa !13
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %6, align 8, !tbaa !13
+  %9 = load ptr, ptr %7, align 8, !tbaa !13
+  %10 = icmp uge ptr %8, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %afterLast.addr, align 8
-  store ptr %2, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %12, ptr %4, align 8
+  br label %27
 
-if.end:                                           ; preds = %entry
-  %3 = load ptr, ptr %first.addr, align 8
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %sw.default [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb
-    i32 50, label %sw.bb
-    i32 51, label %sw.bb
-    i32 52, label %sw.bb
-    i32 53, label %sw.bb
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %6, align 8, !tbaa !13
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  switch i32 %15, label %25 [
+    i32 48, label %16
+    i32 49, label %16
+    i32 50, label %16
+    i32 51, label %16
+    i32 52, label %16
+    i32 53, label %16
   ]
 
-sw.bb:                                            ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %5 = load ptr, ptr %parser.addr, align 8
-  %6 = load ptr, ptr %first.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %add = add nsw i32 9, %7
-  %sub = sub nsw i32 %add, 57
-  %conv = trunc i32 %sub to i8
-  call void @uriPushToStack(ptr noundef %5, i8 noundef zeroext %conv)
-  %8 = load ptr, ptr %first.addr, align 8
-  %add.ptr = getelementptr inbounds i32, ptr %8, i64 1
-  store ptr %add.ptr, ptr %retval, align 8
-  br label %return
+16:                                               ; preds = %13, %13, %13, %13, %13, %13
+  %17 = load ptr, ptr %5, align 8, !tbaa !11
+  %18 = load ptr, ptr %6, align 8, !tbaa !13
+  %19 = load i32, ptr %18, align 4, !tbaa !15
+  %20 = add nsw i32 9, %19
+  %21 = sub nsw i32 %20, 57
+  %22 = trunc i32 %21 to i8
+  call void @uriPushToStack(ptr noundef %17, i8 noundef zeroext %22)
+  %23 = load ptr, ptr %6, align 8, !tbaa !13
+  %24 = getelementptr inbounds i32, ptr %23, i64 1
+  store ptr %24, ptr %4, align 8
+  br label %27
 
-sw.default:                                       ; preds = %if.end
-  %9 = load ptr, ptr %first.addr, align 8
-  store ptr %9, ptr %retval, align 8
-  br label %return
+25:                                               ; preds = %13
+  %26 = load ptr, ptr %6, align 8, !tbaa !13
+  store ptr %26, ptr %4, align 8
+  br label %27
 
-return:                                           ; preds = %sw.default, %sw.bb, %if.then
-  %10 = load ptr, ptr %retval, align 8
-  ret ptr %10
+27:                                               ; preds = %25, %16, %11
+  %28 = load ptr, ptr %4, align 8
+  ret ptr %28
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !6, i64 0}
+!9 = !{!"UriIp4ParserStruct", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3}
+!10 = !{!6, !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS18UriIp4ParserStruct", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 int", !5, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !6, i64 0}

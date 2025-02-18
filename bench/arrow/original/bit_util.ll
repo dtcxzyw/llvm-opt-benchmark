@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 $_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll = comdat any
 
@@ -19,811 +19,906 @@ $_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j = comdat any
 @_ZN5arrow8bit_utilL16kTrailingBitmaskE = internal constant [8 x i8] c"\FF\FE\FC\F8\F0\E0\C0\80", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef %bits, i64 noundef %start_offset, i64 noundef %length, i1 noundef zeroext %bits_are_set) #0 {
-entry:
-  %bits.addr = alloca ptr, align 8
-  %start_offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %bits_are_set.addr = alloca i8, align 1
-  %i_begin = alloca i64, align 8
-  %i_end = alloca i64, align 8
-  %fill_byte = alloca i8, align 1
-  %bytes_begin = alloca i64, align 8
-  %bytes_end = alloca i64, align 8
-  %first_byte_mask = alloca i8, align 1
-  %last_byte_mask = alloca i8, align 1
-  %only_byte_mask = alloca i8, align 1
-  store ptr %bits, ptr %bits.addr, align 8
-  store i64 %start_offset, ptr %start_offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %frombool = zext i1 %bits_are_set to i8
-  store i8 %frombool, ptr %bits_are_set.addr, align 1
-  %0 = load i64, ptr %length.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i8, align 1
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i8, align 1
+  %15 = alloca i8, align 1
+  %16 = alloca i8, align 1
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !3
+  store i64 %1, ptr %6, align 8, !tbaa !8
+  store i64 %2, ptr %7, align 8, !tbaa !8
+  %18 = zext i1 %3 to i8
+  store i8 %18, ptr %8, align 1, !tbaa !10
+  %19 = load i64, ptr %7, align 8, !tbaa !8
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %22
 
-if.then:                                          ; preds = %entry
-  br label %return
+21:                                               ; preds = %4
+  br label %164
 
-if.end:                                           ; preds = %entry
-  %1 = load i64, ptr %start_offset.addr, align 8
-  store i64 %1, ptr %i_begin, align 8
-  %2 = load i64, ptr %start_offset.addr, align 8
-  %3 = load i64, ptr %length.addr, align 8
-  %add = add nsw i64 %2, %3
-  store i64 %add, ptr %i_end, align 8
-  %4 = load i8, ptr %bits_are_set.addr, align 1
-  %tobool = trunc i8 %4 to i1
-  %conv = zext i1 %tobool to i8
-  %conv1 = zext i8 %conv to i32
-  %sub = sub nsw i32 0, %conv1
-  %conv2 = trunc i32 %sub to i8
-  store i8 %conv2, ptr %fill_byte, align 1
-  %5 = load i64, ptr %i_begin, align 8
-  %div = sdiv i64 %5, 8
-  store i64 %div, ptr %bytes_begin, align 8
-  %6 = load i64, ptr %i_end, align 8
-  %div3 = sdiv i64 %6, 8
-  %add4 = add nsw i64 %div3, 1
-  store i64 %add4, ptr %bytes_end, align 8
-  %7 = load i64, ptr %i_begin, align 8
-  %rem = srem i64 %7, 8
-  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %rem
-  %8 = load i8, ptr %arrayidx, align 1
-  store i8 %8, ptr %first_byte_mask, align 1
-  %9 = load i64, ptr %i_end, align 8
-  %rem5 = srem i64 %9, 8
-  %arrayidx6 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL16kTrailingBitmaskE, i64 0, i64 %rem5
-  %10 = load i8, ptr %arrayidx6, align 1
-  store i8 %10, ptr %last_byte_mask, align 1
-  %11 = load i64, ptr %bytes_end, align 8
-  %12 = load i64, ptr %bytes_begin, align 8
-  %add7 = add nsw i64 %12, 1
-  %cmp8 = icmp eq i64 %11, %add7
-  br i1 %cmp8, label %if.then9, label %if.end28
+22:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  %23 = load i64, ptr %6, align 8, !tbaa !8
+  store i64 %23, ptr %9, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  %24 = load i64, ptr %6, align 8, !tbaa !8
+  %25 = load i64, ptr %7, align 8, !tbaa !8
+  %26 = add nsw i64 %24, %25
+  store i64 %26, ptr %10, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #5
+  %27 = load i8, ptr %8, align 1, !tbaa !10, !range !12, !noundef !13
+  %28 = trunc i8 %27 to i1
+  %29 = zext i1 %28 to i8
+  %30 = zext i8 %29 to i32
+  %31 = sub nsw i32 0, %30
+  %32 = trunc i32 %31 to i8
+  store i8 %32, ptr %11, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %33 = load i64, ptr %9, align 8, !tbaa !8
+  %34 = sdiv i64 %33, 8
+  store i64 %34, ptr %12, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %35 = load i64, ptr %10, align 8, !tbaa !8
+  %36 = sdiv i64 %35, 8
+  %37 = add nsw i64 %36, 1
+  store i64 %37, ptr %13, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  %38 = load i64, ptr %9, align 8, !tbaa !8
+  %39 = srem i64 %38, 8
+  %40 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !14
+  store i8 %41, ptr %14, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #5
+  %42 = load i64, ptr %10, align 8, !tbaa !8
+  %43 = srem i64 %42, 8
+  %44 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL16kTrailingBitmaskE, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !14
+  store i8 %45, ptr %15, align 1, !tbaa !14
+  %46 = load i64, ptr %13, align 8, !tbaa !8
+  %47 = load i64, ptr %12, align 8, !tbaa !8
+  %48 = add nsw i64 %47, 1
+  %49 = icmp eq i64 %46, %48
+  br i1 %49, label %50, label %89
 
-if.then9:                                         ; preds = %if.end
-  %13 = load i64, ptr %i_end, align 8
-  %rem10 = srem i64 %13, 8
-  %cmp11 = icmp eq i64 %rem10, 0
-  br i1 %cmp11, label %cond.true, label %cond.false
+50:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #5
+  %51 = load i64, ptr %10, align 8, !tbaa !8
+  %52 = srem i64 %51, 8
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %56
 
-cond.true:                                        ; preds = %if.then9
-  %14 = load i8, ptr %first_byte_mask, align 1
-  br label %cond.end
+54:                                               ; preds = %50
+  %55 = load i8, ptr %14, align 1, !tbaa !14
+  br label %63
 
-cond.false:                                       ; preds = %if.then9
-  %15 = load i8, ptr %first_byte_mask, align 1
-  %conv12 = zext i8 %15 to i32
-  %16 = load i8, ptr %last_byte_mask, align 1
-  %conv13 = zext i8 %16 to i32
-  %or = or i32 %conv12, %conv13
-  %conv14 = trunc i32 %or to i8
-  br label %cond.end
+56:                                               ; preds = %50
+  %57 = load i8, ptr %14, align 1, !tbaa !14
+  %58 = zext i8 %57 to i32
+  %59 = load i8, ptr %15, align 1, !tbaa !14
+  %60 = zext i8 %59 to i32
+  %61 = or i32 %58, %60
+  %62 = trunc i32 %61 to i8
+  br label %63
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i8 [ %14, %cond.true ], [ %conv14, %cond.false ]
-  store i8 %cond, ptr %only_byte_mask, align 1
-  %17 = load i8, ptr %only_byte_mask, align 1
-  %conv15 = zext i8 %17 to i32
-  %18 = load ptr, ptr %bits.addr, align 8
-  %19 = load i64, ptr %bytes_begin, align 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %18, i64 %19
-  %20 = load i8, ptr %arrayidx16, align 1
-  %conv17 = zext i8 %20 to i32
-  %and = and i32 %conv17, %conv15
-  %conv18 = trunc i32 %and to i8
-  store i8 %conv18, ptr %arrayidx16, align 1
-  %21 = load i8, ptr %fill_byte, align 1
-  %conv19 = zext i8 %21 to i32
-  %22 = load i8, ptr %only_byte_mask, align 1
-  %conv20 = zext i8 %22 to i32
-  %not = xor i32 %conv20, -1
-  %and21 = and i32 %conv19, %not
-  %conv22 = trunc i32 %and21 to i8
-  %conv23 = zext i8 %conv22 to i32
-  %23 = load ptr, ptr %bits.addr, align 8
-  %24 = load i64, ptr %bytes_begin, align 8
-  %arrayidx24 = getelementptr inbounds i8, ptr %23, i64 %24
-  %25 = load i8, ptr %arrayidx24, align 1
-  %conv25 = zext i8 %25 to i32
-  %or26 = or i32 %conv25, %conv23
-  %conv27 = trunc i32 %or26 to i8
-  store i8 %conv27, ptr %arrayidx24, align 1
-  br label %return
+63:                                               ; preds = %56, %54
+  %64 = phi i8 [ %55, %54 ], [ %62, %56 ]
+  store i8 %64, ptr %16, align 1, !tbaa !14
+  %65 = load i8, ptr %16, align 1, !tbaa !14
+  %66 = zext i8 %65 to i32
+  %67 = load ptr, ptr %5, align 8, !tbaa !3
+  %68 = load i64, ptr %12, align 8, !tbaa !8
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !14
+  %71 = zext i8 %70 to i32
+  %72 = and i32 %71, %66
+  %73 = trunc i32 %72 to i8
+  store i8 %73, ptr %69, align 1, !tbaa !14
+  %74 = load i8, ptr %11, align 1, !tbaa !14
+  %75 = zext i8 %74 to i32
+  %76 = load i8, ptr %16, align 1, !tbaa !14
+  %77 = zext i8 %76 to i32
+  %78 = xor i32 %77, -1
+  %79 = and i32 %75, %78
+  %80 = trunc i32 %79 to i8
+  %81 = zext i8 %80 to i32
+  %82 = load ptr, ptr %5, align 8, !tbaa !3
+  %83 = load i64, ptr %12, align 8, !tbaa !8
+  %84 = getelementptr inbounds i8, ptr %82, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !14
+  %86 = zext i8 %85 to i32
+  %87 = or i32 %86, %81
+  %88 = trunc i32 %87 to i8
+  store i8 %88, ptr %84, align 1, !tbaa !14
+  store i32 1, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #5
+  br label %162
 
-if.end28:                                         ; preds = %if.end
-  %26 = load i8, ptr %first_byte_mask, align 1
-  %conv29 = zext i8 %26 to i32
-  %27 = load ptr, ptr %bits.addr, align 8
-  %28 = load i64, ptr %bytes_begin, align 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %27, i64 %28
-  %29 = load i8, ptr %arrayidx30, align 1
-  %conv31 = zext i8 %29 to i32
-  %and32 = and i32 %conv31, %conv29
-  %conv33 = trunc i32 %and32 to i8
-  store i8 %conv33, ptr %arrayidx30, align 1
-  %30 = load i8, ptr %fill_byte, align 1
-  %conv34 = zext i8 %30 to i32
-  %31 = load i8, ptr %first_byte_mask, align 1
-  %conv35 = zext i8 %31 to i32
-  %not36 = xor i32 %conv35, -1
-  %and37 = and i32 %conv34, %not36
-  %conv38 = trunc i32 %and37 to i8
-  %conv39 = zext i8 %conv38 to i32
-  %32 = load ptr, ptr %bits.addr, align 8
-  %33 = load i64, ptr %bytes_begin, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %32, i64 %33
-  %34 = load i8, ptr %arrayidx40, align 1
-  %conv41 = zext i8 %34 to i32
-  %or42 = or i32 %conv41, %conv39
-  %conv43 = trunc i32 %or42 to i8
-  store i8 %conv43, ptr %arrayidx40, align 1
-  %35 = load i64, ptr %bytes_end, align 8
-  %36 = load i64, ptr %bytes_begin, align 8
-  %sub44 = sub nsw i64 %35, %36
-  %cmp45 = icmp sgt i64 %sub44, 2
-  br i1 %cmp45, label %if.then46, label %if.end51
+89:                                               ; preds = %22
+  %90 = load i8, ptr %14, align 1, !tbaa !14
+  %91 = zext i8 %90 to i32
+  %92 = load ptr, ptr %5, align 8, !tbaa !3
+  %93 = load i64, ptr %12, align 8, !tbaa !8
+  %94 = getelementptr inbounds i8, ptr %92, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !14
+  %96 = zext i8 %95 to i32
+  %97 = and i32 %96, %91
+  %98 = trunc i32 %97 to i8
+  store i8 %98, ptr %94, align 1, !tbaa !14
+  %99 = load i8, ptr %11, align 1, !tbaa !14
+  %100 = zext i8 %99 to i32
+  %101 = load i8, ptr %14, align 1, !tbaa !14
+  %102 = zext i8 %101 to i32
+  %103 = xor i32 %102, -1
+  %104 = and i32 %100, %103
+  %105 = trunc i32 %104 to i8
+  %106 = zext i8 %105 to i32
+  %107 = load ptr, ptr %5, align 8, !tbaa !3
+  %108 = load i64, ptr %12, align 8, !tbaa !8
+  %109 = getelementptr inbounds i8, ptr %107, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !14
+  %111 = zext i8 %110 to i32
+  %112 = or i32 %111, %106
+  %113 = trunc i32 %112 to i8
+  store i8 %113, ptr %109, align 1, !tbaa !14
+  %114 = load i64, ptr %13, align 8, !tbaa !8
+  %115 = load i64, ptr %12, align 8, !tbaa !8
+  %116 = sub nsw i64 %114, %115
+  %117 = icmp sgt i64 %116, 2
+  br i1 %117, label %118, label %130
 
-if.then46:                                        ; preds = %if.end28
-  %37 = load ptr, ptr %bits.addr, align 8
-  %38 = load i64, ptr %bytes_begin, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %37, i64 %38
-  %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr, i64 1
-  %39 = load i8, ptr %fill_byte, align 1
-  %conv48 = zext i8 %39 to i32
-  %40 = trunc i32 %conv48 to i8
-  %41 = load i64, ptr %bytes_end, align 8
-  %42 = load i64, ptr %bytes_begin, align 8
-  %sub49 = sub nsw i64 %41, %42
-  %sub50 = sub nsw i64 %sub49, 2
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr47, i8 %40, i64 %sub50, i1 false)
-  br label %if.end51
+118:                                              ; preds = %89
+  %119 = load ptr, ptr %5, align 8, !tbaa !3
+  %120 = load i64, ptr %12, align 8, !tbaa !8
+  %121 = getelementptr inbounds i8, ptr %119, i64 %120
+  %122 = getelementptr inbounds i8, ptr %121, i64 1
+  %123 = load i8, ptr %11, align 1, !tbaa !14
+  %124 = zext i8 %123 to i32
+  %125 = trunc i32 %124 to i8
+  %126 = load i64, ptr %13, align 8, !tbaa !8
+  %127 = load i64, ptr %12, align 8, !tbaa !8
+  %128 = sub nsw i64 %126, %127
+  %129 = sub nsw i64 %128, 2
+  call void @llvm.memset.p0.i64(ptr align 1 %122, i8 %125, i64 %129, i1 false)
+  br label %130
 
-if.end51:                                         ; preds = %if.then46, %if.end28
-  %43 = load i64, ptr %i_end, align 8
-  %rem52 = srem i64 %43, 8
-  %cmp53 = icmp eq i64 %rem52, 0
-  br i1 %cmp53, label %if.then54, label %if.end55
+130:                                              ; preds = %118, %89
+  %131 = load i64, ptr %10, align 8, !tbaa !8
+  %132 = srem i64 %131, 8
+  %133 = icmp eq i64 %132, 0
+  br i1 %133, label %134, label %135
 
-if.then54:                                        ; preds = %if.end51
-  br label %return
+134:                                              ; preds = %130
+  store i32 1, ptr %17, align 4
+  br label %162
 
-if.end55:                                         ; preds = %if.end51
-  %44 = load i8, ptr %last_byte_mask, align 1
-  %conv56 = zext i8 %44 to i32
-  %45 = load ptr, ptr %bits.addr, align 8
-  %46 = load i64, ptr %bytes_end, align 8
-  %sub57 = sub nsw i64 %46, 1
-  %arrayidx58 = getelementptr inbounds i8, ptr %45, i64 %sub57
-  %47 = load i8, ptr %arrayidx58, align 1
-  %conv59 = zext i8 %47 to i32
-  %and60 = and i32 %conv59, %conv56
-  %conv61 = trunc i32 %and60 to i8
-  store i8 %conv61, ptr %arrayidx58, align 1
-  %48 = load i8, ptr %fill_byte, align 1
-  %conv62 = zext i8 %48 to i32
-  %49 = load i8, ptr %last_byte_mask, align 1
-  %conv63 = zext i8 %49 to i32
-  %not64 = xor i32 %conv63, -1
-  %and65 = and i32 %conv62, %not64
-  %conv66 = trunc i32 %and65 to i8
-  %conv67 = zext i8 %conv66 to i32
-  %50 = load ptr, ptr %bits.addr, align 8
-  %51 = load i64, ptr %bytes_end, align 8
-  %sub68 = sub nsw i64 %51, 1
-  %arrayidx69 = getelementptr inbounds i8, ptr %50, i64 %sub68
-  %52 = load i8, ptr %arrayidx69, align 1
-  %conv70 = zext i8 %52 to i32
-  %or71 = or i32 %conv70, %conv67
-  %conv72 = trunc i32 %or71 to i8
-  store i8 %conv72, ptr %arrayidx69, align 1
-  br label %return
+135:                                              ; preds = %130
+  %136 = load i8, ptr %15, align 1, !tbaa !14
+  %137 = zext i8 %136 to i32
+  %138 = load ptr, ptr %5, align 8, !tbaa !3
+  %139 = load i64, ptr %13, align 8, !tbaa !8
+  %140 = sub nsw i64 %139, 1
+  %141 = getelementptr inbounds i8, ptr %138, i64 %140
+  %142 = load i8, ptr %141, align 1, !tbaa !14
+  %143 = zext i8 %142 to i32
+  %144 = and i32 %143, %137
+  %145 = trunc i32 %144 to i8
+  store i8 %145, ptr %141, align 1, !tbaa !14
+  %146 = load i8, ptr %11, align 1, !tbaa !14
+  %147 = zext i8 %146 to i32
+  %148 = load i8, ptr %15, align 1, !tbaa !14
+  %149 = zext i8 %148 to i32
+  %150 = xor i32 %149, -1
+  %151 = and i32 %147, %150
+  %152 = trunc i32 %151 to i8
+  %153 = zext i8 %152 to i32
+  %154 = load ptr, ptr %5, align 8, !tbaa !3
+  %155 = load i64, ptr %13, align 8, !tbaa !8
+  %156 = sub nsw i64 %155, 1
+  %157 = getelementptr inbounds i8, ptr %154, i64 %156
+  %158 = load i8, ptr %157, align 1, !tbaa !14
+  %159 = zext i8 %158 to i32
+  %160 = or i32 %159, %153
+  %161 = trunc i32 %160 to i8
+  store i8 %161, ptr %157, align 1, !tbaa !14
+  store i32 0, ptr %17, align 4
+  br label %162
 
-return:                                           ; preds = %if.end55, %if.then54, %cond.end, %if.then
+162:                                              ; preds = %135, %134, %63
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  %163 = load i32, ptr %17, align 4
+  switch i32 %163, label %165 [
+    i32 0, label %164
+    i32 1, label %164
+  ]
+
+164:                                              ; preds = %21, %162, %162
   ret void
+
+165:                                              ; preds = %162
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8bit_util9SetBitmapEPhll(ptr noundef %data, i64 noundef %offset, i64 noundef %length) #2 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  %1 = load i64, ptr %offset.addr, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  call void @_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2)
+define void @_ZN5arrow8bit_util9SetBitmapEPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = load i64, ptr %6, align 8, !tbaa !8
+  call void @_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll(ptr noundef %7, i64 noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll(ptr noundef %data, i64 noundef %offset, i64 noundef %length) #2 comdat {
-entry:
-  %data.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %set_byte = alloca i8, align 1
-  %prologue = alloca i32, align 4
-  %mask = alloca i8, align 1
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load i64, ptr %length.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  br i1 %lnot1, label %if.then, label %if.end
+define linkonce_odr void @_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = icmp eq i64 %11, 0
+  %13 = xor i1 %12, true
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %19
 
-if.then:                                          ; preds = %entry
-  br label %if.end69
+18:                                               ; preds = %3
+  br label %140
 
-if.end:                                           ; preds = %entry
-  store i8 -1, ptr %set_byte, align 1
-  %1 = load i64, ptr %offset.addr, align 8
-  %call = call noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %1, i64 noundef 8)
-  %2 = load i64, ptr %offset.addr, align 8
-  %sub = sub nsw i64 %call, %2
-  %conv = trunc i64 %sub to i32
-  store i32 %conv, ptr %prologue, align 4
-  br label %while.cond
+19:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  store i8 -1, ptr %7, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %20 = load i64, ptr %5, align 8, !tbaa !8
+  %21 = call noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %20, i64 noundef 8)
+  %22 = load i64, ptr %5, align 8, !tbaa !8
+  %23 = sub nsw i64 %21, %22
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %8, align 4, !tbaa !15
+  br label %25
 
-while.cond:                                       ; preds = %while.body, %if.end
-  br i1 false, label %while.body, label %while.end
+25:                                               ; preds = %26, %19
+  br i1 false, label %26, label %27
 
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !4
+26:                                               ; preds = %25
+  br label %25, !llvm.loop !17
 
-while.end:                                        ; preds = %while.cond
-  br label %while.cond2
+27:                                               ; preds = %25
+  br label %28
 
-while.cond2:                                      ; preds = %while.body3, %while.end
-  br i1 false, label %while.body3, label %while.end4
+28:                                               ; preds = %29, %27
+  br i1 false, label %29, label %30
 
-while.body3:                                      ; preds = %while.cond2
-  br label %while.cond2, !llvm.loop !6
+29:                                               ; preds = %28
+  br label %28, !llvm.loop !19
 
-while.end4:                                       ; preds = %while.cond2
-  br label %while.cond5
+30:                                               ; preds = %28
+  br label %31
 
-while.cond5:                                      ; preds = %while.body6, %while.end4
-  br i1 false, label %while.body6, label %while.end7
+31:                                               ; preds = %32, %30
+  br i1 false, label %32, label %33
 
-while.body6:                                      ; preds = %while.cond5
-  br label %while.cond5, !llvm.loop !7
+32:                                               ; preds = %31
+  br label %31, !llvm.loop !20
 
-while.end7:                                       ; preds = %while.cond5
-  %3 = load i64, ptr %length.addr, align 8
-  %4 = load i32, ptr %prologue, align 4
-  %conv8 = sext i32 %4 to i64
-  %cmp9 = icmp slt i64 %3, %conv8
-  br i1 %cmp9, label %if.then10, label %if.end24
+33:                                               ; preds = %31
+  %34 = load i64, ptr %6, align 8, !tbaa !8
+  %35 = load i32, ptr %8, align 4, !tbaa !15
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %34, %36
+  br i1 %37, label %38, label %69
 
-if.then10:                                        ; preds = %while.end7
-  %5 = load i32, ptr %prologue, align 4
-  %sub11 = sub nsw i32 8, %5
-  %idxprom = sext i32 %sub11 to i64
-  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %idxprom
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv12 = zext i8 %6 to i32
-  %7 = load i32, ptr %prologue, align 4
-  %sub13 = sub nsw i32 8, %7
-  %conv14 = sext i32 %sub13 to i64
-  %8 = load i64, ptr %length.addr, align 8
-  %add = add nsw i64 %conv14, %8
-  %arrayidx15 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %add
-  %9 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %9 to i32
-  %xor = xor i32 %conv12, %conv16
-  %conv17 = trunc i32 %xor to i8
-  store i8 %conv17, ptr %mask, align 1
-  %10 = load ptr, ptr %data.addr, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %div = sdiv i64 %11, 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %10, i64 %div
-  %12 = load i8, ptr %arrayidx18, align 1
-  %conv19 = zext i8 %12 to i32
-  %13 = load i8, ptr %mask, align 1
-  %conv20 = zext i8 %13 to i32
-  %or = or i32 %conv19, %conv20
-  %conv21 = trunc i32 %or to i8
-  %14 = load ptr, ptr %data.addr, align 8
-  %15 = load i64, ptr %offset.addr, align 8
-  %div22 = sdiv i64 %15, 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %14, i64 %div22
-  store i8 %conv21, ptr %arrayidx23, align 1
-  br label %if.end69
+38:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  %39 = load i32, ptr %8, align 4, !tbaa !15
+  %40 = sub nsw i32 8, %39
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !14
+  %44 = zext i8 %43 to i32
+  %45 = load i32, ptr %8, align 4, !tbaa !15
+  %46 = sub nsw i32 8, %45
+  %47 = sext i32 %46 to i64
+  %48 = load i64, ptr %6, align 8, !tbaa !8
+  %49 = add nsw i64 %47, %48
+  %50 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !14
+  %52 = zext i8 %51 to i32
+  %53 = xor i32 %44, %52
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %9, align 1, !tbaa !14
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = load i64, ptr %5, align 8, !tbaa !8
+  %57 = sdiv i64 %56, 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !14
+  %60 = zext i8 %59 to i32
+  %61 = load i8, ptr %9, align 1, !tbaa !14
+  %62 = zext i8 %61 to i32
+  %63 = or i32 %60, %62
+  %64 = trunc i32 %63 to i8
+  %65 = load ptr, ptr %4, align 8, !tbaa !3
+  %66 = load i64, ptr %5, align 8, !tbaa !8
+  %67 = sdiv i64 %66, 8
+  %68 = getelementptr inbounds i8, ptr %65, i64 %67
+  store i8 %64, ptr %68, align 1, !tbaa !14
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
+  br label %138
 
-if.end24:                                         ; preds = %while.end7
-  %16 = load i32, ptr %prologue, align 4
-  %sub25 = sub nsw i32 8, %16
-  %17 = load ptr, ptr %data.addr, align 8
-  %18 = load i64, ptr %offset.addr, align 8
-  %div26 = sdiv i64 %18, 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %17, i64 %div26
-  %19 = load i8, ptr %arrayidx27, align 1
-  %call28 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %sub25, i8 noundef zeroext %19, i8 noundef zeroext -1)
-  %20 = load ptr, ptr %data.addr, align 8
-  %21 = load i64, ptr %offset.addr, align 8
-  %div29 = sdiv i64 %21, 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %20, i64 %div29
-  store i8 %call28, ptr %arrayidx30, align 1
-  %22 = load i32, ptr %prologue, align 4
-  %conv31 = sext i32 %22 to i64
-  %23 = load i64, ptr %offset.addr, align 8
-  %add32 = add nsw i64 %23, %conv31
-  store i64 %add32, ptr %offset.addr, align 8
-  %24 = load i32, ptr %prologue, align 4
-  %conv33 = sext i32 %24 to i64
-  %25 = load i64, ptr %length.addr, align 8
-  %sub34 = sub nsw i64 %25, %conv33
-  store i64 %sub34, ptr %length.addr, align 8
-  br label %while.cond35
+69:                                               ; preds = %33
+  %70 = load i32, ptr %8, align 4, !tbaa !15
+  %71 = sub nsw i32 8, %70
+  %72 = load ptr, ptr %4, align 8, !tbaa !3
+  %73 = load i64, ptr %5, align 8, !tbaa !8
+  %74 = sdiv i64 %73, 8
+  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  %76 = load i8, ptr %75, align 1, !tbaa !14
+  %77 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %71, i8 noundef zeroext %76, i8 noundef zeroext -1)
+  %78 = load ptr, ptr %4, align 8, !tbaa !3
+  %79 = load i64, ptr %5, align 8, !tbaa !8
+  %80 = sdiv i64 %79, 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 %80
+  store i8 %77, ptr %81, align 1, !tbaa !14
+  %82 = load i32, ptr %8, align 4, !tbaa !15
+  %83 = sext i32 %82 to i64
+  %84 = load i64, ptr %5, align 8, !tbaa !8
+  %85 = add nsw i64 %84, %83
+  store i64 %85, ptr %5, align 8, !tbaa !8
+  %86 = load i32, ptr %8, align 4, !tbaa !15
+  %87 = sext i32 %86 to i64
+  %88 = load i64, ptr %6, align 8, !tbaa !8
+  %89 = sub nsw i64 %88, %87
+  store i64 %89, ptr %6, align 8, !tbaa !8
+  br label %90
 
-while.cond35:                                     ; preds = %while.body36, %if.end24
-  br i1 false, label %while.body36, label %while.end37
+90:                                               ; preds = %91, %69
+  br i1 false, label %91, label %92
 
-while.body36:                                     ; preds = %while.cond35
-  br label %while.cond35, !llvm.loop !8
+91:                                               ; preds = %90
+  br label %90, !llvm.loop !21
 
-while.end37:                                      ; preds = %while.cond35
-  br label %while.cond38
+92:                                               ; preds = %90
+  br label %93
 
-while.cond38:                                     ; preds = %while.body39, %while.end37
-  br i1 false, label %while.body39, label %while.end40
+93:                                               ; preds = %94, %92
+  br i1 false, label %94, label %95
 
-while.body39:                                     ; preds = %while.cond38
-  br label %while.cond38, !llvm.loop !9
+94:                                               ; preds = %93
+  br label %93, !llvm.loop !22
 
-while.end40:                                      ; preds = %while.cond38
-  br label %while.cond41
+95:                                               ; preds = %93
+  br label %96
 
-while.cond41:                                     ; preds = %while.body42, %while.end40
-  br i1 false, label %while.body42, label %while.end44
+96:                                               ; preds = %97, %95
+  br i1 false, label %97, label %98
 
-while.body42:                                     ; preds = %while.cond41
-  br label %while.cond41, !llvm.loop !10
+97:                                               ; preds = %96
+  br label %96, !llvm.loop !23
 
-while.end44:                                      ; preds = %while.cond41
-  %26 = load ptr, ptr %data.addr, align 8
-  %27 = load i64, ptr %offset.addr, align 8
-  %div45 = sdiv i64 %27, 8
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 %div45
-  %28 = load i64, ptr %length.addr, align 8
-  %div46 = sdiv i64 %28, 8
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -1, i64 %div46, i1 false)
-  %29 = load i64, ptr %length.addr, align 8
-  %call47 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %29, i64 noundef 8)
-  %30 = load i64, ptr %offset.addr, align 8
-  %add48 = add nsw i64 %30, %call47
-  store i64 %add48, ptr %offset.addr, align 8
-  %31 = load i64, ptr %length.addr, align 8
-  %call49 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %31, i64 noundef 8)
-  %32 = load i64, ptr %length.addr, align 8
-  %sub50 = sub nsw i64 %32, %call49
-  store i64 %sub50, ptr %length.addr, align 8
-  br label %while.cond51
+98:                                               ; preds = %96
+  %99 = load ptr, ptr %4, align 8, !tbaa !3
+  %100 = load i64, ptr %5, align 8, !tbaa !8
+  %101 = sdiv i64 %100, 8
+  %102 = getelementptr inbounds i8, ptr %99, i64 %101
+  %103 = load i64, ptr %6, align 8, !tbaa !8
+  %104 = sdiv i64 %103, 8
+  call void @llvm.memset.p0.i64(ptr align 1 %102, i8 -1, i64 %104, i1 false)
+  %105 = load i64, ptr %6, align 8, !tbaa !8
+  %106 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %105, i64 noundef 8)
+  %107 = load i64, ptr %5, align 8, !tbaa !8
+  %108 = add nsw i64 %107, %106
+  store i64 %108, ptr %5, align 8, !tbaa !8
+  %109 = load i64, ptr %6, align 8, !tbaa !8
+  %110 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %109, i64 noundef 8)
+  %111 = load i64, ptr %6, align 8, !tbaa !8
+  %112 = sub nsw i64 %111, %110
+  store i64 %112, ptr %6, align 8, !tbaa !8
+  br label %113
 
-while.cond51:                                     ; preds = %while.body52, %while.end44
-  br i1 false, label %while.body52, label %while.end53
+113:                                              ; preds = %114, %98
+  br i1 false, label %114, label %115
 
-while.body52:                                     ; preds = %while.cond51
-  br label %while.cond51, !llvm.loop !11
+114:                                              ; preds = %113
+  br label %113, !llvm.loop !24
 
-while.end53:                                      ; preds = %while.cond51
-  br label %while.cond54
+115:                                              ; preds = %113
+  br label %116
 
-while.cond54:                                     ; preds = %while.body55, %while.end53
-  br i1 false, label %while.body55, label %while.end56
+116:                                              ; preds = %117, %115
+  br i1 false, label %117, label %118
 
-while.body55:                                     ; preds = %while.cond54
-  br label %while.cond54, !llvm.loop !12
+117:                                              ; preds = %116
+  br label %116, !llvm.loop !25
 
-while.end56:                                      ; preds = %while.cond54
-  br label %while.cond57
+118:                                              ; preds = %116
+  br label %119
 
-while.cond57:                                     ; preds = %while.body58, %while.end56
-  br i1 false, label %while.body58, label %while.end60
+119:                                              ; preds = %120, %118
+  br i1 false, label %120, label %121
 
-while.body58:                                     ; preds = %while.cond57
-  br label %while.cond57, !llvm.loop !13
+120:                                              ; preds = %119
+  br label %119, !llvm.loop !26
 
-while.end60:                                      ; preds = %while.cond57
-  %33 = load i64, ptr %length.addr, align 8
-  %cmp61 = icmp sgt i64 %33, 0
-  br i1 %cmp61, label %if.then62, label %if.end69
+121:                                              ; preds = %119
+  %122 = load i64, ptr %6, align 8, !tbaa !8
+  %123 = icmp sgt i64 %122, 0
+  br i1 %123, label %124, label %137
 
-if.then62:                                        ; preds = %while.end60
-  %34 = load i64, ptr %length.addr, align 8
-  %conv63 = trunc i64 %34 to i32
-  %35 = load ptr, ptr %data.addr, align 8
-  %36 = load i64, ptr %offset.addr, align 8
-  %div64 = sdiv i64 %36, 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %35, i64 %div64
-  %37 = load i8, ptr %arrayidx65, align 1
-  %call66 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %conv63, i8 noundef zeroext -1, i8 noundef zeroext %37)
-  %38 = load ptr, ptr %data.addr, align 8
-  %39 = load i64, ptr %offset.addr, align 8
-  %div67 = sdiv i64 %39, 8
-  %arrayidx68 = getelementptr inbounds i8, ptr %38, i64 %div67
-  store i8 %call66, ptr %arrayidx68, align 1
-  br label %if.end69
+124:                                              ; preds = %121
+  %125 = load i64, ptr %6, align 8, !tbaa !8
+  %126 = trunc i64 %125 to i32
+  %127 = load ptr, ptr %4, align 8, !tbaa !3
+  %128 = load i64, ptr %5, align 8, !tbaa !8
+  %129 = sdiv i64 %128, 8
+  %130 = getelementptr inbounds i8, ptr %127, i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !14
+  %132 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %126, i8 noundef zeroext -1, i8 noundef zeroext %131)
+  %133 = load ptr, ptr %4, align 8, !tbaa !3
+  %134 = load i64, ptr %5, align 8, !tbaa !8
+  %135 = sdiv i64 %134, 8
+  %136 = getelementptr inbounds i8, ptr %133, i64 %135
+  store i8 %132, ptr %136, align 1, !tbaa !14
+  br label %137
 
-if.end69:                                         ; preds = %if.then62, %while.end60, %if.then10, %if.then
+137:                                              ; preds = %124, %121
+  store i32 0, ptr %10, align 4
+  br label %138
+
+138:                                              ; preds = %137, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  %139 = load i32, ptr %10, align 4
+  switch i32 %139, label %141 [
+    i32 0, label %140
+    i32 1, label %140
+  ]
+
+140:                                              ; preds = %18, %138, %138
+  ret void
+
+141:                                              ; preds = %138
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5arrow8bit_util11ClearBitmapEPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %7 = load ptr, ptr %4, align 8, !tbaa !3
+  %8 = load i64, ptr %5, align 8, !tbaa !8
+  %9 = load i64, ptr %6, align 8, !tbaa !8
+  call void @_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll(ptr noundef %7, i64 noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8bit_util11ClearBitmapEPhll(ptr noundef %data, i64 noundef %offset, i64 noundef %length) #2 {
-entry:
-  %data.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  %1 = load i64, ptr %offset.addr, align 8
-  %2 = load i64, ptr %length.addr, align 8
-  call void @_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll(ptr noundef %0, i64 noundef %1, i64 noundef %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !8
+  %11 = load i64, ptr %6, align 8, !tbaa !8
+  %12 = icmp eq i64 %11, 0
+  %13 = xor i1 %12, true
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %3
+  br label %141
+
+19:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  store i8 0, ptr %7, align 1, !tbaa !14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  %20 = load i64, ptr %5, align 8, !tbaa !8
+  %21 = call noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %20, i64 noundef 8)
+  %22 = load i64, ptr %5, align 8, !tbaa !8
+  %23 = sub nsw i64 %21, %22
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %8, align 4, !tbaa !15
+  br label %25
+
+25:                                               ; preds = %26, %19
+  br i1 false, label %26, label %27
+
+26:                                               ; preds = %25
+  br label %25, !llvm.loop !27
+
+27:                                               ; preds = %25
+  br label %28
+
+28:                                               ; preds = %29, %27
+  br i1 false, label %29, label %30
+
+29:                                               ; preds = %28
+  br label %28, !llvm.loop !28
+
+30:                                               ; preds = %28
+  br label %31
+
+31:                                               ; preds = %32, %30
+  br i1 false, label %32, label %33
+
+32:                                               ; preds = %31
+  br label %31, !llvm.loop !29
+
+33:                                               ; preds = %31
+  %34 = load i64, ptr %6, align 8, !tbaa !8
+  %35 = load i32, ptr %8, align 4, !tbaa !15
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %34, %36
+  br i1 %37, label %38, label %70
+
+38:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  %39 = load i32, ptr %8, align 4, !tbaa !15
+  %40 = sub nsw i32 8, %39
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !14
+  %44 = zext i8 %43 to i32
+  %45 = load i32, ptr %8, align 4, !tbaa !15
+  %46 = sub nsw i32 8, %45
+  %47 = sext i32 %46 to i64
+  %48 = load i64, ptr %6, align 8, !tbaa !8
+  %49 = add nsw i64 %47, %48
+  %50 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !14
+  %52 = zext i8 %51 to i32
+  %53 = xor i32 %44, %52
+  %54 = trunc i32 %53 to i8
+  store i8 %54, ptr %9, align 1, !tbaa !14
+  %55 = load ptr, ptr %4, align 8, !tbaa !3
+  %56 = load i64, ptr %5, align 8, !tbaa !8
+  %57 = sdiv i64 %56, 8
+  %58 = getelementptr inbounds i8, ptr %55, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !14
+  %60 = zext i8 %59 to i32
+  %61 = load i8, ptr %9, align 1, !tbaa !14
+  %62 = zext i8 %61 to i32
+  %63 = xor i32 %62, -1
+  %64 = and i32 %60, %63
+  %65 = trunc i32 %64 to i8
+  %66 = load ptr, ptr %4, align 8, !tbaa !3
+  %67 = load i64, ptr %5, align 8, !tbaa !8
+  %68 = sdiv i64 %67, 8
+  %69 = getelementptr inbounds i8, ptr %66, i64 %68
+  store i8 %65, ptr %69, align 1, !tbaa !14
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
+  br label %139
+
+70:                                               ; preds = %33
+  %71 = load i32, ptr %8, align 4, !tbaa !15
+  %72 = sub nsw i32 8, %71
+  %73 = load ptr, ptr %4, align 8, !tbaa !3
+  %74 = load i64, ptr %5, align 8, !tbaa !8
+  %75 = sdiv i64 %74, 8
+  %76 = getelementptr inbounds i8, ptr %73, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !14
+  %78 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %72, i8 noundef zeroext %77, i8 noundef zeroext 0)
+  %79 = load ptr, ptr %4, align 8, !tbaa !3
+  %80 = load i64, ptr %5, align 8, !tbaa !8
+  %81 = sdiv i64 %80, 8
+  %82 = getelementptr inbounds i8, ptr %79, i64 %81
+  store i8 %78, ptr %82, align 1, !tbaa !14
+  %83 = load i32, ptr %8, align 4, !tbaa !15
+  %84 = sext i32 %83 to i64
+  %85 = load i64, ptr %5, align 8, !tbaa !8
+  %86 = add nsw i64 %85, %84
+  store i64 %86, ptr %5, align 8, !tbaa !8
+  %87 = load i32, ptr %8, align 4, !tbaa !15
+  %88 = sext i32 %87 to i64
+  %89 = load i64, ptr %6, align 8, !tbaa !8
+  %90 = sub nsw i64 %89, %88
+  store i64 %90, ptr %6, align 8, !tbaa !8
+  br label %91
+
+91:                                               ; preds = %92, %70
+  br i1 false, label %92, label %93
+
+92:                                               ; preds = %91
+  br label %91, !llvm.loop !30
+
+93:                                               ; preds = %91
+  br label %94
+
+94:                                               ; preds = %95, %93
+  br i1 false, label %95, label %96
+
+95:                                               ; preds = %94
+  br label %94, !llvm.loop !31
+
+96:                                               ; preds = %94
+  br label %97
+
+97:                                               ; preds = %98, %96
+  br i1 false, label %98, label %99
+
+98:                                               ; preds = %97
+  br label %97, !llvm.loop !32
+
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %4, align 8, !tbaa !3
+  %101 = load i64, ptr %5, align 8, !tbaa !8
+  %102 = sdiv i64 %101, 8
+  %103 = getelementptr inbounds i8, ptr %100, i64 %102
+  %104 = load i64, ptr %6, align 8, !tbaa !8
+  %105 = sdiv i64 %104, 8
+  call void @llvm.memset.p0.i64(ptr align 1 %103, i8 0, i64 %105, i1 false)
+  %106 = load i64, ptr %6, align 8, !tbaa !8
+  %107 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %106, i64 noundef 8)
+  %108 = load i64, ptr %5, align 8, !tbaa !8
+  %109 = add nsw i64 %108, %107
+  store i64 %109, ptr %5, align 8, !tbaa !8
+  %110 = load i64, ptr %6, align 8, !tbaa !8
+  %111 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %110, i64 noundef 8)
+  %112 = load i64, ptr %6, align 8, !tbaa !8
+  %113 = sub nsw i64 %112, %111
+  store i64 %113, ptr %6, align 8, !tbaa !8
+  br label %114
+
+114:                                              ; preds = %115, %99
+  br i1 false, label %115, label %116
+
+115:                                              ; preds = %114
+  br label %114, !llvm.loop !33
+
+116:                                              ; preds = %114
+  br label %117
+
+117:                                              ; preds = %118, %116
+  br i1 false, label %118, label %119
+
+118:                                              ; preds = %117
+  br label %117, !llvm.loop !34
+
+119:                                              ; preds = %117
+  br label %120
+
+120:                                              ; preds = %121, %119
+  br i1 false, label %121, label %122
+
+121:                                              ; preds = %120
+  br label %120, !llvm.loop !35
+
+122:                                              ; preds = %120
+  %123 = load i64, ptr %6, align 8, !tbaa !8
+  %124 = icmp sgt i64 %123, 0
+  br i1 %124, label %125, label %138
+
+125:                                              ; preds = %122
+  %126 = load i64, ptr %6, align 8, !tbaa !8
+  %127 = trunc i64 %126 to i32
+  %128 = load ptr, ptr %4, align 8, !tbaa !3
+  %129 = load i64, ptr %5, align 8, !tbaa !8
+  %130 = sdiv i64 %129, 8
+  %131 = getelementptr inbounds i8, ptr %128, i64 %130
+  %132 = load i8, ptr %131, align 1, !tbaa !14
+  %133 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %127, i8 noundef zeroext 0, i8 noundef zeroext %132)
+  %134 = load ptr, ptr %4, align 8, !tbaa !3
+  %135 = load i64, ptr %5, align 8, !tbaa !8
+  %136 = sdiv i64 %135, 8
+  %137 = getelementptr inbounds i8, ptr %134, i64 %136
+  store i8 %133, ptr %137, align 1, !tbaa !14
+  br label %138
+
+138:                                              ; preds = %125, %122
+  store i32 0, ptr %10, align 4
+  br label %139
+
+139:                                              ; preds = %138, %38
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
+  %140 = load i32, ptr %10, align 4
+  switch i32 %140, label %142 [
+    i32 0, label %141
+    i32 1, label %141
+  ]
+
+141:                                              ; preds = %18, %139, %139
   ret void
+
+142:                                              ; preds = %139
+  unreachable
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #4
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %0, i64 noundef %1) #3 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %3, align 8, !tbaa !8
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = call noundef i64 @_ZN5arrow8bit_util7CeilDivEll(i64 noundef %5, i64 noundef %6)
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = mul nsw i64 %7, %8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll(ptr noundef %data, i64 noundef %offset, i64 noundef %length) #2 comdat {
-entry:
-  %data.addr = alloca ptr, align 8
-  %offset.addr = alloca i64, align 8
-  %length.addr = alloca i64, align 8
-  %set_byte = alloca i8, align 1
-  %prologue = alloca i32, align 4
-  %mask = alloca i8, align 1
-  store ptr %data, ptr %data.addr, align 8
-  store i64 %offset, ptr %offset.addr, align 8
-  store i64 %length, ptr %length.addr, align 8
-  %0 = load i64, ptr %length.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  %lnot = xor i1 %cmp, true
-  %lnot1 = xor i1 %lnot, true
-  br i1 %lnot1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  br label %if.end69
-
-if.end:                                           ; preds = %entry
-  store i8 0, ptr %set_byte, align 1
-  %1 = load i64, ptr %offset.addr, align 8
-  %call = call noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %1, i64 noundef 8)
-  %2 = load i64, ptr %offset.addr, align 8
-  %sub = sub nsw i64 %call, %2
-  %conv = trunc i64 %sub to i32
-  store i32 %conv, ptr %prologue, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.end
-  br i1 false, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  br label %while.cond, !llvm.loop !14
-
-while.end:                                        ; preds = %while.cond
-  br label %while.cond2
-
-while.cond2:                                      ; preds = %while.body3, %while.end
-  br i1 false, label %while.body3, label %while.end4
-
-while.body3:                                      ; preds = %while.cond2
-  br label %while.cond2, !llvm.loop !15
-
-while.end4:                                       ; preds = %while.cond2
-  br label %while.cond5
-
-while.cond5:                                      ; preds = %while.body6, %while.end4
-  br i1 false, label %while.body6, label %while.end7
-
-while.body6:                                      ; preds = %while.cond5
-  br label %while.cond5, !llvm.loop !16
-
-while.end7:                                       ; preds = %while.cond5
-  %3 = load i64, ptr %length.addr, align 8
-  %4 = load i32, ptr %prologue, align 4
-  %conv8 = sext i32 %4 to i64
-  %cmp9 = icmp slt i64 %3, %conv8
-  br i1 %cmp9, label %if.then10, label %if.end24
-
-if.then10:                                        ; preds = %while.end7
-  %5 = load i32, ptr %prologue, align 4
-  %sub11 = sub nsw i32 8, %5
-  %idxprom = sext i32 %sub11 to i64
-  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %idxprom
-  %6 = load i8, ptr %arrayidx, align 1
-  %conv12 = zext i8 %6 to i32
-  %7 = load i32, ptr %prologue, align 4
-  %sub13 = sub nsw i32 8, %7
-  %conv14 = sext i32 %sub13 to i64
-  %8 = load i64, ptr %length.addr, align 8
-  %add = add nsw i64 %conv14, %8
-  %arrayidx15 = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL17kPrecedingBitmaskE, i64 0, i64 %add
-  %9 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %9 to i32
-  %xor = xor i32 %conv12, %conv16
-  %conv17 = trunc i32 %xor to i8
-  store i8 %conv17, ptr %mask, align 1
-  %10 = load ptr, ptr %data.addr, align 8
-  %11 = load i64, ptr %offset.addr, align 8
-  %div = sdiv i64 %11, 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %10, i64 %div
-  %12 = load i8, ptr %arrayidx18, align 1
-  %conv19 = zext i8 %12 to i32
-  %13 = load i8, ptr %mask, align 1
-  %conv20 = zext i8 %13 to i32
-  %not = xor i32 %conv20, -1
-  %and = and i32 %conv19, %not
-  %conv21 = trunc i32 %and to i8
-  %14 = load ptr, ptr %data.addr, align 8
-  %15 = load i64, ptr %offset.addr, align 8
-  %div22 = sdiv i64 %15, 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %14, i64 %div22
-  store i8 %conv21, ptr %arrayidx23, align 1
-  br label %if.end69
-
-if.end24:                                         ; preds = %while.end7
-  %16 = load i32, ptr %prologue, align 4
-  %sub25 = sub nsw i32 8, %16
-  %17 = load ptr, ptr %data.addr, align 8
-  %18 = load i64, ptr %offset.addr, align 8
-  %div26 = sdiv i64 %18, 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %17, i64 %div26
-  %19 = load i8, ptr %arrayidx27, align 1
-  %call28 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %sub25, i8 noundef zeroext %19, i8 noundef zeroext 0)
-  %20 = load ptr, ptr %data.addr, align 8
-  %21 = load i64, ptr %offset.addr, align 8
-  %div29 = sdiv i64 %21, 8
-  %arrayidx30 = getelementptr inbounds i8, ptr %20, i64 %div29
-  store i8 %call28, ptr %arrayidx30, align 1
-  %22 = load i32, ptr %prologue, align 4
-  %conv31 = sext i32 %22 to i64
-  %23 = load i64, ptr %offset.addr, align 8
-  %add32 = add nsw i64 %23, %conv31
-  store i64 %add32, ptr %offset.addr, align 8
-  %24 = load i32, ptr %prologue, align 4
-  %conv33 = sext i32 %24 to i64
-  %25 = load i64, ptr %length.addr, align 8
-  %sub34 = sub nsw i64 %25, %conv33
-  store i64 %sub34, ptr %length.addr, align 8
-  br label %while.cond35
-
-while.cond35:                                     ; preds = %while.body36, %if.end24
-  br i1 false, label %while.body36, label %while.end37
-
-while.body36:                                     ; preds = %while.cond35
-  br label %while.cond35, !llvm.loop !17
-
-while.end37:                                      ; preds = %while.cond35
-  br label %while.cond38
-
-while.cond38:                                     ; preds = %while.body39, %while.end37
-  br i1 false, label %while.body39, label %while.end40
-
-while.body39:                                     ; preds = %while.cond38
-  br label %while.cond38, !llvm.loop !18
-
-while.end40:                                      ; preds = %while.cond38
-  br label %while.cond41
-
-while.cond41:                                     ; preds = %while.body42, %while.end40
-  br i1 false, label %while.body42, label %while.end44
-
-while.body42:                                     ; preds = %while.cond41
-  br label %while.cond41, !llvm.loop !19
-
-while.end44:                                      ; preds = %while.cond41
-  %26 = load ptr, ptr %data.addr, align 8
-  %27 = load i64, ptr %offset.addr, align 8
-  %div45 = sdiv i64 %27, 8
-  %add.ptr = getelementptr inbounds i8, ptr %26, i64 %div45
-  %28 = load i64, ptr %length.addr, align 8
-  %div46 = sdiv i64 %28, 8
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %div46, i1 false)
-  %29 = load i64, ptr %length.addr, align 8
-  %call47 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %29, i64 noundef 8)
-  %30 = load i64, ptr %offset.addr, align 8
-  %add48 = add nsw i64 %30, %call47
-  store i64 %add48, ptr %offset.addr, align 8
-  %31 = load i64, ptr %length.addr, align 8
-  %call49 = call noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %31, i64 noundef 8)
-  %32 = load i64, ptr %length.addr, align 8
-  %sub50 = sub nsw i64 %32, %call49
-  store i64 %sub50, ptr %length.addr, align 8
-  br label %while.cond51
-
-while.cond51:                                     ; preds = %while.body52, %while.end44
-  br i1 false, label %while.body52, label %while.end53
-
-while.body52:                                     ; preds = %while.cond51
-  br label %while.cond51, !llvm.loop !20
-
-while.end53:                                      ; preds = %while.cond51
-  br label %while.cond54
-
-while.cond54:                                     ; preds = %while.body55, %while.end53
-  br i1 false, label %while.body55, label %while.end56
-
-while.body55:                                     ; preds = %while.cond54
-  br label %while.cond54, !llvm.loop !21
-
-while.end56:                                      ; preds = %while.cond54
-  br label %while.cond57
-
-while.cond57:                                     ; preds = %while.body58, %while.end56
-  br i1 false, label %while.body58, label %while.end60
-
-while.body58:                                     ; preds = %while.cond57
-  br label %while.cond57, !llvm.loop !22
-
-while.end60:                                      ; preds = %while.cond57
-  %33 = load i64, ptr %length.addr, align 8
-  %cmp61 = icmp sgt i64 %33, 0
-  br i1 %cmp61, label %if.then62, label %if.end69
-
-if.then62:                                        ; preds = %while.end60
-  %34 = load i64, ptr %length.addr, align 8
-  %conv63 = trunc i64 %34 to i32
-  %35 = load ptr, ptr %data.addr, align 8
-  %36 = load i64, ptr %offset.addr, align 8
-  %div64 = sdiv i64 %36, 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %35, i64 %div64
-  %37 = load i8, ptr %arrayidx65, align 1
-  %call66 = call noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %conv63, i8 noundef zeroext 0, i8 noundef zeroext %37)
-  %38 = load ptr, ptr %data.addr, align 8
-  %39 = load i64, ptr %offset.addr, align 8
-  %div67 = sdiv i64 %39, 8
-  %arrayidx68 = getelementptr inbounds i8, ptr %38, i64 %div67
-  store i8 %call66, ptr %arrayidx68, align 1
-  br label %if.end69
-
-if.end69:                                         ; preds = %if.then62, %while.end60, %if.then10, %if.then
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZN5arrow8bit_util7RoundUpEll(i64 noundef %value, i64 noundef %factor) #2 comdat {
-entry:
-  %value.addr = alloca i64, align 8
-  %factor.addr = alloca i64, align 8
-  store i64 %value, ptr %value.addr, align 8
-  store i64 %factor, ptr %factor.addr, align 8
-  %0 = load i64, ptr %value.addr, align 8
-  %1 = load i64, ptr %factor.addr, align 8
-  %call = call noundef i64 @_ZN5arrow8bit_util7CeilDivEll(i64 noundef %0, i64 noundef %1)
-  %2 = load i64, ptr %factor.addr, align 8
-  %mul = mul nsw i64 %call, %2
-  ret i64 %mul
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %n, i8 noundef zeroext %low, i8 noundef zeroext %high) #2 comdat {
-entry:
-  %n.addr = alloca i32, align 4
-  %low.addr = alloca i8, align 1
-  %high.addr = alloca i8, align 1
-  store i32 %n, ptr %n.addr, align 4
-  store i8 %low, ptr %low.addr, align 1
-  store i8 %high, ptr %high.addr, align 1
-  %0 = load i8, ptr %high.addr, align 1
-  %conv = zext i8 %0 to i32
-  %1 = load i32, ptr %n.addr, align 4
-  %call = call noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %1)
-  %conv1 = zext i8 %call to i32
-  %not = xor i32 %conv1, -1
-  %and = and i32 %conv, %not
-  %2 = load i8, ptr %low.addr, align 1
-  %conv2 = zext i8 %2 to i32
-  %3 = load i32, ptr %n.addr, align 4
-  %call3 = call noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %3)
-  %conv4 = zext i8 %call3 to i32
-  %and5 = and i32 %conv2, %conv4
-  %or = or i32 %and, %and5
-  %conv6 = trunc i32 %or to i8
-  ret i8 %conv6
+define linkonce_odr noundef zeroext i8 @_ZN5arrow8bit_util10SpliceWordIhEET_iS2_S2_(i32 noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) #3 comdat {
+  %4 = alloca i32, align 4
+  %5 = alloca i8, align 1
+  %6 = alloca i8, align 1
+  store i32 %0, ptr %4, align 4, !tbaa !15
+  store i8 %1, ptr %5, align 1, !tbaa !14
+  store i8 %2, ptr %6, align 1, !tbaa !14
+  %7 = load i8, ptr %6, align 1, !tbaa !14
+  %8 = zext i8 %7 to i32
+  %9 = load i32, ptr %4, align 4, !tbaa !15
+  %10 = call noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %9)
+  %11 = zext i8 %10 to i32
+  %12 = xor i32 %11, -1
+  %13 = and i32 %8, %12
+  %14 = load i8, ptr %5, align 1, !tbaa !14
+  %15 = zext i8 %14 to i32
+  %16 = load i32, ptr %4, align 4, !tbaa !15
+  %17 = call noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %16)
+  %18 = zext i8 %17 to i32
+  %19 = and i32 %15, %18
+  %20 = or i32 %13, %19
+  %21 = trunc i32 %20 to i8
+  ret i8 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %value, i64 noundef %factor) #0 comdat {
-entry:
-  %value.addr = alloca i64, align 8
-  %factor.addr = alloca i64, align 8
-  store i64 %value, ptr %value.addr, align 8
-  store i64 %factor, ptr %factor.addr, align 8
-  %0 = load i64, ptr %value.addr, align 8
-  %1 = load i64, ptr %factor.addr, align 8
-  %div = sdiv i64 %0, %1
-  %2 = load i64, ptr %factor.addr, align 8
-  %mul = mul nsw i64 %div, %2
-  ret i64 %mul
+define linkonce_odr noundef i64 @_ZN5arrow8bit_util9RoundDownEll(i64 noundef %0, i64 noundef %1) #0 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %3, align 8, !tbaa !8
+  %6 = load i64, ptr %4, align 8, !tbaa !8
+  %7 = sdiv i64 %5, %6
+  %8 = load i64, ptr %4, align 8, !tbaa !8
+  %9 = mul nsw i64 %7, %8
+  ret i64 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN5arrow8bit_util7CeilDivEll(i64 noundef %value, i64 noundef %divisor) #0 comdat {
-entry:
-  %value.addr = alloca i64, align 8
-  %divisor.addr = alloca i64, align 8
-  store i64 %value, ptr %value.addr, align 8
-  store i64 %divisor, ptr %divisor.addr, align 8
-  %0 = load i64, ptr %value.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr noundef i64 @_ZN5arrow8bit_util7CeilDivEll(i64 noundef %0, i64 noundef %1) #0 comdat {
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !8
+  store i64 %1, ptr %4, align 8, !tbaa !8
+  %5 = load i64, ptr %3, align 8, !tbaa !8
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %8
 
-cond.true:                                        ; preds = %entry
-  br label %cond.end
+7:                                                ; preds = %2
+  br label %14
 
-cond.false:                                       ; preds = %entry
-  %1 = load i64, ptr %value.addr, align 8
-  %sub = sub nsw i64 %1, 1
-  %2 = load i64, ptr %divisor.addr, align 8
-  %div = sdiv i64 %sub, %2
-  %add = add nsw i64 1, %div
-  br label %cond.end
+8:                                                ; preds = %2
+  %9 = load i64, ptr %3, align 8, !tbaa !8
+  %10 = sub nsw i64 %9, 1
+  %11 = load i64, ptr %4, align 8, !tbaa !8
+  %12 = sdiv i64 %10, %11
+  %13 = add nsw i64 1, %12
+  br label %14
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ 0, %cond.true ], [ %add, %cond.false ]
-  ret i64 %cond
+14:                                               ; preds = %8, %7
+  %15 = phi i64 [ 0, %7 ], [ %13, %8 ]
+  ret i64 %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %i) #0 comdat {
-entry:
-  %i.addr = alloca i32, align 4
-  store i32 %i, ptr %i.addr, align 4
-  %0 = load i32, ptr %i.addr, align 4
-  %conv = zext i32 %0 to i64
-  %cmp = icmp ult i64 %conv, 8
-  %conv1 = zext i1 %cmp to i8
-  %conv2 = zext i8 %conv1 to i32
-  %1 = load i32, ptr %i.addr, align 4
-  %conv3 = zext i32 %1 to i64
-  %and = and i64 %conv3, 7
-  %sh_prom = trunc i64 %and to i32
-  %shl = shl i32 %conv2, %sh_prom
-  %conv4 = trunc i32 %shl to i8
-  %conv5 = zext i8 %conv4 to i32
-  %sub = sub nsw i32 %conv5, 1
-  %conv6 = trunc i32 %sub to i8
-  ret i8 %conv6
+define linkonce_odr noundef zeroext i8 @_ZN5arrow8bit_util20PrecedingWordBitmaskIhEET_j(i32 noundef %0) #0 comdat {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !15
+  %3 = load i32, ptr %2, align 4, !tbaa !15
+  %4 = zext i32 %3 to i64
+  %5 = icmp ult i64 %4, 8
+  %6 = zext i1 %5 to i8
+  %7 = zext i8 %6 to i32
+  %8 = load i32, ptr %2, align 4, !tbaa !15
+  %9 = zext i32 %8 to i64
+  %10 = and i64 %9, 7
+  %11 = trunc i64 %10 to i32
+  %12 = shl i32 %7, %11
+  %13 = trunc i32 %12 to i8
+  %14 = zext i8 %13 to i32
+  %15 = sub nsw i32 %14, 1
+  %16 = trunc i32 %15 to i8
+  ret i8 %16
 }
 
-attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 omnipotent char", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"long", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"bool", !6, i64 0}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!6, !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}
+!26 = distinct !{!26, !18}
+!27 = distinct !{!27, !18}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}
+!31 = distinct !{!31, !18}
+!32 = distinct !{!32, !18}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}
+!35 = distinct !{!35, !18}

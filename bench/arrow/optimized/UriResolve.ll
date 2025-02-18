@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/arrow/original/UriResolve.ll'
 source_filename = "bench/arrow/original/UriResolve.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UriMemoryManagerStruct = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
@@ -10,215 +10,212 @@ target triple = "x86_64-unknown-linux-gnu"
 @uriSafeToPointToW = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriAddBaseUriA(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null)
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriExA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriAddBaseUriExA(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %memory, null
-  br i1 %cmp, label %do.end, label %if.else
+define range(i32 0, 11) i32 @uriAddBaseUriExMmA(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = icmp eq ptr %4, null
+  br i1 %6, label %9, label %7
 
-if.else:                                          ; preds = %entry
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #3
-  %cmp1.not = icmp eq i32 %call, 1
-  br i1 %cmp1.not, label %do.end, label %return
+7:                                                ; preds = %5
+  %8 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %4) #4
+  %.not = icmp eq i32 %8, 1
+  br i1 %.not, label %9, label %uriAddBaseUriImplA.exit.thread
 
-do.end:                                           ; preds = %entry, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %entry ]
-  %cmp.i = icmp eq ptr %absDest, null
-  br i1 %cmp.i, label %return, label %if.end.i
+9:                                                ; preds = %5, %7
+  %.013 = phi ptr [ %4, %7 ], [ @defaultMemoryManager, %5 ]
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %uriAddBaseUriImplA.exit.thread, label %11
 
-if.end.i:                                         ; preds = %do.end
-  tail call void @uriResetUriA(ptr noundef nonnull %absDest) #3
-  %cmp1.i = icmp eq ptr %relSource, null
-  %cmp2.i = icmp eq ptr %absBase, null
-  %or.cond.i = or i1 %cmp1.i, %cmp2.i
-  br i1 %or.cond.i, label %if.then7, label %if.end4.i
+11:                                               ; preds = %9
+  tail call void @uriResetUriA(ptr noundef nonnull %0) #4
+  %12 = icmp eq ptr %1, null
+  %13 = icmp eq ptr %2, null
+  %or.cond.i = or i1 %12, %13
+  br i1 %or.cond.i, label %uriAddBaseUriImplA.exit, label %14
 
-if.end4.i:                                        ; preds = %if.end.i
-  %0 = load ptr, ptr %absBase, align 8
-  %cmp5.i = icmp eq ptr %0, null
-  br i1 %cmp5.i, label %if.then7, label %if.end7.i
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %2, align 8, !tbaa !3
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %uriAddBaseUriImplA.exit, label %17
 
-if.end7.i:                                        ; preds = %if.end4.i
-  %1 = load ptr, ptr %relSource, align 8
-  %cmp10.not.i = icmp ne ptr %1, null
-  %and.i = and i32 %options, 1
-  %tobool.not.i = icmp ne i32 %and.i, 0
-  %brmerge.not.i = select i1 %tobool.not.i, i1 %cmp10.not.i, i1 false
-  br i1 %brmerge.not.i, label %land.lhs.true18.i, label %if.end23.i
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %1, align 8, !tbaa !3
+  %.not.i = icmp ne ptr %18, null
+  %19 = and i32 %3, 1
+  %.not84.i = icmp ne i32 %19, 0
+  %brmerge.not.i = select i1 %.not84.i, i1 %.not.i, i1 false
+  br i1 %brmerge.not.i, label %20, label %22
 
-land.lhs.true18.i:                                ; preds = %if.end7.i
-  %call.i = tail call i32 @uriCompareRangeA(ptr noundef nonnull %absBase, ptr noundef nonnull %relSource) #3
-  %cmp21.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp21.not.i, label %if.else.i, label %if.then25.i
+20:                                               ; preds = %17
+  %21 = tail call i32 @uriCompareRangeA(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
+  %.not107.i = icmp eq i32 %21, 0
+  br i1 %.not107.i, label %32, label %23
 
-if.end23.i:                                       ; preds = %if.end7.i
-  br i1 %cmp10.not.i, label %if.then25.i, label %if.else.i
+22:                                               ; preds = %17
+  br i1 %.not.i, label %23, label %32
 
-if.then25.i:                                      ; preds = %if.end23.i, %land.lhs.true18.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %absDest, ptr noundef nonnull align 8 dereferenceable(16) %relSource, i64 16, i1 false)
-  %call28.i = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %if.then7, label %if.end31.i
+23:                                               ; preds = %22, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !15
+  %24 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not101.i = icmp eq i32 %24, 0
+  br i1 %.not101.i, label %uriAddBaseUriImplA.exit, label %25
 
-if.end31.i:                                       ; preds = %if.then25.i
-  %call32.i = tail call i32 @uriCopyPathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool33.not.i = icmp eq i32 %call32.i, 0
-  br i1 %tobool33.not.i, label %if.then7, label %if.end35.i
+25:                                               ; preds = %23
+  %26 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not102.i = icmp eq i32 %26, 0
+  br i1 %.not102.i, label %uriAddBaseUriImplA.exit, label %27
 
-if.end35.i:                                       ; preds = %if.end31.i
-  %call36.i = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool37.not.i = icmp eq i32 %call36.i, 0
-  br i1 %tobool37.not.i, label %if.then7, label %if.end39.i
+27:                                               ; preds = %25
+  %28 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not103.i = icmp eq i32 %28, 0
+  br i1 %.not103.i, label %uriAddBaseUriImplA.exit, label %29
 
-if.end39.i:                                       ; preds = %if.end35.i
-  %query.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query40.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query.i, ptr noundef nonnull align 8 dereferenceable(16) %query40.i, i64 16, i1 false)
-  br label %if.end121.i
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !15
+  br label %80
 
-if.else.i:                                        ; preds = %if.end23.i, %land.lhs.true18.i
-  %call41.i = tail call i32 @uriIsHostSetA(ptr noundef nonnull %relSource) #3
-  %tobool42.not.i = icmp eq i32 %call41.i, 0
-  br i1 %tobool42.not.i, label %if.else58.i, label %if.then43.i
+32:                                               ; preds = %22, %20
+  %33 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %1) #4
+  %.not85.i = icmp eq i32 %33, 0
+  br i1 %.not85.i, label %43, label %34
 
-if.then43.i:                                      ; preds = %if.else.i
-  %call44.i = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %if.then7, label %if.end47.i
+34:                                               ; preds = %32
+  %35 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not98.i = icmp eq i32 %35, 0
+  br i1 %.not98.i, label %uriAddBaseUriImplA.exit, label %36
 
-if.end47.i:                                       ; preds = %if.then43.i
-  %call48.i = tail call i32 @uriCopyPathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %if.then7, label %if.end51.i
+36:                                               ; preds = %34
+  %37 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not99.i = icmp eq i32 %37, 0
+  br i1 %.not99.i, label %uriAddBaseUriImplA.exit, label %38
 
-if.end51.i:                                       ; preds = %if.end47.i
-  %call52.i = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool53.not.i = icmp eq i32 %call52.i, 0
-  br i1 %tobool53.not.i, label %if.then7, label %if.end55.i
+38:                                               ; preds = %36
+  %39 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not100.i = icmp eq i32 %39, 0
+  br i1 %.not100.i, label %uriAddBaseUriImplA.exit, label %40
 
-if.end55.i:                                       ; preds = %if.end51.i
-  %query56.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query57.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query56.i, ptr noundef nonnull align 8 dereferenceable(16) %query57.i, i64 16, i1 false)
-  br label %if.end118.i
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !15
+  br label %79
 
-if.else58.i:                                      ; preds = %if.else.i
-  %call59.i = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool60.not.i = icmp eq i32 %call59.i, 0
-  br i1 %tobool60.not.i, label %if.then7, label %if.end62.i
+43:                                               ; preds = %32
+  %44 = tail call i32 @uriCopyAuthorityA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not86.i = icmp eq i32 %44, 0
+  br i1 %.not86.i, label %uriAddBaseUriImplA.exit, label %45
 
-if.end62.i:                                       ; preds = %if.else58.i
-  %pathHead.i = getelementptr inbounds nuw i8, ptr %relSource, i64 96
-  %2 = load ptr, ptr %pathHead.i, align 8
-  %cmp63.i = icmp eq ptr %2, null
-  %absolutePath.i = getelementptr inbounds nuw i8, ptr %relSource, i64 144
-  %3 = load i32, ptr %absolutePath.i, align 8
-  %tobool65.not.i = icmp eq i32 %3, 0
-  br i1 %cmp63.i, label %land.lhs.true64.i, label %if.else81.i
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %48 = icmp eq ptr %47, null
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %50 = load i32, ptr %49, align 8, !tbaa !18
+  %.not87.i = icmp eq i32 %50, 0
+  br i1 %48, label %51, label %61
 
-land.lhs.true64.i:                                ; preds = %if.end62.i
-  br i1 %tobool65.not.i, label %if.then66.i, label %if.then84.i
+51:                                               ; preds = %45
+  br i1 %.not87.i, label %52, label %.thread108.i
 
-if.then66.i:                                      ; preds = %land.lhs.true64.i
-  %call67.i = tail call i32 @uriCopyPathA(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool68.not.i = icmp eq i32 %call67.i, 0
-  br i1 %tobool68.not.i, label %if.then7, label %if.end70.i
+52:                                               ; preds = %51
+  %53 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not88.i = icmp eq i32 %53, 0
+  br i1 %.not88.i, label %uriAddBaseUriImplA.exit, label %54
 
-if.end70.i:                                       ; preds = %if.then66.i
-  %query71.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  %4 = load ptr, ptr %query71.i, align 8
-  %cmp73.not.i = icmp eq ptr %4, null
-  %query78.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  br i1 %cmp73.not.i, label %if.else77.i, label %if.then74.i
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %56 = load ptr, ptr %55, align 8, !tbaa !19
+  %.not89.i = icmp eq ptr %56, null
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br i1 %.not89.i, label %59, label %58
 
-if.then74.i:                                      ; preds = %if.end70.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query78.i, ptr noundef nonnull align 8 dereferenceable(16) %query71.i, i64 16, i1 false)
-  br label %if.end117.i
+58:                                               ; preds = %54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !15
+  br label %78
 
-if.else77.i:                                      ; preds = %if.end70.i
-  %query79.i = getelementptr inbounds nuw i8, ptr %absBase, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query78.i, ptr noundef nonnull align 8 dereferenceable(16) %query79.i, i64 16, i1 false)
-  br label %if.end117.i
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !15
+  br label %78
 
-if.else81.i:                                      ; preds = %if.end62.i
-  br i1 %tobool65.not.i, label %if.else97.i, label %if.then84.i
+61:                                               ; preds = %45
+  br i1 %.not87.i, label %67, label %.thread108.i
 
-if.then84.i:                                      ; preds = %if.else81.i, %land.lhs.true64.i
-  %call85.i = tail call i32 @uriCopyPathA(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool86.not.i = icmp eq i32 %call85.i, 0
-  br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
+.thread108.i:                                     ; preds = %61, %51
+  %62 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not95.i = icmp eq i32 %62, 0
+  br i1 %.not95.i, label %uriAddBaseUriImplA.exit, label %63
 
-if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %absDest, ptr noundef nonnull %memory.addr.0)
-  %cmp90.not.i = icmp eq i32 %call89.i, 0
-  br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
+63:                                               ; preds = %.thread108.i
+  %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagA(ptr noundef %0, ptr noundef nonnull %.013)
+  %.not96.i = icmp eq i32 %64, 0
+  br i1 %.not96.i, label %65, label %uriAddBaseUriImplA.exit
 
-if.end92.i:                                       ; preds = %if.end88.i
-  %call93.i = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool94.not.i = icmp eq i32 %call93.i, 0
-  br i1 %tobool94.not.i, label %if.then7, label %if.end114.i
+65:                                               ; preds = %63
+  %66 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not97.not.i = icmp eq i32 %66, 0
+  br i1 %.not97.not.i, label %uriAddBaseUriImplA.exit, label %75
 
-if.else97.i:                                      ; preds = %if.else81.i
-  %call98.i = tail call i32 @uriCopyPathA(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool99.not.i = icmp eq i32 %call98.i, 0
-  br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
+67:                                               ; preds = %61
+  %68 = tail call i32 @uriCopyPathA(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not91.i = icmp eq i32 %68, 0
+  br i1 %.not91.i, label %uriAddBaseUriImplA.exit, label %69
 
-if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathA(ptr noundef %absDest, ptr noundef %relSource, ptr noundef nonnull %memory.addr.0)
-  %tobool103.not.i = icmp eq i32 %call102.i, 0
-  br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
+69:                                               ; preds = %67
+  %70 = tail call fastcc i32 @uriMergePathA(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
+  %.not92.i = icmp eq i32 %70, 0
+  br i1 %.not92.i, label %uriAddBaseUriImplA.exit, label %71
 
-if.end105.i:                                      ; preds = %if.end101.i
-  %call106.i = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool107.not.i = icmp eq i32 %call106.i, 0
-  br i1 %tobool107.not.i, label %if.then7, label %if.end109.i
+71:                                               ; preds = %69
+  %72 = tail call i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not93.i = icmp eq i32 %72, 0
+  br i1 %.not93.i, label %uriAddBaseUriImplA.exit, label %73
 
-if.end109.i:                                      ; preds = %if.end105.i
-  %call110.i = tail call i32 @uriFixAmbiguityA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool111.not.i = icmp eq i32 %call110.i, 0
-  br i1 %tobool111.not.i, label %if.then7, label %if.end114.i
+73:                                               ; preds = %71
+  %74 = tail call i32 @uriFixAmbiguityA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not94.i = icmp eq i32 %74, 0
+  br i1 %.not94.i, label %uriAddBaseUriImplA.exit, label %75
 
-if.end114.i:                                      ; preds = %if.end109.i, %if.end92.i
-  %query115.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query116.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query115.i, ptr noundef nonnull align 8 dereferenceable(16) %query116.i, i64 16, i1 false)
-  br label %if.end117.i
+75:                                               ; preds = %73, %65
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !15
+  br label %78
 
-if.end117.i:                                      ; preds = %if.end114.i, %if.else77.i, %if.then74.i
-  tail call void @uriFixEmptyTrailSegmentA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  br label %if.end118.i
+78:                                               ; preds = %75, %59, %58
+  tail call void @uriFixEmptyTrailSegmentA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %79
 
-if.end118.i:                                      ; preds = %if.end117.i, %if.end55.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %absDest, ptr noundef nonnull align 8 dereferenceable(16) %absBase, i64 16, i1 false)
-  br label %if.end121.i
+79:                                               ; preds = %78, %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !15
+  br label %80
 
-if.end121.i:                                      ; preds = %if.end118.i, %if.end39.i
-  %fragment.i = getelementptr inbounds nuw i8, ptr %absDest, i64 128
-  %fragment122.i = getelementptr inbounds nuw i8, ptr %relSource, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fragment.i, ptr noundef nonnull align 8 dereferenceable(16) %fragment122.i, i64 16, i1 false)
-  br label %return
+80:                                               ; preds = %79, %29
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !15
+  br label %uriAddBaseUriImplA.exit.thread
 
-if.then7:                                         ; preds = %if.end109.i, %if.end105.i, %if.end101.i, %if.else97.i, %if.end92.i, %if.end88.i, %if.then84.i, %if.then66.i, %if.else58.i, %if.end51.i, %if.end47.i, %if.then43.i, %if.end35.i, %if.end31.i, %if.then25.i, %if.end4.i, %if.end.i
-  %retval.0.i = phi i32 [ 2, %if.end.i ], [ 5, %if.end4.i ], [ 3, %if.then25.i ], [ 3, %if.end31.i ], [ 3, %if.end35.i ], [ 3, %if.then43.i ], [ 3, %if.end47.i ], [ 3, %if.end51.i ], [ 3, %if.else58.i ], [ 3, %if.then66.i ], [ 3, %if.then84.i ], [ %call89.i, %if.end88.i ], [ 3, %if.end92.i ], [ 3, %if.else97.i ], [ 3, %if.end101.i ], [ 3, %if.end105.i ], [ 3, %if.end109.i ]
-  %call8 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  br label %return
+uriAddBaseUriImplA.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread108.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread108.i ]
+  %83 = tail call i32 @uriFreeUriMembersMmA(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %uriAddBaseUriImplA.exit.thread
 
-return:                                           ; preds = %do.end, %if.end121.i, %if.then7, %if.else
-  %retval.0 = phi i32 [ 10, %if.else ], [ %retval.0.i, %if.then7 ], [ 2, %do.end ], [ 0, %if.end121.i ]
-  ret i32 %retval.0
+uriAddBaseUriImplA.exit.thread:                   ; preds = %9, %80, %uriAddBaseUriImplA.exit, %7
+  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplA.exit ], [ 2, %9 ], [ 0, %80 ]
+  ret i32 %.0
 }
 
 declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #1
@@ -226,215 +223,212 @@ declare i32 @uriMemoryManagerIsComplete(ptr noundef) local_unnamed_addr #1
 declare i32 @uriFreeUriMembersMmA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase) local_unnamed_addr #0 {
-entry:
-  %call.i = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef 0, ptr noundef null)
-  ret i32 %call.i
+define range(i32 0, 11) i32 @uriAddBaseUriW(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = tail call range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null)
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriExW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options) local_unnamed_addr #0 {
-entry:
-  %call = tail call i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef null)
-  ret i32 %call
+define range(i32 0, 11) i32 @uriAddBaseUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null)
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef %absBase, i32 noundef %options, ptr noundef %memory) local_unnamed_addr #0 {
-entry:
-  %cmp = icmp eq ptr %memory, null
-  br i1 %cmp, label %do.end, label %if.else
+define range(i32 0, 11) i32 @uriAddBaseUriExMmW(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+  %6 = icmp eq ptr %4, null
+  br i1 %6, label %9, label %7
 
-if.else:                                          ; preds = %entry
-  %call = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %memory) #3
-  %cmp1.not = icmp eq i32 %call, 1
-  br i1 %cmp1.not, label %do.end, label %return
+7:                                                ; preds = %5
+  %8 = tail call i32 @uriMemoryManagerIsComplete(ptr noundef nonnull %4) #4
+  %.not = icmp eq i32 %8, 1
+  br i1 %.not, label %9, label %uriAddBaseUriImplW.exit.thread
 
-do.end:                                           ; preds = %entry, %if.else
-  %memory.addr.0 = phi ptr [ %memory, %if.else ], [ @defaultMemoryManager, %entry ]
-  %cmp.i = icmp eq ptr %absDest, null
-  br i1 %cmp.i, label %return, label %if.end.i
+9:                                                ; preds = %5, %7
+  %.013 = phi ptr [ %4, %7 ], [ @defaultMemoryManager, %5 ]
+  %10 = icmp eq ptr %0, null
+  br i1 %10, label %uriAddBaseUriImplW.exit.thread, label %11
 
-if.end.i:                                         ; preds = %do.end
-  tail call void @uriResetUriW(ptr noundef nonnull %absDest) #3
-  %cmp1.i = icmp eq ptr %relSource, null
-  %cmp2.i = icmp eq ptr %absBase, null
-  %or.cond.i = or i1 %cmp1.i, %cmp2.i
-  br i1 %or.cond.i, label %if.then7, label %if.end4.i
+11:                                               ; preds = %9
+  tail call void @uriResetUriW(ptr noundef nonnull %0) #4
+  %12 = icmp eq ptr %1, null
+  %13 = icmp eq ptr %2, null
+  %or.cond.i = or i1 %12, %13
+  br i1 %or.cond.i, label %uriAddBaseUriImplW.exit, label %14
 
-if.end4.i:                                        ; preds = %if.end.i
-  %0 = load ptr, ptr %absBase, align 8
-  %cmp5.i = icmp eq ptr %0, null
-  br i1 %cmp5.i, label %if.then7, label %if.end7.i
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %2, align 8, !tbaa !20
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %uriAddBaseUriImplW.exit, label %17
 
-if.end7.i:                                        ; preds = %if.end4.i
-  %1 = load ptr, ptr %relSource, align 8
-  %cmp10.not.i = icmp ne ptr %1, null
-  %and.i = and i32 %options, 1
-  %tobool.not.i = icmp ne i32 %and.i, 0
-  %brmerge.not.i = select i1 %tobool.not.i, i1 %cmp10.not.i, i1 false
-  br i1 %brmerge.not.i, label %land.lhs.true18.i, label %if.end23.i
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %1, align 8, !tbaa !20
+  %.not.i = icmp ne ptr %18, null
+  %19 = and i32 %3, 1
+  %.not84.i = icmp ne i32 %19, 0
+  %brmerge.not.i = select i1 %.not84.i, i1 %.not.i, i1 false
+  br i1 %brmerge.not.i, label %20, label %22
 
-land.lhs.true18.i:                                ; preds = %if.end7.i
-  %call.i = tail call i32 @uriCompareRangeW(ptr noundef nonnull %absBase, ptr noundef nonnull %relSource) #3
-  %cmp21.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp21.not.i, label %if.else.i, label %if.then25.i
+20:                                               ; preds = %17
+  %21 = tail call i32 @uriCompareRangeW(ptr noundef nonnull %2, ptr noundef nonnull %1) #4
+  %.not107.i = icmp eq i32 %21, 0
+  br i1 %.not107.i, label %32, label %23
 
-if.end23.i:                                       ; preds = %if.end7.i
-  br i1 %cmp10.not.i, label %if.then25.i, label %if.else.i
+22:                                               ; preds = %17
+  br i1 %.not.i, label %23, label %32
 
-if.then25.i:                                      ; preds = %if.end23.i, %land.lhs.true18.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %absDest, ptr noundef nonnull align 8 dereferenceable(16) %relSource, i64 16, i1 false)
-  %call28.i = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool29.not.i = icmp eq i32 %call28.i, 0
-  br i1 %tobool29.not.i, label %if.then7, label %if.end31.i
+23:                                               ; preds = %22, %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !26
+  %24 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not101.i = icmp eq i32 %24, 0
+  br i1 %.not101.i, label %uriAddBaseUriImplW.exit, label %25
 
-if.end31.i:                                       ; preds = %if.then25.i
-  %call32.i = tail call i32 @uriCopyPathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool33.not.i = icmp eq i32 %call32.i, 0
-  br i1 %tobool33.not.i, label %if.then7, label %if.end35.i
+25:                                               ; preds = %23
+  %26 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not102.i = icmp eq i32 %26, 0
+  br i1 %.not102.i, label %uriAddBaseUriImplW.exit, label %27
 
-if.end35.i:                                       ; preds = %if.end31.i
-  %call36.i = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool37.not.i = icmp eq i32 %call36.i, 0
-  br i1 %tobool37.not.i, label %if.then7, label %if.end39.i
+27:                                               ; preds = %25
+  %28 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not103.i = icmp eq i32 %28, 0
+  br i1 %.not103.i, label %uriAddBaseUriImplW.exit, label %29
 
-if.end39.i:                                       ; preds = %if.end35.i
-  %query.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query40.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query.i, ptr noundef nonnull align 8 dereferenceable(16) %query40.i, i64 16, i1 false)
-  br label %if.end121.i
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !26
+  br label %80
 
-if.else.i:                                        ; preds = %if.end23.i, %land.lhs.true18.i
-  %call41.i = tail call i32 @uriIsHostSetW(ptr noundef nonnull %relSource) #3
-  %tobool42.not.i = icmp eq i32 %call41.i, 0
-  br i1 %tobool42.not.i, label %if.else58.i, label %if.then43.i
+32:                                               ; preds = %22, %20
+  %33 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %1) #4
+  %.not85.i = icmp eq i32 %33, 0
+  br i1 %.not85.i, label %43, label %34
 
-if.then43.i:                                      ; preds = %if.else.i
-  %call44.i = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool45.not.i = icmp eq i32 %call44.i, 0
-  br i1 %tobool45.not.i, label %if.then7, label %if.end47.i
+34:                                               ; preds = %32
+  %35 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not98.i = icmp eq i32 %35, 0
+  br i1 %.not98.i, label %uriAddBaseUriImplW.exit, label %36
 
-if.end47.i:                                       ; preds = %if.then43.i
-  %call48.i = tail call i32 @uriCopyPathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool49.not.i = icmp eq i32 %call48.i, 0
-  br i1 %tobool49.not.i, label %if.then7, label %if.end51.i
+36:                                               ; preds = %34
+  %37 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not99.i = icmp eq i32 %37, 0
+  br i1 %.not99.i, label %uriAddBaseUriImplW.exit, label %38
 
-if.end51.i:                                       ; preds = %if.end47.i
-  %call52.i = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool53.not.i = icmp eq i32 %call52.i, 0
-  br i1 %tobool53.not.i, label %if.then7, label %if.end55.i
+38:                                               ; preds = %36
+  %39 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not100.i = icmp eq i32 %39, 0
+  br i1 %.not100.i, label %uriAddBaseUriImplW.exit, label %40
 
-if.end55.i:                                       ; preds = %if.end51.i
-  %query56.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query57.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query56.i, ptr noundef nonnull align 8 dereferenceable(16) %query57.i, i64 16, i1 false)
-  br label %if.end118.i
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !26
+  br label %79
 
-if.else58.i:                                      ; preds = %if.else.i
-  %call59.i = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool60.not.i = icmp eq i32 %call59.i, 0
-  br i1 %tobool60.not.i, label %if.then7, label %if.end62.i
+43:                                               ; preds = %32
+  %44 = tail call i32 @uriCopyAuthorityW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not86.i = icmp eq i32 %44, 0
+  br i1 %.not86.i, label %uriAddBaseUriImplW.exit, label %45
 
-if.end62.i:                                       ; preds = %if.else58.i
-  %pathHead.i = getelementptr inbounds nuw i8, ptr %relSource, i64 96
-  %2 = load ptr, ptr %pathHead.i, align 8
-  %cmp63.i = icmp eq ptr %2, null
-  %absolutePath.i = getelementptr inbounds nuw i8, ptr %relSource, i64 144
-  %3 = load i32, ptr %absolutePath.i, align 8
-  %tobool65.not.i = icmp eq i32 %3, 0
-  br i1 %cmp63.i, label %land.lhs.true64.i, label %if.else81.i
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
+  %48 = icmp eq ptr %47, null
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %50 = load i32, ptr %49, align 8, !tbaa !29
+  %.not87.i = icmp eq i32 %50, 0
+  br i1 %48, label %51, label %61
 
-land.lhs.true64.i:                                ; preds = %if.end62.i
-  br i1 %tobool65.not.i, label %if.then66.i, label %if.then84.i
+51:                                               ; preds = %45
+  br i1 %.not87.i, label %52, label %.thread108.i
 
-if.then66.i:                                      ; preds = %land.lhs.true64.i
-  %call67.i = tail call i32 @uriCopyPathW(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool68.not.i = icmp eq i32 %call67.i, 0
-  br i1 %tobool68.not.i, label %if.then7, label %if.end70.i
+52:                                               ; preds = %51
+  %53 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not88.i = icmp eq i32 %53, 0
+  br i1 %.not88.i, label %uriAddBaseUriImplW.exit, label %54
 
-if.end70.i:                                       ; preds = %if.then66.i
-  %query71.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  %4 = load ptr, ptr %query71.i, align 8
-  %cmp73.not.i = icmp eq ptr %4, null
-  %query78.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  br i1 %cmp73.not.i, label %if.else77.i, label %if.then74.i
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %56 = load ptr, ptr %55, align 8, !tbaa !30
+  %.not89.i = icmp eq ptr %56, null
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  br i1 %.not89.i, label %59, label %58
 
-if.then74.i:                                      ; preds = %if.end70.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query78.i, ptr noundef nonnull align 8 dereferenceable(16) %query71.i, i64 16, i1 false)
-  br label %if.end117.i
+58:                                               ; preds = %54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !26
+  br label %78
 
-if.else77.i:                                      ; preds = %if.end70.i
-  %query79.i = getelementptr inbounds nuw i8, ptr %absBase, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query78.i, ptr noundef nonnull align 8 dereferenceable(16) %query79.i, i64 16, i1 false)
-  br label %if.end117.i
+59:                                               ; preds = %54
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !26
+  br label %78
 
-if.else81.i:                                      ; preds = %if.end62.i
-  br i1 %tobool65.not.i, label %if.else97.i, label %if.then84.i
+61:                                               ; preds = %45
+  br i1 %.not87.i, label %67, label %.thread108.i
 
-if.then84.i:                                      ; preds = %if.else81.i, %land.lhs.true64.i
-  %call85.i = tail call i32 @uriCopyPathW(ptr noundef nonnull %absDest, ptr noundef nonnull %relSource, ptr noundef nonnull %memory.addr.0) #3
-  %tobool86.not.i = icmp eq i32 %call85.i, 0
-  br i1 %tobool86.not.i, label %if.then7, label %if.end88.i
+.thread108.i:                                     ; preds = %61, %51
+  %62 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.013) #4
+  %.not95.i = icmp eq i32 %62, 0
+  br i1 %.not95.i, label %uriAddBaseUriImplW.exit, label %63
 
-if.end88.i:                                       ; preds = %if.then84.i
-  %call89.i = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %absDest, ptr noundef nonnull %memory.addr.0)
-  %cmp90.not.i = icmp eq i32 %call89.i, 0
-  br i1 %cmp90.not.i, label %if.end92.i, label %if.then7
+63:                                               ; preds = %.thread108.i
+  %64 = tail call fastcc i32 @uriResolveAbsolutePathFlagW(ptr noundef %0, ptr noundef nonnull %.013)
+  %.not96.i = icmp eq i32 %64, 0
+  br i1 %.not96.i, label %65, label %uriAddBaseUriImplW.exit
 
-if.end92.i:                                       ; preds = %if.end88.i
-  %call93.i = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool94.not.i = icmp eq i32 %call93.i, 0
-  br i1 %tobool94.not.i, label %if.then7, label %if.end114.i
+65:                                               ; preds = %63
+  %66 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not97.not.i = icmp eq i32 %66, 0
+  br i1 %.not97.not.i, label %uriAddBaseUriImplW.exit, label %75
 
-if.else97.i:                                      ; preds = %if.else81.i
-  %call98.i = tail call i32 @uriCopyPathW(ptr noundef nonnull %absDest, ptr noundef nonnull %absBase, ptr noundef nonnull %memory.addr.0) #3
-  %tobool99.not.i = icmp eq i32 %call98.i, 0
-  br i1 %tobool99.not.i, label %if.then7, label %if.end101.i
+67:                                               ; preds = %61
+  %68 = tail call i32 @uriCopyPathW(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %.013) #4
+  %.not91.i = icmp eq i32 %68, 0
+  br i1 %.not91.i, label %uriAddBaseUriImplW.exit, label %69
 
-if.end101.i:                                      ; preds = %if.else97.i
-  %call102.i = tail call fastcc i32 @uriMergePathW(ptr noundef %absDest, ptr noundef %relSource, ptr noundef nonnull %memory.addr.0)
-  %tobool103.not.i = icmp eq i32 %call102.i, 0
-  br i1 %tobool103.not.i, label %if.then7, label %if.end105.i
+69:                                               ; preds = %67
+  %70 = tail call fastcc i32 @uriMergePathW(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.013)
+  %.not92.i = icmp eq i32 %70, 0
+  br i1 %.not92.i, label %uriAddBaseUriImplW.exit, label %71
 
-if.end105.i:                                      ; preds = %if.end101.i
-  %call106.i = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool107.not.i = icmp eq i32 %call106.i, 0
-  br i1 %tobool107.not.i, label %if.then7, label %if.end109.i
+71:                                               ; preds = %69
+  %72 = tail call i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not93.i = icmp eq i32 %72, 0
+  br i1 %.not93.i, label %uriAddBaseUriImplW.exit, label %73
 
-if.end109.i:                                      ; preds = %if.end105.i
-  %call110.i = tail call i32 @uriFixAmbiguityW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  %tobool111.not.i = icmp eq i32 %call110.i, 0
-  br i1 %tobool111.not.i, label %if.then7, label %if.end114.i
+73:                                               ; preds = %71
+  %74 = tail call i32 @uriFixAmbiguityW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  %.not94.i = icmp eq i32 %74, 0
+  br i1 %.not94.i, label %uriAddBaseUriImplW.exit, label %75
 
-if.end114.i:                                      ; preds = %if.end109.i, %if.end92.i
-  %query115.i = getelementptr inbounds nuw i8, ptr %absDest, i64 112
-  %query116.i = getelementptr inbounds nuw i8, ptr %relSource, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %query115.i, ptr noundef nonnull align 8 dereferenceable(16) %query116.i, i64 16, i1 false)
-  br label %if.end117.i
+75:                                               ; preds = %73, %65
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !26
+  br label %78
 
-if.end117.i:                                      ; preds = %if.end114.i, %if.else77.i, %if.then74.i
-  tail call void @uriFixEmptyTrailSegmentW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  br label %if.end118.i
+78:                                               ; preds = %75, %59, %58
+  tail call void @uriFixEmptyTrailSegmentW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %79
 
-if.end118.i:                                      ; preds = %if.end117.i, %if.end55.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %absDest, ptr noundef nonnull align 8 dereferenceable(16) %absBase, i64 16, i1 false)
-  br label %if.end121.i
+79:                                               ; preds = %78, %40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !26
+  br label %80
 
-if.end121.i:                                      ; preds = %if.end118.i, %if.end39.i
-  %fragment.i = getelementptr inbounds nuw i8, ptr %absDest, i64 128
-  %fragment122.i = getelementptr inbounds nuw i8, ptr %relSource, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fragment.i, ptr noundef nonnull align 8 dereferenceable(16) %fragment122.i, i64 16, i1 false)
-  br label %return
+80:                                               ; preds = %79, %29
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !26
+  br label %uriAddBaseUriImplW.exit.thread
 
-if.then7:                                         ; preds = %if.end109.i, %if.end105.i, %if.end101.i, %if.else97.i, %if.end92.i, %if.end88.i, %if.then84.i, %if.then66.i, %if.else58.i, %if.end51.i, %if.end47.i, %if.then43.i, %if.end35.i, %if.end31.i, %if.then25.i, %if.end4.i, %if.end.i
-  %retval.0.i = phi i32 [ 2, %if.end.i ], [ 5, %if.end4.i ], [ 3, %if.then25.i ], [ 3, %if.end31.i ], [ 3, %if.end35.i ], [ 3, %if.then43.i ], [ 3, %if.end47.i ], [ 3, %if.end51.i ], [ 3, %if.else58.i ], [ 3, %if.then66.i ], [ 3, %if.then84.i ], [ %call89.i, %if.end88.i ], [ 3, %if.end92.i ], [ 3, %if.else97.i ], [ 3, %if.end101.i ], [ 3, %if.end105.i ], [ 3, %if.end109.i ]
-  %call8 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %absDest, ptr noundef nonnull %memory.addr.0) #3
-  br label %return
+uriAddBaseUriImplW.exit:                          ; preds = %73, %71, %69, %67, %65, %63, %.thread108.i, %52, %43, %38, %36, %34, %27, %25, %23, %14, %11
+  %.0.i = phi i32 [ 3, %65 ], [ 2, %11 ], [ 5, %14 ], [ 3, %23 ], [ 3, %25 ], [ 3, %27 ], [ 3, %34 ], [ 3, %36 ], [ 3, %38 ], [ 3, %43 ], [ 3, %52 ], [ 3, %67 ], [ 3, %69 ], [ 3, %71 ], [ 3, %73 ], [ %64, %63 ], [ 3, %.thread108.i ]
+  %83 = tail call i32 @uriFreeUriMembersMmW(ptr noundef nonnull %0, ptr noundef nonnull %.013) #4
+  br label %uriAddBaseUriImplW.exit.thread
 
-return:                                           ; preds = %do.end, %if.end121.i, %if.then7, %if.else
-  %retval.0 = phi i32 [ 10, %if.else ], [ %retval.0.i, %if.then7 ], [ 2, %do.end ], [ 0, %if.end121.i ]
-  ret i32 %retval.0
+uriAddBaseUriImplW.exit.thread:                   ; preds = %9, %80, %uriAddBaseUriImplW.exit, %7
+  %.0 = phi i32 [ 10, %7 ], [ %.0.i, %uriAddBaseUriImplW.exit ], [ 2, %9 ], [ 0, %80 ]
+  ret i32 %.0
 }
 
 declare i32 @uriFreeUriMembersMmW(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -455,139 +449,130 @@ declare i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %absWork, ptr noundef %memory) unnamed_addr #0 {
-entry:
-  %call = tail call i32 @uriIsHostSetA(ptr noundef nonnull %absWork) #3
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagA(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call i32 @uriIsHostSetA(ptr noundef nonnull %0) #4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %20, label %4
 
-land.lhs.true:                                    ; preds = %entry
-  %absolutePath = getelementptr inbounds nuw i8, ptr %absWork, i64 144
-  %0 = load i32, ptr %absolutePath, align 8
-  %tobool1.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not, label %return, label %if.then2
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %6 = load i32, ptr %5, align 8, !tbaa !18
+  %.not19 = icmp eq i32 %6, 0
+  br i1 %.not19, label %20, label %7
 
-if.then2:                                         ; preds = %land.lhs.true
-  %pathHead = getelementptr inbounds nuw i8, ptr %absWork, i64 96
-  %1 = load ptr, ptr %pathHead, align 8
-  %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %if.then4, label %if.end11
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %19
 
-if.then4:                                         ; preds = %if.then2
-  %2 = load ptr, ptr %memory, align 8
-  %call5 = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp6 = icmp eq ptr %call5, null
-  br i1 %cmp6, label %return, label %if.end8
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %1, align 8, !tbaa !31
+  %13 = tail call ptr %12(ptr noundef nonnull %1, i64 noundef 32) #4
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %.thread
 
-if.end8:                                          ; preds = %if.then4
-  %3 = load ptr, ptr @uriSafeToPointToA, align 8
-  store ptr %3, ptr %call5, align 8
-  %afterLast = getelementptr inbounds nuw i8, ptr %call5, i64 8
-  store ptr %3, ptr %afterLast, align 8
-  %next = getelementptr inbounds nuw i8, ptr %call5, i64 16
-  store ptr null, ptr %next, align 8
-  store ptr %call5, ptr %pathHead, align 8
-  %pathTail = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %call5, ptr %pathTail, align 8
-  br label %if.end11
+.thread:                                          ; preds = %11
+  %15 = load ptr, ptr @uriSafeToPointToA, align 8, !tbaa !16
+  store ptr %15, ptr %13, align 8, !tbaa !33
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !35
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %17, align 8, !tbaa !36
+  store ptr %13, ptr %8, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %13, ptr %18, align 8, !tbaa !37
+  br label %19
 
-if.end11:                                         ; preds = %if.end8, %if.then2
-  store i32 0, ptr %absolutePath, align 8
-  br label %return
+19:                                               ; preds = %.thread, %7
+  store i32 0, ptr %5, align 8, !tbaa !18
+  br label %20
 
-return:                                           ; preds = %entry, %land.lhs.true, %if.end11, %if.then4
-  %retval.0 = phi i32 [ 3, %if.then4 ], [ 0, %if.end11 ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  ret i32 %retval.0
+20:                                               ; preds = %11, %2, %4, %19
+  %.016 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %2 ], [ 3, %11 ]
+  ret i32 %.016
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr noundef nonnull captures(none) %absWork, ptr noundef nonnull readonly captures(none) %relAppend, ptr noundef %memory) unnamed_addr #0 {
-entry:
-  %pathHead = getelementptr inbounds nuw i8, ptr %relAppend, i64 96
-  %0 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @uriMergePathA(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %.critedge, label %7
 
-if.end:                                           ; preds = %entry
-  %pathHead1 = getelementptr inbounds nuw i8, ptr %absWork, i64 96
-  %1 = load ptr, ptr %pathHead1, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %if.then3, label %if.end.if.end8_crit_edge
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %._crit_edge
 
-if.end.if.end8_crit_edge:                         ; preds = %if.end
-  %pathTail10.phi.trans.insert = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  %.pre32 = load ptr, ptr %pathTail10.phi.trans.insert, align 8
-  br label %if.end8
+._crit_edge:                                      ; preds = %7
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.pre56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !37
+  br label %17
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %memory, align 8
-  %call = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp4 = icmp eq ptr %call, null
-  br i1 %cmp4, label %return, label %if.end6
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %2, align 8, !tbaa !31
+  %13 = tail call ptr %12(ptr noundef nonnull %2, i64 noundef 32) #4
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %.critedge, label %14
 
-if.end6:                                          ; preds = %if.then3
-  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr null, ptr %next, align 8
-  store ptr %call, ptr %pathHead1, align 8
-  %pathTail = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %call, ptr %pathTail, align 8
-  %.pre = load ptr, ptr %pathHead, align 8
-  br label %if.end8
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %15, align 8, !tbaa !36
+  store ptr %13, ptr %8, align 8, !tbaa !17
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %13, ptr %16, align 8, !tbaa !37
+  %.pre = load ptr, ptr %4, align 8, !tbaa !17
+  br label %17
 
-if.end8:                                          ; preds = %if.end.if.end8_crit_edge, %if.end6
-  %3 = phi ptr [ %call, %if.end6 ], [ %.pre32, %if.end.if.end8_crit_edge ]
-  %4 = phi ptr [ %.pre, %if.end6 ], [ %0, %if.end.if.end8_crit_edge ]
-  %5 = load ptr, ptr %4, align 8
-  %pathTail10 = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %pathHead, align 8
-  %afterLast = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load ptr, ptr %afterLast, align 8
-  %8 = load ptr, ptr %pathTail10, align 8
-  %afterLast17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %afterLast17, align 8
-  %9 = load ptr, ptr %pathHead, align 8
-  %next19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %10 = load ptr, ptr %next19, align 8
-  %cmp20 = icmp eq ptr %10, null
-  br i1 %cmp20, label %return, label %if.end22
+17:                                               ; preds = %._crit_edge, %14
+  %18 = phi ptr [ %13, %14 ], [ %.pre56, %._crit_edge ]
+  %19 = phi ptr [ %.pre, %14 ], [ %5, %._crit_edge ]
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %20, ptr %18, align 8, !tbaa !33
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %23, ptr %24, align 8, !tbaa !35
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.critedge, label %.preheader
 
-if.end22:                                         ; preds = %if.end8
-  %11 = load ptr, ptr %pathTail10, align 8
-  br label %for.cond
+.preheader:                                       ; preds = %17, %32
+  %.039 = phi ptr [ %29, %32 ], [ %18, %17 ]
+  %.035 = phi ptr [ %35, %32 ], [ %26, %17 ]
+  %28 = load ptr, ptr %2, align 8, !tbaa !31
+  %29 = tail call ptr %28(ptr noundef nonnull %2, i64 noundef 32) #4
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.thread, label %32
 
-for.cond:                                         ; preds = %if.end31, %if.end22
-  %destPrev.0 = phi ptr [ %11, %if.end22 ], [ %call26, %if.end31 ]
-  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
-  %12 = load ptr, ptr %memory, align 8
-  %call26 = tail call ptr %12(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp27 = icmp eq ptr %call26, null
-  br i1 %cmp27, label %if.then28, label %if.end31
+.thread:                                          ; preds = %.preheader
+  %31 = getelementptr inbounds nuw i8, ptr %.039, i64 16
+  store ptr null, ptr %31, align 8, !tbaa !36
+  store ptr %.039, ptr %21, align 8, !tbaa !37
+  br label %.critedge
 
-if.then28:                                        ; preds = %for.cond
-  %next29 = getelementptr inbounds nuw i8, ptr %destPrev.0, i64 16
-  store ptr null, ptr %next29, align 8
-  store ptr %destPrev.0, ptr %pathTail10, align 8
-  br label %return
+32:                                               ; preds = %.preheader
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %.035, i64 16, i1 false), !tbaa.struct !15
+  %33 = getelementptr inbounds nuw i8, ptr %.039, i64 16
+  store ptr %29, ptr %33, align 8, !tbaa !36
+  %34 = getelementptr inbounds nuw i8, ptr %.035, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.preheader
 
-if.end31:                                         ; preds = %for.cond
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull align 8 dereferenceable(16) %sourceWalker.0, i64 16, i1 false)
-  %next34 = getelementptr inbounds nuw i8, ptr %destPrev.0, i64 16
-  store ptr %call26, ptr %next34, align 8
-  %next35 = getelementptr inbounds nuw i8, ptr %sourceWalker.0, i64 16
-  %13 = load ptr, ptr %next35, align 8
-  %cmp36 = icmp eq ptr %13, null
-  br i1 %cmp36, label %if.then37, label %for.cond
+37:                                               ; preds = %32
+  store ptr %29, ptr %21, align 8, !tbaa !37
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr null, ptr %38, align 8, !tbaa !36
+  br label %.critedge
 
-if.then37:                                        ; preds = %if.end31
-  store ptr %call26, ptr %pathTail10, align 8
-  %next40 = getelementptr inbounds nuw i8, ptr %call26, i64 16
-  store ptr null, ptr %next40, align 8
-  br label %return
-
-return:                                           ; preds = %if.end8, %if.then3, %entry, %if.then37, %if.then28
-  %retval.0 = phi i32 [ 0, %if.then28 ], [ 1, %if.then37 ], [ 1, %entry ], [ 0, %if.then3 ], [ 1, %if.end8 ]
-  ret i32 %retval.0
+.critedge:                                        ; preds = %.thread, %11, %17, %3, %37
+  %.0 = phi i32 [ 1, %37 ], [ 1, %3 ], [ 1, %17 ], [ 0, %11 ], [ 0, %.thread ]
+  ret i32 %.0
 }
 
 declare i32 @uriFixAmbiguityA(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -607,153 +592,184 @@ declare i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef, ptr noundef) local_unnam
 declare i32 @uriIsHostSetW(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %absWork, ptr noundef %memory) unnamed_addr #0 {
-entry:
-  %call = tail call i32 @uriIsHostSetW(ptr noundef nonnull %absWork) #3
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return, label %land.lhs.true
+define internal fastcc range(i32 0, 4) i32 @uriResolveAbsolutePathFlagW(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+  %3 = tail call i32 @uriIsHostSetW(ptr noundef nonnull %0) #4
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %20, label %4
 
-land.lhs.true:                                    ; preds = %entry
-  %absolutePath = getelementptr inbounds nuw i8, ptr %absWork, i64 144
-  %0 = load i32, ptr %absolutePath, align 8
-  %tobool1.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not, label %return, label %if.then2
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %6 = load i32, ptr %5, align 8, !tbaa !29
+  %.not19 = icmp eq i32 %6, 0
+  br i1 %.not19, label %20, label %7
 
-if.then2:                                         ; preds = %land.lhs.true
-  %pathHead = getelementptr inbounds nuw i8, ptr %absWork, i64 96
-  %1 = load ptr, ptr %pathHead, align 8
-  %cmp3 = icmp eq ptr %1, null
-  br i1 %cmp3, label %if.then4, label %if.end11
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %19
 
-if.then4:                                         ; preds = %if.then2
-  %2 = load ptr, ptr %memory, align 8
-  %call5 = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp6 = icmp eq ptr %call5, null
-  br i1 %cmp6, label %return, label %if.end8
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %1, align 8, !tbaa !31
+  %13 = tail call ptr %12(ptr noundef nonnull %1, i64 noundef 32) #4
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %20, label %.thread
 
-if.end8:                                          ; preds = %if.then4
-  %3 = load ptr, ptr @uriSafeToPointToW, align 8
-  store ptr %3, ptr %call5, align 8
-  %afterLast = getelementptr inbounds nuw i8, ptr %call5, i64 8
-  store ptr %3, ptr %afterLast, align 8
-  %next = getelementptr inbounds nuw i8, ptr %call5, i64 16
-  store ptr null, ptr %next, align 8
-  store ptr %call5, ptr %pathHead, align 8
-  %pathTail = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %call5, ptr %pathTail, align 8
-  br label %if.end11
+.thread:                                          ; preds = %11
+  %15 = load ptr, ptr @uriSafeToPointToW, align 8, !tbaa !27
+  store ptr %15, ptr %13, align 8, !tbaa !38
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !40
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %17, align 8, !tbaa !41
+  store ptr %13, ptr %8, align 8, !tbaa !28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %13, ptr %18, align 8, !tbaa !42
+  br label %19
 
-if.end11:                                         ; preds = %if.end8, %if.then2
-  store i32 0, ptr %absolutePath, align 8
-  br label %return
+19:                                               ; preds = %.thread, %7
+  store i32 0, ptr %5, align 8, !tbaa !29
+  br label %20
 
-return:                                           ; preds = %entry, %land.lhs.true, %if.end11, %if.then4
-  %retval.0 = phi i32 [ 3, %if.then4 ], [ 0, %if.end11 ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  ret i32 %retval.0
+20:                                               ; preds = %11, %2, %4, %19
+  %.016 = phi i32 [ 0, %19 ], [ 0, %4 ], [ 0, %2 ], [ 3, %11 ]
+  ret i32 %.016
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr noundef nonnull captures(none) %absWork, ptr noundef nonnull readonly captures(none) %relAppend, ptr noundef %memory) unnamed_addr #0 {
-entry:
-  %pathHead = getelementptr inbounds nuw i8, ptr %relAppend, i64 96
-  %0 = load ptr, ptr %pathHead, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %return, label %if.end
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc range(i32 0, 2) i32 @uriMergePathW(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #3 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %.critedge, label %7
 
-if.end:                                           ; preds = %entry
-  %pathHead1 = getelementptr inbounds nuw i8, ptr %absWork, i64 96
-  %1 = load ptr, ptr %pathHead1, align 8
-  %cmp2 = icmp eq ptr %1, null
-  br i1 %cmp2, label %if.then3, label %if.end.if.end8_crit_edge
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %._crit_edge
 
-if.end.if.end8_crit_edge:                         ; preds = %if.end
-  %pathTail10.phi.trans.insert = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  %.pre32 = load ptr, ptr %pathTail10.phi.trans.insert, align 8
-  br label %if.end8
+._crit_edge:                                      ; preds = %7
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.pre56 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !42
+  br label %17
 
-if.then3:                                         ; preds = %if.end
-  %2 = load ptr, ptr %memory, align 8
-  %call = tail call ptr %2(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp4 = icmp eq ptr %call, null
-  br i1 %cmp4, label %return, label %if.end6
+11:                                               ; preds = %7
+  %12 = load ptr, ptr %2, align 8, !tbaa !31
+  %13 = tail call ptr %12(ptr noundef nonnull %2, i64 noundef 32) #4
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %.critedge, label %14
 
-if.end6:                                          ; preds = %if.then3
-  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
-  store ptr null, ptr %next, align 8
-  store ptr %call, ptr %pathHead1, align 8
-  %pathTail = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %call, ptr %pathTail, align 8
-  %.pre = load ptr, ptr %pathHead, align 8
-  br label %if.end8
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr null, ptr %15, align 8, !tbaa !41
+  store ptr %13, ptr %8, align 8, !tbaa !28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %13, ptr %16, align 8, !tbaa !42
+  %.pre = load ptr, ptr %4, align 8, !tbaa !28
+  br label %17
 
-if.end8:                                          ; preds = %if.end.if.end8_crit_edge, %if.end6
-  %3 = phi ptr [ %call, %if.end6 ], [ %.pre32, %if.end.if.end8_crit_edge ]
-  %4 = phi ptr [ %.pre, %if.end6 ], [ %0, %if.end.if.end8_crit_edge ]
-  %5 = load ptr, ptr %4, align 8
-  %pathTail10 = getelementptr inbounds nuw i8, ptr %absWork, i64 104
-  store ptr %5, ptr %3, align 8
-  %6 = load ptr, ptr %pathHead, align 8
-  %afterLast = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load ptr, ptr %afterLast, align 8
-  %8 = load ptr, ptr %pathTail10, align 8
-  %afterLast17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %afterLast17, align 8
-  %9 = load ptr, ptr %pathHead, align 8
-  %next19 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %10 = load ptr, ptr %next19, align 8
-  %cmp20 = icmp eq ptr %10, null
-  br i1 %cmp20, label %return, label %if.end22
+17:                                               ; preds = %._crit_edge, %14
+  %18 = phi ptr [ %13, %14 ], [ %.pre56, %._crit_edge ]
+  %19 = phi ptr [ %.pre, %14 ], [ %5, %._crit_edge ]
+  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %20, ptr %18, align 8, !tbaa !38
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %23, ptr %24, align 8, !tbaa !40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.critedge, label %.preheader
 
-if.end22:                                         ; preds = %if.end8
-  %11 = load ptr, ptr %pathTail10, align 8
-  br label %for.cond
+.preheader:                                       ; preds = %17, %32
+  %.039 = phi ptr [ %29, %32 ], [ %18, %17 ]
+  %.035 = phi ptr [ %35, %32 ], [ %26, %17 ]
+  %28 = load ptr, ptr %2, align 8, !tbaa !31
+  %29 = tail call ptr %28(ptr noundef nonnull %2, i64 noundef 32) #4
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.thread, label %32
 
-for.cond:                                         ; preds = %if.end31, %if.end22
-  %destPrev.0 = phi ptr [ %11, %if.end22 ], [ %call26, %if.end31 ]
-  %sourceWalker.0 = phi ptr [ %10, %if.end22 ], [ %13, %if.end31 ]
-  %12 = load ptr, ptr %memory, align 8
-  %call26 = tail call ptr %12(ptr noundef nonnull %memory, i64 noundef 32) #3
-  %cmp27 = icmp eq ptr %call26, null
-  br i1 %cmp27, label %if.then28, label %if.end31
+.thread:                                          ; preds = %.preheader
+  %31 = getelementptr inbounds nuw i8, ptr %.039, i64 16
+  store ptr null, ptr %31, align 8, !tbaa !41
+  store ptr %.039, ptr %21, align 8, !tbaa !42
+  br label %.critedge
 
-if.then28:                                        ; preds = %for.cond
-  %next29 = getelementptr inbounds nuw i8, ptr %destPrev.0, i64 16
-  store ptr null, ptr %next29, align 8
-  store ptr %destPrev.0, ptr %pathTail10, align 8
-  br label %return
+32:                                               ; preds = %.preheader
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %.035, i64 16, i1 false), !tbaa.struct !26
+  %33 = getelementptr inbounds nuw i8, ptr %.039, i64 16
+  store ptr %29, ptr %33, align 8, !tbaa !41
+  %34 = getelementptr inbounds nuw i8, ptr %.035, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %.preheader
 
-if.end31:                                         ; preds = %for.cond
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call26, ptr noundef nonnull align 8 dereferenceable(16) %sourceWalker.0, i64 16, i1 false)
-  %next34 = getelementptr inbounds nuw i8, ptr %destPrev.0, i64 16
-  store ptr %call26, ptr %next34, align 8
-  %next35 = getelementptr inbounds nuw i8, ptr %sourceWalker.0, i64 16
-  %13 = load ptr, ptr %next35, align 8
-  %cmp36 = icmp eq ptr %13, null
-  br i1 %cmp36, label %if.then37, label %for.cond
+37:                                               ; preds = %32
+  store ptr %29, ptr %21, align 8, !tbaa !42
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store ptr null, ptr %38, align 8, !tbaa !41
+  br label %.critedge
 
-if.then37:                                        ; preds = %if.end31
-  store ptr %call26, ptr %pathTail10, align 8
-  %next40 = getelementptr inbounds nuw i8, ptr %call26, i64 16
-  store ptr null, ptr %next40, align 8
-  br label %return
-
-return:                                           ; preds = %if.end8, %if.then3, %entry, %if.then37, %if.then28
-  %retval.0 = phi i32 [ 0, %if.then28 ], [ 1, %if.then37 ], [ 1, %entry ], [ 0, %if.then3 ], [ 1, %if.end8 ]
-  ret i32 %retval.0
+.critedge:                                        ; preds = %.thread, %11, %17, %3, %37
+  %.0 = phi i32 [ 1, %37 ], [ 1, %3 ], [ 1, %17 ], [ 0, %11 ], [ 0, %.thread ]
+  ret i32 %.0
 }
 
 declare i32 @uriFixAmbiguityW(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @uriFixEmptyTrailSegmentW(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !6, i64 0}
+!4 = !{!"UriUriStructA", !5, i64 0, !5, i64 16, !5, i64 32, !10, i64 48, !5, i64 80, !13, i64 96, !13, i64 104, !5, i64 112, !5, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
+!5 = !{!"UriTextRangeStructA", !6, i64 0, !6, i64 8}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"UriHostDataStructA", !11, i64 0, !12, i64 8, !5, i64 16}
+!11 = !{!"p1 _ZTS12UriIp4Struct", !7, i64 0}
+!12 = !{!"p1 _ZTS12UriIp6Struct", !7, i64 0}
+!13 = !{!"p1 _ZTS21UriPathSegmentStructA", !7, i64 0}
+!14 = !{!"int", !8, i64 0}
+!15 = !{i64 0, i64 8, !16, i64 8, i64 8, !16}
+!16 = !{!6, !6, i64 0}
+!17 = !{!4, !13, i64 96}
+!18 = !{!4, !14, i64 144}
+!19 = !{!4, !6, i64 112}
+!20 = !{!21, !23, i64 0}
+!21 = !{!"UriUriStructW", !22, i64 0, !22, i64 16, !22, i64 32, !24, i64 48, !22, i64 80, !25, i64 96, !25, i64 104, !22, i64 112, !22, i64 128, !14, i64 144, !14, i64 148, !7, i64 152}
+!22 = !{!"UriTextRangeStructW", !23, i64 0, !23, i64 8}
+!23 = !{!"p1 int", !7, i64 0}
+!24 = !{!"UriHostDataStructW", !11, i64 0, !12, i64 8, !22, i64 16}
+!25 = !{!"p1 _ZTS21UriPathSegmentStructW", !7, i64 0}
+!26 = !{i64 0, i64 8, !27, i64 8, i64 8, !27}
+!27 = !{!23, !23, i64 0}
+!28 = !{!21, !25, i64 96}
+!29 = !{!21, !14, i64 144}
+!30 = !{!21, !23, i64 112}
+!31 = !{!32, !7, i64 0}
+!32 = !{!"UriMemoryManagerStruct", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40}
+!33 = !{!34, !6, i64 0}
+!34 = !{!"UriPathSegmentStructA", !5, i64 0, !13, i64 16, !7, i64 24}
+!35 = !{!34, !6, i64 8}
+!36 = !{!34, !13, i64 16}
+!37 = !{!4, !13, i64 104}
+!38 = !{!39, !23, i64 0}
+!39 = !{!"UriPathSegmentStructW", !22, i64 0, !25, i64 16, !7, i64 24}
+!40 = !{!39, !23, i64 8}
+!41 = !{!39, !25, i64 16}
+!42 = !{!21, !25, i64 104}

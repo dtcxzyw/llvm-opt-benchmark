@@ -1,439 +1,453 @@
 ; ModuleID = 'bench/arrow/original/UriIp4.ll'
 source_filename = "bench/arrow/original/UriIp4.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.UriIp4ParserStruct = type { i8, i8, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %octetOutput, ptr noundef captures(address) %first, ptr noundef captures(address) %afterLast) local_unnamed_addr #0 {
-entry:
-  %parser = alloca %struct.UriIp4ParserStruct, align 1
-  %cmp = icmp ne ptr %octetOutput, null
-  %cmp1 = icmp ne ptr %first, null
-  %or.cond.not31 = and i1 %cmp, %cmp1
-  %cmp3.not = icmp ugt ptr %afterLast, %first
-  %or.cond27 = and i1 %or.cond.not31, %cmp3.not
-  br i1 %or.cond27, label %if.end, label %return
+define range(i32 0, 2) i32 @uriParseIpFourAddressA(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.UriIp4ParserStruct, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  %5 = icmp ne ptr %0, null
+  %6 = icmp ne ptr %1, null
+  %or.cond.not50 = and i1 %5, %6
+  %.not = icmp ugt ptr %2, %1
+  %or.cond44 = and i1 %or.cond.not50, %.not
+  br i1 %or.cond44, label %7, label %31
 
-if.end:                                           ; preds = %entry
-  store i8 0, ptr %parser, align 1
-  %call = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %first, ptr noundef nonnull %afterLast)
-  %cmp4 = icmp ne ptr %call, null
-  %cmp6.not = icmp ult ptr %call, %afterLast
-  %or.cond28 = and i1 %cmp4, %cmp6.not
-  br i1 %or.cond28, label %lor.lhs.false7, label %return
+7:                                                ; preds = %3
+  store i8 0, ptr %4, align 1, !tbaa !3
+  %8 = call fastcc ptr @uriParseDecOctetA(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %2)
+  %9 = icmp ne ptr %8, null
+  %.not37 = icmp ult ptr %8, %2
+  %or.cond45 = and i1 %9, %.not37
+  br i1 %or.cond45, label %10, label %31
 
-lor.lhs.false7:                                   ; preds = %if.end
-  %0 = load i8, ptr %call, align 1
-  %cmp8.not = icmp eq i8 %0, 46
-  br i1 %cmp8.not, label %if.end11, label %return
+10:                                               ; preds = %7
+  %11 = load i8, ptr %8, align 1, !tbaa !7
+  %.not38 = icmp eq i8 %11, 46
+  br i1 %.not38, label %12, label %31
 
-if.end11:                                         ; preds = %lor.lhs.false7
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %octetOutput) #2
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
-  %call12 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef nonnull %afterLast)
-  %cmp13 = icmp ne ptr %call12, null
-  %cmp16.not = icmp ult ptr %call12, %afterLast
-  %or.cond29 = and i1 %cmp13, %cmp16.not
-  br i1 %or.cond29, label %lor.lhs.false18, label %return
+12:                                               ; preds = %10
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %0) #4
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %14 = call fastcc ptr @uriParseDecOctetA(ptr noundef %4, ptr noundef %13, ptr noundef nonnull %2)
+  %15 = icmp ne ptr %14, null
+  %.not39 = icmp ult ptr %14, %2
+  %or.cond46 = and i1 %15, %.not39
+  br i1 %or.cond46, label %16, label %31
 
-lor.lhs.false18:                                  ; preds = %if.end11
-  %1 = load i8, ptr %call12, align 1
-  %cmp20.not = icmp eq i8 %1, 46
-  br i1 %cmp20.not, label %if.end23, label %return
+16:                                               ; preds = %12
+  %17 = load i8, ptr %14, align 1, !tbaa !7
+  %.not40 = icmp eq i8 %17, 46
+  br i1 %.not40, label %18, label %31
 
-if.end23:                                         ; preds = %lor.lhs.false18
-  %add.ptr24 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 1
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr24) #2
-  %add.ptr25 = getelementptr inbounds nuw i8, ptr %call12, i64 1
-  %call26 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr25, ptr noundef nonnull %afterLast)
-  %cmp27 = icmp ne ptr %call26, null
-  %cmp30.not = icmp ult ptr %call26, %afterLast
-  %or.cond30 = and i1 %cmp27, %cmp30.not
-  br i1 %or.cond30, label %lor.lhs.false32, label %return
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %19) #4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %21 = call fastcc ptr @uriParseDecOctetA(ptr noundef %4, ptr noundef %20, ptr noundef nonnull %2)
+  %22 = icmp ne ptr %21, null
+  %.not41 = icmp ult ptr %21, %2
+  %or.cond47 = and i1 %22, %.not41
+  br i1 %or.cond47, label %23, label %31
 
-lor.lhs.false32:                                  ; preds = %if.end23
-  %2 = load i8, ptr %call26, align 1
-  %cmp34.not = icmp eq i8 %2, 46
-  br i1 %cmp34.not, label %if.end37, label %return
+23:                                               ; preds = %18
+  %24 = load i8, ptr %21, align 1, !tbaa !7
+  %.not42 = icmp eq i8 %24, 46
+  br i1 %.not42, label %25, label %31
 
-if.end37:                                         ; preds = %lor.lhs.false32
-  %add.ptr38 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 2
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr38) #2
-  %add.ptr39 = getelementptr inbounds nuw i8, ptr %call26, i64 1
-  %call40 = call fastcc ptr @uriParseDecOctetA(ptr noundef %parser, ptr noundef %add.ptr39, ptr noundef nonnull %afterLast)
-  %cmp41.not = icmp eq ptr %call40, %afterLast
-  br i1 %cmp41.not, label %if.end44, label %return
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %26) #4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %28 = call fastcc ptr @uriParseDecOctetA(ptr noundef %4, ptr noundef %27, ptr noundef nonnull %2)
+  %.not43 = icmp eq ptr %28, %2
+  br i1 %.not43, label %29, label %31
 
-if.end44:                                         ; preds = %if.end37
-  %add.ptr45 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 3
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr45) #2
-  br label %return
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %30) #4
+  br label %31
 
-return:                                           ; preds = %if.end37, %if.end23, %lor.lhs.false32, %if.end11, %lor.lhs.false18, %if.end, %lor.lhs.false7, %entry, %if.end44
-  %retval.0 = phi i32 [ 0, %if.end44 ], [ 1, %entry ], [ 1, %lor.lhs.false7 ], [ 1, %if.end ], [ 1, %lor.lhs.false18 ], [ 1, %if.end11 ], [ 1, %lor.lhs.false32 ], [ 1, %if.end23 ], [ 1, %if.end37 ]
-  ret i32 %retval.0
+31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
+  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %parser, ptr noundef nonnull readonly captures(address, ret: address, provenance) %first, ptr noundef readnone captures(address, ret: address, provenance) %afterLast) unnamed_addr #0 {
-entry:
-  %cmp.not = icmp ult ptr %first, %afterLast
-  br i1 %cmp.not, label %if.end, label %return
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-if.end:                                           ; preds = %entry
-  %0 = load i8, ptr %first, align 1
-  switch i8 %0, label %return [
-    i8 48, label %sw.bb
-    i8 49, label %sw.bb1
-    i8 50, label %sw.bb3
-    i8 51, label %sw.bb6
-    i8 52, label %sw.bb6
-    i8 53, label %sw.bb6
-    i8 54, label %sw.bb6
-    i8 55, label %sw.bb6
-    i8 56, label %sw.bb6
-    i8 57, label %sw.bb6
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @uriParseDecOctetA(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
+  %.not = icmp ult ptr %1, %2
+  br i1 %.not, label %4, label %uriParseDecOctetOneA.exit
+
+4:                                                ; preds = %3
+  %5 = load i8, ptr %1, align 1, !tbaa !7
+  switch i8 %5, label %uriParseDecOctetOneA.exit [
+    i8 48, label %6
+    i8 49, label %8
+    i8 50, label %18
+    i8 51, label %34
+    i8 52, label %34
+    i8 53, label %34
+    i8 54, label %34
+    i8 55, label %34
+    i8 56, label %34
+    i8 57, label %34
   ]
 
-sw.bb:                                            ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 0) #2
-  %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 1
-  br label %return
+6:                                                ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 0) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %uriParseDecOctetOneA.exit
 
-sw.bb1:                                           ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 1) #2
-  %add.ptr2 = getelementptr inbounds nuw i8, ptr %first, i64 1
-  %cmp.not.i = icmp ult ptr %add.ptr2, %afterLast
-  br i1 %cmp.not.i, label %if.end.i, label %return
+8:                                                ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 1) #4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not.i = icmp ult ptr %9, %2
+  br i1 %.not.i, label %10, label %uriParseDecOctetOneA.exit
 
-if.end.i:                                         ; preds = %sw.bb1
-  %1 = load i8, ptr %add.ptr2, align 1
-  %.off.i = add i8 %1, -48
+10:                                               ; preds = %8
+  %11 = load i8, ptr %9, align 1, !tbaa !7
+  %.off.i = add i8 %11, -48
   %switch.i = icmp ult i8 %.off.i, 10
-  br i1 %switch.i, label %sw.bb.i, label %return
+  br i1 %switch.i, label %12, label %uriParseDecOctetOneA.exit
 
-sw.bb.i:                                          ; preds = %if.end.i
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i) #2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first, i64 2
-  %cmp.not.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %return
+12:                                               ; preds = %10
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %.off.i) #4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.not.i.i = icmp ult ptr %13, %2
+  br i1 %.not.i.i, label %14, label %uriParseDecOctetOneA.exit
 
-if.end.i.i:                                       ; preds = %sw.bb.i
-  %2 = load i8, ptr %add.ptr.i, align 1
-  %.off.i.i = add i8 %2, -48
+14:                                               ; preds = %12
+  %15 = load i8, ptr %13, align 1, !tbaa !7
+  %.off.i.i = add i8 %15, -48
   %switch.i.i = icmp ult i8 %.off.i.i, 10
-  br i1 %switch.i.i, label %sw.bb.i.i, label %return
+  br i1 %switch.i.i, label %16, label %uriParseDecOctetOneA.exit
 
-sw.bb.i.i:                                        ; preds = %if.end.i.i
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i.i) #2
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 3
-  br label %return
+16:                                               ; preds = %14
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %.off.i.i) #4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  br label %uriParseDecOctetOneA.exit
 
-sw.bb3:                                           ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 2) #2
-  %add.ptr4 = getelementptr inbounds nuw i8, ptr %first, i64 1
-  %cmp.not.i16 = icmp ult ptr %add.ptr4, %afterLast
-  br i1 %cmp.not.i16, label %if.end.i18, label %return
+18:                                               ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 2) #4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not.i21 = icmp ult ptr %19, %2
+  br i1 %.not.i21, label %20, label %uriParseDecOctetOneA.exit
 
-if.end.i18:                                       ; preds = %sw.bb3
-  %3 = load i8, ptr %add.ptr4, align 1
-  switch i8 %3, label %return [
-    i8 48, label %sw.bb.i19
-    i8 49, label %sw.bb.i19
-    i8 50, label %sw.bb.i19
-    i8 51, label %sw.bb.i19
-    i8 52, label %sw.bb.i19
-    i8 53, label %sw.bb3.i
-    i8 54, label %sw.bb6.i
-    i8 55, label %sw.bb6.i
-    i8 56, label %sw.bb6.i
-    i8 57, label %sw.bb6.i
+20:                                               ; preds = %18
+  %21 = load i8, ptr %19, align 1, !tbaa !7
+  switch i8 %21, label %uriParseDecOctetOneA.exit [
+    i8 48, label %22
+    i8 49, label %22
+    i8 50, label %22
+    i8 51, label %22
+    i8 52, label %22
+    i8 53, label %27
+    i8 54, label %31
+    i8 55, label %31
+    i8 56, label %31
+    i8 57, label %31
   ]
 
-sw.bb.i19:                                        ; preds = %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18
-  %sub.i = add nsw i8 %3, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %sub.i) #2
-  %add.ptr.i20 = getelementptr inbounds nuw i8, ptr %first, i64 2
-  %cmp.not.i.i21 = icmp ult ptr %add.ptr.i20, %afterLast
-  br i1 %cmp.not.i.i21, label %if.end.i.i22, label %return
+22:                                               ; preds = %20, %20, %20, %20, %20
+  %23 = add nsw i8 %21, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %23) #4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.not.i.i23 = icmp ult ptr %24, %2
+  br i1 %.not.i.i23, label %25, label %uriParseDecOctetOneA.exit
 
-if.end.i.i22:                                     ; preds = %sw.bb.i19
-  %4 = load i8, ptr %add.ptr.i20, align 1
-  %.off.i.i23 = add i8 %4, -48
-  %switch.i.i24 = icmp ult i8 %.off.i.i23, 10
-  br i1 %switch.i.i24, label %return.sink.split.i, label %return
+25:                                               ; preds = %22
+  %26 = load i8, ptr %24, align 1, !tbaa !7
+  %.off.i.i24 = add i8 %26, -48
+  %switch.i.i25 = icmp ult i8 %.off.i.i24, 10
+  br i1 %switch.i.i25, label %uriParseDecOctetThreeA.exit.sink.split.i, label %uriParseDecOctetOneA.exit
 
-sw.bb3.i:                                         ; preds = %if.end.i18
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 5) #2
-  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %first, i64 2
-  %cmp.not.i15.i = icmp ult ptr %add.ptr4.i, %afterLast
-  br i1 %cmp.not.i15.i, label %if.end.i17.i, label %return
+27:                                               ; preds = %20
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 5) #4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %.not.i20.i = icmp ult ptr %28, %2
+  br i1 %.not.i20.i, label %29, label %uriParseDecOctetOneA.exit
 
-if.end.i17.i:                                     ; preds = %sw.bb3.i
-  %5 = load i8, ptr %add.ptr4.i, align 1
-  %.off.i18.i = add i8 %5, -48
-  %switch.i19.i = icmp ult i8 %.off.i18.i, 6
-  br i1 %switch.i19.i, label %return.sink.split.i, label %return
+29:                                               ; preds = %27
+  %30 = load i8, ptr %28, align 1, !tbaa !7
+  %.off.i22.i = add i8 %30, -48
+  %switch.i23.i = icmp ult i8 %.off.i22.i, 6
+  br i1 %switch.i23.i, label %uriParseDecOctetThreeA.exit.sink.split.i, label %uriParseDecOctetOneA.exit
 
-sw.bb6.i:                                         ; preds = %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18
-  %sub9.i = add nsw i8 %3, -48
-  br label %return.sink.split.i
+31:                                               ; preds = %20, %20, %20, %20
+  %32 = add nsw i8 %21, -48
+  br label %uriParseDecOctetThreeA.exit.sink.split.i
 
-return.sink.split.i:                              ; preds = %sw.bb6.i, %if.end.i17.i, %if.end.i.i22
-  %.off.i18.sink.i = phi i8 [ %sub9.i, %sw.bb6.i ], [ %.off.i.i23, %if.end.i.i22 ], [ %.off.i18.i, %if.end.i17.i ]
-  %.sink.i = phi i64 [ 1, %sw.bb6.i ], [ 2, %if.end.i.i22 ], [ 2, %if.end.i17.i ]
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i18.sink.i) #2
-  %add.ptr.i21.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 %.sink.i
-  br label %return
+uriParseDecOctetThreeA.exit.sink.split.i:         ; preds = %31, %29, %25
+  %.off.i22.sink.i = phi i8 [ %32, %31 ], [ %.off.i.i24, %25 ], [ %.off.i22.i, %29 ]
+  %.sink.i = phi i64 [ 1, %31 ], [ 2, %25 ], [ 2, %29 ]
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %.off.i22.sink.i) #4
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i
+  br label %uriParseDecOctetOneA.exit
 
-sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %sub = add nsw i8 %0, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %sub) #2
-  %add.ptr9 = getelementptr inbounds nuw i8, ptr %first, i64 1
-  %cmp.not.i25 = icmp ult ptr %add.ptr9, %afterLast
-  br i1 %cmp.not.i25, label %if.end.i27, label %return
+34:                                               ; preds = %4, %4, %4, %4, %4, %4, %4
+  %35 = add nsw i8 %5, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %35) #4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not.i26 = icmp ult ptr %36, %2
+  br i1 %.not.i26, label %37, label %uriParseDecOctetOneA.exit
 
-if.end.i27:                                       ; preds = %sw.bb6
-  %6 = load i8, ptr %add.ptr9, align 1
-  %.off.i28 = add i8 %6, -48
+37:                                               ; preds = %34
+  %38 = load i8, ptr %36, align 1, !tbaa !7
+  %.off.i28 = add i8 %38, -48
   %switch.i29 = icmp ult i8 %.off.i28, 10
-  br i1 %switch.i29, label %sw.bb.i30, label %return
+  br i1 %switch.i29, label %39, label %uriParseDecOctetOneA.exit
 
-sw.bb.i30:                                        ; preds = %if.end.i27
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %.off.i28) #2
-  %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %first, i64 2
-  br label %return
+39:                                               ; preds = %37
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %.off.i28) #4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  br label %uriParseDecOctetOneA.exit
 
-return:                                           ; preds = %sw.bb.i30, %if.end.i27, %sw.bb6, %return.sink.split.i, %if.end.i17.i, %sw.bb3.i, %if.end.i.i22, %sw.bb.i19, %if.end.i18, %sw.bb3, %sw.bb.i.i, %if.end.i.i, %sw.bb.i, %if.end.i, %sw.bb1, %if.end, %entry, %sw.bb
-  %retval.0 = phi ptr [ %add.ptr, %sw.bb ], [ null, %entry ], [ null, %if.end ], [ %afterLast, %sw.bb1 ], [ %add.ptr2, %if.end.i ], [ %add.ptr.i.i, %sw.bb.i.i ], [ %afterLast, %sw.bb.i ], [ %add.ptr.i, %if.end.i.i ], [ %afterLast, %sw.bb3 ], [ %add.ptr4, %if.end.i18 ], [ %afterLast, %sw.bb.i19 ], [ %add.ptr.i20, %if.end.i.i22 ], [ %afterLast, %sw.bb3.i ], [ %add.ptr4.i, %if.end.i17.i ], [ %add.ptr.i21.i, %return.sink.split.i ], [ %add.ptr.i31, %sw.bb.i30 ], [ %afterLast, %sw.bb6 ], [ %add.ptr9, %if.end.i27 ]
-  ret ptr %retval.0
+uriParseDecOctetOneA.exit:                        ; preds = %39, %37, %34, %uriParseDecOctetThreeA.exit.sink.split.i, %29, %27, %25, %22, %20, %18, %16, %14, %12, %10, %8, %4, %3, %6
+  %.0 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %4 ], [ %2, %8 ], [ %9, %10 ], [ %17, %16 ], [ %2, %12 ], [ %13, %14 ], [ %2, %18 ], [ %19, %20 ], [ %2, %22 ], [ %24, %25 ], [ %2, %27 ], [ %28, %29 ], [ %33, %uriParseDecOctetThreeA.exit.sink.split.i ], [ %40, %39 ], [ %2, %34 ], [ %36, %37 ]
+  ret ptr %.0
 }
 
-declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @uriStackToOctet(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %octetOutput, ptr noundef captures(address) %first, ptr noundef captures(address) %afterLast) local_unnamed_addr #0 {
-entry:
-  %parser = alloca %struct.UriIp4ParserStruct, align 1
-  %cmp = icmp ne ptr %octetOutput, null
-  %cmp1 = icmp ne ptr %first, null
-  %or.cond.not31 = and i1 %cmp, %cmp1
-  %cmp3.not = icmp ugt ptr %afterLast, %first
-  %or.cond27 = and i1 %or.cond.not31, %cmp3.not
-  br i1 %or.cond27, label %if.end, label %return
+define range(i32 0, 2) i32 @uriParseIpFourAddressW(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+  %4 = alloca %struct.UriIp4ParserStruct, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
+  %5 = icmp ne ptr %0, null
+  %6 = icmp ne ptr %1, null
+  %or.cond.not50 = and i1 %5, %6
+  %.not = icmp ugt ptr %2, %1
+  %or.cond44 = and i1 %or.cond.not50, %.not
+  br i1 %or.cond44, label %7, label %31
 
-if.end:                                           ; preds = %entry
-  store i8 0, ptr %parser, align 1
-  %call = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %first, ptr noundef nonnull %afterLast)
-  %cmp4 = icmp ne ptr %call, null
-  %cmp6.not = icmp ult ptr %call, %afterLast
-  %or.cond28 = and i1 %cmp4, %cmp6.not
-  br i1 %or.cond28, label %lor.lhs.false7, label %return
+7:                                                ; preds = %3
+  store i8 0, ptr %4, align 1, !tbaa !3
+  %8 = call fastcc ptr @uriParseDecOctetW(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %2)
+  %9 = icmp ne ptr %8, null
+  %.not37 = icmp ult ptr %8, %2
+  %or.cond45 = and i1 %9, %.not37
+  br i1 %or.cond45, label %10, label %31
 
-lor.lhs.false7:                                   ; preds = %if.end
-  %0 = load i32, ptr %call, align 4
-  %cmp8.not = icmp eq i32 %0, 46
-  br i1 %cmp8.not, label %if.end10, label %return
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %.not38 = icmp eq i32 %11, 46
+  br i1 %.not38, label %12, label %31
 
-if.end10:                                         ; preds = %lor.lhs.false7
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %octetOutput) #2
-  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
-  %call11 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr, ptr noundef nonnull %afterLast)
-  %cmp12 = icmp ne ptr %call11, null
-  %cmp14.not = icmp ult ptr %call11, %afterLast
-  %or.cond29 = and i1 %cmp12, %cmp14.not
-  br i1 %or.cond29, label %lor.lhs.false15, label %return
+12:                                               ; preds = %10
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %0) #4
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %14 = call fastcc ptr @uriParseDecOctetW(ptr noundef %4, ptr noundef %13, ptr noundef nonnull %2)
+  %15 = icmp ne ptr %14, null
+  %.not39 = icmp ult ptr %14, %2
+  %or.cond46 = and i1 %15, %.not39
+  br i1 %or.cond46, label %16, label %31
 
-lor.lhs.false15:                                  ; preds = %if.end10
-  %1 = load i32, ptr %call11, align 4
-  %cmp16.not = icmp eq i32 %1, 46
-  br i1 %cmp16.not, label %if.end18, label %return
+16:                                               ; preds = %12
+  %17 = load i32, ptr %14, align 4, !tbaa !8
+  %.not40 = icmp eq i32 %17, 46
+  br i1 %.not40, label %18, label %31
 
-if.end18:                                         ; preds = %lor.lhs.false15
-  %add.ptr19 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 1
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr19) #2
-  %add.ptr20 = getelementptr inbounds nuw i8, ptr %call11, i64 4
-  %call21 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr20, ptr noundef nonnull %afterLast)
-  %cmp22 = icmp ne ptr %call21, null
-  %cmp24.not = icmp ult ptr %call21, %afterLast
-  %or.cond30 = and i1 %cmp22, %cmp24.not
-  br i1 %or.cond30, label %lor.lhs.false25, label %return
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %19) #4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %21 = call fastcc ptr @uriParseDecOctetW(ptr noundef %4, ptr noundef %20, ptr noundef nonnull %2)
+  %22 = icmp ne ptr %21, null
+  %.not41 = icmp ult ptr %21, %2
+  %or.cond47 = and i1 %22, %.not41
+  br i1 %or.cond47, label %23, label %31
 
-lor.lhs.false25:                                  ; preds = %if.end18
-  %2 = load i32, ptr %call21, align 4
-  %cmp26.not = icmp eq i32 %2, 46
-  br i1 %cmp26.not, label %if.end28, label %return
+23:                                               ; preds = %18
+  %24 = load i32, ptr %21, align 4, !tbaa !8
+  %.not42 = icmp eq i32 %24, 46
+  br i1 %.not42, label %25, label %31
 
-if.end28:                                         ; preds = %lor.lhs.false25
-  %add.ptr29 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 2
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr29) #2
-  %add.ptr30 = getelementptr inbounds nuw i8, ptr %call21, i64 4
-  %call31 = call fastcc ptr @uriParseDecOctetW(ptr noundef %parser, ptr noundef %add.ptr30, ptr noundef nonnull %afterLast)
-  %cmp32.not = icmp eq ptr %call31, %afterLast
-  br i1 %cmp32.not, label %if.end34, label %return
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %26) #4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %28 = call fastcc ptr @uriParseDecOctetW(ptr noundef %4, ptr noundef %27, ptr noundef nonnull %2)
+  %.not43 = icmp eq ptr %28, %2
+  br i1 %.not43, label %29, label %31
 
-if.end34:                                         ; preds = %if.end28
-  %add.ptr35 = getelementptr inbounds nuw i8, ptr %octetOutput, i64 3
-  call void @uriStackToOctet(ptr noundef nonnull %parser, ptr noundef nonnull %add.ptr35) #2
-  br label %return
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  call void @uriStackToOctet(ptr noundef nonnull %4, ptr noundef nonnull %30) #4
+  br label %31
 
-return:                                           ; preds = %if.end28, %if.end18, %lor.lhs.false25, %if.end10, %lor.lhs.false15, %if.end, %lor.lhs.false7, %entry, %if.end34
-  %retval.0 = phi i32 [ 0, %if.end34 ], [ 1, %entry ], [ 1, %lor.lhs.false7 ], [ 1, %if.end ], [ 1, %lor.lhs.false15 ], [ 1, %if.end10 ], [ 1, %lor.lhs.false25 ], [ 1, %if.end18 ], [ 1, %if.end28 ]
-  ret i32 %retval.0
+31:                                               ; preds = %25, %18, %23, %12, %16, %7, %10, %3, %29
+  %.0 = phi i32 [ 0, %29 ], [ 1, %3 ], [ 1, %10 ], [ 1, %7 ], [ 1, %16 ], [ 1, %12 ], [ 1, %23 ], [ 1, %18 ], [ 1, %25 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %parser, ptr noundef nonnull readonly captures(address, ret: address, provenance) %first, ptr noundef readnone captures(address, ret: address, provenance) %afterLast) unnamed_addr #0 {
-entry:
-  %cmp.not = icmp ult ptr %first, %afterLast
-  br i1 %cmp.not, label %if.end, label %return
+; Function Attrs: inlinehint nounwind uwtable
+define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(address, ret: address, provenance) %1, ptr noundef readnone captures(address, ret: address, provenance) %2) unnamed_addr #2 {
+  %.not = icmp ult ptr %1, %2
+  br i1 %.not, label %4, label %uriParseDecOctetOneW.exit
 
-if.end:                                           ; preds = %entry
-  %0 = load i32, ptr %first, align 4
-  switch i32 %0, label %return [
-    i32 48, label %sw.bb
-    i32 49, label %sw.bb1
-    i32 50, label %sw.bb3
-    i32 51, label %sw.bb6
-    i32 52, label %sw.bb6
-    i32 53, label %sw.bb6
-    i32 54, label %sw.bb6
-    i32 55, label %sw.bb6
-    i32 56, label %sw.bb6
-    i32 57, label %sw.bb6
+4:                                                ; preds = %3
+  %5 = load i32, ptr %1, align 4, !tbaa !8
+  switch i32 %5, label %uriParseDecOctetOneW.exit [
+    i32 48, label %6
+    i32 49, label %8
+    i32 50, label %22
+    i32 51, label %39
+    i32 52, label %39
+    i32 53, label %39
+    i32 54, label %39
+    i32 55, label %39
+    i32 56, label %39
+    i32 57, label %39
   ]
 
-sw.bb:                                            ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 0) #2
-  %add.ptr = getelementptr inbounds nuw i8, ptr %first, i64 4
-  br label %return
+6:                                                ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 0) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  br label %uriParseDecOctetOneW.exit
 
-sw.bb1:                                           ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 1) #2
-  %add.ptr2 = getelementptr inbounds nuw i8, ptr %first, i64 4
-  %cmp.not.i = icmp ult ptr %add.ptr2, %afterLast
-  br i1 %cmp.not.i, label %if.end.i, label %return
+8:                                                ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 1) #4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.not.i = icmp ult ptr %9, %2
+  br i1 %.not.i, label %10, label %uriParseDecOctetOneW.exit
 
-if.end.i:                                         ; preds = %sw.bb1
-  %1 = load i32, ptr %add.ptr2, align 4
-  %.off.i = add i32 %1, -48
+10:                                               ; preds = %8
+  %11 = load i32, ptr %9, align 4, !tbaa !8
+  %.off.i = add i32 %11, -48
   %switch.i = icmp ult i32 %.off.i, 10
-  br i1 %switch.i, label %sw.bb.i, label %return
+  br i1 %switch.i, label %12, label %uriParseDecOctetOneW.exit
 
-sw.bb.i:                                          ; preds = %if.end.i
-  %2 = trunc nuw i32 %1 to i8
-  %conv.i = add nsw i8 %2, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i) #2
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first, i64 8
-  %cmp.not.i.i = icmp ult ptr %add.ptr.i, %afterLast
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %return
+12:                                               ; preds = %10
+  %13 = trunc nuw i32 %11 to i8
+  %14 = add nsw i8 %13, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %14) #4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.not.i.i = icmp ult ptr %15, %2
+  br i1 %.not.i.i, label %16, label %uriParseDecOctetOneW.exit
 
-if.end.i.i:                                       ; preds = %sw.bb.i
-  %3 = load i32, ptr %add.ptr.i, align 4
-  %.off.i.i = add i32 %3, -48
+16:                                               ; preds = %12
+  %17 = load i32, ptr %15, align 4, !tbaa !8
+  %.off.i.i = add i32 %17, -48
   %switch.i.i = icmp ult i32 %.off.i.i, 10
-  br i1 %switch.i.i, label %sw.bb.i.i, label %return
+  br i1 %switch.i.i, label %18, label %uriParseDecOctetOneW.exit
 
-sw.bb.i.i:                                        ; preds = %if.end.i.i
-  %4 = trunc nuw i32 %3 to i8
-  %conv.i.i = add nsw i8 %4, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i.i) #2
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 12
-  br label %return
+18:                                               ; preds = %16
+  %19 = trunc nuw i32 %17 to i8
+  %20 = add nsw i8 %19, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %20) #4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %uriParseDecOctetOneW.exit
 
-sw.bb3:                                           ; preds = %if.end
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 2) #2
-  %add.ptr4 = getelementptr inbounds nuw i8, ptr %first, i64 4
-  %cmp.not.i16 = icmp ult ptr %add.ptr4, %afterLast
-  br i1 %cmp.not.i16, label %if.end.i18, label %return
+22:                                               ; preds = %4
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 2) #4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.not.i21 = icmp ult ptr %23, %2
+  br i1 %.not.i21, label %24, label %uriParseDecOctetOneW.exit
 
-if.end.i18:                                       ; preds = %sw.bb3
-  %5 = load i32, ptr %add.ptr4, align 4
-  switch i32 %5, label %return [
-    i32 48, label %sw.bb.i19
-    i32 49, label %sw.bb.i19
-    i32 50, label %sw.bb.i19
-    i32 51, label %sw.bb.i19
-    i32 52, label %sw.bb.i19
-    i32 53, label %sw.bb1.i
-    i32 54, label %return.sink.split.i
-    i32 55, label %return.sink.split.i
-    i32 56, label %return.sink.split.i
-    i32 57, label %return.sink.split.i
+24:                                               ; preds = %22
+  %25 = load i32, ptr %23, align 4, !tbaa !8
+  switch i32 %25, label %uriParseDecOctetOneW.exit [
+    i32 48, label %26
+    i32 49, label %26
+    i32 50, label %26
+    i32 51, label %26
+    i32 52, label %26
+    i32 53, label %32
+    i32 54, label %uriParseDecOctetThreeW.exit.sink.split.i
+    i32 55, label %uriParseDecOctetThreeW.exit.sink.split.i
+    i32 56, label %uriParseDecOctetThreeW.exit.sink.split.i
+    i32 57, label %uriParseDecOctetThreeW.exit.sink.split.i
   ]
 
-sw.bb.i19:                                        ; preds = %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18
-  %6 = trunc i32 %5 to i8
-  %conv.i20 = add nsw i8 %6, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i20) #2
-  %add.ptr.i21 = getelementptr inbounds nuw i8, ptr %first, i64 8
-  %cmp.not.i.i22 = icmp ult ptr %add.ptr.i21, %afterLast
-  br i1 %cmp.not.i.i22, label %if.end.i.i23, label %return
+26:                                               ; preds = %24, %24, %24, %24, %24
+  %27 = trunc i32 %25 to i8
+  %28 = add nsw i8 %27, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %28) #4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.not.i.i23 = icmp ult ptr %29, %2
+  br i1 %.not.i.i23, label %30, label %uriParseDecOctetOneW.exit
 
-if.end.i.i23:                                     ; preds = %sw.bb.i19
-  %7 = load i32, ptr %add.ptr.i21, align 4
-  %.off.i.i24 = add i32 %7, -48
+30:                                               ; preds = %26
+  %31 = load i32, ptr %29, align 4, !tbaa !8
+  %.off.i.i24 = add i32 %31, -48
   %switch.i.i25 = icmp ult i32 %.off.i.i24, 10
-  br i1 %switch.i.i25, label %return.sink.split.i, label %return
+  br i1 %switch.i.i25, label %uriParseDecOctetThreeW.exit.sink.split.i, label %uriParseDecOctetOneW.exit
 
-sw.bb1.i:                                         ; preds = %if.end.i18
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext 5) #2
-  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %first, i64 8
-  %cmp.not.i15.i = icmp ult ptr %add.ptr2.i, %afterLast
-  br i1 %cmp.not.i15.i, label %if.end.i17.i, label %return
+32:                                               ; preds = %24
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext 5) #4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.not.i20.i = icmp ult ptr %33, %2
+  br i1 %.not.i20.i, label %34, label %uriParseDecOctetOneW.exit
 
-if.end.i17.i:                                     ; preds = %sw.bb1.i
-  %8 = load i32, ptr %add.ptr2.i, align 4
-  %.off.i18.i = add i32 %8, -48
-  %switch.i19.i = icmp ult i32 %.off.i18.i, 6
-  br i1 %switch.i19.i, label %return.sink.split.i, label %return
+34:                                               ; preds = %32
+  %35 = load i32, ptr %33, align 4, !tbaa !8
+  %.off.i22.i = add i32 %35, -48
+  %switch.i23.i = icmp ult i32 %.off.i22.i, 6
+  br i1 %switch.i23.i, label %uriParseDecOctetThreeW.exit.sink.split.i, label %uriParseDecOctetOneW.exit
 
-return.sink.split.i:                              ; preds = %if.end.i17.i, %if.end.i.i23, %if.end.i18, %if.end.i18, %if.end.i18, %if.end.i18
-  %.sink24.i = phi i32 [ %7, %if.end.i.i23 ], [ %8, %if.end.i17.i ], [ %5, %if.end.i18 ], [ %5, %if.end.i18 ], [ %5, %if.end.i18 ], [ %5, %if.end.i18 ]
-  %.sink.i = phi i64 [ 8, %if.end.i.i23 ], [ 8, %if.end.i17.i ], [ 4, %if.end.i18 ], [ 4, %if.end.i18 ], [ 4, %if.end.i18 ], [ 4, %if.end.i18 ]
-  %9 = trunc i32 %.sink24.i to i8
-  %conv.i21.i = add nsw i8 %9, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i21.i) #2
-  %add.ptr.i22.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 %.sink.i
-  br label %return
+uriParseDecOctetThreeW.exit.sink.split.i:         ; preds = %34, %30, %24, %24, %24, %24
+  %.sink26.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ]
+  %.sink.i = phi i64 [ 8, %30 ], [ 8, %34 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ]
+  %36 = trunc i32 %.sink26.i to i8
+  %37 = add nsw i8 %36, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %37) #4
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 %.sink.i
+  br label %uriParseDecOctetOneW.exit
 
-sw.bb6:                                           ; preds = %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end
-  %10 = trunc i32 %0 to i8
-  %conv = add nsw i8 %10, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv) #2
-  %add.ptr7 = getelementptr inbounds nuw i8, ptr %first, i64 4
-  %cmp.not.i26 = icmp ult ptr %add.ptr7, %afterLast
-  br i1 %cmp.not.i26, label %if.end.i28, label %return
+39:                                               ; preds = %4, %4, %4, %4, %4, %4, %4
+  %40 = trunc i32 %5 to i8
+  %41 = add nsw i8 %40, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %41) #4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.not.i26 = icmp ult ptr %42, %2
+  br i1 %.not.i26, label %43, label %uriParseDecOctetOneW.exit
 
-if.end.i28:                                       ; preds = %sw.bb6
-  %11 = load i32, ptr %add.ptr7, align 4
-  %.off.i29 = add i32 %11, -48
-  %switch.i30 = icmp ult i32 %.off.i29, 10
-  br i1 %switch.i30, label %sw.bb.i31, label %return
+43:                                               ; preds = %39
+  %44 = load i32, ptr %42, align 4, !tbaa !8
+  %.off.i28 = add i32 %44, -48
+  %switch.i29 = icmp ult i32 %.off.i28, 10
+  br i1 %switch.i29, label %45, label %uriParseDecOctetOneW.exit
 
-sw.bb.i31:                                        ; preds = %if.end.i28
-  %12 = trunc nuw i32 %11 to i8
-  %conv.i32 = add nsw i8 %12, -48
-  tail call void @uriPushToStack(ptr noundef nonnull %parser, i8 noundef zeroext %conv.i32) #2
-  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %first, i64 8
-  br label %return
+45:                                               ; preds = %43
+  %46 = trunc nuw i32 %44 to i8
+  %47 = add nsw i8 %46, -48
+  tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %47) #4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %uriParseDecOctetOneW.exit
 
-return:                                           ; preds = %sw.bb.i31, %if.end.i28, %sw.bb6, %return.sink.split.i, %if.end.i17.i, %sw.bb1.i, %if.end.i.i23, %sw.bb.i19, %if.end.i18, %sw.bb3, %sw.bb.i.i, %if.end.i.i, %sw.bb.i, %if.end.i, %sw.bb1, %if.end, %entry, %sw.bb
-  %retval.0 = phi ptr [ %add.ptr, %sw.bb ], [ null, %entry ], [ null, %if.end ], [ %afterLast, %sw.bb1 ], [ %add.ptr2, %if.end.i ], [ %add.ptr.i.i, %sw.bb.i.i ], [ %afterLast, %sw.bb.i ], [ %add.ptr.i, %if.end.i.i ], [ %afterLast, %sw.bb3 ], [ %add.ptr4, %if.end.i18 ], [ %afterLast, %sw.bb.i19 ], [ %add.ptr.i21, %if.end.i.i23 ], [ %afterLast, %sw.bb1.i ], [ %add.ptr2.i, %if.end.i17.i ], [ %add.ptr.i22.i, %return.sink.split.i ], [ %add.ptr.i33, %sw.bb.i31 ], [ %afterLast, %sw.bb6 ], [ %add.ptr7, %if.end.i28 ]
-  ret ptr %retval.0
+uriParseDecOctetOneW.exit:                        ; preds = %45, %43, %39, %uriParseDecOctetThreeW.exit.sink.split.i, %34, %32, %30, %26, %24, %22, %18, %16, %12, %10, %8, %4, %3, %6
+  %.0 = phi ptr [ %7, %6 ], [ null, %3 ], [ null, %4 ], [ %2, %8 ], [ %9, %10 ], [ %21, %18 ], [ %2, %12 ], [ %15, %16 ], [ %2, %22 ], [ %23, %24 ], [ %2, %26 ], [ %29, %30 ], [ %2, %32 ], [ %33, %34 ], [ %38, %uriParseDecOctetThreeW.exit.sink.split.i ], [ %48, %45 ], [ %2, %39 ], [ %42, %43 ]
+  ret ptr %.0
 }
 
-declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
+declare void @uriPushToStack(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"UriIp4ParserStruct", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!5, !5, i64 0}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !5, i64 0}
