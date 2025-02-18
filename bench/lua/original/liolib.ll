@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %struct.luaL_Reg = type { ptr, ptr }
 %struct.luaL_Stream = type { ptr, ptr }
@@ -7,6 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { double, [1016 x i8] }
 %struct.RN = type { ptr, i32, i32, [201 x i8] }
 %struct.lconv = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
+%struct._IO_FILE = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i16, i8, [1 x i8], ptr, i64, ptr, ptr, ptr, ptr, i64, i32, [20 x i8] }
 
 @iolib = internal constant [12 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.5, ptr @io_close }, %struct.luaL_Reg { ptr @.str.6, ptr @io_flush }, %struct.luaL_Reg { ptr @.str.7, ptr @io_input }, %struct.luaL_Reg { ptr @.str.8, ptr @io_lines }, %struct.luaL_Reg { ptr @.str.9, ptr @io_open }, %struct.luaL_Reg { ptr @.str.10, ptr @io_output }, %struct.luaL_Reg { ptr @.str.11, ptr @io_popen }, %struct.luaL_Reg { ptr @.str.12, ptr @io_read }, %struct.luaL_Reg { ptr @.str.13, ptr @io_tmpfile }, %struct.luaL_Reg { ptr @.str.14, ptr @io_type }, %struct.luaL_Reg { ptr @.str.15, ptr @io_write }, %struct.luaL_Reg zeroinitializer], align 16
 @stdin = external global ptr, align 8
@@ -47,56 +48,52 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [4 x i8] c"rwa\00", align 1
 @.str.33 = private unnamed_addr constant [2 x i8] c"b\00", align 1
 @.str.34 = private unnamed_addr constant [2 x i8] c"w\00", align 1
-@.str.35 = private unnamed_addr constant [22 x i8] c"'popen' not supported\00", align 1
-@.str.36 = private unnamed_addr constant [12 x i8] c"closed file\00", align 1
-@.str.37 = private unnamed_addr constant [5 x i8] c"file\00", align 1
-@.str.38 = private unnamed_addr constant [5 x i8] c"%lld\00", align 1
-@.str.39 = private unnamed_addr constant [6 x i8] c"%.14g\00", align 1
-@metameth = internal constant [5 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.40, ptr null }, %struct.luaL_Reg { ptr @.str.41, ptr @f_gc }, %struct.luaL_Reg { ptr @.str.42, ptr @f_gc }, %struct.luaL_Reg { ptr @.str.43, ptr @f_tostring }, %struct.luaL_Reg zeroinitializer], align 16
-@meth = internal constant [8 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.12, ptr @f_read }, %struct.luaL_Reg { ptr @.str.15, ptr @f_write }, %struct.luaL_Reg { ptr @.str.8, ptr @f_lines }, %struct.luaL_Reg { ptr @.str.6, ptr @f_flush }, %struct.luaL_Reg { ptr @.str.46, ptr @f_seek }, %struct.luaL_Reg { ptr @.str.5, ptr @f_close }, %struct.luaL_Reg { ptr @.str.47, ptr @f_setvbuf }, %struct.luaL_Reg zeroinitializer], align 16
-@.str.40 = private unnamed_addr constant [8 x i8] c"__index\00", align 1
-@.str.41 = private unnamed_addr constant [5 x i8] c"__gc\00", align 1
-@.str.42 = private unnamed_addr constant [8 x i8] c"__close\00", align 1
-@.str.43 = private unnamed_addr constant [11 x i8] c"__tostring\00", align 1
-@.str.44 = private unnamed_addr constant [14 x i8] c"file (closed)\00", align 1
-@.str.45 = private unnamed_addr constant [10 x i8] c"file (%p)\00", align 1
-@.str.46 = private unnamed_addr constant [5 x i8] c"seek\00", align 1
-@.str.47 = private unnamed_addr constant [8 x i8] c"setvbuf\00", align 1
+@.str.35 = private unnamed_addr constant [12 x i8] c"closed file\00", align 1
+@.str.36 = private unnamed_addr constant [5 x i8] c"file\00", align 1
+@metameth = internal constant [5 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.37, ptr null }, %struct.luaL_Reg { ptr @.str.38, ptr @f_gc }, %struct.luaL_Reg { ptr @.str.39, ptr @f_gc }, %struct.luaL_Reg { ptr @.str.40, ptr @f_tostring }, %struct.luaL_Reg zeroinitializer], align 16
+@meth = internal constant [8 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.12, ptr @f_read }, %struct.luaL_Reg { ptr @.str.15, ptr @f_write }, %struct.luaL_Reg { ptr @.str.8, ptr @f_lines }, %struct.luaL_Reg { ptr @.str.6, ptr @f_flush }, %struct.luaL_Reg { ptr @.str.43, ptr @f_seek }, %struct.luaL_Reg { ptr @.str.5, ptr @f_close }, %struct.luaL_Reg { ptr @.str.44, ptr @f_setvbuf }, %struct.luaL_Reg zeroinitializer], align 16
+@.str.37 = private unnamed_addr constant [8 x i8] c"__index\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c"__gc\00", align 1
+@.str.39 = private unnamed_addr constant [8 x i8] c"__close\00", align 1
+@.str.40 = private unnamed_addr constant [11 x i8] c"__tostring\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"file (closed)\00", align 1
+@.str.42 = private unnamed_addr constant [10 x i8] c"file (%p)\00", align 1
+@.str.43 = private unnamed_addr constant [5 x i8] c"seek\00", align 1
+@.str.44 = private unnamed_addr constant [8 x i8] c"setvbuf\00", align 1
 @f_seek.mode = internal constant [3 x i32] [i32 0, i32 1, i32 2], align 4
-@f_seek.modenames = internal constant [4 x ptr] [ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr null], align 16
-@.str.48 = private unnamed_addr constant [4 x i8] c"set\00", align 1
-@.str.49 = private unnamed_addr constant [4 x i8] c"cur\00", align 1
-@.str.50 = private unnamed_addr constant [4 x i8] c"end\00", align 1
-@.str.51 = private unnamed_addr constant [31 x i8] c"not an integer in proper range\00", align 1
+@f_seek.modenames = internal constant [4 x ptr] [ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr null], align 16
+@.str.45 = private unnamed_addr constant [4 x i8] c"set\00", align 1
+@.str.46 = private unnamed_addr constant [4 x i8] c"cur\00", align 1
+@.str.47 = private unnamed_addr constant [4 x i8] c"end\00", align 1
+@.str.48 = private unnamed_addr constant [31 x i8] c"not an integer in proper range\00", align 1
 @f_setvbuf.mode = internal constant [3 x i32] [i32 2, i32 0, i32 1], align 4
-@f_setvbuf.modenames = internal constant [4 x ptr] [ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr null], align 16
-@.str.52 = private unnamed_addr constant [3 x i8] c"no\00", align 1
-@.str.53 = private unnamed_addr constant [5 x i8] c"full\00", align 1
-@.str.54 = private unnamed_addr constant [5 x i8] c"line\00", align 1
-@.str.55 = private unnamed_addr constant [27 x i8] c"cannot close standard file\00", align 1
+@f_setvbuf.modenames = internal constant [4 x ptr] [ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr null], align 16
+@.str.49 = private unnamed_addr constant [3 x i8] c"no\00", align 1
+@.str.50 = private unnamed_addr constant [5 x i8] c"full\00", align 1
+@.str.51 = private unnamed_addr constant [5 x i8] c"line\00", align 1
+@.str.52 = private unnamed_addr constant [27 x i8] c"cannot close standard file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_io(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  call void @luaL_checkversion_(ptr noundef %0, double noundef 5.040000e+02, i64 noundef 136)
-  %1 = load ptr, ptr %L.addr, align 8
-  call void @lua_createtable(ptr noundef %1, i32 noundef 0, i32 noundef 11)
-  %2 = load ptr, ptr %L.addr, align 8
-  call void @luaL_setfuncs(ptr noundef %2, ptr noundef @iolib, i32 noundef 0)
-  %3 = load ptr, ptr %L.addr, align 8
-  call void @createmeta(ptr noundef %3)
-  %4 = load ptr, ptr %L.addr, align 8
-  %5 = load ptr, ptr @stdin, align 8
-  call void @createstdfile(ptr noundef %4, ptr noundef %5, ptr noundef @.str, ptr noundef @.str.1)
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load ptr, ptr @stdout, align 8
-  call void @createstdfile(ptr noundef %6, ptr noundef %7, ptr noundef @.str.2, ptr noundef @.str.3)
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load ptr, ptr @stderr, align 8
-  call void @createstdfile(ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef @.str.4)
+define dso_local i32 @luaopen_io(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_checkversion_(ptr noundef %3, double noundef 5.050000e+02, i64 noundef 136)
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_createtable(ptr noundef %4, i32 noundef 0, i32 noundef 11)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_setfuncs(ptr noundef %5, ptr noundef @iolib, i32 noundef 0)
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @createmeta(ptr noundef %6)
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr @stdin, align 8, !tbaa !9
+  call void @createstdfile(ptr noundef %7, ptr noundef %8, ptr noundef @.str, ptr noundef @.str.1)
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !9
+  call void @createstdfile(ptr noundef %9, ptr noundef %10, ptr noundef @.str.2, ptr noundef @.str.3)
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !9
+  call void @createstdfile(ptr noundef %11, ptr noundef %12, ptr noundef null, ptr noundef @.str.4)
   ret i32 1
 }
 
@@ -107,440 +104,471 @@ declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @luaL_setfuncs(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @createmeta(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @luaL_newmetatable(ptr noundef %0, ptr noundef @.str.16)
-  %1 = load ptr, ptr %L.addr, align 8
-  call void @luaL_setfuncs(ptr noundef %1, ptr noundef @metameth, i32 noundef 0)
-  %2 = load ptr, ptr %L.addr, align 8
-  call void @lua_createtable(ptr noundef %2, i32 noundef 0, i32 noundef 7)
-  %3 = load ptr, ptr %L.addr, align 8
-  call void @luaL_setfuncs(ptr noundef %3, ptr noundef @meth, i32 noundef 0)
-  %4 = load ptr, ptr %L.addr, align 8
-  call void @lua_setfield(ptr noundef %4, i32 noundef -2, ptr noundef @.str.40)
-  %5 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %5, i32 noundef -2)
+define internal void @createmeta(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i32 @luaL_newmetatable(ptr noundef %3, ptr noundef @.str.16)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_setfuncs(ptr noundef %5, ptr noundef @metameth, i32 noundef 0)
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_createtable(ptr noundef %6, i32 noundef 0, i32 noundef 7)
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_setfuncs(ptr noundef %7, ptr noundef @meth, i32 noundef 0)
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_setfield(ptr noundef %8, i32 noundef -2, ptr noundef @.str.37)
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %9, i32 noundef -2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @createstdfile(ptr noundef %L, ptr noundef %f, ptr noundef %k, ptr noundef %fname) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %k.addr = alloca ptr, align 8
-  %fname.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store ptr %k, ptr %k.addr, align 8
-  store ptr %fname, ptr %fname.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @newprefile(ptr noundef %0)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %f.addr, align 8
-  %2 = load ptr, ptr %p, align 8
-  %f1 = getelementptr inbounds %struct.luaL_Stream, ptr %2, i32 0, i32 0
-  store ptr %1, ptr %f1, align 8
-  %3 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %3, i32 0, i32 1
-  store ptr @io_noclose, ptr %closef, align 8
-  %4 = load ptr, ptr %k.addr, align 8
-  %cmp = icmp ne ptr %4, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal void @createstdfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store ptr %2, ptr %7, align 8, !tbaa !11
+  store ptr %3, ptr %8, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %10 = load ptr, ptr %5, align 8, !tbaa !4
+  %11 = call ptr @newprefile(ptr noundef %10)
+  store ptr %11, ptr %9, align 8, !tbaa !13
+  %12 = load ptr, ptr %6, align 8, !tbaa !9
+  %13 = load ptr, ptr %9, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %13, i32 0, i32 0
+  store ptr %12, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %9, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %15, i32 0, i32 1
+  store ptr @io_noclose, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %7, align 8, !tbaa !11
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %23
 
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %5, i32 noundef -1)
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load ptr, ptr %k.addr, align 8
-  call void @lua_setfield(ptr noundef %6, i32 noundef -1001000, ptr noundef %7)
-  br label %if.end
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %20, i32 noundef -1)
+  %21 = load ptr, ptr %5, align 8, !tbaa !4
+  %22 = load ptr, ptr %7, align 8, !tbaa !11
+  call void @lua_setfield(ptr noundef %21, i32 noundef -1001000, ptr noundef %22)
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load ptr, ptr %fname.addr, align 8
-  call void @lua_setfield(ptr noundef %8, i32 noundef -2, ptr noundef %9)
+23:                                               ; preds = %19, %4
+  %24 = load ptr, ptr %5, align 8, !tbaa !4
+  %25 = load ptr, ptr %8, align 8, !tbaa !11
+  call void @lua_setfield(ptr noundef %24, i32 noundef -2, ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_close(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_type(ptr noundef %0, i32 noundef 1)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @io_close(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i32 @lua_type(ptr noundef %3, i32 noundef 1)
+  %5 = icmp eq i32 %4, -1
+  br i1 %5, label %6, label %9
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call i32 @lua_getfield(ptr noundef %1, i32 noundef -1001000, ptr noundef @.str.2)
-  br label %if.end
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = call i32 @lua_getfield(ptr noundef %7, i32 noundef -1001000, ptr noundef @.str.2)
+  br label %9
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %L.addr, align 8
-  %call2 = call i32 @f_close(ptr noundef %2)
-  ret i32 %call2
+9:                                                ; preds = %6, %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  %11 = call i32 @f_close(ptr noundef %10)
+  ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_flush(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @getiofile(ptr noundef %1, ptr noundef @.str.2)
-  %call1 = call i32 @fflush(ptr noundef %call)
-  %cmp = icmp eq i32 %call1, 0
-  %conv = zext i1 %cmp to i32
-  %call2 = call i32 @luaL_fileresult(ptr noundef %0, i32 noundef %conv, ptr noundef null)
-  ret i32 %call2
+define internal i32 @io_flush(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @getiofile(ptr noundef %4, ptr noundef @.str.2)
+  store ptr %5, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @__errno_location() #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = call i32 @fflush(ptr noundef %8)
+  %10 = icmp eq i32 %9, 0
+  %11 = zext i1 %10 to i32
+  %12 = call i32 @luaL_fileresult(ptr noundef %7, i32 noundef %11, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_input(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @g_iofile(ptr noundef %0, ptr noundef @.str, ptr noundef @.str.19)
-  ret i32 %call
+define internal i32 @io_input(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i32 @g_iofile(ptr noundef %3, ptr noundef @.str, ptr noundef @.str.19)
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_lines(ptr noundef %L) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %toclose = alloca i32, align 4
-  %filename = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_type(ptr noundef %0, i32 noundef 1)
-  %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @io_lines(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !4
+  %8 = call i32 @lua_type(ptr noundef %7, i32 noundef 1)
+  %9 = icmp eq i32 %8, -1
+  br i1 %9, label %10, label %12
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %1)
-  br label %if.end
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %11)
+  br label %12
 
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %L.addr, align 8
-  %call1 = call i32 @lua_type(ptr noundef %2, i32 noundef 1)
-  %cmp2 = icmp eq i32 %call1, 0
-  br i1 %cmp2, label %if.then3, label %if.else
+12:                                               ; preds = %10, %1
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = call i32 @lua_type(ptr noundef %13, i32 noundef 1)
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %23
 
-if.then3:                                         ; preds = %if.end
-  %3 = load ptr, ptr %L.addr, align 8
-  %call4 = call i32 @lua_getfield(ptr noundef %3, i32 noundef -1001000, ptr noundef @.str)
-  %4 = load ptr, ptr %L.addr, align 8
-  call void @lua_copy(ptr noundef %4, i32 noundef -1, i32 noundef 1)
-  %5 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %5, i32 noundef -2)
-  %6 = load ptr, ptr %L.addr, align 8
-  %call5 = call ptr @tofile(ptr noundef %6)
-  store i32 0, ptr %toclose, align 4
-  br label %if.end7
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %3, align 8, !tbaa !4
+  %18 = call i32 @lua_getfield(ptr noundef %17, i32 noundef -1001000, ptr noundef @.str)
+  %19 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_copy(ptr noundef %19, i32 noundef -1, i32 noundef 1)
+  %20 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %20, i32 noundef -2)
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = call ptr @tofile(ptr noundef %21)
+  store i32 0, ptr %4, align 4, !tbaa !18
+  br label %30
 
-if.else:                                          ; preds = %if.end
-  %7 = load ptr, ptr %L.addr, align 8
-  %call6 = call ptr @luaL_checklstring(ptr noundef %7, i32 noundef 1, ptr noundef null)
-  store ptr %call6, ptr %filename, align 8
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load ptr, ptr %filename, align 8
-  call void @opencheck(ptr noundef %8, ptr noundef %9, ptr noundef @.str.19)
-  %10 = load ptr, ptr %L.addr, align 8
-  call void @lua_copy(ptr noundef %10, i32 noundef -1, i32 noundef 1)
-  %11 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %11, i32 noundef -2)
-  store i32 1, ptr %toclose, align 4
-  br label %if.end7
+23:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %24 = load ptr, ptr %3, align 8, !tbaa !4
+  %25 = call ptr @luaL_checklstring(ptr noundef %24, i32 noundef 1, ptr noundef null)
+  store ptr %25, ptr %5, align 8, !tbaa !11
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @opencheck(ptr noundef %26, ptr noundef %27, ptr noundef @.str.19)
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_copy(ptr noundef %28, i32 noundef -1, i32 noundef 1)
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %29, i32 noundef -2)
+  store i32 1, ptr %4, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  br label %30
 
-if.end7:                                          ; preds = %if.else, %if.then3
-  %12 = load ptr, ptr %L.addr, align 8
-  %13 = load i32, ptr %toclose, align 4
-  call void @aux_lines(ptr noundef %12, i32 noundef %13)
-  %14 = load i32, ptr %toclose, align 4
-  %tobool = icmp ne i32 %14, 0
-  br i1 %tobool, label %if.then8, label %if.else9
+30:                                               ; preds = %23, %16
+  %31 = load ptr, ptr %3, align 8, !tbaa !4
+  %32 = load i32, ptr %4, align 4, !tbaa !18
+  call void @aux_lines(ptr noundef %31, i32 noundef %32)
+  %33 = load i32, ptr %4, align 4, !tbaa !18
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %39
 
-if.then8:                                         ; preds = %if.end7
-  %15 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %15)
-  %16 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %16)
-  %17 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %17, i32 noundef 1)
-  store i32 4, ptr %retval, align 4
-  br label %return
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %36)
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %37)
+  %38 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %38, i32 noundef 1)
+  store i32 4, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %40
 
-if.else9:                                         ; preds = %if.end7
-  store i32 1, ptr %retval, align 4
-  br label %return
+39:                                               ; preds = %30
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %40
 
-return:                                           ; preds = %if.else9, %if.then8
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+40:                                               ; preds = %39, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  %41 = load i32, ptr %2, align 4
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_open(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %filename = alloca ptr, align 8
-  %mode = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %md = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null)
-  store ptr %call, ptr %filename, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @luaL_optlstring(ptr noundef %1, i32 noundef 2, ptr noundef @.str.19, ptr noundef null)
-  store ptr %call1, ptr %mode, align 8
-  %2 = load ptr, ptr %L.addr, align 8
-  %call2 = call ptr @newfile(ptr noundef %2)
-  store ptr %call2, ptr %p, align 8
-  %3 = load ptr, ptr %mode, align 8
-  store ptr %3, ptr %md, align 8
-  %4 = load ptr, ptr %md, align 8
-  %call3 = call i32 @l_checkmode(ptr noundef %4)
-  %cmp = icmp ne i32 %call3, 0
-  %conv = zext i1 %cmp to i32
-  %conv4 = sext i32 %conv to i64
-  %tobool = icmp ne i64 %conv4, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+define internal i32 @io_open(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = call ptr @luaL_checklstring(ptr noundef %7, i32 noundef 1, ptr noundef null)
+  store ptr %8, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @luaL_optlstring(ptr noundef %9, i32 noundef 2, ptr noundef @.str.19, ptr noundef null)
+  store ptr %10, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = call ptr @newfile(ptr noundef %11)
+  store ptr %12, ptr %5, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %13 = load ptr, ptr %4, align 8, !tbaa !11
+  store ptr %13, ptr %6, align 8, !tbaa !11
+  %14 = load ptr, ptr %6, align 8, !tbaa !11
+  %15 = call i32 @l_checkmode(ptr noundef %14)
+  %16 = icmp ne i32 %15, 0
+  %17 = zext i1 %16 to i32
+  %18 = sext i32 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 1)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %24, label %21
 
-lor.rhs:                                          ; preds = %entry
-  %5 = load ptr, ptr %L.addr, align 8
-  %call5 = call i32 @luaL_argerror(ptr noundef %5, i32 noundef 2, ptr noundef @.str.31)
-  br label %lor.end
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %2, align 8, !tbaa !4
+  %23 = call i32 @luaL_argerror(ptr noundef %22, i32 noundef 2, ptr noundef @.str.31)
+  br label %24
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %6 = load ptr, ptr %filename, align 8
-  %7 = load ptr, ptr %mode, align 8
-  %call7 = call noalias ptr @fopen64(ptr noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %8, i32 0, i32 0
-  store ptr %call7, ptr %f, align 8
-  %9 = load ptr, ptr %p, align 8
-  %f8 = getelementptr inbounds %struct.luaL_Stream, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %f8, align 8
-  %cmp9 = icmp eq ptr %10, null
-  br i1 %cmp9, label %cond.true, label %cond.false
+24:                                               ; preds = %21, %1
+  %25 = call ptr @__errno_location() #9
+  store i32 0, ptr %25, align 4, !tbaa !18
+  %26 = load ptr, ptr %3, align 8, !tbaa !11
+  %27 = load ptr, ptr %4, align 8, !tbaa !11
+  %28 = call noalias ptr @fopen64(ptr noundef %26, ptr noundef %27)
+  %29 = load ptr, ptr %5, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %29, i32 0, i32 0
+  store ptr %28, ptr %30, align 8, !tbaa !15
+  %31 = load ptr, ptr %5, align 8, !tbaa !13
+  %32 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !15
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %39
 
-cond.true:                                        ; preds = %lor.end
-  %11 = load ptr, ptr %L.addr, align 8
-  %12 = load ptr, ptr %filename, align 8
-  %call11 = call i32 @luaL_fileresult(ptr noundef %11, i32 noundef 0, ptr noundef %12)
-  br label %cond.end
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %2, align 8, !tbaa !4
+  %37 = load ptr, ptr %3, align 8, !tbaa !11
+  %38 = call i32 @luaL_fileresult(ptr noundef %36, i32 noundef 0, ptr noundef %37)
+  br label %40
 
-cond.false:                                       ; preds = %lor.end
-  br label %cond.end
+39:                                               ; preds = %24
+  br label %40
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call11, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+40:                                               ; preds = %39, %35
+  %41 = phi i32 [ %38, %35 ], [ 1, %39 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_output(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @g_iofile(ptr noundef %0, ptr noundef @.str.2, ptr noundef @.str.34)
-  ret i32 %call
+define internal i32 @io_output(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call i32 @g_iofile(ptr noundef %3, ptr noundef @.str.2, ptr noundef @.str.34)
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_popen(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %filename = alloca ptr, align 8
-  %mode = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null)
-  store ptr %call, ptr %filename, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @luaL_optlstring(ptr noundef %1, i32 noundef 2, ptr noundef @.str.19, ptr noundef null)
-  store ptr %call1, ptr %mode, align 8
-  %2 = load ptr, ptr %L.addr, align 8
-  %call2 = call ptr @newprefile(ptr noundef %2)
-  store ptr %call2, ptr %p, align 8
-  %3 = load ptr, ptr %mode, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 0
-  %4 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %4 to i32
-  %cmp = icmp eq i32 %conv, 114
-  br i1 %cmp, label %land.rhs, label %lor.lhs.false
+define internal i32 @io_popen(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  %7 = call ptr @luaL_checklstring(ptr noundef %6, i32 noundef 1, ptr noundef null)
+  store ptr %7, ptr %3, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  %9 = call ptr @luaL_optlstring(ptr noundef %8, i32 noundef 2, ptr noundef @.str.19, ptr noundef null)
+  store ptr %9, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  %11 = call ptr @newprefile(ptr noundef %10)
+  store ptr %11, ptr %5, align 8, !tbaa !13
+  %12 = load ptr, ptr %4, align 8, !tbaa !11
+  %13 = getelementptr inbounds i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1, !tbaa !20
+  %15 = sext i8 %14 to i32
+  %16 = icmp eq i32 %15, 114
+  br i1 %16, label %23, label %17
 
-lor.lhs.false:                                    ; preds = %entry
-  %5 = load ptr, ptr %mode, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %5, i64 0
-  %6 = load i8, ptr %arrayidx4, align 1
-  %conv5 = sext i8 %6 to i32
-  %cmp6 = icmp eq i32 %conv5, 119
-  br i1 %cmp6, label %land.rhs, label %land.end
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %4, align 8, !tbaa !11
+  %19 = getelementptr inbounds i8, ptr %18, i64 0
+  %20 = load i8, ptr %19, align 1, !tbaa !20
+  %21 = sext i8 %20 to i32
+  %22 = icmp eq i32 %21, 119
+  br i1 %22, label %23, label %29
 
-land.rhs:                                         ; preds = %lor.lhs.false, %entry
-  %7 = load ptr, ptr %mode, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %7, i64 1
-  %8 = load i8, ptr %arrayidx8, align 1
-  %conv9 = sext i8 %8 to i32
-  %cmp10 = icmp eq i32 %conv9, 0
-  br label %land.end
+23:                                               ; preds = %17, %1
+  %24 = load ptr, ptr %4, align 8, !tbaa !11
+  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = load i8, ptr %25, align 1, !tbaa !20
+  %27 = sext i8 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  br label %29
 
-land.end:                                         ; preds = %land.rhs, %lor.lhs.false
-  %9 = phi i1 [ false, %lor.lhs.false ], [ %cmp10, %land.rhs ]
-  %land.ext = zext i1 %9 to i32
-  %cmp12 = icmp ne i32 %land.ext, 0
-  %conv13 = zext i1 %cmp12 to i32
-  %conv14 = sext i32 %conv13 to i64
-  %tobool = icmp ne i64 %conv14, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+29:                                               ; preds = %23, %17
+  %30 = phi i1 [ false, %17 ], [ %28, %23 ]
+  %31 = zext i1 %30 to i32
+  %32 = icmp ne i32 %31, 0
+  %33 = zext i1 %32 to i32
+  %34 = sext i32 %33 to i64
+  %35 = call i64 @llvm.expect.i64(i64 %34, i64 1)
+  %36 = icmp ne i64 %35, 0
+  br i1 %36, label %40, label %37
 
-lor.rhs:                                          ; preds = %land.end
-  %10 = load ptr, ptr %L.addr, align 8
-  %call15 = call i32 @luaL_argerror(ptr noundef %10, i32 noundef 2, ptr noundef @.str.31)
-  br label %lor.end
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %2, align 8, !tbaa !4
+  %39 = call i32 @luaL_argerror(ptr noundef %38, i32 noundef 2, ptr noundef @.str.31)
+  br label %40
 
-lor.end:                                          ; preds = %lor.rhs, %land.end
-  %11 = load ptr, ptr %L.addr, align 8
-  %call17 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %11, ptr noundef @.str.35)
-  %12 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %12, i32 0, i32 0
-  store ptr null, ptr %f, align 8
-  %13 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %13, i32 0, i32 1
-  store ptr @io_pclose, ptr %closef, align 8
-  %14 = load ptr, ptr %p, align 8
-  %f18 = getelementptr inbounds %struct.luaL_Stream, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %f18, align 8
-  %cmp19 = icmp eq ptr %15, null
-  br i1 %cmp19, label %cond.true, label %cond.false
+40:                                               ; preds = %37, %29
+  %41 = call ptr @__errno_location() #9
+  store i32 0, ptr %41, align 4, !tbaa !18
+  %42 = call i32 @fflush(ptr noundef null)
+  %43 = load ptr, ptr %3, align 8, !tbaa !11
+  %44 = load ptr, ptr %4, align 8, !tbaa !11
+  %45 = call noalias ptr @popen(ptr noundef %43, ptr noundef %44)
+  %46 = load ptr, ptr %5, align 8, !tbaa !13
+  %47 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %46, i32 0, i32 0
+  store ptr %45, ptr %47, align 8, !tbaa !15
+  %48 = load ptr, ptr %5, align 8, !tbaa !13
+  %49 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %48, i32 0, i32 1
+  store ptr @io_pclose, ptr %49, align 8, !tbaa !17
+  %50 = load ptr, ptr %5, align 8, !tbaa !13
+  %51 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %50, i32 0, i32 0
+  %52 = load ptr, ptr %51, align 8, !tbaa !15
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %58
 
-cond.true:                                        ; preds = %lor.end
-  %16 = load ptr, ptr %L.addr, align 8
-  %17 = load ptr, ptr %filename, align 8
-  %call21 = call i32 @luaL_fileresult(ptr noundef %16, i32 noundef 0, ptr noundef %17)
-  br label %cond.end
+54:                                               ; preds = %40
+  %55 = load ptr, ptr %2, align 8, !tbaa !4
+  %56 = load ptr, ptr %3, align 8, !tbaa !11
+  %57 = call i32 @luaL_fileresult(ptr noundef %55, i32 noundef 0, ptr noundef %56)
+  br label %59
 
-cond.false:                                       ; preds = %lor.end
-  br label %cond.end
+58:                                               ; preds = %40
+  br label %59
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call21, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+59:                                               ; preds = %58, %54
+  %60 = phi i32 [ %57, %54 ], [ 1, %58 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_read(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @getiofile(ptr noundef %1, ptr noundef @.str)
-  %call1 = call i32 @g_read(ptr noundef %0, ptr noundef %call, i32 noundef 1)
-  ret i32 %call1
+define internal i32 @io_read(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @getiofile(ptr noundef %4, ptr noundef @.str)
+  %6 = call i32 @g_read(ptr noundef %3, ptr noundef %5, i32 noundef 1)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_tmpfile(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @newfile(ptr noundef %0)
-  store ptr %call, ptr %p, align 8
-  %call1 = call noalias ptr @tmpfile64()
-  %1 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 0
-  store ptr %call1, ptr %f, align 8
-  %2 = load ptr, ptr %p, align 8
-  %f2 = getelementptr inbounds %struct.luaL_Stream, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %f2, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %cond.true, label %cond.false
+define internal i32 @io_tmpfile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @newfile(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = call ptr @__errno_location() #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  %7 = call noalias ptr @tmpfile64()
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8, !tbaa !15
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !15
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %17
 
-cond.true:                                        ; preds = %entry
-  %4 = load ptr, ptr %L.addr, align 8
-  %call3 = call i32 @luaL_fileresult(ptr noundef %4, i32 noundef 0, ptr noundef null)
-  br label %cond.end
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8, !tbaa !4
+  %16 = call i32 @luaL_fileresult(ptr noundef %15, i32 noundef 0, ptr noundef null)
+  br label %18
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+17:                                               ; preds = %1
+  br label %18
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call3, %cond.true ], [ 1, %cond.false ]
-  ret i32 %cond
+18:                                               ; preds = %17, %14
+  %19 = phi i32 [ %16, %14 ], [ 1, %17 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_type(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  call void @luaL_checkany(ptr noundef %0, i32 noundef 1)
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_testudata(ptr noundef %1, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @io_type(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_checkany(ptr noundef %4, i32 noundef 1)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call ptr @luaL_testudata(ptr noundef %5, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %6, ptr %3, align 8, !tbaa !13
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %9, label %11
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %3)
-  br label %if.end6
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %10)
+  br label %23
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %closef, align 8
-  %cmp1 = icmp eq ptr %5, null
-  br i1 %cmp1, label %if.then2, label %if.else4
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %13 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %19
 
-if.then2:                                         ; preds = %if.else
-  %6 = load ptr, ptr %L.addr, align 8
-  %call3 = call ptr @lua_pushstring(ptr noundef %6, ptr noundef @.str.36)
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %2, align 8, !tbaa !4
+  %18 = call ptr @lua_pushstring(ptr noundef %17, ptr noundef @.str.35)
+  br label %22
 
-if.else4:                                         ; preds = %if.else
-  %7 = load ptr, ptr %L.addr, align 8
-  %call5 = call ptr @lua_pushstring(ptr noundef %7, ptr noundef @.str.37)
-  br label %if.end
+19:                                               ; preds = %11
+  %20 = load ptr, ptr %2, align 8, !tbaa !4
+  %21 = call ptr @lua_pushstring(ptr noundef %20, ptr noundef @.str.36)
+  br label %22
 
-if.end:                                           ; preds = %if.else4, %if.then2
-  br label %if.end6
+22:                                               ; preds = %19, %16
+  br label %23
 
-if.end6:                                          ; preds = %if.end, %if.then
+23:                                               ; preds = %22, %9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_write(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @getiofile(ptr noundef %1, ptr noundef @.str.2)
-  %call1 = call i32 @g_write(ptr noundef %0, ptr noundef %call, i32 noundef 1)
-  ret i32 %call1
+define internal i32 @io_write(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @getiofile(ptr noundef %4, ptr noundef @.str.2)
+  %6 = call i32 @g_write(ptr noundef %3, ptr noundef %5, i32 noundef 1)
+  ret i32 %6
 }
 
 declare i32 @lua_type(ptr noundef, i32 noundef) #1
@@ -548,213 +576,234 @@ declare i32 @lua_type(ptr noundef, i32 noundef) #1
 declare i32 @lua_getfield(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_close(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %0)
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call i32 @aux_close(ptr noundef %1)
-  ret i32 %call1
+define internal i32 @f_close(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tofile(ptr noundef %3)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call i32 @aux_close(ptr noundef %5)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tofile(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %closef, align 8
-  %cmp = icmp eq ptr %2, null
-  %conv = zext i1 %cmp to i32
-  %cmp1 = icmp ne i32 %conv, 0
-  %conv2 = zext i1 %cmp1 to i32
-  %conv3 = sext i32 %conv2 to i64
-  %tobool = icmp ne i64 %conv3, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal ptr @tofile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = icmp eq ptr %8, null
+  %10 = zext i1 %9 to i32
+  %11 = icmp ne i32 %10, 0
+  %12 = zext i1 %11 to i32
+  %13 = sext i32 %12 to i64
+  %14 = call i64 @llvm.expect.i64(i64 %13, i64 0)
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %19
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %L.addr, align 8
-  %call4 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %3, ptr noundef @.str.17)
-  br label %if.end
+16:                                               ; preds = %1
+  %17 = load ptr, ptr %2, align 8, !tbaa !4
+  %18 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %17, ptr noundef @.str.17)
+  br label %19
 
-if.end:                                           ; preds = %if.then, %entry
-  %4 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %f, align 8
-  ret ptr %5
+19:                                               ; preds = %16, %1
+  %20 = load ptr, ptr %3, align 8, !tbaa !13
+  %21 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aux_close(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %cf = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %closef, align 8
-  store volatile ptr %2, ptr %cf, align 8
-  %3 = load ptr, ptr %p, align 8
-  %closef1 = getelementptr inbounds %struct.luaL_Stream, ptr %3, i32 0, i32 1
-  store ptr null, ptr %closef1, align 8
-  %4 = load volatile ptr, ptr %cf, align 8
-  %5 = load ptr, ptr %L.addr, align 8
-  %call2 = call i32 %4(ptr noundef %5)
-  ret i32 %call2
+define internal i32 @aux_close(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  %6 = call ptr @luaL_checkudata(ptr noundef %5, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %6, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %7 = load ptr, ptr %3, align 8, !tbaa !13
+  %8 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  store volatile ptr %9, ptr %4, align 8, !tbaa !21
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %10, i32 0, i32 1
+  store ptr null, ptr %11, align 8, !tbaa !17
+  %12 = load volatile ptr, ptr %4, align 8, !tbaa !21
+  %13 = load ptr, ptr %2, align 8, !tbaa !4
+  %14 = call i32 %12(ptr noundef %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %14
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @luaL_checkudata(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #3
+
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind uwtable
+define internal ptr @getiofile(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = load ptr, ptr %4, align 8, !tbaa !11
+  %8 = call i32 @lua_getfield(ptr noundef %6, i32 noundef -1001000, ptr noundef %7)
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = call ptr @lua_touserdata(ptr noundef %9, i32 noundef -1)
+  store ptr %10, ptr %5, align 8, !tbaa !13
+  %11 = load ptr, ptr %5, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = icmp eq ptr %13, null
+  %15 = zext i1 %14 to i32
+  %16 = icmp ne i32 %15, 0
+  %17 = zext i1 %16 to i32
+  %18 = sext i32 %17 to i64
+  %19 = call i64 @llvm.expect.i64(i64 %18, i64 0)
+  %20 = icmp ne i64 %19, 0
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %2
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load ptr, ptr %4, align 8, !tbaa !11
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %25 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %22, ptr noundef @.str.18, ptr noundef %24)
+  br label %26
+
+26:                                               ; preds = %21, %2
+  %27 = load ptr, ptr %5, align 8, !tbaa !13
+  %28 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %27, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  ret ptr %29
+}
+
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__errno_location() #4
 
 declare i32 @luaL_fileresult(ptr noundef, i32 noundef, ptr noundef) #1
 
 declare i32 @fflush(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @getiofile(ptr noundef %L, ptr noundef %findex) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %findex.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %findex, ptr %findex.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %findex.addr, align 8
-  %call = call i32 @lua_getfield(ptr noundef %0, i32 noundef -1001000, ptr noundef %1)
-  %2 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @lua_touserdata(ptr noundef %2, i32 noundef -1)
-  store ptr %call1, ptr %p, align 8
-  %3 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %3, i32 0, i32 1
-  %4 = load ptr, ptr %closef, align 8
-  %cmp = icmp eq ptr %4, null
-  %conv = zext i1 %cmp to i32
-  %cmp2 = icmp ne i32 %conv, 0
-  %conv3 = zext i1 %cmp2 to i32
-  %conv4 = sext i32 %conv3 to i64
-  %tobool = icmp ne i64 %conv4, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %5 = load ptr, ptr %L.addr, align 8
-  %6 = load ptr, ptr %findex.addr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %6, i64 4
-  %call5 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %5, ptr noundef @.str.18, ptr noundef %add.ptr)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %7, i32 0, i32 0
-  %8 = load ptr, ptr %f, align 8
-  ret ptr %8
-}
-
 declare ptr @lua_touserdata(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @g_iofile(ptr noundef %L, ptr noundef %f, ptr noundef %mode) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %mode.addr = alloca ptr, align 8
-  %filename = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store ptr %mode, ptr %mode.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_type(ptr noundef %0, i32 noundef 1)
-  %cmp = icmp sle i32 %call, 0
-  br i1 %cmp, label %if.end4, label %if.then
+define internal i32 @g_iofile(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = call i32 @lua_type(ptr noundef %8, i32 noundef 1)
+  %10 = icmp sle i32 %9, 0
+  br i1 %10, label %27, label %11
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @lua_tolstring(ptr noundef %1, i32 noundef 1, ptr noundef null)
-  store ptr %call1, ptr %filename, align 8
-  %2 = load ptr, ptr %filename, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then2, label %if.else
+11:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %12 = load ptr, ptr %4, align 8, !tbaa !4
+  %13 = call ptr @lua_tolstring(ptr noundef %12, i32 noundef 1, ptr noundef null)
+  store ptr %13, ptr %7, align 8, !tbaa !11
+  %14 = load ptr, ptr %7, align 8, !tbaa !11
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %20
 
-if.then2:                                         ; preds = %if.then
-  %3 = load ptr, ptr %L.addr, align 8
-  %4 = load ptr, ptr %filename, align 8
-  %5 = load ptr, ptr %mode.addr, align 8
-  call void @opencheck(ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %if.end
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %4, align 8, !tbaa !4
+  %18 = load ptr, ptr %7, align 8, !tbaa !11
+  %19 = load ptr, ptr %6, align 8, !tbaa !11
+  call void @opencheck(ptr noundef %17, ptr noundef %18, ptr noundef %19)
+  br label %24
 
-if.else:                                          ; preds = %if.then
-  %6 = load ptr, ptr %L.addr, align 8
-  %call3 = call ptr @tofile(ptr noundef %6)
-  %7 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %7, i32 noundef 1)
-  br label %if.end
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %4, align 8, !tbaa !4
+  %22 = call ptr @tofile(ptr noundef %21)
+  %23 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %23, i32 noundef 1)
+  br label %24
 
-if.end:                                           ; preds = %if.else, %if.then2
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load ptr, ptr %f.addr, align 8
-  call void @lua_setfield(ptr noundef %8, i32 noundef -1001000, ptr noundef %9)
-  br label %if.end4
+24:                                               ; preds = %20, %16
+  %25 = load ptr, ptr %4, align 8, !tbaa !4
+  %26 = load ptr, ptr %5, align 8, !tbaa !11
+  call void @lua_setfield(ptr noundef %25, i32 noundef -1001000, ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %27
 
-if.end4:                                          ; preds = %if.end, %entry
-  %10 = load ptr, ptr %L.addr, align 8
-  %11 = load ptr, ptr %f.addr, align 8
-  %call5 = call i32 @lua_getfield(ptr noundef %10, i32 noundef -1001000, ptr noundef %11)
+27:                                               ; preds = %24, %3
+  %28 = load ptr, ptr %4, align 8, !tbaa !4
+  %29 = load ptr, ptr %5, align 8, !tbaa !11
+  %30 = call i32 @lua_getfield(ptr noundef %28, i32 noundef -1001000, ptr noundef %29)
   ret i32 1
 }
 
 declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @opencheck(ptr noundef %L, ptr noundef %fname, ptr noundef %mode) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %fname.addr = alloca ptr, align 8
-  %mode.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %fname, ptr %fname.addr, align 8
-  store ptr %mode, ptr %mode.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @newfile(ptr noundef %0)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %fname.addr, align 8
-  %2 = load ptr, ptr %mode.addr, align 8
-  %call1 = call noalias ptr @fopen64(ptr noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %3, i32 0, i32 0
-  store ptr %call1, ptr %f, align 8
-  %4 = load ptr, ptr %p, align 8
-  %f2 = getelementptr inbounds %struct.luaL_Stream, ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %f2, align 8
-  %cmp = icmp eq ptr %5, null
-  %conv = zext i1 %cmp to i32
-  %cmp3 = icmp ne i32 %conv, 0
-  %conv4 = zext i1 %cmp3 to i32
-  %conv5 = sext i32 %conv4 to i64
-  %tobool = icmp ne i64 %conv5, 0
-  br i1 %tobool, label %if.then, label %if.end
+define internal void @opencheck(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  store ptr %2, ptr %6, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %8 = load ptr, ptr %4, align 8, !tbaa !4
+  %9 = call ptr @newfile(ptr noundef %8)
+  store ptr %9, ptr %7, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !11
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  %12 = call noalias ptr @fopen64(ptr noundef %10, ptr noundef %11)
+  %13 = load ptr, ptr %7, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %13, i32 0, i32 0
+  store ptr %12, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %7, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %18 = icmp eq ptr %17, null
+  %19 = zext i1 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 0)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %25, label %32
 
-if.then:                                          ; preds = %entry
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load ptr, ptr %fname.addr, align 8
-  %call6 = call ptr @__errno_location() #5
-  %8 = load i32, ptr %call6, align 4
-  %call7 = call ptr @strerror(i32 noundef %8) #6
-  %call8 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %6, ptr noundef @.str.20, ptr noundef %7, ptr noundef %call7)
-  br label %if.end
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %4, align 8, !tbaa !4
+  %27 = load ptr, ptr %5, align 8, !tbaa !11
+  %28 = call ptr @__errno_location() #9
+  %29 = load i32, ptr %28, align 4, !tbaa !18
+  %30 = call ptr @strerror(i32 noundef %29) #8
+  %31 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %26, ptr noundef @.str.20, ptr noundef %27, ptr noundef %30)
+  br label %32
 
-if.end:                                           ; preds = %if.then, %entry
+32:                                               ; preds = %25, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret void
 }
 
@@ -763,71 +812,70 @@ declare void @lua_pushvalue(ptr noundef, i32 noundef) #1
 declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @newfile(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @newprefile(ptr noundef %0)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 0
-  store ptr null, ptr %f, align 8
-  %2 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %2, i32 0, i32 1
-  store ptr @io_fclose, ptr %closef, align 8
-  %3 = load ptr, ptr %p, align 8
-  ret ptr %3
+define internal ptr @newfile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @newprefile(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 0
+  store ptr null, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %8, i32 0, i32 1
+  store ptr @io_fclose, ptr %9, align 8, !tbaa !17
+  %10 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %10
 }
 
 declare noalias ptr @fopen64(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) #2
-
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @strerror(i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @newprefile(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @lua_newuserdatauv(ptr noundef %0, i64 noundef 16, i32 noundef 0)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  store ptr null, ptr %closef, align 8
-  %2 = load ptr, ptr %L.addr, align 8
-  call void @luaL_setmetatable(ptr noundef %2, ptr noundef @.str.16)
-  %3 = load ptr, ptr %p, align 8
-  ret ptr %3
+define internal ptr @newprefile(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @lua_newuserdatauv(ptr noundef %4, i64 noundef 16, i32 noundef 0)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 1
+  store ptr null, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @luaL_setmetatable(ptr noundef %8, ptr noundef @.str.16)
+  %9 = load ptr, ptr %3, align 8, !tbaa !13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_fclose(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %res = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %f, align 8
-  %call1 = call i32 @fclose(ptr noundef %2)
-  store i32 %call1, ptr %res, align 4
-  %3 = load ptr, ptr %L.addr, align 8
-  %4 = load i32, ptr %res, align 4
-  %cmp = icmp eq i32 %4, 0
-  %conv = zext i1 %cmp to i32
-  %call2 = call i32 @luaL_fileresult(ptr noundef %3, i32 noundef %conv, ptr noundef null)
-  ret i32 %call2
+define internal i32 @io_fclose(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = call ptr @__errno_location() #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = call i32 @fclose(ptr noundef %10)
+  %12 = icmp eq i32 %11, 0
+  %13 = zext i1 %12 to i32
+  %14 = call i32 @luaL_fileresult(ptr noundef %7, i32 noundef %13, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %14
 }
 
 declare ptr @lua_newuserdatauv(ptr noundef, i64 noundef, i32 noundef) #1
@@ -845,47 +893,49 @@ declare void @lua_settop(ptr noundef, i32 noundef) #1
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @aux_lines(ptr noundef %L, i32 noundef %toclose) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %toclose.addr = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  store i32 %toclose, ptr %toclose.addr, align 4
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_gettop(ptr noundef %0)
-  %sub = sub nsw i32 %call, 1
-  store i32 %sub, ptr %n, align 4
-  %1 = load i32, ptr %n, align 4
-  %cmp = icmp sle i32 %1, 250
-  %conv = zext i1 %cmp to i32
-  %cmp1 = icmp ne i32 %conv, 0
-  %conv2 = zext i1 %cmp1 to i32
-  %conv3 = sext i32 %conv2 to i64
-  %tobool = icmp ne i64 %conv3, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+define internal void @aux_lines(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load ptr, ptr %3, align 8, !tbaa !4
+  %7 = call i32 @lua_gettop(ptr noundef %6)
+  %8 = sub nsw i32 %7, 1
+  store i32 %8, ptr %5, align 4, !tbaa !18
+  %9 = load i32, ptr %5, align 4, !tbaa !18
+  %10 = icmp sle i32 %9, 250
+  %11 = zext i1 %10 to i32
+  %12 = icmp ne i32 %11, 0
+  %13 = zext i1 %12 to i32
+  %14 = sext i32 %13 to i64
+  %15 = call i64 @llvm.expect.i64(i64 %14, i64 1)
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %20, label %17
 
-lor.rhs:                                          ; preds = %entry
-  %2 = load ptr, ptr %L.addr, align 8
-  %call4 = call i32 @luaL_argerror(ptr noundef %2, i32 noundef 252, ptr noundef @.str.21)
-  br label %lor.end
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call i32 @luaL_argerror(ptr noundef %18, i32 noundef 252, ptr noundef @.str.21)
+  br label %20
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %3 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %3, i32 noundef 1)
-  %4 = load ptr, ptr %L.addr, align 8
-  %5 = load i32, ptr %n, align 4
-  %conv6 = sext i32 %5 to i64
-  call void @lua_pushinteger(ptr noundef %4, i64 noundef %conv6)
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load i32, ptr %toclose.addr, align 4
-  call void @lua_pushboolean(ptr noundef %6, i32 noundef %7)
-  %8 = load ptr, ptr %L.addr, align 8
-  call void @lua_rotate(ptr noundef %8, i32 noundef 2, i32 noundef 3)
-  %9 = load ptr, ptr %L.addr, align 8
-  %10 = load i32, ptr %n, align 4
-  %add = add nsw i32 3, %10
-  call void @lua_pushcclosure(ptr noundef %9, ptr noundef @io_readline, i32 noundef %add)
+20:                                               ; preds = %17, %2
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %21, i32 noundef 1)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load i32, ptr %5, align 4, !tbaa !18
+  %24 = sext i32 %23 to i64
+  call void @lua_pushinteger(ptr noundef %22, i64 noundef %24)
+  %25 = load ptr, ptr %3, align 8, !tbaa !4
+  %26 = load i32, ptr %4, align 4, !tbaa !18
+  call void @lua_pushboolean(ptr noundef %25, i32 noundef %26)
+  %27 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_rotate(ptr noundef %27, i32 noundef 2, i32 noundef 3)
+  %28 = load ptr, ptr %3, align 8, !tbaa !4
+  %29 = load i32, ptr %5, align 4, !tbaa !18
+  %30 = add nsw i32 3, %29
+  call void @lua_pushcclosure(ptr noundef %28, ptr noundef @io_readline, i32 noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
   ret void
 }
 
@@ -902,119 +952,129 @@ declare void @lua_rotate(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_readline(ptr noundef %L) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %n = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @lua_touserdata(ptr noundef %0, i32 noundef -1001001)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call i64 @lua_tointegerx(ptr noundef %1, i32 noundef -1001002, ptr noundef null)
-  %conv = trunc i64 %call1 to i32
-  store i32 %conv, ptr %n, align 4
-  %2 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %closef, align 8
-  %cmp = icmp eq ptr %3, null
-  br i1 %cmp, label %if.then, label %if.end
+define internal i32 @io_readline(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  %9 = call ptr @lua_touserdata(ptr noundef %8, i32 noundef -1001001)
+  store ptr %9, ptr %4, align 8, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %10 = load ptr, ptr %3, align 8, !tbaa !4
+  %11 = call i64 @lua_tointegerx(ptr noundef %10, i32 noundef -1001002, ptr noundef null)
+  %12 = trunc i64 %11 to i32
+  store i32 %12, ptr %6, align 4, !tbaa !18
+  %13 = load ptr, ptr %4, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %20
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %L.addr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %4, ptr noundef @.str.22)
-  store i32 %call3, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %3, align 8, !tbaa !4
+  %19 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %18, ptr noundef @.str.22)
+  store i32 %19, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %5, i32 noundef 1)
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load i32, ptr %n, align 4
-  call void @luaL_checkstack(ptr noundef %6, i32 noundef %7, ptr noundef @.str.21)
-  store i32 1, ptr %i, align 4
-  br label %for.cond
+20:                                               ; preds = %1
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %21, i32 noundef 1)
+  %22 = load ptr, ptr %3, align 8, !tbaa !4
+  %23 = load i32, ptr %6, align 4, !tbaa !18
+  call void @luaL_checkstack(ptr noundef %22, i32 noundef %23, ptr noundef @.str.21)
+  store i32 1, ptr %5, align 4, !tbaa !18
+  br label %24
 
-for.cond:                                         ; preds = %for.inc, %if.end
-  %8 = load i32, ptr %i, align 4
-  %9 = load i32, ptr %n, align 4
-  %cmp4 = icmp sle i32 %8, %9
-  br i1 %cmp4, label %for.body, label %for.end
+24:                                               ; preds = %33, %20
+  %25 = load i32, ptr %5, align 4, !tbaa !18
+  %26 = load i32, ptr %6, align 4, !tbaa !18
+  %27 = icmp sle i32 %25, %26
+  br i1 %27, label %28, label %36
 
-for.body:                                         ; preds = %for.cond
-  %10 = load ptr, ptr %L.addr, align 8
-  %11 = load i32, ptr %i, align 4
-  %add = add nsw i32 3, %11
-  %sub = sub nsw i32 -1001000, %add
-  call void @lua_pushvalue(ptr noundef %10, i32 noundef %sub)
-  br label %for.inc
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8, !tbaa !4
+  %30 = load i32, ptr %5, align 4, !tbaa !18
+  %31 = add nsw i32 3, %30
+  %32 = sub nsw i32 -1001000, %31
+  call void @lua_pushvalue(ptr noundef %29, i32 noundef %32)
+  br label %33
 
-for.inc:                                          ; preds = %for.body
-  %12 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %12, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !5
+33:                                               ; preds = %28
+  %34 = load i32, ptr %5, align 4, !tbaa !18
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %5, align 4, !tbaa !18
+  br label %24
 
-for.end:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %L.addr, align 8
-  %14 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %14, i32 0, i32 0
-  %15 = load ptr, ptr %f, align 8
-  %call6 = call i32 @g_read(ptr noundef %13, ptr noundef %15, i32 noundef 2)
-  store i32 %call6, ptr %n, align 4
-  %16 = load ptr, ptr %L.addr, align 8
-  %17 = load i32, ptr %n, align 4
-  %sub7 = sub nsw i32 0, %17
-  %call8 = call i32 @lua_toboolean(ptr noundef %16, i32 noundef %sub7)
-  %tobool = icmp ne i32 %call8, 0
-  br i1 %tobool, label %if.then9, label %if.else
+36:                                               ; preds = %24
+  %37 = load ptr, ptr %3, align 8, !tbaa !4
+  %38 = load ptr, ptr %4, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %38, i32 0, i32 0
+  %40 = load ptr, ptr %39, align 8, !tbaa !15
+  %41 = call i32 @g_read(ptr noundef %37, ptr noundef %40, i32 noundef 2)
+  store i32 %41, ptr %6, align 4, !tbaa !18
+  %42 = load ptr, ptr %3, align 8, !tbaa !4
+  %43 = load i32, ptr %6, align 4, !tbaa !18
+  %44 = sub nsw i32 0, %43
+  %45 = call i32 @lua_toboolean(ptr noundef %42, i32 noundef %44)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %49
 
-if.then9:                                         ; preds = %for.end
-  %18 = load i32, ptr %n, align 4
-  store i32 %18, ptr %retval, align 4
-  br label %return
+47:                                               ; preds = %36
+  %48 = load i32, ptr %6, align 4, !tbaa !18
+  store i32 %48, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.else:                                          ; preds = %for.end
-  %19 = load i32, ptr %n, align 4
-  %cmp10 = icmp sgt i32 %19, 1
-  br i1 %cmp10, label %if.then12, label %if.end17
+49:                                               ; preds = %36
+  %50 = load i32, ptr %6, align 4, !tbaa !18
+  %51 = icmp sgt i32 %50, 1
+  br i1 %51, label %52, label %60
 
-if.then12:                                        ; preds = %if.else
-  %20 = load ptr, ptr %L.addr, align 8
-  %21 = load ptr, ptr %L.addr, align 8
-  %22 = load i32, ptr %n, align 4
-  %sub13 = sub nsw i32 0, %22
-  %add14 = add nsw i32 %sub13, 1
-  %call15 = call ptr @lua_tolstring(ptr noundef %21, i32 noundef %add14, ptr noundef null)
-  %call16 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %20, ptr noundef @.str.23, ptr noundef %call15)
-  store i32 %call16, ptr %retval, align 4
-  br label %return
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %3, align 8, !tbaa !4
+  %54 = load ptr, ptr %3, align 8, !tbaa !4
+  %55 = load i32, ptr %6, align 4, !tbaa !18
+  %56 = sub nsw i32 0, %55
+  %57 = add nsw i32 %56, 1
+  %58 = call ptr @lua_tolstring(ptr noundef %54, i32 noundef %57, ptr noundef null)
+  %59 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %53, ptr noundef @.str.23, ptr noundef %58)
+  store i32 %59, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-if.end17:                                         ; preds = %if.else
-  %23 = load ptr, ptr %L.addr, align 8
-  %call18 = call i32 @lua_toboolean(ptr noundef %23, i32 noundef -1001003)
-  %tobool19 = icmp ne i32 %call18, 0
-  br i1 %tobool19, label %if.then20, label %if.end22
+60:                                               ; preds = %49
+  %61 = load ptr, ptr %3, align 8, !tbaa !4
+  %62 = call i32 @lua_toboolean(ptr noundef %61, i32 noundef -1001003)
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %69
 
-if.then20:                                        ; preds = %if.end17
-  %24 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %24, i32 noundef 0)
-  %25 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %25, i32 noundef -1001001)
-  %26 = load ptr, ptr %L.addr, align 8
-  %call21 = call i32 @aux_close(ptr noundef %26)
-  br label %if.end22
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %65, i32 noundef 0)
+  %66 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %66, i32 noundef -1001001)
+  %67 = load ptr, ptr %3, align 8, !tbaa !4
+  %68 = call i32 @aux_close(ptr noundef %67)
+  br label %69
 
-if.end22:                                         ; preds = %if.then20, %if.end17
-  store i32 0, ptr %retval, align 4
-  br label %return
+69:                                               ; preds = %64, %60
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %70
 
-return:                                           ; preds = %if.end22, %if.then12, %if.then9, %if.then
-  %27 = load i32, ptr %retval, align 4
-  ret i32 %27
+70:                                               ; preds = %69, %52, %47, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %71 = load i32, ptr %2, align 4
+  ret i32 %71
 }
 
 declare i64 @lua_tointegerx(ptr noundef, i32 noundef, ptr noundef) #1
@@ -1022,606 +1082,713 @@ declare i64 @lua_tointegerx(ptr noundef, i32 noundef, ptr noundef) #1
 declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @g_read(ptr noundef %L, ptr noundef %f, i32 noundef %first) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %first.addr = alloca i32, align 4
-  %nargs = alloca i32, align 4
-  %n = alloca i32, align 4
-  %success = alloca i32, align 4
-  %l = alloca i64, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i32 %first, ptr %first.addr, align 4
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_gettop(ptr noundef %0)
-  %sub = sub nsw i32 %call, 1
-  store i32 %sub, ptr %nargs, align 4
-  %1 = load ptr, ptr %f.addr, align 8
-  call void @clearerr(ptr noundef %1) #6
-  %2 = load i32, ptr %nargs, align 4
-  %cmp = icmp eq i32 %2, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @g_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = call i32 @lua_gettop(ptr noundef %14)
+  %16 = sub nsw i32 %15, 1
+  store i32 %16, ptr %8, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @clearerr(ptr noundef %17) #8
+  %18 = call ptr @__errno_location() #9
+  store i32 0, ptr %18, align 4, !tbaa !18
+  %19 = load i32, ptr %8, align 4, !tbaa !18
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %27
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %L.addr, align 8
-  %4 = load ptr, ptr %f.addr, align 8
-  %call1 = call i32 @read_line(ptr noundef %3, ptr noundef %4, i32 noundef 1)
-  store i32 %call1, ptr %success, align 4
-  %5 = load i32, ptr %first.addr, align 4
-  %add = add nsw i32 %5, 1
-  store i32 %add, ptr %n, align 4
-  br label %if.end25
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8, !tbaa !4
+  %23 = load ptr, ptr %6, align 8, !tbaa !9
+  %24 = call i32 @read_line(ptr noundef %22, ptr noundef %23, i32 noundef 1)
+  store i32 %24, ptr %10, align 4, !tbaa !18
+  %25 = load i32, ptr %7, align 4, !tbaa !18
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %9, align 4, !tbaa !18
+  br label %106
 
-if.else:                                          ; preds = %entry
-  %6 = load ptr, ptr %L.addr, align 8
-  %7 = load i32, ptr %nargs, align 4
-  %add2 = add nsw i32 %7, 20
-  call void @luaL_checkstack(ptr noundef %6, i32 noundef %add2, ptr noundef @.str.21)
-  store i32 1, ptr %success, align 4
-  %8 = load i32, ptr %first.addr, align 4
-  store i32 %8, ptr %n, align 4
-  br label %for.cond
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %5, align 8, !tbaa !4
+  %29 = load i32, ptr %8, align 4, !tbaa !18
+  %30 = add nsw i32 %29, 20
+  call void @luaL_checkstack(ptr noundef %28, i32 noundef %30, ptr noundef @.str.21)
+  store i32 1, ptr %10, align 4, !tbaa !18
+  %31 = load i32, ptr %7, align 4, !tbaa !18
+  store i32 %31, ptr %9, align 4, !tbaa !18
+  br label %32
 
-for.cond:                                         ; preds = %for.inc, %if.else
-  %9 = load i32, ptr %nargs, align 4
-  %dec = add nsw i32 %9, -1
-  store i32 %dec, ptr %nargs, align 4
-  %tobool = icmp ne i32 %9, 0
-  br i1 %tobool, label %land.rhs, label %land.end
+32:                                               ; preds = %102, %27
+  %33 = load i32, ptr %8, align 4, !tbaa !18
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %8, align 4, !tbaa !18
+  %35 = icmp ne i32 %33, 0
+  br i1 %35, label %36, label %39
 
-land.rhs:                                         ; preds = %for.cond
-  %10 = load i32, ptr %success, align 4
-  %tobool3 = icmp ne i32 %10, 0
-  br label %land.end
+36:                                               ; preds = %32
+  %37 = load i32, ptr %10, align 4, !tbaa !18
+  %38 = icmp ne i32 %37, 0
+  br label %39
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %11 = phi i1 [ false, %for.cond ], [ %tobool3, %land.rhs ]
-  br i1 %11, label %for.body, label %for.end
+39:                                               ; preds = %36, %32
+  %40 = phi i1 [ false, %32 ], [ %38, %36 ]
+  br i1 %40, label %41, label %105
 
-for.body:                                         ; preds = %land.end
-  %12 = load ptr, ptr %L.addr, align 8
-  %13 = load i32, ptr %n, align 4
-  %call4 = call i32 @lua_type(ptr noundef %12, i32 noundef %13)
-  %cmp5 = icmp eq i32 %call4, 3
-  br i1 %cmp5, label %if.then6, label %if.else11
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %5, align 8, !tbaa !4
+  %43 = load i32, ptr %9, align 4, !tbaa !18
+  %44 = call i32 @lua_type(ptr noundef %42, i32 noundef %43)
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %46, label %63
 
-if.then6:                                         ; preds = %for.body
-  %14 = load ptr, ptr %L.addr, align 8
-  %15 = load i32, ptr %n, align 4
-  %call7 = call i64 @luaL_checkinteger(ptr noundef %14, i32 noundef %15)
-  store i64 %call7, ptr %l, align 8
-  %16 = load i64, ptr %l, align 8
-  %cmp8 = icmp eq i64 %16, 0
-  br i1 %cmp8, label %cond.true, label %cond.false
+46:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  %47 = load ptr, ptr %5, align 8, !tbaa !4
+  %48 = load i32, ptr %9, align 4, !tbaa !18
+  %49 = call i64 @luaL_checkinteger(ptr noundef %47, i32 noundef %48)
+  store i64 %49, ptr %11, align 8, !tbaa !22
+  %50 = load i64, ptr %11, align 8, !tbaa !22
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %56
 
-cond.true:                                        ; preds = %if.then6
-  %17 = load ptr, ptr %L.addr, align 8
-  %18 = load ptr, ptr %f.addr, align 8
-  %call9 = call i32 @test_eof(ptr noundef %17, ptr noundef %18)
-  br label %cond.end
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %5, align 8, !tbaa !4
+  %54 = load ptr, ptr %6, align 8, !tbaa !9
+  %55 = call i32 @test_eof(ptr noundef %53, ptr noundef %54)
+  br label %61
 
-cond.false:                                       ; preds = %if.then6
-  %19 = load ptr, ptr %L.addr, align 8
-  %20 = load ptr, ptr %f.addr, align 8
-  %21 = load i64, ptr %l, align 8
-  %call10 = call i32 @read_chars(ptr noundef %19, ptr noundef %20, i64 noundef %21)
-  br label %cond.end
+56:                                               ; preds = %46
+  %57 = load ptr, ptr %5, align 8, !tbaa !4
+  %58 = load ptr, ptr %6, align 8, !tbaa !9
+  %59 = load i64, ptr %11, align 8, !tbaa !22
+  %60 = call i32 @read_chars(ptr noundef %57, ptr noundef %58, i64 noundef %59)
+  br label %61
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call9, %cond.true ], [ %call10, %cond.false ]
-  store i32 %cond, ptr %success, align 4
-  br label %if.end24
+61:                                               ; preds = %56, %52
+  %62 = phi i32 [ %55, %52 ], [ %60, %56 ]
+  store i32 %62, ptr %10, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  br label %101
 
-if.else11:                                        ; preds = %for.body
-  %22 = load ptr, ptr %L.addr, align 8
-  %23 = load i32, ptr %n, align 4
-  %call12 = call ptr @luaL_checklstring(ptr noundef %22, i32 noundef %23, ptr noundef null)
-  store ptr %call12, ptr %p, align 8
-  %24 = load ptr, ptr %p, align 8
-  %25 = load i8, ptr %24, align 1
-  %conv = sext i8 %25 to i32
-  %cmp13 = icmp eq i32 %conv, 42
-  br i1 %cmp13, label %if.then15, label %if.end
+63:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = load i32, ptr %9, align 4, !tbaa !18
+  %66 = call ptr @luaL_checklstring(ptr noundef %64, i32 noundef %65, ptr noundef null)
+  store ptr %66, ptr %12, align 8, !tbaa !11
+  %67 = load ptr, ptr %12, align 8, !tbaa !11
+  %68 = load i8, ptr %67, align 1, !tbaa !20
+  %69 = sext i8 %68 to i32
+  %70 = icmp eq i32 %69, 42
+  br i1 %70, label %71, label %74
 
-if.then15:                                        ; preds = %if.else11
-  %26 = load ptr, ptr %p, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %26, i32 1
-  store ptr %incdec.ptr, ptr %p, align 8
-  br label %if.end
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %12, align 8, !tbaa !11
+  %73 = getelementptr inbounds nuw i8, ptr %72, i32 1
+  store ptr %73, ptr %12, align 8, !tbaa !11
+  br label %74
 
-if.end:                                           ; preds = %if.then15, %if.else11
-  %27 = load ptr, ptr %p, align 8
-  %28 = load i8, ptr %27, align 1
-  %conv16 = sext i8 %28 to i32
-  switch i32 %conv16, label %sw.default [
-    i32 110, label %sw.bb
-    i32 108, label %sw.bb18
-    i32 76, label %sw.bb20
-    i32 97, label %sw.bb22
+74:                                               ; preds = %71, %63
+  %75 = load ptr, ptr %12, align 8, !tbaa !11
+  %76 = load i8, ptr %75, align 1, !tbaa !20
+  %77 = sext i8 %76 to i32
+  switch i32 %77, label %93 [
+    i32 110, label %78
+    i32 108, label %82
+    i32 76, label %86
+    i32 97, label %90
   ]
 
-sw.bb:                                            ; preds = %if.end
-  %29 = load ptr, ptr %L.addr, align 8
-  %30 = load ptr, ptr %f.addr, align 8
-  %call17 = call i32 @read_number(ptr noundef %29, ptr noundef %30)
-  store i32 %call17, ptr %success, align 4
-  br label %sw.epilog
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %5, align 8, !tbaa !4
+  %80 = load ptr, ptr %6, align 8, !tbaa !9
+  %81 = call i32 @read_number(ptr noundef %79, ptr noundef %80)
+  store i32 %81, ptr %10, align 4, !tbaa !18
+  br label %97
 
-sw.bb18:                                          ; preds = %if.end
-  %31 = load ptr, ptr %L.addr, align 8
-  %32 = load ptr, ptr %f.addr, align 8
-  %call19 = call i32 @read_line(ptr noundef %31, ptr noundef %32, i32 noundef 1)
-  store i32 %call19, ptr %success, align 4
-  br label %sw.epilog
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %5, align 8, !tbaa !4
+  %84 = load ptr, ptr %6, align 8, !tbaa !9
+  %85 = call i32 @read_line(ptr noundef %83, ptr noundef %84, i32 noundef 1)
+  store i32 %85, ptr %10, align 4, !tbaa !18
+  br label %97
 
-sw.bb20:                                          ; preds = %if.end
-  %33 = load ptr, ptr %L.addr, align 8
-  %34 = load ptr, ptr %f.addr, align 8
-  %call21 = call i32 @read_line(ptr noundef %33, ptr noundef %34, i32 noundef 0)
-  store i32 %call21, ptr %success, align 4
-  br label %sw.epilog
+86:                                               ; preds = %74
+  %87 = load ptr, ptr %5, align 8, !tbaa !4
+  %88 = load ptr, ptr %6, align 8, !tbaa !9
+  %89 = call i32 @read_line(ptr noundef %87, ptr noundef %88, i32 noundef 0)
+  store i32 %89, ptr %10, align 4, !tbaa !18
+  br label %97
 
-sw.bb22:                                          ; preds = %if.end
-  %35 = load ptr, ptr %L.addr, align 8
-  %36 = load ptr, ptr %f.addr, align 8
-  call void @read_all(ptr noundef %35, ptr noundef %36)
-  store i32 1, ptr %success, align 4
-  br label %sw.epilog
+90:                                               ; preds = %74
+  %91 = load ptr, ptr %5, align 8, !tbaa !4
+  %92 = load ptr, ptr %6, align 8, !tbaa !9
+  call void @read_all(ptr noundef %91, ptr noundef %92)
+  store i32 1, ptr %10, align 4, !tbaa !18
+  br label %97
 
-sw.default:                                       ; preds = %if.end
-  %37 = load ptr, ptr %L.addr, align 8
-  %38 = load i32, ptr %n, align 4
-  %call23 = call i32 @luaL_argerror(ptr noundef %37, i32 noundef %38, ptr noundef @.str.24)
-  store i32 %call23, ptr %retval, align 4
-  br label %return
+93:                                               ; preds = %74
+  %94 = load ptr, ptr %5, align 8, !tbaa !4
+  %95 = load i32, ptr %9, align 4, !tbaa !18
+  %96 = call i32 @luaL_argerror(ptr noundef %94, i32 noundef %95, ptr noundef @.str.24)
+  store i32 %96, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %98
 
-sw.epilog:                                        ; preds = %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb
-  br label %if.end24
+97:                                               ; preds = %90, %86, %82, %78
+  store i32 0, ptr %13, align 4
+  br label %98
 
-if.end24:                                         ; preds = %sw.epilog, %cond.end
-  br label %for.inc
+98:                                               ; preds = %97, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  %99 = load i32, ptr %13, align 4
+  switch i32 %99, label %123 [
+    i32 0, label %100
+  ]
 
-for.inc:                                          ; preds = %if.end24
-  %39 = load i32, ptr %n, align 4
-  %inc = add nsw i32 %39, 1
-  store i32 %inc, ptr %n, align 4
-  br label %for.cond, !llvm.loop !7
+100:                                              ; preds = %98
+  br label %101
 
-for.end:                                          ; preds = %land.end
-  br label %if.end25
+101:                                              ; preds = %100, %61
+  br label %102
 
-if.end25:                                         ; preds = %for.end, %if.then
-  %40 = load ptr, ptr %f.addr, align 8
-  %call26 = call i32 @ferror(ptr noundef %40) #6
-  %tobool27 = icmp ne i32 %call26, 0
-  br i1 %tobool27, label %if.then28, label %if.end30
+102:                                              ; preds = %101
+  %103 = load i32, ptr %9, align 4, !tbaa !18
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %9, align 4, !tbaa !18
+  br label %32
 
-if.then28:                                        ; preds = %if.end25
-  %41 = load ptr, ptr %L.addr, align 8
-  %call29 = call i32 @luaL_fileresult(ptr noundef %41, i32 noundef 0, ptr noundef null)
-  store i32 %call29, ptr %retval, align 4
-  br label %return
+105:                                              ; preds = %39
+  br label %106
 
-if.end30:                                         ; preds = %if.end25
-  %42 = load i32, ptr %success, align 4
-  %tobool31 = icmp ne i32 %42, 0
-  br i1 %tobool31, label %if.end33, label %if.then32
+106:                                              ; preds = %105, %21
+  %107 = load ptr, ptr %6, align 8, !tbaa !9
+  %108 = call i32 @ferror(ptr noundef %107) #8
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %113
 
-if.then32:                                        ; preds = %if.end30
-  %43 = load ptr, ptr %L.addr, align 8
-  call void @lua_settop(ptr noundef %43, i32 noundef -2)
-  %44 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %44)
-  br label %if.end33
+110:                                              ; preds = %106
+  %111 = load ptr, ptr %5, align 8, !tbaa !4
+  %112 = call i32 @luaL_fileresult(ptr noundef %111, i32 noundef 0, ptr noundef null)
+  store i32 %112, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %123
 
-if.end33:                                         ; preds = %if.then32, %if.end30
-  %45 = load i32, ptr %n, align 4
-  %46 = load i32, ptr %first.addr, align 4
-  %sub34 = sub nsw i32 %45, %46
-  store i32 %sub34, ptr %retval, align 4
-  br label %return
+113:                                              ; preds = %106
+  %114 = load i32, ptr %10, align 4, !tbaa !18
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %119, label %116
 
-return:                                           ; preds = %if.end33, %if.then28, %sw.default
-  %47 = load i32, ptr %retval, align 4
-  ret i32 %47
+116:                                              ; preds = %113
+  %117 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lua_settop(ptr noundef %117, i32 noundef -2)
+  %118 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %118)
+  br label %119
+
+119:                                              ; preds = %116, %113
+  %120 = load i32, ptr %9, align 4, !tbaa !18
+  %121 = load i32, ptr %7, align 4, !tbaa !18
+  %122 = sub nsw i32 %120, %121
+  store i32 %122, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %123
+
+123:                                              ; preds = %119, %110, %98
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %124 = load i32, ptr %4, align 4
+  ret i32 %124
 }
 
 declare i32 @lua_toboolean(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind
-declare void @clearerr(ptr noundef) #2
+declare void @clearerr(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_line(ptr noundef %L, ptr noundef %f, i32 noundef %chop) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %chop.addr = alloca i32, align 4
-  %b = alloca %struct.luaL_Buffer, align 8
-  %c = alloca i32, align 4
-  %buff = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i32 %chop, ptr %chop.addr, align 4
-  %0 = load ptr, ptr %L.addr, align 8
-  call void @luaL_buffinit(ptr noundef %0, ptr noundef %b)
-  br label %do.body
+define internal i32 @read_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %struct.luaL_Buffer, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i32 %2, ptr %6, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 1056, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @luaL_buffinit(ptr noundef %11, ptr noundef %7)
+  br label %12
 
-do.body:                                          ; preds = %land.end10, %entry
-  %call = call ptr @luaL_prepbuffsize(ptr noundef %b, i64 noundef 1024)
-  store ptr %call, ptr %buff, align 8
-  store i32 0, ptr %i, align 4
-  br label %while.cond
+12:                                               ; preds = %48, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  %13 = call ptr @luaL_prepbuffsize(ptr noundef %7, i64 noundef 1024)
+  store ptr %13, ptr %9, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  store i32 0, ptr %10, align 4, !tbaa !18
+  %14 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @flockfile(ptr noundef %14) #8
+  br label %15
 
-while.cond:                                       ; preds = %while.body, %do.body
-  %1 = load i32, ptr %i, align 4
-  %cmp = icmp slt i32 %1, 1024
-  br i1 %cmp, label %land.lhs.true, label %land.end
+15:                                               ; preds = %27, %12
+  %16 = load i32, ptr %10, align 4, !tbaa !18
+  %17 = icmp ult i32 %16, 1024
+  br i1 %17, label %18, label %25
 
-land.lhs.true:                                    ; preds = %while.cond
-  %2 = load ptr, ptr %f.addr, align 8
-  %call1 = call i32 @getc(ptr noundef %2)
-  store i32 %call1, ptr %c, align 4
-  %cmp2 = icmp ne i32 %call1, -1
-  br i1 %cmp2, label %land.rhs, label %land.end
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %5, align 8, !tbaa !9
+  %20 = call i32 @getc_unlocked(ptr noundef %19)
+  store i32 %20, ptr %8, align 4, !tbaa !18
+  %21 = icmp ne i32 %20, -1
+  br i1 %21, label %22, label %25
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %3 = load i32, ptr %c, align 4
-  %cmp3 = icmp ne i32 %3, 10
-  br label %land.end
+22:                                               ; preds = %18
+  %23 = load i32, ptr %8, align 4, !tbaa !18
+  %24 = icmp ne i32 %23, 10
+  br label %25
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true, %while.cond
-  %4 = phi i1 [ false, %land.lhs.true ], [ false, %while.cond ], [ %cmp3, %land.rhs ]
-  br i1 %4, label %while.body, label %while.end
+25:                                               ; preds = %22, %18, %15
+  %26 = phi i1 [ false, %18 ], [ false, %15 ], [ %24, %22 ]
+  br i1 %26, label %27, label %35
 
-while.body:                                       ; preds = %land.end
-  %5 = load i32, ptr %c, align 4
-  %conv = trunc i32 %5 to i8
-  %6 = load ptr, ptr %buff, align 8
-  %7 = load i32, ptr %i, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %i, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %6, i64 %idxprom
-  store i8 %conv, ptr %arrayidx, align 1
-  br label %while.cond, !llvm.loop !8
+27:                                               ; preds = %25
+  %28 = load i32, ptr %8, align 4, !tbaa !18
+  %29 = trunc i32 %28 to i8
+  %30 = load ptr, ptr %9, align 8, !tbaa !11
+  %31 = load i32, ptr %10, align 4, !tbaa !18
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %10, align 4, !tbaa !18
+  %33 = zext i32 %31 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
+  store i8 %29, ptr %34, align 1, !tbaa !20
+  br label %15
 
-while.end:                                        ; preds = %land.end
-  %8 = load i32, ptr %i, align 4
-  %conv4 = sext i32 %8 to i64
-  %n = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 2
-  %9 = load i64, ptr %n, align 8
-  %add = add i64 %9, %conv4
-  store i64 %add, ptr %n, align 8
-  br label %do.cond
+35:                                               ; preds = %25
+  %36 = load ptr, ptr %5, align 8, !tbaa !9
+  call void @funlockfile(ptr noundef %36) #8
+  %37 = load i32, ptr %10, align 4, !tbaa !18
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %7, i32 0, i32 2
+  %40 = load i64, ptr %39, align 8, !tbaa !24
+  %41 = add i64 %40, %38
+  store i64 %41, ptr %39, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  br label %42
 
-do.cond:                                          ; preds = %while.end
-  %10 = load i32, ptr %c, align 4
-  %cmp5 = icmp ne i32 %10, -1
-  br i1 %cmp5, label %land.rhs7, label %land.end10
+42:                                               ; preds = %35
+  %43 = load i32, ptr %8, align 4, !tbaa !18
+  %44 = icmp ne i32 %43, -1
+  br i1 %44, label %45, label %48
 
-land.rhs7:                                        ; preds = %do.cond
-  %11 = load i32, ptr %c, align 4
-  %cmp8 = icmp ne i32 %11, 10
-  br label %land.end10
+45:                                               ; preds = %42
+  %46 = load i32, ptr %8, align 4, !tbaa !18
+  %47 = icmp ne i32 %46, 10
+  br label %48
 
-land.end10:                                       ; preds = %land.rhs7, %do.cond
-  %12 = phi i1 [ false, %do.cond ], [ %cmp8, %land.rhs7 ]
-  br i1 %12, label %do.body, label %do.end, !llvm.loop !9
+48:                                               ; preds = %45, %42
+  %49 = phi i1 [ false, %42 ], [ %47, %45 ]
+  br i1 %49, label %12, label %50
 
-do.end:                                           ; preds = %land.end10
-  %13 = load i32, ptr %chop.addr, align 4
-  %tobool = icmp ne i32 %13, 0
-  br i1 %tobool, label %if.end, label %land.lhs.true11
+50:                                               ; preds = %48
+  %51 = load i32, ptr %6, align 4, !tbaa !18
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %71, label %53
 
-land.lhs.true11:                                  ; preds = %do.end
-  %14 = load i32, ptr %c, align 4
-  %cmp12 = icmp eq i32 %14, 10
-  br i1 %cmp12, label %if.then, label %if.end
+53:                                               ; preds = %50
+  %54 = load i32, ptr %8, align 4, !tbaa !18
+  %55 = icmp eq i32 %54, 10
+  br i1 %55, label %56, label %71
 
-if.then:                                          ; preds = %land.lhs.true11
-  %n14 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 2
-  %15 = load i64, ptr %n14, align 8
-  %size = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 1
-  %16 = load i64, ptr %size, align 8
-  %cmp15 = icmp ult i64 %15, %16
-  br i1 %cmp15, label %lor.end, label %lor.rhs
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %7, i32 0, i32 2
+  %58 = load i64, ptr %57, align 8, !tbaa !24
+  %59 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %7, i32 0, i32 1
+  %60 = load i64, ptr %59, align 8, !tbaa !26
+  %61 = icmp ult i64 %58, %60
+  br i1 %61, label %64, label %62
 
-lor.rhs:                                          ; preds = %if.then
-  %call17 = call ptr @luaL_prepbuffsize(ptr noundef %b, i64 noundef 1)
-  br label %lor.end
+62:                                               ; preds = %56
+  %63 = call ptr @luaL_prepbuffsize(ptr noundef %7, i64 noundef 1)
+  br label %64
 
-lor.end:                                          ; preds = %lor.rhs, %if.then
-  %17 = load i32, ptr %c, align 4
-  %conv19 = trunc i32 %17 to i8
-  %b20 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 0
-  %18 = load ptr, ptr %b20, align 8
-  %n21 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 2
-  %19 = load i64, ptr %n21, align 8
-  %inc22 = add i64 %19, 1
-  store i64 %inc22, ptr %n21, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %18, i64 %19
-  store i8 %conv19, ptr %arrayidx23, align 1
-  br label %if.end
+64:                                               ; preds = %62, %56
+  %65 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %7, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  %67 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %7, i32 0, i32 2
+  %68 = load i64, ptr %67, align 8, !tbaa !24
+  %69 = add i64 %68, 1
+  store i64 %69, ptr %67, align 8, !tbaa !24
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  store i8 10, ptr %70, align 1, !tbaa !20
+  br label %71
 
-if.end:                                           ; preds = %lor.end, %land.lhs.true11, %do.end
-  call void @luaL_pushresult(ptr noundef %b)
-  %20 = load i32, ptr %c, align 4
-  %cmp24 = icmp eq i32 %20, 10
-  br i1 %cmp24, label %lor.end30, label %lor.rhs26
+71:                                               ; preds = %64, %53, %50
+  call void @luaL_pushresult(ptr noundef %7)
+  %72 = load i32, ptr %8, align 4, !tbaa !18
+  %73 = icmp eq i32 %72, 10
+  br i1 %73, label %78, label %74
 
-lor.rhs26:                                        ; preds = %if.end
-  %21 = load ptr, ptr %L.addr, align 8
-  %call27 = call i64 @lua_rawlen(ptr noundef %21, i32 noundef -1)
-  %cmp28 = icmp ugt i64 %call27, 0
-  br label %lor.end30
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %4, align 8, !tbaa !4
+  %76 = call i64 @lua_rawlen(ptr noundef %75, i32 noundef -1)
+  %77 = icmp ugt i64 %76, 0
+  br label %78
 
-lor.end30:                                        ; preds = %lor.rhs26, %if.end
-  %22 = phi i1 [ true, %if.end ], [ %cmp28, %lor.rhs26 ]
-  %lor.ext31 = zext i1 %22 to i32
-  ret i32 %lor.ext31
+78:                                               ; preds = %74, %71
+  %79 = phi i1 [ true, %71 ], [ %77, %74 ]
+  %80 = zext i1 %79 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 1056, ptr %7) #8
+  ret i32 %80
 }
 
 declare i64 @luaL_checkinteger(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_eof(ptr noundef %L, ptr noundef %f) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %c = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  %0 = load ptr, ptr %f.addr, align 8
-  %call = call i32 @getc(ptr noundef %0)
-  store i32 %call, ptr %c, align 4
-  %1 = load i32, ptr %c, align 4
-  %2 = load ptr, ptr %f.addr, align 8
-  %call1 = call i32 @ungetc(i32 noundef %1, ptr noundef %2)
-  %3 = load ptr, ptr %L.addr, align 8
-  %call2 = call ptr @lua_pushstring(ptr noundef %3, ptr noundef @.str.25)
-  %4 = load i32, ptr %c, align 4
-  %cmp = icmp ne i32 %4, -1
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define internal i32 @test_eof(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %6 = load ptr, ptr %4, align 8, !tbaa !9
+  %7 = call i32 @getc(ptr noundef %6)
+  store i32 %7, ptr %5, align 4, !tbaa !18
+  %8 = load i32, ptr %5, align 4, !tbaa !18
+  %9 = load ptr, ptr %4, align 8, !tbaa !9
+  %10 = call i32 @ungetc(i32 noundef %8, ptr noundef %9)
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = call ptr @lua_pushstring(ptr noundef %11, ptr noundef @.str.25)
+  %13 = load i32, ptr %5, align 4, !tbaa !18
+  %14 = icmp ne i32 %13, -1
+  %15 = zext i1 %14 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_chars(ptr noundef %L, ptr noundef %f, i64 noundef %n) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %n.addr = alloca i64, align 8
-  %nr = alloca i64, align 8
-  %p = alloca ptr, align 8
-  %b = alloca %struct.luaL_Buffer, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i64 %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  call void @luaL_buffinit(ptr noundef %0, ptr noundef %b)
-  %1 = load i64, ptr %n.addr, align 8
-  %call = call ptr @luaL_prepbuffsize(ptr noundef %b, i64 noundef %1)
-  store ptr %call, ptr %p, align 8
-  %2 = load ptr, ptr %p, align 8
-  %3 = load i64, ptr %n.addr, align 8
-  %4 = load ptr, ptr %f.addr, align 8
-  %call1 = call i64 @fread(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %4)
-  store i64 %call1, ptr %nr, align 8
-  %5 = load i64, ptr %nr, align 8
-  %n2 = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 2
-  %6 = load i64, ptr %n2, align 8
-  %add = add i64 %6, %5
-  store i64 %add, ptr %n2, align 8
-  call void @luaL_pushresult(ptr noundef %b)
-  %7 = load i64, ptr %nr, align 8
-  %cmp = icmp ugt i64 %7, 0
-  %conv = zext i1 %cmp to i32
-  ret i32 %conv
+define internal i32 @read_chars(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %struct.luaL_Buffer, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  store i64 %2, ptr %6, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 1056, ptr %9) #8
+  %10 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @luaL_buffinit(ptr noundef %10, ptr noundef %9)
+  %11 = load i64, ptr %6, align 8, !tbaa !22
+  %12 = call ptr @luaL_prepbuffsize(ptr noundef %9, i64 noundef %11)
+  store ptr %12, ptr %8, align 8, !tbaa !11
+  %13 = load ptr, ptr %8, align 8, !tbaa !11
+  %14 = load i64, ptr %6, align 8, !tbaa !22
+  %15 = load ptr, ptr %5, align 8, !tbaa !9
+  %16 = call i64 @fread(ptr noundef %13, i64 noundef 1, i64 noundef %14, ptr noundef %15)
+  store i64 %16, ptr %7, align 8, !tbaa !22
+  %17 = load i64, ptr %7, align 8, !tbaa !22
+  %18 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %9, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8, !tbaa !24
+  %20 = add i64 %19, %17
+  store i64 %20, ptr %18, align 8, !tbaa !24
+  call void @luaL_pushresult(ptr noundef %9)
+  %21 = load i64, ptr %7, align 8, !tbaa !22
+  %22 = icmp ugt i64 %21, 0
+  %23 = zext i1 %22 to i32
+  call void @llvm.lifetime.end.p0(i64 1056, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_number(ptr noundef %L, ptr noundef %f) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %rn = alloca %struct.RN, align 8
-  %count = alloca i32, align 4
-  %hex = alloca i32, align 4
-  %decp = alloca [2 x i8], align 1
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i32 0, ptr %count, align 4
-  store i32 0, ptr %hex, align 4
-  %0 = load ptr, ptr %f.addr, align 8
-  %f1 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 0
-  store ptr %0, ptr %f1, align 8
-  %n = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 2
-  store i32 0, ptr %n, align 4
-  %call = call ptr @localeconv() #6
-  %decimal_point = getelementptr inbounds %struct.lconv, ptr %call, i32 0, i32 0
-  %1 = load ptr, ptr %decimal_point, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 0
-  %2 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr inbounds [2 x i8], ptr %decp, i64 0, i64 0
-  store i8 %2, ptr %arrayidx2, align 1
-  %arrayidx3 = getelementptr inbounds [2 x i8], ptr %decp, i64 0, i64 1
-  store i8 46, ptr %arrayidx3, align 1
-  br label %do.body
+define internal i32 @read_number(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %struct.RN, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca [2 x i8], align 1
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !4
+  store ptr %1, ptr %5, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 224, ptr %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  store i32 0, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  store i32 0, ptr %8, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #8
+  %11 = load ptr, ptr %5, align 8, !tbaa !9
+  %12 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 0
+  store ptr %11, ptr %12, align 8, !tbaa !28
+  %13 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 2
+  store i32 0, ptr %13, align 4, !tbaa !30
+  %14 = call ptr @localeconv() #8
+  %15 = getelementptr inbounds nuw %struct.lconv, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !20
+  %19 = getelementptr inbounds [2 x i8], ptr %9, i64 0, i64 0
+  store i8 %18, ptr %19, align 1, !tbaa !20
+  %20 = getelementptr inbounds [2 x i8], ptr %9, i64 0, i64 1
+  store i8 46, ptr %20, align 1, !tbaa !20
+  %21 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  call void @flockfile(ptr noundef %22) #8
+  br label %23
 
-do.body:                                          ; preds = %do.cond, %entry
-  %f4 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 0
-  %3 = load ptr, ptr %f4, align 8
-  %call5 = call i32 @getc(ptr noundef %3)
-  %c = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 1
-  store i32 %call5, ptr %c, align 8
-  br label %do.cond
+23:                                               ; preds = %28, %2
+  %24 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %26 = call i32 @getc_unlocked(ptr noundef %25)
+  %27 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 1
+  store i32 %26, ptr %27, align 8, !tbaa !33
+  br label %28
 
-do.cond:                                          ; preds = %do.body
-  %call6 = call ptr @__ctype_b_loc() #5
-  %4 = load ptr, ptr %call6, align 8
-  %c7 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 1
-  %5 = load i32, ptr %c7, align 8
-  %idxprom = sext i32 %5 to i64
-  %arrayidx8 = getelementptr inbounds i16, ptr %4, i64 %idxprom
-  %6 = load i16, ptr %arrayidx8, align 2
-  %conv = zext i16 %6 to i32
-  %and = and i32 %conv, 8192
-  %tobool = icmp ne i32 %and, 0
-  br i1 %tobool, label %do.body, label %do.end, !llvm.loop !10
+28:                                               ; preds = %23
+  %29 = call ptr @__ctype_b_loc() #9
+  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %31 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 1
+  %32 = load i32, ptr %31, align 8, !tbaa !33
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i16, ptr %30, i64 %33
+  %35 = load i16, ptr %34, align 2, !tbaa !36
+  %36 = zext i16 %35 to i32
+  %37 = and i32 %36, 8192
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %23, label %39
 
-do.end:                                           ; preds = %do.cond
-  %call9 = call i32 @test2(ptr noundef %rn, ptr noundef @.str.26)
-  %call10 = call i32 @test2(ptr noundef %rn, ptr noundef @.str.27)
-  %tobool11 = icmp ne i32 %call10, 0
-  br i1 %tobool11, label %if.then, label %if.end15
+39:                                               ; preds = %28
+  %40 = call i32 @test2(ptr noundef %6, ptr noundef @.str.26)
+  %41 = call i32 @test2(ptr noundef %6, ptr noundef @.str.27)
+  %42 = icmp ne i32 %41, 0
+  br i1 %42, label %43, label %49
 
-if.then:                                          ; preds = %do.end
-  %call12 = call i32 @test2(ptr noundef %rn, ptr noundef @.str.28)
-  %tobool13 = icmp ne i32 %call12, 0
-  br i1 %tobool13, label %if.then14, label %if.else
+43:                                               ; preds = %39
+  %44 = call i32 @test2(ptr noundef %6, ptr noundef @.str.28)
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %47
 
-if.then14:                                        ; preds = %if.then
-  store i32 1, ptr %hex, align 4
-  br label %if.end
+46:                                               ; preds = %43
+  store i32 1, ptr %8, align 4, !tbaa !18
+  br label %48
 
-if.else:                                          ; preds = %if.then
-  store i32 1, ptr %count, align 4
-  br label %if.end
+47:                                               ; preds = %43
+  store i32 1, ptr %7, align 4, !tbaa !18
+  br label %48
 
-if.end:                                           ; preds = %if.else, %if.then14
-  br label %if.end15
+48:                                               ; preds = %47, %46
+  br label %49
 
-if.end15:                                         ; preds = %if.end, %do.end
-  %7 = load i32, ptr %hex, align 4
-  %call16 = call i32 @readdigits(ptr noundef %rn, i32 noundef %7)
-  %8 = load i32, ptr %count, align 4
-  %add = add nsw i32 %8, %call16
-  store i32 %add, ptr %count, align 4
-  %arraydecay = getelementptr inbounds [2 x i8], ptr %decp, i64 0, i64 0
-  %call17 = call i32 @test2(ptr noundef %rn, ptr noundef %arraydecay)
-  %tobool18 = icmp ne i32 %call17, 0
-  br i1 %tobool18, label %if.then19, label %if.end22
+49:                                               ; preds = %48, %39
+  %50 = load i32, ptr %8, align 4, !tbaa !18
+  %51 = call i32 @readdigits(ptr noundef %6, i32 noundef %50)
+  %52 = load i32, ptr %7, align 4, !tbaa !18
+  %53 = add nsw i32 %52, %51
+  store i32 %53, ptr %7, align 4, !tbaa !18
+  %54 = getelementptr inbounds [2 x i8], ptr %9, i64 0, i64 0
+  %55 = call i32 @test2(ptr noundef %6, ptr noundef %54)
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %62
 
-if.then19:                                        ; preds = %if.end15
-  %9 = load i32, ptr %hex, align 4
-  %call20 = call i32 @readdigits(ptr noundef %rn, i32 noundef %9)
-  %10 = load i32, ptr %count, align 4
-  %add21 = add nsw i32 %10, %call20
-  store i32 %add21, ptr %count, align 4
-  br label %if.end22
+57:                                               ; preds = %49
+  %58 = load i32, ptr %8, align 4, !tbaa !18
+  %59 = call i32 @readdigits(ptr noundef %6, i32 noundef %58)
+  %60 = load i32, ptr %7, align 4, !tbaa !18
+  %61 = add nsw i32 %60, %59
+  store i32 %61, ptr %7, align 4, !tbaa !18
+  br label %62
 
-if.end22:                                         ; preds = %if.then19, %if.end15
-  %11 = load i32, ptr %count, align 4
-  %cmp = icmp sgt i32 %11, 0
-  br i1 %cmp, label %land.lhs.true, label %if.end30
+62:                                               ; preds = %57, %49
+  %63 = load i32, ptr %7, align 4, !tbaa !18
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %65, label %74
 
-land.lhs.true:                                    ; preds = %if.end22
-  %12 = load i32, ptr %hex, align 4
-  %tobool24 = icmp ne i32 %12, 0
-  %cond = select i1 %tobool24, ptr @.str.29, ptr @.str.30
-  %call25 = call i32 @test2(ptr noundef %rn, ptr noundef %cond)
-  %tobool26 = icmp ne i32 %call25, 0
-  br i1 %tobool26, label %if.then27, label %if.end30
+65:                                               ; preds = %62
+  %66 = load i32, ptr %8, align 4, !tbaa !18
+  %67 = icmp ne i32 %66, 0
+  %68 = select i1 %67, ptr @.str.29, ptr @.str.30
+  %69 = call i32 @test2(ptr noundef %6, ptr noundef %68)
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %74
 
-if.then27:                                        ; preds = %land.lhs.true
-  %call28 = call i32 @test2(ptr noundef %rn, ptr noundef @.str.26)
-  %call29 = call i32 @readdigits(ptr noundef %rn, i32 noundef 0)
-  br label %if.end30
+71:                                               ; preds = %65
+  %72 = call i32 @test2(ptr noundef %6, ptr noundef @.str.26)
+  %73 = call i32 @readdigits(ptr noundef %6, i32 noundef 0)
+  br label %74
 
-if.end30:                                         ; preds = %if.then27, %land.lhs.true, %if.end22
-  %c31 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 1
-  %13 = load i32, ptr %c31, align 8
-  %f32 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 0
-  %14 = load ptr, ptr %f32, align 8
-  %call33 = call i32 @ungetc(i32 noundef %13, ptr noundef %14)
-  %buff = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 3
-  %n34 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 2
-  %15 = load i32, ptr %n34, align 4
-  %idxprom35 = sext i32 %15 to i64
-  %arrayidx36 = getelementptr inbounds [201 x i8], ptr %buff, i64 0, i64 %idxprom35
-  store i8 0, ptr %arrayidx36, align 1
-  %16 = load ptr, ptr %L.addr, align 8
-  %buff37 = getelementptr inbounds %struct.RN, ptr %rn, i32 0, i32 3
-  %arraydecay38 = getelementptr inbounds [201 x i8], ptr %buff37, i64 0, i64 0
-  %call39 = call i64 @lua_stringtonumber(ptr noundef %16, ptr noundef %arraydecay38)
-  %cmp40 = icmp ne i64 %call39, 0
-  %conv41 = zext i1 %cmp40 to i32
-  %conv42 = sext i32 %conv41 to i64
-  %tobool43 = icmp ne i64 %conv42, 0
-  br i1 %tobool43, label %if.then44, label %if.else45
+74:                                               ; preds = %71, %65, %62
+  %75 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 1
+  %76 = load i32, ptr %75, align 8, !tbaa !33
+  %77 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8, !tbaa !28
+  %79 = call i32 @ungetc(i32 noundef %76, ptr noundef %78)
+  %80 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  call void @funlockfile(ptr noundef %81) #8
+  %82 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 2
+  %84 = load i32, ptr %83, align 4, !tbaa !30
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds [201 x i8], ptr %82, i64 0, i64 %85
+  store i8 0, ptr %86, align 1, !tbaa !20
+  %87 = load ptr, ptr %4, align 8, !tbaa !4
+  %88 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 3
+  %89 = getelementptr inbounds [201 x i8], ptr %88, i64 0, i64 0
+  %90 = call i64 @lua_stringtonumber(ptr noundef %87, ptr noundef %89)
+  %91 = icmp ne i64 %90, 0
+  %92 = zext i1 %91 to i32
+  %93 = sext i32 %92 to i64
+  %94 = call i64 @llvm.expect.i64(i64 %93, i64 1)
+  %95 = icmp ne i64 %94, 0
+  br i1 %95, label %96, label %97
 
-if.then44:                                        ; preds = %if.end30
-  store i32 1, ptr %retval, align 4
-  br label %return
+96:                                               ; preds = %74
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %99
 
-if.else45:                                        ; preds = %if.end30
-  %17 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %17)
-  store i32 0, ptr %retval, align 4
-  br label %return
+97:                                               ; preds = %74
+  %98 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %98)
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %99
 
-return:                                           ; preds = %if.else45, %if.then44
-  %18 = load i32, ptr %retval, align 4
-  ret i32 %18
+99:                                               ; preds = %97, %96
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 224, ptr %6) #8
+  %100 = load i32, ptr %3, align 4
+  ret i32 %100
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @read_all(ptr noundef %L, ptr noundef %f) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %nr = alloca i64, align 8
-  %b = alloca %struct.luaL_Buffer, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  call void @luaL_buffinit(ptr noundef %0, ptr noundef %b)
-  br label %do.body
+define internal void @read_all(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca %struct.luaL_Buffer, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.start.p0(i64 1056, ptr %6) #8
+  %8 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @luaL_buffinit(ptr noundef %8, ptr noundef %6)
+  br label %9
 
-do.body:                                          ; preds = %do.cond, %entry
-  %call = call ptr @luaL_prepbuffsize(ptr noundef %b, i64 noundef 1024)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %2 = load ptr, ptr %f.addr, align 8
-  %call1 = call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef 1024, ptr noundef %2)
-  store i64 %call1, ptr %nr, align 8
-  %3 = load i64, ptr %nr, align 8
-  %n = getelementptr inbounds %struct.luaL_Buffer, ptr %b, i32 0, i32 2
-  %4 = load i64, ptr %n, align 8
-  %add = add i64 %4, %3
-  store i64 %add, ptr %n, align 8
-  br label %do.cond
+9:                                                ; preds = %18, %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %10 = call ptr @luaL_prepbuffsize(ptr noundef %6, i64 noundef 1024)
+  store ptr %10, ptr %7, align 8, !tbaa !11
+  %11 = load ptr, ptr %7, align 8, !tbaa !11
+  %12 = load ptr, ptr %4, align 8, !tbaa !9
+  %13 = call i64 @fread(ptr noundef %11, i64 noundef 1, i64 noundef 1024, ptr noundef %12)
+  store i64 %13, ptr %5, align 8, !tbaa !22
+  %14 = load i64, ptr %5, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw %struct.luaL_Buffer, ptr %6, i32 0, i32 2
+  %16 = load i64, ptr %15, align 8, !tbaa !24
+  %17 = add i64 %16, %14
+  store i64 %17, ptr %15, align 8, !tbaa !24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  br label %18
 
-do.cond:                                          ; preds = %do.body
-  %5 = load i64, ptr %nr, align 8
-  %cmp = icmp eq i64 %5, 1024
-  br i1 %cmp, label %do.body, label %do.end, !llvm.loop !11
+18:                                               ; preds = %9
+  %19 = load i64, ptr %5, align 8, !tbaa !22
+  %20 = icmp eq i64 %19, 1024
+  br i1 %20, label %9, label %21
 
-do.end:                                           ; preds = %do.cond
-  call void @luaL_pushresult(ptr noundef %b)
+21:                                               ; preds = %18
+  call void @luaL_pushresult(ptr noundef %6)
+  call void @llvm.lifetime.end.p0(i64 1056, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @ferror(ptr noundef) #2
+declare i32 @ferror(ptr noundef) #5
 
 declare void @luaL_buffinit(ptr noundef, ptr noundef) #1
 
 declare ptr @luaL_prepbuffsize(ptr noundef, i64 noundef) #1
 
-declare i32 @getc(ptr noundef) #1
+; Function Attrs: nounwind
+declare void @flockfile(ptr noundef) #5
+
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @getc_unlocked(ptr noundef %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw %struct._IO_FILE, ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %6 = load ptr, ptr %2, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw %struct._IO_FILE, ptr %6, i32 0, i32 2
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
+  %9 = icmp uge ptr %5, %8
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %17
+
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8, !tbaa !9
+  %16 = call i32 @__uflow(ptr noundef %15)
+  br label %24
+
+17:                                               ; preds = %1
+  %18 = load ptr, ptr %2, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw %struct._IO_FILE, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %19, align 8, !tbaa !38
+  %22 = load i8, ptr %20, align 1, !tbaa !20
+  %23 = zext i8 %22 to i32
+  br label %24
+
+24:                                               ; preds = %17, %14
+  %25 = phi i32 [ %16, %14 ], [ %23, %17 ]
+  ret i32 %25
+}
+
+; Function Attrs: nounwind
+declare void @funlockfile(ptr noundef) #5
 
 declare void @luaL_pushresult(ptr noundef) #1
 
 declare i64 @lua_rawlen(ptr noundef, i32 noundef) #1
+
+declare i32 @__uflow(ptr noundef) #1
+
+declare i32 @getc(ptr noundef) #1
 
 declare i32 @ungetc(i32 noundef, ptr noundef) #1
 
@@ -1630,253 +1797,261 @@ declare ptr @lua_pushstring(ptr noundef, ptr noundef) #1
 declare i64 @fread(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare ptr @localeconv() #2
+declare ptr @localeconv() #5
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() #3
+declare ptr @__ctype_b_loc() #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test2(ptr noundef %rn, ptr noundef %set) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %rn.addr = alloca ptr, align 8
-  %set.addr = alloca ptr, align 8
-  store ptr %rn, ptr %rn.addr, align 8
-  store ptr %set, ptr %set.addr, align 8
-  %0 = load ptr, ptr %rn.addr, align 8
-  %c = getelementptr inbounds %struct.RN, ptr %0, i32 0, i32 1
-  %1 = load i32, ptr %c, align 8
-  %2 = load ptr, ptr %set.addr, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 0
-  %3 = load i8, ptr %arrayidx, align 1
-  %conv = sext i8 %3 to i32
-  %cmp = icmp eq i32 %1, %conv
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+define internal i32 @test2(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !11
+  %6 = load ptr, ptr %4, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %struct.RN, ptr %6, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %5, align 8, !tbaa !11
+  %10 = getelementptr inbounds i8, ptr %9, i64 0
+  %11 = load i8, ptr %10, align 1, !tbaa !20
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %8, %12
+  br i1 %13, label %23, label %14
 
-lor.lhs.false:                                    ; preds = %entry
-  %4 = load ptr, ptr %rn.addr, align 8
-  %c2 = getelementptr inbounds %struct.RN, ptr %4, i32 0, i32 1
-  %5 = load i32, ptr %c2, align 8
-  %6 = load ptr, ptr %set.addr, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %6, i64 1
-  %7 = load i8, ptr %arrayidx3, align 1
-  %conv4 = sext i8 %7 to i32
-  %cmp5 = icmp eq i32 %5, %conv4
-  br i1 %cmp5, label %if.then, label %if.else
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %struct.RN, ptr %15, i32 0, i32 1
+  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %5, align 8, !tbaa !11
+  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !20
+  %21 = sext i8 %20 to i32
+  %22 = icmp eq i32 %17, %21
+  br i1 %22, label %23, label %26
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
-  %8 = load ptr, ptr %rn.addr, align 8
-  %call = call i32 @nextc(ptr noundef %8)
-  store i32 %call, ptr %retval, align 4
-  br label %return
+23:                                               ; preds = %14, %2
+  %24 = load ptr, ptr %4, align 8, !tbaa !21
+  %25 = call i32 @nextc(ptr noundef %24)
+  store i32 %25, ptr %3, align 4
+  br label %27
 
-if.else:                                          ; preds = %lor.lhs.false
-  store i32 0, ptr %retval, align 4
-  br label %return
+26:                                               ; preds = %14
+  store i32 0, ptr %3, align 4
+  br label %27
 
-return:                                           ; preds = %if.else, %if.then
-  %9 = load i32, ptr %retval, align 4
-  ret i32 %9
+27:                                               ; preds = %26, %23
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @readdigits(ptr noundef %rn, i32 noundef %hex) #0 {
-entry:
-  %rn.addr = alloca ptr, align 8
-  %hex.addr = alloca i32, align 4
-  %count = alloca i32, align 4
-  store ptr %rn, ptr %rn.addr, align 8
-  store i32 %hex, ptr %hex.addr, align 4
-  store i32 0, ptr %count, align 4
-  br label %while.cond
+define internal i32 @readdigits(ptr noundef %0, i32 noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store i32 %1, ptr %4, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  store i32 0, ptr %5, align 4, !tbaa !18
+  br label %6
 
-while.cond:                                       ; preds = %while.body, %entry
-  %0 = load i32, ptr %hex.addr, align 4
-  %tobool = icmp ne i32 %0, 0
-  br i1 %tobool, label %cond.true, label %cond.false
+6:                                                ; preds = %39, %2
+  %7 = load i32, ptr %4, align 4, !tbaa !18
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %21
 
-cond.true:                                        ; preds = %while.cond
-  %call = call ptr @__ctype_b_loc() #5
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %rn.addr, align 8
-  %c = getelementptr inbounds %struct.RN, ptr %2, i32 0, i32 1
-  %3 = load i32, ptr %c, align 8
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
-  %4 = load i16, ptr %arrayidx, align 2
-  %conv = zext i16 %4 to i32
-  %and = and i32 %conv, 4096
-  %tobool1 = icmp ne i32 %and, 0
-  br i1 %tobool1, label %land.rhs, label %land.end
+9:                                                ; preds = %6
+  %10 = call ptr @__ctype_b_loc() #9
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %12 = load ptr, ptr %3, align 8, !tbaa !21
+  %13 = getelementptr inbounds nuw %struct.RN, ptr %12, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !33
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i16, ptr %11, i64 %15
+  %17 = load i16, ptr %16, align 2, !tbaa !36
+  %18 = zext i16 %17 to i32
+  %19 = and i32 %18, 4096
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %33, label %37
 
-cond.false:                                       ; preds = %while.cond
-  %call2 = call ptr @__ctype_b_loc() #5
-  %5 = load ptr, ptr %call2, align 8
-  %6 = load ptr, ptr %rn.addr, align 8
-  %c3 = getelementptr inbounds %struct.RN, ptr %6, i32 0, i32 1
-  %7 = load i32, ptr %c3, align 8
-  %idxprom4 = sext i32 %7 to i64
-  %arrayidx5 = getelementptr inbounds i16, ptr %5, i64 %idxprom4
-  %8 = load i16, ptr %arrayidx5, align 2
-  %conv6 = zext i16 %8 to i32
-  %and7 = and i32 %conv6, 2048
-  %tobool8 = icmp ne i32 %and7, 0
-  br i1 %tobool8, label %land.rhs, label %land.end
+21:                                               ; preds = %6
+  %22 = call ptr @__ctype_b_loc() #9
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %24 = load ptr, ptr %3, align 8, !tbaa !21
+  %25 = getelementptr inbounds nuw %struct.RN, ptr %24, i32 0, i32 1
+  %26 = load i32, ptr %25, align 8, !tbaa !33
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i16, ptr %23, i64 %27
+  %29 = load i16, ptr %28, align 2, !tbaa !36
+  %30 = zext i16 %29 to i32
+  %31 = and i32 %30, 2048
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %37
 
-land.rhs:                                         ; preds = %cond.false, %cond.true
-  %9 = load ptr, ptr %rn.addr, align 8
-  %call9 = call i32 @nextc(ptr noundef %9)
-  %tobool10 = icmp ne i32 %call9, 0
-  br label %land.end
+33:                                               ; preds = %21, %9
+  %34 = load ptr, ptr %3, align 8, !tbaa !21
+  %35 = call i32 @nextc(ptr noundef %34)
+  %36 = icmp ne i32 %35, 0
+  br label %37
 
-land.end:                                         ; preds = %land.rhs, %cond.false, %cond.true
-  %10 = phi i1 [ false, %cond.false ], [ false, %cond.true ], [ %tobool10, %land.rhs ]
-  br i1 %10, label %while.body, label %while.end
+37:                                               ; preds = %33, %21, %9
+  %38 = phi i1 [ false, %21 ], [ false, %9 ], [ %36, %33 ]
+  br i1 %38, label %39, label %42
 
-while.body:                                       ; preds = %land.end
-  %11 = load i32, ptr %count, align 4
-  %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %count, align 4
-  br label %while.cond, !llvm.loop !12
+39:                                               ; preds = %37
+  %40 = load i32, ptr %5, align 4, !tbaa !18
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %5, align 4, !tbaa !18
+  br label %6
 
-while.end:                                        ; preds = %land.end
-  %12 = load i32, ptr %count, align 4
-  ret i32 %12
+42:                                               ; preds = %37
+  %43 = load i32, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  ret i32 %43
 }
 
 declare i64 @lua_stringtonumber(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @nextc(ptr noundef %rn) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %rn.addr = alloca ptr, align 8
-  store ptr %rn, ptr %rn.addr, align 8
-  %0 = load ptr, ptr %rn.addr, align 8
-  %n = getelementptr inbounds %struct.RN, ptr %0, i32 0, i32 2
-  %1 = load i32, ptr %n, align 4
-  %cmp = icmp sge i32 %1, 200
-  %conv = zext i1 %cmp to i32
-  %cmp1 = icmp ne i32 %conv, 0
-  %conv2 = zext i1 %cmp1 to i32
-  %conv3 = sext i32 %conv2 to i64
-  %tobool = icmp ne i64 %conv3, 0
-  br i1 %tobool, label %if.then, label %if.else
+define internal i32 @nextc(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %5 = getelementptr inbounds nuw %struct.RN, ptr %4, i32 0, i32 2
+  %6 = load i32, ptr %5, align 4, !tbaa !30
+  %7 = icmp sge i32 %6, 200
+  %8 = zext i1 %7 to i32
+  %9 = icmp ne i32 %8, 0
+  %10 = zext i1 %9 to i32
+  %11 = sext i32 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %2 = load ptr, ptr %rn.addr, align 8
-  %buff = getelementptr inbounds %struct.RN, ptr %2, i32 0, i32 3
-  %arrayidx = getelementptr inbounds [201 x i8], ptr %buff, i64 0, i64 0
-  store i8 0, ptr %arrayidx, align 8
-  store i32 0, ptr %retval, align 4
-  br label %return
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %3, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %struct.RN, ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds [201 x i8], ptr %16, i64 0, i64 0
+  store i8 0, ptr %17, align 8, !tbaa !20
+  store i32 0, ptr %2, align 4
+  br label %37
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %rn.addr, align 8
-  %c = getelementptr inbounds %struct.RN, ptr %3, i32 0, i32 1
-  %4 = load i32, ptr %c, align 8
-  %conv4 = trunc i32 %4 to i8
-  %5 = load ptr, ptr %rn.addr, align 8
-  %buff5 = getelementptr inbounds %struct.RN, ptr %5, i32 0, i32 3
-  %6 = load ptr, ptr %rn.addr, align 8
-  %n6 = getelementptr inbounds %struct.RN, ptr %6, i32 0, i32 2
-  %7 = load i32, ptr %n6, align 4
-  %inc = add nsw i32 %7, 1
-  store i32 %inc, ptr %n6, align 4
-  %idxprom = sext i32 %7 to i64
-  %arrayidx7 = getelementptr inbounds [201 x i8], ptr %buff5, i64 0, i64 %idxprom
-  store i8 %conv4, ptr %arrayidx7, align 1
-  %8 = load ptr, ptr %rn.addr, align 8
-  %f = getelementptr inbounds %struct.RN, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %f, align 8
-  %call = call i32 @getc(ptr noundef %9)
-  %10 = load ptr, ptr %rn.addr, align 8
-  %c8 = getelementptr inbounds %struct.RN, ptr %10, i32 0, i32 1
-  store i32 %call, ptr %c8, align 8
-  store i32 1, ptr %retval, align 4
-  br label %return
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw %struct.RN, ptr %19, i32 0, i32 1
+  %21 = load i32, ptr %20, align 8, !tbaa !33
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %3, align 8, !tbaa !21
+  %24 = getelementptr inbounds nuw %struct.RN, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %3, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw %struct.RN, ptr %25, i32 0, i32 2
+  %27 = load i32, ptr %26, align 4, !tbaa !30
+  %28 = add nsw i32 %27, 1
+  store i32 %28, ptr %26, align 4, !tbaa !30
+  %29 = sext i32 %27 to i64
+  %30 = getelementptr inbounds [201 x i8], ptr %24, i64 0, i64 %29
+  store i8 %22, ptr %30, align 1, !tbaa !20
+  %31 = load ptr, ptr %3, align 8, !tbaa !21
+  %32 = getelementptr inbounds nuw %struct.RN, ptr %31, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %34 = call i32 @getc_unlocked(ptr noundef %33)
+  %35 = load ptr, ptr %3, align 8, !tbaa !21
+  %36 = getelementptr inbounds nuw %struct.RN, ptr %35, i32 0, i32 1
+  store i32 %34, ptr %36, align 8, !tbaa !33
+  store i32 1, ptr %2, align 4
+  br label %37
 
-return:                                           ; preds = %if.else, %if.then
-  %11 = load i32, ptr %retval, align 4
-  ret i32 %11
+37:                                               ; preds = %18, %14
+  %38 = load i32, ptr %2, align 4
+  ret i32 %38
 }
 
 declare ptr @luaL_optlstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @l_checkmode(ptr noundef %mode) #0 {
-entry:
-  %mode.addr = alloca ptr, align 8
-  store ptr %mode, ptr %mode.addr, align 8
-  %0 = load ptr, ptr %mode.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %conv = sext i8 %1 to i32
-  %cmp = icmp ne i32 %conv, 0
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define internal i32 @l_checkmode(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8, !tbaa !11
+  %4 = load i8, ptr %3, align 1, !tbaa !20
+  %5 = sext i8 %4 to i32
+  %6 = icmp ne i32 %5, 0
+  br i1 %6, label %7, label %28
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load ptr, ptr %mode.addr, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %2, i32 1
-  store ptr %incdec.ptr, ptr %mode.addr, align 8
-  %3 = load i8, ptr %2, align 1
-  %conv2 = sext i8 %3 to i32
-  %call = call ptr @strchr(ptr noundef @.str.32, i32 noundef %conv2) #7
-  %cmp3 = icmp ne ptr %call, null
-  br i1 %cmp3, label %land.lhs.true5, label %land.end
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %2, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %8, i32 1
+  store ptr %9, ptr %2, align 8, !tbaa !11
+  %10 = load i8, ptr %8, align 1, !tbaa !20
+  %11 = sext i8 %10 to i32
+  %12 = call ptr @strchr(ptr noundef @.str.32, i32 noundef %11) #10
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %28
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %4 = load ptr, ptr %mode.addr, align 8
-  %5 = load i8, ptr %4, align 1
-  %conv6 = sext i8 %5 to i32
-  %cmp7 = icmp ne i32 %conv6, 43
-  br i1 %cmp7, label %land.rhs, label %lor.lhs.false
+14:                                               ; preds = %7
+  %15 = load ptr, ptr %2, align 8, !tbaa !11
+  %16 = load i8, ptr %15, align 1, !tbaa !20
+  %17 = sext i8 %16 to i32
+  %18 = icmp ne i32 %17, 43
+  br i1 %18, label %22, label %19
 
-lor.lhs.false:                                    ; preds = %land.lhs.true5
-  %6 = load ptr, ptr %mode.addr, align 8
-  %incdec.ptr9 = getelementptr inbounds i8, ptr %6, i32 1
-  store ptr %incdec.ptr9, ptr %mode.addr, align 8
-  br i1 true, label %land.rhs, label %land.end
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %2, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %2, align 8, !tbaa !11
+  br i1 true, label %22, label %28
 
-land.rhs:                                         ; preds = %lor.lhs.false, %land.lhs.true5
-  %7 = load ptr, ptr %mode.addr, align 8
-  %call10 = call i64 @strspn(ptr noundef %7, ptr noundef @.str.33) #7
-  %8 = load ptr, ptr %mode.addr, align 8
-  %call11 = call i64 @strlen(ptr noundef %8) #7
-  %cmp12 = icmp eq i64 %call10, %call11
-  br label %land.end
+22:                                               ; preds = %19, %14
+  %23 = load ptr, ptr %2, align 8, !tbaa !11
+  %24 = call i64 @strspn(ptr noundef %23, ptr noundef @.str.33) #10
+  %25 = load ptr, ptr %2, align 8, !tbaa !11
+  %26 = call i64 @strlen(ptr noundef %25) #10
+  %27 = icmp eq i64 %24, %26
+  br label %28
 
-land.end:                                         ; preds = %land.rhs, %lor.lhs.false, %land.lhs.true, %entry
-  %9 = phi i1 [ false, %lor.lhs.false ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp12, %land.rhs ]
-  %land.ext = zext i1 %9 to i32
-  ret i32 %land.ext
+28:                                               ; preds = %22, %19, %7, %1
+  %29 = phi i1 [ false, %19 ], [ false, %7 ], [ false, %1 ], [ %27, %22 ]
+  %30 = zext i1 %29 to i32
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #4
+declare ptr @strchr(ptr noundef, i32 noundef) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strspn(ptr noundef, ptr noundef) #4
+declare i64 @strspn(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #7
+
+declare noalias ptr @popen(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_pclose(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %call1 = call ptr @__errno_location() #5
-  store i32 0, ptr %call1, align 4
-  %1 = load ptr, ptr %L.addr, align 8
-  %call2 = call i32 @luaL_execresult(ptr noundef %1, i32 noundef -1)
-  ret i32 %call2
+define internal i32 @io_pclose(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = call ptr @__errno_location() #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !13
+  %9 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
+  %11 = call i32 @pclose(ptr noundef %10)
+  %12 = call i32 @luaL_execresult(ptr noundef %7, i32 noundef %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %12
 }
 
 declare i32 @luaL_execresult(ptr noundef, i32 noundef) #1
+
+declare i32 @pclose(ptr noundef) #1
 
 declare noalias ptr @tmpfile64() #1
 
@@ -1885,428 +2060,476 @@ declare void @luaL_checkany(ptr noundef, i32 noundef) #1
 declare ptr @luaL_testudata(ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @g_write(ptr noundef %L, ptr noundef %f, i32 noundef %arg) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %f.addr = alloca ptr, align 8
-  %arg.addr = alloca i32, align 4
-  %nargs = alloca i32, align 4
-  %status = alloca i32, align 4
-  %len = alloca i32, align 4
-  %l = alloca i64, align 8
-  %s = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  store ptr %f, ptr %f.addr, align 8
-  store i32 %arg, ptr %arg.addr, align 4
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call i32 @lua_gettop(ptr noundef %0)
-  %1 = load i32, ptr %arg.addr, align 4
-  %sub = sub nsw i32 %call, %1
-  store i32 %sub, ptr %nargs, align 4
-  store i32 1, ptr %status, align 4
-  br label %for.cond
+define internal i32 @g_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca [64 x i8], align 16
+  %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !4
+  store ptr %1, ptr %6, align 8, !tbaa !9
+  store i32 %2, ptr %7, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  %14 = load ptr, ptr %5, align 8, !tbaa !4
+  %15 = call i32 @lua_gettop(ptr noundef %14)
+  %16 = load i32, ptr %7, align 4, !tbaa !18
+  %17 = sub nsw i32 %15, %16
+  store i32 %17, ptr %8, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  store i32 1, ptr %9, align 4, !tbaa !18
+  %18 = call ptr @__errno_location() #9
+  store i32 0, ptr %18, align 4, !tbaa !18
+  br label %19
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i32, ptr %nargs, align 4
-  %dec = add nsw i32 %2, -1
-  store i32 %dec, ptr %nargs, align 4
-  %tobool = icmp ne i32 %2, 0
-  br i1 %tobool, label %for.body, label %for.end
+19:                                               ; preds = %52, %3
+  %20 = load i32, ptr %8, align 4, !tbaa !18
+  %21 = add nsw i32 %20, -1
+  store i32 %21, ptr %8, align 4, !tbaa !18
+  %22 = icmp ne i32 %20, 0
+  br i1 %22, label %23, label %55
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %L.addr, align 8
-  %4 = load i32, ptr %arg.addr, align 4
-  %call1 = call i32 @lua_type(ptr noundef %3, i32 noundef %4)
-  %cmp = icmp eq i32 %call1, 3
-  br i1 %cmp, label %if.then, label %if.else
+23:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 64, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  %24 = load ptr, ptr %5, align 8, !tbaa !4
+  %25 = load i32, ptr %7, align 4, !tbaa !18
+  %26 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
+  %27 = call i32 @lua_numbertocstring(ptr noundef %24, i32 noundef %25, ptr noundef %26)
+  %28 = zext i32 %27 to i64
+  store i64 %28, ptr %12, align 8, !tbaa !22
+  %29 = load i64, ptr %12, align 8, !tbaa !22
+  %30 = icmp ugt i64 %29, 0
+  br i1 %30, label %31, label %35
 
-if.then:                                          ; preds = %for.body
-  %5 = load ptr, ptr %L.addr, align 8
-  %6 = load i32, ptr %arg.addr, align 4
-  %call2 = call i32 @lua_isinteger(ptr noundef %5, i32 noundef %6)
-  %tobool3 = icmp ne i32 %call2, 0
-  br i1 %tobool3, label %cond.true, label %cond.false
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds [64 x i8], ptr %10, i64 0, i64 0
+  store ptr %32, ptr %11, align 8, !tbaa !11
+  %33 = load i64, ptr %12, align 8, !tbaa !22
+  %34 = add i64 %33, -1
+  store i64 %34, ptr %12, align 8, !tbaa !22
+  br label %39
 
-cond.true:                                        ; preds = %if.then
-  %7 = load ptr, ptr %f.addr, align 8
-  %8 = load ptr, ptr %L.addr, align 8
-  %9 = load i32, ptr %arg.addr, align 4
-  %call4 = call i64 @lua_tointegerx(ptr noundef %8, i32 noundef %9, ptr noundef null)
-  %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef @.str.38, i64 noundef %call4)
-  br label %cond.end
+35:                                               ; preds = %23
+  %36 = load ptr, ptr %5, align 8, !tbaa !4
+  %37 = load i32, ptr %7, align 4, !tbaa !18
+  %38 = call ptr @luaL_checklstring(ptr noundef %36, i32 noundef %37, ptr noundef %12)
+  store ptr %38, ptr %11, align 8, !tbaa !11
+  br label %39
 
-cond.false:                                       ; preds = %if.then
-  %10 = load ptr, ptr %f.addr, align 8
-  %11 = load ptr, ptr %L.addr, align 8
-  %12 = load i32, ptr %arg.addr, align 4
-  %call6 = call double @lua_tonumberx(ptr noundef %11, i32 noundef %12, ptr noundef null)
-  %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef @.str.39, double noundef %call6)
-  br label %cond.end
+39:                                               ; preds = %35, %31
+  %40 = load i32, ptr %9, align 4, !tbaa !18
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %49
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %call5, %cond.true ], [ %call7, %cond.false ]
-  store i32 %cond, ptr %len, align 4
-  %13 = load i32, ptr %status, align 4
-  %tobool8 = icmp ne i32 %13, 0
-  br i1 %tobool8, label %land.rhs, label %land.end
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %11, align 8, !tbaa !11
+  %44 = load i64, ptr %12, align 8, !tbaa !22
+  %45 = load ptr, ptr %6, align 8, !tbaa !9
+  %46 = call i64 @fwrite(ptr noundef %43, i64 noundef 1, i64 noundef %44, ptr noundef %45)
+  %47 = load i64, ptr %12, align 8, !tbaa !22
+  %48 = icmp eq i64 %46, %47
+  br label %49
 
-land.rhs:                                         ; preds = %cond.end
-  %14 = load i32, ptr %len, align 4
-  %cmp9 = icmp sgt i32 %14, 0
-  br label %land.end
+49:                                               ; preds = %42, %39
+  %50 = phi i1 [ false, %39 ], [ %48, %42 ]
+  %51 = zext i1 %50 to i32
+  store i32 %51, ptr %9, align 4, !tbaa !18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 64, ptr %10) #8
+  br label %52
 
-land.end:                                         ; preds = %land.rhs, %cond.end
-  %15 = phi i1 [ false, %cond.end ], [ %cmp9, %land.rhs ]
-  %land.ext = zext i1 %15 to i32
-  store i32 %land.ext, ptr %status, align 4
-  br label %if.end
+52:                                               ; preds = %49
+  %53 = load i32, ptr %7, align 4, !tbaa !18
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %7, align 4, !tbaa !18
+  br label %19
 
-if.else:                                          ; preds = %for.body
-  %16 = load ptr, ptr %L.addr, align 8
-  %17 = load i32, ptr %arg.addr, align 4
-  %call10 = call ptr @luaL_checklstring(ptr noundef %16, i32 noundef %17, ptr noundef %l)
-  store ptr %call10, ptr %s, align 8
-  %18 = load i32, ptr %status, align 4
-  %tobool11 = icmp ne i32 %18, 0
-  br i1 %tobool11, label %land.rhs12, label %land.end15
+55:                                               ; preds = %19
+  %56 = load i32, ptr %9, align 4, !tbaa !18
+  %57 = icmp ne i32 %56, 0
+  %58 = zext i1 %57 to i32
+  %59 = sext i32 %58 to i64
+  %60 = call i64 @llvm.expect.i64(i64 %59, i64 1)
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %62, label %63
 
-land.rhs12:                                       ; preds = %if.else
-  %19 = load ptr, ptr %s, align 8
-  %20 = load i64, ptr %l, align 8
-  %21 = load ptr, ptr %f.addr, align 8
-  %call13 = call i64 @fwrite(ptr noundef %19, i64 noundef 1, i64 noundef %20, ptr noundef %21)
-  %22 = load i64, ptr %l, align 8
-  %cmp14 = icmp eq i64 %call13, %22
-  br label %land.end15
+62:                                               ; preds = %55
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-land.end15:                                       ; preds = %land.rhs12, %if.else
-  %23 = phi i1 [ false, %if.else ], [ %cmp14, %land.rhs12 ]
-  %land.ext16 = zext i1 %23 to i32
-  store i32 %land.ext16, ptr %status, align 4
-  br label %if.end
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %5, align 8, !tbaa !4
+  %65 = load i32, ptr %9, align 4, !tbaa !18
+  %66 = call i32 @luaL_fileresult(ptr noundef %64, i32 noundef %65, ptr noundef null)
+  store i32 %66, ptr %4, align 4
+  store i32 1, ptr %13, align 4
+  br label %67
 
-if.end:                                           ; preds = %land.end15, %land.end
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end
-  %24 = load i32, ptr %arg.addr, align 4
-  %inc = add nsw i32 %24, 1
-  store i32 %inc, ptr %arg.addr, align 4
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  %25 = load i32, ptr %status, align 4
-  %cmp17 = icmp ne i32 %25, 0
-  %conv = zext i1 %cmp17 to i32
-  %conv18 = sext i32 %conv to i64
-  %tobool19 = icmp ne i64 %conv18, 0
-  br i1 %tobool19, label %if.then20, label %if.else21
-
-if.then20:                                        ; preds = %for.end
-  store i32 1, ptr %retval, align 4
-  br label %return
-
-if.else21:                                        ; preds = %for.end
-  %26 = load ptr, ptr %L.addr, align 8
-  %27 = load i32, ptr %status, align 4
-  %call22 = call i32 @luaL_fileresult(ptr noundef %26, i32 noundef %27, ptr noundef null)
-  store i32 %call22, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else21, %if.then20
-  %28 = load i32, ptr %retval, align 4
-  ret i32 %28
+67:                                               ; preds = %63, %62
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  %68 = load i32, ptr %4, align 4
+  ret i32 %68
 }
 
-declare i32 @lua_isinteger(ptr noundef, i32 noundef) #1
-
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #1
-
-declare double @lua_tonumberx(ptr noundef, i32 noundef, ptr noundef) #1
+declare i32 @lua_numbertocstring(ptr noundef, i32 noundef, ptr noundef) #1
 
 declare i64 @fwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
 declare i32 @luaL_newmetatable(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_gc(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %closef, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.end, label %land.lhs.true
+define internal i32 @f_gc(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %18, label %10
 
-land.lhs.true:                                    ; preds = %entry
-  %3 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %f, align 8
-  %cmp1 = icmp ne ptr %4, null
-  br i1 %cmp1, label %if.then, label %if.end
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %3, align 8, !tbaa !13
+  %12 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !15
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %18
 
-if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr %L.addr, align 8
-  %call2 = call i32 @aux_close(ptr noundef %5)
-  br label %if.end
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %2, align 8, !tbaa !4
+  %17 = call i32 @aux_close(ptr noundef %16)
+  br label %18
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+18:                                               ; preds = %15, %10, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_tostring(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  %2 = load ptr, ptr %closef, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %if.then, label %if.else
+define internal i32 @f_tostring(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !17
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %10, label %13
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @lua_pushstring(ptr noundef %3, ptr noundef @.str.44)
-  br label %if.end
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = call ptr @lua_pushstring(ptr noundef %11, ptr noundef @.str.41)
+  br label %19
 
-if.else:                                          ; preds = %entry
-  %4 = load ptr, ptr %L.addr, align 8
-  %5 = load ptr, ptr %p, align 8
-  %f = getelementptr inbounds %struct.luaL_Stream, ptr %5, i32 0, i32 0
-  %6 = load ptr, ptr %f, align 8
-  %call2 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %4, ptr noundef @.str.45, ptr noundef %6)
-  br label %if.end
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %2, align 8, !tbaa !4
+  %15 = load ptr, ptr %3, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %18 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %14, ptr noundef @.str.42, ptr noundef %17)
+  br label %19
 
-if.end:                                           ; preds = %if.else, %if.then
+19:                                               ; preds = %13, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 1
 }
 
 declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_read(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %1)
-  %call1 = call i32 @g_read(ptr noundef %0, ptr noundef %call, i32 noundef 2)
-  ret i32 %call1
+define internal i32 @f_read(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @tofile(ptr noundef %4)
+  %6 = call i32 @g_read(ptr noundef %3, ptr noundef %5, i32 noundef 2)
+  ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_write(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %0)
-  store ptr %call, ptr %f, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushvalue(ptr noundef %1, i32 noundef 1)
-  %2 = load ptr, ptr %L.addr, align 8
-  %3 = load ptr, ptr %f, align 8
-  %call1 = call i32 @g_write(ptr noundef %2, ptr noundef %3, i32 noundef 2)
-  ret i32 %call1
+define internal i32 @f_write(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @tofile(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !9
+  %6 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_pushvalue(ptr noundef %6, i32 noundef 1)
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = call i32 @g_write(ptr noundef %7, ptr noundef %8, i32 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_lines(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %0)
-  %1 = load ptr, ptr %L.addr, align 8
-  call void @aux_lines(ptr noundef %1, i32 noundef 0)
+define internal i32 @f_lines(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8, !tbaa !4
+  %4 = call ptr @tofile(ptr noundef %3)
+  %5 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @aux_lines(ptr noundef %5, i32 noundef 0)
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_flush(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %1)
-  %call1 = call i32 @fflush(ptr noundef %call)
-  %cmp = icmp eq i32 %call1, 0
-  %conv = zext i1 %cmp to i32
-  %call2 = call i32 @luaL_fileresult(ptr noundef %0, i32 noundef %conv, ptr noundef null)
-  ret i32 %call2
+define internal i32 @f_flush(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @tofile(ptr noundef %4)
+  store ptr %5, ptr %3, align 8, !tbaa !9
+  %6 = call ptr @__errno_location() #9
+  store i32 0, ptr %6, align 4, !tbaa !18
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = load ptr, ptr %3, align 8, !tbaa !9
+  %9 = call i32 @fflush(ptr noundef %8)
+  %10 = icmp eq i32 %9, 0
+  %11 = zext i1 %10 to i32
+  %12 = call i32 @luaL_fileresult(ptr noundef %7, i32 noundef %11, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_seek(ptr noundef %L) #0 {
-entry:
-  %retval = alloca i32, align 4
-  %L.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %op = alloca i32, align 4
-  %p3 = alloca i64, align 8
-  %offset = alloca i64, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %0)
-  store ptr %call, ptr %f, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call i32 @luaL_checkoption(ptr noundef %1, i32 noundef 2, ptr noundef @.str.49, ptr noundef @f_seek.modenames)
-  store i32 %call1, ptr %op, align 4
-  %2 = load ptr, ptr %L.addr, align 8
-  %call2 = call i64 @luaL_optinteger(ptr noundef %2, i32 noundef 3, i64 noundef 0)
-  store i64 %call2, ptr %p3, align 8
-  %3 = load i64, ptr %p3, align 8
-  store i64 %3, ptr %offset, align 8
-  %4 = load i64, ptr %offset, align 8
-  %5 = load i64, ptr %p3, align 8
-  %cmp = icmp eq i64 %4, %5
-  %conv = zext i1 %cmp to i32
-  %cmp3 = icmp ne i32 %conv, 0
-  %conv4 = zext i1 %cmp3 to i32
-  %conv5 = sext i32 %conv4 to i64
-  %tobool = icmp ne i64 %conv5, 0
-  br i1 %tobool, label %lor.end, label %lor.rhs
+define internal i32 @f_seek(ptr noundef %0) #0 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #8
+  %9 = load ptr, ptr %3, align 8, !tbaa !4
+  %10 = call ptr @tofile(ptr noundef %9)
+  store ptr %10, ptr %4, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #8
+  %11 = load ptr, ptr %3, align 8, !tbaa !4
+  %12 = call i32 @luaL_checkoption(ptr noundef %11, i32 noundef 2, ptr noundef @.str.46, ptr noundef @f_seek.modenames)
+  store i32 %12, ptr %5, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #8
+  %13 = load ptr, ptr %3, align 8, !tbaa !4
+  %14 = call i64 @luaL_optinteger(ptr noundef %13, i32 noundef 3, i64 noundef 0)
+  store i64 %14, ptr %6, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  %15 = load i64, ptr %6, align 8, !tbaa !44
+  store i64 %15, ptr %7, align 8, !tbaa !22
+  %16 = load i64, ptr %7, align 8, !tbaa !22
+  %17 = load i64, ptr %6, align 8, !tbaa !44
+  %18 = icmp eq i64 %16, %17
+  %19 = zext i1 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  %21 = zext i1 %20 to i32
+  %22 = sext i32 %21 to i64
+  %23 = call i64 @llvm.expect.i64(i64 %22, i64 1)
+  %24 = icmp ne i64 %23, 0
+  br i1 %24, label %28, label %25
 
-lor.rhs:                                          ; preds = %entry
-  %6 = load ptr, ptr %L.addr, align 8
-  %call6 = call i32 @luaL_argerror(ptr noundef %6, i32 noundef 3, ptr noundef @.str.51)
-  br label %lor.end
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8, !tbaa !4
+  %27 = call i32 @luaL_argerror(ptr noundef %26, i32 noundef 3, ptr noundef @.str.48)
+  br label %28
 
-lor.end:                                          ; preds = %lor.rhs, %entry
-  %7 = load ptr, ptr %f, align 8
-  %8 = load i64, ptr %offset, align 8
-  %9 = load i32, ptr %op, align 4
-  %idxprom = sext i32 %9 to i64
-  %arrayidx = getelementptr inbounds [3 x i32], ptr @f_seek.mode, i64 0, i64 %idxprom
-  %10 = load i32, ptr %arrayidx, align 4
-  %call8 = call i32 @fseek(ptr noundef %7, i64 noundef %8, i32 noundef %10)
-  store i32 %call8, ptr %op, align 4
-  %11 = load i32, ptr %op, align 4
-  %cmp9 = icmp ne i32 %11, 0
-  %conv10 = zext i1 %cmp9 to i32
-  %conv11 = sext i32 %conv10 to i64
-  %tobool12 = icmp ne i64 %conv11, 0
-  br i1 %tobool12, label %if.then, label %if.else
+28:                                               ; preds = %25, %1
+  %29 = call ptr @__errno_location() #9
+  store i32 0, ptr %29, align 4, !tbaa !18
+  %30 = load ptr, ptr %4, align 8, !tbaa !9
+  %31 = load i64, ptr %7, align 8, !tbaa !22
+  %32 = load i32, ptr %5, align 4, !tbaa !18
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [3 x i32], ptr @f_seek.mode, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !18
+  %36 = call i32 @fseeko64(ptr noundef %30, i64 noundef %31, i32 noundef %35)
+  store i32 %36, ptr %5, align 4, !tbaa !18
+  %37 = load i32, ptr %5, align 4, !tbaa !18
+  %38 = icmp ne i32 %37, 0
+  %39 = zext i1 %38 to i32
+  %40 = sext i32 %39 to i64
+  %41 = call i64 @llvm.expect.i64(i64 %40, i64 0)
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %46
 
-if.then:                                          ; preds = %lor.end
-  %12 = load ptr, ptr %L.addr, align 8
-  %call13 = call i32 @luaL_fileresult(ptr noundef %12, i32 noundef 0, ptr noundef null)
-  store i32 %call13, ptr %retval, align 4
-  br label %return
+43:                                               ; preds = %28
+  %44 = load ptr, ptr %3, align 8, !tbaa !4
+  %45 = call i32 @luaL_fileresult(ptr noundef %44, i32 noundef 0, ptr noundef null)
+  store i32 %45, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %50
 
-if.else:                                          ; preds = %lor.end
-  %13 = load ptr, ptr %L.addr, align 8
-  %14 = load ptr, ptr %f, align 8
-  %call14 = call i64 @ftell(ptr noundef %14)
-  call void @lua_pushinteger(ptr noundef %13, i64 noundef %call14)
-  store i32 1, ptr %retval, align 4
-  br label %return
+46:                                               ; preds = %28
+  %47 = load ptr, ptr %3, align 8, !tbaa !4
+  %48 = load ptr, ptr %4, align 8, !tbaa !9
+  %49 = call i64 @ftello64(ptr noundef %48)
+  call void @lua_pushinteger(ptr noundef %47, i64 noundef %49)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %8, align 4
+  br label %50
 
-return:                                           ; preds = %if.else, %if.then
-  %15 = load i32, ptr %retval, align 4
-  ret i32 %15
+50:                                               ; preds = %46, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #8
+  %51 = load i32, ptr %2, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_setvbuf(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %f = alloca ptr, align 8
-  %op = alloca i32, align 4
-  %sz = alloca i64, align 8
-  %res = alloca i32, align 4
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @tofile(ptr noundef %0)
-  store ptr %call, ptr %f, align 8
-  %1 = load ptr, ptr %L.addr, align 8
-  %call1 = call i32 @luaL_checkoption(ptr noundef %1, i32 noundef 2, ptr noundef null, ptr noundef @f_setvbuf.modenames)
-  store i32 %call1, ptr %op, align 4
-  %2 = load ptr, ptr %L.addr, align 8
-  %call2 = call i64 @luaL_optinteger(ptr noundef %2, i32 noundef 3, i64 noundef 1024)
-  store i64 %call2, ptr %sz, align 8
-  %3 = load ptr, ptr %f, align 8
-  %4 = load i32, ptr %op, align 4
-  %idxprom = sext i32 %4 to i64
-  %arrayidx = getelementptr inbounds [3 x i32], ptr @f_setvbuf.mode, i64 0, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  %6 = load i64, ptr %sz, align 8
-  %call3 = call i32 @setvbuf(ptr noundef %3, ptr noundef null, i32 noundef %5, i64 noundef %6) #6
-  store i32 %call3, ptr %res, align 4
-  %7 = load ptr, ptr %L.addr, align 8
-  %8 = load i32, ptr %res, align 4
-  %cmp = icmp eq i32 %8, 0
-  %conv = zext i1 %cmp to i32
-  %call4 = call i32 @luaL_fileresult(ptr noundef %7, i32 noundef %conv, ptr noundef null)
-  ret i32 %call4
+define internal i32 @f_setvbuf(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %7 = load ptr, ptr %2, align 8, !tbaa !4
+  %8 = call ptr @tofile(ptr noundef %7)
+  store ptr %8, ptr %3, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #8
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call i32 @luaL_checkoption(ptr noundef %9, i32 noundef 2, ptr noundef null, ptr noundef @f_setvbuf.modenames)
+  store i32 %10, ptr %4, align 4, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #8
+  %11 = load ptr, ptr %2, align 8, !tbaa !4
+  %12 = call i64 @luaL_optinteger(ptr noundef %11, i32 noundef 3, i64 noundef 1024)
+  store i64 %12, ptr %5, align 8, !tbaa !44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #8
+  %13 = call ptr @__errno_location() #9
+  store i32 0, ptr %13, align 4, !tbaa !18
+  %14 = load ptr, ptr %3, align 8, !tbaa !9
+  %15 = load i32, ptr %4, align 4, !tbaa !18
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds [3 x i32], ptr @f_setvbuf.mode, i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !18
+  %19 = load i64, ptr %5, align 8, !tbaa !44
+  %20 = call i32 @setvbuf(ptr noundef %14, ptr noundef null, i32 noundef %18, i64 noundef %19) #8
+  store i32 %20, ptr %6, align 4, !tbaa !18
+  %21 = load ptr, ptr %2, align 8, !tbaa !4
+  %22 = load i32, ptr %6, align 4, !tbaa !18
+  %23 = icmp eq i32 %22, 0
+  %24 = zext i1 %23 to i32
+  %25 = call i32 @luaL_fileresult(ptr noundef %21, i32 noundef %24, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
+  ret i32 %25
 }
 
 declare i32 @luaL_checkoption(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
 declare i64 @luaL_optinteger(ptr noundef, i32 noundef, i64 noundef) #1
 
-declare i32 @fseek(ptr noundef, i64 noundef, i32 noundef) #1
+declare i32 @fseeko64(ptr noundef, i64 noundef, i32 noundef) #1
 
-declare i64 @ftell(ptr noundef) #1
+declare i64 @ftello64(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @setvbuf(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #2
+declare i32 @setvbuf(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_noclose(ptr noundef %L) #0 {
-entry:
-  %L.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %L, ptr %L.addr, align 8
-  %0 = load ptr, ptr %L.addr, align 8
-  %call = call ptr @luaL_checkudata(ptr noundef %0, i32 noundef 1, ptr noundef @.str.16)
-  store ptr %call, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %closef = getelementptr inbounds %struct.luaL_Stream, ptr %1, i32 0, i32 1
-  store ptr @io_noclose, ptr %closef, align 8
-  %2 = load ptr, ptr %L.addr, align 8
-  call void @lua_pushnil(ptr noundef %2)
-  %3 = load ptr, ptr %L.addr, align 8
-  %call1 = call ptr @lua_pushstring(ptr noundef %3, ptr noundef @.str.55)
+define internal i32 @io_noclose(ptr noundef %0) #0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #8
+  %4 = load ptr, ptr %2, align 8, !tbaa !4
+  %5 = call ptr @luaL_checkudata(ptr noundef %4, i32 noundef 1, ptr noundef @.str.16)
+  store ptr %5, ptr %3, align 8, !tbaa !13
+  %6 = load ptr, ptr %3, align 8, !tbaa !13
+  %7 = getelementptr inbounds nuw %struct.luaL_Stream, ptr %6, i32 0, i32 1
+  store ptr @io_noclose, ptr %7, align 8, !tbaa !17
+  %8 = load ptr, ptr %2, align 8, !tbaa !4
+  call void @lua_pushnil(ptr noundef %8)
+  %9 = load ptr, ptr %2, align 8, !tbaa !4
+  %10 = call ptr @lua_pushstring(ptr noundef %9, ptr noundef @.str.52)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #8
   ret i32 2
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #7 = { nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11luaL_Stream", !6, i64 0}
+!15 = !{!16, !10, i64 0}
+!16 = !{!"luaL_Stream", !10, i64 0, !6, i64 8}
+!17 = !{!16, !6, i64 8}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !7, i64 0}
+!20 = !{!7, !7, i64 0}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!25, !23, i64 16}
+!25 = !{!"luaL_Buffer", !12, i64 0, !23, i64 8, !23, i64 16, !5, i64 24, !7, i64 32}
+!26 = !{!25, !23, i64 8}
+!27 = !{!25, !12, i64 0}
+!28 = !{!29, !10, i64 0}
+!29 = !{!"", !10, i64 0, !19, i64 8, !19, i64 12, !7, i64 16}
+!30 = !{!29, !19, i64 12}
+!31 = !{!32, !12, i64 0}
+!32 = !{!"lconv", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !7, i64 80, !7, i64 81, !7, i64 82, !7, i64 83, !7, i64 84, !7, i64 85, !7, i64 86, !7, i64 87, !7, i64 88, !7, i64 89, !7, i64 90, !7, i64 91, !7, i64 92, !7, i64 93}
+!33 = !{!29, !19, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 short", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"short", !7, i64 0}
+!38 = !{!39, !12, i64 8}
+!39 = !{!"_IO_FILE", !19, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !40, i64 96, !10, i64 104, !19, i64 112, !19, i64 116, !23, i64 120, !37, i64 128, !7, i64 130, !7, i64 131, !6, i64 136, !23, i64 144, !41, i64 152, !42, i64 160, !10, i64 168, !6, i64 176, !23, i64 184, !19, i64 192, !7, i64 196}
+!40 = !{!"p1 _ZTS10_IO_marker", !6, i64 0}
+!41 = !{!"p1 _ZTS11_IO_codecvt", !6, i64 0}
+!42 = !{!"p1 _ZTS13_IO_wide_data", !6, i64 0}
+!43 = !{!39, !12, i64 16}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"long long", !7, i64 0}

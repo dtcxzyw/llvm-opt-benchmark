@@ -1,0 +1,24 @@
+diff --git a/makefile b/makefile
+index 8506e93c..f82256b1 100644
+--- a/makefile
++++ b/makefile
+@@ -65,7 +65,7 @@ CWARNS= $(CWARNSCPP) $(CWARNSC) $(CWARNGCC)
+ # TESTS= -DLUA_USER_H='"ltests.h"' -Og -g
+ 
+ 
+-LOCAL = $(TESTS) $(CWARNS)
++LOCAL = $(TESTS)
+ 
+ 
+ # To enable Linux goodies, -DLUA_USE_LINUX
+@@ -76,8 +76,8 @@ MYLDFLAGS= $(LOCAL) -Wl,-E
+ MYLIBS= -ldl
+ 
+ 
+-CC= gcc
+-CFLAGS= -Wall -O2 $(MYCFLAGS) -fno-stack-protector -fno-common -march=native
++CC= clang-21
++CFLAGS= -w -DNDEBUG -O3 -fpass-plugin=$(PLUGIN) -Qn -g0 $(MYCFLAGS) -fno-stack-protector -fno-common -march=native
+ AR= ar rc
+ RANLIB= ranlib
+ RM= rm -f

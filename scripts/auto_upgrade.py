@@ -33,6 +33,7 @@ supported_project = [
     "libsodium",
     "libuv",
     "libwebp",
+    "lua",
 ]
 
 modify_only = [
