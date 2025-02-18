@@ -76,6 +76,7 @@ supported_project = [
     "ceres",
     "cpp-httplib",
     "crow",
+    "csmith",
 ]
 
 modify_only = [
@@ -102,6 +103,7 @@ modify_only = [
     "assimp",
     "casadi",
     "ceres",
+    "csmith",
 ]
 
 

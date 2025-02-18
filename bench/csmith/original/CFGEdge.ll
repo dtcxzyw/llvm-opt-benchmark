@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTV7CFGEdge = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTI7CFGEdge, ptr @_ZN7CFGEdgeD1Ev, ptr @_ZN7CFGEdgeD0Ev] }, align 8
+@_ZTI7CFGEdge = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS7CFGEdge }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS7CFGEdge = dso_local constant [9 x i8] c"7CFGEdge\00", align 1
-@_ZTI7CFGEdge = dso_local constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS7CFGEdge }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_CFGEdge.cpp, ptr null }]
 
 @_ZN7CFGEdgeC1EPK9StatementS2_bb = dso_local unnamed_addr alias void (ptr, ptr, ptr, i1, i1), ptr @_ZN7CFGEdgeC2EPK9StatementS2_bb
@@ -38,32 +38,31 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr noundef nonnull align
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store ptr %1, ptr %7, align 8
-  store ptr %2, ptr %8, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !4
+  store ptr %1, ptr %7, align 8, !tbaa !9
+  store ptr %2, ptr %8, align 8, !tbaa !9
   %11 = zext i1 %3 to i8
-  store i8 %11, ptr %9, align 1
+  store i8 %11, ptr %9, align 1, !tbaa !11
   %12 = zext i1 %4 to i8
-  store i8 %12, ptr %10, align 1
+  store i8 %12, ptr %10, align 1, !tbaa !11
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 1
-  %16 = load ptr, ptr %7, align 8
-  store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 2
-  %18 = load ptr, ptr %8, align 8
-  store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 3
-  %20 = load i8, ptr %9, align 1
-  %21 = trunc i8 %20 to i1
-  %22 = zext i1 %21 to i8
-  store i8 %22, ptr %19, align 8
-  %23 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 4
-  %24 = load i8, ptr %10, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %23, align 1
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %13, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %class.CFGEdge, ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %7, align 8, !tbaa !9
+  store ptr %15, ptr %14, align 8, !tbaa !15
+  %16 = getelementptr inbounds nuw %class.CFGEdge, ptr %13, i32 0, i32 2
+  %17 = load ptr, ptr %8, align 8, !tbaa !9
+  store ptr %17, ptr %16, align 8, !tbaa !17
+  %18 = getelementptr inbounds nuw %class.CFGEdge, ptr %13, i32 0, i32 3
+  %19 = load i8, ptr %9, align 1, !tbaa !11, !range !18, !noundef !19
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %18, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw %class.CFGEdge, ptr %13, i32 0, i32 4
+  %23 = load i8, ptr %10, align 1, !tbaa !11, !range !18, !noundef !19
+  %24 = trunc i8 %23 to i1
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %22, align 1, !tbaa !21
   ret void
 }
 
@@ -71,57 +70,56 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr noundef nonnull align
 define dso_local void @_ZN7CFGEdgeC2ERKS_(ptr noundef nonnull align 8 dereferenceable(26) %0, ptr noundef nonnull align 8 dereferenceable(26) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  store ptr %1, ptr %4, align 8, !tbaa !4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds { [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 1
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.CFGEdge, ptr %8, i32 0, i32 1
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %class.CFGEdge, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %11, align 8
-  %15 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 3
-  %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %class.CFGEdge, ptr %16, i32 0, i32 3
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  %20 = zext i1 %19 to i8
-  store i8 %20, ptr %15, align 8
-  %21 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 4
-  %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %class.CFGEdge, ptr %22, i32 0, i32 4
-  %24 = load i8, ptr %23, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = zext i1 %25 to i8
-  store i8 %26, ptr %21, align 1
+  store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw %class.CFGEdge, ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8, !tbaa !4
+  %8 = getelementptr inbounds nuw %class.CFGEdge, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %9, ptr %6, align 8, !tbaa !15
+  %10 = getelementptr inbounds nuw %class.CFGEdge, ptr %5, i32 0, i32 2
+  %11 = load ptr, ptr %4, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw %class.CFGEdge, ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  store ptr %13, ptr %10, align 8, !tbaa !17
+  %14 = getelementptr inbounds nuw %class.CFGEdge, ptr %5, i32 0, i32 3
+  %15 = load ptr, ptr %4, align 8, !tbaa !4
+  %16 = getelementptr inbounds nuw %class.CFGEdge, ptr %15, i32 0, i32 3
+  %17 = load i8, ptr %16, align 8, !tbaa !20, !range !18, !noundef !19
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %14, align 8, !tbaa !20
+  %20 = getelementptr inbounds nuw %class.CFGEdge, ptr %5, i32 0, i32 4
+  %21 = load ptr, ptr %4, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw %class.CFGEdge, ptr %21, i32 0, i32 4
+  %23 = load i8, ptr %22, align 1, !tbaa !21, !range !18, !noundef !19
+  %24 = trunc i8 %23 to i1
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %20, align 1, !tbaa !21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7CFGEdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7CFGEdgeD0Ev(ptr noundef nonnull align 8 dereferenceable(26) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7CFGEdgeD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %3) #3
-  call void @_ZdlPv(ptr noundef %3) #6
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 32) #6
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #5
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_CFGEdge.cpp() #0 section ".text.startup" {
@@ -129,18 +127,35 @@ define internal void @_GLOBAL__sub_I_CFGEdge.cpp() #0 section ".text.startup" {
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTS7CFGEdge", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS9Statement", !6, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"bool", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"vtable pointer", !8, i64 0}
+!15 = !{!16, !10, i64 8}
+!16 = !{!"_ZTS7CFGEdge", !10, i64 8, !10, i64 16, !12, i64 24, !12, i64 25}
+!17 = !{!16, !10, i64 16}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = !{!16, !12, i64 24}
+!21 = !{!16, !12, i64 25}

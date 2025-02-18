@@ -1,0 +1,26 @@
+diff --git a/src/Filter.cpp b/src/Filter.cpp
+index 986fe6e..6701b6b 100644
+--- a/src/Filter.cpp
++++ b/src/Filter.cpp
+@@ -77,7 +77,7 @@ Filter::current_kind(void) const
+ 		return fDefault;
+ 	else if (CGOptions::dfs_exhaustive())
+ 		return fDFS;
+-	return MAX_FILTER_KIND_SIZE;
++	return fDefault;
+ }
+ 
+ /*
+diff --git a/src/Filter.h b/src/Filter.h
+index 0482d8b..e58bcd0 100644
+--- a/src/Filter.h
++++ b/src/Filter.h
+@@ -37,7 +37,7 @@ enum FilterKind {
+ 	fDFS,
+ };
+ 
+-#define MAX_FILTER_KIND_SIZE ((FilterKind) (fDFS + 1))
++#define MAX_FILTER_KIND_SIZE ((int) (fDFS + 1))
+ 
+ // Filter base class
+ class Filter
