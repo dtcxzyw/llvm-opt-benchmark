@@ -3,57 +3,58 @@ source_filename = "bench/slurm/original/prep.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.prep_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"prep\00", align 1
-@g_context_lock = internal global %union.pthread_rwlock_t zeroinitializer, align 8
-@.str.1 = private unnamed_addr constant [38 x i8] c"%s:%d %s: pthread_rwlock_wrlock(): %m\00", align 1
-@.str.2 = private unnamed_addr constant [7 x i8] c"prep.c\00", align 1
+@.str.1 = private unnamed_addr constant [32 x i8] c"%s: pthread_rwlock_wrlock(): %m\00", align 1
 @__func__.prep_g_init = private unnamed_addr constant [12 x i8] c"prep_g_init\00", align 1
 @g_context_cnt = internal unnamed_addr global i32 -1, align 4
 @slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
 @prep_plugin_list = internal global ptr null, align 8
-@.str.3 = private unnamed_addr constant [2 x i8] c",\00", align 1
+@.str.2 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @ops = internal global ptr null, align 8
+@.str.3 = private unnamed_addr constant [7 x i8] c"prep.c\00", align 1
 @g_context = internal global ptr null, align 8
 @.str.4 = private unnamed_addr constant [6 x i8] c"prep/\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"prep/%s\00", align 1
-@syms = internal global [6 x ptr] [ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 16
+@syms = internal global [6 x ptr] [ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15], align 16
 @.str.6 = private unnamed_addr constant [36 x i8] c"%s: cannot create %s context for %s\00", align 1
 @prep_is_required = internal global [5 x i8] zeroinitializer, align 1
-@.str.7 = private unnamed_addr constant [38 x i8] c"%s:%d %s: pthread_rwlock_unlock(): %m\00", align 1
+@.str.7 = private unnamed_addr constant [32 x i8] c"%s: pthread_rwlock_unlock(): %m\00", align 1
 @__func__.prep_g_fini = private unnamed_addr constant [12 x i8] c"prep_g_fini\00", align 1
-@.str.8 = private unnamed_addr constant [38 x i8] c"%s:%d %s: pthread_rwlock_rdlock(): %m\00", align 1
+@.str.8 = private unnamed_addr constant [32 x i8] c"%s: pthread_rwlock_rdlock(): %m\00", align 1
 @__func__.prep_g_prolog = private unnamed_addr constant [14 x i8] c"prep_g_prolog\00", align 1
 @__func__.prep_g_epilog = private unnamed_addr constant [14 x i8] c"prep_g_epilog\00", align 1
 @__func__.prep_g_prolog_slurmctld = private unnamed_addr constant [24 x i8] c"prep_g_prolog_slurmctld\00", align 1
 @__func__.prep_g_epilog_slurmctld = private unnamed_addr constant [24 x i8] c"prep_g_epilog_slurmctld\00", align 1
 @__func__.prep_g_required = private unnamed_addr constant [16 x i8] c"prep_g_required\00", align 1
-@.str.9 = private unnamed_addr constant [26 x i8] c"prep_p_register_callbacks\00", align 1
-@.str.10 = private unnamed_addr constant [14 x i8] c"prep_p_prolog\00", align 1
-@.str.11 = private unnamed_addr constant [14 x i8] c"prep_p_epilog\00", align 1
-@.str.12 = private unnamed_addr constant [24 x i8] c"prep_p_prolog_slurmctld\00", align 1
-@.str.13 = private unnamed_addr constant [24 x i8] c"prep_p_epilog_slurmctld\00", align 1
-@.str.14 = private unnamed_addr constant [16 x i8] c"prep_p_required\00", align 1
+@g_context_lock = internal global { { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32, [4 x i8] } } zeroinitializer, align 8
+@.str.10 = private unnamed_addr constant [26 x i8] c"prep_p_register_callbacks\00", align 1
+@.str.11 = private unnamed_addr constant [14 x i8] c"prep_p_prolog\00", align 1
+@.str.12 = private unnamed_addr constant [14 x i8] c"prep_p_epilog\00", align 1
+@.str.13 = private unnamed_addr constant [24 x i8] c"prep_p_prolog_slurmctld\00", align 1
+@.str.14 = private unnamed_addr constant [24 x i8] c"prep_p_epilog_slurmctld\00", align 1
+@.str.15 = private unnamed_addr constant [16 x i8] c"prep_p_required\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store ptr null, ptr %2, align 8
-  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @g_context_lock) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  %5 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #9
+  %7 = tail call ptr @__errno_location() #10
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 85, ptr noundef nonnull @__func__.prep_g_init) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.prep_g_init) #11
   unreachable
 
 8:                                                ; preds = %1
@@ -73,11 +74,11 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26, label %.loopexit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @xstrdup(ptr noundef nonnull %12) #8
+  %16 = tail call ptr @xstrdup(ptr noundef nonnull %12) #9
   store ptr %16, ptr @prep_plugin_list, align 8
-  %17 = tail call ptr @xstrdup(ptr noundef %16) #8
+  %17 = tail call ptr @xstrdup(ptr noundef %16) #9
   store ptr %17, ptr %3, align 8
-  %18 = call ptr @strtok_r(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
+  %18 = call ptr @strtok_r(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #9
   store ptr %18, ptr %4, align 8
   %.not2733 = icmp eq ptr %18, null
   br i1 %.not2733, label %.loopexit32, label %.lr.ph
@@ -90,13 +91,13 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %20 = load i32, ptr @g_context_cnt, align 4
   %21 = add nsw i32 %20, 1
   %22 = sext i32 %21 to i64
-  %23 = call ptr @slurm_xrecalloc(ptr noundef nonnull @ops, i64 noundef %22, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 96, ptr noundef nonnull @__func__.prep_g_init) #8
+  %23 = call ptr @slurm_xrecalloc(ptr noundef nonnull @ops, i64 noundef %22, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 96, ptr noundef nonnull @__func__.prep_g_init) #9
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = add nsw i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = call ptr @slurm_xrecalloc(ptr noundef nonnull @g_context, i64 noundef %26, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 98, ptr noundef nonnull @__func__.prep_g_init) #8
+  %27 = call ptr @slurm_xrecalloc(ptr noundef nonnull @g_context, i64 noundef %26, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 98, ptr noundef nonnull @__func__.prep_g_init) #9
   %28 = load ptr, ptr %4, align 8
-  %29 = call i32 @xstrncmp(ptr noundef %28, ptr noundef nonnull @.str.4, i64 noundef 5) #8
+  %29 = call i32 @xstrncmp(ptr noundef %28, ptr noundef nonnull @.str.4, i64 noundef 5) #9
   %30 = icmp eq i32 %29, 0
   %.pre = load ptr, ptr %4, align 8
   br i1 %30, label %31, label %33
@@ -108,13 +109,13 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %31, %19
   %34 = phi ptr [ %32, %31 ], [ %.pre, %19 ]
-  %35 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.5, ptr noundef %34) #8
+  %35 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.5, ptr noundef %34) #9
   store ptr %35, ptr %4, align 8
   %36 = load ptr, ptr @ops, align 8
   %37 = load i32, ptr @g_context_cnt, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.prep_ops_t, ptr %36, i64 %38
-  %40 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %35, ptr noundef %39, ptr noundef nonnull @syms, i64 noundef 48) #8
+  %40 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %35, ptr noundef %39, ptr noundef nonnull @syms, i64 noundef 48) #9
   %41 = load ptr, ptr @g_context, align 8
   %42 = load i32, ptr @g_context_cnt, align 4
   %43 = sext i32 %42 to i64
@@ -128,8 +129,8 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %33
   %49 = load ptr, ptr %4, align 8
-  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.prep_g_init, ptr noundef nonnull @.str, ptr noundef %49) #8
-  call void @slurm_xfree(ptr noundef nonnull %4) #8
+  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.prep_g_init, ptr noundef nonnull @.str, ptr noundef %49) #9
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
   br label %.loopexit32
 
 51:                                               ; preds = %33
@@ -139,22 +140,22 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %53 = load ptr, ptr @ops, align 8
   %54 = getelementptr inbounds %struct.prep_ops_t, ptr %53, i64 %43
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef nonnull %0) #8
+  %56 = call i32 %55(ptr noundef nonnull %0) #9
   br label %57
 
 57:                                               ; preds = %52, %51
-  call void @slurm_xfree(ptr noundef nonnull %4) #8
+  call void @slurm_xfree(ptr noundef nonnull %4) #9
   %58 = load i32, ptr @g_context_cnt, align 4
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr @g_context_cnt, align 4
-  %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
+  %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #9
   store ptr %60, ptr %4, align 8
   %.not27 = icmp eq ptr %60, null
-  br i1 %.not27, label %.loopexit32, label %19, !llvm.loop !6
+  br i1 %.not27, label %.loopexit32, label %19, !llvm.loop !8
 
 .loopexit32:                                      ; preds = %57, %15, %48
   %.0 = phi i32 [ -1, %48 ], [ 0, %15 ], [ 0, %57 ]
-  call void @slurm_xfree(ptr noundef nonnull %3) #8
+  call void @slurm_xfree(ptr noundef nonnull %3) #9
   %61 = load i32, ptr @g_context_cnt, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.preheader, label %.loopexit
@@ -175,32 +176,32 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   %68 = load ptr, ptr @ops, align 8
   %69 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
   %70 = load ptr, ptr %69, align 8
-  call void %70(i32 noundef %66, ptr noundef nonnull %65) #8
-  %71 = load i8, ptr %65, align 1
-  %72 = trunc i8 %71 to i1
+  call void %70(i32 noundef %66, ptr noundef nonnull %65) #9
+  %71 = load i8, ptr %65, align 1, !range !11, !noundef !12
+  %72 = trunc nuw i8 %71 to i1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr @g_context_cnt, align 4
   %74 = sext i32 %73 to i64
   %75 = icmp sge i64 %indvars.iv.next, %74
   %or.cond.not = select i1 %72, i1 true, i1 %75
-  br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !8
+  br i1 %or.cond.not, label %._crit_edge, label %67, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %67, %.preheader
   %76 = phi i32 [ %63, %.preheader ], [ %73, %67 ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
   %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
-  %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
+  %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not30 = icmp eq i32 %77, 0
   br i1 %.not30, label %80, label %78
 
 78:                                               ; preds = %.loopexit
-  %79 = tail call ptr @__errno_location() #9
+  %79 = tail call ptr @__errno_location() #10
   store i32 %77, ptr %79, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 133, ptr noundef nonnull @__func__.prep_g_init) #10
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_init) #11
   unreachable
 
 80:                                               ; preds = %.loopexit
@@ -212,48 +213,57 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %83
 
 83:                                               ; preds = %81, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret i32 %.1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
-declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #4
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @plugin_context_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @plugin_context_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @prep_g_fini() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @g_context_lock) #8
+define dso_local i32 @prep_g_fini() local_unnamed_addr #0 {
+  %1 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #9
+  %3 = tail call ptr @__errno_location() #10
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 150, ptr noundef nonnull @__func__.prep_g_fini) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.prep_g_fini) #11
   unreachable
 
 4:                                                ; preds = %0
@@ -269,68 +279,72 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
   %.pre22 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
+._crit_edge:                                      ; preds = %13, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.2, %13 ]
+  tail call void @slurm_xfree(ptr noundef nonnull @ops) #9
+  tail call void @slurm_xfree(ptr noundef nonnull @g_context) #9
+  tail call void @slurm_xfree(ptr noundef nonnull @prep_plugin_list) #9
+  store i32 -1, ptr @g_context_cnt, align 4
+  br label %18
+
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %14, %13 ]
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
+  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %13 ]
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #8
+  %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #9
   %.not17 = icmp eq i32 %12, 0
   %spec.select = select i1 %.not17, i32 %.020, i32 %12
   %.pre = load ptr, ptr @g_context, align 8
   %.pre23 = load i32, ptr @g_context_cnt, align 4
   br label %13
 
-13:                                               ; preds = %11, %.lr.ph
-  %14 = phi i32 [ %7, %.lr.ph ], [ %.pre23, %11 ]
-  %15 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %.1 = phi i32 [ %.020, %.lr.ph ], [ %spec.select, %11 ]
+13:                                               ; preds = %.lr.ph, %11
+  %14 = phi i32 [ %.pre23, %11 ], [ %7, %.lr.ph ]
+  %15 = phi ptr [ %.pre, %11 ], [ %8, %.lr.ph ]
+  %.2 = phi i32 [ %spec.select, %11 ], [ %.020, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
-
-._crit_edge:                                      ; preds = %13, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
-  tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
-  tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
-  tail call void @slurm_xfree(ptr noundef nonnull @prep_plugin_list) #8
-  store i32 -1, ptr @g_context_cnt, align 4
-  br label %18
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 18:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
-  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
+  %.3 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
+  %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @__errno_location() #9
+  %21 = tail call ptr @__errno_location() #10
   store i32 %19, ptr %21, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @__func__.prep_g_fini) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_fini) #11
   unreachable
 
 22:                                               ; preds = %18
-  ret i32 %.2
+  ret i32 %.3
 }
 
-declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
+declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
   %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %7 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  %7 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.preheader, label %11
 
@@ -340,63 +354,71 @@ define i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @__errno_location() #9
+  %12 = tail call ptr @__errno_location() #10
   store i32 %8, ptr %12, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 185, ptr noundef nonnull @__func__.prep_g_prolog) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_prolog) #11
   unreachable
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %13, 0
+  br i1 %.not13, label %25, label %23
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 1
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #8
+  %14 = load ptr, ptr @ops, align 8
+  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv, i32 1
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
-
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  %21 = icmp eq i32 %17, 0
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #9
-  store i32 %22, ptr %24, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 188, ptr noundef nonnull @__func__.prep_g_prolog) #10
+  %24 = tail call ptr @__errno_location() #10
+  store i32 %13, ptr %24, align 4
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_prolog) #11
   unreachable
 
 25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
-  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog, i64 noundef 0, ptr noundef nonnull %6) #8
+  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog, i64 noundef 0, ptr noundef nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [20 x i8], align 16
   %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %7 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  %7 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.preheader, label %11
 
@@ -406,53 +428,61 @@ define i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @__errno_location() #9
+  %12 = tail call ptr @__errno_location() #10
   store i32 %8, ptr %12, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 202, ptr noundef nonnull @__func__.prep_g_epilog) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_epilog) #11
   unreachable
+
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %17, %.lr.ph ]
+  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not13 = icmp eq i32 %13, 0
+  br i1 %.not13, label %25, label %23
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 2
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #8
+  %14 = load ptr, ptr @ops, align 8
+  %15 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %14, i64 %indvars.iv, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = load i32, ptr @g_context_cnt, align 4
-  %18 = sext i32 %17 to i64
-  %19 = icmp slt i64 %indvars.iv.next, %18
-  %20 = icmp eq i32 %16, 0
-  %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
-
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
-  %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not13 = icmp eq i32 %22, 0
-  br i1 %.not13, label %25, label %23
+  %18 = load i32, ptr @g_context_cnt, align 4
+  %19 = sext i32 %18 to i64
+  %20 = icmp slt i64 %indvars.iv.next, %19
+  %21 = icmp eq i32 %17, 0
+  %22 = select i1 %20, i1 %21, i1 false
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @__errno_location() #9
-  store i32 %22, ptr %24, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 205, ptr noundef nonnull @__func__.prep_g_epilog) #10
+  %24 = tail call ptr @__errno_location() #10
+  store i32 %13, ptr %24, align 4
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_epilog) #11
   unreachable
 
 25:                                               ; preds = %._crit_edge
-  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
-  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog, i64 noundef 0, ptr noundef nonnull %6) #8
+  %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #9
+  call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog, i64 noundef 0, ptr noundef nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %7 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #8
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  %7 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.preheader, label %12
 
@@ -462,68 +492,78 @@ define void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  br label %14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  br label %15
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @__errno_location() #9
+  %13 = tail call ptr @__errno_location() #10
   store i32 %8, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 219, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #11
   unreachable
 
-14:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  store i8 0, ptr %6, align 1
-  %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 3
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
-  %19 = load i8, ptr %6, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %14
-  %22 = load i32, ptr %11, align 8
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %11, align 8
-  br label %24
-
-24:                                               ; preds = %14, %21
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr @g_context_cnt, align 4
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  %28 = icmp eq i32 %18, 0
-  %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %14, label %._crit_edge, !llvm.loop !14
-
-._crit_edge:                                      ; preds = %24, %.preheader
-  %30 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
-  %.not12 = icmp eq i32 %30, 0
+._crit_edge:                                      ; preds = %25, %.preheader
+  %14 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
+  %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %33, label %31
 
+15:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
+  store i8 0, ptr %6, align 1
+  %16 = load ptr, ptr @ops, align 8
+  %17 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %16, i64 %indvars.iv, i32 3
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 %18(ptr noundef %0, ptr noundef nonnull %6) #9
+  %20 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %21 = trunc nuw i8 %20 to i1
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %15
+  %23 = load i32, ptr %11, align 8
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %11, align 8
+  br label %25
+
+25:                                               ; preds = %22, %15
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %26 = load i32, ptr @g_context_cnt, align 4
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next, %27
+  %29 = icmp eq i32 %19, 0
+  %30 = select i1 %28, i1 %29, i1 false
+  br i1 %30, label %15, label %._crit_edge, !llvm.loop !19
+
 31:                                               ; preds = %._crit_edge
-  %32 = tail call ptr @__errno_location() #9
-  store i32 %30, ptr %32, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #10
+  %32 = tail call ptr @__errno_location() #10
+  store i32 %14, ptr %32, align 4
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld) #11
   unreachable
 
 33:                                               ; preds = %._crit_edge
-  %34 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #8
+  %34 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca [20 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %7 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #8
-  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  %7 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #9
+  %8 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.preheader, label %12
 
@@ -533,46 +573,48 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 700
-  br label %14
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 708
+  br label %16
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @__errno_location() #9
+  %13 = tail call ptr @__errno_location() #10
   store i32 %8, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 240, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #11
   unreachable
 
-14:                                               ; preds = %.lr.ph, %24
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  store i8 0, ptr %6, align 1
-  %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 4
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
-  %19 = load i8, ptr %6, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %24
-
-21:                                               ; preds = %14
-  %22 = load i32, ptr %11, align 4
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %11, align 4
-  br label %24
-
-24:                                               ; preds = %14, %21
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = load i32, ptr @g_context_cnt, align 4
-  %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next, %26
-  %28 = icmp eq i32 %18, 0
-  %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %14, label %._crit_edge, !llvm.loop !15
-
-._crit_edge:                                      ; preds = %24, %.preheader
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 700
-  %31 = load i32, ptr %30, align 4
-  %.not14 = icmp eq i32 %31, 0
+._crit_edge:                                      ; preds = %26, %.preheader
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 708
+  %15 = load i32, ptr %14, align 4
+  %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %34, label %32
+
+16:                                               ; preds = %.lr.ph, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
+  store i8 0, ptr %6, align 1
+  %17 = load ptr, ptr @ops, align 8
+  %18 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %17, i64 %indvars.iv, i32 4
+  %19 = load ptr, ptr %18, align 8
+  %20 = call i32 %19(ptr noundef %0, ptr noundef nonnull %6) #9
+  %21 = load i8, ptr %6, align 1, !range !11, !noundef !12
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %16
+  %24 = load i32, ptr %11, align 4
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %11, align 4
+  br label %26
+
+26:                                               ; preds = %23, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %27 = load i32, ptr @g_context_cnt, align 4
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
+  %30 = icmp eq i32 %20, 0
+  %31 = select i1 %29, i1 %30, i1 false
+  br i1 %31, label %16, label %._crit_edge, !llvm.loop !20
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -580,80 +622,90 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br label %34
 
 34:                                               ; preds = %._crit_edge, %32
-  %35 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
+  %35 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not15 = icmp eq i32 %35, 0
   br i1 %.not15, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @__errno_location() #9
+  %37 = tail call ptr @__errno_location() #10
   store i32 %35, ptr %37, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 253, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #10
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld) #11
   unreachable
 
 38:                                               ; preds = %34
-  %39 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #8
-  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #8
+  %39 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #9
+  call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog_slurmctld, i64 noundef 0, ptr noundef nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #8
+define dso_local zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull @g_context_lock) #9
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @__errno_location() #9
+  %4 = tail call ptr @__errno_location() #10
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 263, ptr noundef nonnull @__func__.prep_g_required) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.prep_g_required) #11
   unreachable
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
   %7 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1
-  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
+  %8 = load i8, ptr %7, align 1, !range !11, !noundef !12
+  %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #9
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @__errno_location() #9
+  %11 = tail call ptr @__errno_location() #10
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 265, ptr noundef nonnull @__func__.prep_g_required) #10
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.prep_g_required) #11
   unreachable
 
 12:                                               ; preds = %5
-  %13 = trunc i8 %8 to i1
+  %13 = trunc nuw i8 %8 to i1
   ret i1 %13
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.partial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

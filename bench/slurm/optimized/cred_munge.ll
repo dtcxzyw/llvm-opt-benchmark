@@ -3,11 +3,11 @@ source_filename = "bench/slurm/original/cred_munge.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 
-@plugin_name = constant [34 x i8] c"Munge credential signature plugin\00", align 16
-@plugin_type = constant [11 x i8] c"cred/munge\00", align 1
-@plugin_version = local_unnamed_addr constant i32 1574912, align 4
+@plugin_name = dso_local constant [34 x i8] c"Munge credential signature plugin\00", align 16
+@plugin_type = dso_local constant [11 x i8] c"cred/munge\00", align 1
+@plugin_version = dso_local local_unnamed_addr constant i32 1639680, align 4
 @.str = private unnamed_addr constant [18 x i8] c"%s: %s: %s loaded\00", align 1
 @__func__.init = private unnamed_addr constant [5 x i8] c"init\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"%s: %s: %s unloaded\00", align 1
@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [32 x i8] c"%s: sbcast_cred_unpack() failed\00", align 1
 @__func__.sbcast_p_unpack = private unnamed_addr constant [16 x i8] c"sbcast_p_unpack\00", align 1
 @.str.8 = private unnamed_addr constant [30 x i8] c"%s: sbcast credential expired\00", align 1
-@slurm_conf = local_unnamed_addr global %struct.slurm_conf_t zeroinitializer, align 8
+@slurm_conf = dso_local local_unnamed_addr global %struct.slurm_conf_t zeroinitializer, align 8
 @.str.9 = private unnamed_addr constant [47 x i8] c"%s: %s: Munge encode failed: %s (retrying ...)\00", align 1
 @__func__._encode = private unnamed_addr constant [8 x i8] c"_encode\00", align 1
 @.str.10 = private unnamed_addr constant [47 x i8] c"If munged is up, restart with --num-threads=10\00", align 1
@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [42 x i8] c"%s: Unexpected uid (%u) != Slurm uid (%u)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @init() local_unnamed_addr #0 {
+define dso_local noundef i32 @init() local_unnamed_addr #0 {
   %1 = tail call i32 @slurm_get_log_level() #7
   %2 = icmp sgt i32 %1, 3
   br i1 %2, label %3, label %4
@@ -58,7 +58,7 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fini() local_unnamed_addr #0 {
+define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   %1 = tail call i32 @slurm_get_log_level() #7
   %2 = icmp sgt i32 %1, 3
   br i1 %2, label %3, label %4
@@ -72,7 +72,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @cred_create(ptr noundef %0, i16 noundef zeroext %2) #7
   br i1 %1, label %5, label %12
 
@@ -116,11 +116,15 @@ define ptr @cred_p_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zer
   ret ptr %.012
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare ptr @cred_create(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_encode(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   %3 = tail call fastcc ptr @_munge_ctx_create()
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %.preheader
@@ -177,6 +181,7 @@ define internal fastcc ptr @_encode(ptr noundef readonly captures(none) %0) unna
 
 25:                                               ; preds = %.sink.split, %1
   %.0 = phi ptr [ null, %1 ], [ %.0.ph, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   ret ptr %.0
 }
 
@@ -185,12 +190,15 @@ declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 declare void @slurm_cred_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) #7
   %.not = icmp eq ptr %4, null
@@ -214,7 +222,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr null, ptr %3, align 8
   %18 = call fastcc i32 @_decode(ptr noundef %17, i1 noundef zeroext false, ptr noundef %3, ptr noundef null)
   %.not.i = icmp eq i32 %18, 0
@@ -239,7 +247,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   %.not10.i = icmp eq i32 %bcmp.i, 0
   tail call void @free(ptr noundef %25) #7
   call void @slurm_xfree(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   br i1 %.not10.i, label %28, label %27
 
 .critedge12:                                      ; preds = %20
@@ -248,7 +256,7 @@ define ptr @cred_p_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %.critedge12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   br label %27
 
 27:                                               ; preds = %.sink.split, %._crit_edge.i
@@ -270,7 +278,7 @@ declare ptr @cred_unpack_with_signature(ptr noundef, i16 noundef zeroext) local_
 declare zeroext i1 @slurm_running_in_slurmd() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cred_p_create_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @cred_p_create_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_init_buf(i32 noundef 16384) #7
   tail call void @slurm_pack_node_alias_addrs(ptr noundef %0, ptr noundef %3, i16 noundef zeroext %1) #7
   %4 = tail call fastcc ptr @_encode(ptr noundef %3)
@@ -293,11 +301,14 @@ declare void @slurm_pack_node_alias_addrs(ptr noundef, ptr noundef, i16 noundef 
 declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
   %6 = call fastcc i32 @_decode(ptr noundef %0, i1 noundef zeroext true, ptr noundef %5, ptr noundef nonnull %3)
   %.not = icmp eq i32 %6, 0
@@ -347,6 +358,9 @@ define ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroext %1) loca
 
 27:                                               ; preds = %12, %15, %25, %7
   %.0 = phi ptr [ null, %7 ], [ %26, %25 ], [ null, %15 ], [ null, %12 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret ptr %.0
 }
 
@@ -358,7 +372,11 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   %11 = tail call fastcc ptr @_munge_ctx_create()
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %49, label %.preheader
@@ -426,6 +444,8 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
   br i1 %.not30, label %41, label %34
 
 34:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
   %35 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef nonnull %11, i32 noundef 4, ptr noundef nonnull %9) #7
   %36 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %10) #7
   %37 = load i64, ptr %10, align 8
@@ -433,6 +453,8 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
   %39 = sext i32 %38 to i64
   %40 = add nsw i64 %37, %39
   store i64 %40, ptr %3, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   br label %41
 
 41:                                               ; preds = %34, %33
@@ -459,20 +481,25 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
 
 49:                                               ; preds = %4, %48, %41
   %.0 = phi i32 [ %.021, %48 ], [ 0, %41 ], [ -1, %4 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %.0
 }
 
 declare i32 @slurm_unpack_node_alias_addrs(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_p_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @sbcast_p_create(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 391, ptr noundef nonnull @__func__.sbcast_p_create) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %5 = tail call ptr @sbcast_cred_pack(ptr noundef %0, i16 noundef zeroext %1) #7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %5, ptr %6, align 8
@@ -497,6 +524,7 @@ define ptr @sbcast_p_create(ptr noundef %0, i16 noundef zeroext %1) local_unname
 
 15:                                               ; preds = %10, %8
   %.08 = phi ptr [ %4, %10 ], [ null, %8 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret ptr %.08
 }
 
@@ -507,11 +535,12 @@ declare ptr @sbcast_cred_pack(ptr noundef, i16 noundef zeroext) local_unnamed_ad
 declare void @delete_sbcast_cred(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4
   %8 = call ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext %2) #7
   %.not = icmp eq ptr %8, null
@@ -544,7 +573,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   %24 = load i32, ptr %5, align 4
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store ptr null, ptr %4, align 8
   %27 = call fastcc i32 @_decode(ptr noundef %26, i1 noundef zeroext false, ptr noundef %4, ptr noundef null)
   %.not.i = icmp eq i32 %27, 0
@@ -569,7 +598,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   %.not10.i = icmp eq i32 %bcmp.i, 0
   call void @free(ptr noundef %34) #7
   call void @slurm_xfree(ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br i1 %.not10.i, label %37, label %36
 
 .critedge14:                                      ; preds = %29
@@ -578,7 +607,7 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge, %.critedge14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %36
 
 36:                                               ; preds = %.sink.split, %._crit_edge.i
@@ -592,17 +621,19 @@ define ptr @sbcast_p_unpack(ptr noundef %0, i1 noundef zeroext %1, i16 noundef z
 
 39:                                               ; preds = %11, %37, %36, %17, %9
   %.0 = phi ptr [ null, %17 ], [ null, %36 ], [ null, %9 ], [ %8, %37 ], [ %8, %11 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret ptr %.0
 }
 
 declare ptr @sbcast_cred_unpack(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #4
+declare i64 @time(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_munge_ctx_create() unnamed_addr #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
   %2 = load i32, ptr @_munge_ctx_create.auth_ttl, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %5
@@ -658,6 +689,7 @@ define internal fastcc ptr @_munge_ctx_create() unnamed_addr #0 {
 
 25:                                               ; preds = %18, %20, %22, %15, %8
   %.0 = phi ptr [ null, %8 ], [ null, %15 ], [ null, %22 ], [ %6, %20 ], [ %6, %18 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   ret ptr %.0
 }
 
@@ -686,29 +718,25 @@ declare i32 @munge_ctx_get(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 declare ptr @slurm_create_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}

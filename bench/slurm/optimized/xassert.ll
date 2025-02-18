@@ -5,10 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [36 x i8] c"%s:%d: %s(): Assertion (%s) failed.\00", align 1
 
-@slurm_xassert_failed = alias void (ptr, ptr, i32, ptr), ptr @__xassert_failed
+@slurm_xassert_failed = dso_local alias void (ptr, ptr, i32, ptr), ptr @__xassert_failed
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define void @__xassert_failed(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define dso_local void @__xassert_failed(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %0) #3
   tail call void @log_flush() #3
   tail call void @abort() #4
@@ -28,11 +28,13 @@ attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trappi
 attributes #3 = { nounwind }
 attributes #4 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}

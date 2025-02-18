@@ -1,459 +1,80 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.assoc_mgr_lock_t = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.buf_t = type { i32, ptr, i32, i32, i8, i8 }
-%struct.job_record = type { i32, ptr, ptr, ptr, ptr, i16, i32, i32, i32, ptr, i32, ptr, ptr, i16, ptr, double, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i64, i64, i32, i32, ptr, i16, i64, i64, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i64, ptr, ptr, ptr, %struct.acct_policy_limit_set_t, i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i16, ptr, ptr, i8, ptr, i8, i64, i64, i8, i32, i32, i8, i32, ptr, ptr, i32, i64, i32, ptr, ptr, i8, i16, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i16, i64, ptr, i32, i32, ptr, i64, ptr, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, ptr, i32, i32, i8, i64 }
+%struct.job_record = type { i32, ptr, ptr, ptr, ptr, i16, i32, i32, i32, ptr, i32, ptr, ptr, i16, ptr, double, i64, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i64, i64, i32, i32, ptr, i16, i64, i64, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i64, ptr, ptr, ptr, ptr, %struct.acct_policy_limit_set_t, i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i16, ptr, ptr, i8, ptr, ptr, i64, i64, i8, i32, i32, i8, i32, ptr, i32, i64, i32, ptr, ptr, ptr, i8, i16, i64, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i16, i64, ptr, i32, i32, ptr, i64, ptr, ptr, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, ptr, i32, i32, i8, i64 }
 %struct.acct_policy_limit_set_t = type { i16, i16, ptr }
-%struct.part_record_t = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, i32, i64, i32, i32, i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, double, i16, i16, i16, i16, ptr, ptr, i16, i16, i32, i16, i32, i32, i32, i32, i16, ptr, ptr, ptr }
-%struct.job_details_t = type { i32, ptr, i64, ptr, i32, ptr, i64, ptr, i16, i16, ptr, i16, i32, i32, i32, i16, ptr, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i16, i32, i32, i32, i32, i32, i32, i16, i16, i32, i8, i8, i16, i32, i32, i64, i64, i32, ptr, ptr, i8, i32, ptr, i64, ptr, ptr, i16, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i8, ptr, i16, ptr, ptr, i16 }
-%struct.slurmdb_assoc_rec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr }
-%struct.slurmdb_qos_rec_t = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, double, double, i64 }
+%struct.part_record = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i64, i32, i32, i16, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, double, i16, i16, i16, i16, ptr, ptr, i16, i16, i32, i16, i32, i32, i32, i32, i16, ptr, ptr, ptr }
+%struct.job_details_t = type { i32, ptr, i64, ptr, i32, ptr, i64, ptr, i16, i16, ptr, i16, i32, i32, i32, i16, ptr, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i16, i32, i32, i32, i32, i32, i32, i16, i16, i32, i8, i8, i32, i32, i64, i64, i16, i32, ptr, ptr, i8, ptr, i32, ptr, i64, ptr, ptr, i16, i16, i16, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i8, ptr, i16, ptr, ptr, i16 }
+%struct.slurmdb_assoc_rec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, ptr, ptr }
+%struct.slurmdb_qos_rec_t = type { i64, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, double, double }
+%struct.buf_t = type { i32, ptr, i32, i32, i8, i8 }
 %struct.slurmdb_assoc_usage = type { i32, ptr, ptr, ptr, ptr, ptr, double, double, i32, ptr, double, ptr, double, i32, x86_fp80, x86_fp80, x86_fp80, ptr, i32, i32, x86_fp80, ptr }
 
-@.str = private unnamed_addr constant [6 x i8] c"%s/%s\00", align 1
-@slurm_conf = external global %struct.slurm_conf_t, align 8
-@.str.1 = private unnamed_addr constant [41 x i8] c"Could not open jobcomp state file %s: %m\00", align 1
-@.str.2 = private unnamed_addr constant [72 x i8] c"NOTE: Trying backup jobcomp state save file. Finished jobs may be lost!\00", align 1
-@.str.3 = private unnamed_addr constant [5 x i8] c".old\00", align 1
-@.str.4 = private unnamed_addr constant [48 x i8] c"Could not open backup jobcomp state file %s: %m\00", align 1
-@.str.5 = private unnamed_addr constant [7 x i8] c"%s.old\00", align 1
-@.str.6 = private unnamed_addr constant [7 x i8] c"%s.new\00", align 1
-@.str.7 = private unnamed_addr constant [9 x i8] c"creating\00", align 1
-@.str.8 = private unnamed_addr constant [8 x i8] c"writing\00", align 1
-@.str.9 = private unnamed_addr constant [52 x i8] c"%s: %s: %s:%d: %s: safe_write (%d of %d) failed: %m\00", align 1
-@plugin_type = external constant [0 x i8], align 1
-@__func__.jobcomp_common_write_state_file = private unnamed_addr constant [32 x i8] c"jobcomp_common_write_state_file\00", align 1
-@.str.10 = private unnamed_addr constant [17 x i8] c"jobcomp_common.c\00", align 1
-@.str.11 = private unnamed_addr constant [55 x i8] c"%s: %s: %s:%d: %s: safe_write (%d of %d) partial write\00", align 1
-@.str.12 = private unnamed_addr constant [47 x i8] c"%s: %s: unable to create link for %s -> %s: %m\00", align 1
-@.str.13 = private unnamed_addr constant [39 x i8] c"Can't save state, error %s file %s: %m\00", align 1
-@.str.14 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.15 = private unnamed_addr constant [6 x i8] c"%d:%d\00", align 1
-@.str.16 = private unnamed_addr constant [6 x i8] c"jobid\00", align 1
-@.str.17 = private unnamed_addr constant [10 x i8] c"container\00", align 1
-@.str.18 = private unnamed_addr constant [9 x i8] c"username\00", align 1
-@.str.19 = private unnamed_addr constant [8 x i8] c"user_id\00", align 1
-@.str.20 = private unnamed_addr constant [10 x i8] c"groupname\00", align 1
-@.str.21 = private unnamed_addr constant [9 x i8] c"group_id\00", align 1
-@.str.22 = private unnamed_addr constant [7 x i8] c"@start\00", align 1
-@.str.23 = private unnamed_addr constant [5 x i8] c"@end\00", align 1
-@.str.24 = private unnamed_addr constant [8 x i8] c"elapsed\00", align 1
-@.str.25 = private unnamed_addr constant [10 x i8] c"partition\00", align 1
-@.str.26 = private unnamed_addr constant [11 x i8] c"alloc_node\00", align 1
-@.str.27 = private unnamed_addr constant [6 x i8] c"nodes\00", align 1
-@.str.28 = private unnamed_addr constant [11 x i8] c"total_cpus\00", align 1
-@.str.29 = private unnamed_addr constant [12 x i8] c"total_nodes\00", align 1
-@.str.30 = private unnamed_addr constant [11 x i8] c"derived_ec\00", align 1
-@.str.31 = private unnamed_addr constant [10 x i8] c"exit_code\00", align 1
-@.str.32 = private unnamed_addr constant [6 x i8] c"state\00", align 1
-@.str.33 = private unnamed_addr constant [12 x i8] c"failed_node\00", align 1
-@.str.34 = private unnamed_addr constant [10 x i8] c"cpu_hours\00", align 1
-@.str.35 = private unnamed_addr constant [13 x i8] c"array_job_id\00", align 1
-@.str.36 = private unnamed_addr constant [14 x i8] c"array_task_id\00", align 1
-@.str.37 = private unnamed_addr constant [12 x i8] c"pack_job_id\00", align 1
-@.str.38 = private unnamed_addr constant [16 x i8] c"pack_job_offset\00", align 1
-@.str.39 = private unnamed_addr constant [11 x i8] c"het_job_id\00", align 1
-@.str.40 = private unnamed_addr constant [15 x i8] c"het_job_offset\00", align 1
-@.str.41 = private unnamed_addr constant [8 x i8] c"@submit\00", align 1
-@.str.42 = private unnamed_addr constant [10 x i8] c"@eligible\00", align 1
-@.str.43 = private unnamed_addr constant [12 x i8] c"@queue_wait\00", align 1
-@.str.44 = private unnamed_addr constant [9 x i8] c"work_dir\00", align 1
-@.str.45 = private unnamed_addr constant [8 x i8] c"std_err\00", align 1
-@.str.46 = private unnamed_addr constant [7 x i8] c"std_in\00", align 1
-@.str.47 = private unnamed_addr constant [8 x i8] c"std_out\00", align 1
-@.str.48 = private unnamed_addr constant [8 x i8] c"cluster\00", align 1
-@.str.49 = private unnamed_addr constant [4 x i8] c"qos\00", align 1
-@.str.50 = private unnamed_addr constant [7 x i8] c"ntasks\00", align 1
-@.str.51 = private unnamed_addr constant [16 x i8] c"ntasks_per_node\00", align 1
-@.str.52 = private unnamed_addr constant [16 x i8] c"ntasks_per_tres\00", align 1
-@.str.53 = private unnamed_addr constant [14 x i8] c"cpus_per_task\00", align 1
-@.str.54 = private unnamed_addr constant [16 x i8] c"orig_dependency\00", align 1
-@.str.55 = private unnamed_addr constant [15 x i8] c"excluded_nodes\00", align 1
-@.str.56 = private unnamed_addr constant [9 x i8] c"features\00", align 1
-@.str.57 = private unnamed_addr constant [11 x i8] c"time_limit\00", align 1
-@.str.58 = private unnamed_addr constant [9 x i8] c"job_name\00", align 1
-@.str.59 = private unnamed_addr constant [17 x i8] c"reservation_name\00", align 1
-@.str.60 = private unnamed_addr constant [7 x i8] c"wc_key\00", align 1
-@.str.61 = private unnamed_addr constant [13 x i8] c"tres_req_raw\00", align 1
-@.str.62 = private unnamed_addr constant [9 x i8] c"tres_req\00", align 1
-@.str.63 = private unnamed_addr constant [15 x i8] c"tres_alloc_raw\00", align 1
-@.str.64 = private unnamed_addr constant [11 x i8] c"tres_alloc\00", align 1
-@.str.65 = private unnamed_addr constant [8 x i8] c"account\00", align 1
-@.str.66 = private unnamed_addr constant [7 x i8] c"script\00", align 1
+@.str = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.1 = private unnamed_addr constant [6 x i8] c"%d:%d\00", align 1
+@.str.2 = private unnamed_addr constant [6 x i8] c"jobid\00", align 1
+@.str.3 = private unnamed_addr constant [10 x i8] c"container\00", align 1
+@.str.4 = private unnamed_addr constant [9 x i8] c"username\00", align 1
+@.str.5 = private unnamed_addr constant [8 x i8] c"user_id\00", align 1
+@.str.6 = private unnamed_addr constant [10 x i8] c"groupname\00", align 1
+@.str.7 = private unnamed_addr constant [9 x i8] c"group_id\00", align 1
+@.str.8 = private unnamed_addr constant [7 x i8] c"@start\00", align 1
+@.str.9 = private unnamed_addr constant [5 x i8] c"@end\00", align 1
+@.str.10 = private unnamed_addr constant [8 x i8] c"elapsed\00", align 1
+@.str.11 = private unnamed_addr constant [10 x i8] c"partition\00", align 1
+@.str.12 = private unnamed_addr constant [11 x i8] c"alloc_node\00", align 1
+@.str.13 = private unnamed_addr constant [6 x i8] c"nodes\00", align 1
+@.str.14 = private unnamed_addr constant [11 x i8] c"total_cpus\00", align 1
+@.str.15 = private unnamed_addr constant [12 x i8] c"total_nodes\00", align 1
+@.str.16 = private unnamed_addr constant [11 x i8] c"derived_ec\00", align 1
+@.str.17 = private unnamed_addr constant [10 x i8] c"exit_code\00", align 1
+@.str.18 = private unnamed_addr constant [6 x i8] c"state\00", align 1
+@.str.19 = private unnamed_addr constant [12 x i8] c"failed_node\00", align 1
+@.str.20 = private unnamed_addr constant [10 x i8] c"cpu_hours\00", align 1
+@.str.21 = private unnamed_addr constant [13 x i8] c"array_job_id\00", align 1
+@.str.22 = private unnamed_addr constant [14 x i8] c"array_task_id\00", align 1
+@.str.23 = private unnamed_addr constant [12 x i8] c"pack_job_id\00", align 1
+@.str.24 = private unnamed_addr constant [16 x i8] c"pack_job_offset\00", align 1
+@.str.25 = private unnamed_addr constant [11 x i8] c"het_job_id\00", align 1
+@.str.26 = private unnamed_addr constant [15 x i8] c"het_job_offset\00", align 1
+@.str.27 = private unnamed_addr constant [9 x i8] c"priority\00", align 1
+@.str.28 = private unnamed_addr constant [8 x i8] c"@submit\00", align 1
+@.str.29 = private unnamed_addr constant [10 x i8] c"@eligible\00", align 1
+@.str.30 = private unnamed_addr constant [12 x i8] c"@queue_wait\00", align 1
+@.str.31 = private unnamed_addr constant [9 x i8] c"work_dir\00", align 1
+@.str.32 = private unnamed_addr constant [8 x i8] c"std_err\00", align 1
+@.str.33 = private unnamed_addr constant [7 x i8] c"std_in\00", align 1
+@.str.34 = private unnamed_addr constant [8 x i8] c"std_out\00", align 1
+@.str.35 = private unnamed_addr constant [8 x i8] c"cluster\00", align 1
+@.str.36 = private unnamed_addr constant [4 x i8] c"qos\00", align 1
+@.str.37 = private unnamed_addr constant [7 x i8] c"ntasks\00", align 1
+@.str.38 = private unnamed_addr constant [16 x i8] c"ntasks_per_node\00", align 1
+@.str.39 = private unnamed_addr constant [16 x i8] c"ntasks_per_tres\00", align 1
+@.str.40 = private unnamed_addr constant [14 x i8] c"cpus_per_task\00", align 1
+@.str.41 = private unnamed_addr constant [16 x i8] c"orig_dependency\00", align 1
+@.str.42 = private unnamed_addr constant [15 x i8] c"excluded_nodes\00", align 1
+@.str.43 = private unnamed_addr constant [9 x i8] c"features\00", align 1
+@.str.44 = private unnamed_addr constant [11 x i8] c"time_limit\00", align 1
+@.str.45 = private unnamed_addr constant [9 x i8] c"job_name\00", align 1
+@.str.46 = private unnamed_addr constant [17 x i8] c"reservation_name\00", align 1
+@.str.47 = private unnamed_addr constant [7 x i8] c"wc_key\00", align 1
+@.str.48 = private unnamed_addr constant [13 x i8] c"tres_req_raw\00", align 1
+@.str.49 = private unnamed_addr constant [9 x i8] c"tres_req\00", align 1
+@.str.50 = private unnamed_addr constant [15 x i8] c"tres_alloc_raw\00", align 1
+@.str.51 = private unnamed_addr constant [11 x i8] c"tres_alloc\00", align 1
+@.str.52 = private unnamed_addr constant [8 x i8] c"account\00", align 1
+@.str.53 = private unnamed_addr constant [7 x i8] c"script\00", align 1
 @__const.jobcomp_common_job_record_to_data.locks = private unnamed_addr constant %struct.assoc_mgr_lock_t { i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0 }, align 4
+@.str.54 = private unnamed_addr constant [17 x i8] c"jobcomp_common.c\00", align 1
 @__func__.jobcomp_common_job_record_to_data = private unnamed_addr constant [34 x i8] c"jobcomp_common_job_record_to_data\00", align 1
-@.str.67 = private unnamed_addr constant [4 x i8] c"/%s\00", align 1
-@.str.68 = private unnamed_addr constant [16 x i8] c"parent_accounts\00", align 1
+@.str.55 = private unnamed_addr constant [4 x i8] c"/%s\00", align 1
+@.str.56 = private unnamed_addr constant [16 x i8] c"parent_accounts\00", align 1
+@.str.57 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.58 = private unnamed_addr constant [5 x i8] c"none\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @jobcomp_common_load_state_file(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %4, ptr noundef @.str, ptr noundef %7, ptr noundef %8)
-  %9 = load ptr, ptr %4, align 8
-  %10 = call ptr @create_mmap_buf(ptr noundef %9)
-  store ptr %10, ptr %5, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %14
-
-12:                                               ; preds = %1
-  call void @slurm_xfree(ptr noundef %4)
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %2, align 8
-  br label %26
-
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %4, align 8
-  %16 = call i32 (ptr, ...) @error(ptr noundef @.str.1, ptr noundef %15)
-  %17 = call i32 (ptr, ...) @error(ptr noundef @.str.2)
-  call void @_xstrcat(ptr noundef %4, ptr noundef @.str.3)
-  %18 = load ptr, ptr %4, align 8
-  %19 = call ptr @create_mmap_buf(ptr noundef %18)
-  store ptr %19, ptr %5, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %24, label %21
-
-21:                                               ; preds = %14
-  %22 = load ptr, ptr %4, align 8
-  %23 = call i32 (ptr, ...) @error(ptr noundef @.str.4, ptr noundef %22)
-  br label %24
-
-24:                                               ; preds = %21, %14
-  call void @slurm_xfree(ptr noundef %4)
-  %25 = load ptr, ptr %5, align 8
-  store ptr %25, ptr %2, align 8
-  br label %26
-
-26:                                               ; preds = %24, %12
-  %27 = load ptr, ptr %2, align 8
-  ret ptr %27
-}
-
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #1
-
-declare ptr @create_mmap_buf(ptr noundef) #1
-
-declare void @slurm_xfree(ptr noundef) #1
-
-declare i32 @error(ptr noundef, ...) #1
-
-declare void @_xstrcat(ptr noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define void @jobcomp_common_write_state_file(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i8, align 1
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  store i8 1, ptr %6, align 1
-  store ptr null, ptr %7, align 8
-  store ptr null, ptr %8, align 8
-  store ptr null, ptr %9, align 8
-  store ptr null, ptr %10, align 8
-  %14 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 195
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %7, ptr noundef @.str, ptr noundef %15, ptr noundef %16)
-  %17 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %9, ptr noundef @.str.5, ptr noundef %17)
-  %18 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %8, ptr noundef @.str.6, ptr noundef %18)
-  %19 = load ptr, ptr %8, align 8
-  %20 = call i32 @creat(ptr noundef %19, i32 noundef 384)
-  store i32 %20, ptr %5, align 4
-  %21 = icmp slt i32 %20, 0
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %2
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.7)
-  br label %134
-
-23:                                               ; preds = %2
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.8)
-  br label %24
-
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.buf_t, ptr %25, i32 0, i32 3
-  %27 = load i32, ptr %26, align 4
-  store i32 %27, ptr %11, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.buf_t, ptr %28, i32 0, i32 1
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %12, align 8
-  br label %31
-
-31:                                               ; preds = %89, %51, %24
-  %32 = load i32, ptr %11, align 4
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %90
-
-34:                                               ; preds = %31
-  %35 = load i32, ptr %5, align 4
-  %36 = load ptr, ptr %12, align 8
-  %37 = load i32, ptr %11, align 4
-  %38 = sext i32 %37 to i64
-  %39 = call i64 @write(i32 noundef %35, ptr noundef %36, i64 noundef %38)
-  %40 = trunc i64 %39 to i32
-  store i32 %40, ptr %13, align 4
-  %41 = load i32, ptr %13, align 4
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %65
-
-43:                                               ; preds = %34
-  %44 = call ptr @__errno_location() #5
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 11
-  br i1 %46, label %51, label %47
-
-47:                                               ; preds = %43
-  %48 = call ptr @__errno_location() #5
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp eq i32 %49, 4
-  br i1 %50, label %51, label %52
-
-51:                                               ; preds = %47, %43
-  br label %31, !llvm.loop !6
-
-52:                                               ; preds = %47
-  br label %53
-
-53:                                               ; preds = %52
-  br label %54
-
-54:                                               ; preds = %53
-  %55 = call i32 @get_log_level()
-  %56 = icmp sge i32 %55, 5
-  br i1 %56, label %57, label %62
-
-57:                                               ; preds = %54
-  %58 = load i32, ptr %11, align 4
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.buf_t, ptr %59, i32 0, i32 3
-  %61 = load i32, ptr %60, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.jobcomp_common_write_state_file, ptr noundef @.str.10, i32 noundef 96, ptr noundef @__func__.jobcomp_common_write_state_file, i32 noundef %58, i32 noundef %61)
-  br label %62
-
-62:                                               ; preds = %57, %54
-  br label %63
-
-63:                                               ; preds = %62
-  br label %64
-
-64:                                               ; preds = %63
-  br label %134
-
-65:                                               ; preds = %34
-  %66 = load i32, ptr %13, align 4
-  %67 = load ptr, ptr %12, align 8
-  %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store ptr %69, ptr %12, align 8
-  %70 = load i32, ptr %13, align 4
-  %71 = load i32, ptr %11, align 4
-  %72 = sub nsw i32 %71, %70
-  store i32 %72, ptr %11, align 4
-  %73 = load i32, ptr %11, align 4
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %75, label %88
-
-75:                                               ; preds = %65
-  br label %76
-
-76:                                               ; preds = %75
-  br label %77
-
-77:                                               ; preds = %76
-  %78 = call i32 @get_log_level()
-  %79 = icmp sge i32 %78, 7
-  br i1 %79, label %80, label %85
-
-80:                                               ; preds = %77
-  %81 = load i32, ptr %11, align 4
-  %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.buf_t, ptr %82, i32 0, i32 3
-  %84 = load i32, ptr %83, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.jobcomp_common_write_state_file, ptr noundef @.str.10, i32 noundef 96, ptr noundef @__func__.jobcomp_common_write_state_file, i32 noundef %81, i32 noundef %84)
-  br label %85
-
-85:                                               ; preds = %80, %77
-  br label %86
-
-86:                                               ; preds = %85
-  br label %87
-
-87:                                               ; preds = %86
-  br label %88
-
-88:                                               ; preds = %87, %65
-  br label %89
-
-89:                                               ; preds = %88
-  br label %31, !llvm.loop !6
-
-90:                                               ; preds = %31
-  br label %91
-
-91:                                               ; preds = %90
-  call void @slurm_xfree(ptr noundef %10)
-  store i8 0, ptr %6, align 1
-  %92 = load i32, ptr %5, align 4
-  %93 = load ptr, ptr %4, align 8
-  %94 = call i32 @fsync_and_close(i32 noundef %92, ptr noundef %93)
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %97
-
-96:                                               ; preds = %91
-  br label %134
-
-97:                                               ; preds = %91
-  %98 = load ptr, ptr %9, align 8
-  %99 = call i32 @unlink(ptr noundef %98) #6
-  %100 = load ptr, ptr %7, align 8
-  %101 = load ptr, ptr %9, align 8
-  %102 = call i32 @link(ptr noundef %100, ptr noundef %101) #6
-  %103 = icmp ne i32 %102, 0
-  br i1 %103, label %104, label %115
-
-104:                                              ; preds = %97
-  br label %105
-
-105:                                              ; preds = %104
-  br label %106
-
-106:                                              ; preds = %105
-  %107 = call i32 @get_log_level()
-  %108 = icmp sge i32 %107, 6
-  br i1 %108, label %109, label %112
-
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.jobcomp_common_write_state_file, ptr noundef %110, ptr noundef %111)
-  br label %112
-
-112:                                              ; preds = %109, %106
-  br label %113
-
-113:                                              ; preds = %112
-  br label %114
-
-114:                                              ; preds = %113
-  br label %115
-
-115:                                              ; preds = %114, %97
-  %116 = load ptr, ptr %7, align 8
-  %117 = call i32 @unlink(ptr noundef %116) #6
-  %118 = load ptr, ptr %8, align 8
-  %119 = load ptr, ptr %7, align 8
-  %120 = call i32 @link(ptr noundef %118, ptr noundef %119) #6
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %122, label %133
-
-122:                                              ; preds = %115
-  br label %123
-
-123:                                              ; preds = %122
-  br label %124
-
-124:                                              ; preds = %123
-  %125 = call i32 @get_log_level()
-  %126 = icmp sge i32 %125, 6
-  br i1 %126, label %127, label %130
-
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %8, align 8
-  %129 = load ptr, ptr %7, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.jobcomp_common_write_state_file, ptr noundef %128, ptr noundef %129)
-  br label %130
-
-130:                                              ; preds = %127, %124
-  br label %131
-
-131:                                              ; preds = %130
-  br label %132
-
-132:                                              ; preds = %131
-  br label %133
-
-133:                                              ; preds = %132, %115
-  br label %134
-
-134:                                              ; preds = %133, %96, %64, %22
-  %135 = load ptr, ptr %10, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %141
-
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %10, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = call i32 (ptr, ...) @error(ptr noundef @.str.13, ptr noundef %138, ptr noundef %139)
-  br label %141
-
-141:                                              ; preds = %137, %134
-  %142 = load i8, ptr %6, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %144, label %150
-
-144:                                              ; preds = %141
-  %145 = load i32, ptr %5, align 4
-  %146 = load ptr, ptr %4, align 8
-  %147 = call i32 @fsync_and_close(i32 noundef %145, ptr noundef %146)
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %150
-
-149:                                              ; preds = %144
-  br label %150
-
-150:                                              ; preds = %149, %144, %141
-  %151 = load ptr, ptr %8, align 8
-  %152 = call i32 @unlink(ptr noundef %151) #6
-  call void @slurm_xfree(ptr noundef %9)
-  call void @slurm_xfree(ptr noundef %7)
-  call void @slurm_xfree(ptr noundef %8)
-  call void @slurm_xfree(ptr noundef %10)
-  ret void
-}
-
-declare i32 @creat(ptr noundef, i32 noundef) #1
-
-declare i64 @write(i32 noundef, ptr noundef, i64 noundef) #1
-
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #2
-
-declare i32 @get_log_level() #1
-
-declare void @log_var(i32 noundef, ptr noundef, ...) #1
-
-declare i32 @fsync_and_close(i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind
-declare i32 @unlink(ptr noundef) #3
-
-; Function Attrs: nounwind
-declare i32 @link(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind uwtable
-define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
+define dso_local ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [32 x i8], align 16
   %4 = alloca [32 x i8], align 16
@@ -479,12 +100,28 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   %24 = alloca ptr, align 8
   %25 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr %4) #6
+  call void @llvm.lifetime.start.p0(i64 32, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
   store ptr null, ptr %18, align 8
   %26 = load ptr, ptr %2, align 8
   %27 = call ptr @user_from_job(ptr noundef %26)
@@ -493,37 +130,37 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   %29 = call ptr @group_from_job(ptr noundef %28)
   store ptr %29, ptr %7, align 8
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.job_record, ptr %30, i32 0, i32 128
+  %31 = getelementptr inbounds nuw %struct.job_record, ptr %30, i32 0, i32 133
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, -2
   br i1 %33, label %34, label %45
 
 34:                                               ; preds = %1
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds %struct.job_record, ptr %35, i32 0, i32 88
+  %36 = getelementptr inbounds nuw %struct.job_record, ptr %35, i32 0, i32 89
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds %struct.job_record, ptr %40, i32 0, i32 88
+  %41 = getelementptr inbounds nuw %struct.job_record, ptr %40, i32 0, i32 89
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.part_record_t, ptr %42, i32 0, i32 30
+  %43 = getelementptr inbounds nuw %struct.part_record, ptr %42, i32 0, i32 30
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %17, align 4
   br label %49
 
 45:                                               ; preds = %34, %1
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.job_record, ptr %46, i32 0, i32 128
+  %47 = getelementptr inbounds nuw %struct.job_record, ptr %46, i32 0, i32 133
   %48 = load i32, ptr %47, align 8
   store i32 %48, ptr %17, align 4
   br label %49
 
 49:                                               ; preds = %45, %39
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds %struct.job_record, ptr %50, i32 0, i32 60
+  %51 = getelementptr inbounds nuw %struct.job_record, ptr %50, i32 0, i32 60
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = and i64 %53, 8192
@@ -531,29 +168,30 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   br i1 %55, label %56, label %76
 
 56:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
   %57 = call i64 @time(ptr noundef null) #6
   store i64 %57, ptr %19, align 8
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.job_record, ptr %58, i32 0, i32 60
+  %59 = getelementptr inbounds nuw %struct.job_record, ptr %58, i32 0, i32 60
   %60 = load i32, ptr %59, align 8
   %61 = call ptr @job_state_string(i32 noundef %60)
   store ptr %61, ptr %8, align 8
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.job_record, ptr %62, i32 0, i32 106
+  %63 = getelementptr inbounds nuw %struct.job_record, ptr %62, i32 0, i32 107
   %64 = load i64, ptr %63, align 8
   %65 = icmp ne i64 %64, 0
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds %struct.job_record, ptr %67, i32 0, i32 106
+  %68 = getelementptr inbounds nuw %struct.job_record, ptr %67, i32 0, i32 107
   %69 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %68, ptr noundef %69, i32 noundef 32)
   br label %74
 
 70:                                               ; preds = %56
   %71 = load ptr, ptr %2, align 8
-  %72 = getelementptr inbounds %struct.job_record, ptr %71, i32 0, i32 120
+  %72 = getelementptr inbounds nuw %struct.job_record, ptr %71, i32 0, i32 124
   %73 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %72, ptr noundef %73, i32 noundef 32)
   br label %74
@@ -561,11 +199,12 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 74:                                               ; preds = %70, %66
   %75 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %19, ptr noundef %75, i32 noundef 32)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
   br label %111
 
 76:                                               ; preds = %49
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds %struct.job_record, ptr %77, i32 0, i32 60
+  %78 = getelementptr inbounds nuw %struct.job_record, ptr %77, i32 0, i32 60
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 255
   store i32 %80, ptr %12, align 4
@@ -573,36 +212,36 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   %82 = call ptr @job_state_string(i32 noundef %81)
   store ptr %82, ptr %8, align 8
   %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds %struct.job_record, ptr %83, i32 0, i32 106
+  %84 = getelementptr inbounds nuw %struct.job_record, ptr %83, i32 0, i32 107
   %85 = load i64, ptr %84, align 8
   %86 = icmp ne i64 %85, 0
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %76
   %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.job_record, ptr %88, i32 0, i32 106
+  %89 = getelementptr inbounds nuw %struct.job_record, ptr %88, i32 0, i32 107
   %90 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %89, ptr noundef %90, i32 noundef 32)
   br label %107
 
 91:                                               ; preds = %76
   %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds %struct.job_record, ptr %92, i32 0, i32 120
+  %93 = getelementptr inbounds nuw %struct.job_record, ptr %92, i32 0, i32 124
   %94 = load i64, ptr %93, align 8
   %95 = load ptr, ptr %2, align 8
-  %96 = getelementptr inbounds %struct.job_record, ptr %95, i32 0, i32 32
+  %96 = getelementptr inbounds nuw %struct.job_record, ptr %95, i32 0, i32 32
   %97 = load i64, ptr %96, align 8
   %98 = icmp sgt i64 %94, %97
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
-  %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %100, i64 noundef 32, ptr noundef @.str.14) #6
+  %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %100, i64 noundef 32, ptr noundef @.str) #6
   br label %106
 
 102:                                              ; preds = %91
   %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds %struct.job_record, ptr %103, i32 0, i32 120
+  %104 = getelementptr inbounds nuw %struct.job_record, ptr %103, i32 0, i32 124
   %105 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %104, ptr noundef %105, i32 noundef 32)
   br label %106
@@ -612,41 +251,41 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 107:                                              ; preds = %106, %87
   %108 = load ptr, ptr %2, align 8
-  %109 = getelementptr inbounds %struct.job_record, ptr %108, i32 0, i32 32
+  %109 = getelementptr inbounds nuw %struct.job_record, ptr %108, i32 0, i32 32
   %110 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
   call void @parse_time_make_str_utc(ptr noundef %109, ptr noundef %110, i32 noundef 32)
   br label %111
 
 111:                                              ; preds = %107, %74
   %112 = load ptr, ptr %2, align 8
-  %113 = getelementptr inbounds %struct.job_record, ptr %112, i32 0, i32 32
+  %113 = getelementptr inbounds nuw %struct.job_record, ptr %112, i32 0, i32 32
   %114 = load i64, ptr %113, align 8
   %115 = icmp ne i64 %114, 0
   br i1 %115, label %116, label %137
 
 116:                                              ; preds = %111
   %117 = load ptr, ptr %2, align 8
-  %118 = getelementptr inbounds %struct.job_record, ptr %117, i32 0, i32 120
+  %118 = getelementptr inbounds nuw %struct.job_record, ptr %117, i32 0, i32 124
   %119 = load i64, ptr %118, align 8
   %120 = icmp ne i64 %119, 0
   br i1 %120, label %121, label %137
 
 121:                                              ; preds = %116
   %122 = load ptr, ptr %2, align 8
-  %123 = getelementptr inbounds %struct.job_record, ptr %122, i32 0, i32 120
+  %123 = getelementptr inbounds nuw %struct.job_record, ptr %122, i32 0, i32 124
   %124 = load i64, ptr %123, align 8
   %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds %struct.job_record, ptr %125, i32 0, i32 32
+  %126 = getelementptr inbounds nuw %struct.job_record, ptr %125, i32 0, i32 32
   %127 = load i64, ptr %126, align 8
   %128 = icmp slt i64 %124, %127
   br i1 %128, label %129, label %137
 
 129:                                              ; preds = %121
   %130 = load ptr, ptr %2, align 8
-  %131 = getelementptr inbounds %struct.job_record, ptr %130, i32 0, i32 32
+  %131 = getelementptr inbounds nuw %struct.job_record, ptr %130, i32 0, i32 32
   %132 = load i64, ptr %131, align 8
   %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds %struct.job_record, ptr %133, i32 0, i32 120
+  %134 = getelementptr inbounds nuw %struct.job_record, ptr %133, i32 0, i32 124
   %135 = load i64, ptr %134, align 8
   %136 = sub nsw i64 %132, %135
   store i64 %136, ptr %16, align 8
@@ -660,7 +299,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
   store i32 0, ptr %15, align 4
   store i32 0, ptr %14, align 4
   %139 = load ptr, ptr %2, align 8
-  %140 = getelementptr inbounds %struct.job_record, ptr %139, i32 0, i32 29
+  %140 = getelementptr inbounds nuw %struct.job_record, ptr %139, i32 0, i32 29
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, -2
   br i1 %142, label %143, label %144
@@ -670,7 +309,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 144:                                              ; preds = %138
   %145 = load ptr, ptr %2, align 8
-  %146 = getelementptr inbounds %struct.job_record, ptr %145, i32 0, i32 29
+  %146 = getelementptr inbounds nuw %struct.job_record, ptr %145, i32 0, i32 29
   %147 = load i32, ptr %146, align 4
   %148 = and i32 %147, 127
   %149 = add i32 %148, 1
@@ -682,7 +321,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 154:                                              ; preds = %144
   %155 = load ptr, ptr %2, align 8
-  %156 = getelementptr inbounds %struct.job_record, ptr %155, i32 0, i32 29
+  %156 = getelementptr inbounds nuw %struct.job_record, ptr %155, i32 0, i32 29
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %157, 127
   store i32 %158, ptr %15, align 4
@@ -690,7 +329,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 159:                                              ; preds = %144
   %160 = load ptr, ptr %2, align 8
-  %161 = getelementptr inbounds %struct.job_record, ptr %160, i32 0, i32 29
+  %161 = getelementptr inbounds nuw %struct.job_record, ptr %160, i32 0, i32 29
   %162 = load i32, ptr %161, align 4
   %163 = and i32 %162, 127
   %164 = icmp eq i32 %163, 0
@@ -698,7 +337,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 165:                                              ; preds = %159
   %166 = load ptr, ptr %2, align 8
-  %167 = getelementptr inbounds %struct.job_record, ptr %166, i32 0, i32 29
+  %167 = getelementptr inbounds nuw %struct.job_record, ptr %166, i32 0, i32 29
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %168, 65280
   %170 = lshr i32 %169, 8
@@ -714,11 +353,11 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 173:                                              ; preds = %172, %143
   %174 = load i32, ptr %14, align 4
   %175 = load i32, ptr %15, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.15, i32 noundef %174, i32 noundef %175)
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %10, ptr noundef @.str.1, i32 noundef %174, i32 noundef %175)
   store i32 0, ptr %15, align 4
   store i32 0, ptr %14, align 4
   %176 = load ptr, ptr %2, align 8
-  %177 = getelementptr inbounds %struct.job_record, ptr %176, i32 0, i32 35
+  %177 = getelementptr inbounds nuw %struct.job_record, ptr %176, i32 0, i32 35
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, -2
   br i1 %179, label %180, label %181
@@ -728,7 +367,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 181:                                              ; preds = %173
   %182 = load ptr, ptr %2, align 8
-  %183 = getelementptr inbounds %struct.job_record, ptr %182, i32 0, i32 35
+  %183 = getelementptr inbounds nuw %struct.job_record, ptr %182, i32 0, i32 35
   %184 = load i32, ptr %183, align 4
   %185 = and i32 %184, 127
   %186 = add i32 %185, 1
@@ -740,7 +379,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 191:                                              ; preds = %181
   %192 = load ptr, ptr %2, align 8
-  %193 = getelementptr inbounds %struct.job_record, ptr %192, i32 0, i32 35
+  %193 = getelementptr inbounds nuw %struct.job_record, ptr %192, i32 0, i32 35
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 127
   store i32 %195, ptr %15, align 4
@@ -748,7 +387,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 196:                                              ; preds = %181
   %197 = load ptr, ptr %2, align 8
-  %198 = getelementptr inbounds %struct.job_record, ptr %197, i32 0, i32 35
+  %198 = getelementptr inbounds nuw %struct.job_record, ptr %197, i32 0, i32 35
   %199 = load i32, ptr %198, align 4
   %200 = and i32 %199, 127
   %201 = icmp eq i32 %200, 0
@@ -756,7 +395,7 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 
 202:                                              ; preds = %196
   %203 = load ptr, ptr %2, align 8
-  %204 = getelementptr inbounds %struct.job_record, ptr %203, i32 0, i32 35
+  %204 = getelementptr inbounds nuw %struct.job_record, ptr %203, i32 0, i32 35
   %205 = load i32, ptr %204, align 4
   %206 = and i32 %205, 65280
   %207 = lshr i32 %206, 8
@@ -772,959 +411,1109 @@ define ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #0 {
 210:                                              ; preds = %209, %180
   %211 = load i32, ptr %14, align 4
   %212 = load i32, ptr %15, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %9, ptr noundef @.str.15, i32 noundef %211, i32 noundef %212)
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %9, ptr noundef @.str.1, i32 noundef %211, i32 noundef %212)
   %213 = call ptr @data_new()
   %214 = call ptr @data_set_dict(ptr noundef %213)
   store ptr %214, ptr %18, align 8
   %215 = load ptr, ptr %18, align 8
-  %216 = call ptr @data_key_set(ptr noundef %215, ptr noundef @.str.16)
+  %216 = call ptr @data_key_set(ptr noundef %215, ptr noundef @.str.2)
   %217 = load ptr, ptr %2, align 8
-  %218 = getelementptr inbounds %struct.job_record, ptr %217, i32 0, i32 53
+  %218 = getelementptr inbounds nuw %struct.job_record, ptr %217, i32 0, i32 53
   %219 = load i32, ptr %218, align 8
   %220 = zext i32 %219 to i64
   %221 = call ptr @data_set_int(ptr noundef %216, i64 noundef %220)
   %222 = load ptr, ptr %18, align 8
-  %223 = call ptr @data_key_set(ptr noundef %222, ptr noundef @.str.17)
+  %223 = call ptr @data_key_set(ptr noundef %222, ptr noundef @.str.3)
   %224 = load ptr, ptr %2, align 8
-  %225 = getelementptr inbounds %struct.job_record, ptr %224, i32 0, i32 21
+  %225 = getelementptr inbounds nuw %struct.job_record, ptr %224, i32 0, i32 21
   %226 = load ptr, ptr %225, align 8
   %227 = call ptr @data_set_string(ptr noundef %223, ptr noundef %226)
   %228 = load ptr, ptr %18, align 8
-  %229 = call ptr @data_key_set(ptr noundef %228, ptr noundef @.str.18)
+  %229 = call ptr @data_key_set(ptr noundef %228, ptr noundef @.str.4)
   %230 = load ptr, ptr %6, align 8
   %231 = call ptr @data_set_string(ptr noundef %229, ptr noundef %230)
   %232 = load ptr, ptr %18, align 8
-  %233 = call ptr @data_key_set(ptr noundef %232, ptr noundef @.str.19)
+  %233 = call ptr @data_key_set(ptr noundef %232, ptr noundef @.str.5)
   %234 = load ptr, ptr %2, align 8
-  %235 = getelementptr inbounds %struct.job_record, ptr %234, i32 0, i32 145
+  %235 = getelementptr inbounds nuw %struct.job_record, ptr %234, i32 0, i32 150
   %236 = load i32, ptr %235, align 8
   %237 = zext i32 %236 to i64
   %238 = call ptr @data_set_int(ptr noundef %233, i64 noundef %237)
   %239 = load ptr, ptr %18, align 8
-  %240 = call ptr @data_key_set(ptr noundef %239, ptr noundef @.str.20)
+  %240 = call ptr @data_key_set(ptr noundef %239, ptr noundef @.str.6)
   %241 = load ptr, ptr %7, align 8
   %242 = call ptr @data_set_string(ptr noundef %240, ptr noundef %241)
   %243 = load ptr, ptr %18, align 8
-  %244 = call ptr @data_key_set(ptr noundef %243, ptr noundef @.str.21)
+  %244 = call ptr @data_key_set(ptr noundef %243, ptr noundef @.str.7)
   %245 = load ptr, ptr %2, align 8
-  %246 = getelementptr inbounds %struct.job_record, ptr %245, i32 0, i32 47
+  %246 = getelementptr inbounds nuw %struct.job_record, ptr %245, i32 0, i32 47
   %247 = load i32, ptr %246, align 8
   %248 = zext i32 %247 to i64
   %249 = call ptr @data_set_int(ptr noundef %244, i64 noundef %248)
-  %250 = load ptr, ptr %18, align 8
-  %251 = call ptr @data_key_set(ptr noundef %250, ptr noundef @.str.22)
-  %252 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
-  %253 = call ptr @data_set_string(ptr noundef %251, ptr noundef %252)
-  %254 = load ptr, ptr %18, align 8
-  %255 = call ptr @data_key_set(ptr noundef %254, ptr noundef @.str.23)
-  %256 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
-  %257 = call ptr @data_set_string(ptr noundef %255, ptr noundef %256)
-  %258 = load ptr, ptr %18, align 8
-  %259 = call ptr @data_key_set(ptr noundef %258, ptr noundef @.str.24)
-  %260 = load i64, ptr %16, align 8
-  %261 = call ptr @data_set_int(ptr noundef %259, i64 noundef %260)
-  %262 = load ptr, ptr %18, align 8
-  %263 = call ptr @data_key_set(ptr noundef %262, ptr noundef @.str.25)
-  %264 = load ptr, ptr %2, align 8
-  %265 = getelementptr inbounds %struct.job_record, ptr %264, i32 0, i32 85
-  %266 = load ptr, ptr %265, align 8
-  %267 = call ptr @data_set_string(ptr noundef %263, ptr noundef %266)
-  %268 = load ptr, ptr %18, align 8
-  %269 = call ptr @data_key_set(ptr noundef %268, ptr noundef @.str.26)
-  %270 = load ptr, ptr %2, align 8
-  %271 = getelementptr inbounds %struct.job_record, ptr %270, i32 0, i32 4
-  %272 = load ptr, ptr %271, align 8
-  %273 = call ptr @data_set_string(ptr noundef %269, ptr noundef %272)
-  %274 = load ptr, ptr %18, align 8
-  %275 = call ptr @data_key_set(ptr noundef %274, ptr noundef @.str.27)
-  %276 = load ptr, ptr %2, align 8
-  %277 = getelementptr inbounds %struct.job_record, ptr %276, i32 0, i32 74
-  %278 = load ptr, ptr %277, align 8
-  %279 = call ptr @data_set_string(ptr noundef %275, ptr noundef %278)
-  %280 = load ptr, ptr %18, align 8
-  %281 = call ptr @data_key_set(ptr noundef %280, ptr noundef @.str.28)
-  %282 = load ptr, ptr %2, align 8
-  %283 = getelementptr inbounds %struct.job_record, ptr %282, i32 0, i32 131
-  %284 = load i32, ptr %283, align 8
-  %285 = zext i32 %284 to i64
-  %286 = call ptr @data_set_int(ptr noundef %281, i64 noundef %285)
-  %287 = load ptr, ptr %18, align 8
-  %288 = call ptr @data_key_set(ptr noundef %287, ptr noundef @.str.29)
-  %289 = load ptr, ptr %2, align 8
-  %290 = getelementptr inbounds %struct.job_record, ptr %289, i32 0, i32 132
-  %291 = load i32, ptr %290, align 4
-  %292 = zext i32 %291 to i64
-  %293 = call ptr @data_set_int(ptr noundef %288, i64 noundef %292)
-  %294 = load ptr, ptr %18, align 8
-  %295 = call ptr @data_key_set(ptr noundef %294, ptr noundef @.str.30)
-  %296 = call ptr @_data_set_string_own(ptr noundef %295, ptr noundef %10)
+  %250 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %251 = call zeroext i1 @_valid_date_format(ptr noundef %250)
+  br i1 %251, label %252, label %257
+
+252:                                              ; preds = %210
+  %253 = load ptr, ptr %18, align 8
+  %254 = call ptr @data_key_set(ptr noundef %253, ptr noundef @.str.8)
+  %255 = getelementptr inbounds [32 x i8], ptr %3, i64 0, i64 0
+  %256 = call ptr @data_set_string(ptr noundef %254, ptr noundef %255)
+  br label %257
+
+257:                                              ; preds = %252, %210
+  %258 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %259 = call zeroext i1 @_valid_date_format(ptr noundef %258)
+  br i1 %259, label %260, label %265
+
+260:                                              ; preds = %257
+  %261 = load ptr, ptr %18, align 8
+  %262 = call ptr @data_key_set(ptr noundef %261, ptr noundef @.str.9)
+  %263 = getelementptr inbounds [32 x i8], ptr %4, i64 0, i64 0
+  %264 = call ptr @data_set_string(ptr noundef %262, ptr noundef %263)
+  br label %265
+
+265:                                              ; preds = %260, %257
+  %266 = load ptr, ptr %18, align 8
+  %267 = call ptr @data_key_set(ptr noundef %266, ptr noundef @.str.10)
+  %268 = load i64, ptr %16, align 8
+  %269 = call ptr @data_set_int(ptr noundef %267, i64 noundef %268)
+  %270 = load ptr, ptr %18, align 8
+  %271 = call ptr @data_key_set(ptr noundef %270, ptr noundef @.str.11)
+  %272 = load ptr, ptr %2, align 8
+  %273 = getelementptr inbounds nuw %struct.job_record, ptr %272, i32 0, i32 86
+  %274 = load ptr, ptr %273, align 8
+  %275 = call ptr @data_set_string(ptr noundef %271, ptr noundef %274)
+  %276 = load ptr, ptr %18, align 8
+  %277 = call ptr @data_key_set(ptr noundef %276, ptr noundef @.str.12)
+  %278 = load ptr, ptr %2, align 8
+  %279 = getelementptr inbounds nuw %struct.job_record, ptr %278, i32 0, i32 4
+  %280 = load ptr, ptr %279, align 8
+  %281 = call ptr @data_set_string(ptr noundef %277, ptr noundef %280)
+  %282 = load ptr, ptr %18, align 8
+  %283 = call ptr @data_key_set(ptr noundef %282, ptr noundef @.str.13)
+  %284 = load ptr, ptr %2, align 8
+  %285 = getelementptr inbounds nuw %struct.job_record, ptr %284, i32 0, i32 75
+  %286 = load ptr, ptr %285, align 8
+  %287 = call ptr @data_set_string(ptr noundef %283, ptr noundef %286)
+  %288 = load ptr, ptr %18, align 8
+  %289 = call ptr @data_key_set(ptr noundef %288, ptr noundef @.str.14)
+  %290 = load ptr, ptr %2, align 8
+  %291 = getelementptr inbounds nuw %struct.job_record, ptr %290, i32 0, i32 136
+  %292 = load i32, ptr %291, align 8
+  %293 = zext i32 %292 to i64
+  %294 = call ptr @data_set_int(ptr noundef %289, i64 noundef %293)
+  %295 = load ptr, ptr %18, align 8
+  %296 = call ptr @data_key_set(ptr noundef %295, ptr noundef @.str.15)
+  %297 = load ptr, ptr %2, align 8
+  %298 = getelementptr inbounds nuw %struct.job_record, ptr %297, i32 0, i32 137
+  %299 = load i32, ptr %298, align 4
+  %300 = zext i32 %299 to i64
+  %301 = call ptr @data_set_int(ptr noundef %296, i64 noundef %300)
+  %302 = load ptr, ptr %18, align 8
+  %303 = call ptr @data_key_set(ptr noundef %302, ptr noundef @.str.16)
+  %304 = call ptr @_data_set_string_own(ptr noundef %303, ptr noundef %10)
   store ptr null, ptr %10, align 8
-  %297 = load ptr, ptr %18, align 8
-  %298 = call ptr @data_key_set(ptr noundef %297, ptr noundef @.str.31)
-  %299 = call ptr @_data_set_string_own(ptr noundef %298, ptr noundef %9)
+  %305 = load ptr, ptr %18, align 8
+  %306 = call ptr @data_key_set(ptr noundef %305, ptr noundef @.str.17)
+  %307 = call ptr @_data_set_string_own(ptr noundef %306, ptr noundef %9)
   store ptr null, ptr %9, align 8
-  %300 = load ptr, ptr %18, align 8
-  %301 = call ptr @data_key_set(ptr noundef %300, ptr noundef @.str.32)
-  %302 = load ptr, ptr %8, align 8
-  %303 = call ptr @data_set_string(ptr noundef %301, ptr noundef %302)
-  %304 = load ptr, ptr %18, align 8
-  %305 = call ptr @data_key_set(ptr noundef %304, ptr noundef @.str.33)
-  %306 = load ptr, ptr %2, align 8
-  %307 = getelementptr inbounds %struct.job_record, ptr %306, i32 0, i32 38
-  %308 = load ptr, ptr %307, align 8
-  %309 = call ptr @data_set_string(ptr noundef %305, ptr noundef %308)
-  %310 = load ptr, ptr %18, align 8
-  %311 = call ptr @data_key_set(ptr noundef %310, ptr noundef @.str.34)
-  %312 = load i64, ptr %16, align 8
-  %313 = load ptr, ptr %2, align 8
-  %314 = getelementptr inbounds %struct.job_record, ptr %313, i32 0, i32 131
-  %315 = load i32, ptr %314, align 8
-  %316 = zext i32 %315 to i64
-  %317 = mul nsw i64 %312, %316
-  %318 = sitofp i64 %317 to float
-  %319 = fdiv float %318, 3.600000e+03
-  %320 = fpext float %319 to double
-  %321 = call ptr @data_set_float(ptr noundef %311, double noundef %320)
-  %322 = load ptr, ptr %2, align 8
-  %323 = getelementptr inbounds %struct.job_record, ptr %322, i32 0, i32 8
-  %324 = load i32, ptr %323, align 4
-  %325 = icmp ne i32 %324, -2
-  br i1 %325, label %326, label %341
+  %308 = load ptr, ptr %18, align 8
+  %309 = call ptr @data_key_set(ptr noundef %308, ptr noundef @.str.18)
+  %310 = load ptr, ptr %8, align 8
+  %311 = call ptr @data_set_string(ptr noundef %309, ptr noundef %310)
+  %312 = load ptr, ptr %18, align 8
+  %313 = call ptr @data_key_set(ptr noundef %312, ptr noundef @.str.19)
+  %314 = load ptr, ptr %2, align 8
+  %315 = getelementptr inbounds nuw %struct.job_record, ptr %314, i32 0, i32 38
+  %316 = load ptr, ptr %315, align 8
+  %317 = call ptr @data_set_string(ptr noundef %313, ptr noundef %316)
+  %318 = load ptr, ptr %18, align 8
+  %319 = call ptr @data_key_set(ptr noundef %318, ptr noundef @.str.20)
+  %320 = load i64, ptr %16, align 8
+  %321 = load ptr, ptr %2, align 8
+  %322 = getelementptr inbounds nuw %struct.job_record, ptr %321, i32 0, i32 136
+  %323 = load i32, ptr %322, align 8
+  %324 = zext i32 %323 to i64
+  %325 = mul nsw i64 %320, %324
+  %326 = sitofp i64 %325 to float
+  %327 = fdiv float %326, 3.600000e+03
+  %328 = fpext float %327 to double
+  %329 = call ptr @data_set_float(ptr noundef %319, double noundef %328)
+  %330 = load ptr, ptr %2, align 8
+  %331 = getelementptr inbounds nuw %struct.job_record, ptr %330, i32 0, i32 8
+  %332 = load i32, ptr %331, align 4
+  %333 = icmp ne i32 %332, -2
+  br i1 %333, label %334, label %349
 
-326:                                              ; preds = %210
-  %327 = load ptr, ptr %18, align 8
-  %328 = call ptr @data_key_set(ptr noundef %327, ptr noundef @.str.35)
-  %329 = load ptr, ptr %2, align 8
-  %330 = getelementptr inbounds %struct.job_record, ptr %329, i32 0, i32 7
-  %331 = load i32, ptr %330, align 8
-  %332 = zext i32 %331 to i64
-  %333 = call ptr @data_set_int(ptr noundef %328, i64 noundef %332)
-  %334 = load ptr, ptr %18, align 8
-  %335 = call ptr @data_key_set(ptr noundef %334, ptr noundef @.str.36)
-  %336 = load ptr, ptr %2, align 8
-  %337 = getelementptr inbounds %struct.job_record, ptr %336, i32 0, i32 8
-  %338 = load i32, ptr %337, align 4
-  %339 = zext i32 %338 to i64
-  %340 = call ptr @data_set_int(ptr noundef %335, i64 noundef %339)
-  br label %341
+334:                                              ; preds = %265
+  %335 = load ptr, ptr %18, align 8
+  %336 = call ptr @data_key_set(ptr noundef %335, ptr noundef @.str.21)
+  %337 = load ptr, ptr %2, align 8
+  %338 = getelementptr inbounds nuw %struct.job_record, ptr %337, i32 0, i32 7
+  %339 = load i32, ptr %338, align 8
+  %340 = zext i32 %339 to i64
+  %341 = call ptr @data_set_int(ptr noundef %336, i64 noundef %340)
+  %342 = load ptr, ptr %18, align 8
+  %343 = call ptr @data_key_set(ptr noundef %342, ptr noundef @.str.22)
+  %344 = load ptr, ptr %2, align 8
+  %345 = getelementptr inbounds nuw %struct.job_record, ptr %344, i32 0, i32 8
+  %346 = load i32, ptr %345, align 4
+  %347 = zext i32 %346 to i64
+  %348 = call ptr @data_set_int(ptr noundef %343, i64 noundef %347)
+  br label %349
 
-341:                                              ; preds = %326, %210
-  %342 = load ptr, ptr %2, align 8
-  %343 = getelementptr inbounds %struct.job_record, ptr %342, i32 0, i32 49
-  %344 = load i32, ptr %343, align 8
-  %345 = icmp ne i32 %344, -2
-  br i1 %345, label %346, label %375
+349:                                              ; preds = %334, %265
+  %350 = load ptr, ptr %2, align 8
+  %351 = getelementptr inbounds nuw %struct.job_record, ptr %350, i32 0, i32 49
+  %352 = load i32, ptr %351, align 8
+  %353 = icmp ne i32 %352, -2
+  br i1 %353, label %354, label %383
 
-346:                                              ; preds = %341
-  %347 = load ptr, ptr %18, align 8
-  %348 = call ptr @data_key_set(ptr noundef %347, ptr noundef @.str.37)
-  %349 = load ptr, ptr %2, align 8
-  %350 = getelementptr inbounds %struct.job_record, ptr %349, i32 0, i32 49
-  %351 = load i32, ptr %350, align 8
-  %352 = zext i32 %351 to i64
-  %353 = call ptr @data_set_int(ptr noundef %348, i64 noundef %352)
-  %354 = load ptr, ptr %18, align 8
-  %355 = call ptr @data_key_set(ptr noundef %354, ptr noundef @.str.38)
-  %356 = load ptr, ptr %2, align 8
-  %357 = getelementptr inbounds %struct.job_record, ptr %356, i32 0, i32 51
-  %358 = load i32, ptr %357, align 8
-  %359 = zext i32 %358 to i64
-  %360 = call ptr @data_set_int(ptr noundef %355, i64 noundef %359)
-  %361 = load ptr, ptr %18, align 8
-  %362 = call ptr @data_key_set(ptr noundef %361, ptr noundef @.str.39)
-  %363 = load ptr, ptr %2, align 8
-  %364 = getelementptr inbounds %struct.job_record, ptr %363, i32 0, i32 49
-  %365 = load i32, ptr %364, align 8
-  %366 = zext i32 %365 to i64
-  %367 = call ptr @data_set_int(ptr noundef %362, i64 noundef %366)
-  %368 = load ptr, ptr %18, align 8
-  %369 = call ptr @data_key_set(ptr noundef %368, ptr noundef @.str.40)
-  %370 = load ptr, ptr %2, align 8
-  %371 = getelementptr inbounds %struct.job_record, ptr %370, i32 0, i32 51
-  %372 = load i32, ptr %371, align 8
-  %373 = zext i32 %372 to i64
-  %374 = call ptr @data_set_int(ptr noundef %369, i64 noundef %373)
-  br label %375
+354:                                              ; preds = %349
+  %355 = load ptr, ptr %18, align 8
+  %356 = call ptr @data_key_set(ptr noundef %355, ptr noundef @.str.23)
+  %357 = load ptr, ptr %2, align 8
+  %358 = getelementptr inbounds nuw %struct.job_record, ptr %357, i32 0, i32 49
+  %359 = load i32, ptr %358, align 8
+  %360 = zext i32 %359 to i64
+  %361 = call ptr @data_set_int(ptr noundef %356, i64 noundef %360)
+  %362 = load ptr, ptr %18, align 8
+  %363 = call ptr @data_key_set(ptr noundef %362, ptr noundef @.str.24)
+  %364 = load ptr, ptr %2, align 8
+  %365 = getelementptr inbounds nuw %struct.job_record, ptr %364, i32 0, i32 51
+  %366 = load i32, ptr %365, align 8
+  %367 = zext i32 %366 to i64
+  %368 = call ptr @data_set_int(ptr noundef %363, i64 noundef %367)
+  %369 = load ptr, ptr %18, align 8
+  %370 = call ptr @data_key_set(ptr noundef %369, ptr noundef @.str.25)
+  %371 = load ptr, ptr %2, align 8
+  %372 = getelementptr inbounds nuw %struct.job_record, ptr %371, i32 0, i32 49
+  %373 = load i32, ptr %372, align 8
+  %374 = zext i32 %373 to i64
+  %375 = call ptr @data_set_int(ptr noundef %370, i64 noundef %374)
+  %376 = load ptr, ptr %18, align 8
+  %377 = call ptr @data_key_set(ptr noundef %376, ptr noundef @.str.26)
+  %378 = load ptr, ptr %2, align 8
+  %379 = getelementptr inbounds nuw %struct.job_record, ptr %378, i32 0, i32 51
+  %380 = load i32, ptr %379, align 8
+  %381 = zext i32 %380 to i64
+  %382 = call ptr @data_set_int(ptr noundef %377, i64 noundef %381)
+  br label %383
 
-375:                                              ; preds = %346, %341
-  %376 = load ptr, ptr %2, align 8
-  %377 = getelementptr inbounds %struct.job_record, ptr %376, i32 0, i32 30
-  %378 = load ptr, ptr %377, align 8
-  %379 = icmp ne ptr %378, null
-  br i1 %379, label %380, label %397
+383:                                              ; preds = %354, %349
+  %384 = load ptr, ptr %2, align 8
+  %385 = getelementptr inbounds nuw %struct.job_record, ptr %384, i32 0, i32 97
+  %386 = load i32, ptr %385, align 8
+  %387 = icmp ne i32 %386, -2
+  br i1 %387, label %388, label %401
 
-380:                                              ; preds = %375
-  %381 = load ptr, ptr %2, align 8
-  %382 = getelementptr inbounds %struct.job_record, ptr %381, i32 0, i32 30
-  %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds %struct.job_details_t, ptr %383, i32 0, i32 71
-  %385 = load i64, ptr %384, align 8
-  %386 = icmp ne i64 %385, 0
-  br i1 %386, label %387, label %397
+388:                                              ; preds = %383
+  %389 = load ptr, ptr %2, align 8
+  %390 = getelementptr inbounds nuw %struct.job_record, ptr %389, i32 0, i32 97
+  %391 = load i32, ptr %390, align 8
+  %392 = icmp ne i32 %391, -1
+  br i1 %392, label %393, label %401
 
-387:                                              ; preds = %380
-  %388 = load ptr, ptr %2, align 8
-  %389 = getelementptr inbounds %struct.job_record, ptr %388, i32 0, i32 30
-  %390 = load ptr, ptr %389, align 8
-  %391 = getelementptr inbounds %struct.job_details_t, ptr %390, i32 0, i32 71
-  %392 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  call void @parse_time_make_str_utc(ptr noundef %391, ptr noundef %392, i32 noundef 32)
-  %393 = load ptr, ptr %18, align 8
-  %394 = call ptr @data_key_set(ptr noundef %393, ptr noundef @.str.41)
-  %395 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  %396 = call ptr @data_set_string(ptr noundef %394, ptr noundef %395)
-  br label %397
+393:                                              ; preds = %388
+  %394 = load ptr, ptr %18, align 8
+  %395 = call ptr @data_key_set(ptr noundef %394, ptr noundef @.str.27)
+  %396 = load ptr, ptr %2, align 8
+  %397 = getelementptr inbounds nuw %struct.job_record, ptr %396, i32 0, i32 97
+  %398 = load i32, ptr %397, align 8
+  %399 = zext i32 %398 to i64
+  %400 = call ptr @data_set_int(ptr noundef %395, i64 noundef %399)
+  br label %401
 
-397:                                              ; preds = %387, %380, %375
-  %398 = load ptr, ptr %2, align 8
-  %399 = getelementptr inbounds %struct.job_record, ptr %398, i32 0, i32 30
-  %400 = load ptr, ptr %399, align 8
-  %401 = icmp ne ptr %400, null
-  br i1 %401, label %402, label %439
+401:                                              ; preds = %393, %388, %383
+  %402 = load ptr, ptr %2, align 8
+  %403 = getelementptr inbounds nuw %struct.job_record, ptr %402, i32 0, i32 30
+  %404 = load ptr, ptr %403, align 8
+  %405 = icmp ne ptr %404, null
+  br i1 %405, label %406, label %427
 
-402:                                              ; preds = %397
-  %403 = load ptr, ptr %2, align 8
-  %404 = getelementptr inbounds %struct.job_record, ptr %403, i32 0, i32 30
-  %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds %struct.job_details_t, ptr %405, i32 0, i32 6
-  %407 = load i64, ptr %406, align 8
-  %408 = icmp ne i64 %407, 0
-  br i1 %408, label %409, label %439
+406:                                              ; preds = %401
+  %407 = load ptr, ptr %2, align 8
+  %408 = getelementptr inbounds nuw %struct.job_record, ptr %407, i32 0, i32 30
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds nuw %struct.job_details_t, ptr %409, i32 0, i32 74
+  %411 = load i64, ptr %410, align 8
+  %412 = icmp ne i64 %411, 0
+  br i1 %412, label %413, label %427
 
-409:                                              ; preds = %402
-  %410 = load ptr, ptr %2, align 8
-  %411 = getelementptr inbounds %struct.job_record, ptr %410, i32 0, i32 30
-  %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds %struct.job_details_t, ptr %412, i32 0, i32 6
-  %414 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  call void @parse_time_make_str_utc(ptr noundef %413, ptr noundef %414, i32 noundef 32)
-  %415 = load ptr, ptr %18, align 8
-  %416 = call ptr @data_key_set(ptr noundef %415, ptr noundef @.str.42)
-  %417 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
-  %418 = call ptr @data_set_string(ptr noundef %416, ptr noundef %417)
-  %419 = load ptr, ptr %2, align 8
-  %420 = getelementptr inbounds %struct.job_record, ptr %419, i32 0, i32 120
-  %421 = load i64, ptr %420, align 8
-  %422 = icmp ne i64 %421, 0
-  br i1 %422, label %423, label %438
+413:                                              ; preds = %406
+  %414 = load ptr, ptr %2, align 8
+  %415 = getelementptr inbounds nuw %struct.job_record, ptr %414, i32 0, i32 30
+  %416 = load ptr, ptr %415, align 8
+  %417 = getelementptr inbounds nuw %struct.job_details_t, ptr %416, i32 0, i32 74
+  %418 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  call void @parse_time_make_str_utc(ptr noundef %417, ptr noundef %418, i32 noundef 32)
+  %419 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %420 = call zeroext i1 @_valid_date_format(ptr noundef %419)
+  br i1 %420, label %421, label %426
 
-423:                                              ; preds = %409
-  %424 = load ptr, ptr %2, align 8
-  %425 = getelementptr inbounds %struct.job_record, ptr %424, i32 0, i32 120
-  %426 = load i64, ptr %425, align 8
-  %427 = load ptr, ptr %2, align 8
-  %428 = getelementptr inbounds %struct.job_record, ptr %427, i32 0, i32 30
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds %struct.job_details_t, ptr %429, i32 0, i32 6
-  %431 = load i64, ptr %430, align 8
-  %432 = call double @difftime(i64 noundef %426, i64 noundef %431) #5
-  %433 = fptosi double %432 to i64
-  store i64 %433, ptr %20, align 8
-  %434 = load ptr, ptr %18, align 8
-  %435 = call ptr @data_key_set(ptr noundef %434, ptr noundef @.str.43)
-  %436 = load i64, ptr %20, align 8
-  %437 = call ptr @data_set_int(ptr noundef %435, i64 noundef %436)
-  br label %438
+421:                                              ; preds = %413
+  %422 = load ptr, ptr %18, align 8
+  %423 = call ptr @data_key_set(ptr noundef %422, ptr noundef @.str.28)
+  %424 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %425 = call ptr @data_set_string(ptr noundef %423, ptr noundef %424)
+  br label %426
 
-438:                                              ; preds = %423, %409
-  br label %439
+426:                                              ; preds = %421, %413
+  br label %427
 
-439:                                              ; preds = %438, %402, %397
+427:                                              ; preds = %426, %406, %401
+  %428 = load ptr, ptr %2, align 8
+  %429 = getelementptr inbounds nuw %struct.job_record, ptr %428, i32 0, i32 30
+  %430 = load ptr, ptr %429, align 8
+  %431 = icmp ne ptr %430, null
+  br i1 %431, label %432, label %477
+
+432:                                              ; preds = %427
+  %433 = load ptr, ptr %2, align 8
+  %434 = getelementptr inbounds nuw %struct.job_record, ptr %433, i32 0, i32 30
+  %435 = load ptr, ptr %434, align 8
+  %436 = getelementptr inbounds nuw %struct.job_details_t, ptr %435, i32 0, i32 6
+  %437 = load i64, ptr %436, align 8
+  %438 = icmp ne i64 %437, 0
+  br i1 %438, label %439, label %477
+
+439:                                              ; preds = %432
   %440 = load ptr, ptr %2, align 8
-  %441 = getelementptr inbounds %struct.job_record, ptr %440, i32 0, i32 30
+  %441 = getelementptr inbounds nuw %struct.job_record, ptr %440, i32 0, i32 30
   %442 = load ptr, ptr %441, align 8
-  %443 = icmp ne ptr %442, null
-  br i1 %443, label %444, label %460
+  %443 = getelementptr inbounds nuw %struct.job_details_t, ptr %442, i32 0, i32 6
+  %444 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  call void @parse_time_make_str_utc(ptr noundef %443, ptr noundef %444, i32 noundef 32)
+  %445 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %446 = call zeroext i1 @_valid_date_format(ptr noundef %445)
+  br i1 %446, label %447, label %452
 
-444:                                              ; preds = %439
-  %445 = load ptr, ptr %2, align 8
-  %446 = getelementptr inbounds %struct.job_record, ptr %445, i32 0, i32 30
-  %447 = load ptr, ptr %446, align 8
-  %448 = getelementptr inbounds %struct.job_details_t, ptr %447, i32 0, i32 75
-  %449 = load ptr, ptr %448, align 8
-  %450 = icmp ne ptr %449, null
-  br i1 %450, label %451, label %460
+447:                                              ; preds = %439
+  %448 = load ptr, ptr %18, align 8
+  %449 = call ptr @data_key_set(ptr noundef %448, ptr noundef @.str.29)
+  %450 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 0
+  %451 = call ptr @data_set_string(ptr noundef %449, ptr noundef %450)
+  br label %452
 
-451:                                              ; preds = %444
-  %452 = load ptr, ptr %18, align 8
-  %453 = call ptr @data_key_set(ptr noundef %452, ptr noundef @.str.44)
-  %454 = load ptr, ptr %2, align 8
-  %455 = getelementptr inbounds %struct.job_record, ptr %454, i32 0, i32 30
-  %456 = load ptr, ptr %455, align 8
-  %457 = getelementptr inbounds %struct.job_details_t, ptr %456, i32 0, i32 75
-  %458 = load ptr, ptr %457, align 8
-  %459 = call ptr @data_set_string(ptr noundef %453, ptr noundef %458)
-  br label %460
+452:                                              ; preds = %447, %439
+  %453 = load ptr, ptr %2, align 8
+  %454 = getelementptr inbounds nuw %struct.job_record, ptr %453, i32 0, i32 124
+  %455 = load i64, ptr %454, align 8
+  %456 = icmp ne i64 %455, 0
+  br i1 %456, label %457, label %476
 
-460:                                              ; preds = %451, %444, %439
+457:                                              ; preds = %452
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %458 = load ptr, ptr %2, align 8
+  %459 = getelementptr inbounds nuw %struct.job_record, ptr %458, i32 0, i32 124
+  %460 = load i64, ptr %459, align 8
   %461 = load ptr, ptr %2, align 8
-  %462 = getelementptr inbounds %struct.job_record, ptr %461, i32 0, i32 30
+  %462 = getelementptr inbounds nuw %struct.job_record, ptr %461, i32 0, i32 30
   %463 = load ptr, ptr %462, align 8
-  %464 = icmp ne ptr %463, null
-  br i1 %464, label %465, label %481
+  %464 = getelementptr inbounds nuw %struct.job_details_t, ptr %463, i32 0, i32 6
+  %465 = load i64, ptr %464, align 8
+  %466 = call double @difftime(i64 noundef %460, i64 noundef %465) #7
+  %467 = fptosi double %466 to i64
+  store i64 %467, ptr %20, align 8
+  %468 = load i64, ptr %20, align 8
+  %469 = icmp sge i64 %468, 0
+  br i1 %469, label %470, label %475
 
-465:                                              ; preds = %460
-  %466 = load ptr, ptr %2, align 8
-  %467 = getelementptr inbounds %struct.job_record, ptr %466, i32 0, i32 30
-  %468 = load ptr, ptr %467, align 8
-  %469 = getelementptr inbounds %struct.job_details_t, ptr %468, i32 0, i32 67
-  %470 = load ptr, ptr %469, align 8
-  %471 = icmp ne ptr %470, null
-  br i1 %471, label %472, label %481
+470:                                              ; preds = %457
+  %471 = load ptr, ptr %18, align 8
+  %472 = call ptr @data_key_set(ptr noundef %471, ptr noundef @.str.30)
+  %473 = load i64, ptr %20, align 8
+  %474 = call ptr @data_set_int(ptr noundef %472, i64 noundef %473)
+  br label %475
 
-472:                                              ; preds = %465
-  %473 = load ptr, ptr %18, align 8
-  %474 = call ptr @data_key_set(ptr noundef %473, ptr noundef @.str.45)
-  %475 = load ptr, ptr %2, align 8
-  %476 = getelementptr inbounds %struct.job_record, ptr %475, i32 0, i32 30
-  %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds %struct.job_details_t, ptr %477, i32 0, i32 67
-  %479 = load ptr, ptr %478, align 8
-  %480 = call ptr @data_set_string(ptr noundef %474, ptr noundef %479)
-  br label %481
+475:                                              ; preds = %470, %457
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  br label %476
 
-481:                                              ; preds = %472, %465, %460
-  %482 = load ptr, ptr %2, align 8
-  %483 = getelementptr inbounds %struct.job_record, ptr %482, i32 0, i32 30
-  %484 = load ptr, ptr %483, align 8
-  %485 = icmp ne ptr %484, null
-  br i1 %485, label %486, label %502
+476:                                              ; preds = %475, %452
+  br label %477
 
-486:                                              ; preds = %481
-  %487 = load ptr, ptr %2, align 8
-  %488 = getelementptr inbounds %struct.job_record, ptr %487, i32 0, i32 30
-  %489 = load ptr, ptr %488, align 8
-  %490 = getelementptr inbounds %struct.job_details_t, ptr %489, i32 0, i32 68
-  %491 = load ptr, ptr %490, align 8
-  %492 = icmp ne ptr %491, null
-  br i1 %492, label %493, label %502
+477:                                              ; preds = %476, %432, %427
+  %478 = load ptr, ptr %2, align 8
+  %479 = getelementptr inbounds nuw %struct.job_record, ptr %478, i32 0, i32 30
+  %480 = load ptr, ptr %479, align 8
+  %481 = icmp ne ptr %480, null
+  br i1 %481, label %482, label %498
 
-493:                                              ; preds = %486
-  %494 = load ptr, ptr %18, align 8
-  %495 = call ptr @data_key_set(ptr noundef %494, ptr noundef @.str.46)
-  %496 = load ptr, ptr %2, align 8
-  %497 = getelementptr inbounds %struct.job_record, ptr %496, i32 0, i32 30
-  %498 = load ptr, ptr %497, align 8
-  %499 = getelementptr inbounds %struct.job_details_t, ptr %498, i32 0, i32 68
-  %500 = load ptr, ptr %499, align 8
-  %501 = call ptr @data_set_string(ptr noundef %495, ptr noundef %500)
-  br label %502
+482:                                              ; preds = %477
+  %483 = load ptr, ptr %2, align 8
+  %484 = getelementptr inbounds nuw %struct.job_record, ptr %483, i32 0, i32 30
+  %485 = load ptr, ptr %484, align 8
+  %486 = getelementptr inbounds nuw %struct.job_details_t, ptr %485, i32 0, i32 78
+  %487 = load ptr, ptr %486, align 8
+  %488 = icmp ne ptr %487, null
+  br i1 %488, label %489, label %498
 
-502:                                              ; preds = %493, %486, %481
-  %503 = load ptr, ptr %2, align 8
-  %504 = getelementptr inbounds %struct.job_record, ptr %503, i32 0, i32 30
-  %505 = load ptr, ptr %504, align 8
-  %506 = icmp ne ptr %505, null
-  br i1 %506, label %507, label %523
+489:                                              ; preds = %482
+  %490 = load ptr, ptr %18, align 8
+  %491 = call ptr @data_key_set(ptr noundef %490, ptr noundef @.str.31)
+  %492 = load ptr, ptr %2, align 8
+  %493 = getelementptr inbounds nuw %struct.job_record, ptr %492, i32 0, i32 30
+  %494 = load ptr, ptr %493, align 8
+  %495 = getelementptr inbounds nuw %struct.job_details_t, ptr %494, i32 0, i32 78
+  %496 = load ptr, ptr %495, align 8
+  %497 = call ptr @data_set_string(ptr noundef %491, ptr noundef %496)
+  br label %498
 
-507:                                              ; preds = %502
-  %508 = load ptr, ptr %2, align 8
-  %509 = getelementptr inbounds %struct.job_record, ptr %508, i32 0, i32 30
-  %510 = load ptr, ptr %509, align 8
-  %511 = getelementptr inbounds %struct.job_details_t, ptr %510, i32 0, i32 69
-  %512 = load ptr, ptr %511, align 8
-  %513 = icmp ne ptr %512, null
-  br i1 %513, label %514, label %523
+498:                                              ; preds = %489, %482, %477
+  %499 = load ptr, ptr %2, align 8
+  %500 = getelementptr inbounds nuw %struct.job_record, ptr %499, i32 0, i32 30
+  %501 = load ptr, ptr %500, align 8
+  %502 = icmp ne ptr %501, null
+  br i1 %502, label %503, label %519
 
-514:                                              ; preds = %507
-  %515 = load ptr, ptr %18, align 8
-  %516 = call ptr @data_key_set(ptr noundef %515, ptr noundef @.str.47)
-  %517 = load ptr, ptr %2, align 8
-  %518 = getelementptr inbounds %struct.job_record, ptr %517, i32 0, i32 30
-  %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds %struct.job_details_t, ptr %519, i32 0, i32 69
-  %521 = load ptr, ptr %520, align 8
-  %522 = call ptr @data_set_string(ptr noundef %516, ptr noundef %521)
-  br label %523
+503:                                              ; preds = %498
+  %504 = load ptr, ptr %2, align 8
+  %505 = getelementptr inbounds nuw %struct.job_record, ptr %504, i32 0, i32 30
+  %506 = load ptr, ptr %505, align 8
+  %507 = getelementptr inbounds nuw %struct.job_details_t, ptr %506, i32 0, i32 70
+  %508 = load ptr, ptr %507, align 8
+  %509 = icmp ne ptr %508, null
+  br i1 %509, label %510, label %519
 
-523:                                              ; preds = %514, %507, %502
-  %524 = load ptr, ptr %2, align 8
-  %525 = getelementptr inbounds %struct.job_record, ptr %524, i32 0, i32 11
-  %526 = load ptr, ptr %525, align 8
-  %527 = icmp ne ptr %526, null
-  br i1 %527, label %528, label %544
+510:                                              ; preds = %503
+  %511 = load ptr, ptr %18, align 8
+  %512 = call ptr @data_key_set(ptr noundef %511, ptr noundef @.str.32)
+  %513 = load ptr, ptr %2, align 8
+  %514 = getelementptr inbounds nuw %struct.job_record, ptr %513, i32 0, i32 30
+  %515 = load ptr, ptr %514, align 8
+  %516 = getelementptr inbounds nuw %struct.job_details_t, ptr %515, i32 0, i32 70
+  %517 = load ptr, ptr %516, align 8
+  %518 = call ptr @data_set_string(ptr noundef %512, ptr noundef %517)
+  br label %519
 
-528:                                              ; preds = %523
-  %529 = load ptr, ptr %2, align 8
-  %530 = getelementptr inbounds %struct.job_record, ptr %529, i32 0, i32 11
-  %531 = load ptr, ptr %530, align 8
-  %532 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %531, i32 0, i32 5
-  %533 = load ptr, ptr %532, align 8
-  %534 = icmp ne ptr %533, null
-  br i1 %534, label %535, label %544
+519:                                              ; preds = %510, %503, %498
+  %520 = load ptr, ptr %2, align 8
+  %521 = getelementptr inbounds nuw %struct.job_record, ptr %520, i32 0, i32 30
+  %522 = load ptr, ptr %521, align 8
+  %523 = icmp ne ptr %522, null
+  br i1 %523, label %524, label %540
 
-535:                                              ; preds = %528
-  %536 = load ptr, ptr %18, align 8
-  %537 = call ptr @data_key_set(ptr noundef %536, ptr noundef @.str.48)
-  %538 = load ptr, ptr %2, align 8
-  %539 = getelementptr inbounds %struct.job_record, ptr %538, i32 0, i32 11
-  %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %540, i32 0, i32 5
-  %542 = load ptr, ptr %541, align 8
-  %543 = call ptr @data_set_string(ptr noundef %537, ptr noundef %542)
-  br label %544
+524:                                              ; preds = %519
+  %525 = load ptr, ptr %2, align 8
+  %526 = getelementptr inbounds nuw %struct.job_record, ptr %525, i32 0, i32 30
+  %527 = load ptr, ptr %526, align 8
+  %528 = getelementptr inbounds nuw %struct.job_details_t, ptr %527, i32 0, i32 71
+  %529 = load ptr, ptr %528, align 8
+  %530 = icmp ne ptr %529, null
+  br i1 %530, label %531, label %540
 
-544:                                              ; preds = %535, %528, %523
-  %545 = load ptr, ptr %2, align 8
-  %546 = getelementptr inbounds %struct.job_record, ptr %545, i32 0, i32 102
-  %547 = load ptr, ptr %546, align 8
-  %548 = icmp ne ptr %547, null
-  br i1 %548, label %549, label %565
+531:                                              ; preds = %524
+  %532 = load ptr, ptr %18, align 8
+  %533 = call ptr @data_key_set(ptr noundef %532, ptr noundef @.str.33)
+  %534 = load ptr, ptr %2, align 8
+  %535 = getelementptr inbounds nuw %struct.job_record, ptr %534, i32 0, i32 30
+  %536 = load ptr, ptr %535, align 8
+  %537 = getelementptr inbounds nuw %struct.job_details_t, ptr %536, i32 0, i32 71
+  %538 = load ptr, ptr %537, align 8
+  %539 = call ptr @data_set_string(ptr noundef %533, ptr noundef %538)
+  br label %540
 
-549:                                              ; preds = %544
-  %550 = load ptr, ptr %2, align 8
-  %551 = getelementptr inbounds %struct.job_record, ptr %550, i32 0, i32 102
-  %552 = load ptr, ptr %551, align 8
-  %553 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %552, i32 0, i32 39
-  %554 = load ptr, ptr %553, align 8
-  %555 = icmp ne ptr %554, null
-  br i1 %555, label %556, label %565
+540:                                              ; preds = %531, %524, %519
+  %541 = load ptr, ptr %2, align 8
+  %542 = getelementptr inbounds nuw %struct.job_record, ptr %541, i32 0, i32 30
+  %543 = load ptr, ptr %542, align 8
+  %544 = icmp ne ptr %543, null
+  br i1 %544, label %545, label %561
 
-556:                                              ; preds = %549
-  %557 = load ptr, ptr %18, align 8
-  %558 = call ptr @data_key_set(ptr noundef %557, ptr noundef @.str.49)
-  %559 = load ptr, ptr %2, align 8
-  %560 = getelementptr inbounds %struct.job_record, ptr %559, i32 0, i32 102
-  %561 = load ptr, ptr %560, align 8
-  %562 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %561, i32 0, i32 39
-  %563 = load ptr, ptr %562, align 8
-  %564 = call ptr @data_set_string(ptr noundef %558, ptr noundef %563)
-  br label %565
+545:                                              ; preds = %540
+  %546 = load ptr, ptr %2, align 8
+  %547 = getelementptr inbounds nuw %struct.job_record, ptr %546, i32 0, i32 30
+  %548 = load ptr, ptr %547, align 8
+  %549 = getelementptr inbounds nuw %struct.job_details_t, ptr %548, i32 0, i32 72
+  %550 = load ptr, ptr %549, align 8
+  %551 = icmp ne ptr %550, null
+  br i1 %551, label %552, label %561
 
-565:                                              ; preds = %556, %549, %544
-  %566 = load ptr, ptr %2, align 8
-  %567 = getelementptr inbounds %struct.job_record, ptr %566, i32 0, i32 30
-  %568 = load ptr, ptr %567, align 8
-  %569 = icmp ne ptr %568, null
-  br i1 %569, label %570, label %587
+552:                                              ; preds = %545
+  %553 = load ptr, ptr %18, align 8
+  %554 = call ptr @data_key_set(ptr noundef %553, ptr noundef @.str.34)
+  %555 = load ptr, ptr %2, align 8
+  %556 = getelementptr inbounds nuw %struct.job_record, ptr %555, i32 0, i32 30
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds nuw %struct.job_details_t, ptr %557, i32 0, i32 72
+  %559 = load ptr, ptr %558, align 8
+  %560 = call ptr @data_set_string(ptr noundef %554, ptr noundef %559)
+  br label %561
 
-570:                                              ; preds = %565
-  %571 = load ptr, ptr %2, align 8
-  %572 = getelementptr inbounds %struct.job_record, ptr %571, i32 0, i32 30
-  %573 = load ptr, ptr %572, align 8
-  %574 = getelementptr inbounds %struct.job_details_t, ptr %573, i32 0, i32 46
-  %575 = load i32, ptr %574, align 8
-  %576 = icmp ne i32 %575, -2
-  br i1 %576, label %577, label %587
+561:                                              ; preds = %552, %545, %540
+  %562 = load ptr, ptr %2, align 8
+  %563 = getelementptr inbounds nuw %struct.job_record, ptr %562, i32 0, i32 11
+  %564 = load ptr, ptr %563, align 8
+  %565 = icmp ne ptr %564, null
+  br i1 %565, label %566, label %582
 
-577:                                              ; preds = %570
-  %578 = load ptr, ptr %18, align 8
-  %579 = call ptr @data_key_set(ptr noundef %578, ptr noundef @.str.50)
-  %580 = load ptr, ptr %2, align 8
-  %581 = getelementptr inbounds %struct.job_record, ptr %580, i32 0, i32 30
-  %582 = load ptr, ptr %581, align 8
-  %583 = getelementptr inbounds %struct.job_details_t, ptr %582, i32 0, i32 46
-  %584 = load i32, ptr %583, align 8
-  %585 = zext i32 %584 to i64
-  %586 = call ptr @data_set_int(ptr noundef %579, i64 noundef %585)
-  br label %587
+566:                                              ; preds = %561
+  %567 = load ptr, ptr %2, align 8
+  %568 = getelementptr inbounds nuw %struct.job_record, ptr %567, i32 0, i32 11
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %569, i32 0, i32 5
+  %571 = load ptr, ptr %570, align 8
+  %572 = icmp ne ptr %571, null
+  br i1 %572, label %573, label %582
 
-587:                                              ; preds = %577, %570, %565
+573:                                              ; preds = %566
+  %574 = load ptr, ptr %18, align 8
+  %575 = call ptr @data_key_set(ptr noundef %574, ptr noundef @.str.35)
+  %576 = load ptr, ptr %2, align 8
+  %577 = getelementptr inbounds nuw %struct.job_record, ptr %576, i32 0, i32 11
+  %578 = load ptr, ptr %577, align 8
+  %579 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %578, i32 0, i32 5
+  %580 = load ptr, ptr %579, align 8
+  %581 = call ptr @data_set_string(ptr noundef %575, ptr noundef %580)
+  br label %582
+
+582:                                              ; preds = %573, %566, %561
+  %583 = load ptr, ptr %2, align 8
+  %584 = getelementptr inbounds nuw %struct.job_record, ptr %583, i32 0, i32 103
+  %585 = load ptr, ptr %584, align 8
+  %586 = icmp ne ptr %585, null
+  br i1 %586, label %587, label %603
+
+587:                                              ; preds = %582
   %588 = load ptr, ptr %2, align 8
-  %589 = getelementptr inbounds %struct.job_record, ptr %588, i32 0, i32 30
+  %589 = getelementptr inbounds nuw %struct.job_record, ptr %588, i32 0, i32 103
   %590 = load ptr, ptr %589, align 8
-  %591 = icmp ne ptr %590, null
-  br i1 %591, label %592, label %610
+  %591 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %590, i32 0, i32 40
+  %592 = load ptr, ptr %591, align 8
+  %593 = icmp ne ptr %592, null
+  br i1 %593, label %594, label %603
 
-592:                                              ; preds = %587
-  %593 = load ptr, ptr %2, align 8
-  %594 = getelementptr inbounds %struct.job_record, ptr %593, i32 0, i32 30
-  %595 = load ptr, ptr %594, align 8
-  %596 = getelementptr inbounds %struct.job_details_t, ptr %595, i32 0, i32 44
-  %597 = load i16, ptr %596, align 4
-  %598 = zext i16 %597 to i32
-  %599 = icmp ne i32 %598, 65534
-  br i1 %599, label %600, label %610
+594:                                              ; preds = %587
+  %595 = load ptr, ptr %18, align 8
+  %596 = call ptr @data_key_set(ptr noundef %595, ptr noundef @.str.36)
+  %597 = load ptr, ptr %2, align 8
+  %598 = getelementptr inbounds nuw %struct.job_record, ptr %597, i32 0, i32 103
+  %599 = load ptr, ptr %598, align 8
+  %600 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %599, i32 0, i32 40
+  %601 = load ptr, ptr %600, align 8
+  %602 = call ptr @data_set_string(ptr noundef %596, ptr noundef %601)
+  br label %603
 
-600:                                              ; preds = %592
-  %601 = load ptr, ptr %18, align 8
-  %602 = call ptr @data_key_set(ptr noundef %601, ptr noundef @.str.51)
-  %603 = load ptr, ptr %2, align 8
-  %604 = getelementptr inbounds %struct.job_record, ptr %603, i32 0, i32 30
-  %605 = load ptr, ptr %604, align 8
-  %606 = getelementptr inbounds %struct.job_details_t, ptr %605, i32 0, i32 44
-  %607 = load i16, ptr %606, align 4
-  %608 = zext i16 %607 to i64
-  %609 = call ptr @data_set_int(ptr noundef %602, i64 noundef %608)
-  br label %610
+603:                                              ; preds = %594, %587, %582
+  %604 = load ptr, ptr %2, align 8
+  %605 = getelementptr inbounds nuw %struct.job_record, ptr %604, i32 0, i32 30
+  %606 = load ptr, ptr %605, align 8
+  %607 = icmp ne ptr %606, null
+  br i1 %607, label %608, label %625
 
-610:                                              ; preds = %600, %592, %587
-  %611 = load ptr, ptr %2, align 8
-  %612 = getelementptr inbounds %struct.job_record, ptr %611, i32 0, i32 30
-  %613 = load ptr, ptr %612, align 8
-  %614 = icmp ne ptr %613, null
-  br i1 %614, label %615, label %633
+608:                                              ; preds = %603
+  %609 = load ptr, ptr %2, align 8
+  %610 = getelementptr inbounds nuw %struct.job_record, ptr %609, i32 0, i32 30
+  %611 = load ptr, ptr %610, align 8
+  %612 = getelementptr inbounds nuw %struct.job_details_t, ptr %611, i32 0, i32 46
+  %613 = load i32, ptr %612, align 8
+  %614 = icmp ne i32 %613, -2
+  br i1 %614, label %615, label %625
 
-615:                                              ; preds = %610
-  %616 = load ptr, ptr %2, align 8
-  %617 = getelementptr inbounds %struct.job_record, ptr %616, i32 0, i32 30
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds %struct.job_details_t, ptr %618, i32 0, i32 45
-  %620 = load i16, ptr %619, align 2
-  %621 = zext i16 %620 to i32
-  %622 = icmp ne i32 %621, 65534
-  br i1 %622, label %623, label %633
+615:                                              ; preds = %608
+  %616 = load ptr, ptr %18, align 8
+  %617 = call ptr @data_key_set(ptr noundef %616, ptr noundef @.str.37)
+  %618 = load ptr, ptr %2, align 8
+  %619 = getelementptr inbounds nuw %struct.job_record, ptr %618, i32 0, i32 30
+  %620 = load ptr, ptr %619, align 8
+  %621 = getelementptr inbounds nuw %struct.job_details_t, ptr %620, i32 0, i32 46
+  %622 = load i32, ptr %621, align 8
+  %623 = zext i32 %622 to i64
+  %624 = call ptr @data_set_int(ptr noundef %617, i64 noundef %623)
+  br label %625
 
-623:                                              ; preds = %615
-  %624 = load ptr, ptr %18, align 8
-  %625 = call ptr @data_key_set(ptr noundef %624, ptr noundef @.str.52)
+625:                                              ; preds = %615, %608, %603
   %626 = load ptr, ptr %2, align 8
-  %627 = getelementptr inbounds %struct.job_record, ptr %626, i32 0, i32 30
+  %627 = getelementptr inbounds nuw %struct.job_record, ptr %626, i32 0, i32 30
   %628 = load ptr, ptr %627, align 8
-  %629 = getelementptr inbounds %struct.job_details_t, ptr %628, i32 0, i32 45
-  %630 = load i16, ptr %629, align 2
-  %631 = zext i16 %630 to i64
-  %632 = call ptr @data_set_int(ptr noundef %625, i64 noundef %631)
-  br label %633
+  %629 = icmp ne ptr %628, null
+  br i1 %629, label %630, label %648
 
-633:                                              ; preds = %623, %615, %610
-  %634 = load ptr, ptr %2, align 8
-  %635 = getelementptr inbounds %struct.job_record, ptr %634, i32 0, i32 30
-  %636 = load ptr, ptr %635, align 8
-  %637 = icmp ne ptr %636, null
-  br i1 %637, label %638, label %656
+630:                                              ; preds = %625
+  %631 = load ptr, ptr %2, align 8
+  %632 = getelementptr inbounds nuw %struct.job_record, ptr %631, i32 0, i32 30
+  %633 = load ptr, ptr %632, align 8
+  %634 = getelementptr inbounds nuw %struct.job_details_t, ptr %633, i32 0, i32 44
+  %635 = load i16, ptr %634, align 4
+  %636 = zext i16 %635 to i32
+  %637 = icmp ne i32 %636, 65534
+  br i1 %637, label %638, label %648
 
-638:                                              ; preds = %633
-  %639 = load ptr, ptr %2, align 8
-  %640 = getelementptr inbounds %struct.job_record, ptr %639, i32 0, i32 30
-  %641 = load ptr, ptr %640, align 8
-  %642 = getelementptr inbounds %struct.job_details_t, ptr %641, i32 0, i32 15
-  %643 = load i16, ptr %642, align 8
-  %644 = zext i16 %643 to i32
-  %645 = icmp ne i32 %644, 65534
-  br i1 %645, label %646, label %656
+638:                                              ; preds = %630
+  %639 = load ptr, ptr %18, align 8
+  %640 = call ptr @data_key_set(ptr noundef %639, ptr noundef @.str.38)
+  %641 = load ptr, ptr %2, align 8
+  %642 = getelementptr inbounds nuw %struct.job_record, ptr %641, i32 0, i32 30
+  %643 = load ptr, ptr %642, align 8
+  %644 = getelementptr inbounds nuw %struct.job_details_t, ptr %643, i32 0, i32 44
+  %645 = load i16, ptr %644, align 4
+  %646 = zext i16 %645 to i64
+  %647 = call ptr @data_set_int(ptr noundef %640, i64 noundef %646)
+  br label %648
 
-646:                                              ; preds = %638
-  %647 = load ptr, ptr %18, align 8
-  %648 = call ptr @data_key_set(ptr noundef %647, ptr noundef @.str.53)
+648:                                              ; preds = %638, %630, %625
   %649 = load ptr, ptr %2, align 8
-  %650 = getelementptr inbounds %struct.job_record, ptr %649, i32 0, i32 30
+  %650 = getelementptr inbounds nuw %struct.job_record, ptr %649, i32 0, i32 30
   %651 = load ptr, ptr %650, align 8
-  %652 = getelementptr inbounds %struct.job_details_t, ptr %651, i32 0, i32 15
-  %653 = load i16, ptr %652, align 8
-  %654 = zext i16 %653 to i64
-  %655 = call ptr @data_set_int(ptr noundef %648, i64 noundef %654)
-  br label %656
+  %652 = icmp ne ptr %651, null
+  br i1 %652, label %653, label %671
 
-656:                                              ; preds = %646, %638, %633
-  %657 = load ptr, ptr %2, align 8
-  %658 = getelementptr inbounds %struct.job_record, ptr %657, i32 0, i32 30
-  %659 = load ptr, ptr %658, align 8
-  %660 = icmp ne ptr %659, null
-  br i1 %660, label %661, label %677
+653:                                              ; preds = %648
+  %654 = load ptr, ptr %2, align 8
+  %655 = getelementptr inbounds nuw %struct.job_record, ptr %654, i32 0, i32 30
+  %656 = load ptr, ptr %655, align 8
+  %657 = getelementptr inbounds nuw %struct.job_details_t, ptr %656, i32 0, i32 45
+  %658 = load i16, ptr %657, align 2
+  %659 = zext i16 %658 to i32
+  %660 = icmp ne i32 %659, 65534
+  br i1 %660, label %661, label %671
 
-661:                                              ; preds = %656
-  %662 = load ptr, ptr %2, align 8
-  %663 = getelementptr inbounds %struct.job_record, ptr %662, i32 0, i32 30
-  %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds %struct.job_details_t, ptr %664, i32 0, i32 20
+661:                                              ; preds = %653
+  %662 = load ptr, ptr %18, align 8
+  %663 = call ptr @data_key_set(ptr noundef %662, ptr noundef @.str.39)
+  %664 = load ptr, ptr %2, align 8
+  %665 = getelementptr inbounds nuw %struct.job_record, ptr %664, i32 0, i32 30
   %666 = load ptr, ptr %665, align 8
-  %667 = icmp ne ptr %666, null
-  br i1 %667, label %668, label %677
+  %667 = getelementptr inbounds nuw %struct.job_details_t, ptr %666, i32 0, i32 45
+  %668 = load i16, ptr %667, align 2
+  %669 = zext i16 %668 to i64
+  %670 = call ptr @data_set_int(ptr noundef %663, i64 noundef %669)
+  br label %671
 
-668:                                              ; preds = %661
-  %669 = load ptr, ptr %18, align 8
-  %670 = call ptr @data_key_set(ptr noundef %669, ptr noundef @.str.54)
-  %671 = load ptr, ptr %2, align 8
-  %672 = getelementptr inbounds %struct.job_record, ptr %671, i32 0, i32 30
-  %673 = load ptr, ptr %672, align 8
-  %674 = getelementptr inbounds %struct.job_details_t, ptr %673, i32 0, i32 20
-  %675 = load ptr, ptr %674, align 8
-  %676 = call ptr @data_set_string(ptr noundef %670, ptr noundef %675)
-  br label %677
+671:                                              ; preds = %661, %653, %648
+  %672 = load ptr, ptr %2, align 8
+  %673 = getelementptr inbounds nuw %struct.job_record, ptr %672, i32 0, i32 30
+  %674 = load ptr, ptr %673, align 8
+  %675 = icmp ne ptr %674, null
+  br i1 %675, label %676, label %694
 
-677:                                              ; preds = %668, %661, %656
-  %678 = load ptr, ptr %2, align 8
-  %679 = getelementptr inbounds %struct.job_record, ptr %678, i32 0, i32 30
-  %680 = load ptr, ptr %679, align 8
-  %681 = icmp ne ptr %680, null
-  br i1 %681, label %682, label %698
+676:                                              ; preds = %671
+  %677 = load ptr, ptr %2, align 8
+  %678 = getelementptr inbounds nuw %struct.job_record, ptr %677, i32 0, i32 30
+  %679 = load ptr, ptr %678, align 8
+  %680 = getelementptr inbounds nuw %struct.job_details_t, ptr %679, i32 0, i32 15
+  %681 = load i16, ptr %680, align 8
+  %682 = zext i16 %681 to i32
+  %683 = icmp ne i32 %682, 65534
+  br i1 %683, label %684, label %694
 
-682:                                              ; preds = %677
-  %683 = load ptr, ptr %2, align 8
-  %684 = getelementptr inbounds %struct.job_record, ptr %683, i32 0, i32 30
-  %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds %struct.job_details_t, ptr %685, i32 0, i32 25
-  %687 = load ptr, ptr %686, align 8
-  %688 = icmp ne ptr %687, null
-  br i1 %688, label %689, label %698
+684:                                              ; preds = %676
+  %685 = load ptr, ptr %18, align 8
+  %686 = call ptr @data_key_set(ptr noundef %685, ptr noundef @.str.40)
+  %687 = load ptr, ptr %2, align 8
+  %688 = getelementptr inbounds nuw %struct.job_record, ptr %687, i32 0, i32 30
+  %689 = load ptr, ptr %688, align 8
+  %690 = getelementptr inbounds nuw %struct.job_details_t, ptr %689, i32 0, i32 15
+  %691 = load i16, ptr %690, align 8
+  %692 = zext i16 %691 to i64
+  %693 = call ptr @data_set_int(ptr noundef %686, i64 noundef %692)
+  br label %694
 
-689:                                              ; preds = %682
-  %690 = load ptr, ptr %18, align 8
-  %691 = call ptr @data_key_set(ptr noundef %690, ptr noundef @.str.55)
-  %692 = load ptr, ptr %2, align 8
-  %693 = getelementptr inbounds %struct.job_record, ptr %692, i32 0, i32 30
-  %694 = load ptr, ptr %693, align 8
-  %695 = getelementptr inbounds %struct.job_details_t, ptr %694, i32 0, i32 25
-  %696 = load ptr, ptr %695, align 8
-  %697 = call ptr @data_set_string(ptr noundef %691, ptr noundef %696)
-  br label %698
+694:                                              ; preds = %684, %676, %671
+  %695 = load ptr, ptr %2, align 8
+  %696 = getelementptr inbounds nuw %struct.job_record, ptr %695, i32 0, i32 30
+  %697 = load ptr, ptr %696, align 8
+  %698 = icmp ne ptr %697, null
+  br i1 %698, label %699, label %715
 
-698:                                              ; preds = %689, %682, %677
-  %699 = load ptr, ptr %2, align 8
-  %700 = getelementptr inbounds %struct.job_record, ptr %699, i32 0, i32 30
-  %701 = load ptr, ptr %700, align 8
-  %702 = icmp ne ptr %701, null
-  br i1 %702, label %703, label %719
+699:                                              ; preds = %694
+  %700 = load ptr, ptr %2, align 8
+  %701 = getelementptr inbounds nuw %struct.job_record, ptr %700, i32 0, i32 30
+  %702 = load ptr, ptr %701, align 8
+  %703 = getelementptr inbounds nuw %struct.job_details_t, ptr %702, i32 0, i32 20
+  %704 = load ptr, ptr %703, align 8
+  %705 = icmp ne ptr %704, null
+  br i1 %705, label %706, label %715
 
-703:                                              ; preds = %698
-  %704 = load ptr, ptr %2, align 8
-  %705 = getelementptr inbounds %struct.job_record, ptr %704, i32 0, i32 30
-  %706 = load ptr, ptr %705, align 8
-  %707 = getelementptr inbounds %struct.job_details_t, ptr %706, i32 0, i32 29
-  %708 = load ptr, ptr %707, align 8
-  %709 = icmp ne ptr %708, null
-  br i1 %709, label %710, label %719
+706:                                              ; preds = %699
+  %707 = load ptr, ptr %18, align 8
+  %708 = call ptr @data_key_set(ptr noundef %707, ptr noundef @.str.41)
+  %709 = load ptr, ptr %2, align 8
+  %710 = getelementptr inbounds nuw %struct.job_record, ptr %709, i32 0, i32 30
+  %711 = load ptr, ptr %710, align 8
+  %712 = getelementptr inbounds nuw %struct.job_details_t, ptr %711, i32 0, i32 20
+  %713 = load ptr, ptr %712, align 8
+  %714 = call ptr @data_set_string(ptr noundef %708, ptr noundef %713)
+  br label %715
 
-710:                                              ; preds = %703
-  %711 = load ptr, ptr %18, align 8
-  %712 = call ptr @data_key_set(ptr noundef %711, ptr noundef @.str.56)
-  %713 = load ptr, ptr %2, align 8
-  %714 = getelementptr inbounds %struct.job_record, ptr %713, i32 0, i32 30
-  %715 = load ptr, ptr %714, align 8
-  %716 = getelementptr inbounds %struct.job_details_t, ptr %715, i32 0, i32 29
-  %717 = load ptr, ptr %716, align 8
-  %718 = call ptr @data_set_string(ptr noundef %712, ptr noundef %717)
-  br label %719
+715:                                              ; preds = %706, %699, %694
+  %716 = load ptr, ptr %2, align 8
+  %717 = getelementptr inbounds nuw %struct.job_record, ptr %716, i32 0, i32 30
+  %718 = load ptr, ptr %717, align 8
+  %719 = icmp ne ptr %718, null
+  br i1 %719, label %720, label %736
 
-719:                                              ; preds = %710, %703, %698
-  %720 = load i32, ptr %17, align 4
-  %721 = icmp ne i32 %720, -1
-  br i1 %721, label %722, label %729
+720:                                              ; preds = %715
+  %721 = load ptr, ptr %2, align 8
+  %722 = getelementptr inbounds nuw %struct.job_record, ptr %721, i32 0, i32 30
+  %723 = load ptr, ptr %722, align 8
+  %724 = getelementptr inbounds nuw %struct.job_details_t, ptr %723, i32 0, i32 25
+  %725 = load ptr, ptr %724, align 8
+  %726 = icmp ne ptr %725, null
+  br i1 %726, label %727, label %736
 
-722:                                              ; preds = %719
-  %723 = load ptr, ptr %18, align 8
-  %724 = call ptr @data_key_set(ptr noundef %723, ptr noundef @.str.57)
-  %725 = load i32, ptr %17, align 4
-  %726 = mul i32 %725, 60
-  %727 = zext i32 %726 to i64
-  %728 = call ptr @data_set_int(ptr noundef %724, i64 noundef %727)
-  br label %729
-
-729:                                              ; preds = %722, %719
+727:                                              ; preds = %720
+  %728 = load ptr, ptr %18, align 8
+  %729 = call ptr @data_key_set(ptr noundef %728, ptr noundef @.str.42)
   %730 = load ptr, ptr %2, align 8
-  %731 = getelementptr inbounds %struct.job_record, ptr %730, i32 0, i32 71
+  %731 = getelementptr inbounds nuw %struct.job_record, ptr %730, i32 0, i32 30
   %732 = load ptr, ptr %731, align 8
-  %733 = icmp ne ptr %732, null
-  br i1 %733, label %734, label %741
+  %733 = getelementptr inbounds nuw %struct.job_details_t, ptr %732, i32 0, i32 25
+  %734 = load ptr, ptr %733, align 8
+  %735 = call ptr @data_set_string(ptr noundef %729, ptr noundef %734)
+  br label %736
 
-734:                                              ; preds = %729
-  %735 = load ptr, ptr %18, align 8
-  %736 = call ptr @data_key_set(ptr noundef %735, ptr noundef @.str.58)
+736:                                              ; preds = %727, %720, %715
   %737 = load ptr, ptr %2, align 8
-  %738 = getelementptr inbounds %struct.job_record, ptr %737, i32 0, i32 71
+  %738 = getelementptr inbounds nuw %struct.job_record, ptr %737, i32 0, i32 30
   %739 = load ptr, ptr %738, align 8
-  %740 = call ptr @data_set_string(ptr noundef %736, ptr noundef %739)
-  br label %741
+  %740 = icmp ne ptr %739, null
+  br i1 %740, label %741, label %757
 
-741:                                              ; preds = %734, %729
+741:                                              ; preds = %736
   %742 = load ptr, ptr %2, align 8
-  %743 = getelementptr inbounds %struct.job_record, ptr %742, i32 0, i32 109
+  %743 = getelementptr inbounds nuw %struct.job_record, ptr %742, i32 0, i32 30
   %744 = load ptr, ptr %743, align 8
-  %745 = icmp ne ptr %744, null
-  br i1 %745, label %746, label %753
+  %745 = getelementptr inbounds nuw %struct.job_details_t, ptr %744, i32 0, i32 29
+  %746 = load ptr, ptr %745, align 8
+  %747 = icmp ne ptr %746, null
+  br i1 %747, label %748, label %757
 
-746:                                              ; preds = %741
-  %747 = load ptr, ptr %18, align 8
-  %748 = call ptr @data_key_set(ptr noundef %747, ptr noundef @.str.59)
-  %749 = load ptr, ptr %2, align 8
-  %750 = getelementptr inbounds %struct.job_record, ptr %749, i32 0, i32 109
-  %751 = load ptr, ptr %750, align 8
-  %752 = call ptr @data_set_string(ptr noundef %748, ptr noundef %751)
-  br label %753
+748:                                              ; preds = %741
+  %749 = load ptr, ptr %18, align 8
+  %750 = call ptr @data_key_set(ptr noundef %749, ptr noundef @.str.43)
+  %751 = load ptr, ptr %2, align 8
+  %752 = getelementptr inbounds nuw %struct.job_record, ptr %751, i32 0, i32 30
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds nuw %struct.job_details_t, ptr %753, i32 0, i32 29
+  %755 = load ptr, ptr %754, align 8
+  %756 = call ptr @data_set_string(ptr noundef %750, ptr noundef %755)
+  br label %757
 
-753:                                              ; preds = %746, %741
-  %754 = load ptr, ptr %2, align 8
-  %755 = getelementptr inbounds %struct.job_record, ptr %754, i32 0, i32 151
-  %756 = load ptr, ptr %755, align 8
-  %757 = icmp ne ptr %756, null
-  br i1 %757, label %758, label %765
+757:                                              ; preds = %748, %741, %736
+  %758 = load i32, ptr %17, align 4
+  %759 = icmp ne i32 %758, -1
+  br i1 %759, label %760, label %767
 
-758:                                              ; preds = %753
-  %759 = load ptr, ptr %18, align 8
-  %760 = call ptr @data_key_set(ptr noundef %759, ptr noundef @.str.60)
-  %761 = load ptr, ptr %2, align 8
-  %762 = getelementptr inbounds %struct.job_record, ptr %761, i32 0, i32 151
-  %763 = load ptr, ptr %762, align 8
-  %764 = call ptr @data_set_string(ptr noundef %760, ptr noundef %763)
-  br label %765
+760:                                              ; preds = %757
+  %761 = load ptr, ptr %18, align 8
+  %762 = call ptr @data_key_set(ptr noundef %761, ptr noundef @.str.44)
+  %763 = load i32, ptr %17, align 4
+  %764 = mul i32 %763, 60
+  %765 = zext i32 %764 to i64
+  %766 = call ptr @data_set_int(ptr noundef %762, i64 noundef %765)
+  br label %767
 
-765:                                              ; preds = %758, %753
-  %766 = load ptr, ptr %2, align 8
-  %767 = getelementptr inbounds %struct.job_record, ptr %766, i32 0, i32 140
-  %768 = load ptr, ptr %767, align 8
-  %769 = icmp ne ptr %768, null
-  br i1 %769, label %770, label %777
+767:                                              ; preds = %760, %757
+  %768 = load ptr, ptr %2, align 8
+  %769 = getelementptr inbounds nuw %struct.job_record, ptr %768, i32 0, i32 72
+  %770 = load ptr, ptr %769, align 8
+  %771 = icmp ne ptr %770, null
+  br i1 %771, label %772, label %779
 
-770:                                              ; preds = %765
-  %771 = load ptr, ptr %18, align 8
-  %772 = call ptr @data_key_set(ptr noundef %771, ptr noundef @.str.61)
-  %773 = load ptr, ptr %2, align 8
-  %774 = getelementptr inbounds %struct.job_record, ptr %773, i32 0, i32 140
-  %775 = load ptr, ptr %774, align 8
-  %776 = call ptr @data_set_string(ptr noundef %772, ptr noundef %775)
-  br label %777
+772:                                              ; preds = %767
+  %773 = load ptr, ptr %18, align 8
+  %774 = call ptr @data_key_set(ptr noundef %773, ptr noundef @.str.45)
+  %775 = load ptr, ptr %2, align 8
+  %776 = getelementptr inbounds nuw %struct.job_record, ptr %775, i32 0, i32 72
+  %777 = load ptr, ptr %776, align 8
+  %778 = call ptr @data_set_string(ptr noundef %774, ptr noundef %777)
+  br label %779
 
-777:                                              ; preds = %770, %765
-  %778 = load ptr, ptr %2, align 8
-  %779 = getelementptr inbounds %struct.job_record, ptr %778, i32 0, i32 141
-  %780 = load ptr, ptr %779, align 8
-  %781 = icmp ne ptr %780, null
-  br i1 %781, label %782, label %789
+779:                                              ; preds = %772, %767
+  %780 = load ptr, ptr %2, align 8
+  %781 = getelementptr inbounds nuw %struct.job_record, ptr %780, i32 0, i32 110
+  %782 = load ptr, ptr %781, align 8
+  %783 = icmp ne ptr %782, null
+  br i1 %783, label %784, label %791
 
-782:                                              ; preds = %777
-  %783 = load ptr, ptr %18, align 8
-  %784 = call ptr @data_key_set(ptr noundef %783, ptr noundef @.str.62)
-  %785 = load ptr, ptr %2, align 8
-  %786 = getelementptr inbounds %struct.job_record, ptr %785, i32 0, i32 141
-  %787 = load ptr, ptr %786, align 8
-  %788 = call ptr @data_set_string(ptr noundef %784, ptr noundef %787)
-  br label %789
+784:                                              ; preds = %779
+  %785 = load ptr, ptr %18, align 8
+  %786 = call ptr @data_key_set(ptr noundef %785, ptr noundef @.str.46)
+  %787 = load ptr, ptr %2, align 8
+  %788 = getelementptr inbounds nuw %struct.job_record, ptr %787, i32 0, i32 110
+  %789 = load ptr, ptr %788, align 8
+  %790 = call ptr @data_set_string(ptr noundef %786, ptr noundef %789)
+  br label %791
 
-789:                                              ; preds = %782, %777
-  %790 = load ptr, ptr %2, align 8
-  %791 = getelementptr inbounds %struct.job_record, ptr %790, i32 0, i32 143
-  %792 = load ptr, ptr %791, align 8
-  %793 = icmp ne ptr %792, null
-  br i1 %793, label %794, label %801
+791:                                              ; preds = %784, %779
+  %792 = load ptr, ptr %2, align 8
+  %793 = getelementptr inbounds nuw %struct.job_record, ptr %792, i32 0, i32 156
+  %794 = load ptr, ptr %793, align 8
+  %795 = icmp ne ptr %794, null
+  br i1 %795, label %796, label %803
 
-794:                                              ; preds = %789
-  %795 = load ptr, ptr %18, align 8
-  %796 = call ptr @data_key_set(ptr noundef %795, ptr noundef @.str.63)
-  %797 = load ptr, ptr %2, align 8
-  %798 = getelementptr inbounds %struct.job_record, ptr %797, i32 0, i32 143
-  %799 = load ptr, ptr %798, align 8
-  %800 = call ptr @data_set_string(ptr noundef %796, ptr noundef %799)
-  br label %801
+796:                                              ; preds = %791
+  %797 = load ptr, ptr %18, align 8
+  %798 = call ptr @data_key_set(ptr noundef %797, ptr noundef @.str.47)
+  %799 = load ptr, ptr %2, align 8
+  %800 = getelementptr inbounds nuw %struct.job_record, ptr %799, i32 0, i32 156
+  %801 = load ptr, ptr %800, align 8
+  %802 = call ptr @data_set_string(ptr noundef %798, ptr noundef %801)
+  br label %803
 
-801:                                              ; preds = %794, %789
-  %802 = load ptr, ptr %2, align 8
-  %803 = getelementptr inbounds %struct.job_record, ptr %802, i32 0, i32 144
-  %804 = load ptr, ptr %803, align 8
-  %805 = icmp ne ptr %804, null
-  br i1 %805, label %806, label %813
+803:                                              ; preds = %796, %791
+  %804 = load ptr, ptr %2, align 8
+  %805 = getelementptr inbounds nuw %struct.job_record, ptr %804, i32 0, i32 145
+  %806 = load ptr, ptr %805, align 8
+  %807 = icmp ne ptr %806, null
+  br i1 %807, label %808, label %815
 
-806:                                              ; preds = %801
-  %807 = load ptr, ptr %18, align 8
-  %808 = call ptr @data_key_set(ptr noundef %807, ptr noundef @.str.64)
-  %809 = load ptr, ptr %2, align 8
-  %810 = getelementptr inbounds %struct.job_record, ptr %809, i32 0, i32 144
-  %811 = load ptr, ptr %810, align 8
-  %812 = call ptr @data_set_string(ptr noundef %808, ptr noundef %811)
-  br label %813
+808:                                              ; preds = %803
+  %809 = load ptr, ptr %18, align 8
+  %810 = call ptr @data_key_set(ptr noundef %809, ptr noundef @.str.48)
+  %811 = load ptr, ptr %2, align 8
+  %812 = getelementptr inbounds nuw %struct.job_record, ptr %811, i32 0, i32 145
+  %813 = load ptr, ptr %812, align 8
+  %814 = call ptr @data_set_string(ptr noundef %810, ptr noundef %813)
+  br label %815
 
-813:                                              ; preds = %806, %801
-  %814 = load ptr, ptr %2, align 8
-  %815 = getelementptr inbounds %struct.job_record, ptr %814, i32 0, i32 1
-  %816 = load ptr, ptr %815, align 8
-  %817 = icmp ne ptr %816, null
-  br i1 %817, label %818, label %825
+815:                                              ; preds = %808, %803
+  %816 = load ptr, ptr %2, align 8
+  %817 = getelementptr inbounds nuw %struct.job_record, ptr %816, i32 0, i32 146
+  %818 = load ptr, ptr %817, align 8
+  %819 = icmp ne ptr %818, null
+  br i1 %819, label %820, label %827
 
-818:                                              ; preds = %813
-  %819 = load ptr, ptr %18, align 8
-  %820 = call ptr @data_key_set(ptr noundef %819, ptr noundef @.str.65)
-  %821 = load ptr, ptr %2, align 8
-  %822 = getelementptr inbounds %struct.job_record, ptr %821, i32 0, i32 1
-  %823 = load ptr, ptr %822, align 8
-  %824 = call ptr @data_set_string(ptr noundef %820, ptr noundef %823)
-  br label %825
+820:                                              ; preds = %815
+  %821 = load ptr, ptr %18, align 8
+  %822 = call ptr @data_key_set(ptr noundef %821, ptr noundef @.str.49)
+  %823 = load ptr, ptr %2, align 8
+  %824 = getelementptr inbounds nuw %struct.job_record, ptr %823, i32 0, i32 146
+  %825 = load ptr, ptr %824, align 8
+  %826 = call ptr @data_set_string(ptr noundef %822, ptr noundef %825)
+  br label %827
 
-825:                                              ; preds = %818, %813
-  %826 = load ptr, ptr %2, align 8
-  %827 = call ptr @get_job_script(ptr noundef %826)
-  store ptr %827, ptr %11, align 8
-  %828 = icmp ne ptr %827, null
-  br i1 %828, label %829, label %836
+827:                                              ; preds = %820, %815
+  %828 = load ptr, ptr %2, align 8
+  %829 = getelementptr inbounds nuw %struct.job_record, ptr %828, i32 0, i32 148
+  %830 = load ptr, ptr %829, align 8
+  %831 = icmp ne ptr %830, null
+  br i1 %831, label %832, label %839
 
-829:                                              ; preds = %825
-  %830 = load ptr, ptr %18, align 8
-  %831 = call ptr @data_key_set(ptr noundef %830, ptr noundef @.str.66)
-  %832 = load ptr, ptr %11, align 8
-  %833 = getelementptr inbounds %struct.buf_t, ptr %832, i32 0, i32 1
-  %834 = load ptr, ptr %833, align 8
-  %835 = call ptr @data_set_string(ptr noundef %831, ptr noundef %834)
-  br label %836
+832:                                              ; preds = %827
+  %833 = load ptr, ptr %18, align 8
+  %834 = call ptr @data_key_set(ptr noundef %833, ptr noundef @.str.50)
+  %835 = load ptr, ptr %2, align 8
+  %836 = getelementptr inbounds nuw %struct.job_record, ptr %835, i32 0, i32 148
+  %837 = load ptr, ptr %836, align 8
+  %838 = call ptr @data_set_string(ptr noundef %834, ptr noundef %837)
+  br label %839
 
-836:                                              ; preds = %829, %825
-  br label %837
+839:                                              ; preds = %832, %827
+  %840 = load ptr, ptr %2, align 8
+  %841 = getelementptr inbounds nuw %struct.job_record, ptr %840, i32 0, i32 149
+  %842 = load ptr, ptr %841, align 8
+  %843 = icmp ne ptr %842, null
+  br i1 %843, label %844, label %851
 
-837:                                              ; preds = %836
-  %838 = load ptr, ptr %11, align 8
-  %839 = icmp ne ptr %838, null
-  br i1 %839, label %840, label %842
+844:                                              ; preds = %839
+  %845 = load ptr, ptr %18, align 8
+  %846 = call ptr @data_key_set(ptr noundef %845, ptr noundef @.str.51)
+  %847 = load ptr, ptr %2, align 8
+  %848 = getelementptr inbounds nuw %struct.job_record, ptr %847, i32 0, i32 149
+  %849 = load ptr, ptr %848, align 8
+  %850 = call ptr @data_set_string(ptr noundef %846, ptr noundef %849)
+  br label %851
 
-840:                                              ; preds = %837
-  %841 = load ptr, ptr %11, align 8
-  call void @free_buf(ptr noundef %841)
-  br label %842
+851:                                              ; preds = %844, %839
+  %852 = load ptr, ptr %2, align 8
+  %853 = getelementptr inbounds nuw %struct.job_record, ptr %852, i32 0, i32 1
+  %854 = load ptr, ptr %853, align 8
+  %855 = icmp ne ptr %854, null
+  br i1 %855, label %856, label %863
 
-842:                                              ; preds = %840, %837
-  store ptr null, ptr %11, align 8
-  br label %843
+856:                                              ; preds = %851
+  %857 = load ptr, ptr %18, align 8
+  %858 = call ptr @data_key_set(ptr noundef %857, ptr noundef @.str.52)
+  %859 = load ptr, ptr %2, align 8
+  %860 = getelementptr inbounds nuw %struct.job_record, ptr %859, i32 0, i32 1
+  %861 = load ptr, ptr %860, align 8
+  %862 = call ptr @data_set_string(ptr noundef %858, ptr noundef %861)
+  br label %863
 
-843:                                              ; preds = %842
-  %844 = load ptr, ptr %2, align 8
-  %845 = getelementptr inbounds %struct.job_record, ptr %844, i32 0, i32 11
-  %846 = load ptr, ptr %845, align 8
-  %847 = icmp ne ptr %846, null
-  br i1 %847, label %848, label %900
+863:                                              ; preds = %856, %851
+  %864 = load ptr, ptr %2, align 8
+  %865 = call ptr @get_job_script(ptr noundef %864)
+  store ptr %865, ptr %11, align 8
+  %866 = icmp ne ptr %865, null
+  br i1 %866, label %867, label %874
 
-848:                                              ; preds = %843
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 @__const.jobcomp_common_job_record_to_data.locks, i64 28, i1 false)
-  %849 = load ptr, ptr %2, align 8
-  %850 = getelementptr inbounds %struct.job_record, ptr %849, i32 0, i32 11
-  %851 = load ptr, ptr %850, align 8
-  store ptr %851, ptr %22, align 8
-  store ptr null, ptr %23, align 8
-  store ptr null, ptr %24, align 8
-  store i32 0, ptr %25, align 4
-  call void @assoc_mgr_lock(ptr noundef %21)
-  br label %852
-
-852:                                              ; preds = %874, %848
-  %853 = load ptr, ptr %22, align 8
-  %854 = icmp ne ptr %853, null
-  br i1 %854, label %855, label %880
-
-855:                                              ; preds = %852
-  %856 = load ptr, ptr %22, align 8
-  %857 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %856, i32 0, i32 1
-  %858 = load ptr, ptr %857, align 8
-  %859 = icmp ne ptr %858, null
-  br i1 %859, label %860, label %874
-
-860:                                              ; preds = %855
-  %861 = load i32, ptr %25, align 4
-  %862 = add nsw i32 %861, 1
-  %863 = sext i32 %862 to i64
-  %864 = mul i64 8, %863
-  %865 = call ptr @slurm_xrecalloc(ptr noundef %24, i64 noundef 1, i64 noundef %864, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.10, i32 noundef 377, ptr noundef @__func__.jobcomp_common_job_record_to_data)
-  store ptr %865, ptr %24, align 8
-  %866 = load ptr, ptr %22, align 8
-  %867 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %866, i32 0, i32 1
-  %868 = load ptr, ptr %867, align 8
-  %869 = load ptr, ptr %24, align 8
-  %870 = load i32, ptr %25, align 4
-  %871 = add nsw i32 %870, 1
-  store i32 %871, ptr %25, align 4
-  %872 = sext i32 %870 to i64
-  %873 = getelementptr inbounds ptr, ptr %869, i64 %872
-  store ptr %868, ptr %873, align 8
+867:                                              ; preds = %863
+  %868 = load ptr, ptr %18, align 8
+  %869 = call ptr @data_key_set(ptr noundef %868, ptr noundef @.str.53)
+  %870 = load ptr, ptr %11, align 8
+  %871 = getelementptr inbounds nuw %struct.buf_t, ptr %870, i32 0, i32 1
+  %872 = load ptr, ptr %871, align 8
+  %873 = call ptr @data_set_string(ptr noundef %869, ptr noundef %872)
   br label %874
 
-874:                                              ; preds = %860, %855
-  %875 = load ptr, ptr %22, align 8
-  %876 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %875, i32 0, i32 45
-  %877 = load ptr, ptr %876, align 8
-  %878 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %877, i32 0, i32 9
-  %879 = load ptr, ptr %878, align 8
-  store ptr %879, ptr %22, align 8
-  br label %852, !llvm.loop !8
+874:                                              ; preds = %867, %863
+  br label %875
 
-880:                                              ; preds = %852
-  %881 = load i32, ptr %25, align 4
-  %882 = sub nsw i32 %881, 1
-  store i32 %882, ptr %13, align 4
-  br label %883
+875:                                              ; preds = %874
+  %876 = load ptr, ptr %11, align 8
+  %877 = icmp ne ptr %876, null
+  br i1 %877, label %878, label %880
 
-883:                                              ; preds = %892, %880
-  %884 = load i32, ptr %13, align 4
-  %885 = icmp sge i32 %884, 0
-  br i1 %885, label %886, label %895
+878:                                              ; preds = %875
+  %879 = load ptr, ptr %11, align 8
+  call void @free_buf(ptr noundef %879)
+  br label %880
 
-886:                                              ; preds = %883
-  %887 = load ptr, ptr %24, align 8
-  %888 = load i32, ptr %13, align 4
-  %889 = sext i32 %888 to i64
-  %890 = getelementptr inbounds ptr, ptr %887, i64 %889
-  %891 = load ptr, ptr %890, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %23, ptr noundef @.str.67, ptr noundef %891)
-  br label %892
+880:                                              ; preds = %878, %875
+  store ptr null, ptr %11, align 8
+  br label %881
 
-892:                                              ; preds = %886
-  %893 = load i32, ptr %13, align 4
-  %894 = add nsw i32 %893, -1
-  store i32 %894, ptr %13, align 4
-  br label %883, !llvm.loop !9
+881:                                              ; preds = %880
+  br label %882
 
-895:                                              ; preds = %883
+882:                                              ; preds = %881
+  %883 = load ptr, ptr %2, align 8
+  %884 = getelementptr inbounds nuw %struct.job_record, ptr %883, i32 0, i32 11
+  %885 = load ptr, ptr %884, align 8
+  %886 = icmp ne ptr %885, null
+  br i1 %886, label %887, label %939
+
+887:                                              ; preds = %882
+  call void @llvm.lifetime.start.p0(i64 28, ptr %21) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 @__const.jobcomp_common_job_record_to_data.locks, i64 28, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  %888 = load ptr, ptr %2, align 8
+  %889 = getelementptr inbounds nuw %struct.job_record, ptr %888, i32 0, i32 11
+  %890 = load ptr, ptr %889, align 8
+  store ptr %890, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  store ptr null, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  store ptr null, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  store i32 0, ptr %25, align 4
+  call void @assoc_mgr_lock(ptr noundef %21)
+  br label %891
+
+891:                                              ; preds = %913, %887
+  %892 = load ptr, ptr %22, align 8
+  %893 = icmp ne ptr %892, null
+  br i1 %893, label %894, label %919
+
+894:                                              ; preds = %891
+  %895 = load ptr, ptr %22, align 8
+  %896 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %895, i32 0, i32 1
+  %897 = load ptr, ptr %896, align 8
+  %898 = icmp ne ptr %897, null
+  br i1 %898, label %899, label %913
+
+899:                                              ; preds = %894
+  %900 = load i32, ptr %25, align 4
+  %901 = add nsw i32 %900, 1
+  %902 = sext i32 %901 to i64
+  %903 = mul i64 8, %902
+  %904 = call ptr @slurm_xrecalloc(ptr noundef %24, i64 noundef 1, i64 noundef %903, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.54, i32 noundef 317, ptr noundef @__func__.jobcomp_common_job_record_to_data)
+  store ptr %904, ptr %24, align 8
+  %905 = load ptr, ptr %22, align 8
+  %906 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %905, i32 0, i32 1
+  %907 = load ptr, ptr %906, align 8
+  %908 = load ptr, ptr %24, align 8
+  %909 = load i32, ptr %25, align 4
+  %910 = add nsw i32 %909, 1
+  store i32 %910, ptr %25, align 4
+  %911 = sext i32 %909 to i64
+  %912 = getelementptr inbounds ptr, ptr %908, i64 %911
+  store ptr %907, ptr %912, align 8
+  br label %913
+
+913:                                              ; preds = %899, %894
+  %914 = load ptr, ptr %22, align 8
+  %915 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %914, i32 0, i32 43
+  %916 = load ptr, ptr %915, align 8
+  %917 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %916, i32 0, i32 9
+  %918 = load ptr, ptr %917, align 8
+  store ptr %918, ptr %22, align 8
+  br label %891, !llvm.loop !8
+
+919:                                              ; preds = %891
+  %920 = load i32, ptr %25, align 4
+  %921 = sub nsw i32 %920, 1
+  store i32 %921, ptr %13, align 4
+  br label %922
+
+922:                                              ; preds = %931, %919
+  %923 = load i32, ptr %13, align 4
+  %924 = icmp sge i32 %923, 0
+  br i1 %924, label %925, label %934
+
+925:                                              ; preds = %922
+  %926 = load ptr, ptr %24, align 8
+  %927 = load i32, ptr %13, align 4
+  %928 = sext i32 %927 to i64
+  %929 = getelementptr inbounds ptr, ptr %926, i64 %928
+  %930 = load ptr, ptr %929, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %23, ptr noundef @.str.55, ptr noundef %930)
+  br label %931
+
+931:                                              ; preds = %925
+  %932 = load i32, ptr %13, align 4
+  %933 = add nsw i32 %932, -1
+  store i32 %933, ptr %13, align 4
+  br label %922, !llvm.loop !11
+
+934:                                              ; preds = %922
   call void @slurm_xfree(ptr noundef %24)
-  %896 = load ptr, ptr %18, align 8
-  %897 = call ptr @data_key_set(ptr noundef %896, ptr noundef @.str.68)
-  %898 = load ptr, ptr %23, align 8
-  %899 = call ptr @data_set_string(ptr noundef %897, ptr noundef %898)
+  %935 = load ptr, ptr %18, align 8
+  %936 = call ptr @data_key_set(ptr noundef %935, ptr noundef @.str.56)
+  %937 = load ptr, ptr %23, align 8
+  %938 = call ptr @data_set_string(ptr noundef %936, ptr noundef %937)
   call void @slurm_xfree(ptr noundef %23)
   call void @assoc_mgr_unlock(ptr noundef %21)
-  br label %900
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 28, ptr %21) #6
+  br label %939
 
-900:                                              ; preds = %895, %843
+939:                                              ; preds = %934, %882
   call void @slurm_xfree(ptr noundef %6)
   call void @slurm_xfree(ptr noundef %7)
-  %901 = load ptr, ptr %18, align 8
-  ret ptr %901
+  %940 = load ptr, ptr %18, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %5) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #6
+  ret ptr %940
 }
 
-declare ptr @user_from_job(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @group_from_job(ptr noundef) #1
+declare ptr @user_from_job(ptr noundef) #2
+
+declare ptr @group_from_job(ptr noundef) #2
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) #3
 
-declare ptr @job_state_string(i32 noundef) #1
+declare ptr @job_state_string(i32 noundef) #2
 
-declare void @parse_time_make_str_utc(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @parse_time_make_str_utc(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
 declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #3
 
-declare ptr @data_set_dict(ptr noundef) #1
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @data_new() #1
+declare ptr @data_set_dict(ptr noundef) #2
 
-declare ptr @data_set_int(ptr noundef, i64 noundef) #1
+declare ptr @data_new() #2
 
-declare ptr @data_key_set(ptr noundef, ptr noundef) #1
+declare ptr @data_set_int(ptr noundef, i64 noundef) #2
 
-declare ptr @data_set_string(ptr noundef, ptr noundef) #1
+declare ptr @data_key_set(ptr noundef, ptr noundef) #2
 
-declare ptr @_data_set_string_own(ptr noundef, ptr noundef) #1
+declare ptr @data_set_string(ptr noundef, ptr noundef) #2
 
-declare ptr @data_set_float(ptr noundef, double noundef) #1
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_valid_date_format(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp ne ptr %4, null
+  br i1 %5, label %6, label %18
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i8, ptr %7, align 1
+  %9 = icmp ne i8 %8, 0
+  br i1 %9, label %10, label %18
+
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %3, align 8
+  %12 = call i32 @xstrcasecmp(ptr noundef %11, ptr noundef @.str.57)
+  %13 = icmp ne i32 %12, 0
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %3, align 8
+  %16 = call i32 @xstrcasecmp(ptr noundef %15, ptr noundef @.str.58)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %19, label %18
+
+18:                                               ; preds = %14, %10, %6, %1
+  store i1 false, ptr %2, align 1
+  br label %20
+
+19:                                               ; preds = %14
+  store i1 true, ptr %2, align 1
+  br label %20
+
+20:                                               ; preds = %19, %18
+  %21 = load i1, ptr %2, align 1
+  ret i1 %21
+}
+
+declare ptr @_data_set_string_own(ptr noundef, ptr noundef) #2
+
+declare ptr @data_set_float(ptr noundef, double noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @difftime(i64 noundef, i64 noundef) #2
+declare double @difftime(i64 noundef, i64 noundef) #4
 
-declare ptr @get_job_script(ptr noundef) #1
+declare ptr @get_job_script(ptr noundef) #2
 
-declare void @free_buf(ptr noundef) #1
+declare void @free_buf(ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @assoc_mgr_lock(ptr noundef) #1
+declare void @assoc_mgr_lock(ptr noundef) #2
 
-declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @assoc_mgr_unlock(ptr noundef) #1
+declare void @slurm_xfree(ptr noundef) #2
+
+declare void @assoc_mgr_unlock(ptr noundef) #2
+
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}

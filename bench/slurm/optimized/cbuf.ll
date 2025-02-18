@@ -5,11 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [7 x i8] c"cbuf.c\00", align 1
 @__func__.cbuf_create = private unnamed_addr constant [12 x i8] c"cbuf_create\00", align 1
-@.str.1 = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_init(): %m\00", align 1
-@.str.2 = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_lock(): %m\00", align 1
+@.str.1 = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_init(): %m\00", align 1
+@.str.2 = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_lock(): %m\00", align 1
 @__func__.cbuf_destroy = private unnamed_addr constant [13 x i8] c"cbuf_destroy\00", align 1
-@.str.3 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
-@.str.4 = private unnamed_addr constant [38 x i8] c"%s:%d %s: pthread_mutex_destroy(): %m\00", align 1
+@.str.3 = private unnamed_addr constant [31 x i8] c"%s: pthread_mutex_unlock(): %m\00", align 1
+@.str.4 = private unnamed_addr constant [32 x i8] c"%s: pthread_mutex_destroy(): %m\00", align 1
 @__func__.cbuf_flush = private unnamed_addr constant [11 x i8] c"cbuf_flush\00", align 1
 @__func__.cbuf_size = private unnamed_addr constant [10 x i8] c"cbuf_size\00", align 1
 @__func__.cbuf_free = private unnamed_addr constant [10 x i8] c"cbuf_free\00", align 1
@@ -67,7 +67,7 @@ define dso_local ptr @cbuf_create(i32 noundef %0, i32 noundef %1) local_unnamed_
 14:                                               ; preds = %6
   %15 = tail call ptr @__errno_location() #14
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @__func__.cbuf_create) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.cbuf_create) #16
   unreachable
 
 16:                                               ; preds = %6
@@ -91,16 +91,22 @@ define dso_local ptr @cbuf_create(i32 noundef %0, i32 noundef %1) local_unnamed_
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #2
+
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -113,7 +119,7 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #14
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 177, ptr noundef nonnull @__func__.cbuf_destroy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_destroy) #16
   unreachable
 
 6:                                                ; preds = %1
@@ -126,7 +132,7 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 191, ptr noundef nonnull @__func__.cbuf_destroy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_destroy) #16
   unreachable
 
 11:                                               ; preds = %6
@@ -137,7 +143,7 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %11
   %14 = tail call ptr @__errno_location() #14
   store i32 %12, ptr %14, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.cbuf_destroy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.cbuf_destroy) #16
   unreachable
 
 15:                                               ; preds = %11
@@ -146,15 +152,15 @@ define dso_local void @cbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cbuf_flush(ptr noundef %0) local_unnamed_addr #0 {
@@ -165,7 +171,7 @@ define dso_local void @cbuf_flush(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 201, ptr noundef nonnull @__func__.cbuf_flush) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_flush) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -180,7 +186,7 @@ define dso_local void @cbuf_flush(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.cbuf_flush) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_flush) #16
   unreachable
 
 11:                                               ; preds = %5
@@ -196,7 +202,7 @@ define dso_local i32 @cbuf_size(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 220, ptr noundef nonnull @__func__.cbuf_size) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_size) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -209,7 +215,7 @@ define dso_local i32 @cbuf_size(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 223, ptr noundef nonnull @__func__.cbuf_size) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_size) #16
   unreachable
 
 11:                                               ; preds = %5
@@ -225,7 +231,7 @@ define dso_local i32 @cbuf_free(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.cbuf_free) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_free) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -240,7 +246,7 @@ define dso_local i32 @cbuf_free(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %5
   %12 = tail call ptr @__errno_location() #14
   store i32 %10, ptr %12, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 236, ptr noundef nonnull @__func__.cbuf_free) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_free) #16
   unreachable
 
 13:                                               ; preds = %5
@@ -257,7 +263,7 @@ define dso_local i32 @cbuf_used(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 246, ptr noundef nonnull @__func__.cbuf_used) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_used) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -270,7 +276,7 @@ define dso_local i32 @cbuf_used(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @__func__.cbuf_used) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_used) #16
   unreachable
 
 11:                                               ; preds = %5
@@ -286,7 +292,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 259, ptr noundef nonnull @__func__.cbuf_lines_used) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_lines_used) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -335,7 +341,7 @@ define dso_local i32 @cbuf_lines_used(ptr noundef %0) local_unnamed_addr #0 {
   %31 = add nsw i32 %.03747.i, 1
   %32 = srem i32 %31, %20
   %.not.i = icmp eq i32 %32, %17
-  br i1 %.not.i, label %cbuf_find_unread_line.exit, label %21, !llvm.loop !7
+  br i1 %.not.i, label %cbuf_find_unread_line.exit, label %21, !llvm.loop !8
 
 cbuf_find_unread_line.exit:                       ; preds = %21, %30, %13, %5, %9
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 0, %13 ], [ %.232.i, %30 ], [ %.232.i, %21 ]
@@ -346,7 +352,7 @@ cbuf_find_unread_line.exit:                       ; preds = %21, %30, %13, %5, %
 34:                                               ; preds = %cbuf_find_unread_line.exit
   %35 = tail call ptr @__errno_location() #14
   store i32 %33, ptr %35, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @__func__.cbuf_lines_used) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_lines_used) #16
   unreachable
 
 36:                                               ; preds = %cbuf_find_unread_line.exit
@@ -362,7 +368,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_reused(ptr noundef
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @__func__.cbuf_reused) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_reused) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -379,7 +385,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_reused(ptr noundef
 13:                                               ; preds = %5
   %14 = tail call ptr @__errno_location() #14
   store i32 %12, ptr %14, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @__func__.cbuf_reused) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_reused) #16
   unreachable
 
 15:                                               ; preds = %5
@@ -393,6 +399,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_reused(ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
   store i32 -1, ptr %2, align 4
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
   %.not = icmp eq i32 %3, 0
@@ -401,7 +408,7 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #14
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__func__.cbuf_lines_reused) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_lines_reused) #16
   unreachable
 
 6:                                                ; preds = %1
@@ -415,16 +422,17 @@ define dso_local i32 @cbuf_lines_reused(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %6
   %12 = tail call ptr @__errno_location() #14
   store i32 %10, ptr %12, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 294, ptr noundef nonnull @__func__.cbuf_lines_reused) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_lines_reused) #16
   unreachable
 
 13:                                               ; preds = %6
   %14 = load i32, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
   ret i32 %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #5 {
+define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #6 {
   %5 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
   %.not = icmp eq ptr %3, null
@@ -531,7 +539,7 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(
   %56 = icmp eq i32 %spec.select78, 0
   %57 = icmp eq i32 %.4, 0
   %or.cond3 = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond3, label %58, label %40, !llvm.loop !9
+  br i1 %or.cond3, label %58, label %40, !llvm.loop !11
 
 58:                                               ; preds = %41, %40
   %.370 = phi i32 [ %spec.select78, %41 ], [ %.269, %40 ]
@@ -583,7 +591,7 @@ define dso_local range(i32 0, 2) i32 @cbuf_is_empty(ptr noundef %0) local_unname
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #14
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.cbuf_is_empty) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_is_empty) #16
   unreachable
 
 5:                                                ; preds = %1
@@ -596,7 +604,7 @@ define dso_local range(i32 0, 2) i32 @cbuf_is_empty(ptr noundef %0) local_unname
 9:                                                ; preds = %5
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.cbuf_is_empty) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_is_empty) #16
   unreachable
 
 11:                                               ; preds = %5
@@ -623,7 +631,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #14
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @__func__.cbuf_opt_get) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_opt_get) #16
   unreachable
 
 11:                                               ; preds = %7
@@ -650,7 +658,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
 20:                                               ; preds = %18
   %21 = tail call ptr @__errno_location() #14
   store i32 %19, ptr %21, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 331, ptr noundef nonnull @__func__.cbuf_opt_get) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_opt_get) #16
   unreachable
 
 22:                                               ; preds = %18, %5
@@ -667,7 +675,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_set(ptr noundef %0, i32 noundef 
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #14
   store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.cbuf_opt_set) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_opt_set) #16
   unreachable
 
 7:                                                ; preds = %3
@@ -702,7 +710,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_set(ptr noundef %0, i32 noundef 
 18:                                               ; preds = %16
   %19 = tail call ptr @__errno_location() #14
   store i32 %17, ptr %19, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @__func__.cbuf_opt_set) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_opt_set) #16
   unreachable
 
 20:                                               ; preds = %16
@@ -731,7 +739,7 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #14
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @__func__.cbuf_drop) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_drop) #16
   unreachable
 
 12:                                               ; preds = %8
@@ -765,7 +773,7 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 29:                                               ; preds = %27
   %30 = tail call ptr @__errno_location() #14
   store i32 %28, ptr %30, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 389, ptr noundef nonnull @__func__.cbuf_drop) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_drop) #16
   unreachable
 
 31:                                               ; preds = %27, %6, %4
@@ -797,7 +805,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly captures(a
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #14
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 407, ptr noundef nonnull @__func__.cbuf_peek) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_peek) #16
   unreachable
 
 14:                                               ; preds = %10
@@ -847,7 +855,7 @@ define dso_local i32 @cbuf_peek(ptr noundef %0, ptr noundef writeonly captures(a
   %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
   %39 = icmp sgt i32 %.2.i, 0
-  br i1 %39, label %23, label %.loopexit.i, !llvm.loop !10
+  br i1 %39, label %23, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %38, %18
   %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
@@ -866,7 +874,7 @@ cbuf_reader.exit:                                 ; preds = %14, %.loopexit.i
 43:                                               ; preds = %cbuf_reader.exit
   %44 = tail call ptr @__errno_location() #14
   store i32 %42, ptr %44, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 411, ptr noundef nonnull @__func__.cbuf_peek) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_peek) #16
   unreachable
 
 45:                                               ; preds = %cbuf_reader.exit, %8, %6
@@ -898,7 +906,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly captures(a
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #14
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @__func__.cbuf_read) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_read) #16
   unreachable
 
 14:                                               ; preds = %10
@@ -948,7 +956,7 @@ define dso_local i32 @cbuf_read(ptr noundef %0, ptr noundef writeonly captures(a
   %.2.i = phi i32 [ %33, %32 ], [ %.035.i, %23 ]
   %.1.i = phi i32 [ %37, %32 ], [ %.0.i, %23 ]
   %39 = icmp sgt i32 %.2.i, 0
-  br i1 %39, label %23, label %cbuf_reader.exit, !llvm.loop !10
+  br i1 %39, label %23, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %38, %18
   %.136.i = phi i32 [ %..i, %18 ], [ %.2.i, %38 ]
@@ -982,7 +990,7 @@ cbuf_reader.exit.thread:                          ; preds = %14, %cbuf_reader.ex
 54:                                               ; preds = %cbuf_reader.exit.thread
   %55 = tail call ptr @__errno_location() #14
   store i32 %53, ptr %55, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 436, ptr noundef nonnull @__func__.cbuf_read) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_read) #16
   unreachable
 
 56:                                               ; preds = %cbuf_reader.exit.thread, %8, %6
@@ -1014,7 +1022,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly captures
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #14
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 454, ptr noundef nonnull @__func__.cbuf_replay) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_replay) #16
   unreachable
 
 14:                                               ; preds = %10
@@ -1072,7 +1080,7 @@ define dso_local i32 @cbuf_replay(ptr noundef %0, ptr noundef writeonly captures
   %.2.i = phi i32 [ %42, %41 ], [ %.042.i, %32 ]
   %.1.i = phi i32 [ %46, %41 ], [ %.0.i, %32 ]
   %48 = icmp sgt i32 %.2.i, 0
-  br i1 %48, label %32, label %.loopexit.i, !llvm.loop !11
+  br i1 %48, label %32, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %47, %27
   %.143.i = phi i32 [ %25, %27 ], [ %.2.i, %47 ]
@@ -1091,7 +1099,7 @@ cbuf_replayer.exit:                               ; preds = %14, %.loopexit.i
 52:                                               ; preds = %cbuf_replayer.exit
   %53 = tail call ptr @__errno_location() #14
   store i32 %51, ptr %53, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 458, ptr noundef nonnull @__func__.cbuf_replay) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_replay) #16
   unreachable
 
 54:                                               ; preds = %cbuf_replayer.exit, %8, %6
@@ -1121,7 +1129,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #14
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 476, ptr noundef nonnull @__func__.cbuf_rewind) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_rewind) #16
   unreachable
 
 12:                                               ; preds = %8
@@ -1160,7 +1168,7 @@ define dso_local range(i32 -2147483646, 2147483647) i32 @cbuf_rewind(ptr noundef
 35:                                               ; preds = %33
   %36 = tail call ptr @__errno_location() #14
   store i32 %34, ptr %36, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 491, ptr noundef nonnull @__func__.cbuf_rewind) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_rewind) #16
   unreachable
 
 37:                                               ; preds = %33, %6, %4
@@ -1202,7 +1210,7 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #14
   store i32 %15, ptr %17, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @__func__.cbuf_write) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_write) #16
   unreachable
 
 18:                                               ; preds = %14
@@ -1214,7 +1222,7 @@ define dso_local i32 @cbuf_write(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 21:                                               ; preds = %18
   %22 = tail call ptr @__errno_location() #14
   store i32 %20, ptr %22, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 516, ptr noundef nonnull @__func__.cbuf_write) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_write) #16
   unreachable
 
 23:                                               ; preds = %18, %12, %10
@@ -1241,7 +1249,7 @@ define internal fastcc i32 @cbuf_writer(ptr noundef captures(none) %0, i32 nound
 
 17:                                               ; preds = %13
   %18 = sub nsw i32 %1, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = sub nsw i32 %20, %8
@@ -1298,7 +1306,7 @@ define internal fastcc i32 @cbuf_writer(ptr noundef captures(none) %0, i32 nound
 
 cbuf_grow.exit:                                   ; preds = %17, %52
   %53 = phi i32 [ %.pre.i, %52 ], [ %30, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   %54 = sub nsw i32 %53, %10
   br label %55
 
@@ -1357,7 +1365,7 @@ select.unfold:                                    ; preds = %67, %61
   %76 = load ptr, ptr %72, align 8
   %77 = sext i32 %.0 to i64
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
-  %79 = call i32 %2(ptr noundef %78, ptr noundef nonnull %3, i32 noundef %.085.) #15, !callees !12
+  %79 = call i32 %2(ptr noundef %78, ptr noundef nonnull %3, i32 noundef %.085.) #15, !callees !14
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %87
 
@@ -1375,7 +1383,7 @@ select.unfold:                                    ; preds = %67, %61
   %88 = icmp eq i32 %.085., %79
   %89 = icmp sgt i32 %.287, 0
   %or.cond = select i1 %88, i1 %89, i1 false
-  br i1 %or.cond, label %73, label %.loopexit, !llvm.loop !13
+  br i1 %or.cond, label %73, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %87, %select.unfold
   %90 = phi ptr [ %68, %select.unfold ], [ %71, %87 ]
@@ -1443,7 +1451,7 @@ select.unfold:                                    ; preds = %67, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cbuf_get_mem(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef returned %2) #6 {
+define internal noundef i32 @cbuf_get_mem(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef returned %2) #7 {
   %4 = load ptr, ptr %1, align 8
   %5 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %4, i64 %5, i1 false)
@@ -1477,7 +1485,7 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
 12:                                               ; preds = %10
   %13 = tail call ptr @__errno_location() #14
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 534, ptr noundef nonnull @__func__.cbuf_drop_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_drop_line) #16
   unreachable
 
 14:                                               ; preds = %10
@@ -1538,7 +1546,7 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
   %44 = add nsw i32 %43, 1
   %45 = srem i32 %42, %44
   %.not.i = icmp eq i32 %45, %25
-  br i1 %.not.i, label %._crit_edge.i, label %30, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %30, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %41, %30
   %46 = icmp sgt i32 %.2.i, 0
@@ -1567,7 +1575,7 @@ cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i,
 55:                                               ; preds = %cbuf_find_unread_line.exit.thread25
   %56 = tail call ptr @__errno_location() #14
   store i32 %54, ptr %56, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 542, ptr noundef nonnull @__func__.cbuf_drop_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_drop_line) #16
   unreachable
 
 57:                                               ; preds = %cbuf_find_unread_line.exit.thread25, %8, %6
@@ -1601,7 +1609,7 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly captu
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #14
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 561, ptr noundef nonnull @__func__.cbuf_peek_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_peek_line) #16
   unreachable
 
 16:                                               ; preds = %12
@@ -1663,7 +1671,7 @@ define dso_local i32 @cbuf_peek_line(ptr noundef %0, ptr noundef writeonly captu
   %47 = add nsw i32 %46, 1
   %48 = srem i32 %45, %47
   %.not.i = icmp eq i32 %48, %28
-  br i1 %.not.i, label %._crit_edge.i, label %33, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %33, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %44, %33, %24
   %.134.i = phi i32 [ 0, %24 ], [ %.235.i, %33 ], [ %.235.i, %44 ]
@@ -1719,7 +1727,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %.2.i37 = phi i32 [ %68, %67 ], [ %.035.i, %58 ]
   %.1.i38 = phi i32 [ %72, %67 ], [ %.0.i, %58 ]
   %74 = icmp sgt i32 %.2.i37, 0
-  br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !10
+  br i1 %74, label %58, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %73, %52
   %75 = zext nneg i32 %53 to i64
@@ -1736,7 +1744,7 @@ cbuf_find_unread_line.exit.thread:                ; preds = %._crit_edge.i, %20,
 78:                                               ; preds = %cbuf_find_unread_line.exit.thread
   %79 = tail call ptr @__errno_location() #14
   store i32 %77, ptr %79, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 578, ptr noundef nonnull @__func__.cbuf_peek_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_peek_line) #16
   unreachable
 
 80:                                               ; preds = %cbuf_find_unread_line.exit.thread, %10, %8
@@ -1770,7 +1778,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly captu
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #14
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 597, ptr noundef nonnull @__func__.cbuf_read_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_read_line) #16
   unreachable
 
 16:                                               ; preds = %12
@@ -1832,7 +1840,7 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly captu
   %47 = add nsw i32 %46, 1
   %48 = srem i32 %45, %47
   %.not.i = icmp eq i32 %48, %28
-  br i1 %.not.i, label %._crit_edge.i, label %33, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %33, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %44, %33
   %49 = icmp sgt i32 %.2.i, 0
@@ -1886,7 +1894,7 @@ cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
   %.2.i38 = phi i32 [ %66, %65 ], [ %.035.i, %56 ]
   %.1.i39 = phi i32 [ %70, %65 ], [ %.0.i, %56 ]
   %72 = icmp sgt i32 %.2.i38, 0
-  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !10
+  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %71, %53
   %73 = zext nneg i32 %54 to i64
@@ -1917,7 +1925,7 @@ cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i,
 84:                                               ; preds = %cbuf_find_unread_line.exit.thread48
   %85 = tail call ptr @__errno_location() #14
   store i32 %83, ptr %85, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @__func__.cbuf_read_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_read_line) #16
   unreachable
 
 86:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
@@ -1930,6 +1938,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly cap
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   %7 = icmp eq ptr %1, null
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %7, %8
@@ -1954,7 +1963,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly cap
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #14
   store i32 %15, ptr %17, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 635, ptr noundef nonnull @__func__.cbuf_replay_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_replay_line) #16
   unreachable
 
 18:                                               ; preds = %14
@@ -2024,7 +2033,7 @@ define dso_local i32 @cbuf_replay_line(ptr noundef %0, ptr noundef writeonly cap
   %.2.i = phi i32 [ %54, %53 ], [ %.042.i, %44 ]
   %.1.i = phi i32 [ %58, %53 ], [ %.0.i, %44 ]
   %60 = icmp sgt i32 %.2.i, 0
-  br i1 %60, label %44, label %cbuf_replayer.exit, !llvm.loop !11
+  br i1 %60, label %44, label %cbuf_replayer.exit, !llvm.loop !13
 
 cbuf_replayer.exit:                               ; preds = %59, %28, %23
   %61 = icmp ne i32 %24, 0
@@ -2056,11 +2065,12 @@ cbuf_replayer.exit:                               ; preds = %59, %28, %23
 73:                                               ; preds = %71
   %74 = tail call ptr @__errno_location() #14
   store i32 %72, ptr %74, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 660, ptr noundef nonnull @__func__.cbuf_replay_line) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_replay_line) #16
   unreachable
 
 75:                                               ; preds = %71, %12, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %12 ], [ %.037, %71 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   ret i32 %.0
 }
 
@@ -2090,7 +2100,7 @@ define dso_local i32 @cbuf_rewind_line(ptr noundef %0, i32 noundef %1, i32 nound
 13:                                               ; preds = %11
   %14 = tail call ptr @__errno_location() #14
   store i32 %12, ptr %14, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 678, ptr noundef nonnull @__func__.cbuf_rewind_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_rewind_line) #16
   unreachable
 
 15:                                               ; preds = %11
@@ -2122,7 +2132,7 @@ define dso_local i32 @cbuf_rewind_line(ptr noundef %0, i32 noundef %1, i32 nound
 32:                                               ; preds = %30
   %33 = tail call ptr @__errno_location() #14
   store i32 %31, ptr %33, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 687, ptr noundef nonnull @__func__.cbuf_rewind_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_rewind_line) #16
   unreachable
 
 34:                                               ; preds = %30, %9, %7
@@ -2136,7 +2146,10 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store ptr %1, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr @.str.5, ptr %7, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %8
@@ -2182,7 +2195,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #14
   store i32 %25, ptr %27, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 716, ptr noundef nonnull @__func__.cbuf_write_line) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_write_line) #16
   unreachable
 
 28:                                               ; preds = %24
@@ -2202,7 +2215,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
 
 39:                                               ; preds = %35
   %40 = sub nsw i32 %.053, %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = sub nsw i32 %42, %30
@@ -2257,7 +2270,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %cbuf_grow.exit
 
 cbuf_grow.exit:                                   ; preds = %39, %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %75
 
 75:                                               ; preds = %cbuf_grow.exit, %35, %28
@@ -2344,7 +2357,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
 116:                                              ; preds = %.thread
   %117 = tail call ptr @__errno_location() #14
   store i32 %115, ptr %117, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 765, ptr noundef nonnull @__func__.cbuf_write_line) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_write_line) #16
   unreachable
 
 118:                                              ; preds = %.thread
@@ -2356,11 +2369,14 @@ cbuf_grow.exit:                                   ; preds = %39, %74
 
 120:                                              ; preds = %118, %119, %11
   %.0 = phi i32 [ -1, %11 ], [ %.171, %119 ], [ %.171, %118 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2382,7 +2398,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #14
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 783, ptr noundef nonnull @__func__.cbuf_peek_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_peek_to_fd) #16
   unreachable
 
 12:                                               ; preds = %8
@@ -2440,7 +2456,7 @@ define dso_local i32 @cbuf_peek_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   %40 = tail call ptr @__errno_location() #14
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !14
+  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %35
   %.not20 = icmp eq i32 %37, 0
@@ -2460,7 +2476,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_
   %49 = icmp eq i32 %.035..i, %37
   %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond.i, label %28, label %.loopexit.i, !llvm.loop !10
+  br i1 %or.cond.i, label %28, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %23
   %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2479,7 +2495,7 @@ cbuf_reader.exit:                                 ; preds = %.loopexit.i, %19, %
 54:                                               ; preds = %cbuf_reader.exit
   %55 = tail call ptr @__errno_location() #14
   store i32 %53, ptr %55, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 792, ptr noundef nonnull @__func__.cbuf_peek_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_peek_to_fd) #16
   unreachable
 
 56:                                               ; preds = %cbuf_reader.exit, %6
@@ -2507,7 +2523,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #14
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 807, ptr noundef nonnull @__func__.cbuf_read_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_read_to_fd) #16
   unreachable
 
 12:                                               ; preds = %8
@@ -2565,7 +2581,7 @@ define dso_local i32 @cbuf_read_to_fd(ptr noundef %0, i32 noundef %1, i32 nounde
   %40 = tail call ptr @__errno_location() #14
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 4
-  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !14
+  br i1 %42, label %35, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %35
   %.not25 = icmp eq i32 %37, 0
@@ -2585,7 +2601,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_
   %49 = icmp eq i32 %.035..i, %37
   %50 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %49, i1 %50, i1 false
-  br i1 %or.cond.i, label %28, label %cbuf_reader.exit, !llvm.loop !10
+  br i1 %or.cond.i, label %28, label %cbuf_reader.exit, !llvm.loop !12
 
 cbuf_reader.exit:                                 ; preds = %cbuf_put_fd.exit.thread, %23
   %.136.i = phi i32 [ %..i, %23 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2619,7 +2635,7 @@ cbuf_reader.exit.thread:                          ; preds = %19, %17, %54, %cbuf
 65:                                               ; preds = %cbuf_reader.exit.thread
   %66 = tail call ptr @__errno_location() #14
   store i32 %64, ptr %66, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 819, ptr noundef nonnull @__func__.cbuf_read_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_read_to_fd) #16
   unreachable
 
 67:                                               ; preds = %cbuf_reader.exit.thread, %6
@@ -2647,7 +2663,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
 10:                                               ; preds = %8
   %11 = tail call ptr @__errno_location() #14
   store i32 %9, ptr %11, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 834, ptr noundef nonnull @__func__.cbuf_replay_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_replay_to_fd) #16
   unreachable
 
 12:                                               ; preds = %8
@@ -2716,7 +2732,7 @@ define dso_local i32 @cbuf_replay_to_fd(ptr noundef %0, i32 noundef %1, i32 noun
   %52 = tail call ptr @__errno_location() #14
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 4
-  br i1 %54, label %47, label %cbuf_put_fd.exit.thread, !llvm.loop !14
+  br i1 %54, label %47, label %cbuf_put_fd.exit.thread, !llvm.loop !16
 
 cbuf_put_fd.exit:                                 ; preds = %47
   %.not21 = icmp eq i32 %49, 0
@@ -2736,7 +2752,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %51, %55, %cbuf_put_
   %61 = icmp eq i32 %.042..i, %49
   %62 = icmp sgt i32 %.2.i, 0
   %or.cond.i = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond.i, label %40, label %.loopexit.i, !llvm.loop !11
+  br i1 %or.cond.i, label %40, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %cbuf_put_fd.exit.thread, %35
   %.143.i = phi i32 [ %33, %35 ], [ %.2.i, %cbuf_put_fd.exit.thread ]
@@ -2755,7 +2771,7 @@ cbuf_replayer.exit:                               ; preds = %.loopexit.i, %22, %
 66:                                               ; preds = %cbuf_replayer.exit
   %67 = tail call ptr @__errno_location() #14
   store i32 %65, ptr %67, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 843, ptr noundef nonnull @__func__.cbuf_replay_to_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_replay_to_fd) #16
   unreachable
 
 68:                                               ; preds = %cbuf_replayer.exit, %6
@@ -2793,7 +2809,7 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #14
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 861, ptr noundef nonnull @__func__.cbuf_write_from_fd) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_write_from_fd) #16
   unreachable
 
 16:                                               ; preds = %12
@@ -2828,7 +2844,7 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
 30:                                               ; preds = %28
   %31 = tail call ptr @__errno_location() #14
   store i32 %29, ptr %31, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 877, ptr noundef nonnull @__func__.cbuf_write_from_fd) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_write_from_fd) #16
   unreachable
 
 32:                                               ; preds = %28, %10
@@ -2837,7 +2853,7 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
+define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #9 {
   %4 = sext i32 %2 to i64
   br label %5
 
@@ -2852,7 +2868,7 @@ define internal noundef i32 @cbuf_get_fd(ptr noundef captures(none) %0, ptr noun
   %11 = tail call ptr @__errno_location() #14
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %5, label %.critedge, !llvm.loop !15
+  br i1 %13, label %5, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %5, %10
   ret i32 %8
@@ -2889,7 +2905,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #14
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 906, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 17:                                               ; preds = %13
@@ -2900,7 +2916,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 19:                                               ; preds = %17
   %20 = tail call ptr @__errno_location() #14
   store i32 %18, ptr %20, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 907, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 21:                                               ; preds = %11
@@ -2911,7 +2927,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #14
   store i32 %22, ptr %24, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 910, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 25:                                               ; preds = %21
@@ -2922,7 +2938,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 27:                                               ; preds = %25
   %28 = tail call ptr @__errno_location() #14
   store i32 %26, ptr %28, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 911, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 29:                                               ; preds = %25, %17
@@ -2952,7 +2968,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 40:                                               ; preds = %38
   %41 = tail call ptr @__errno_location() #14
   store i32 %39, ptr %41, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 924, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 42:                                               ; preds = %38
@@ -2963,7 +2979,7 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 44:                                               ; preds = %42
   %45 = tail call ptr @__errno_location() #14
   store i32 %43, ptr %45, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 925, ptr noundef nonnull @__func__.cbuf_copy) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_copy) #16
   unreachable
 
 .sink.split:                                      ; preds = %6
@@ -3002,7 +3018,7 @@ define internal fastcc i32 @cbuf_copier(ptr noundef readonly captures(none) %0, 
 
 20:                                               ; preds = %16
   %21 = sub nsw i32 %., %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
   %24 = sub nsw i32 %23, %11
@@ -3059,7 +3075,7 @@ define internal fastcc i32 @cbuf_copier(ptr noundef readonly captures(none) %0, 
 
 cbuf_grow.exit:                                   ; preds = %20, %55
   %56 = phi i32 [ %.pre.i, %55 ], [ %33, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %57 = sub nsw i32 %56, %13
   br label %58
 
@@ -3164,7 +3180,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %113 = srem i32 %110, %112
   %114 = sub nsw i32 %.0103132, %98
   %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %93, label %._crit_edge, !llvm.loop !16
+  br i1 %115, label %93, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %93
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -3237,7 +3253,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #14
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 954, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 17:                                               ; preds = %13
@@ -3248,7 +3264,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 19:                                               ; preds = %17
   %20 = tail call ptr @__errno_location() #14
   store i32 %18, ptr %20, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 955, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 21:                                               ; preds = %11
@@ -3259,7 +3275,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #14
   store i32 %22, ptr %24, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 958, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 25:                                               ; preds = %21
@@ -3270,7 +3286,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 27:                                               ; preds = %25
   %28 = tail call ptr @__errno_location() #14
   store i32 %26, ptr %28, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 959, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 29:                                               ; preds = %25, %17
@@ -3316,7 +3332,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 52:                                               ; preds = %50
   %53 = tail call ptr @__errno_location() #14
   store i32 %51, ptr %53, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 975, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 54:                                               ; preds = %50
@@ -3327,7 +3343,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 56:                                               ; preds = %54
   %57 = tail call ptr @__errno_location() #14
   store i32 %55, ptr %57, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 976, ptr noundef nonnull @__func__.cbuf_move) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_move) #16
   unreachable
 
 .sink.split:                                      ; preds = %6
@@ -3341,57 +3357,51 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
-declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -3400,13 +3410,15 @@ attributes #17 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = !{ptr @cbuf_get_fd, ptr @cbuf_get_mem}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{ptr @cbuf_get_fd, ptr @cbuf_get_mem}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

@@ -2,10 +2,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.print_field = type { i32, ptr, ptr, i16 }
+%struct.job_std_pattern_t = type { i32, ptr, ptr, i32, ptr, ptr, ptr }
 
-@print_fields_parsable_print = global i32 0, align 4
-@print_fields_have_header = global i32 1, align 4
-@fields_delimiter = global ptr null, align 8
+@print_fields_parsable_print = dso_local global i32 0, align 4
+@print_fields_have_header = dso_local global i32 1, align 4
+@fields_delimiter = dso_local global ptr null, align 8
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"%s|\00", align 1
@@ -36,12 +37,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [5 x i8] c"%*f \00", align 1
 @.str.28 = private unnamed_addr constant [6 x i8] c"%-*f \00", align 1
 @.str.29 = private unnamed_addr constant [6 x i8] c"%-*s \00", align 1
+@.str.30 = private unnamed_addr constant [2 x i8] c"\\\00", align 1
+@.str.31 = private unnamed_addr constant [3 x i8] c"%c\00", align 1
+@stdout = external global ptr, align 8
+@.str.32 = private unnamed_addr constant [5 x i8] c"%0*u\00", align 1
+@.str.33 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @destroy_print_field(ptr noundef %0) #0 {
+define dso_local void @destroy_print_field(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
@@ -50,19 +57,26 @@ define void @destroy_print_field(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.print_field, ptr %8, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %struct.print_field, ptr %8, i32 0, i32 1
   call void @slurm_xfree(ptr noundef %9)
   call void @slurm_xfree(ptr noundef %3)
   br label %10
 
 10:                                               ; preds = %7, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
-declare void @slurm_xfree(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @slurm_xfree(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_header(ptr noundef %0) #0 {
+define dso_local void @print_fields_header(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -71,201 +85,241 @@ define void @print_fields_header(ptr noundef %0) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   store ptr null, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #10
   store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
   store i32 0, ptr %6, align 4
-  %10 = load ptr, ptr %2, align 8
-  %11 = icmp ne ptr %10, null
-  br i1 %11, label %12, label %15
+  %11 = load ptr, ptr %2, align 8
+  %12 = icmp ne ptr %11, null
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %1
-  %13 = load i32, ptr @print_fields_have_header, align 4
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %16, label %15
+13:                                               ; preds = %1
+  %14 = load i32, ptr @print_fields_have_header, align 4
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %12, %1
-  br label %109
+16:                                               ; preds = %13, %1
+  store i32 1, ptr %7, align 4
+  br label %111
 
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %2, align 8
-  %18 = call i32 @list_count(ptr noundef %17)
-  store i32 %18, ptr %6, align 4
-  %19 = load ptr, ptr %2, align 8
-  %20 = call ptr @list_iterator_create(ptr noundef %19)
-  store ptr %20, ptr %3, align 8
-  br label %21
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %2, align 8
+  %19 = call i32 @list_count(ptr noundef %18)
+  store i32 %19, ptr %6, align 4
+  %20 = load ptr, ptr %2, align 8
+  %21 = call ptr @list_iterator_create(ptr noundef %20)
+  store ptr %21, ptr %3, align 8
+  br label %22
 
-21:                                               ; preds = %75, %16
-  %22 = load ptr, ptr %3, align 8
-  %23 = call ptr @list_next(ptr noundef %22)
-  store ptr %23, ptr %4, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %78
+22:                                               ; preds = %76, %17
+  %23 = load ptr, ptr %3, align 8
+  %24 = call ptr @list_next(ptr noundef %23)
+  store ptr %24, ptr %4, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %79
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr @print_fields_parsable_print, align 4
-  %27 = icmp eq i32 %26, 2
-  br i1 %27, label %28, label %37
+26:                                               ; preds = %22
+  %27 = load i32, ptr @print_fields_parsable_print, align 4
+  %28 = icmp eq i32 %27, 2
+  br i1 %28, label %29, label %38
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %5, align 4
-  %30 = load i32, ptr %6, align 4
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %37
+29:                                               ; preds = %26
+  %30 = load i32, ptr %5, align 4
+  %31 = load i32, ptr %6, align 4
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.print_field, ptr %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %35)
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.print_field, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %36)
+  br label %76
+
+38:                                               ; preds = %29, %26
+  %39 = load i32, ptr @print_fields_parsable_print, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %50
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr @fields_delimiter, align 8
+  %43 = icmp ne ptr %42, null
+  br i1 %43, label %44, label %50
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %4, align 8
+  %46 = getelementptr inbounds nuw %struct.print_field, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr @fields_delimiter, align 8
+  %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %47, ptr noundef %48)
   br label %75
 
-37:                                               ; preds = %28, %25
-  %38 = load i32, ptr @print_fields_parsable_print, align 4
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %40, label %49
+50:                                               ; preds = %41, %38
+  %51 = load i32, ptr @print_fields_parsable_print, align 4
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %53, label %61
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr @fields_delimiter, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %49
+53:                                               ; preds = %50
+  %54 = load ptr, ptr @fields_delimiter, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %61, label %56
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds %struct.print_field, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr @fields_delimiter, align 8
-  %48 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %46, ptr noundef %47)
+56:                                               ; preds = %53
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct.print_field, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %59)
   br label %74
 
-49:                                               ; preds = %40, %37
-  %50 = load i32, ptr @print_fields_parsable_print, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %60
-
-52:                                               ; preds = %49
-  %53 = load ptr, ptr @fields_delimiter, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %60, label %55
-
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.print_field, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %58)
-  br label %73
-
-60:                                               ; preds = %52, %49
-  %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct.print_field, ptr %61, i32 0, i32 0
-  %63 = load i32, ptr %62, align 8
-  %64 = call i32 @llvm.abs.i32(i32 %63, i1 true)
-  store i32 %64, ptr %7, align 4
-  %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds %struct.print_field, ptr %65, i32 0, i32 0
-  %67 = load i32, ptr %66, align 8
-  %68 = load i32, ptr %7, align 4
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.print_field, ptr %69, i32 0, i32 1
-  %71 = load ptr, ptr %70, align 8
-  %72 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %67, i32 noundef %68, ptr noundef %71)
-  br label %73
-
-73:                                               ; preds = %60, %55
+61:                                               ; preds = %53, %50
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  %62 = load ptr, ptr %4, align 8
+  %63 = getelementptr inbounds nuw %struct.print_field, ptr %62, i32 0, i32 0
+  %64 = load i32, ptr %63, align 8
+  %65 = call i32 @llvm.abs.i32(i32 %64, i1 true)
+  store i32 %65, ptr %8, align 4
+  %66 = load ptr, ptr %4, align 8
+  %67 = getelementptr inbounds nuw %struct.print_field, ptr %66, i32 0, i32 0
+  %68 = load i32, ptr %67, align 8
+  %69 = load i32, ptr %8, align 4
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds nuw %struct.print_field, ptr %70, i32 0, i32 1
+  %72 = load ptr, ptr %71, align 8
+  %73 = call i32 (ptr, ...) @printf(ptr noundef @.str.3, i32 noundef %68, i32 noundef %69, ptr noundef %72)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
   br label %74
 
-74:                                               ; preds = %73, %43
+74:                                               ; preds = %61, %56
   br label %75
 
-75:                                               ; preds = %74, %32
-  %76 = load i32, ptr %5, align 4
-  %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %5, align 4
-  br label %21, !llvm.loop !6
+75:                                               ; preds = %74, %44
+  br label %76
 
-78:                                               ; preds = %21
-  %79 = load ptr, ptr %3, align 8
-  call void @list_iterator_reset(ptr noundef %79)
-  %80 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  %81 = load i32, ptr @print_fields_parsable_print, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %85
+76:                                               ; preds = %75, %33
+  %77 = load i32, ptr %5, align 4
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %5, align 4
+  br label %22, !llvm.loop !8
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %3, align 8
-  call void @list_iterator_destroy(ptr noundef %84)
-  br label %109
+79:                                               ; preds = %22
+  %80 = load ptr, ptr %3, align 8
+  call void @list_iterator_reset(ptr noundef %80)
+  %81 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  %82 = load i32, ptr @print_fields_parsable_print, align 4
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %86
 
-85:                                               ; preds = %78
-  br label %86
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %3, align 8
+  call void @list_iterator_destroy(ptr noundef %85)
+  store i32 1, ptr %7, align 4
+  br label %111
 
-86:                                               ; preds = %104, %85
-  %87 = load ptr, ptr %3, align 8
-  %88 = call ptr @list_next(ptr noundef %87)
-  store ptr %88, ptr %4, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %106
+86:                                               ; preds = %79
+  br label %87
 
-90:                                               ; preds = %86
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct.print_field, ptr %91, i32 0, i32 0
-  %93 = load i32, ptr %92, align 8
-  %94 = call i32 @llvm.abs.i32(i32 %93, i1 true)
-  store i32 %94, ptr %8, align 4
-  store i32 0, ptr %9, align 4
-  br label %95
+87:                                               ; preds = %106, %86
+  %88 = load ptr, ptr %3, align 8
+  %89 = call ptr @list_next(ptr noundef %88)
+  store ptr %89, ptr %4, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %108
 
-95:                                               ; preds = %101, %90
-  %96 = load i32, ptr %9, align 4
-  %97 = load i32, ptr %8, align 4
-  %98 = icmp slt i32 %96, %97
-  br i1 %98, label %99, label %104
+91:                                               ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds nuw %struct.print_field, ptr %92, i32 0, i32 0
+  %94 = load i32, ptr %93, align 8
+  %95 = call i32 @llvm.abs.i32(i32 %94, i1 true)
+  store i32 %95, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  store i32 0, ptr %10, align 4
+  br label %96
 
-99:                                               ; preds = %95
-  %100 = call i32 @putchar(i32 noundef 45)
-  br label %101
+96:                                               ; preds = %103, %91
+  %97 = load i32, ptr %10, align 4
+  %98 = load i32, ptr %9, align 4
+  %99 = icmp slt i32 %97, %98
+  br i1 %99, label %101, label %100
 
-101:                                              ; preds = %99
-  %102 = load i32, ptr %9, align 4
-  %103 = add nsw i32 %102, 1
-  store i32 %103, ptr %9, align 4
-  br label %95, !llvm.loop !8
+100:                                              ; preds = %96
+  store i32 6, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  br label %106
 
-104:                                              ; preds = %95
-  %105 = call i32 @putchar(i32 noundef 32)
-  br label %86, !llvm.loop !9
+101:                                              ; preds = %96
+  %102 = call i32 @putchar(i32 noundef 45)
+  br label %103
 
-106:                                              ; preds = %86
-  %107 = load ptr, ptr %3, align 8
-  call void @list_iterator_destroy(ptr noundef %107)
-  %108 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
-  br label %109
+103:                                              ; preds = %101
+  %104 = load i32, ptr %10, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %10, align 4
+  br label %96, !llvm.loop !11
 
-109:                                              ; preds = %106, %83, %15
+106:                                              ; preds = %100
+  %107 = call i32 @putchar(i32 noundef 32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  br label %87, !llvm.loop !12
+
+108:                                              ; preds = %87
+  %109 = load ptr, ptr %3, align 8
+  call void @list_iterator_destroy(ptr noundef %109)
+  %110 = call i32 (ptr, ...) @printf(ptr noundef @.str.4)
+  store i32 0, ptr %7, align 4
+  br label %111
+
+111:                                              ; preds = %108, %84, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  %112 = load i32, ptr %7, align 4
+  switch i32 %112, label %114 [
+    i32 0, label %113
+    i32 1, label %113
+  ]
+
+113:                                              ; preds = %111, %111
   ret void
+
+114:                                              ; preds = %111
+  unreachable
 }
 
-declare i32 @list_count(ptr noundef) #1
+declare i32 @list_count(ptr noundef) #2
 
-declare ptr @list_iterator_create(ptr noundef) #1
+declare ptr @list_iterator_create(ptr noundef) #2
 
-declare ptr @list_next(ptr noundef) #1
+declare ptr @list_next(ptr noundef) #2
 
-declare i32 @printf(ptr noundef, ...) #1
+declare i32 @printf(ptr noundef, ...) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
-declare void @list_iterator_reset(ptr noundef) #1
+declare void @list_iterator_reset(ptr noundef) #2
 
-declare void @list_iterator_destroy(ptr noundef) #1
+declare void @list_iterator_destroy(ptr noundef) #2
 
-declare i32 @putchar(i32 noundef) #1
+; Function Attrs: inlinehint nounwind uwtable
+define available_externally i32 @putchar(i32 noundef %0) #4 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  %4 = load ptr, ptr @stdout, align 8
+  %5 = call i32 @putc(i32 noundef %3, ptr noundef %4)
+  ret i32 %5
+}
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -276,6 +330,7 @@ define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %11 = load i32, ptr @print_fields_parsable_print, align 4
   %12 = icmp ne i32 %11, 0
   br i1 %12, label %13, label %14
@@ -285,7 +340,7 @@ define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.print_field, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct.print_field, ptr %15, i32 0, i32 0
   %17 = load i32, ptr %16, align 8
   %18 = call i32 @llvm.abs.i32(i32 %17, i1 true)
   br label %19
@@ -300,6 +355,7 @@ define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   store ptr %24, ptr %8, align 8
   %25 = alloca i8, i64 %23, align 16
   store i64 %23, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   store i64 0, ptr %10, align 8
   %26 = load ptr, ptr %5, align 8
   %27 = icmp ne ptr %26, null
@@ -358,7 +414,7 @@ define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 
 57:                                               ; preds = %51, %48
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.print_field, ptr %58, i32 0, i32 0
+  %59 = getelementptr inbounds nuw %struct.print_field, ptr %58, i32 0, i32 0
   %60 = load i32, ptr %59, align 8
   %61 = load i32, ptr %7, align 4
   %62 = icmp eq i32 %60, %61
@@ -386,21 +442,23 @@ define void @print_fields_date(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %74
 
 74:                                               ; preds = %73, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
   %75 = load ptr, ptr %8, align 8
   call void @llvm.stackrestore.p0(ptr %75)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #3
+declare ptr @llvm.stacksave.p0() #5
 
-declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) #1
+declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #3
+declare void @llvm.stackrestore.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -413,8 +471,9 @@ define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.print_field, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.print_field, ptr %13, i32 0, i32 0
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @llvm.abs.i32(i32 %15, i1 true)
   store i32 %16, ptr %7, align 4
@@ -425,7 +484,9 @@ define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   store ptr %20, ptr %8, align 8
   %21 = alloca i8, i64 %19, align 16
   store i64 %19, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   store ptr null, ptr %11, align 8
   %22 = load ptr, ptr %5, align 8
   %23 = icmp ne ptr %22, null
@@ -514,8 +575,9 @@ define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br i1 %67, label %68, label %93
 
 68:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
   %69 = load ptr, ptr %11, align 8
-  %70 = call i64 @strlen(ptr noundef %69) #6
+  %70 = call i64 @strlen(ptr noundef %69) #11
   %71 = trunc i64 %70 to i32
   store i32 %71, ptr %12, align 4
   %72 = load ptr, ptr %11, align 8
@@ -552,11 +614,12 @@ define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
 
 92:                                               ; preds = %87, %80
   store ptr %21, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
   br label %93
 
 93:                                               ; preds = %92, %65
   %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct.print_field, ptr %94, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %struct.print_field, ptr %94, i32 0, i32 0
   %96 = load i32, ptr %95, align 8
   %97 = load i32, ptr %7, align 4
   %98 = icmp eq i32 %96, %97
@@ -586,19 +649,22 @@ define void @print_fields_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br label %112
 
 112:                                              ; preds = %111, %43
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
   %113 = load ptr, ptr %8, align 8
   call void @llvm.stackrestore.p0(ptr %113)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -607,11 +673,13 @@ define void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.print_field, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.print_field, ptr %9, i32 0, i32 0
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @llvm.abs.i32(i32 %11, i1 true)
   store i32 %12, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #10
   store i16 -2, ptr %8, align 2
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -679,7 +747,7 @@ define void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 50:                                               ; preds = %44, %41
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.print_field, ptr %51, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.print_field, ptr %51, i32 0, i32 0
   %53 = load i32, ptr %52, align 8
   %54 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %53, ptr noundef @.str.7)
   br label %55
@@ -744,7 +812,7 @@ define void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 89:                                               ; preds = %81, %78
   %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.print_field, ptr %90, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct.print_field, ptr %90, i32 0, i32 0
   %92 = load i32, ptr %91, align 8
   %93 = load i32, ptr %7, align 4
   %94 = icmp eq i32 %92, %93
@@ -777,11 +845,13 @@ define void @print_fields_uint16(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %109
 
 109:                                              ; preds = %108, %57
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -790,11 +860,13 @@ define void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.print_field, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.print_field, ptr %9, i32 0, i32 0
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @llvm.abs.i32(i32 %11, i1 true)
   store i32 %12, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
   store i32 -2, ptr %8, align 4
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -860,7 +932,7 @@ define void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 48:                                               ; preds = %42, %39
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.print_field, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.print_field, ptr %49, i32 0, i32 0
   %51 = load i32, ptr %50, align 8
   %52 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %51, ptr noundef @.str.7)
   br label %53
@@ -922,7 +994,7 @@ define void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 84:                                               ; preds = %77, %74
   %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.print_field, ptr %85, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.print_field, ptr %85, i32 0, i32 0
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %7, align 4
   %89 = icmp eq i32 %87, %88
@@ -953,11 +1025,13 @@ define void @print_fields_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %102
 
 102:                                              ; preds = %101, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -966,11 +1040,13 @@ define void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.print_field, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.print_field, ptr %9, i32 0, i32 0
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @llvm.abs.i32(i32 %11, i1 true)
   store i32 %12, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store i64 -2, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = icmp ne ptr %13, null
@@ -1036,7 +1112,7 @@ define void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 48:                                               ; preds = %42, %39
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %struct.print_field, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct.print_field, ptr %49, i32 0, i32 0
   %51 = load i32, ptr %50, align 8
   %52 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %51, ptr noundef @.str.7)
   br label %53
@@ -1098,7 +1174,7 @@ define void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 84:                                               ; preds = %77, %74
   %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds %struct.print_field, ptr %85, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.print_field, ptr %85, i32 0, i32 0
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %7, align 4
   %89 = icmp eq i32 %87, %88
@@ -1129,11 +1205,13 @@ define void @print_fields_uint64(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %102
 
 102:                                              ; preds = %101, %55
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1146,11 +1224,13 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.print_field, ptr %13, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %struct.print_field, ptr %13, i32 0, i32 0
   %15 = load i32, ptr %14, align 8
   %16 = call i32 @llvm.abs.i32(i32 %15, i1 true)
   store i32 %16, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store double 0x43F0000000000000, ptr %8, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = icmp ne ptr %17, null
@@ -1226,7 +1306,7 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 58:                                               ; preds = %52, %49
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds %struct.print_field, ptr %59, i32 0, i32 0
+  %60 = getelementptr inbounds nuw %struct.print_field, ptr %59, i32 0, i32 0
   %61 = load i32, ptr %60, align 8
   %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %61, ptr noundef @.str.7)
   br label %63
@@ -1287,14 +1367,18 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %156
 
 94:                                               ; preds = %87, %84
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
   %95 = load i32, ptr %7, align 4
   store i32 %95, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
   store ptr null, ptr %12, align 8
   %96 = load i32, ptr %7, align 4
   %97 = load double, ptr %8, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %12, ptr noundef @.str.23, i32 noundef %96, double noundef %97)
   %98 = load ptr, ptr %12, align 8
-  %99 = call i64 @strlen(ptr noundef %98) #6
+  %99 = call i64 @strlen(ptr noundef %98) #11
   %100 = trunc i64 %99 to i32
   store i32 %100, ptr %9, align 4
   %101 = load i32, ptr %9, align 4
@@ -1308,7 +1392,7 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %107 = load double, ptr %8, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef %12, ptr noundef @.str.24, i32 noundef %105, i32 noundef %106, double noundef %107)
   %108 = load ptr, ptr %12, align 8
-  %109 = call i64 @strlen(ptr noundef %108) #6
+  %109 = call i64 @strlen(ptr noundef %108) #11
   %110 = load i32, ptr %9, align 4
   %111 = sext i32 %110 to i64
   %112 = sub i64 %109, %111
@@ -1330,7 +1414,7 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 123:                                              ; preds = %117, %104
   %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %struct.print_field, ptr %124, i32 0, i32 0
+  %125 = getelementptr inbounds nuw %struct.print_field, ptr %124, i32 0, i32 0
   %126 = load i32, ptr %125, align 8
   %127 = load i32, ptr %7, align 4
   %128 = icmp eq i32 %126, %127
@@ -1355,7 +1439,7 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 140:                                              ; preds = %94
   %141 = load ptr, ptr %4, align 8
-  %142 = getelementptr inbounds %struct.print_field, ptr %141, i32 0, i32 0
+  %142 = getelementptr inbounds nuw %struct.print_field, ptr %141, i32 0, i32 0
   %143 = load i32, ptr %142, align 8
   %144 = load i32, ptr %7, align 4
   %145 = icmp eq i32 %143, %144
@@ -1378,6 +1462,10 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 155:                                              ; preds = %154, %139
   call void @slurm_xfree(ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   br label %156
 
 156:                                              ; preds = %155, %90
@@ -1390,13 +1478,15 @@ define void @print_fields_double(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br label %159
 
 159:                                              ; preds = %158, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #1
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) #2
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1406,11 +1496,13 @@ define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.print_field, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.print_field, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = call i32 @llvm.abs.i32(i32 %12, i1 true)
   store i32 %13, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
   store i32 -2, ptr %8, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = icmp ne ptr %14, null
@@ -1476,7 +1568,7 @@ define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 nou
 
 49:                                               ; preds = %43, %40
   %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.print_field, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.print_field, ptr %50, i32 0, i32 0
   %52 = load i32, ptr %51, align 8
   %53 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %52, ptr noundef @.str.7)
   br label %54
@@ -1491,6 +1583,7 @@ define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 nou
   br label %107
 
 57:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #10
   %58 = load i32, ptr %8, align 4
   %59 = zext i32 %58 to i64
   %60 = trunc i64 %59 to i32
@@ -1543,7 +1636,7 @@ define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 nou
 
 89:                                               ; preds = %82, %79
   %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds %struct.print_field, ptr %90, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct.print_field, ptr %90, i32 0, i32 0
   %92 = load i32, ptr %91, align 8
   %93 = load i32, ptr %7, align 4
   %94 = icmp eq i32 %92, %93
@@ -1571,16 +1664,19 @@ define void @print_fields_time_from_mins(ptr noundef %0, ptr noundef %1, i32 nou
   br label %106
 
 106:                                              ; preds = %105, %67
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #10
   br label %107
 
 107:                                              ; preds = %106, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) #1
+declare void @mins2time_str(i32 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1590,11 +1686,13 @@ define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.print_field, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.print_field, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = call i32 @llvm.abs.i32(i32 %12, i1 true)
   store i32 %13, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store i64 -2, ptr %8, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = icmp ne ptr %14, null
@@ -1660,7 +1758,7 @@ define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 nou
 
 49:                                               ; preds = %43, %40
   %50 = load ptr, ptr %4, align 8
-  %51 = getelementptr inbounds %struct.print_field, ptr %50, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.print_field, ptr %50, i32 0, i32 0
   %52 = load i32, ptr %51, align 8
   %53 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %52, ptr noundef @.str.7)
   br label %54
@@ -1675,6 +1773,7 @@ define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 nou
   br label %105
 
 57:                                               ; preds = %22
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #10
   %58 = load i64, ptr %8, align 8
   %59 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 0
   call void @secs2time_str(i64 noundef %58, ptr noundef %59, i32 noundef 32)
@@ -1725,7 +1824,7 @@ define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 nou
 
 87:                                               ; preds = %80, %77
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds %struct.print_field, ptr %88, i32 0, i32 0
+  %89 = getelementptr inbounds nuw %struct.print_field, ptr %88, i32 0, i32 0
   %90 = load i32, ptr %89, align 8
   %91 = load i32, ptr %7, align 4
   %92 = icmp eq i32 %90, %91
@@ -1753,16 +1852,138 @@ define void @print_fields_time_from_secs(ptr noundef %0, ptr noundef %1, i32 nou
   br label %104
 
 104:                                              ; preds = %103, %65
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #10
   br label %105
 
 105:                                              ; preds = %104, %56
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-declare void @secs2time_str(i64 noundef, ptr noundef, i32 noundef) #1
+declare void @secs2time_str(i64 noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @print_fields_sluid(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.print_field, ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %11, align 8
+  %13 = call i32 @llvm.abs.i32(i32 %12, i1 true)
+  store i32 %13, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  store i64 0, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store ptr null, ptr %9, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %16, label %19
+
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i64, ptr %17, align 8
+  store i64 %18, ptr %8, align 8
+  br label %19
+
+19:                                               ; preds = %16, %3
+  %20 = load i64, ptr %8, align 8
+  %21 = call ptr @sluid2str(i64 noundef %20)
+  store ptr %21, ptr %9, align 8
+  %22 = load i32, ptr @print_fields_parsable_print, align 4
+  %23 = icmp eq i32 %22, 2
+  br i1 %23, label %24, label %30
+
+24:                                               ; preds = %19
+  %25 = load i32, ptr %6, align 4
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %30
+
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %9, align 8
+  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str, ptr noundef %28)
+  br label %66
+
+30:                                               ; preds = %24, %19
+  %31 = load i32, ptr @print_fields_parsable_print, align 4
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %39
+
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @fields_delimiter, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %39, label %36
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %9, align 8
+  %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.2, ptr noundef %37)
+  br label %65
+
+39:                                               ; preds = %33, %30
+  %40 = load i32, ptr @print_fields_parsable_print, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %49
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr @fields_delimiter, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %49
+
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr @fields_delimiter, align 8
+  %48 = call i32 (ptr, ...) @printf(ptr noundef @.str.1, ptr noundef %46, ptr noundef %47)
+  br label %64
+
+49:                                               ; preds = %42, %39
+  %50 = load ptr, ptr %4, align 8
+  %51 = getelementptr inbounds nuw %struct.print_field, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = icmp eq i32 %52, %53
+  br i1 %54, label %55, label %59
+
+55:                                               ; preds = %49
+  %56 = load i32, ptr %7, align 4
+  %57 = load ptr, ptr %9, align 8
+  %58 = call i32 (ptr, ...) @printf(ptr noundef @.str.9, i32 noundef %56, ptr noundef %57)
+  br label %63
+
+59:                                               ; preds = %49
+  %60 = load i32, ptr %7, align 4
+  %61 = load ptr, ptr %9, align 8
+  %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.29, i32 noundef %60, ptr noundef %61)
+  br label %63
+
+63:                                               ; preds = %59, %55
+  br label %64
+
+64:                                               ; preds = %63, %45
+  br label %65
+
+65:                                               ; preds = %64, %36
+  br label %66
+
+66:                                               ; preds = %65, %27
+  call void @slurm_xfree(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret void
+}
+
+declare ptr @sluid2str(i64 noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1772,12 +1993,15 @@ define void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.print_field, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct.print_field, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = call i32 @llvm.abs.i32(i32 %12, i1 true)
   store i32 %13, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   store ptr null, ptr %9, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = icmp ne ptr %14, null
@@ -1877,7 +2101,7 @@ define void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %8, align 8
-  %70 = call i64 @strlen(ptr noundef %69) #6
+  %70 = call i64 @strlen(ptr noundef %69) #11
   %71 = load i32, ptr %7, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp ugt i64 %70, %72
@@ -1894,7 +2118,7 @@ define void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 80:                                               ; preds = %74, %68
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.print_field, ptr %81, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct.print_field, ptr %81, i32 0, i32 0
   %83 = load i32, ptr %82, align 8
   %84 = load i32, ptr %7, align 4
   %85 = icmp eq i32 %83, %84
@@ -1928,30 +2152,427 @@ define void @print_fields_char_list(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 100:                                              ; preds = %99, %43
   call void @slurm_xfree(ptr noundef %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-declare ptr @xstrdup(ptr noundef) #1
+declare ptr @xstrdup(ptr noundef) #2
 
-declare ptr @slurm_char_list_to_xstr(ptr noundef) #1
+declare ptr @slurm_char_list_to_xstr(ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @expand_stdio_fields(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  store i32 0, ptr %11, align 4
+  %13 = load ptr, ptr %4, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %22
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp ne i8 %17, 0
+  br i1 %18, label %19, label %22
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
+
+22:                                               ; preds = %19, %15, %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  br label %114
+
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 0
+  %26 = load i8, ptr %25, align 1
+  %27 = sext i8 %26 to i32
+  %28 = icmp ne i32 %27, 47
+  br i1 %28, label %29, label %33
+
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %5, align 8
+  %31 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %30, i32 0, i32 6
+  %32 = load ptr, ptr %31, align 8
+  call void @_xstrncatat(ptr noundef %9, ptr noundef %10, ptr noundef %32, i64 noundef -1)
+  br label %33
+
+33:                                               ; preds = %29, %23
+  %34 = load ptr, ptr %4, align 8
+  %35 = call ptr @xstrstr(ptr noundef %34, ptr noundef @.str.30)
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %38
+
+37:                                               ; preds = %33
+  store i32 3, ptr %6, align 4
+  br label %38
+
+38:                                               ; preds = %37, %33
+  %39 = load ptr, ptr %4, align 8
+  store ptr %39, ptr %7, align 8
+  br label %40
+
+40:                                               ; preds = %109, %38
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp ne i8 %42, 0
+  br i1 %43, label %44, label %112
+
+44:                                               ; preds = %40
+  %45 = load i32, ptr %6, align 4
+  switch i32 %45, label %108 [
+    i32 3, label %46
+    i32 0, label %56
+    i32 1, label %67
+  ]
+
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i8, ptr %47, align 1
+  %49 = sext i8 %48 to i32
+  %50 = icmp ne i32 %49, 92
+  br i1 %50, label %51, label %55
+
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i8, ptr %52, align 1
+  %54 = sext i8 %53 to i32
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %9, ptr noundef %10, ptr noundef @.str.31, i32 noundef %54)
+  br label %55
+
+55:                                               ; preds = %51, %46
+  br label %109
+
+56:                                               ; preds = %44
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i8, ptr %57, align 1
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, 37
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %56
+  store i32 1, ptr %6, align 4
+  br label %66
+
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %9, ptr noundef %10, ptr noundef @.str.31, i32 noundef %65)
+  br label %66
+
+66:                                               ; preds = %62, %61
+  br label %109
+
+67:                                               ; preds = %44
+  %68 = call ptr @__ctype_b_loc() #12
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i8, ptr %70, align 1
+  %72 = sext i8 %71 to i32
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i16, ptr %69, i64 %73
+  %75 = load i16, ptr %74, align 2
+  %76 = zext i16 %75 to i32
+  %77 = and i32 %76, 2048
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %90
+
+79:                                               ; preds = %67
+  %80 = load ptr, ptr %7, align 8
+  %81 = call i64 @strtoul(ptr noundef %80, ptr noundef %8, i32 noundef 10) #10
+  %82 = trunc i64 %81 to i32
+  store i32 %82, ptr %11, align 4
+  %83 = icmp ugt i32 %82, 9
+  br i1 %83, label %84, label %86
+
+84:                                               ; preds = %79
+  %85 = load ptr, ptr %8, align 8
+  store ptr %85, ptr %7, align 8
+  store i32 10, ptr %11, align 4
+  br label %89
+
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i32 1
+  store ptr %88, ptr %7, align 8
+  br label %89
+
+89:                                               ; preds = %86, %84
+  br label %90
+
+90:                                               ; preds = %89, %67
+  %91 = load ptr, ptr %7, align 8
+  %92 = call zeroext i1 @_is_wildcard(ptr noundef %91)
+  br i1 %92, label %97, label %93
+
+93:                                               ; preds = %90
+  store i32 0, ptr %11, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i8, ptr %94, align 1
+  %96 = sext i8 %95 to i32
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %9, ptr noundef %10, ptr noundef @.str.31, i32 noundef %96)
+  br label %101
+
+97:                                               ; preds = %90
+  %98 = load ptr, ptr %7, align 8
+  %99 = load i32, ptr %11, align 4
+  %100 = load ptr, ptr %5, align 8
+  call void @_expand_wildcard(ptr noundef %9, ptr noundef %10, ptr noundef %98, i32 noundef %99, ptr noundef %100)
+  br label %101
+
+101:                                              ; preds = %97, %93
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i8, ptr %102, align 1
+  %104 = sext i8 %103 to i32
+  %105 = icmp ne i32 %104, 37
+  br i1 %105, label %106, label %107
+
+106:                                              ; preds = %101
+  store i32 0, ptr %6, align 4
+  br label %107
+
+107:                                              ; preds = %106, %101
+  br label %109
+
+108:                                              ; preds = %44
+  br label %109
+
+109:                                              ; preds = %108, %107, %66, %55
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i32 1
+  store ptr %111, ptr %7, align 8
+  br label %40, !llvm.loop !13
+
+112:                                              ; preds = %40
+  %113 = load ptr, ptr %9, align 8
+  store ptr %113, ptr %3, align 8
+  store i32 1, ptr %12, align 4
+  br label %114
+
+114:                                              ; preds = %112, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %115 = load ptr, ptr %3, align 8
+  ret ptr %115
+}
+
+declare void @_xstrncatat(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #2
+
+declare ptr @xstrstr(ptr noundef, ptr noundef) #2
+
+declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__ctype_b_loc() #8
+
+; Function Attrs: nounwind
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #9
+
+; Function Attrs: nounwind uwtable
+define internal zeroext i1 @_is_wildcard(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load i8, ptr %4, align 1
+  %6 = sext i8 %5 to i32
+  switch i32 %6, label %8 [
+    i32 65, label %7
+    i32 97, label %7
+    i32 98, label %7
+    i32 74, label %7
+    i32 106, label %7
+    i32 78, label %7
+    i32 110, label %7
+    i32 115, label %7
+    i32 116, label %7
+    i32 117, label %7
+    i32 120, label %7
+  ]
+
+7:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  store i1 true, ptr %2, align 1
+  br label %10
+
+8:                                                ; preds = %1
+  br label %9
+
+9:                                                ; preds = %8
+  store i1 false, ptr %2, align 1
+  br label %10
+
+10:                                               ; preds = %9, %7
+  %11 = load i1, ptr %2, align 1
+  ret i1 %11
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @_expand_wildcard(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i32 %3, ptr %9, align 4
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %8, align 8
+  %12 = load i8, ptr %11, align 1
+  %13 = sext i8 %12 to i32
+  switch i32 %13, label %63 [
+    i32 65, label %14
+    i32 74, label %14
+    i32 106, label %14
+    i32 97, label %21
+    i32 98, label %28
+    i32 78, label %36
+    i32 115, label %42
+    i32 110, label %48
+    i32 116, label %48
+    i32 117, label %51
+    i32 120, label %57
+  ]
+
+14:                                               ; preds = %5, %5, %5
+  %15 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = load i32, ptr %9, align 4
+  %18 = load ptr, ptr %10, align 8
+  %19 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %18, i32 0, i32 3
+  %20 = load i32, ptr %19, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %15, ptr noundef %16, ptr noundef @.str.32, i32 noundef %17, i32 noundef %20)
+  br label %64
+
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %6, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = load ptr, ptr %10, align 8
+  %26 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %22, ptr noundef %23, ptr noundef @.str.32, i32 noundef %24, i32 noundef %27)
+  br label %64
+
+28:                                               ; preds = %5
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = load ptr, ptr %10, align 8
+  %33 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %32, i32 0, i32 0
+  %34 = load i32, ptr %33, align 8
+  %35 = urem i32 %34, 10
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %29, ptr noundef %30, ptr noundef @.str.32, i32 noundef %31, i32 noundef %35)
+  br label %64
+
+36:                                               ; preds = %5
+  %37 = load ptr, ptr %6, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %39, i32 0, i32 2
+  %41 = load ptr, ptr %40, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %37, ptr noundef %38, ptr noundef @.str, ptr noundef %41)
+  br label %64
+
+42:                                               ; preds = %5
+  %43 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %10, align 8
+  %46 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %43, ptr noundef %44, ptr noundef @.str, ptr noundef %47)
+  br label %64
+
+48:                                               ; preds = %5, %5
+  %49 = load ptr, ptr %6, align 8
+  %50 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %49, ptr noundef %50, ptr noundef @.str.33)
+  br label %64
+
+51:                                               ; preds = %5
+  %52 = load ptr, ptr %6, align 8
+  %53 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %10, align 8
+  %55 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %54, i32 0, i32 5
+  %56 = load ptr, ptr %55, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %52, ptr noundef %53, ptr noundef @.str, ptr noundef %56)
+  br label %64
+
+57:                                               ; preds = %5
+  %58 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %10, align 8
+  %61 = getelementptr inbounds nuw %struct.job_std_pattern_t, ptr %60, i32 0, i32 4
+  %62 = load ptr, ptr %61, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef %58, ptr noundef %59, ptr noundef @.str, ptr noundef %62)
+  br label %64
+
+63:                                               ; preds = %5
+  br label %64
+
+64:                                               ; preds = %63, %57, %51, %48, %42, %36, %28, %21, %14
+  ret void
+}
+
+declare i32 @putc(i32 noundef, ptr noundef) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

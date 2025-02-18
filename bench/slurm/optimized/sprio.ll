@@ -3,11 +3,11 @@ source_filename = "bench/slurm/original/sprio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.log_options_t = type { i32, i32, i32, i8, i8, i8, i32 }
 %struct.sprio_parameters = type { i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.log_options_t = type { i32, i32, i32, i8, i8, i8, i32 }
 
-@__const.main.opts = private unnamed_addr constant %struct.log_options_t { i32 3, i32 0, i32 0, i8 1, i8 0, i8 0, i32 0 }, align 8
+@__const.main.opts = private unnamed_addr constant { i32, i32, i32, i8, i8, i8, i8, i32 } { i32 3, i32 0, i32 0, i8 1, i8 0, i8 0, i8 0, i32 0 }, align 8
 @params = dso_local global %struct.sprio_parameters zeroinitializer, align 8
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"slurm_load_ctl_conf error\00", align 1
@@ -51,13 +51,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %3 = alloca ptr, align 8
   %4 = alloca %struct.log_options_t, align 8
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(20) @__const.main.opts, i64 20, i1 false)
-  tail call void @slurm_init(ptr noundef null) #6
+  tail call void @slurm_init(ptr noundef null) #7
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call ptr @xbasename(ptr noundef %6) #6
-  %8 = tail call i32 @log_init(ptr noundef %7, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 8, ptr noundef null) #6
-  tail call void @parse_command_line(i32 noundef %0, ptr noundef nonnull %1) #6
+  %7 = tail call ptr @xbasename(ptr noundef %6) #7
+  %8 = tail call i32 @log_init(ptr noundef %7, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 8, ptr noundef null) #7
+  tail call void @parse_command_line(i32 noundef %0, ptr noundef nonnull %1) #7
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @params, i64 8), align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %13, label %10
@@ -65,7 +67,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 10:                                               ; preds = %2
   %11 = add i32 %9, 3
   store i32 %11, ptr %4, align 8
-  %12 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 8, ptr noundef null) #6
+  %12 = tail call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 8, ptr noundef null) #7
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -74,13 +76,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not21, label %36, label %15
 
 15:                                               ; preds = %13
-  %16 = call i32 @slurm_load_ctl_conf(i64 noundef 0, ptr noundef nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  %16 = call i32 @slurm_load_ctl_conf(i64 noundef 0, ptr noundef nonnull %5) #7
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %18, label %17
 
 17:                                               ; preds = %15
-  call void @slurm_perror(ptr noundef nonnull @.str) #6
-  call void @exit(i32 noundef %16) #7
+  call void @slurm_perror(ptr noundef nonnull @.str) #7
+  call void @exit(i32 noundef %16) #8
   unreachable
 
 18:                                               ; preds = %15
@@ -108,7 +111,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr %33, ptr @weight_tres, align 8
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 864
   %35 = load ptr, ptr %34, align 8
-  call void @slurm_free_ctl_conf(ptr noundef %19) #6
+  call void @slurm_free_ctl_conf(ptr noundef %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   br label %45
 
 36:                                               ; preds = %13
@@ -131,27 +135,27 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 45:                                               ; preds = %36, %18
   %.013 = phi ptr [ %35, %18 ], [ %44, %36 ]
-  %46 = call i32 @xstrcasecmp(ptr noundef %.013, ptr noundef nonnull @.str.1) #6
+  %46 = call i32 @xstrcasecmp(ptr noundef %.013, ptr noundef nonnull @.str.1) #7
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr @stderr, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.2, ptr noundef %.013) #8
-  call void @exit(i32 noundef 1) #9
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.2, ptr noundef %.013) #9
+  call void @exit(i32 noundef 1) #10
   unreachable
 
 51:                                               ; preds = %45
-  %52 = load i8, ptr @params, align 8
-  %53 = trunc i8 %52 to i1
+  %52 = load i8, ptr @params, align 8, !range !8, !noundef !9
+  %53 = trunc nuw i8 %52 to i1
   %spec.select = select i1 %53, i16 64, i16 0
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %.not23 = icmp eq ptr %54, null
   br i1 %.not23, label %55, label %58
 
 55:                                               ; preds = %51
-  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
-  %57 = trunc i8 %56 to i1
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2, !range !8, !noundef !9
+  %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55, %51
@@ -160,17 +164,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 60:                                               ; preds = %58, %55
   %.1 = phi i16 [ %59, %58 ], [ %spec.select, %55 ]
-  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
-  %62 = trunc i8 %61 to i1
+  %61 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2, !range !8, !noundef !9
+  %62 = trunc nuw i8 %61 to i1
   %63 = or i16 %.1, 96
   %spec.select46 = select i1 %62, i16 %63, i16 %.1
-  %64 = call i32 @slurm_load_job_prio(ptr noundef nonnull %3, i16 noundef zeroext %spec.select46) #6
+  %64 = call i32 @slurm_load_job_prio(ptr noundef nonnull %3, i16 noundef zeroext %spec.select46) #7
   %.not24 = icmp eq i32 %64, 0
   br i1 %.not24, label %66, label %65
 
 65:                                               ; preds = %60
-  call void @slurm_perror(ptr noundef nonnull @.str.3) #6
-  call void @exit(i32 noundef %64) #7
+  call void @slurm_perror(ptr noundef nonnull @.str.3) #7
+  call void @exit(i32 noundef %64) #8
   unreachable
 
 66:                                               ; preds = %60
@@ -179,10 +183,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %68, label %69, label %142
 
 69:                                               ; preds = %66
-  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 5), align 1
-  %71 = trunc i8 %70 to i1
-  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 3), align 1
-  %73 = trunc i8 %72 to i1
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 5), align 1, !range !8, !noundef !9
+  %71 = trunc nuw i8 %70 to i1
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 3), align 1, !range !8, !noundef !9
+  %73 = trunc nuw i8 %72 to i1
   br i1 %71, label %74, label %108
 
 74:                                               ; preds = %69
@@ -193,19 +197,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %142
 
 76:                                               ; preds = %74
-  %77 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #6
+  %77 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #7
   store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
-  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
-  %79 = trunc i8 %78 to i1
+  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2, !range !8, !noundef !9
+  %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %76
-  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
-  %82 = trunc i8 %81 to i1
+  %81 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2, !range !8, !noundef !9
+  %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %84, label %83
 
 83:                                               ; preds = %80
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #7
   br label %84
 
 84:                                               ; preds = %83, %80, %76
@@ -214,17 +218,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not33, label %87, label %86
 
 86:                                               ; preds = %84
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #7
   br label %87
 
 87:                                               ; preds = %86, %84
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.8) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.8) #7
   %88 = load i32, ptr @weight_age, align 4
   %.not34 = icmp eq i32 %88, 0
   br i1 %.not34, label %90, label %89
 
 89:                                               ; preds = %87
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.9) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.9) #7
   br label %90
 
 90:                                               ; preds = %89, %87
@@ -233,7 +237,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not35, label %93, label %92
 
 92:                                               ; preds = %90
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.10) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.10) #7
   br label %93
 
 93:                                               ; preds = %92, %90
@@ -242,7 +246,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not36, label %96, label %95
 
 95:                                               ; preds = %93
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.11) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.11) #7
   br label %96
 
 96:                                               ; preds = %95, %93
@@ -251,7 +255,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not37, label %99, label %98
 
 98:                                               ; preds = %96
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.12) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.12) #7
   br label %99
 
 99:                                               ; preds = %98, %96
@@ -260,7 +264,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not38, label %102, label %101
 
 101:                                              ; preds = %99
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.13) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.13) #7
   br label %102
 
 102:                                              ; preds = %101, %99
@@ -269,7 +273,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not39, label %105, label %104
 
 104:                                              ; preds = %102
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.14) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.14) #7
   br label %105
 
 105:                                              ; preds = %104, %102
@@ -278,7 +282,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not40, label %142, label %107
 
 107:                                              ; preds = %105
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.15) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.15) #7
   br label %142
 
 108:                                              ; preds = %69
@@ -289,19 +293,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %142
 
 110:                                              ; preds = %108
-  %111 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #6
+  %111 = call ptr @xstrdup(ptr noundef nonnull @.str.5) #7
   store ptr %111, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
-  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2
-  %113 = trunc i8 %112 to i1
+  %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 6), align 2, !range !8, !noundef !9
+  %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %110
-  %115 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2
-  %116 = trunc i8 %115 to i1
+  %115 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 2), align 2, !range !8, !noundef !9
+  %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %118, label %117
 
 117:                                              ; preds = %114
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.6) #7
   br label %118
 
 118:                                              ; preds = %117, %114, %110
@@ -310,17 +314,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not25, label %121, label %120
 
 120:                                              ; preds = %118
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.7) #7
   br label %121
 
 121:                                              ; preds = %120, %118
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.17) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.17) #7
   %122 = load i32, ptr @weight_age, align 4
   %.not26 = icmp eq i32 %122, 0
   br i1 %.not26, label %124, label %123
 
 123:                                              ; preds = %121
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.18) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.18) #7
   br label %124
 
 124:                                              ; preds = %123, %121
@@ -329,7 +333,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not27, label %127, label %126
 
 126:                                              ; preds = %124
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.19) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.19) #7
   br label %127
 
 127:                                              ; preds = %126, %124
@@ -338,7 +342,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not28, label %130, label %129
 
 129:                                              ; preds = %127
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.20) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.20) #7
   br label %130
 
 130:                                              ; preds = %129, %127
@@ -347,7 +351,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not29, label %133, label %132
 
 132:                                              ; preds = %130
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.21) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.21) #7
   br label %133
 
 133:                                              ; preds = %132, %130
@@ -356,7 +360,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not30, label %136, label %135
 
 135:                                              ; preds = %133
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.22) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.22) #7
   br label %136
 
 136:                                              ; preds = %135, %133
@@ -365,7 +369,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not31, label %139, label %138
 
 138:                                              ; preds = %136
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.23) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.23) #7
   br label %139
 
 139:                                              ; preds = %138, %136
@@ -374,12 +378,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not32, label %142, label %141
 
 141:                                              ; preds = %139
-  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.24) #6
+  call void @_xstrcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @params, i64 32), ptr noundef nonnull @.str.24) #7
   br label %142
 
 142:                                              ; preds = %105, %107, %75, %139, %141, %109, %66
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 32), align 8
-  %144 = call i32 @parse_format(ptr noundef %143) #6
+  %144 = call i32 @parse_format(ptr noundef %143) #7
   %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8
   %.not41 = icmp eq ptr %145, null
   br i1 %.not41, label %153, label %146
@@ -395,7 +399,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not43, label %152, label %150
 
 150:                                              ; preds = %148
-  %151 = call i32 @list_count(ptr noundef nonnull %149) #6
+  %151 = call i32 @list_count(ptr noundef nonnull %149) #7
   %.not44 = icmp eq i32 %151, 0
   br i1 %.not44, label %152, label %153
 
@@ -410,74 +414,81 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %154, align 8
-  call void @filter_job_list(ptr noundef %156) #6
+  call void @filter_job_list(ptr noundef %156) #7
   %157 = load ptr, ptr %3, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 72), align 8
-  %160 = call i32 @print_jobs_array(ptr noundef %158, ptr noundef %159) #6
+  %160 = call i32 @print_jobs_array(ptr noundef %158, ptr noundef %159) #7
   br label %161
 
 161:                                              ; preds = %153, %155, %152
-  call void @exit(i32 noundef 0) #7
+  call void @exit(i32 noundef 0) #8
   unreachable
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @slurm_init(ptr noundef) local_unnamed_addr #2
+declare void @slurm_init(ptr noundef) local_unnamed_addr #3
 
-declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @log_init(ptr noundef, ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @xbasename(ptr noundef) local_unnamed_addr #2
+declare ptr @xbasename(ptr noundef) local_unnamed_addr #3
 
-declare void @parse_command_line(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @parse_command_line(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @slurm_load_ctl_conf(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_load_ctl_conf(i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @slurm_perror(ptr noundef) local_unnamed_addr #2
+declare void @slurm_perror(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
-declare void @slurm_free_ctl_conf(ptr noundef) local_unnamed_addr #2
+declare void @slurm_free_ctl_conf(ptr noundef) local_unnamed_addr #3
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
-
-declare i32 @slurm_load_job_prio(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
-
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
-
-declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @parse_format(ptr noundef) local_unnamed_addr #2
-
-declare i32 @list_count(ptr noundef) local_unnamed_addr #2
-
-declare void @filter_job_list(ptr noundef) local_unnamed_addr #2
-
-declare i32 @print_jobs_array(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+
+declare i32 @slurm_load_job_prio(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
+
+declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+declare i32 @parse_format(ptr noundef) local_unnamed_addr #3
+
+declare i32 @list_count(ptr noundef) local_unnamed_addr #3
+
+declare void @filter_job_list(ptr noundef) local_unnamed_addr #3
+
+declare i32 @print_jobs_array(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { cold noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -486,3 +497,6 @@ attributes #9 = { cold noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = !{i8 0, i8 2}
+!9 = !{}

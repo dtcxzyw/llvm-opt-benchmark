@@ -4,25 +4,25 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.thru_put = type { i32, i32 }
-%struct.job_descriptor = type { ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, ptr, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i64, ptr, %struct.slurm_hash_t, i32, ptr, ptr, ptr, i64, i64, i32, i32, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, i32, i8, ptr, i16, i8, ptr, i16, i8, ptr, i32, i32, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, %struct.slurm_hash_t, i16, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i16, i16, i16, ptr, i16, i32, i32, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i64, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, i16 }
+%struct.job_descriptor = type { ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, ptr, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i64, ptr, %struct.slurm_hash_t, i32, ptr, ptr, ptr, i64, i64, i32, i32, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, i32, i16, i8, ptr, i16, i8, ptr, i16, ptr, i32, i32, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, %struct.slurm_hash_t, i16, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i16, i16, i16, ptr, i16, i32, i32, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i64, i32, ptr, i32, i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, i16 }
 %struct.slurm_hash_t = type { i8, [32 x i8] }
 
-@plugin_name = constant [27 x i8] c"Job submit throttle plugin\00", align 16
-@plugin_type = constant [20 x i8] c"job_submit/throttle\00", align 16
-@plugin_version = constant i32 1574912, align 4
+@plugin_name = dso_local constant [27 x i8] c"Job submit throttle plugin\00", align 16
+@plugin_type = dso_local constant [20 x i8] c"job_submit/throttle\00", align 16
+@plugin_version = dso_local constant i32 1639680, align 4
 @throttle_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
-@.str = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_lock(): %m\00", align 1
-@.str.1 = private unnamed_addr constant [22 x i8] c"job_submit_throttle.c\00", align 1
+@.str = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_lock(): %m\00", align 1
 @__func__.fini = private unnamed_addr constant [5 x i8] c"fini\00", align 1
 @thru_put_array = internal global ptr null, align 8
-@.str.2 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
+@.str.1 = private unnamed_addr constant [31 x i8] c"%s: pthread_mutex_unlock(): %m\00", align 1
 @last_reset = internal global i64 0, align 8
 @jobs_per_user_per_hour = internal global i32 0, align 4
 @__func__.job_submit = private unnamed_addr constant [11 x i8] c"job_submit\00", align 1
 @thru_put_size = internal global i32 0, align 4
-@.str.3 = private unnamed_addr constant [28 x i8] c"Reached jobs per hour limit\00", align 1
+@.str.2 = private unnamed_addr constant [28 x i8] c"Reached jobs per hour limit\00", align 1
+@.str.3 = private unnamed_addr constant [22 x i8] c"job_submit_throttle.c\00", align 1
 @slurm_conf = external global %struct.slurm_conf_t, align 8
 @.str.4 = private unnamed_addr constant [24 x i8] c"jobs_per_user_per_hour=\00", align 1
 @.str.5 = private unnamed_addr constant [38 x i8] c"%s: %s: %s: jobs_per_user_per_hour=%d\00", align 1
@@ -31,18 +31,19 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._reset_counters = private unnamed_addr constant [16 x i8] c"_reset_counters\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @init() #0 {
+define dso_local i32 @init() #0 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fini() #0 {
+define dso_local i32 @fini() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   br label %3
 
 3:                                                ; preds = %0
-  %4 = call i32 @pthread_mutex_lock(ptr noundef @throttle_mutex) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #7
+  %4 = call i32 @pthread_mutex_lock(ptr noundef @throttle_mutex) #7
   store i32 %4, ptr %1, align 4
   %5 = load i32, ptr %1, align 4
   %6 = icmp ne i32 %5, 0
@@ -50,12 +51,13 @@ define i32 @fini() #0 {
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %1, align 4
-  %9 = call ptr @__errno_location() #7
+  %9 = call ptr @__errno_location() #8
   store i32 %8, ptr %9, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 143, ptr noundef @__func__.fini) #8
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str, ptr noundef @__func__.fini) #9
   unreachable
 
 10:                                               ; preds = %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #7
   br label %11
 
 11:                                               ; preds = %10
@@ -63,7 +65,8 @@ define i32 @fini() #0 {
   br label %12
 
 12:                                               ; preds = %11
-  %13 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #7
+  %13 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #7
   store i32 %13, ptr %2, align 4
   %14 = load i32, ptr %2, align 4
   %15 = icmp ne i32 %14, 0
@@ -71,34 +74,41 @@ define i32 @fini() #0 {
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %2, align 4
-  %18 = call ptr @__errno_location() #7
+  %18 = call ptr @__errno_location() #8
   store i32 %17, ptr %18, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 145, ptr noundef @__func__.fini) #8
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str.1, ptr noundef @__func__.fini) #9
   unreachable
 
 19:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #7
   br label %20
 
 20:                                               ; preds = %19
   ret i32 0
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) #1
+declare i32 @pthread_mutex_lock(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #2
+declare ptr @__errno_location() #3
 
 ; Function Attrs: noreturn
-declare void @slurm_fatal(ptr noundef, ...) #3
+declare void @slurm_fatal_abort(ptr noundef, ...) #4
 
-declare void @slurm_xfree(ptr noundef) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @slurm_xfree(ptr noundef) #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) #1
+declare i32 @pthread_mutex_unlock(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define dso_local i32 @job_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -108,251 +118,285 @@ define i32 @job_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %13 = load i64, ptr @last_reset, align 8
-  %14 = icmp ne i64 %13, 0
-  br i1 %14, label %16, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %14 = load i64, ptr @last_reset, align 8
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %3
+16:                                               ; preds = %3
   call void @_get_config()
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %3
-  %17 = load i32, ptr @jobs_per_user_per_hour, align 4
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %16, %3
+  %18 = load i32, ptr @jobs_per_user_per_hour, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   store i32 0, ptr %4, align 4
-  br label %122
+  store i32 1, ptr %9, align 4
+  br label %127
 
-20:                                               ; preds = %16
-  br label %21
+21:                                               ; preds = %17
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = call i32 @pthread_mutex_lock(ptr noundef @throttle_mutex) #6
-  store i32 %22, ptr %9, align 4
-  %23 = load i32, ptr %9, align 4
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %28
+22:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %23 = call i32 @pthread_mutex_lock(ptr noundef @throttle_mutex) #7
+  store i32 %23, ptr %10, align 4
+  %24 = load i32, ptr %10, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %29
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %9, align 4
-  %27 = call ptr @__errno_location() #7
-  store i32 %26, ptr %27, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 159, ptr noundef @__func__.job_submit) #8
+26:                                               ; preds = %22
+  %27 = load i32, ptr %10, align 4
+  %28 = call ptr @__errno_location() #8
+  store i32 %27, ptr %28, align 4
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str, ptr noundef @__func__.job_submit) #9
   unreachable
 
-28:                                               ; preds = %21
-  br label %29
-
-29:                                               ; preds = %28
-  call void @_reset_counters()
-  store i32 0, ptr %8, align 4
+29:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
   br label %30
 
-30:                                               ; preds = %88, %29
-  %31 = load i32, ptr %8, align 4
-  %32 = load i32, ptr @thru_put_size, align 4
-  %33 = icmp slt i32 %31, %32
-  br i1 %33, label %34, label %91
+30:                                               ; preds = %29
+  br label %31
 
-34:                                               ; preds = %30
-  %35 = load ptr, ptr @thru_put_array, align 8
-  %36 = load i32, ptr %8, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.thru_put, ptr %35, i64 %37
-  %39 = getelementptr inbounds %struct.thru_put, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct.job_descriptor, ptr %41, i32 0, i32 94
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp ne i32 %40, %43
-  br i1 %44, label %45, label %46
+31:                                               ; preds = %30
+  call void @_reset_counters()
+  store i32 0, ptr %8, align 4
+  br label %32
 
-45:                                               ; preds = %34
-  br label %88
+32:                                               ; preds = %92, %31
+  %33 = load i32, ptr %8, align 4
+  %34 = load i32, ptr @thru_put_size, align 4
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %36, label %95
 
-46:                                               ; preds = %34
-  %47 = load ptr, ptr @thru_put_array, align 8
-  %48 = load i32, ptr %8, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.thru_put, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.thru_put, ptr %50, i32 0, i32 1
-  %52 = load i32, ptr %51, align 4
-  %53 = load i32, ptr @jobs_per_user_per_hour, align 4
-  %54 = icmp ult i32 %52, %53
-  br i1 %54, label %55, label %72
+36:                                               ; preds = %32
+  %37 = load ptr, ptr @thru_put_array, align 8
+  %38 = load i32, ptr %8, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds %struct.thru_put, ptr %37, i64 %39
+  %41 = getelementptr inbounds nuw %struct.thru_put, ptr %40, i32 0, i32 0
+  %42 = load i32, ptr %41, align 4
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.job_descriptor, ptr %43, i32 0, i32 95
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp ne i32 %42, %45
+  br i1 %46, label %47, label %48
 
-55:                                               ; preds = %46
-  %56 = load ptr, ptr @thru_put_array, align 8
-  %57 = load i32, ptr %8, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds %struct.thru_put, ptr %56, i64 %58
-  %60 = getelementptr inbounds %struct.thru_put, ptr %59, i32 0, i32 1
-  %61 = load i32, ptr %60, align 4
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 4
-  br label %63
+47:                                               ; preds = %36
+  br label %92
 
-63:                                               ; preds = %55
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #6
-  store i32 %64, ptr %10, align 4
-  %65 = load i32, ptr %10, align 4
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %70
+48:                                               ; preds = %36
+  %49 = load ptr, ptr @thru_put_array, align 8
+  %50 = load i32, ptr %8, align 4
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds %struct.thru_put, ptr %49, i64 %51
+  %53 = getelementptr inbounds nuw %struct.thru_put, ptr %52, i32 0, i32 1
+  %54 = load i32, ptr %53, align 4
+  %55 = load i32, ptr @jobs_per_user_per_hour, align 4
+  %56 = icmp ult i32 %54, %55
+  br i1 %56, label %57, label %75
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr %10, align 4
-  %69 = call ptr @__errno_location() #7
-  store i32 %68, ptr %69, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 167, ptr noundef @__func__.job_submit) #8
+57:                                               ; preds = %48
+  %58 = load ptr, ptr @thru_put_array, align 8
+  %59 = load i32, ptr %8, align 4
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds %struct.thru_put, ptr %58, i64 %60
+  %62 = getelementptr inbounds nuw %struct.thru_put, ptr %61, i32 0, i32 1
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %62, align 4
+  br label %65
+
+65:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  %66 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #7
+  store i32 %66, ptr %11, align 4
+  %67 = load i32, ptr %11, align 4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %72
+
+69:                                               ; preds = %65
+  %70 = load i32, ptr %11, align 4
+  %71 = call ptr @__errno_location() #8
+  store i32 %70, ptr %71, align 4
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str.1, ptr noundef @__func__.job_submit) #9
   unreachable
 
-70:                                               ; preds = %63
-  br label %71
+72:                                               ; preds = %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  br label %73
 
-71:                                               ; preds = %70
+73:                                               ; preds = %72
+  br label %74
+
+74:                                               ; preds = %73
   store i32 0, ptr %4, align 4
-  br label %122
+  store i32 1, ptr %9, align 4
+  br label %127
 
-72:                                               ; preds = %46
-  %73 = load ptr, ptr %7, align 8
-  %74 = icmp ne ptr %73, null
-  br i1 %74, label %75, label %78
+75:                                               ; preds = %48
+  %76 = load ptr, ptr %7, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %78, label %81
 
-75:                                               ; preds = %72
-  %76 = call ptr @slurm_xstrdup(ptr noundef @.str.3)
-  %77 = load ptr, ptr %7, align 8
-  store ptr %76, ptr %77, align 8
-  br label %78
+78:                                               ; preds = %75
+  %79 = call ptr @slurm_xstrdup(ptr noundef @.str.2)
+  %80 = load ptr, ptr %7, align 8
+  store ptr %79, ptr %80, align 8
+  br label %81
 
-78:                                               ; preds = %75, %72
-  br label %79
+81:                                               ; preds = %78, %75
+  br label %82
 
-79:                                               ; preds = %78
-  %80 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #6
-  store i32 %80, ptr %11, align 4
-  %81 = load i32, ptr %11, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %86
+82:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  %83 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #7
+  store i32 %83, ptr %12, align 4
+  %84 = load i32, ptr %12, align 4
+  %85 = icmp ne i32 %84, 0
+  br i1 %85, label %86, label %89
 
-83:                                               ; preds = %79
-  %84 = load i32, ptr %11, align 4
-  %85 = call ptr @__errno_location() #7
-  store i32 %84, ptr %85, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 172, ptr noundef @__func__.job_submit) #8
+86:                                               ; preds = %82
+  %87 = load i32, ptr %12, align 4
+  %88 = call ptr @__errno_location() #8
+  store i32 %87, ptr %88, align 4
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str.1, ptr noundef @__func__.job_submit) #9
   unreachable
 
-86:                                               ; preds = %79
-  br label %87
+89:                                               ; preds = %82
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  br label %90
 
-87:                                               ; preds = %86
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
   store i32 2050, ptr %4, align 4
-  br label %122
+  store i32 1, ptr %9, align 4
+  br label %127
 
-88:                                               ; preds = %45
-  %89 = load i32, ptr %8, align 4
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %8, align 4
-  br label %30, !llvm.loop !6
+92:                                               ; preds = %47
+  %93 = load i32, ptr %8, align 4
+  %94 = add nsw i32 %93, 1
+  store i32 %94, ptr %8, align 4
+  br label %32, !llvm.loop !8
 
-91:                                               ; preds = %30
-  %92 = load i32, ptr @thru_put_size, align 4
-  %93 = add nsw i32 %92, 1
-  store i32 %93, ptr @thru_put_size, align 4
-  %94 = load i32, ptr @thru_put_size, align 4
-  %95 = sext i32 %94 to i64
-  %96 = mul i64 8, %95
-  %97 = call ptr @slurm_xrecalloc(ptr noundef @thru_put_array, i64 noundef 1, i64 noundef %96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.1, i32 noundef 177, ptr noundef @__func__.job_submit)
-  store ptr %97, ptr @thru_put_array, align 8
-  %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds %struct.job_descriptor, ptr %98, i32 0, i32 94
-  %100 = load i32, ptr %99, align 8
-  %101 = load ptr, ptr @thru_put_array, align 8
-  %102 = load i32, ptr @thru_put_size, align 4
-  %103 = sub nsw i32 %102, 1
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.thru_put, ptr %101, i64 %104
-  %106 = getelementptr inbounds %struct.thru_put, ptr %105, i32 0, i32 0
-  store i32 %100, ptr %106, align 4
-  %107 = load ptr, ptr @thru_put_array, align 8
-  %108 = load i32, ptr @thru_put_size, align 4
-  %109 = sub nsw i32 %108, 1
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.thru_put, ptr %107, i64 %110
-  %112 = getelementptr inbounds %struct.thru_put, ptr %111, i32 0, i32 1
-  store i32 1, ptr %112, align 4
-  br label %113
+95:                                               ; preds = %32
+  %96 = load i32, ptr @thru_put_size, align 4
+  %97 = add nsw i32 %96, 1
+  store i32 %97, ptr @thru_put_size, align 4
+  %98 = load i32, ptr @thru_put_size, align 4
+  %99 = sext i32 %98 to i64
+  %100 = mul i64 8, %99
+  %101 = call ptr @slurm_xrecalloc(ptr noundef @thru_put_array, i64 noundef 1, i64 noundef %100, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 177, ptr noundef @__func__.job_submit)
+  store ptr %101, ptr @thru_put_array, align 8
+  %102 = load ptr, ptr %5, align 8
+  %103 = getelementptr inbounds nuw %struct.job_descriptor, ptr %102, i32 0, i32 95
+  %104 = load i32, ptr %103, align 8
+  %105 = load ptr, ptr @thru_put_array, align 8
+  %106 = load i32, ptr @thru_put_size, align 4
+  %107 = sub nsw i32 %106, 1
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds %struct.thru_put, ptr %105, i64 %108
+  %110 = getelementptr inbounds nuw %struct.thru_put, ptr %109, i32 0, i32 0
+  store i32 %104, ptr %110, align 4
+  %111 = load ptr, ptr @thru_put_array, align 8
+  %112 = load i32, ptr @thru_put_size, align 4
+  %113 = sub nsw i32 %112, 1
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds %struct.thru_put, ptr %111, i64 %114
+  %116 = getelementptr inbounds nuw %struct.thru_put, ptr %115, i32 0, i32 1
+  store i32 1, ptr %116, align 4
+  br label %117
 
-113:                                              ; preds = %91
-  %114 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #6
-  store i32 %114, ptr %12, align 4
-  %115 = load i32, ptr %12, align 4
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %117, label %120
+117:                                              ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %118 = call i32 @pthread_mutex_unlock(ptr noundef @throttle_mutex) #7
+  store i32 %118, ptr %13, align 4
+  %119 = load i32, ptr %13, align 4
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %124
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %12, align 4
-  %119 = call ptr @__errno_location() #7
-  store i32 %118, ptr %119, align 4
-  call void (ptr, ...) @slurm_fatal(ptr noundef @.str.2, ptr noundef @.str.1, i32 noundef 180, ptr noundef @__func__.job_submit) #8
+121:                                              ; preds = %117
+  %122 = load i32, ptr %13, align 4
+  %123 = call ptr @__errno_location() #8
+  store i32 %122, ptr %123, align 4
+  call void (ptr, ...) @slurm_fatal_abort(ptr noundef @.str.1, ptr noundef @__func__.job_submit) #9
   unreachable
 
-120:                                              ; preds = %113
-  br label %121
+124:                                              ; preds = %117
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  br label %125
 
-121:                                              ; preds = %120
+125:                                              ; preds = %124
+  br label %126
+
+126:                                              ; preds = %125
   store i32 0, ptr %4, align 4
-  br label %122
+  store i32 1, ptr %9, align 4
+  br label %127
 
-122:                                              ; preds = %121, %87, %71, %19
-  %123 = load i32, ptr %4, align 4
-  ret i32 %123
+127:                                              ; preds = %126, %91, %74, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %128 = load i32, ptr %4, align 4
+  ret i32 %128
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_get_config() #0 {
   %1 = alloca ptr, align 8
-  %2 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 159
-  %3 = load ptr, ptr %2, align 8
-  %4 = call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef @.str.4)
-  store ptr %4, ptr %1, align 8
-  %5 = icmp ne ptr %4, null
-  br i1 %5, label %6, label %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %2 = load ptr, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 163), align 8
+  %3 = call ptr @slurm_xstrcasestr(ptr noundef %2, ptr noundef @.str.4)
+  store ptr %3, ptr %1, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %9
 
-6:                                                ; preds = %0
-  %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 23
-  %9 = call i32 @atoi(ptr noundef %8) #9
-  store i32 %9, ptr @jobs_per_user_per_hour, align 4
+5:                                                ; preds = %0
+  %6 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 23
+  %8 = call i32 @atoi(ptr noundef %7) #10
+  store i32 %8, ptr @jobs_per_user_per_hour, align 4
+  br label %9
+
+9:                                                ; preds = %5, %0
   br label %10
 
-10:                                               ; preds = %6, %0
+10:                                               ; preds = %9
   br label %11
 
 11:                                               ; preds = %10
-  br label %12
+  %12 = call i32 @slurm_get_log_level()
+  %13 = icmp sge i32 %12, 3
+  br i1 %13, label %14, label %16
 
-12:                                               ; preds = %11
-  %13 = call i32 @slurm_get_log_level()
-  %14 = icmp sge i32 %13, 3
-  br i1 %14, label %15, label %17
+14:                                               ; preds = %11
+  %15 = load i32, ptr @jobs_per_user_per_hour, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__._get_config, ptr noundef @plugin_type, i32 noundef %15)
+  br label %16
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr @jobs_per_user_per_hour, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.5, ptr noundef @plugin_type, ptr noundef @__func__._get_config, ptr noundef @plugin_type, i32 noundef %16)
+16:                                               ; preds = %14, %11
   br label %17
 
-17:                                               ; preds = %15, %12
+17:                                               ; preds = %16
   br label %18
 
 18:                                               ; preds = %17
   br label %19
 
 19:                                               ; preds = %18
+  br label %20
+
+20:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
@@ -363,141 +407,174 @@ define internal void @_reset_counters() #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = call i64 @time(ptr noundef null) #6
-  store i64 %6, ptr %1, align 8
-  %7 = load i64, ptr @last_reset, align 8
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %11, label %9
+  %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  %7 = call i64 @time(ptr noundef null) #7
+  store i64 %7, ptr %1, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #7
+  %8 = load i64, ptr @last_reset, align 8
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %0
-  %10 = load i64, ptr %1, align 8
-  store i64 %10, ptr @last_reset, align 8
-  br label %85
+10:                                               ; preds = %0
+  %11 = load i64, ptr %1, align 8
+  store i64 %11, ptr @last_reset, align 8
+  store i32 1, ptr %6, align 4
+  br label %89
 
-11:                                               ; preds = %0
-  %12 = load i64, ptr %1, align 8
-  %13 = load i64, ptr @last_reset, align 8
-  %14 = call double @difftime(i64 noundef %12, i64 noundef %13) #7
-  %15 = fdiv double %14, 6.000000e+01
-  %16 = fptosi double %15 to i32
-  store i32 %16, ptr %4, align 4
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp slt i32 %17, 6
-  br i1 %18, label %19, label %20
+12:                                               ; preds = %0
+  %13 = load i64, ptr %1, align 8
+  %14 = load i64, ptr @last_reset, align 8
+  %15 = call double @difftime(i64 noundef %13, i64 noundef %14) #8
+  %16 = fdiv double %15, 6.000000e+01
+  %17 = fptosi double %16 to i32
+  store i32 %17, ptr %4, align 4
+  %18 = load i32, ptr %4, align 4
+  %19 = icmp slt i32 %18, 6
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %11
-  br label %85
+20:                                               ; preds = %12
+  store i32 1, ptr %6, align 4
+  br label %89
 
-20:                                               ; preds = %11
-  %21 = load i32, ptr %4, align 4
-  %22 = sdiv i32 %21, 6
-  store i32 %22, ptr %4, align 4
-  %23 = load i32, ptr %4, align 4
-  %24 = mul nsw i32 %23, 360
-  %25 = sext i32 %24 to i64
-  %26 = load i64, ptr @last_reset, align 8
-  %27 = add nsw i64 %26, %25
-  store i64 %27, ptr @last_reset, align 8
+21:                                               ; preds = %12
+  %22 = load i32, ptr %4, align 4
+  %23 = sdiv i32 %22, 6
+  store i32 %23, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4
+  %25 = mul nsw i32 %24, 360
+  %26 = sext i32 %25 to i64
+  %27 = load i64, ptr @last_reset, align 8
+  %28 = add nsw i64 %27, %26
+  store i64 %28, ptr @last_reset, align 8
   store i32 0, ptr %5, align 4
-  br label %28
+  br label %29
 
-28:                                               ; preds = %82, %20
-  %29 = load i32, ptr %5, align 4
-  %30 = load i32, ptr @thru_put_size, align 4
-  %31 = icmp slt i32 %29, %30
-  br i1 %31, label %32, label %85
+29:                                               ; preds = %85, %21
+  %30 = load i32, ptr %5, align 4
+  %31 = load i32, ptr @thru_put_size, align 4
+  %32 = icmp slt i32 %30, %31
+  br i1 %32, label %33, label %88
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @thru_put_array, align 8
-  %34 = load i32, ptr %5, align 4
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.thru_put, ptr %33, i64 %35
-  %37 = getelementptr inbounds %struct.thru_put, ptr %36, i32 0, i32 1
-  %38 = load i32, ptr %37, align 4
-  store i32 %38, ptr %2, align 4
-  %39 = load i32, ptr %2, align 4
-  %40 = load i32, ptr @jobs_per_user_per_hour, align 4
-  %41 = load i32, ptr %4, align 4
-  %42 = mul nsw i32 %40, %41
-  %43 = sdiv i32 %42, 10
-  %44 = sub i32 %39, %43
-  store i32 %44, ptr %3, align 4
-  %45 = load i32, ptr %3, align 4
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %54
+33:                                               ; preds = %29
+  %34 = load ptr, ptr @thru_put_array, align 8
+  %35 = load i32, ptr %5, align 4
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr inbounds %struct.thru_put, ptr %34, i64 %36
+  %38 = getelementptr inbounds nuw %struct.thru_put, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  store i32 %39, ptr %2, align 4
+  %40 = load i32, ptr %2, align 4
+  %41 = load i32, ptr @jobs_per_user_per_hour, align 4
+  %42 = load i32, ptr %4, align 4
+  %43 = mul nsw i32 %41, %42
+  %44 = sdiv i32 %43, 10
+  %45 = sub i32 %40, %44
+  store i32 %45, ptr %3, align 4
+  %46 = load i32, ptr %3, align 4
+  %47 = icmp sgt i32 %46, 0
+  br i1 %47, label %48, label %55
 
-47:                                               ; preds = %32
-  %48 = load i32, ptr %3, align 4
-  %49 = load ptr, ptr @thru_put_array, align 8
-  %50 = load i32, ptr %5, align 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.thru_put, ptr %49, i64 %51
-  %53 = getelementptr inbounds %struct.thru_put, ptr %52, i32 0, i32 1
-  store i32 %48, ptr %53, align 4
-  br label %60
-
-54:                                               ; preds = %32
-  %55 = load ptr, ptr @thru_put_array, align 8
-  %56 = load i32, ptr %5, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.thru_put, ptr %55, i64 %57
-  %59 = getelementptr inbounds %struct.thru_put, ptr %58, i32 0, i32 1
-  store i32 0, ptr %59, align 4
-  br label %60
-
-60:                                               ; preds = %54, %47
+48:                                               ; preds = %33
+  %49 = load i32, ptr %3, align 4
+  %50 = load ptr, ptr @thru_put_array, align 8
+  %51 = load i32, ptr %5, align 4
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds %struct.thru_put, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw %struct.thru_put, ptr %53, i32 0, i32 1
+  store i32 %49, ptr %54, align 4
   br label %61
 
-61:                                               ; preds = %60
+55:                                               ; preds = %33
+  %56 = load ptr, ptr @thru_put_array, align 8
+  %57 = load i32, ptr %5, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %struct.thru_put, ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw %struct.thru_put, ptr %59, i32 0, i32 1
+  store i32 0, ptr %60, align 4
+  br label %61
+
+61:                                               ; preds = %55, %48
   br label %62
 
 62:                                               ; preds = %61
-  %63 = call i32 @slurm_get_log_level()
-  %64 = icmp sge i32 %63, 6
-  br i1 %64, label %65, label %79
+  br label %63
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr @thru_put_array, align 8
-  %67 = load i32, ptr %5, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %struct.thru_put, ptr %66, i64 %68
-  %70 = getelementptr inbounds %struct.thru_put, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 4
-  %72 = load i32, ptr %2, align 4
-  %73 = load ptr, ptr @thru_put_array, align 8
-  %74 = load i32, ptr %5, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.thru_put, ptr %73, i64 %75
-  %77 = getelementptr inbounds %struct.thru_put, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._reset_counters, i32 noundef %71, i32 noundef %72, i32 noundef %78)
-  br label %79
+63:                                               ; preds = %62
+  %64 = call i32 @slurm_get_log_level()
+  %65 = icmp sge i32 %64, 6
+  br i1 %65, label %66, label %80
 
-79:                                               ; preds = %65, %62
+66:                                               ; preds = %63
+  %67 = load ptr, ptr @thru_put_array, align 8
+  %68 = load i32, ptr %5, align 4
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds %struct.thru_put, ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw %struct.thru_put, ptr %70, i32 0, i32 0
+  %72 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %2, align 4
+  %74 = load ptr, ptr @thru_put_array, align 8
+  %75 = load i32, ptr %5, align 4
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.thru_put, ptr %74, i64 %76
+  %78 = getelementptr inbounds nuw %struct.thru_put, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__._reset_counters, i32 noundef %72, i32 noundef %73, i32 noundef %79)
   br label %80
 
-80:                                               ; preds = %79
+80:                                               ; preds = %66, %63
   br label %81
 
 81:                                               ; preds = %80
   br label %82
 
 82:                                               ; preds = %81
-  %83 = load i32, ptr %5, align 4
-  %84 = add nsw i32 %83, 1
-  store i32 %84, ptr %5, align 4
-  br label %28, !llvm.loop !8
+  br label %83
 
-85:                                               ; preds = %28, %19, %9
+83:                                               ; preds = %82
+  br label %84
+
+84:                                               ; preds = %83
+  br label %85
+
+85:                                               ; preds = %84
+  %86 = load i32, ptr %5, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %5, align 4
+  br label %29, !llvm.loop !11
+
+88:                                               ; preds = %29
+  store i32 0, ptr %6, align 4
+  br label %89
+
+89:                                               ; preds = %88, %20, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
+  %90 = load i32, ptr %6, align 4
+  switch i32 %90, label %92 [
+    i32 0, label %91
+    i32 1, label %91
+  ]
+
+91:                                               ; preds = %89, %89
   ret void
+
+92:                                               ; preds = %89
+  unreachable
 }
 
-declare ptr @slurm_xstrdup(ptr noundef) #4
+declare ptr @slurm_xstrdup(ptr noundef) #5
 
-declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #4
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+define dso_local i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -509,40 +586,54 @@ define i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   ret i32 0
 }
 
-declare ptr @slurm_xstrcasestr(ptr noundef, ptr noundef) #4
+declare ptr @slurm_xstrcasestr(ptr noundef, ptr noundef) #5
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #5
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #6 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #7
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare i32 @slurm_get_log_level() #4
+declare i32 @slurm_get_log_level() #5
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #4
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #5
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare double @difftime(i64 noundef, i64 noundef) #2
+declare double @difftime(i64 noundef, i64 noundef) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}

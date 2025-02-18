@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"low\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"medium\00", align 1
@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._xlate_freq_code = private unnamed_addr constant [17 x i8] c"_xlate_freq_code\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @gpu_common_freq_value_to_string(i32 noundef %0) #0 {
+define dso_local ptr @gpu_common_freq_value_to_string(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
@@ -91,35 +91,36 @@ declare ptr @slurm_xstrdup(ptr noundef) #1
 declare ptr @slurm_xstrdup_printf(ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define dso_local void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
 
-10:                                               ; preds = %3
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %29, label %14
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %4, align 8
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ne i32 %13, 0
+  br i1 %14, label %31, label %15
 
-14:                                               ; preds = %10, %3
-  br label %15
+15:                                               ; preds = %11, %3
+  br label %16
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %17 = load i64, ptr %16, align 8
+16:                                               ; preds = %15
+  %17 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
   %18 = and i64 %17, 64
   %19 = icmp ne i64 %18, 0
-  br i1 %19, label %20, label %27
+  br i1 %19, label %20, label %28
 
-20:                                               ; preds = %15
+20:                                               ; preds = %16
   br label %21
 
 21:                                               ; preds = %20
@@ -137,518 +138,611 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
 26:                                               ; preds = %25
   br label %27
 
-27:                                               ; preds = %26, %15
+27:                                               ; preds = %26
   br label %28
 
-28:                                               ; preds = %27
-  br label %300
+28:                                               ; preds = %27, %16
+  br label %29
 
-29:                                               ; preds = %10
-  %30 = load ptr, ptr %6, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %36
+29:                                               ; preds = %28
+  br label %30
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %51, label %36
+30:                                               ; preds = %29
+  store i32 1, ptr %8, align 4
+  br label %319
 
-36:                                               ; preds = %32, %29
-  br label %37
+31:                                               ; preds = %11
+  %32 = load ptr, ptr %6, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %38
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, 64
-  %41 = icmp ne i64 %40, 0
-  br i1 %41, label %42, label %49
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %54, label %38
 
-42:                                               ; preds = %37
-  br label %43
+38:                                               ; preds = %34, %31
+  br label %39
 
-43:                                               ; preds = %42
-  %44 = call i32 @slurm_get_log_level()
-  %45 = icmp sge i32 %44, 4
-  br i1 %45, label %46, label %47
+39:                                               ; preds = %38
+  %40 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
+  %41 = and i64 %40, 64
+  %42 = icmp ne i64 %41, 0
+  br i1 %42, label %43, label %51
 
-46:                                               ; preds = %43
+43:                                               ; preds = %39
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = call i32 @slurm_get_log_level()
+  %46 = icmp sge i32 %45, 4
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %44
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.6, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, ptr noundef @__func__.gpu_common_get_nearest_freq)
-  br label %47
-
-47:                                               ; preds = %46, %43
   br label %48
 
-48:                                               ; preds = %47
+48:                                               ; preds = %47, %44
   br label %49
 
-49:                                               ; preds = %48, %37
+49:                                               ; preds = %48
   br label %50
 
 50:                                               ; preds = %49
-  br label %300
+  br label %51
 
-51:                                               ; preds = %32
-  %52 = load i32, ptr %5, align 4
-  %53 = icmp ule i32 %52, 0
-  br i1 %53, label %54, label %69
+51:                                               ; preds = %50, %39
+  br label %52
 
-54:                                               ; preds = %51
-  br label %55
+52:                                               ; preds = %51
+  br label %53
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %57 = load i64, ptr %56, align 8
-  %58 = and i64 %57, 64
-  %59 = icmp ne i64 %58, 0
-  br i1 %59, label %60, label %67
+53:                                               ; preds = %52
+  store i32 1, ptr %8, align 4
+  br label %319
 
-60:                                               ; preds = %55
-  br label %61
+54:                                               ; preds = %34
+  %55 = load i32, ptr %5, align 4
+  %56 = icmp ule i32 %55, 0
+  br i1 %56, label %57, label %73
 
-61:                                               ; preds = %60
-  %62 = call i32 @slurm_get_log_level()
-  %63 = icmp sge i32 %62, 4
-  br i1 %63, label %64, label %65
+57:                                               ; preds = %54
+  br label %58
 
-64:                                               ; preds = %61
+58:                                               ; preds = %57
+  %59 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
+  %60 = and i64 %59, 64
+  %61 = icmp ne i64 %60, 0
+  br i1 %61, label %62, label %70
+
+62:                                               ; preds = %58
+  br label %63
+
+63:                                               ; preds = %62
+  %64 = call i32 @slurm_get_log_level()
+  %65 = icmp sge i32 %64, 4
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %63
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.7, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, ptr noundef @__func__.gpu_common_get_nearest_freq)
-  br label %65
-
-65:                                               ; preds = %64, %61
-  br label %66
-
-66:                                               ; preds = %65
   br label %67
 
-67:                                               ; preds = %66, %55
+67:                                               ; preds = %66, %63
   br label %68
 
 68:                                               ; preds = %67
-  br label %300
+  br label %69
 
-69:                                               ; preds = %51
-  %70 = load ptr, ptr %4, align 8
-  %71 = load i32, ptr %70, align 4
-  switch i32 %71, label %148 [
-    i32 -1, label %72
-    i32 -2, label %90
-    i32 -3, label %109
-    i32 -4, label %133
+69:                                               ; preds = %68
+  br label %70
+
+70:                                               ; preds = %69, %58
+  br label %71
+
+71:                                               ; preds = %70
+  br label %72
+
+72:                                               ; preds = %71
+  store i32 1, ptr %8, align 4
+  br label %319
+
+73:                                               ; preds = %54
+  %74 = load ptr, ptr %4, align 8
+  %75 = load i32, ptr %74, align 4
+  switch i32 %75, label %160 [
+    i32 -1, label %76
+    i32 -2, label %96
+    i32 -3, label %117
+    i32 -4, label %143
   ]
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %5, align 4
-  %75 = sub i32 %74, 1
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %73, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %79 = load ptr, ptr %4, align 8
-  store i32 %78, ptr %79, align 4
-  br label %80
+76:                                               ; preds = %73
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %5, align 4
+  %79 = sub i32 %78, 1
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %80
+  %82 = load i32, ptr %81, align 4
+  %83 = load ptr, ptr %4, align 8
+  store i32 %82, ptr %83, align 4
+  br label %84
 
-80:                                               ; preds = %72
-  br label %81
+84:                                               ; preds = %76
+  br label %85
 
-81:                                               ; preds = %80
-  %82 = call i32 @slurm_get_log_level()
-  %83 = icmp sge i32 %82, 6
-  br i1 %83, label %84, label %87
+85:                                               ; preds = %84
+  %86 = call i32 @slurm_get_log_level()
+  %87 = icmp sge i32 %86, 6
+  br i1 %87, label %88, label %91
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %4, align 8
-  %86 = load i32, ptr %85, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %86)
-  br label %87
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %4, align 8
+  %90 = load i32, ptr %89, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.8, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %90)
+  br label %91
 
-87:                                               ; preds = %84, %81
-  br label %88
+91:                                               ; preds = %88, %85
+  br label %92
 
-88:                                               ; preds = %87
-  br label %89
+92:                                               ; preds = %91
+  br label %93
 
-89:                                               ; preds = %88
-  br label %300
+93:                                               ; preds = %92
+  br label %94
 
-90:                                               ; preds = %69
-  %91 = load ptr, ptr %6, align 8
-  %92 = load i32, ptr %5, align 4
-  %93 = sub i32 %92, 1
-  %94 = udiv i32 %93, 2
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %91, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = load ptr, ptr %4, align 8
-  store i32 %97, ptr %98, align 4
-  br label %99
+94:                                               ; preds = %93
+  br label %95
 
-99:                                               ; preds = %90
-  br label %100
+95:                                               ; preds = %94
+  store i32 1, ptr %8, align 4
+  br label %319
 
-100:                                              ; preds = %99
-  %101 = call i32 @slurm_get_log_level()
-  %102 = icmp sge i32 %101, 6
-  br i1 %102, label %103, label %106
-
-103:                                              ; preds = %100
+96:                                               ; preds = %73
+  %97 = load ptr, ptr %6, align 8
+  %98 = load i32, ptr %5, align 4
+  %99 = sub i32 %98, 1
+  %100 = udiv i32 %99, 2
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw i32, ptr %97, i64 %101
+  %103 = load i32, ptr %102, align 4
   %104 = load ptr, ptr %4, align 8
-  %105 = load i32, ptr %104, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %105)
+  store i32 %103, ptr %104, align 4
+  br label %105
+
+105:                                              ; preds = %96
   br label %106
 
-106:                                              ; preds = %103, %100
-  br label %107
+106:                                              ; preds = %105
+  %107 = call i32 @slurm_get_log_level()
+  %108 = icmp sge i32 %107, 6
+  br i1 %108, label %109, label %112
 
-107:                                              ; preds = %106
-  br label %108
+109:                                              ; preds = %106
+  %110 = load ptr, ptr %4, align 8
+  %111 = load i32, ptr %110, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %111)
+  br label %112
 
-108:                                              ; preds = %107
-  br label %300
+112:                                              ; preds = %109, %106
+  br label %113
 
-109:                                              ; preds = %69
-  %110 = load i32, ptr %5, align 4
-  %111 = icmp eq i32 %110, 1
-  br i1 %111, label %112, label %117
+113:                                              ; preds = %112
+  br label %114
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %6, align 8
-  %114 = getelementptr inbounds i32, ptr %113, i64 0
-  %115 = load i32, ptr %114, align 4
-  %116 = load ptr, ptr %4, align 8
-  store i32 %115, ptr %116, align 4
-  br label %122
+114:                                              ; preds = %113
+  br label %115
 
-117:                                              ; preds = %109
-  %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds i32, ptr %118, i64 1
-  %120 = load i32, ptr %119, align 4
-  %121 = load ptr, ptr %4, align 8
-  store i32 %120, ptr %121, align 4
-  br label %122
+115:                                              ; preds = %114
+  br label %116
 
-122:                                              ; preds = %117, %112
-  br label %123
+116:                                              ; preds = %115
+  store i32 1, ptr %8, align 4
+  br label %319
 
-123:                                              ; preds = %122
-  br label %124
+117:                                              ; preds = %73
+  %118 = load i32, ptr %5, align 4
+  %119 = icmp eq i32 %118, 1
+  br i1 %119, label %120, label %125
 
-124:                                              ; preds = %123
-  %125 = call i32 @slurm_get_log_level()
-  %126 = icmp sge i32 %125, 6
-  br i1 %126, label %127, label %130
-
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %4, align 8
-  %129 = load i32, ptr %128, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %129)
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %6, align 8
+  %122 = getelementptr inbounds i32, ptr %121, i64 0
+  %123 = load i32, ptr %122, align 4
+  %124 = load ptr, ptr %4, align 8
+  store i32 %123, ptr %124, align 4
   br label %130
 
-130:                                              ; preds = %127, %124
+125:                                              ; preds = %117
+  %126 = load ptr, ptr %6, align 8
+  %127 = getelementptr inbounds i32, ptr %126, i64 1
+  %128 = load i32, ptr %127, align 4
+  %129 = load ptr, ptr %4, align 8
+  store i32 %128, ptr %129, align 4
+  br label %130
+
+130:                                              ; preds = %125, %120
   br label %131
 
 131:                                              ; preds = %130
   br label %132
 
 132:                                              ; preds = %131
-  br label %300
+  %133 = call i32 @slurm_get_log_level()
+  %134 = icmp sge i32 %133, 6
+  br i1 %134, label %135, label %138
 
-133:                                              ; preds = %69
-  %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds i32, ptr %134, i64 0
-  %136 = load i32, ptr %135, align 4
-  %137 = load ptr, ptr %4, align 8
-  store i32 %136, ptr %137, align 4
+135:                                              ; preds = %132
+  %136 = load ptr, ptr %4, align 8
+  %137 = load i32, ptr %136, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.10, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %137)
   br label %138
 
-138:                                              ; preds = %133
+138:                                              ; preds = %135, %132
   br label %139
 
 139:                                              ; preds = %138
-  %140 = call i32 @slurm_get_log_level()
-  %141 = icmp sge i32 %140, 6
-  br i1 %141, label %142, label %145
+  br label %140
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %4, align 8
-  %144 = load i32, ptr %143, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %144)
-  br label %145
+140:                                              ; preds = %139
+  br label %141
 
-145:                                              ; preds = %142, %139
-  br label %146
+141:                                              ; preds = %140
+  br label %142
 
-146:                                              ; preds = %145
-  br label %147
+142:                                              ; preds = %141
+  store i32 1, ptr %8, align 4
+  br label %319
 
-147:                                              ; preds = %146
-  br label %300
+143:                                              ; preds = %73
+  %144 = load ptr, ptr %6, align 8
+  %145 = getelementptr inbounds i32, ptr %144, i64 0
+  %146 = load i32, ptr %145, align 4
+  %147 = load ptr, ptr %4, align 8
+  store i32 %146, ptr %147, align 4
+  br label %148
 
-148:                                              ; preds = %69
+148:                                              ; preds = %143
   br label %149
 
 149:                                              ; preds = %148
-  br label %150
+  %150 = call i32 @slurm_get_log_level()
+  %151 = icmp sge i32 %150, 6
+  br i1 %151, label %152, label %155
 
-150:                                              ; preds = %149
-  %151 = call i32 @slurm_get_log_level()
-  %152 = icmp sge i32 %151, 6
-  br i1 %152, label %153, label %154
-
-153:                                              ; preds = %150
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq)
-  br label %154
-
-154:                                              ; preds = %153, %150
+152:                                              ; preds = %149
+  %153 = load ptr, ptr %4, align 8
+  %154 = load i32, ptr %153, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.11, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %154)
   br label %155
 
-155:                                              ; preds = %154
+155:                                              ; preds = %152, %149
   br label %156
 
 156:                                              ; preds = %155
   br label %157
 
 157:                                              ; preds = %156
-  %158 = load ptr, ptr %4, align 8
-  %159 = load i32, ptr %158, align 4
-  %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds i32, ptr %160, i64 0
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp ugt i32 %159, %162
-  br i1 %163, label %164, label %188
+  br label %158
 
-164:                                              ; preds = %157
-  br label %165
+158:                                              ; preds = %157
+  br label %159
 
-165:                                              ; preds = %164
-  %166 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %167 = load i64, ptr %166, align 8
-  %168 = and i64 %167, 64
-  %169 = icmp ne i64 %168, 0
-  br i1 %169, label %170, label %182
+159:                                              ; preds = %158
+  store i32 1, ptr %8, align 4
+  br label %319
 
-170:                                              ; preds = %165
+160:                                              ; preds = %73
+  br label %161
+
+161:                                              ; preds = %160
+  br label %162
+
+162:                                              ; preds = %161
+  %163 = call i32 @slurm_get_log_level()
+  %164 = icmp sge i32 %163, 6
+  br i1 %164, label %165, label %166
+
+165:                                              ; preds = %162
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq)
+  br label %166
+
+166:                                              ; preds = %165, %162
+  br label %167
+
+167:                                              ; preds = %166
+  br label %168
+
+168:                                              ; preds = %167
+  br label %169
+
+169:                                              ; preds = %168
+  br label %170
+
+170:                                              ; preds = %169
   br label %171
 
 171:                                              ; preds = %170
-  %172 = call i32 @slurm_get_log_level()
-  %173 = icmp sge i32 %172, 4
-  br i1 %173, label %174, label %180
-
-174:                                              ; preds = %171
-  %175 = load ptr, ptr %4, align 8
+  %172 = load ptr, ptr %4, align 8
+  %173 = load i32, ptr %172, align 4
+  %174 = load ptr, ptr %6, align 8
+  %175 = getelementptr inbounds i32, ptr %174, i64 0
   %176 = load i32, ptr %175, align 4
-  %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds i32, ptr %177, i64 0
-  %179 = load i32, ptr %178, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.13, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %176, i32 noundef %179)
-  br label %180
+  %177 = icmp ugt i32 %173, %176
+  br i1 %177, label %178, label %203
 
-180:                                              ; preds = %174, %171
-  br label %181
+178:                                              ; preds = %171
+  br label %179
 
-181:                                              ; preds = %180
-  br label %182
+179:                                              ; preds = %178
+  %180 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
+  %181 = and i64 %180, 64
+  %182 = icmp ne i64 %181, 0
+  br i1 %182, label %183, label %196
 
-182:                                              ; preds = %181, %165
-  br label %183
+183:                                              ; preds = %179
+  br label %184
 
-183:                                              ; preds = %182
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds i32, ptr %184, i64 0
-  %186 = load i32, ptr %185, align 4
-  %187 = load ptr, ptr %4, align 8
-  store i32 %186, ptr %187, align 4
-  br label %300
+184:                                              ; preds = %183
+  %185 = call i32 @slurm_get_log_level()
+  %186 = icmp sge i32 %185, 4
+  br i1 %186, label %187, label %193
 
-188:                                              ; preds = %157
-  %189 = load ptr, ptr %4, align 8
-  %190 = load i32, ptr %189, align 4
-  %191 = load ptr, ptr %6, align 8
-  %192 = load i32, ptr %5, align 4
-  %193 = sub i32 %192, 1
-  %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %191, i64 %194
-  %196 = load i32, ptr %195, align 4
-  %197 = icmp ult i32 %190, %196
-  br i1 %197, label %198, label %228
+187:                                              ; preds = %184
+  %188 = load ptr, ptr %4, align 8
+  %189 = load i32, ptr %188, align 4
+  %190 = load ptr, ptr %6, align 8
+  %191 = getelementptr inbounds i32, ptr %190, i64 0
+  %192 = load i32, ptr %191, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.13, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %189, i32 noundef %192)
+  br label %193
 
-198:                                              ; preds = %188
-  br label %199
+193:                                              ; preds = %187, %184
+  br label %194
 
-199:                                              ; preds = %198
-  %200 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %201 = load i64, ptr %200, align 8
-  %202 = and i64 %201, 64
-  %203 = icmp ne i64 %202, 0
-  br i1 %203, label %204, label %219
+194:                                              ; preds = %193
+  br label %195
 
-204:                                              ; preds = %199
-  br label %205
+195:                                              ; preds = %194
+  br label %196
 
-205:                                              ; preds = %204
-  %206 = call i32 @slurm_get_log_level()
-  %207 = icmp sge i32 %206, 4
-  br i1 %207, label %208, label %217
+196:                                              ; preds = %195, %179
+  br label %197
 
-208:                                              ; preds = %205
-  %209 = load ptr, ptr %4, align 8
-  %210 = load i32, ptr %209, align 4
-  %211 = load ptr, ptr %6, align 8
-  %212 = load i32, ptr %5, align 4
-  %213 = sub i32 %212, 1
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds i32, ptr %211, i64 %214
-  %216 = load i32, ptr %215, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.14, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %210, i32 noundef %216)
-  br label %217
+197:                                              ; preds = %196
+  br label %198
 
-217:                                              ; preds = %208, %205
-  br label %218
+198:                                              ; preds = %197
+  %199 = load ptr, ptr %6, align 8
+  %200 = getelementptr inbounds i32, ptr %199, i64 0
+  %201 = load i32, ptr %200, align 4
+  %202 = load ptr, ptr %4, align 8
+  store i32 %201, ptr %202, align 4
+  store i32 1, ptr %8, align 4
+  br label %319
 
-218:                                              ; preds = %217
+203:                                              ; preds = %171
+  %204 = load ptr, ptr %4, align 8
+  %205 = load i32, ptr %204, align 4
+  %206 = load ptr, ptr %6, align 8
+  %207 = load i32, ptr %5, align 4
+  %208 = sub i32 %207, 1
+  %209 = zext i32 %208 to i64
+  %210 = getelementptr inbounds nuw i32, ptr %206, i64 %209
+  %211 = load i32, ptr %210, align 4
+  %212 = icmp ult i32 %205, %211
+  br i1 %212, label %213, label %244
+
+213:                                              ; preds = %203
+  br label %214
+
+214:                                              ; preds = %213
+  %215 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
+  %216 = and i64 %215, 64
+  %217 = icmp ne i64 %216, 0
+  br i1 %217, label %218, label %234
+
+218:                                              ; preds = %214
   br label %219
 
-219:                                              ; preds = %218, %199
-  br label %220
+219:                                              ; preds = %218
+  %220 = call i32 @slurm_get_log_level()
+  %221 = icmp sge i32 %220, 4
+  br i1 %221, label %222, label %231
 
-220:                                              ; preds = %219
-  %221 = load ptr, ptr %6, align 8
-  %222 = load i32, ptr %5, align 4
-  %223 = sub i32 %222, 1
-  %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds i32, ptr %221, i64 %224
-  %226 = load i32, ptr %225, align 4
-  %227 = load ptr, ptr %4, align 8
-  store i32 %226, ptr %227, align 4
-  br label %300
+222:                                              ; preds = %219
+  %223 = load ptr, ptr %4, align 8
+  %224 = load i32, ptr %223, align 4
+  %225 = load ptr, ptr %6, align 8
+  %226 = load i32, ptr %5, align 4
+  %227 = sub i32 %226, 1
+  %228 = zext i32 %227 to i64
+  %229 = getelementptr inbounds nuw i32, ptr %225, i64 %228
+  %230 = load i32, ptr %229, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.14, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %224, i32 noundef %230)
+  br label %231
 
-228:                                              ; preds = %188
-  br label %229
+231:                                              ; preds = %222, %219
+  br label %232
 
-229:                                              ; preds = %228
-  store i32 0, ptr %7, align 4
-  br label %230
+232:                                              ; preds = %231
+  br label %233
 
-230:                                              ; preds = %295, %229
-  %231 = load i32, ptr %7, align 4
-  %232 = load i32, ptr %5, align 4
-  %233 = icmp ult i32 %231, %232
-  br i1 %233, label %234, label %296
+233:                                              ; preds = %232
+  br label %234
 
-234:                                              ; preds = %230
-  %235 = load ptr, ptr %4, align 8
-  %236 = load i32, ptr %235, align 4
+234:                                              ; preds = %233, %214
+  br label %235
+
+235:                                              ; preds = %234
+  br label %236
+
+236:                                              ; preds = %235
   %237 = load ptr, ptr %6, align 8
-  %238 = load i32, ptr %7, align 4
-  %239 = zext i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %237, i64 %239
-  %241 = load i32, ptr %240, align 4
-  %242 = icmp eq i32 %236, %241
-  br i1 %242, label %243, label %254
+  %238 = load i32, ptr %5, align 4
+  %239 = sub i32 %238, 1
+  %240 = zext i32 %239 to i64
+  %241 = getelementptr inbounds nuw i32, ptr %237, i64 %240
+  %242 = load i32, ptr %241, align 4
+  %243 = load ptr, ptr %4, align 8
+  store i32 %242, ptr %243, align 4
+  store i32 1, ptr %8, align 4
+  br label %319
 
-243:                                              ; preds = %234
-  br label %244
-
-244:                                              ; preds = %243
+244:                                              ; preds = %203
   br label %245
 
 245:                                              ; preds = %244
-  %246 = call i32 @slurm_get_log_level()
-  %247 = icmp sge i32 %246, 6
-  br i1 %247, label %248, label %251
+  store i32 0, ptr %7, align 4
+  br label %246
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr %4, align 8
-  %250 = load i32, ptr %249, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.15, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %250)
-  br label %251
+246:                                              ; preds = %314, %245
+  %247 = load i32, ptr %7, align 4
+  %248 = load i32, ptr %5, align 4
+  %249 = icmp ult i32 %247, %248
+  br i1 %249, label %250, label %315
 
-251:                                              ; preds = %248, %245
-  br label %252
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %4, align 8
+  %252 = load i32, ptr %251, align 4
+  %253 = load ptr, ptr %6, align 8
+  %254 = load i32, ptr %7, align 4
+  %255 = zext i32 %254 to i64
+  %256 = getelementptr inbounds nuw i32, ptr %253, i64 %255
+  %257 = load i32, ptr %256, align 4
+  %258 = icmp eq i32 %252, %257
+  br i1 %258, label %259, label %272
 
-252:                                              ; preds = %251
-  br label %253
+259:                                              ; preds = %250
+  br label %260
 
-253:                                              ; preds = %252
-  br label %300
+260:                                              ; preds = %259
+  br label %261
 
-254:                                              ; preds = %234
-  %255 = load i32, ptr %7, align 4
-  %256 = add i32 %255, 1
-  store i32 %256, ptr %7, align 4
-  %257 = load ptr, ptr %4, align 8
-  %258 = load i32, ptr %257, align 4
-  %259 = load ptr, ptr %6, align 8
-  %260 = load i32, ptr %7, align 4
-  %261 = zext i32 %260 to i64
-  %262 = getelementptr inbounds i32, ptr %259, i64 %261
-  %263 = load i32, ptr %262, align 4
-  %264 = icmp ugt i32 %258, %263
-  br i1 %264, label %265, label %295
+261:                                              ; preds = %260
+  %262 = call i32 @slurm_get_log_level()
+  %263 = icmp sge i32 %262, 6
+  br i1 %263, label %264, label %267
 
-265:                                              ; preds = %254
-  br label %266
+264:                                              ; preds = %261
+  %265 = load ptr, ptr %4, align 8
+  %266 = load i32, ptr %265, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef @.str.15, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %266)
+  br label %267
 
-266:                                              ; preds = %265
-  %267 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 38
-  %268 = load i64, ptr %267, align 8
-  %269 = and i64 %268, 64
-  %270 = icmp ne i64 %269, 0
-  br i1 %270, label %271, label %286
+267:                                              ; preds = %264, %261
+  br label %268
 
-271:                                              ; preds = %266
-  br label %272
+268:                                              ; preds = %267
+  br label %269
 
-272:                                              ; preds = %271
-  %273 = call i32 @slurm_get_log_level()
-  %274 = icmp sge i32 %273, 4
-  br i1 %274, label %275, label %284
+269:                                              ; preds = %268
+  br label %270
 
-275:                                              ; preds = %272
-  %276 = load ptr, ptr %4, align 8
-  %277 = load i32, ptr %276, align 4
-  %278 = load ptr, ptr %6, align 8
-  %279 = load i32, ptr %7, align 4
-  %280 = sub i32 %279, 1
-  %281 = zext i32 %280 to i64
-  %282 = getelementptr inbounds i32, ptr %278, i64 %281
-  %283 = load i32, ptr %282, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %277, i32 noundef %283)
+270:                                              ; preds = %269
+  br label %271
+
+271:                                              ; preds = %270
+  store i32 1, ptr %8, align 4
+  br label %319
+
+272:                                              ; preds = %250
+  %273 = load i32, ptr %7, align 4
+  %274 = add i32 %273, 1
+  store i32 %274, ptr %7, align 4
+  %275 = load ptr, ptr %4, align 8
+  %276 = load i32, ptr %275, align 4
+  %277 = load ptr, ptr %6, align 8
+  %278 = load i32, ptr %7, align 4
+  %279 = zext i32 %278 to i64
+  %280 = getelementptr inbounds nuw i32, ptr %277, i64 %279
+  %281 = load i32, ptr %280, align 4
+  %282 = icmp ugt i32 %276, %281
+  br i1 %282, label %283, label %314
+
+283:                                              ; preds = %272
   br label %284
 
-284:                                              ; preds = %275, %272
-  br label %285
+284:                                              ; preds = %283
+  %285 = load i64, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 42), align 8
+  %286 = and i64 %285, 64
+  %287 = icmp ne i64 %286, 0
+  br i1 %287, label %288, label %304
 
-285:                                              ; preds = %284
-  br label %286
+288:                                              ; preds = %284
+  br label %289
 
-286:                                              ; preds = %285, %266
-  br label %287
+289:                                              ; preds = %288
+  %290 = call i32 @slurm_get_log_level()
+  %291 = icmp sge i32 %290, 4
+  br i1 %291, label %292, label %301
 
-287:                                              ; preds = %286
-  %288 = load ptr, ptr %6, align 8
-  %289 = load i32, ptr %7, align 4
-  %290 = sub i32 %289, 1
-  %291 = zext i32 %290 to i64
-  %292 = getelementptr inbounds i32, ptr %288, i64 %291
-  %293 = load i32, ptr %292, align 4
-  %294 = load ptr, ptr %4, align 8
-  store i32 %293, ptr %294, align 4
-  br label %300
+292:                                              ; preds = %289
+  %293 = load ptr, ptr %4, align 8
+  %294 = load i32, ptr %293, align 4
+  %295 = load ptr, ptr %6, align 8
+  %296 = load i32, ptr %7, align 4
+  %297 = sub i32 %296, 1
+  %298 = zext i32 %297 to i64
+  %299 = getelementptr inbounds nuw i32, ptr %295, i64 %298
+  %300 = load i32, ptr %299, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef @.str.16, ptr noundef @plugin_type, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %294, i32 noundef %300)
+  br label %301
 
-295:                                              ; preds = %254
-  br label %230, !llvm.loop !6
+301:                                              ; preds = %292, %289
+  br label %302
 
-296:                                              ; preds = %230
-  %297 = load ptr, ptr %4, align 8
-  %298 = load i32, ptr %297, align 4
-  %299 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.17, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %298)
-  br label %300
+302:                                              ; preds = %301
+  br label %303
 
-300:                                              ; preds = %296, %287, %253, %220, %183, %147, %132, %108, %89, %68, %50, %28
+303:                                              ; preds = %302
+  br label %304
+
+304:                                              ; preds = %303, %284
+  br label %305
+
+305:                                              ; preds = %304
+  br label %306
+
+306:                                              ; preds = %305
+  %307 = load ptr, ptr %6, align 8
+  %308 = load i32, ptr %7, align 4
+  %309 = sub i32 %308, 1
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw i32, ptr %307, i64 %310
+  %312 = load i32, ptr %311, align 4
+  %313 = load ptr, ptr %4, align 8
+  store i32 %312, ptr %313, align 4
+  store i32 1, ptr %8, align 4
+  br label %319
+
+314:                                              ; preds = %272
+  br label %246, !llvm.loop !8
+
+315:                                              ; preds = %246
+  %316 = load ptr, ptr %4, align 8
+  %317 = load i32, ptr %316, align 4
+  %318 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.17, ptr noundef @__func__.gpu_common_get_nearest_freq, i32 noundef %317)
+  store i32 0, ptr %8, align 4
+  br label %319
+
+319:                                              ; preds = %315, %306, %271, %236, %198, %159, %142, %116, %95, %72, %53, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  %320 = load i32, ptr %8, align 4
+  switch i32 %320, label %322 [
+    i32 0, label %321
+    i32 1, label %321
+  ]
+
+321:                                              ; preds = %319, %319
   ret void
+
+322:                                              ; preds = %319
+  unreachable
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @slurm_get_log_level() #1
 
@@ -656,8 +750,11 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #1
 
 declare i32 @slurm_error(ptr noundef, ...) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_print_freqs(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define dso_local void @gpu_common_print_freqs(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -668,206 +765,249 @@ define void @gpu_common_print_freqs(ptr noundef %0, i32 noundef %1, i32 noundef 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   store i8 0, ptr %11, align 1
-  %16 = load i32, ptr %7, align 4
-  %17 = icmp ugt i32 %16, 5
-  br i1 %17, label %18, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %17 = load i32, ptr %7, align 4
+  %18 = icmp ugt i32 %17, 5
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %5
+19:                                               ; preds = %5
   store i8 1, ptr %11, align 1
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %5
-  %20 = load i32, ptr %8, align 4
-  %21 = load i32, ptr %10, align 4
-  %22 = load ptr, ptr %9, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %24, label %26
+20:                                               ; preds = %19, %5
+  %21 = load i32, ptr %8, align 4
+  %22 = load i32, ptr %10, align 4
+  %23 = load ptr, ptr %9, align 8
+  %24 = icmp ne ptr %23, null
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %19
-  %25 = load ptr, ptr %9, align 8
-  br label %27
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %9, align 8
+  br label %28
 
-26:                                               ; preds = %19
-  br label %27
+27:                                               ; preds = %20
+  br label %28
 
-27:                                               ; preds = %26, %24
-  %28 = phi ptr [ %25, %24 ], [ @.str.19, %26 ]
-  %29 = load ptr, ptr %9, align 8
-  %30 = icmp ne ptr %29, null
-  %31 = select i1 %30, ptr @.str.20, ptr @.str.19
-  %32 = load i32, ptr %7, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %20, ptr noundef @.str.18, i32 noundef %21, ptr noundef @.str.19, ptr noundef %28, ptr noundef %31, i32 noundef %32)
-  %33 = load i32, ptr %8, align 4
-  %34 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %33, ptr noundef @.str.21, i32 noundef %34, ptr noundef @.str.19)
-  %35 = load i8, ptr %11, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %55, label %37
+28:                                               ; preds = %27, %25
+  %29 = phi ptr [ %26, %25 ], [ @.str.19, %27 ]
+  %30 = load ptr, ptr %9, align 8
+  %31 = icmp ne ptr %30, null
+  %32 = select i1 %31, ptr @.str.20, ptr @.str.19
+  %33 = load i32, ptr %7, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %21, ptr noundef @.str.18, i32 noundef %22, ptr noundef @.str.19, ptr noundef %29, ptr noundef %32, i32 noundef %33)
+  %34 = load i32, ptr %8, align 4
+  %35 = load i32, ptr %10, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %34, ptr noundef @.str.21, i32 noundef %35, ptr noundef @.str.19)
+  %36 = load i8, ptr %11, align 1, !range !11, !noundef !12
+  %37 = trunc i8 %36 to i1
+  br i1 %37, label %57, label %38
 
-37:                                               ; preds = %27
+38:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
-  br label %38
+  br label %39
 
-38:                                               ; preds = %51, %37
-  %39 = load i32, ptr %15, align 4
-  %40 = load i32, ptr %7, align 4
-  %41 = icmp ult i32 %39, %40
-  br i1 %41, label %42, label %54
+39:                                               ; preds = %53, %38
+  %40 = load i32, ptr %15, align 4
+  %41 = load i32, ptr %7, align 4
+  %42 = icmp ult i32 %40, %41
+  br i1 %42, label %44, label %43
 
-42:                                               ; preds = %38
-  %43 = load i32, ptr %8, align 4
-  %44 = load i32, ptr %10, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i32, ptr %15, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %45, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = load i32, ptr %15, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %43, ptr noundef @.str.22, i32 noundef %44, ptr noundef @.str.19, i32 noundef %49, i32 noundef %50)
-  br label %51
+43:                                               ; preds = %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %56
 
-51:                                               ; preds = %42
+44:                                               ; preds = %39
+  %45 = load i32, ptr %8, align 4
+  %46 = load i32, ptr %10, align 4
+  %47 = load ptr, ptr %6, align 8
+  %48 = load i32, ptr %15, align 4
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %47, i64 %49
+  %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %15, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %15, align 4
-  br label %38, !llvm.loop !8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %45, ptr noundef @.str.22, i32 noundef %46, ptr noundef @.str.19, i32 noundef %51, i32 noundef %52)
+  br label %53
 
-54:                                               ; preds = %38
-  br label %100
+53:                                               ; preds = %44
+  %54 = load i32, ptr %15, align 4
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %15, align 4
+  br label %39, !llvm.loop !13
 
-55:                                               ; preds = %27
-  %56 = load i32, ptr %7, align 4
-  %57 = sub i32 %56, 2
-  store i32 %57, ptr %13, align 4
+56:                                               ; preds = %43
+  store i32 1, ptr %16, align 4
+  br label %102
+
+57:                                               ; preds = %28
   %58 = load i32, ptr %7, align 4
-  %59 = sub i32 %58, 1
-  store i32 %59, ptr %14, align 4
-  %60 = load i32, ptr %14, align 4
-  %61 = udiv i32 %60, 2
-  store i32 %61, ptr %12, align 4
-  %62 = load i32, ptr %8, align 4
-  %63 = load i32, ptr %10, align 4
-  %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 0
-  %66 = load i32, ptr %65, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %62, ptr noundef @.str.23, i32 noundef %63, ptr noundef @.str.19, i32 noundef %66)
-  %67 = load i32, ptr %8, align 4
-  %68 = load i32, ptr %10, align 4
-  %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i32, ptr %69, i64 1
-  %71 = load i32, ptr %70, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %67, ptr noundef @.str.24, i32 noundef %68, ptr noundef @.str.19, i32 noundef %71)
-  %72 = load i32, ptr %8, align 4
-  %73 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %72, ptr noundef @.str.25, i32 noundef %73, ptr noundef @.str.19)
+  %59 = sub i32 %58, 2
+  store i32 %59, ptr %13, align 4
+  %60 = load i32, ptr %7, align 4
+  %61 = sub i32 %60, 1
+  store i32 %61, ptr %14, align 4
+  %62 = load i32, ptr %14, align 4
+  %63 = udiv i32 %62, 2
+  store i32 %63, ptr %12, align 4
+  %64 = load i32, ptr %8, align 4
+  %65 = load i32, ptr %10, align 4
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds i32, ptr %66, i64 0
+  %68 = load i32, ptr %67, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %64, ptr noundef @.str.23, i32 noundef %65, ptr noundef @.str.19, i32 noundef %68)
+  %69 = load i32, ptr %8, align 4
+  %70 = load i32, ptr %10, align 4
+  %71 = load ptr, ptr %6, align 8
+  %72 = getelementptr inbounds i32, ptr %71, i64 1
+  %73 = load i32, ptr %72, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %69, ptr noundef @.str.24, i32 noundef %70, ptr noundef @.str.19, i32 noundef %73)
   %74 = load i32, ptr %8, align 4
   %75 = load i32, ptr %10, align 4
-  %76 = load ptr, ptr %6, align 8
-  %77 = load i32, ptr %12, align 4
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %76, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = load i32, ptr %12, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %74, ptr noundef @.str.22, i32 noundef %75, ptr noundef @.str.19, i32 noundef %80, i32 noundef %81)
-  %82 = load i32, ptr %8, align 4
-  %83 = load i32, ptr %10, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %82, ptr noundef @.str.25, i32 noundef %83, ptr noundef @.str.19)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %74, ptr noundef @.str.25, i32 noundef %75, ptr noundef @.str.19)
+  %76 = load i32, ptr %8, align 4
+  %77 = load i32, ptr %10, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %12, align 4
+  %80 = zext i32 %79 to i64
+  %81 = getelementptr inbounds nuw i32, ptr %78, i64 %80
+  %82 = load i32, ptr %81, align 4
+  %83 = load i32, ptr %12, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %76, ptr noundef @.str.22, i32 noundef %77, ptr noundef @.str.19, i32 noundef %82, i32 noundef %83)
   %84 = load i32, ptr %8, align 4
   %85 = load i32, ptr %10, align 4
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %13, align 4
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %86, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %91 = load i32, ptr %13, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %84, ptr noundef @.str.22, i32 noundef %85, ptr noundef @.str.19, i32 noundef %90, i32 noundef %91)
-  %92 = load i32, ptr %8, align 4
-  %93 = load i32, ptr %10, align 4
-  %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr %14, align 4
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %94, i64 %96
-  %98 = load i32, ptr %97, align 4
-  %99 = load i32, ptr %14, align 4
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %92, ptr noundef @.str.22, i32 noundef %93, ptr noundef @.str.19, i32 noundef %98, i32 noundef %99)
-  br label %100
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %84, ptr noundef @.str.25, i32 noundef %85, ptr noundef @.str.19)
+  %86 = load i32, ptr %8, align 4
+  %87 = load i32, ptr %10, align 4
+  %88 = load ptr, ptr %6, align 8
+  %89 = load i32, ptr %13, align 4
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %90
+  %92 = load i32, ptr %91, align 4
+  %93 = load i32, ptr %13, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %86, ptr noundef @.str.22, i32 noundef %87, ptr noundef @.str.19, i32 noundef %92, i32 noundef %93)
+  %94 = load i32, ptr %8, align 4
+  %95 = load i32, ptr %10, align 4
+  %96 = load ptr, ptr %6, align 8
+  %97 = load i32, ptr %14, align 4
+  %98 = zext i32 %97 to i64
+  %99 = getelementptr inbounds nuw i32, ptr %96, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %101 = load i32, ptr %14, align 4
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef %94, ptr noundef @.str.22, i32 noundef %95, ptr noundef @.str.19, i32 noundef %100, i32 noundef %101)
+  store i32 0, ptr %16, align 4
+  br label %102
 
-100:                                              ; preds = %55, %54
+102:                                              ; preds = %57, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  %103 = load i32, ptr %16, align 4
+  switch i32 %103, label %105 [
+    i32 0, label %104
+    i32 1, label %104
+  ]
+
+104:                                              ; preds = %102, %102
   ret void
+
+105:                                              ; preds = %102
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_underscorify_tolower(ptr noundef %0) #0 {
+define dso_local void @gpu_common_underscorify_tolower(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   store i32 0, ptr %3, align 4
-  br label %4
+  br label %6
 
-4:                                                ; preds = %37, %1
-  %5 = load ptr, ptr %2, align 8
-  %6 = load i32, ptr %3, align 4
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = load i8, ptr %8, align 1
-  %10 = icmp ne i8 %9, 0
-  br i1 %10, label %11, label %40
+6:                                                ; preds = %46, %1
+  %7 = load ptr, ptr %2, align 8
+  %8 = load i32, ptr %3, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %12 = icmp ne i8 %11, 0
+  br i1 %12, label %14, label %13
 
-11:                                               ; preds = %4
-  %12 = load ptr, ptr %2, align 8
-  %13 = load i32, ptr %3, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %16 = load i8, ptr %15, align 1
-  %17 = sext i8 %16 to i32
-  %18 = call i32 @tolower(i32 noundef %17) #4
-  %19 = trunc i32 %18 to i8
-  %20 = load ptr, ptr %2, align 8
-  %21 = load i32, ptr %3, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  store i8 %19, ptr %23, align 1
-  %24 = load ptr, ptr %2, align 8
-  %25 = load i32, ptr %3, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %24, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %29 = sext i8 %28 to i32
-  %30 = icmp eq i32 %29, 32
-  br i1 %30, label %31, label %36
+13:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
+  br label %49
 
-31:                                               ; preds = %11
-  %32 = load ptr, ptr %2, align 8
-  %33 = load i32, ptr %3, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
-  store i8 95, ptr %35, align 1
-  br label %36
+14:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  %15 = call ptr @__ctype_tolower_loc() #7
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %2, align 8
+  %18 = load i32, ptr %3, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %17, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = sext i8 %21 to i32
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i32, ptr %16, i64 %23
+  %25 = load i32, ptr %24, align 4
+  store i32 %25, ptr %4, align 4
+  %26 = load i32, ptr %4, align 4
+  store i32 %26, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %27 = load i32, ptr %5, align 4
+  %28 = trunc i32 %27 to i8
+  %29 = load ptr, ptr %2, align 8
+  %30 = load i32, ptr %3, align 4
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i8, ptr %29, i64 %31
+  store i8 %28, ptr %32, align 1
+  %33 = load ptr, ptr %2, align 8
+  %34 = load i32, ptr %3, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = icmp eq i32 %38, 32
+  br i1 %39, label %40, label %45
 
-36:                                               ; preds = %31, %11
-  br label %37
+40:                                               ; preds = %14
+  %41 = load ptr, ptr %2, align 8
+  %42 = load i32, ptr %3, align 4
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  store i8 95, ptr %44, align 1
+  br label %45
 
-37:                                               ; preds = %36
-  %38 = load i32, ptr %3, align 4
-  %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %3, align 4
-  br label %4, !llvm.loop !9
+45:                                               ; preds = %40, %14
+  br label %46
 
-40:                                               ; preds = %4
+46:                                               ; preds = %45
+  %47 = load i32, ptr %3, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %3, align 4
+  br label %6, !llvm.loop !14
+
+49:                                               ; preds = %13
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) #2
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__ctype_tolower_loc() #3
 
 ; Function Attrs: nounwind uwtable
-define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -885,14 +1025,23 @@ define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %8, align 8
   call void @_parse_gpu_freq2(ptr noundef %18, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %19)
@@ -1008,6 +1157,15 @@ define void @gpu_common_parse_gpu_freq(ptr noundef %0, ptr noundef %1, ptr nound
   br label %76
 
 76:                                               ; preds = %75, %52
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret void
 }
 
@@ -1023,259 +1181,252 @@ define internal void @_parse_gpu_freq2(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   store ptr null, ptr %16, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %24
+  %18 = load ptr, ptr %7, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %6
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 0
-  %22 = load i8, ptr %21, align 1
-  %23 = icmp ne i8 %22, 0
-  br i1 %23, label %25, label %24
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 0
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp ne i8 %23, 0
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %19, %6
-  br label %109
+25:                                               ; preds = %20, %6
+  store i32 1, ptr %17, align 4
+  br label %116
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %7, align 8
-  %27 = call ptr @slurm_xstrdup(ptr noundef %26)
-  store ptr %27, ptr %13, align 8
-  %28 = load ptr, ptr %13, align 8
-  %29 = call ptr @strtok_r(ptr noundef %28, ptr noundef @.str.26, ptr noundef %16) #5
-  store ptr %29, ptr %14, align 8
-  br label %30
+26:                                               ; preds = %20
+  %27 = load ptr, ptr %7, align 8
+  %28 = call ptr @slurm_xstrdup(ptr noundef %27)
+  store ptr %28, ptr %13, align 8
+  %29 = load ptr, ptr %13, align 8
+  %30 = call ptr @strtok_r(ptr noundef %29, ptr noundef @.str.26, ptr noundef %16) #6
+  store ptr %30, ptr %14, align 8
+  br label %31
 
-30:                                               ; preds = %106, %25
-  %31 = load ptr, ptr %14, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %108
+31:                                               ; preds = %113, %26
+  %32 = load ptr, ptr %14, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %115
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %14, align 8
-  %35 = call ptr @strchr(ptr noundef %34, i32 noundef 61) #4
-  store ptr %35, ptr %15, align 8
-  %36 = load ptr, ptr %15, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %78
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %14, align 8
+  %36 = call ptr @strchr(ptr noundef %35, i32 noundef 61) #8
+  store ptr %36, ptr %15, align 8
+  %37 = load ptr, ptr %15, align 8
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %39, label %83
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %15, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 0
-  store i8 0, ptr %40, align 1
-  %41 = load ptr, ptr %15, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i32 1
-  store ptr %42, ptr %15, align 8
-  %43 = load ptr, ptr %14, align 8
-  %44 = call i32 @slurm_xstrcasecmp(ptr noundef %43, ptr noundef @.str.27)
-  %45 = icmp ne i32 %44, 0
-  br i1 %45, label %67, label %46
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %15, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 0
+  store i8 0, ptr %41, align 1
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i32 1
+  store ptr %43, ptr %15, align 8
+  %44 = load ptr, ptr %14, align 8
+  %45 = call i32 @slurm_xstrcasecmp(ptr noundef %44, ptr noundef @.str.27)
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %70, label %47
 
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %15, align 8
-  %48 = call i32 @_xlate_freq_code(ptr noundef %47)
-  %49 = load ptr, ptr %10, align 8
-  store i32 %48, ptr %49, align 4
-  %50 = icmp ne i32 %48, 0
-  br i1 %50, label %66, label %51
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %15, align 8
+  %49 = call i32 @_xlate_freq_code(ptr noundef %48)
+  %50 = load ptr, ptr %10, align 8
+  store i32 %49, ptr %50, align 4
+  %51 = icmp ne i32 %49, 0
+  br i1 %51, label %69, label %52
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %15, align 8
-  %53 = call i32 @_xlate_freq_value(ptr noundef %52)
-  %54 = load ptr, ptr %11, align 8
-  store i32 %53, ptr %54, align 4
-  %55 = icmp ne i32 %53, 0
-  br i1 %55, label %66, label %56
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %15, align 8
+  %54 = call i32 @_xlate_freq_value(ptr noundef %53)
+  %55 = load ptr, ptr %11, align 8
+  store i32 %54, ptr %55, align 4
+  %56 = icmp ne i32 %54, 0
+  br i1 %56, label %69, label %57
 
-56:                                               ; preds = %51
-  br label %57
-
-57:                                               ; preds = %56
+57:                                               ; preds = %52
   br label %58
 
 58:                                               ; preds = %57
-  %59 = call i32 @slurm_get_log_level()
-  %60 = icmp sge i32 %59, 5
-  br i1 %60, label %61, label %63
+  br label %59
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.28, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %62)
-  br label %63
+59:                                               ; preds = %58
+  %60 = call i32 @slurm_get_log_level()
+  %61 = icmp sge i32 %60, 5
+  br i1 %61, label %62, label %64
 
-63:                                               ; preds = %61, %58
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %14, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.28, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %63)
   br label %64
 
-64:                                               ; preds = %63
+64:                                               ; preds = %62, %59
   br label %65
 
 65:                                               ; preds = %64
   br label %66
 
-66:                                               ; preds = %65, %51, %46
-  br label %77
+66:                                               ; preds = %65
+  br label %67
 
-67:                                               ; preds = %38
+67:                                               ; preds = %66
   br label %68
 
 68:                                               ; preds = %67
   br label %69
 
-69:                                               ; preds = %68
-  %70 = call i32 @slurm_get_log_level()
-  %71 = icmp sge i32 %70, 5
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %68, %52, %47
+  br label %82
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.29, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %73)
-  br label %74
+70:                                               ; preds = %39
+  br label %71
 
-74:                                               ; preds = %72, %69
-  br label %75
+71:                                               ; preds = %70
+  br label %72
 
-75:                                               ; preds = %74
-  br label %76
+72:                                               ; preds = %71
+  %73 = call i32 @slurm_get_log_level()
+  %74 = icmp sge i32 %73, 5
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %75
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %14, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.29, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %76)
   br label %77
 
-77:                                               ; preds = %76, %66
-  br label %106
+77:                                               ; preds = %75, %72
+  br label %78
 
-78:                                               ; preds = %33
-  %79 = load ptr, ptr %14, align 8
-  %80 = call i32 @slurm_xstrcasecmp(ptr noundef %79, ptr noundef @.str.30)
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %84, label %82
+78:                                               ; preds = %77
+  br label %79
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %12, align 8
-  store i8 1, ptr %83, align 1
-  br label %105
+79:                                               ; preds = %78
+  br label %80
 
-84:                                               ; preds = %78
-  %85 = load ptr, ptr %14, align 8
-  %86 = call i32 @_xlate_freq_code(ptr noundef %85)
-  %87 = load ptr, ptr %8, align 8
-  store i32 %86, ptr %87, align 4
-  %88 = icmp ne i32 %86, 0
-  br i1 %88, label %104, label %89
+80:                                               ; preds = %79
+  br label %81
 
-89:                                               ; preds = %84
+81:                                               ; preds = %80
+  br label %82
+
+82:                                               ; preds = %81, %69
+  br label %113
+
+83:                                               ; preds = %34
+  %84 = load ptr, ptr %14, align 8
+  %85 = call i32 @slurm_xstrcasecmp(ptr noundef %84, ptr noundef @.str.30)
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %89, label %87
+
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %12, align 8
+  store i8 1, ptr %88, align 1
+  br label %112
+
+89:                                               ; preds = %83
   %90 = load ptr, ptr %14, align 8
-  %91 = call i32 @_xlate_freq_value(ptr noundef %90)
-  %92 = load ptr, ptr %9, align 8
+  %91 = call i32 @_xlate_freq_code(ptr noundef %90)
+  %92 = load ptr, ptr %8, align 8
   store i32 %91, ptr %92, align 4
   %93 = icmp ne i32 %91, 0
-  br i1 %93, label %104, label %94
+  br i1 %93, label %111, label %94
 
 94:                                               ; preds = %89
-  br label %95
+  %95 = load ptr, ptr %14, align 8
+  %96 = call i32 @_xlate_freq_value(ptr noundef %95)
+  %97 = load ptr, ptr %9, align 8
+  store i32 %96, ptr %97, align 4
+  %98 = icmp ne i32 %96, 0
+  br i1 %98, label %111, label %99
 
-95:                                               ; preds = %94
-  br label %96
+99:                                               ; preds = %94
+  br label %100
 
-96:                                               ; preds = %95
-  %97 = call i32 @slurm_get_log_level()
-  %98 = icmp sge i32 %97, 5
-  br i1 %98, label %99, label %101
-
-99:                                               ; preds = %96
-  %100 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.31, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %100)
+100:                                              ; preds = %99
   br label %101
 
-101:                                              ; preds = %99, %96
-  br label %102
+101:                                              ; preds = %100
+  %102 = call i32 @slurm_get_log_level()
+  %103 = icmp sge i32 %102, 5
+  br i1 %103, label %104, label %106
 
-102:                                              ; preds = %101
-  br label %103
-
-103:                                              ; preds = %102
-  br label %104
-
-104:                                              ; preds = %103, %89, %84
-  br label %105
-
-105:                                              ; preds = %104, %82
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %14, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.31, ptr noundef @plugin_type, ptr noundef @__func__._parse_gpu_freq2, ptr noundef %105)
   br label %106
 
-106:                                              ; preds = %105, %77
-  %107 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.26, ptr noundef %16) #5
-  store ptr %107, ptr %14, align 8
-  br label %30, !llvm.loop !10
+106:                                              ; preds = %104, %101
+  br label %107
 
-108:                                              ; preds = %30
-  call void @slurm_xfree(ptr noundef %13)
+107:                                              ; preds = %106
+  br label %108
+
+108:                                              ; preds = %107
   br label %109
 
-109:                                              ; preds = %108, %24
+109:                                              ; preds = %108
+  br label %110
+
+110:                                              ; preds = %109
+  br label %111
+
+111:                                              ; preds = %110, %94, %89
+  br label %112
+
+112:                                              ; preds = %111, %87
+  br label %113
+
+113:                                              ; preds = %112, %82
+  %114 = call ptr @strtok_r(ptr noundef null, ptr noundef @.str.26, ptr noundef %16) #6
+  store ptr %114, ptr %14, align 8
+  br label %31, !llvm.loop !15
+
+115:                                              ; preds = %31
+  call void @slurm_xfree(ptr noundef %13)
+  store i32 0, ptr %17, align 4
+  br label %116
+
+116:                                              ; preds = %115, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  %117 = load i32, ptr %17, align 4
+  switch i32 %117, label %119 [
+    i32 0, label %118
+    i32 1, label %118
+  ]
+
+118:                                              ; preds = %116, %116
   ret void
+
+119:                                              ; preds = %116
+  unreachable
 }
 
 declare ptr @slurm_get_gpu_freq_def() #1
 
 declare void @slurm_xfree(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define i32 @gpu_common_sort_freq_descending(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
-  %7 = alloca i64, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %5, align 8
-  %9 = load i64, ptr %8, align 8
-  store i64 %9, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i64, ptr %10, align 8
-  store i64 %11, ptr %7, align 8
-  %12 = load i64, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %23
-
-16:                                               ; preds = %2
-  %17 = load i64, ptr %6, align 8
-  %18 = load i64, ptr %7, align 8
-  %19 = icmp ugt i64 %17, %18
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %16
-  store i32 -1, ptr %3, align 4
-  br label %23
-
-21:                                               ; preds = %16
-  br label %22
-
-22:                                               ; preds = %21
-  store i32 0, ptr %3, align 4
-  br label %23
-
-23:                                               ; preds = %22, %20, %15
-  %24 = load i32, ptr %3, align 4
-  ret i32 %24
-}
-
 ; Function Attrs: nounwind
-declare ptr @strtok_r(ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @strtok_r(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #5
 
 declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) #1
 
@@ -1404,65 +1555,78 @@ define internal i32 @_xlate_freq_value(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
+  %6 = load ptr, ptr %3, align 8
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %20
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 0
-  %10 = load i8, ptr %9, align 1
-  %11 = sext i8 %10 to i32
-  %12 = icmp slt i32 %11, 48
-  br i1 %12, label %13, label %20
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 0
+  %11 = load i8, ptr %10, align 1
+  %12 = sext i8 %11 to i32
+  %13 = icmp slt i32 %12, 48
+  br i1 %13, label %14, label %21
 
-13:                                               ; preds = %7
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  %17 = sext i8 %16 to i32
-  %18 = icmp sgt i32 %17, 57
-  br i1 %18, label %19, label %20
+14:                                               ; preds = %8
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1
+  %18 = sext i8 %17 to i32
+  %19 = icmp sgt i32 %18, 57
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %13, %1
+20:                                               ; preds = %14, %1
   store i32 0, ptr %2, align 4
-  br label %25
+  store i32 1, ptr %5, align 4
+  br label %26
 
-20:                                               ; preds = %13, %7
-  %21 = load ptr, ptr %3, align 8
-  %22 = call i64 @strtoul(ptr noundef %21, ptr noundef null, i32 noundef 10) #5
-  %23 = trunc i64 %22 to i32
-  store i32 %23, ptr %4, align 4
-  %24 = load i32, ptr %4, align 4
-  store i32 %24, ptr %2, align 4
-  br label %25
+21:                                               ; preds = %14, %8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i64 @strtoul(ptr noundef %22, ptr noundef null, i32 noundef 10) #6
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %4, align 4
+  %25 = load i32, ptr %4, align 4
+  store i32 %25, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %26
 
-25:                                               ; preds = %20, %19
-  %26 = load i32, ptr %2, align 4
-  ret i32 %26
+26:                                               ; preds = %21, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %27 = load i32, ptr %2, align 4
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind
-declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #3
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

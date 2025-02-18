@@ -30,12 +30,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.winsize, align 2
-  %4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 21523, ptr noundef nonnull %3) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  %4 = call i32 (i32, i64, ...) @ioctl(i32 noundef %0, i64 noundef 21523, ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
+  %6 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #7
   br label %20
 
 7:                                                ; preds = %2
@@ -46,7 +47,7 @@ define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr noundef c
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 262
   store i16 %11, ptr %12, align 2
-  %13 = call i32 @get_log_level() #6
+  %13 = call i32 @get_log_level() #7
   %14 = icmp sgt i32 %13, 5
   br i1 %14, label %15, label %20
 
@@ -55,46 +56,54 @@ define dso_local range(i32 -1, 1) i32 @set_winsize(i32 noundef %0, ptr noundef c
   %17 = zext i16 %16 to i32
   %18 = load i16, ptr %12, align 2
   %19 = zext i16 %18 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %17, i32 noundef %19) #6
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %17, i32 noundef %19) #7
   br label %20
 
 20:                                               ; preds = %7, %15, %5
   %.0 = phi i32 [ -1, %5 ], [ 0, %15 ], [ 0, %7 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #1
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @get_log_level() local_unnamed_addr #2
+declare i32 @get_log_level() local_unnamed_addr #3
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @block_sigwinch() local_unnamed_addr #0 {
-  %1 = tail call i32 @xsignal_block(ptr noundef nonnull @pty_sigarray) #6
+  %1 = tail call i32 @xsignal_block(ptr noundef nonnull @pty_sigarray) #7
   ret void
 }
 
-declare i32 @xsignal_block(ptr noundef) local_unnamed_addr #2
+declare i32 @xsignal_block(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pty_thread_create(ptr noundef initializes((256, 260)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sockaddr_storage, align 8
   %3 = alloca i64, align 8
   %4 = alloca %union.pthread_attr_t, align 8
-  %5 = tail call ptr @slurm_get_srun_port_range() #6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #7
+  %5 = tail call ptr @slurm_get_srun_port_range() #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @slurm_init_msg_engine_ports(ptr noundef nonnull %5) #6
+  %7 = tail call i32 @slurm_init_msg_engine_ports(ptr noundef nonnull %5) #7
   br label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @slurm_init_msg_engine_port(i16 noundef zeroext 0) #6
+  %9 = tail call i32 @slurm_init_msg_engine_port(i16 noundef zeroext 0) #7
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -105,307 +114,312 @@ define dso_local void @pty_thread_create(ptr noundef initializes((256, 260)) %0)
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #6
-  br label %55
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #7
+  br label %56
 
 15:                                               ; preds = %10
-  %16 = call i32 @slurm_get_stream_addr(i32 noundef %.sink, ptr noundef nonnull %2) #6
+  %16 = call i32 @slurm_get_stream_addr(i32 noundef %.sink, ptr noundef nonnull %2) #7
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
-  br label %55
+  %19 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #7
+  br label %56
 
 20:                                               ; preds = %15
-  %21 = call zeroext i16 @slurm_get_port(ptr noundef nonnull %2) #6
+  %21 = call zeroext i16 @slurm_get_port(ptr noundef nonnull %2) #7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i16 %21, ptr %22, align 4
-  %23 = call i32 @get_log_level() #6
+  %23 = call i32 @get_log_level() #7
   %24 = icmp sgt i32 %23, 5
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
   %26 = load i16, ptr %22, align 4
   %27 = zext i16 %26 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, i32 noundef %27) #6
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, i32 noundef %27) #7
   br label %28
 
-28:                                               ; preds = %25, %20
-  %29 = call i32 @pthread_attr_init(ptr noundef nonnull %4) #6
+28:                                               ; preds = %20, %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
+  %29 = call i32 @pthread_attr_init(ptr noundef nonnull %4) #7
   %.not26 = icmp eq i32 %29, 0
   br i1 %.not26, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @__errno_location() #7
+  %31 = tail call ptr @__errno_location() #8
   store i32 %29, ptr %31, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #8
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #9
   unreachable
 
 32:                                               ; preds = %28
-  %33 = call i32 @pthread_attr_setscope(ptr noundef nonnull %4, i32 noundef 0) #6
+  %33 = call i32 @pthread_attr_setscope(ptr noundef nonnull %4, i32 noundef 0) #7
   %.not27 = icmp eq i32 %33, 0
   br i1 %.not27, label %37, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call ptr @__errno_location() #7
+  %35 = tail call ptr @__errno_location() #8
   store i32 %33, ptr %35, align 4
-  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6) #6
+  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6) #7
   br label %37
 
 37:                                               ; preds = %34, %32
-  %38 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %4, i64 noundef 1048576) #6
+  %38 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %4, i64 noundef 1048576) #7
   %.not28 = icmp eq i32 %38, 0
   br i1 %.not28, label %42, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call ptr @__errno_location() #7
+  %40 = tail call ptr @__errno_location() #8
   store i32 %38, ptr %40, align 4
-  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #6
+  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #7
   br label %42
 
-42:                                               ; preds = %37, %39
-  %43 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %4, i32 noundef 1) #6
+42:                                               ; preds = %39, %37
+  %43 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %4, i32 noundef 1) #7
   %.not29 = icmp eq i32 %43, 0
   br i1 %.not29, label %46, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call ptr @__errno_location() #7
+  %45 = tail call ptr @__errno_location() #8
   store i32 %43, ptr %45, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.pty_thread_create) #8
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.pty_thread_create) #9
   unreachable
 
 46:                                               ; preds = %42
-  %47 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @_pty_thread, ptr noundef nonnull %0) #6
+  %47 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @_pty_thread, ptr noundef nonnull %0) #7
   %.not30 = icmp eq i32 %47, 0
   br i1 %.not30, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call ptr @__errno_location() #7
+  %49 = tail call ptr @__errno_location() #8
   store i32 %47, ptr %49, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.pty_thread_create) #8
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.pty_thread_create) #9
   unreachable
 
 50:                                               ; preds = %46
-  %51 = call i32 @pthread_attr_destroy(ptr noundef nonnull %4) #6
+  %51 = call i32 @pthread_attr_destroy(ptr noundef nonnull %4) #7
   %.not31 = icmp eq i32 %51, 0
   br i1 %.not31, label %55, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call ptr @__errno_location() #7
+  %53 = tail call ptr @__errno_location() #8
   store i32 %51, ptr %53, align 4
-  %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #6
+  %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #7
   br label %55
 
-55:                                               ; preds = %52, %50, %18, %13
+55:                                               ; preds = %52, %50
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  br label %56
+
+56:                                               ; preds = %55, %18, %13
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
   ret void
 }
 
-declare ptr @slurm_get_srun_port_range() local_unnamed_addr #2
+declare ptr @slurm_get_srun_port_range() local_unnamed_addr #3
 
-declare i32 @slurm_init_msg_engine_ports(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_init_msg_engine_ports(ptr noundef) local_unnamed_addr #3
 
-declare i32 @slurm_init_msg_engine_port(i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @slurm_init_msg_engine_port(i16 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @slurm_get_stream_addr(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_get_stream_addr(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i16 @slurm_get_port(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @slurm_get_port(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
+declare void @fatal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @_pty_thread(ptr noundef captures(none) %0) #0 {
   %2 = alloca [4 x i8], align 2
   %3 = alloca %struct.winsize, align 2
   %4 = alloca %struct.sockaddr_storage, align 8
-  %5 = tail call i32 @xsignal_unblock(ptr noundef nonnull @pty_sigarray) #6
-  %6 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #6
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
+  %5 = tail call i32 @xsignal_unblock(ptr noundef nonnull @pty_sigarray) #7
+  %6 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load i32, ptr %7, align 8
-  %9 = call i32 @slurm_accept_msg_conn(i32 noundef %8, ptr noundef nonnull %4) #6
+  %9 = call i32 @slurm_accept_msg_conn(i32 noundef %8, ptr noundef nonnull %4) #7
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #6
-  br label %62
+  %12 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
+  br label %59
 
 13:                                               ; preds = %1
-  %14 = call i32 @net_set_keep_alive(i32 noundef %9) #6
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ult i32 %16, 4
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  call void @net_set_keep_alive(i32 noundef %9) #7
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %15 = load i32, ptr %14, align 4
+  %16 = icmp ult i32 %15, 4
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
-  %18 = getelementptr i8, ptr %0, i64 264
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %20 = getelementptr i8, ptr %0, i64 262
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  br label %22
+  %17 = getelementptr i8, ptr %0, i64 264
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %19 = getelementptr i8, ptr %0, i64 262
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  br label %21
 
-22:                                               ; preds = %.lr.ph, %.backedge
-  %23 = call i32 @get_log_level() #6
-  %24 = icmp sgt i32 %23, 5
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %.lr.ph, %.backedge
+  %22 = call i32 @get_log_level() #7
+  %23 = icmp sgt i32 %22, 5
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %22
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.12) #6
-  br label %26
+24:                                               ; preds = %21
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.12) #7
+  br label %25
 
-26:                                               ; preds = %25, %22
-  %27 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef -1) #6
-  %28 = icmp slt i32 %27, 1
-  br i1 %28, label %29, label %38
+25:                                               ; preds = %24, %21
+  %26 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef -1) #7
+  %27 = icmp slt i32 %26, 1
+  br i1 %27, label %28, label %37
 
-29:                                               ; preds = %26
-  %30 = tail call ptr @__errno_location() #7
-  %31 = load i32, ptr %30, align 4
-  %.not = icmp eq i32 %31, 4
-  br i1 %.not, label %38, label %32
+28:                                               ; preds = %25
+  %29 = tail call ptr @__errno_location() #8
+  %30 = load i32, ptr %29, align 4
+  %.not = icmp eq i32 %30, 4
+  br i1 %.not, label %37, label %31
 
-32:                                               ; preds = %29
-  %33 = call i32 @get_log_level() #6
-  %34 = icmp sgt i32 %33, 4
-  br i1 %34, label %35, label %.backedge
+31:                                               ; preds = %28
+  %32 = call i32 @get_log_level() #7
+  %33 = icmp sgt i32 %32, 4
+  br i1 %33, label %34, label %.backedge
 
-35:                                               ; preds = %32
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__._pty_thread) #6
+34:                                               ; preds = %31
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__._pty_thread) #7
   br label %.backedge
 
-.backedge:                                        ; preds = %32, %35, %60
-  %36 = load i32, ptr %15, align 4
-  %37 = icmp ult i32 %36, 4
-  br i1 %37, label %22, label %._crit_edge, !llvm.loop !7
+.backedge:                                        ; preds = %31, %34, %57
+  %35 = load i32, ptr %14, align 4
+  %36 = icmp ult i32 %35, 4
+  br i1 %36, label %21, label %._crit_edge, !llvm.loop !8
 
-38:                                               ; preds = %29, %26
+37:                                               ; preds = %28, %25
   %.b = load i1, ptr @winch, align 4
-  br i1 %.b, label %39, label %60
+  br i1 %.b, label %38, label %57
 
-39:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %40 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #6
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %43, label %41
+38:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %3) #7
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %42, label %40
 
-41:                                               ; preds = %39
-  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
+40:                                               ; preds = %38
+  %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #7
   br label %set_winsize.exit
 
-43:                                               ; preds = %39
-  %44 = load i16, ptr %3, align 2
-  store i16 %44, ptr %18, align 8
-  %45 = load i16, ptr %19, align 2
-  store i16 %45, ptr %20, align 2
-  %46 = call i32 @get_log_level() #6
-  %47 = icmp sgt i32 %46, 5
-  br i1 %47, label %48, label %set_winsize.exit
+42:                                               ; preds = %38
+  %43 = load i16, ptr %3, align 2
+  store i16 %43, ptr %17, align 8
+  %44 = load i16, ptr %18, align 2
+  store i16 %44, ptr %19, align 2
+  %45 = call i32 @get_log_level() #7
+  %46 = icmp sgt i32 %45, 5
+  br i1 %46, label %47, label %set_winsize.exit
 
-48:                                               ; preds = %43
-  %49 = load i16, ptr %18, align 8
-  %50 = zext i16 %49 to i32
-  %51 = load i16, ptr %20, align 2
-  %52 = zext i16 %51 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %50, i32 noundef %52) #6
+47:                                               ; preds = %42
+  %48 = load i16, ptr %17, align 8
+  %49 = zext i16 %48 to i32
+  %50 = load i16, ptr %19, align 2
+  %51 = zext i16 %50 to i32
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, i32 noundef %49, i32 noundef %51) #7
   br label %set_winsize.exit
 
-set_winsize.exit:                                 ; preds = %41, %43, %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.val = load i16, ptr %20, align 2
-  %.val8 = load i16, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %53 = call zeroext i16 @htons(i16 noundef zeroext %.val) #7
-  %54 = call zeroext i16 @htons(i16 noundef zeroext %.val8) #7
-  store i16 %53, ptr %2, align 2
-  store i16 %54, ptr %21, align 2
-  %55 = call i64 @slurm_write_stream(i32 noundef range(i32 0, -2147483648) %9, ptr noundef nonnull %2, i64 noundef 4) #6
-  %56 = and i64 %55, 4294967292
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %_notify_winsize_change.exit
+set_winsize.exit:                                 ; preds = %40, %42, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  %.val = load i16, ptr %19, align 2
+  %.val8 = load i16, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
+  %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %.val)
+  %rev.i4.i = call noundef i16 @llvm.bswap.i16(i16 %.val8)
+  store i16 %rev.i.i, ptr %2, align 2
+  store i16 %rev.i4.i, ptr %20, align 2
+  %52 = call i64 @slurm_write_stream(i32 noundef range(i32 0, -2147483648) %9, ptr noundef nonnull %2, i64 noundef 4) #7
+  %53 = and i64 %52, 4294967292
+  %54 = icmp eq i64 %53, 0
+  br i1 %54, label %55, label %_notify_winsize_change.exit
 
-58:                                               ; preds = %set_winsize.exit
-  %59 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #6
+55:                                               ; preds = %set_winsize.exit
+  %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15) #7
   br label %_notify_winsize_change.exit
 
-_notify_winsize_change.exit:                      ; preds = %set_winsize.exit, %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %60
+_notify_winsize_change.exit:                      ; preds = %set_winsize.exit, %55
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  br label %57
 
-60:                                               ; preds = %_notify_winsize_change.exit, %38
+57:                                               ; preds = %_notify_winsize_change.exit, %37
   store i1 false, ptr @winch, align 4
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %13
-  %61 = call i32 @close(i32 noundef %9) #6
-  br label %62
+  %58 = call i32 @close(i32 noundef %9) #7
+  br label %59
 
-62:                                               ; preds = %._crit_edge, %11
+59:                                               ; preds = %._crit_edge, %11
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #7
   ret ptr null
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xsignal_unblock(ptr noundef) local_unnamed_addr #2
+declare i32 @xsignal_unblock(ptr noundef) local_unnamed_addr #3
 
-declare ptr @xsignal(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xsignal(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_handle_sigwinch(i32 %0) #0 {
   store i1 true, ptr @winch, align 4
-  %2 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #6
+  %2 = tail call ptr @xsignal(i32 noundef 28, ptr noundef nonnull @_handle_sigwinch) #7
   ret void
 }
 
-declare i32 @slurm_accept_msg_conn(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_accept_msg_conn(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @net_set_keep_alive(i32 noundef) local_unnamed_addr #2
+declare void @net_set_keep_alive(i32 noundef) local_unnamed_addr #3
 
-declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #3
+declare i64 @slurm_write_stream(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @slurm_write_stream(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -414,5 +428,7 @@ attributes #8 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}

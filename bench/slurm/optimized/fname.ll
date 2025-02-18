@@ -28,428 +28,466 @@ define dso_local noundef ptr @fname_create(ptr noundef readonly captures(none) %
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = load i32, ptr %0, align 8
-  %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.fname_create) #8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %11, align 8
-  store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 -1, ptr %12, align 4
-  %13 = icmp eq ptr %1, null
-  br i1 %13, label %153, label %14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i32, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.fname_create) #8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 0, ptr %12, align 8
+  store ptr null, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 -1, ptr %13, align 4
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %164, label %15
 
-14:                                               ; preds = %3
-  %15 = tail call i32 @xstrncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i64 noundef 3) #8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %153, label %17
+15:                                               ; preds = %3
+  %16 = tail call i32 @xstrncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i64 noundef 3) #8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %164, label %18
 
-17:                                               ; preds = %14
-  %18 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 1) #8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %153, label %20
+18:                                               ; preds = %15
+  %19 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 1) #8
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %164, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #8
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %25
+21:                                               ; preds = %18
+  %22 = tail call i32 @xstrcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #8
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %20
-  store i32 2, ptr %11, align 8
-  %24 = tail call ptr @xstrdup(ptr noundef nonnull @.str.4) #8
-  br label %.sink.split152
+24:                                               ; preds = %21
+  store i32 2, ptr %12, align 8
+  %25 = tail call ptr @xstrdup(ptr noundef nonnull @.str.4) #8
+  br label %.sink.split162
 
-25:                                               ; preds = %20
-  %26 = call i64 @strtoul(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 10) #8
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %30, label %35
+26:                                               ; preds = %21
+  %27 = call i64 @strtoul(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 10) #8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i8, ptr %28, align 1
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %31, label %36
 
-30:                                               ; preds = %25
-  %31 = trunc i64 %26 to i32
-  %32 = icmp sgt i32 %2, %31
-  br i1 %32, label %33, label %35
+31:                                               ; preds = %26
+  %32 = trunc i64 %27 to i32
+  %33 = icmp sgt i32 %2, %32
+  br i1 %33, label %34, label %36
 
-33:                                               ; preds = %30
-  store i32 1, ptr %11, align 8
-  store i32 %31, ptr %12, align 4
-  %34 = tail call ptr @xstrdup(ptr noundef nonnull %1) #8
-  br label %.sink.split152
+34:                                               ; preds = %31
+  store i32 1, ptr %12, align 8
+  store i32 %32, ptr %13, align 4
+  %35 = tail call ptr @xstrdup(ptr noundef nonnull %1) #8
+  br label %.sink.split162
 
-35:                                               ; preds = %30, %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
-  %37 = add i64 %36, 1
-  %38 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %37, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__._remove_path_slashes) #8
-  store ptr %38, ptr %4, align 8
+36:                                               ; preds = %31, %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #9
+  %38 = add i64 %37, 1
+  %39 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %38, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 321, ptr noundef nonnull @__func__._remove_path_slashes) #8
+  store ptr %39, ptr %4, align 8
   br label %.outer.i
 
-.outer.i:                                         ; preds = %43, %35
-  %.011.ph.i = phi ptr [ %44, %43 ], [ %1, %35 ]
-  %39 = phi i1 [ false, %43 ], [ true, %35 ]
-  %.0.ph.i = phi i64 [ %indvars.iv.i, %43 ], [ 0, %35 ]
+.outer.i:                                         ; preds = %44, %36
+  %.011.ph.i = phi ptr [ %45, %44 ], [ %1, %36 ]
+  %40 = phi i1 [ false, %44 ], [ true, %36 ]
+  %.0.ph.i = phi i64 [ %indvars.iv.i, %44 ], [ 0, %36 ]
   %sext.i = shl i64 %.0.ph.i, 32
-  %40 = ashr exact i64 %sext.i, 32
-  br label %41
+  %41 = ashr exact i64 %sext.i, 32
+  br label %42
 
-41:                                               ; preds = %45, %.outer.i
-  %indvars.iv.i = phi i64 [ %40, %.outer.i ], [ %indvars.iv.next.i, %45 ]
-  %.011.i = phi ptr [ %.011.ph.i, %.outer.i ], [ %47, %45 ]
-  %42 = load i8, ptr %.011.i, align 1
-  switch i8 %42, label %45 [
-    i8 0, label %48
-    i8 92, label %43
+42:                                               ; preds = %46, %.outer.i
+  %indvars.iv.i = phi i64 [ %41, %.outer.i ], [ %indvars.iv.next.i, %46 ]
+  %.011.i = phi ptr [ %.011.ph.i, %.outer.i ], [ %48, %46 ]
+  %43 = load i8, ptr %.011.i, align 1
+  switch i8 %43, label %46 [
+    i8 0, label %49
+    i8 92, label %44
   ]
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
-  br label %.outer.i, !llvm.loop !7
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
+  br label %.outer.i, !llvm.loop !8
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv.i
-  store i8 %42, ptr %46, align 1
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i
+  store i8 %43, ptr %47, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %47 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
-  br label %41, !llvm.loop !7
+  %48 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
+  br label %42, !llvm.loop !8
 
-48:                                               ; preds = %41
-  br i1 %39, label %_remove_path_slashes.exit.thread, label %_remove_path_slashes.exit
+49:                                               ; preds = %42
+  br i1 %40, label %_remove_path_slashes.exit.thread, label %_remove_path_slashes.exit
 
-_remove_path_slashes.exit.thread:                 ; preds = %48
+_remove_path_slashes.exit.thread:                 ; preds = %49
   call void @slurm_xfree(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  br label %50
 
-_remove_path_slashes.exit:                        ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %49, label %.sink.split152
+_remove_path_slashes.exit:                        ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %50, label %.sink.split162
 
-49:                                               ; preds = %_remove_path_slashes.exit.thread, %_remove_path_slashes.exit
+50:                                               ; preds = %_remove_path_slashes.exit.thread, %_remove_path_slashes.exit
   store ptr null, ptr %7, align 8
   store ptr null, ptr %6, align 8
   store ptr %1, ptr %5, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %.sink.split, %49
-  %.ph = phi ptr [ %.sink, %.sink.split ], [ %1, %49 ]
-  %.069.ph.ph = phi ptr [ %.4.ph, %.sink.split ], [ %1, %49 ]
-  %.065.ph.ph = phi i32 [ %.368.ph, %.sink.split ], [ %9, %49 ]
-  %.063.ph.ph = phi i32 [ %.3.ph, %.sink.split ], [ -2, %49 ]
+.outer.outer:                                     ; preds = %.sink.split, %50
+  %.ph = phi ptr [ %.sink, %.sink.split ], [ %1, %50 ]
+  %.076.ph.ph = phi ptr [ %.480.ph, %.sink.split ], [ %1, %50 ]
+  %.072.ph.ph = phi i32 [ %.375.ph, %.sink.split ], [ %10, %50 ]
+  %.070.ph.ph = phi i32 [ %.4.ph, %.sink.split ], [ -2, %50 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %51 = phi ptr [ %.ph, %.outer.outer ], [ %.be, %.outer.backedge ]
-  %.069.ph = phi ptr [ %.069.ph.ph, %.outer.outer ], [ %.069.ph.be, %.outer.backedge ]
-  br label %52
+  %52 = phi ptr [ %.ph, %.outer.outer ], [ %.be, %.outer.backedge ]
+  %.076.ph = phi ptr [ %.076.ph.ph, %.outer.outer ], [ %.076.ph.be, %.outer.backedge ]
+  br label %53
 
-52:                                               ; preds = %.outer, %59
-  %53 = phi ptr [ %61, %59 ], [ %51, %.outer ]
-  %.069 = phi ptr [ %61, %59 ], [ %.069.ph, %.outer ]
-  %.0 = phi i1 [ true, %59 ], [ false, %.outer ]
-  %54 = load i8, ptr %53, align 1
-  switch i8 %54, label %128 [
+53:                                               ; preds = %.outer, %60
+  %54 = phi ptr [ %62, %60 ], [ %52, %.outer ]
+  %.076 = phi ptr [ %62, %60 ], [ %.076.ph, %.outer ]
+  %.068 = phi i1 [ true, %60 ], [ false, %.outer ]
+  %55 = load i8, ptr %54, align 1
+  switch i8 %55, label %139 [
     i8 0, label %.loopexit
-    i8 37, label %55
+    i8 37, label %56
   ]
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = icmp eq i8 %57, 37
-  br i1 %58, label %59, label %62
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, 37
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %55
-  store ptr %56, ptr %5, align 8
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.069, ptr noundef nonnull %56) #8
+60:                                               ; preds = %56
+  store ptr %57, ptr %5, align 8
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.076, ptr noundef nonnull %57) #8
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.5) #8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
-  store ptr %61, ptr %5, align 8
-  br label %52, !llvm.loop !9
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
+  store ptr %62, ptr %5, align 8
+  br label %53, !llvm.loop !11
 
-62:                                               ; preds = %55
-  %63 = tail call ptr @__ctype_b_loc() #10
-  %64 = load ptr, ptr %63, align 8
-  store ptr %56, ptr %5, align 8
-  %65 = sext i8 %57 to i64
-  %66 = getelementptr inbounds i16, ptr %64, i64 %65
-  %67 = load i16, ptr %66, align 2
-  %68 = and i16 %67, 2048
-  %.not89 = icmp eq i16 %68, 0
-  br i1 %.not89, label %._crit_edge, label %69
+63:                                               ; preds = %56
+  %64 = tail call ptr @__ctype_b_loc() #10
+  %65 = load ptr, ptr %64, align 8
+  store ptr %57, ptr %5, align 8
+  %66 = sext i8 %58 to i64
+  %67 = getelementptr inbounds i16, ptr %65, i64 %66
+  %68 = load i16, ptr %67, align 2
+  %69 = and i16 %68, 2048
+  %.not98 = icmp eq i16 %69, 0
+  br i1 %.not98, label %._crit_edge, label %70
 
-._crit_edge:                                      ; preds = %62
-  %.pre = load i8, ptr %56, align 1
-  br label %76
+._crit_edge:                                      ; preds = %63
+  %.pre = load i8, ptr %57, align 1
+  br label %77
 
-69:                                               ; preds = %62
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.069, ptr noundef nonnull %53) #8
-  %70 = load ptr, ptr %5, align 8
-  %71 = call i64 @strtoul(ptr noundef %70, ptr noundef nonnull %5, i32 noundef 10) #8
-  %.27597 = call i64 @llvm.umin.i64(i64 %71, i64 10)
-  %.275 = trunc nuw nsw i64 %.27597 to i32
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 -1
-  %74 = load i8, ptr %72, align 1
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %.loopexit.thread, label %76
+70:                                               ; preds = %63
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.076, ptr noundef nonnull %54) #8
+  %71 = load ptr, ptr %5, align 8
+  %72 = call i64 @strtoul(ptr noundef %71, ptr noundef nonnull %5, i32 noundef 10) #8
+  %.283107 = call i64 @llvm.umin.i64(i64 %72, i64 10)
+  %.283 = trunc nuw nsw i64 %.283107 to i32
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 -1
+  %75 = load i8, ptr %73, align 1
+  %76 = icmp eq i8 %75, 0
+  br i1 %76, label %.loopexit.thread, label %77
 
-76:                                               ; preds = %._crit_edge, %69
-  %77 = phi i8 [ %74, %69 ], [ %.pre, %._crit_edge ]
-  %78 = phi ptr [ %72, %69 ], [ %56, %._crit_edge ]
-  %.174 = phi i32 [ %.275, %69 ], [ 0, %._crit_edge ]
-  %.271 = phi ptr [ %73, %69 ], [ %.069, %._crit_edge ]
-  switch i8 %77, label %.outer.backedge [
-    i8 97, label %79
-    i8 65, label %88
-    i8 74, label %97
-    i8 106, label %97
-    i8 115, label %108
-    i8 117, label %113
-    i8 116, label %113
-    i8 110, label %113
-    i8 78, label %113
-    i8 120, label %123
+77:                                               ; preds = %._crit_edge, %70
+  %78 = phi i8 [ %75, %70 ], [ %.pre, %._crit_edge ]
+  %79 = phi ptr [ %73, %70 ], [ %57, %._crit_edge ]
+  %.182 = phi i32 [ %.283, %70 ], [ 0, %._crit_edge ]
+  %.278 = phi ptr [ %74, %70 ], [ %.076, %._crit_edge ]
+  switch i8 %78, label %.outer.backedge [
+    i8 97, label %80
+    i8 98, label %89
+    i8 65, label %99
+    i8 74, label %108
+    i8 106, label %108
+    i8 115, label %119
+    i8 117, label %124
+    i8 116, label %124
+    i8 110, label %124
+    i8 78, label %124
+    i8 120, label %134
   ]
 
-.outer.backedge:                                  ; preds = %76, %139
-  %.be = phi ptr [ %141, %139 ], [ %78, %76 ]
-  %.069.ph.be = phi ptr [ %.069, %139 ], [ %.271, %76 ]
-  br label %.outer, !llvm.loop !9
+.outer.backedge:                                  ; preds = %77, %150
+  %.be = phi ptr [ %152, %150 ], [ %79, %77 ]
+  %.076.ph.be = phi ptr [ %.076, %150 ], [ %.278, %77 ]
+  br label %.outer, !llvm.loop !11
 
-79:                                               ; preds = %76
-  %80 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
-  %.not93 = icmp eq ptr %80, null
-  br i1 %.not93, label %84, label %81
+80:                                               ; preds = %77
+  %81 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
+  %.not104 = icmp eq ptr %81, null
+  br i1 %.not104, label %85, label %82
 
-81:                                               ; preds = %79
-  %82 = call i64 @strtoul(ptr noundef nonnull %80, ptr noundef nonnull %8, i32 noundef 10) #8
-  %83 = trunc i64 %82 to i32
-  br label %84
+82:                                               ; preds = %80
+  %83 = call i64 @strtoul(ptr noundef nonnull %81, ptr noundef nonnull %8, i32 noundef 10) #8
+  %84 = trunc i64 %83 to i32
+  br label %85
 
-84:                                               ; preds = %81, %79
-  %.164 = phi i32 [ %83, %81 ], [ %.063.ph.ph, %79 ]
-  %85 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %85) #8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.164) #8
+85:                                               ; preds = %82, %80
+  %.171 = phi i32 [ %84, %82 ], [ %.070.ph.ph, %80 ]
+  %86 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %86) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.182, i32 noundef %.171) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   br label %.sink.split
 
-88:                                               ; preds = %76
-  %89 = call ptr @getenv(ptr noundef nonnull @.str.8) #8
-  %.not92 = icmp eq ptr %89, null
-  br i1 %.not92, label %93, label %90
+89:                                               ; preds = %77
+  %90 = call ptr @getenv(ptr noundef nonnull @.str.6) #8
+  %.not103 = icmp eq ptr %90, null
+  br i1 %.not103, label %94, label %91
 
-90:                                               ; preds = %88
-  %91 = call i64 @strtoul(ptr noundef nonnull %89, ptr noundef nonnull %8, i32 noundef 10) #8
-  %92 = trunc i64 %91 to i32
-  br label %93
+91:                                               ; preds = %89
+  %92 = call i64 @strtoul(ptr noundef nonnull %90, ptr noundef nonnull %8, i32 noundef 10) #8
+  %93 = trunc i64 %92 to i32
+  br label %94
 
-93:                                               ; preds = %90, %88
-  %.267 = phi i32 [ %92, %90 ], [ %.065.ph.ph, %88 ]
-  %94 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %94) #8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.174, i32 noundef %.267) #8
+94:                                               ; preds = %91, %89
+  %.3 = phi i32 [ %93, %91 ], [ %.070.ph.ph, %89 ]
+  %95 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %95) #8
+  %96 = urem i32 %.3, 10
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.182, i32 noundef %96) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   br label %.sink.split
 
-97:                                               ; preds = %76, %76
-  %98 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %98) #8
-  %99 = load i32, ptr %0, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.174, i32 noundef %99) #8
-  %100 = load ptr, ptr %5, align 8
-  %101 = load i8, ptr %100, align 1
-  %102 = icmp eq i8 %101, 74
-  br i1 %102, label %103, label %106
+99:                                               ; preds = %77
+  %100 = call ptr @getenv(ptr noundef nonnull @.str.8) #8
+  %.not102 = icmp eq ptr %100, null
+  br i1 %.not102, label %104, label %101
 
-103:                                              ; preds = %97
-  %104 = load i32, ptr %50, align 8
-  %.not91 = icmp eq i32 %104, -5
-  br i1 %.not91, label %106, label %105
+101:                                              ; preds = %99
+  %102 = call i64 @strtoul(ptr noundef nonnull %100, ptr noundef nonnull %8, i32 noundef 10) #8
+  %103 = trunc i64 %102 to i32
+  br label %104
 
-105:                                              ; preds = %103
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.10, i32 noundef %104) #8
-  br label %106
-
-106:                                              ; preds = %105, %103, %97
+104:                                              ; preds = %101, %99
+  %.274 = phi i32 [ %103, %101 ], [ %.072.ph.ph, %99 ]
+  %105 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %105) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.182, i32 noundef %.274) #8
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  %106 = load ptr, ptr %5, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   br label %.sink.split
 
-108:                                              ; preds = %76
-  %109 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %109) #8
-  %110 = load i32, ptr %50, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.174, i32 noundef %110) #8
-  call void @slurm_xfree(ptr noundef nonnull %7) #8
-  store ptr null, ptr %7, align 8
+108:                                              ; preds = %77, %77
+  %109 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %109) #8
+  %110 = load i32, ptr %9, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.182, i32 noundef %110) #8
   %111 = load ptr, ptr %5, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  br label %.sink.split
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 74
+  br i1 %113, label %114, label %117
 
-113:                                              ; preds = %76, %76, %76, %76
-  store i32 2, ptr %11, align 8
-  br i1 %.0, label %114, label %116
+114:                                              ; preds = %108
+  %115 = load i32, ptr %51, align 8
+  %.not101 = icmp eq i32 %115, -5
+  br i1 %.not101, label %117, label %116
 
-114:                                              ; preds = %113
-  %115 = load ptr, ptr %7, align 8
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %115) #8
-  br label %116
+116:                                              ; preds = %114
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.10, i32 noundef %115) #8
+  br label %117
 
-116:                                              ; preds = %114, %113
-  %.not90 = icmp eq i32 %.174, 0
-  br i1 %.not90, label %119, label %117
-
-117:                                              ; preds = %116
-  %118 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, i32 noundef %.174) #8
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %118) #8
-  br label %120
-
-119:                                              ; preds = %116
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %78) #8
-  %.pre130 = load ptr, ptr %5, align 8
-  br label %120
-
-120:                                              ; preds = %119, %117
-  %121 = phi ptr [ %.pre130, %119 ], [ %78, %117 ]
+117:                                              ; preds = %116, %114, %108
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 1
   br label %.sink.split
 
-123:                                              ; preds = %76
-  %124 = getelementptr inbounds i8, ptr %78, i64 -1
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.271, ptr noundef nonnull %124) #8
-  %125 = call ptr @getenv(ptr noundef nonnull @.str.13) #8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef %125) #8
-  %126 = load ptr, ptr %5, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
+119:                                              ; preds = %77
+  %120 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %120) #8
+  %121 = load i32, ptr %51, align 8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, i32 noundef %.182, i32 noundef %121) #8
+  call void @slurm_xfree(ptr noundef nonnull %7) #8
+  store ptr null, ptr %7, align 8
+  %122 = load ptr, ptr %5, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   br label %.sink.split
 
-128:                                              ; preds = %52
-  br i1 %.0, label %129, label %148
+124:                                              ; preds = %77, %77, %77, %77
+  store i32 2, ptr %12, align 8
+  br i1 %.068, label %125, label %127
 
-129:                                              ; preds = %128
-  %130 = tail call ptr @__ctype_b_loc() #10
-  %131 = load ptr, ptr %130, align 8
-  %132 = sext i8 %54 to i64
-  %133 = getelementptr inbounds i16, ptr %131, i64 %132
-  %134 = load i16, ptr %133, align 2
-  %135 = and i16 %134, 2048
-  %.not87 = icmp eq i16 %135, 0
-  br i1 %.not87, label %139, label %136
+125:                                              ; preds = %124
+  %126 = load ptr, ptr %7, align 8
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %126) #8
+  br label %127
 
-136:                                              ; preds = %129
-  %137 = call i64 @strtoul(ptr noundef nonnull %53, ptr noundef nonnull %5, i32 noundef 10) #8
-  %138 = trunc i64 %137 to i32
-  %.pre131 = load ptr, ptr %5, align 8
-  %.pre132 = load i8, ptr %.pre131, align 1
-  br label %139
+127:                                              ; preds = %125, %124
+  %.not100 = icmp eq i32 %.182, 0
+  br i1 %.not100, label %130, label %128
 
-139:                                              ; preds = %136, %129
-  %140 = phi i8 [ %.pre132, %136 ], [ %54, %129 ]
-  %141 = phi ptr [ %.pre131, %136 ], [ %53, %129 ]
-  %.376 = phi i32 [ %138, %136 ], [ 0, %129 ]
-  switch i8 %140, label %.outer.backedge [
-    i8 117, label %142
-    i8 116, label %142
-    i8 110, label %142
-    i8 78, label %142
+128:                                              ; preds = %127
+  %129 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.11, i32 noundef %.182) #8
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %129) #8
+  br label %131
+
+130:                                              ; preds = %127
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %79) #8
+  %.pre140 = load ptr, ptr %5, align 8
+  br label %131
+
+131:                                              ; preds = %130, %128
+  %132 = phi ptr [ %.pre140, %130 ], [ %79, %128 ]
+  call void @slurm_xfree(ptr noundef nonnull %7) #8
+  store ptr null, ptr %7, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
+  br label %.sink.split
+
+134:                                              ; preds = %77
+  %135 = getelementptr inbounds i8, ptr %79, i64 -1
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.278, ptr noundef nonnull %135) #8
+  %136 = call ptr @getenv(ptr noundef nonnull @.str.13) #8
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef %136) #8
+  %137 = load ptr, ptr %5, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
+  br label %.sink.split
+
+139:                                              ; preds = %53
+  br i1 %.068, label %140, label %159
+
+140:                                              ; preds = %139
+  %141 = tail call ptr @__ctype_b_loc() #10
+  %142 = load ptr, ptr %141, align 8
+  %143 = sext i8 %55 to i64
+  %144 = getelementptr inbounds i16, ptr %142, i64 %143
+  %145 = load i16, ptr %144, align 2
+  %146 = and i16 %145, 2048
+  %.not96 = icmp eq i16 %146, 0
+  br i1 %.not96, label %150, label %147
+
+147:                                              ; preds = %140
+  %148 = call i64 @strtoul(ptr noundef nonnull %54, ptr noundef nonnull %5, i32 noundef 10) #8
+  %149 = trunc i64 %148 to i32
+  %.pre141 = load ptr, ptr %5, align 8
+  %.pre142 = load i8, ptr %.pre141, align 1
+  br label %150
+
+150:                                              ; preds = %147, %140
+  %151 = phi i8 [ %.pre142, %147 ], [ %55, %140 ]
+  %152 = phi ptr [ %.pre141, %147 ], [ %54, %140 ]
+  %.384 = phi i32 [ %149, %147 ], [ 0, %140 ]
+  switch i8 %151, label %.outer.backedge [
+    i8 117, label %153
+    i8 116, label %153
+    i8 110, label %153
+    i8 78, label %153
   ]
 
-142:                                              ; preds = %139, %139, %139, %139
-  store i32 2, ptr %11, align 8
-  %143 = load ptr, ptr %7, align 8
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %143) #8
-  %.not88 = icmp eq i32 %.376, 0
-  br i1 %.not88, label %146, label %144
+153:                                              ; preds = %150, %150, %150, %150
+  store i32 2, ptr %12, align 8
+  %154 = load ptr, ptr %7, align 8
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %154) #8
+  %.not97 = icmp eq i32 %.384, 0
+  br i1 %.not97, label %157, label %155
 
-144:                                              ; preds = %142
-  %145 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, i32 noundef %.376) #8
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %145) #8
-  br label %146
+155:                                              ; preds = %153
+  %156 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, i32 noundef %.384) #8
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef %156) #8
+  br label %157
 
-146:                                              ; preds = %144, %142
-  %.5 = phi ptr [ %141, %144 ], [ %.069, %142 ]
+157:                                              ; preds = %155, %153
+  %.5 = phi ptr [ %152, %155 ], [ %.076, %153 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #8
   store ptr null, ptr %7, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 1
   br label %.sink.split
 
-148:                                              ; preds = %128
-  %149 = getelementptr inbounds nuw i8, ptr %53, i64 1
+159:                                              ; preds = %139
+  %160 = getelementptr inbounds nuw i8, ptr %54, i64 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %146, %148, %123, %120, %108, %106, %93, %84
-  %.sink = phi ptr [ %87, %84 ], [ %96, %93 ], [ %107, %106 ], [ %112, %108 ], [ %122, %120 ], [ %127, %123 ], [ %149, %148 ], [ %147, %146 ]
-  %.4.ph = phi ptr [ %87, %84 ], [ %96, %93 ], [ %107, %106 ], [ %112, %108 ], [ %121, %120 ], [ %127, %123 ], [ %.069, %148 ], [ %.5, %146 ]
-  %.368.ph = phi i32 [ %.065.ph.ph, %84 ], [ %.267, %93 ], [ %.065.ph.ph, %106 ], [ %.065.ph.ph, %108 ], [ %.065.ph.ph, %120 ], [ %.065.ph.ph, %123 ], [ %.065.ph.ph, %148 ], [ %.065.ph.ph, %146 ]
-  %.3.ph = phi i32 [ %.164, %84 ], [ %.063.ph.ph, %93 ], [ %.063.ph.ph, %106 ], [ %.063.ph.ph, %108 ], [ %.063.ph.ph, %120 ], [ %.063.ph.ph, %123 ], [ %.063.ph.ph, %148 ], [ %.063.ph.ph, %146 ]
+.sink.split:                                      ; preds = %157, %159, %134, %131, %119, %117, %104, %94, %85
+  %.sink = phi ptr [ %88, %85 ], [ %98, %94 ], [ %107, %104 ], [ %118, %117 ], [ %123, %119 ], [ %133, %131 ], [ %138, %134 ], [ %160, %159 ], [ %158, %157 ]
+  %.480.ph = phi ptr [ %88, %85 ], [ %98, %94 ], [ %107, %104 ], [ %118, %117 ], [ %123, %119 ], [ %132, %131 ], [ %138, %134 ], [ %.076, %159 ], [ %.5, %157 ]
+  %.375.ph = phi i32 [ %.072.ph.ph, %85 ], [ %.072.ph.ph, %94 ], [ %.274, %104 ], [ %.072.ph.ph, %117 ], [ %.072.ph.ph, %119 ], [ %.072.ph.ph, %131 ], [ %.072.ph.ph, %134 ], [ %.072.ph.ph, %159 ], [ %.072.ph.ph, %157 ]
+  %.4.ph = phi i32 [ %.171, %85 ], [ %.3, %94 ], [ %.070.ph.ph, %104 ], [ %.070.ph.ph, %117 ], [ %.070.ph.ph, %119 ], [ %.070.ph.ph, %131 ], [ %.070.ph.ph, %134 ], [ %.070.ph.ph, %159 ], [ %.070.ph.ph, %157 ]
   store ptr %.sink, ptr %5, align 8
-  br label %.outer.outer, !llvm.loop !9
+  br label %.outer.outer, !llvm.loop !11
 
-.loopexit:                                        ; preds = %52
-  %.not94 = icmp eq ptr %.069, %53
-  br i1 %.not94, label %151, label %.loopexit.thread
+.loopexit:                                        ; preds = %53
+  %.not99 = icmp eq ptr %.076, %54
+  br i1 %.not99, label %162, label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %69, %.loopexit
-  %.170135 = phi ptr [ %.069, %.loopexit ], [ %73, %69 ]
-  %150 = phi ptr [ %53, %.loopexit ], [ %72, %69 ]
-  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.170135, ptr noundef nonnull %150) #8
-  br label %151
+.loopexit.thread:                                 ; preds = %70, %.loopexit
+  %.177145 = phi ptr [ %.076, %.loopexit ], [ %74, %70 ]
+  %161 = phi ptr [ %54, %.loopexit ], [ %73, %70 ]
+  call void @_xmemcat(ptr noundef nonnull %6, ptr noundef %.177145, ptr noundef nonnull %161) #8
+  br label %162
 
-151:                                              ; preds = %.loopexit.thread, %.loopexit
+162:                                              ; preds = %.loopexit.thread, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %7) #8
-  %152 = load ptr, ptr %6, align 8
-  br label %.sink.split152
+  %163 = load ptr, ptr %6, align 8
+  br label %.sink.split162
 
-.sink.split152:                                   ; preds = %_remove_path_slashes.exit, %23, %33, %151
-  %.sink153 = phi ptr [ %152, %151 ], [ %34, %33 ], [ %24, %23 ], [ %38, %_remove_path_slashes.exit ]
-  store ptr %.sink153, ptr %10, align 8
-  br label %153
+.sink.split162:                                   ; preds = %_remove_path_slashes.exit, %24, %34, %162
+  %.sink163 = phi ptr [ %163, %162 ], [ %35, %34 ], [ %25, %24 ], [ %39, %_remove_path_slashes.exit ]
+  store ptr %.sink163, ptr %11, align 8
+  br label %164
 
-153:                                              ; preds = %.sink.split152, %3, %14, %17
-  ret ptr %10
+164:                                              ; preds = %.sink.split162, %3, %15, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  ret ptr %11
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
-declare void @_xmemcat(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_xmemcat(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @fname_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -487,30 +525,24 @@ define dso_local ptr @fname_remote_string(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -519,6 +551,8 @@ attributes #10 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}

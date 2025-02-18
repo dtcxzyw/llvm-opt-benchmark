@@ -14,26 +14,26 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 @lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
-@.str = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_lock(): %m\00", align 1
-@.str.1 = private unnamed_addr constant [25 x i8] c"step_terminate_monitor.c\00", align 1
+@.str = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_lock(): %m\00", align 1
 @__func__.step_terminate_monitor_start = private unnamed_addr constant [29 x i8] c"step_terminate_monitor_start\00", align 1
 @running_flag = internal unnamed_addr global i1 false, align 1
-@.str.2 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
+@.str.1 = private unnamed_addr constant [31 x i8] c"%s: pthread_mutex_unlock(): %m\00", align 1
 @timeout = internal unnamed_addr global i16 0, align 2
 @program_name = internal global ptr null, align 8
-@.str.3 = private unnamed_addr constant [22 x i8] c"pthread_attr_init: %m\00", align 1
-@.str.4 = private unnamed_addr constant [26 x i8] c"pthread_attr_setscope: %m\00", align 1
-@.str.5 = private unnamed_addr constant [30 x i8] c"pthread_attr_setstacksize: %m\00", align 1
+@.str.2 = private unnamed_addr constant [22 x i8] c"pthread_attr_init: %m\00", align 1
+@.str.3 = private unnamed_addr constant [26 x i8] c"pthread_attr_setscope: %m\00", align 1
+@.str.4 = private unnamed_addr constant [30 x i8] c"pthread_attr_setstacksize: %m\00", align 1
 @tid = internal global i64 0, align 8
-@.str.6 = private unnamed_addr constant [28 x i8] c"%s: pthread_create error %m\00", align 1
-@.str.7 = private unnamed_addr constant [55 x i8] c"pthread_attr_destroy failed, possible memory leak!: %m\00", align 1
+@.str.5 = private unnamed_addr constant [28 x i8] c"%s: pthread_create error %m\00", align 1
+@.str.6 = private unnamed_addr constant [55 x i8] c"pthread_attr_destroy failed, possible memory leak!: %m\00", align 1
 @recorded_jobid = internal unnamed_addr global i32 -2, align 4
 @recorded_stepid = internal unnamed_addr global i32 -2, align 4
 @__func__.step_terminate_monitor_stop = private unnamed_addr constant [28 x i8] c"step_terminate_monitor_stop\00", align 1
-@.str.8 = private unnamed_addr constant [20 x i8] c"%s: already stopped\00", align 1
-@.str.9 = private unnamed_addr constant [20 x i8] c"signaling condition\00", align 1
+@.str.7 = private unnamed_addr constant [20 x i8] c"%s: already stopped\00", align 1
+@.str.8 = private unnamed_addr constant [20 x i8] c"signaling condition\00", align 1
 @cond = internal global %union.pthread_cond_t zeroinitializer, align 8
-@.str.10 = private unnamed_addr constant [36 x i8] c"%s:%d %s: pthread_cond_signal(): %m\00", align 1
+@.str.9 = private unnamed_addr constant [36 x i8] c"%s:%d %s: pthread_cond_signal(): %m\00", align 1
+@.str.10 = private unnamed_addr constant [25 x i8] c"step_terminate_monitor.c\00", align 1
 @.str.11 = private unnamed_addr constant [23 x i8] c"%s: pthread_join(): %m\00", align 1
 @.str.12 = private unnamed_addr constant [44 x i8] c"step_terminate_monitor will run for %d secs\00", align 1
 @__func__._monitor = private unnamed_addr constant [9 x i8] c"_monitor\00", align 1
@@ -69,7 +69,7 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #8
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
   unreachable
 
 6:                                                ; preds = %1
@@ -84,20 +84,21 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #8
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
   unreachable
 
 11:                                               ; preds = %6
   %12 = tail call ptr @slurm_conf_lock() #7
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1488
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1504
   %14 = load i16, ptr %13, align 8
   store i16 %14, ptr @timeout, align 2
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1480
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1496
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xstrdup(ptr noundef %16) #7
   store ptr %17, ptr @program_name, align 8
   tail call void @slurm_conf_unlock() #7
   store i1 true, ptr @running_flag, align 1
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #7
   %18 = call i32 @pthread_attr_init(ptr noundef nonnull %2) #7
   %.not28 = icmp eq i32 %18, 0
   br i1 %.not28, label %21, label %19
@@ -105,7 +106,7 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 19:                                               ; preds = %11
   %20 = tail call ptr @__errno_location() #8
   store i32 %18, ptr %20, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3) #9
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2) #9
   unreachable
 
 21:                                               ; preds = %11
@@ -116,7 +117,7 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #8
   store i32 %22, ptr %24, align 4
-  %25 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4) #7
+  %25 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #7
   br label %26
 
 26:                                               ; preds = %23, %21
@@ -127,10 +128,10 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 28:                                               ; preds = %26
   %29 = tail call ptr @__errno_location() #8
   store i32 %27, ptr %29, align 4
-  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5) #7
+  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4) #7
   br label %31
 
-31:                                               ; preds = %26, %28
+31:                                               ; preds = %28, %26
   %32 = call i32 @pthread_create(ptr noundef nonnull @tid, ptr noundef nonnull %2, ptr noundef nonnull @_monitor, ptr noundef %0) #7
   %.not31 = icmp eq i32 %32, 0
   br i1 %.not31, label %35, label %33
@@ -138,7 +139,7 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 33:                                               ; preds = %31
   %34 = tail call ptr @__errno_location() #8
   store i32 %32, ptr %34, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
   unreachable
 
 35:                                               ; preds = %31
@@ -149,14 +150,15 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 37:                                               ; preds = %35
   %38 = tail call ptr @__errno_location() #8
   store i32 %36, ptr %38, align 4
-  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #7
+  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6) #7
   br label %40
 
 40:                                               ; preds = %37, %35
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #7
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr @recorded_jobid, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = load i32, ptr %43, align 8
   store i32 %44, ptr @recorded_stepid, align 4
   %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
@@ -166,44 +168,53 @@ define dso_local void @step_terminate_monitor_start(ptr noundef %0) local_unname
 46:                                               ; preds = %40
   %47 = tail call ptr @__errno_location() #8
   store i32 %45, ptr %47, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.step_terminate_monitor_start) #9
   unreachable
 
 48:                                               ; preds = %40, %7
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
-declare ptr @slurm_conf_lock() local_unnamed_addr #4
+declare ptr @slurm_conf_lock() local_unnamed_addr #5
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #5
 
-declare void @slurm_conf_unlock() local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #1
+declare void @slurm_conf_unlock() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: noreturn
+declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: nounwind
+declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
@@ -215,6 +226,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca [33 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8
   %11 = tail call i32 @get_log_level() #7
@@ -241,26 +253,27 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
 23:                                               ; preds = %16
   %24 = tail call ptr @__errno_location() #8
   store i32 %22, ptr %24, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__._monitor) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__._monitor) #9
   unreachable
 
 25:                                               ; preds = %16
   %.b30 = load i1, ptr @running_flag, align 1
-  br i1 %.b30, label %26, label %145
+  br i1 %.b30, label %26, label %148
 
 26:                                               ; preds = %25
   %27 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @cond, ptr noundef nonnull @lock, ptr noundef nonnull %5) #7
-  switch i32 %27, label %143 [
+  switch i32 %27, label %146 [
     i32 110, label %28
-    i32 0, label %145
+    i32 0, label %148
   ]
 
 28:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
   %29 = call i64 @time(ptr noundef null) #7
   store i64 %29, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
   %30 = load ptr, ptr @program_name, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_call_external_program.exit, label %32
@@ -313,9 +326,11 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   br i1 %58, label %59, label %.outer.i.outer
 
 59:                                               ; preds = %57
-  %60 = load i32, ptr @recorded_jobid, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %61 = call i32 @getuid() #7
-  %62 = call i32 @container_g_join(i32 noundef %60, i32 noundef %61) #7
+  %62 = call i32 @container_g_join(ptr noundef nonnull %60, i32 noundef %61, i1 noundef zeroext false) #7
   %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %66, label %63
 
@@ -356,7 +371,7 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %87 = tail call ptr @__errno_location() #8
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 4
-  br i1 %89, label %83, label %_call_external_program.exit
+  br i1 %89, label %83, label %_call_external_program.exit, !llvm.loop !8
 
 90:                                               ; preds = %83
   %91 = icmp eq i32 %84, 0
@@ -366,13 +381,13 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   %93 = call i32 @sleep(i32 noundef 1) #7
   %94 = add nsw i32 %.0.ph.i, -1
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %96, label %.outer.i
+  br i1 %95, label %96, label %.outer.i, !llvm.loop !8
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr @program_name, align 8
   %98 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %97, i32 noundef 300) #7
   %99 = call i32 @killpg(i32 noundef %52, i32 noundef 9) #7
-  br label %.outer.i.outer
+  br label %.outer.i.outer, !llvm.loop !8
 
 .outer.i.outer:                                   ; preds = %57, %96
   %.011.ph.i.ph = phi i32 [ 0, %96 ], [ 1, %57 ]
@@ -384,127 +399,134 @@ define internal noalias noundef ptr @_monitor(ptr noundef %0) #0 {
   br label %83
 
 _call_external_program.exit:                      ; preds = %90, %86, %28, %32, %46, %49, %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %102 = load i32, ptr %101, align 8
-  switch i32 %102, label %112 [
-    i32 -5, label %103
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %101 = load i32, ptr %100, align 8
+  switch i32 %101, label %114 [
+    i32 -5, label %102
     i32 -4, label %106
-    i32 -6, label %109
+    i32 -6, label %110
   ]
 
-103:                                              ; preds = %_call_external_program.exit
-  %104 = load i32, ptr %100, align 8
+102:                                              ; preds = %_call_external_program.exit
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %104 = load i32, ptr %103, align 8
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.13, i32 noundef %104) #7
-  br label %115
+  br label %118
 
 106:                                              ; preds = %_call_external_program.exit
-  %107 = load i32, ptr %100, align 8
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.14, i32 noundef %107) #7
-  br label %115
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %108 = load i32, ptr %107, align 8
+  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.14, i32 noundef %108) #7
+  br label %118
 
-109:                                              ; preds = %_call_external_program.exit
-  %110 = load i32, ptr %100, align 8
-  %111 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.15, i32 noundef %110) #7
-  br label %115
+110:                                              ; preds = %_call_external_program.exit
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %112 = load i32, ptr %111, align 8
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.15, i32 noundef %112) #7
+  br label %118
 
-112:                                              ; preds = %_call_external_program.exit
-  %113 = call ptr @log_build_step_id_str(ptr noundef nonnull %100, ptr noundef nonnull %9, i32 noundef 33, i16 noundef zeroext 4) #7
-  %114 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #7
-  br label %115
+114:                                              ; preds = %_call_external_program.exit
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %9) #7
+  %116 = call ptr @log_build_step_id_str(ptr noundef nonnull %115, ptr noundef nonnull %9, i32 noundef 33, i16 noundef zeroext 4) #7
+  %117 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 45, ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #7
+  br label %118
 
-115:                                              ; preds = %106, %112, %109, %103
+118:                                              ; preds = %106, %114, %110, %102
   call void @slurm_make_time_str(ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 256) #7
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %117 = load i32, ptr %116, align 8
-  %118 = icmp ult i32 %117, 2
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %120 = load ptr, ptr %119, align 8
-  %.str.17..str.18 = select i1 %118, ptr @.str.17, ptr @.str.18
-  %. = select i1 %118, i32 4027, i32 4001
-  %121 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull %6, ptr noundef %120, ptr noundef nonnull %7) #7
-  %122 = call ptr @slurm_strerror(i32 noundef %.) #7
-  call void @stepd_drain_node(ptr noundef %122) #7
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 433
-  %124 = load i8, ptr %123, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %141, label %126
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp ult i32 %120, 2
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %123 = load ptr, ptr %122, align 8
+  %.str.17..str.18 = select i1 %121, ptr @.str.17, ptr @.str.18
+  %. = select i1 %121, i32 4027, i32 4001
+  %124 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull %6, ptr noundef %123, ptr noundef nonnull %7) #7
+  %125 = call ptr @slurm_strerror(i32 noundef %.) #7
+  call void @stepd_drain_node(ptr noundef %125) #7
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 441
+  %127 = load i8, ptr %126, align 1, !range !10, !noundef !11
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %128, label %144, label %129
 
-126:                                              ; preds = %115
-  %127 = load i32, ptr %101, align 8
-  %.not32 = icmp eq i32 %127, -4
+129:                                              ; preds = %118
+  %130 = load i32, ptr %100, align 8
+  %.not32 = icmp eq i32 %130, -4
   br i1 %.not32, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %126, %.preheader
-  %128 = call i32 @stepd_send_pending_exit_msgs(ptr noundef %0) #7
-  %.not33 = icmp eq i32 %128, 0
-  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !7
+.preheader:                                       ; preds = %129, %.preheader
+  %131 = call i32 @stepd_send_pending_exit_msgs(ptr noundef %0) #7
+  %.not33 = icmp eq i32 %131, 0
+  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.preheader, %126
-  %129 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
-  %130 = icmp sgt i32 %129, -1
-  br i1 %130, label %131, label %140
+.loopexit:                                        ; preds = %.preheader, %129
+  %132 = load i32, ptr getelementptr inbounds nuw (i8, ptr @step_complete, i64 88), align 8
+  %133 = icmp sgt i32 %132, -1
+  br i1 %133, label %134, label %143
 
-131:                                              ; preds = %.loopexit
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %133 = load i8, ptr %132, align 8
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %135, label %139
+134:                                              ; preds = %.loopexit
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %136 = load i8, ptr %135, align 8, !range !10, !noundef !11
+  %137 = trunc nuw i8 %136 to i1
+  br i1 %137, label %138, label %142
 
-135:                                              ; preds = %131
-  %136 = call i32 @get_log_level() #7
-  %137 = icmp sgt i32 %136, 2
-  br i1 %137, label %138, label %140
+138:                                              ; preds = %134
+  %139 = call i32 @get_log_level() #7
+  %140 = icmp sgt i32 %139, 2
+  br i1 %140, label %141, label %143
 
-138:                                              ; preds = %135
+141:                                              ; preds = %138
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19) #7
-  br label %140
+  br label %143
 
-139:                                              ; preds = %131
+142:                                              ; preds = %134
   call void @stepd_wait_for_children_slurmstepd(ptr noundef nonnull %0) #7
-  br label %140
+  br label %143
 
-140:                                              ; preds = %139, %138, %135, %.loopexit
+143:                                              ; preds = %142, %141, %138, %.loopexit
   call void @stepd_send_step_complete_msgs(ptr noundef %0) #7
-  br label %141
+  br label %144
 
-141:                                              ; preds = %140, %115
-  %142 = call i32 @stepd_cleanup(ptr noundef null, ptr noundef %0, ptr noundef null, i32 noundef %., i1 noundef zeroext false) #7
-  br label %145
+144:                                              ; preds = %143, %118
+  %145 = call i32 @stepd_cleanup(ptr noundef null, ptr noundef %0, ptr noundef null, i32 noundef %., i1 noundef zeroext false) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %6) #7
+  br label %148
 
-143:                                              ; preds = %26
-  %144 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20) #7
-  br label %145
+146:                                              ; preds = %26
+  %147 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20) #7
+  br label %148
 
-145:                                              ; preds = %26, %141, %143, %25
-  %146 = call i32 @get_log_level() #7
-  %147 = icmp sgt i32 %146, 5
-  br i1 %147, label %148, label %149
+148:                                              ; preds = %26, %144, %146, %25
+  %149 = call i32 @get_log_level() #7
+  %150 = icmp sgt i32 %149, 5
+  br i1 %150, label %151, label %152
 
-148:                                              ; preds = %145
+151:                                              ; preds = %148
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.21) #7
-  br label %149
+  br label %152
 
-149:                                              ; preds = %145, %148
-  %150 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
-  %.not34 = icmp eq i32 %150, 0
-  br i1 %.not34, label %153, label %151
+152:                                              ; preds = %148, %151
+  %153 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
+  %.not34 = icmp eq i32 %153, 0
+  br i1 %.not34, label %156, label %154
 
-151:                                              ; preds = %149
-  %152 = tail call ptr @__errno_location() #8
-  store i32 %150, ptr %152, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__._monitor) #9
+154:                                              ; preds = %152
+  %155 = tail call ptr @__errno_location() #8
+  store i32 %153, ptr %155, align 4
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._monitor) #9
   unreachable
 
-153:                                              ; preds = %149
+156:                                              ; preds = %152
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   ret ptr null
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
@@ -515,7 +537,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call ptr @__errno_location() #8
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 84, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
   unreachable
 
 4:                                                ; preds = %0
@@ -523,7 +545,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
   br i1 %.b15, label %10, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
+  %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
   %7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @lock) #7
   %.not16 = icmp eq i32 %7, 0
   br i1 %.not16, label %30, label %8
@@ -531,7 +553,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = tail call ptr @__errno_location() #8
   store i32 %7, ptr %9, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
   unreachable
 
 10:                                               ; preds = %4
@@ -541,7 +563,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.9) #7
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.8) #7
   br label %14
 
 14:                                               ; preds = %10, %13
@@ -552,7 +574,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 16:                                               ; preds = %14
   %17 = tail call ptr @__errno_location() #8
   store i32 %15, ptr %17, align 4
-  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 94, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
   br label %19
 
 19:                                               ; preds = %16, %14
@@ -563,7 +585,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #8
   store i32 %20, ptr %22, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #9
   unreachable
 
 23:                                               ; preds = %19
@@ -583,7 +605,7 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.step_terminate_monitor_stop) #7
   br label %.thread
 
-.thread:                                          ; preds = %23, %25, %27
+.thread:                                          ; preds = %23, %27, %25
   tail call void @slurm_xfree(ptr noundef nonnull @program_name) #7
   br label %30
 
@@ -591,90 +613,84 @@ define dso_local void @step_terminate_monitor_stop() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @get_log_level() local_unnamed_addr #4
+declare i32 @get_log_level() local_unnamed_addr #5
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #1
-
-declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
-
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
-
-declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #4
-
-declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @stepd_drain_node(ptr noundef) local_unnamed_addr #4
-
-declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #4
-
-declare i32 @stepd_send_pending_exit_msgs(ptr noundef) local_unnamed_addr #4
-
-declare void @stepd_wait_for_children_slurmstepd(ptr noundef) local_unnamed_addr #4
-
-declare void @stepd_send_step_complete_msgs(ptr noundef) local_unnamed_addr #4
-
-declare i32 @stepd_cleanup(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
-
-; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #5
-
-declare i32 @container_g_join(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @getuid() local_unnamed_addr #1
+declare i64 @time(ptr noundef) local_unnamed_addr #2
 
-declare ptr @env_array_create() local_unnamed_addr #4
-
-declare i32 @env_array_append_fmt(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+
+declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #5
+
+declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+
+declare void @stepd_drain_node(ptr noundef) local_unnamed_addr #5
+
+declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #5
+
+declare i32 @stepd_send_pending_exit_msgs(ptr noundef) local_unnamed_addr #5
+
+declare void @stepd_wait_for_children_slurmstepd(ptr noundef) local_unnamed_addr #5
+
+declare void @stepd_send_step_complete_msgs(ptr noundef) local_unnamed_addr #5
+
+declare i32 @stepd_cleanup(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: nofree nounwind
+declare i32 @fork() local_unnamed_addr #6
+
+declare i32 @container_g_join(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+; Function Attrs: nounwind
+declare i32 @getuid() local_unnamed_addr #2
+
+declare ptr @env_array_create() local_unnamed_addr #5
+
+declare i32 @env_array_append_fmt(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: nounwind
+declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nounwind
+declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #3
+declare void @_exit(i32 noundef) local_unnamed_addr #4
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare i32 @sleep(i32 noundef) local_unnamed_addr #4
+declare i32 @sleep(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @killpg(i32 noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare i32 @killpg(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }
 attributes #9 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -683,5 +699,10 @@ attributes #9 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unroll.disable"}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !13, !9}
+!13 = !{!"llvm.loop.mustprogress"}

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.slurm_acct_gather_profile_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.acct_gather_profile_timer_t = type { i32, i64, %union.pthread_cond_t, %union.pthread_mutex_t }
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
@@ -18,55 +18,55 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [20 x i8] c"acct_gather_profile\00", align 1
 @g_context_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
-@.str.1 = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_lock(): %m\00", align 1
-@.str.2 = private unnamed_addr constant [22 x i8] c"acct_gather_profile.c\00", align 1
+@.str.1 = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_lock(): %m\00", align 1
 @__func__.acct_gather_profile_init = private unnamed_addr constant [25 x i8] c"acct_gather_profile_init\00", align 1
 @plugin_inited = internal unnamed_addr global i32 0, align 4
 @slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
 @ops = internal global %struct.slurm_acct_gather_profile_ops zeroinitializer, align 8
 @syms = internal global [13 x ptr] [ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53], align 16
 @g_context = internal unnamed_addr global ptr null, align 8
-@.str.3 = private unnamed_addr constant [32 x i8] c"cannot create %s context for %s\00", align 1
-@.str.4 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
-@.str.5 = private unnamed_addr constant [27 x i8] c"can not open the %s plugin\00", align 1
+@.str.2 = private unnamed_addr constant [32 x i8] c"cannot create %s context for %s\00", align 1
+@.str.3 = private unnamed_addr constant [31 x i8] c"%s: pthread_mutex_unlock(): %m\00", align 1
+@.str.4 = private unnamed_addr constant [27 x i8] c"can not open the %s plugin\00", align 1
 @__func__.acct_gather_profile_fini = private unnamed_addr constant [25 x i8] c"acct_gather_profile_fini\00", align 1
-@.str.7 = private unnamed_addr constant [7 x i8] c"NotSet\00", align 1
-@.str.8 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.9 = private unnamed_addr constant [7 x i8] c"Energy\00", align 1
-@.str.11 = private unnamed_addr constant [7 x i8] c"Lustre\00", align 1
-@.str.12 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
-@.str.13 = private unnamed_addr constant [5 x i8] c"Task\00", align 1
+@.str.6 = private unnamed_addr constant [7 x i8] c"NotSet\00", align 1
+@.str.7 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.8 = private unnamed_addr constant [7 x i8] c"Energy\00", align 1
+@.str.10 = private unnamed_addr constant [7 x i8] c"Lustre\00", align 1
+@.str.11 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
+@.str.12 = private unnamed_addr constant [5 x i8] c"Task\00", align 1
 @acct_gather_profile_to_string.profile_str = internal global [128 x i8] zeroinitializer, align 16
-@.str.14 = private unnamed_addr constant [5 x i8] c"none\00", align 1
-@.str.15 = private unnamed_addr constant [4 x i8] c"all\00", align 1
-@.str.16 = private unnamed_addr constant [7 x i8] c"energy\00", align 1
-@.str.17 = private unnamed_addr constant [5 x i8] c"task\00", align 1
-@.str.18 = private unnamed_addr constant [7 x i8] c"lustre\00", align 1
-@.str.19 = private unnamed_addr constant [8 x i8] c"network\00", align 1
-@.str.20 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.21 = private unnamed_addr constant [5 x i8] c"CNT?\00", align 1
-@.str.22 = private unnamed_addr constant [104 x i8] c"Unhandled profile option %d please update slurm_acct_gather_profile.c (acct_gather_profile_type_t_name)\00", align 1
-@.str.23 = private unnamed_addr constant [9 x i8] c"%s%s=%lu\00", align 1
-@.str.24 = private unnamed_addr constant [2 x i8] c" \00", align 1
-@.str.25 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.26 = private unnamed_addr constant [9 x i8] c"%s%s=%lf\00", align 1
+@.str.13 = private unnamed_addr constant [5 x i8] c"none\00", align 1
+@.str.14 = private unnamed_addr constant [4 x i8] c"all\00", align 1
+@.str.15 = private unnamed_addr constant [7 x i8] c"energy\00", align 1
+@.str.16 = private unnamed_addr constant [5 x i8] c"task\00", align 1
+@.str.17 = private unnamed_addr constant [7 x i8] c"lustre\00", align 1
+@.str.18 = private unnamed_addr constant [8 x i8] c"network\00", align 1
+@.str.19 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.20 = private unnamed_addr constant [5 x i8] c"CNT?\00", align 1
+@.str.21 = private unnamed_addr constant [104 x i8] c"Unhandled profile option %d please update slurm_acct_gather_profile.c (acct_gather_profile_type_t_name)\00", align 1
+@.str.22 = private unnamed_addr constant [9 x i8] c"%s%s=%lu\00", align 1
+@.str.23 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.24 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.25 = private unnamed_addr constant [9 x i8] c"%s%s=%lf\00", align 1
 @profile_running_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @__func__.acct_gather_profile_startpoll = private unnamed_addr constant [30 x i8] c"acct_gather_profile_startpoll\00", align 1
 @acct_gather_profile_running = internal unnamed_addr global i1 false, align 1
-@.str.27 = private unnamed_addr constant [53 x i8] c"acct_gather_profile_startpoll: poll already started!\00", align 1
-@acct_gather_profile_timer = global [4 x %struct.acct_gather_profile_timer_t] zeroinitializer, align 16
-@.str.28 = private unnamed_addr constant [34 x i8] c"%s:%d %s: pthread_cond_init(): %m\00", align 1
-@.str.29 = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_init(): %m\00", align 1
-@.str.31 = private unnamed_addr constant [22 x i8] c"pthread_attr_init: %m\00", align 1
-@.str.32 = private unnamed_addr constant [26 x i8] c"pthread_attr_setscope: %m\00", align 1
-@.str.33 = private unnamed_addr constant [30 x i8] c"pthread_attr_setstacksize: %m\00", align 1
+@.str.26 = private unnamed_addr constant [53 x i8] c"acct_gather_profile_startpoll: poll already started!\00", align 1
+@acct_gather_profile_timer = dso_local global [4 x %struct.acct_gather_profile_timer_t] zeroinitializer, align 16
+@.str.27 = private unnamed_addr constant [28 x i8] c"%s: pthread_cond_init(): %m\00", align 1
+@.str.28 = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_init(): %m\00", align 1
+@.str.30 = private unnamed_addr constant [22 x i8] c"pthread_attr_init: %m\00", align 1
+@.str.31 = private unnamed_addr constant [26 x i8] c"pthread_attr_setscope: %m\00", align 1
+@.str.32 = private unnamed_addr constant [30 x i8] c"pthread_attr_setstacksize: %m\00", align 1
 @timer_thread_id = internal global i64 0, align 8
-@.str.34 = private unnamed_addr constant [28 x i8] c"%s: pthread_create error %m\00", align 1
-@.str.35 = private unnamed_addr constant [55 x i8] c"pthread_attr_destroy failed, possible memory leak!: %m\00", align 1
-@.str.36 = private unnamed_addr constant [54 x i8] c"acct_gather_profile_startpoll dynamic logging enabled\00", align 1
+@.str.33 = private unnamed_addr constant [28 x i8] c"%s: pthread_create error %m\00", align 1
+@.str.34 = private unnamed_addr constant [55 x i8] c"pthread_attr_destroy failed, possible memory leak!: %m\00", align 1
+@.str.35 = private unnamed_addr constant [54 x i8] c"acct_gather_profile_startpoll dynamic logging enabled\00", align 1
 @__func__.acct_gather_profile_endpoll = private unnamed_addr constant [28 x i8] c"acct_gather_profile_endpoll\00", align 1
-@.str.37 = private unnamed_addr constant [51 x i8] c"acct_gather_profile_startpoll: poll already ended!\00", align 1
-@.str.38 = private unnamed_addr constant [36 x i8] c"%s:%d %s: pthread_cond_signal(): %m\00", align 1
+@.str.36 = private unnamed_addr constant [51 x i8] c"acct_gather_profile_startpoll: poll already ended!\00", align 1
+@.str.37 = private unnamed_addr constant [36 x i8] c"%s:%d %s: pthread_cond_signal(): %m\00", align 1
+@.str.38 = private unnamed_addr constant [22 x i8] c"acct_gather_profile.c\00", align 1
 @timer_thread_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
 @timer_thread_cond = internal global %union.pthread_cond_t zeroinitializer, align 8
 @.str.40 = private unnamed_addr constant [23 x i8] c"%s: pthread_join(): %m\00", align 1
@@ -95,20 +95,20 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._timer_thread = private unnamed_addr constant [14 x i8] c"_timer_thread\00", align 1
 @.str.56 = private unnamed_addr constant [26 x i8] c"profile signaling type %s\00", align 1
 @.str.57 = private unnamed_addr constant [39 x i8] c"%s:%d %s: pthread_cond_timedwait(): %m\00", align 1
-@switch.table.acct_gather_profile_type_to_string = private unnamed_addr constant [8 x ptr] [ptr @.str.9, ptr @.str.13, ptr @.str.20, ptr @.str.11, ptr @.str.20, ptr @.str.20, ptr @.str.20, ptr @.str.12], align 8
-@switch.table.acct_gather_profile_type_t_name = private unnamed_addr constant [5 x ptr] [ptr @.str.9, ptr @.str.13, ptr @.str.11, ptr @.str.12, ptr @.str.21], align 8
-@switch.table._timer_thread = private unnamed_addr constant [4 x ptr] [ptr @.str.9, ptr @.str.13, ptr @.str.11, ptr @.str.12], align 8
+@switch.table.acct_gather_profile_type_to_string = private unnamed_addr constant [8 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.19, ptr @.str.10, ptr @.str.19, ptr @.str.19, ptr @.str.19, ptr @.str.11], align 8
+@switch.table.acct_gather_profile_type_t_name = private unnamed_addr constant [5 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.10, ptr @.str.11, ptr @.str.20], align 8
+@switch.table._timer_thread = private unnamed_addr constant [4 x ptr] [ptr @.str.8, ptr @.str.12, ptr @.str.10, ptr @.str.11], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #14
+define dso_local noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #15
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 219, ptr noundef nonnull @__func__.acct_gather_profile_init) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_init) #17
   unreachable
 
 4:                                                ; preds = %0
@@ -122,7 +122,7 @@ define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
   br i1 %.not11, label %.sink.split, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 104) #14
+  %9 = tail call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef nonnull %7, ptr noundef nonnull @ops, ptr noundef nonnull @syms, i64 noundef 104) #15
   store ptr %9, ptr @g_context, align 8
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %.thread, label %.sink.split
@@ -133,61 +133,70 @@ define noundef i32 @acct_gather_profile_init() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %.sink.split, %4
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #14
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #15
   %.not13 = icmp eq i32 %11, 0
   br i1 %.not13, label %20, label %15
 
 .thread:                                          ; preds = %8
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 104), align 8
-  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, ptr noundef %12) #14
+  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, ptr noundef %12) #15
   store i32 0, ptr @plugin_inited, align 4
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #14
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #15
   %.not1316 = icmp eq i32 %14, 0
   br i1 %.not1316, label %18, label %15
 
 15:                                               ; preds = %.thread, %10
   %16 = phi i32 [ %14, %.thread ], [ %11, %10 ]
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #16
   store i32 %16, ptr %17, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 243, ptr noundef nonnull @__func__.acct_gather_profile_init) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_init) #17
   unreachable
 
 18:                                               ; preds = %.thread
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 104), align 8
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %19) #16
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef %19) #17
   unreachable
 
 20:                                               ; preds = %10
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @plugin_context_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
+declare ptr @plugin_context_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: noreturn
+declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_fini() local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_fini() local_unnamed_addr #0 {
   tail call void @acct_gather_profile_endpoll()
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #14
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #15
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 263, ptr noundef nonnull @__func__.acct_gather_profile_fini) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_fini) #17
   unreachable
 
 .preheader:                                       ; preds = %0, %10
@@ -200,15 +209,15 @@ define i32 @acct_gather_profile_fini() local_unnamed_addr #0 {
   ]
 
 4:                                                ; preds = %.preheader
-  %5 = tail call i32 @acct_gather_energy_fini() #14
+  %5 = tail call i32 @acct_gather_energy_fini() #15
   br label %10
 
 6:                                                ; preds = %.preheader
-  %7 = tail call i32 @jobacct_gather_fini() #14
+  %7 = tail call i32 @jobacct_gather_fini() #15
   br label %10
 
 8:                                                ; preds = %.preheader
-  %9 = tail call i32 @acct_gather_filesystem_fini() #14
+  %9 = tail call i32 @acct_gather_filesystem_fini() #15
   br label %10
 
 default.unreachable:                              ; preds = %.preheader
@@ -219,27 +228,27 @@ default.unreachable:                              ; preds = %.preheader
   br label %.preheader
 
 12:                                               ; preds = %.preheader
-  %13 = tail call i32 @acct_gather_interconnect_fini() #14
+  %13 = tail call i32 @acct_gather_interconnect_fini() #15
   %14 = load ptr, ptr @g_context, align 8
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %14) #14
+  %16 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %14) #15
   store ptr null, ptr @g_context, align 8
   br label %17
 
 17:                                               ; preds = %15, %12
   %.0 = phi i32 [ %16, %15 ], [ 0, %12 ]
   store i32 0, ptr @plugin_inited, align 4
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #14
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #15
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #15
+  %20 = tail call ptr @__errno_location() #16
   store i32 %18, ptr %20, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.acct_gather_profile_fini) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_fini) #17
   unreachable
 
 21:                                               ; preds = %17
@@ -247,15 +256,15 @@ default.unreachable:                              ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #14
+define dso_local void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #15
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 538, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 4:                                                ; preds = %0
@@ -263,72 +272,72 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   br i1 %.b39, label %13, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not40 = icmp eq i32 %6, 0
   br i1 %.not40, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @__errno_location() #15
+  %8 = tail call ptr @__errno_location() #16
   store i32 %6, ptr %8, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 540, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @get_log_level() #14
+  %10 = tail call i32 @get_log_level() #15
   %11 = icmp sgt i32 %10, 5
   br i1 %11, label %12, label %56
 
 12:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.37) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.36) #15
   br label %56
 
 13:                                               ; preds = %4
   store i1 false, ptr @acct_gather_profile_running, align 1
-  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not41 = icmp eq i32 %14, 0
   br i1 %.not41, label %.preheader, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 545, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 .preheader:                                       ; preds = %13, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %13 ]
   %17 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #14
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #15
   %.not47 = icmp eq i32 %19, 0
   br i1 %.not47, label %22, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__errno_location() #15
+  %21 = tail call ptr @__errno_location() #16
   store i32 %19, ptr %21, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 549, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #14
+  %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #15
   %.not48 = icmp eq i32 %24, 0
   br i1 %.not48, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @__errno_location() #15
+  %26 = tail call ptr @__errno_location() #16
   store i32 %24, ptr %26, align 4
-  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.2, i32 noundef 550, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #14
+  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 550, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
   br label %28
 
 28:                                               ; preds = %25, %22
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #14
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #15
   %.not49 = icmp eq i32 %29, 0
   br i1 %.not49, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @__errno_location() #15
+  %31 = tail call ptr @__errno_location() #16
   store i32 %29, ptr %31, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 551, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 32:                                               ; preds = %28
@@ -337,45 +346,45 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   br i1 %switch, label %33, label %35
 
 33:                                               ; preds = %32
-  %34 = tail call i32 @jobacct_gather_endpoll() #14
+  %34 = tail call i32 @jobacct_gather_endpoll() #15
   br label %35
 
 35:                                               ; preds = %32, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !6
+  br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !8
 
 36:                                               ; preds = %35
-  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #14
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #15
   %.not42 = icmp eq i32 %37, 0
   br i1 %.not42, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call ptr @__errno_location() #15
+  %39 = tail call ptr @__errno_location() #16
   store i32 %37, ptr %39, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 570, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @timer_thread_cond) #14
+  %41 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @timer_thread_cond) #15
   %.not43 = icmp eq i32 %41, 0
   br i1 %.not43, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call ptr @__errno_location() #15
+  %43 = tail call ptr @__errno_location() #16
   store i32 %41, ptr %43, align 4
-  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.2, i32 noundef 571, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #14
+  %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 571, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
   br label %45
 
 45:                                               ; preds = %42, %40
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #14
+  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #15
   %.not44 = icmp eq i32 %46, 0
   br i1 %.not44, label %49, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @__errno_location() #15
+  %48 = tail call ptr @__errno_location() #16
   store i32 %46, ptr %48, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 572, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #17
   unreachable
 
 49:                                               ; preds = %45
@@ -384,18 +393,18 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   br i1 %.not45, label %.thread, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call i32 @pthread_join(i64 noundef %50, ptr noundef null) #14
+  %52 = tail call i32 @pthread_join(i64 noundef %50, ptr noundef null) #15
   store i64 0, ptr @timer_thread_id, align 8
   %.not46 = icmp eq i32 %52, 0
   br i1 %.not46, label %.thread, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call ptr @__errno_location() #15
+  %54 = tail call ptr @__errno_location() #16
   store i32 %52, ptr %54, align 4
-  %55 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #14
+  %55 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__.acct_gather_profile_endpoll) #15
   br label %.thread
 
-.thread:                                          ; preds = %49, %51, %53
+.thread:                                          ; preds = %49, %53, %51
   store i64 0, ptr @timer_thread_id, align 8
   br label %56
 
@@ -403,25 +412,25 @@ define void @acct_gather_profile_endpoll() local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @acct_gather_energy_fini() local_unnamed_addr #4
+declare i32 @acct_gather_energy_fini() local_unnamed_addr #5
 
-declare i32 @jobacct_gather_fini() local_unnamed_addr #4
+declare i32 @jobacct_gather_fini() local_unnamed_addr #5
 
-declare i32 @acct_gather_filesystem_fini() local_unnamed_addr #4
+declare i32 @acct_gather_filesystem_fini() local_unnamed_addr #5
 
-declare i32 @acct_gather_interconnect_fini() local_unnamed_addr #4
+declare i32 @acct_gather_interconnect_fini() local_unnamed_addr #5
 
-declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #4
+declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define dso_local void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
   %strlen38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1)
   %endptr39 = getelementptr inbounds i8, ptr %1, i64 %strlen38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr39, ptr noundef nonnull align 1 dereferenceable(7) @.str.7, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr39, ptr noundef nonnull align 1 dereferenceable(7) @.str.6, i64 7, i1 false)
   br label %30
 
 5:                                                ; preds = %2
@@ -432,7 +441,7 @@ define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef capture
 8:                                                ; preds = %5
   %strlen36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1)
   %endptr37 = getelementptr inbounds i8, ptr %1, i64 %strlen36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr37, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr37, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
   br label %30
 
 9:                                                ; preds = %5
@@ -443,7 +452,7 @@ define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef capture
 11:                                               ; preds = %9
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1)
   %endptr = getelementptr inbounds i8, ptr %1, i64 %strlen
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr, ptr noundef nonnull align 1 dereferenceable(7) @.str.9, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr, ptr noundef nonnull align 1 dereferenceable(7) @.str.8, i64 7, i1 false)
   br label %12
 
 12:                                               ; preds = %11, %9
@@ -465,7 +474,7 @@ define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef capture
 17:                                               ; preds = %16, %14
   %strlen22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1)
   %endptr23 = getelementptr inbounds i8, ptr %1, i64 %strlen22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr23, ptr noundef nonnull align 1 dereferenceable(7) @.str.11, i64 7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr23, ptr noundef nonnull align 1 dereferenceable(7) @.str.10, i64 7, i1 false)
   br label %18
 
 18:                                               ; preds = %17, %12
@@ -509,7 +518,7 @@ define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef capture
 29:                                               ; preds = %28, %26
   %strlen34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1)
   %endptr35 = getelementptr inbounds i8, ptr %1, i64 %strlen34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr35, ptr noundef nonnull align 1 dereferenceable(5) @.str.13, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr35, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   br label %30
 
 30:                                               ; preds = %8, %29, %24, %4
@@ -517,40 +526,40 @@ define void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef capture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @acct_gather_profile_to_string(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local noundef nonnull ptr @acct_gather_profile_to_string(i32 noundef %0) local_unnamed_addr #7 {
   store i8 0, ptr @acct_gather_profile_to_string.profile_str, align 16
   tail call void @acct_gather_profile_to_string_r(i32 noundef %0, ptr noundef nonnull @acct_gather_profile_to_string.profile_str)
   ret ptr @acct_gather_profile_to_string.profile_str
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 32) i32 @acct_gather_profile_from_string(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 32) i32 @acct_gather_profile_from_string(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #14
+  %3 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #15
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %4, label %14
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #14
+  %5 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #15
   %.not13 = icmp eq ptr %5, null
   br i1 %.not13, label %6, label %14
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #14
+  %7 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #15
   %.not14 = icmp eq ptr %7, null
   %spec.select = select i1 %.not14, i32 0, i32 2
-  %8 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #14
+  %8 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #15
   %.not15 = icmp eq ptr %8, null
   %9 = or disjoint i32 %spec.select, 4
   %.2 = select i1 %.not15, i32 %spec.select, i32 %9
-  %10 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #14
+  %10 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #15
   %.not16 = icmp eq ptr %10, null
   %11 = or disjoint i32 %.2, 8
   %.3 = select i1 %.not16, i32 %.2, i32 %11
-  %12 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #14
+  %12 = tail call ptr @xstrcasestr(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #15
   %.not17 = icmp eq ptr %12, null
   %13 = or disjoint i32 %.3, 16
   %spec.select18 = select i1 %.not17, i32 %.3, i32 %13
@@ -561,10 +570,10 @@ define range(i32 -1, 32) i32 @acct_gather_profile_from_string(ptr noundef %0) lo
   ret i32 %.0
 }
 
-declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @acct_gather_profile_type_to_string(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef nonnull ptr @acct_gather_profile_type_to_string(i32 noundef %0) local_unnamed_addr #8 {
   %2 = add i32 %0, -2
   %3 = tail call i32 @llvm.fshl.i32(i32 %2, i32 %2, i32 31)
   %4 = icmp ult i32 %3, 8
@@ -577,28 +586,28 @@ switch.lookup:                                    ; preds = %1
   br label %6
 
 6:                                                ; preds = %1, %switch.lookup
-  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.20, %1 ]
+  %.0 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.19, %1 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 17) i32 @acct_gather_profile_type_from_string(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.16) #14
+define dso_local range(i32 0, 17) i32 @acct_gather_profile_type_from_string(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.15) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.17) #14
+  %4 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.16) #15
   %.not4 = icmp eq i32 %4, 0
   br i1 %.not4, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.18) #14
+  %6 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.17) #15
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.19) #14
+  %8 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef nonnull @.str.18) #15
   %.not6 = icmp eq i32 %8, 0
   %. = select i1 %.not6, i32 16, i32 0
   br label %9
@@ -608,15 +617,15 @@ define range(i32 0, 17) i32 @acct_gather_profile_type_from_string(ptr noundef %0
   ret i32 %.0
 }
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @acct_gather_profile_type_t_name(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @acct_gather_profile_type_t_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 5
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.22, i32 noundef %0) #16
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.21, i32 noundef %0) #17
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -627,7 +636,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #8 {
+define dso_local noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #9 {
   %.not32 = icmp eq ptr %0, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
@@ -649,10 +658,10 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly capture
   %10 = sub nsw i32 %3, %.035
   %11 = sext i32 %10 to i64
   %.not30 = icmp eq i32 %.035, 0
-  %12 = select i1 %.not30, ptr @.str.25, ptr @.str.24
+  %12 = select i1 %.not30, ptr @.str.24, ptr @.str.23
   %13 = load ptr, ptr %.02434, align 8
   %14 = load i64, ptr %.02533, align 8
-  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %9, i64 noundef %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %12, ptr noundef %13, i64 noundef %14) #14
+  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %9, i64 noundef %11, ptr noundef nonnull @.str.22, ptr noundef nonnull %12, ptr noundef %13, i64 noundef %14) #15
   %16 = add nsw i32 %15, %.035
   %17 = getelementptr inbounds nuw i8, ptr %.02533, i64 8
   br label %29
@@ -663,10 +672,10 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly capture
   %21 = sub nsw i32 %3, %.035
   %22 = sext i32 %21 to i64
   %.not29 = icmp eq i32 %.035, 0
-  %23 = select i1 %.not29, ptr @.str.25, ptr @.str.24
+  %23 = select i1 %.not29, ptr @.str.24, ptr @.str.23
   %24 = load ptr, ptr %.02434, align 8
   %25 = load double, ptr %.02533, align 8
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef %22, ptr noundef nonnull @.str.26, ptr noundef nonnull %23, ptr noundef %24, double noundef %25) #14
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef %22, ptr noundef nonnull @.str.25, ptr noundef nonnull %23, ptr noundef %24, double noundef %25) #15
   %27 = add nsw i32 %26, %.035
   %28 = getelementptr inbounds nuw i8, ptr %.02533, i64 8
   br label %29
@@ -683,21 +692,22 @@ define noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %union.pthread_attr_t, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   store i32 0, ptr %3, align 4
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #14
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 456, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 8:                                                ; preds = %2
@@ -705,30 +715,30 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   br i1 %.b53, label %9, label %15
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not65 = icmp eq i32 %10, 0
   br i1 %.not65, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @__errno_location() #15
+  %12 = tail call ptr @__errno_location() #16
   store i32 %10, ptr %12, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 458, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 13:                                               ; preds = %9
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27) #14
+  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26) #15
   br label %109
 
 15:                                               ; preds = %8
   store i1 true, ptr @acct_gather_profile_running, align 1
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not54 = icmp eq i32 %16, 0
   br i1 %.not54, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__errno_location() #15
+  %18 = tail call ptr @__errno_location() #16
   store i32 %16, ptr %18, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 463, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 19:                                               ; preds = %15
@@ -742,7 +752,7 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 24), align 8
-  %25 = call ptr %24(i32 noundef 2, ptr noundef nonnull %3) #14
+  %25 = call ptr %24(i32 noundef 2, ptr noundef nonnull %3) #15
   br label %.preheader
 
 .preheader:                                       ; preds = %23, %22
@@ -753,26 +763,26 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   %27 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %27, i8 0, i64 104, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #14
+  %29 = call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #15
   %.not60 = icmp eq i32 %29, 0
   br i1 %.not60, label %32, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @__errno_location() #15
+  %31 = tail call ptr @__errno_location() #16
   store i32 %29, ptr %31, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %34 = call i32 @pthread_mutex_init(ptr noundef nonnull %33, ptr noundef null) #14
+  %34 = call i32 @pthread_mutex_init(ptr noundef nonnull %33, ptr noundef null) #15
   %.not61 = icmp eq i32 %34, 0
   br i1 %.not61, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call ptr @__errno_location() #15
+  %36 = tail call ptr @__errno_location() #16
   store i32 %34, ptr %36, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.2, i32 noundef 475, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 37:                                               ; preds = %32
@@ -791,13 +801,13 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
   br i1 %.not64, label %81, label %42
 
 42:                                               ; preds = %39
-  %43 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %0) #14
+  %43 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %0) #15
   store i32 %43, ptr %27, align 8
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %_set_freq.exit
 
 45:                                               ; preds = %42
-  %46 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %1) #14
+  %46 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 0, ptr noundef %1) #15
   %47 = icmp eq i32 %46, -1
   %spec.store.select.i = select i1 %47, i32 0, i32 %46
   store i32 %spec.store.select.i, ptr %27, align 8
@@ -805,17 +815,17 @@ define noundef i32 @acct_gather_profile_startpoll(ptr noundef %0, ptr noundef %1
 
 _set_freq.exit:                                   ; preds = %42, %45
   %48 = phi i32 [ %43, %42 ], [ %spec.store.select.i, %45 ]
-  %49 = call i32 @acct_gather_energy_startpoll(i32 noundef %48) #14
+  %49 = call i32 @acct_gather_energy_startpoll(i32 noundef %48) #15
   br label %81
 
 50:                                               ; preds = %37
-  %51 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %0) #14
+  %51 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %0) #15
   store i32 %51, ptr %27, align 8
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %_set_freq.exit67
 
 53:                                               ; preds = %50
-  %54 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %1) #14
+  %54 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 1, ptr noundef %1) #15
   %55 = icmp eq i32 %54, -1
   %spec.store.select.i66 = select i1 %55, i32 0, i32 %54
   store i32 %spec.store.select.i66, ptr %27, align 8
@@ -824,7 +834,7 @@ _set_freq.exit:                                   ; preds = %42, %45
 _set_freq.exit67:                                 ; preds = %50, %53
   %56 = phi i32 [ %51, %50 ], [ %spec.store.select.i66, %53 ]
   %57 = trunc i32 %56 to i16
-  %58 = call i32 @jobacct_gather_startpoll(i16 noundef zeroext %57) #14
+  %58 = call i32 @jobacct_gather_startpoll(i16 noundef zeroext %57) #15
   br label %81
 
 59:                                               ; preds = %37
@@ -834,13 +844,13 @@ _set_freq.exit67:                                 ; preds = %50, %53
   br i1 %.not63, label %81, label %62
 
 62:                                               ; preds = %59
-  %63 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %0) #14
+  %63 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %0) #15
   store i32 %63, ptr %27, align 8
   %64 = icmp eq i32 %63, -1
   br i1 %64, label %65, label %_set_freq.exit69
 
 65:                                               ; preds = %62
-  %66 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %1) #14
+  %66 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 2, ptr noundef %1) #15
   %67 = icmp eq i32 %66, -1
   %spec.store.select.i68 = select i1 %67, i32 0, i32 %66
   store i32 %spec.store.select.i68, ptr %27, align 8
@@ -848,7 +858,7 @@ _set_freq.exit67:                                 ; preds = %50, %53
 
 _set_freq.exit69:                                 ; preds = %62, %65
   %68 = phi i32 [ %63, %62 ], [ %spec.store.select.i68, %65 ]
-  %69 = call i32 @acct_gather_filesystem_startpoll(i32 noundef %68) #14
+  %69 = call i32 @acct_gather_filesystem_startpoll(i32 noundef %68) #15
   br label %81
 
 70:                                               ; preds = %37
@@ -858,13 +868,13 @@ _set_freq.exit69:                                 ; preds = %62, %65
   br i1 %.not62, label %81, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %0) #14
+  %74 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %0) #15
   store i32 %74, ptr %27, align 8
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %76, label %_set_freq.exit71
 
 76:                                               ; preds = %73
-  %77 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %1) #14
+  %77 = call i32 @acct_gather_parse_freq(i32 noundef range(i32 -2147483648, 4) 3, ptr noundef %1) #15
   %78 = icmp eq i32 %77, -1
   %spec.store.select.i70 = select i1 %78, i32 0, i32 %77
   store i32 %spec.store.select.i70, ptr %27, align 8
@@ -872,7 +882,7 @@ _set_freq.exit69:                                 ; preds = %62, %65
 
 _set_freq.exit71:                                 ; preds = %73, %76
   %79 = phi i32 [ %74, %73 ], [ %spec.store.select.i70, %76 ]
-  %80 = call i32 @acct_gather_interconnect_startpoll(i32 noundef %79) #14
+  %80 = call i32 @acct_gather_interconnect_startpoll(i32 noundef %79) #15
   br label %81
 
 default.unreachable:                              ; preds = %37
@@ -881,119 +891,124 @@ default.unreachable:                              ; preds = %37
 81:                                               ; preds = %_set_freq.exit, %_set_freq.exit67, %_set_freq.exit69, %_set_freq.exit71, %39, %59, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %82, label %26, !llvm.loop !8
+  br i1 %exitcond.not, label %82, label %26, !llvm.loop !11
 
 82:                                               ; preds = %81
-  %83 = call i32 @pthread_attr_init(ptr noundef nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #15
+  %83 = call i32 @pthread_attr_init(ptr noundef nonnull %4) #15
   %.not55 = icmp eq i32 %83, 0
   br i1 %.not55, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call ptr @__errno_location() #15
+  %85 = tail call ptr @__errno_location() #16
   store i32 %83, ptr %85, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #16
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.30) #17
   unreachable
 
 86:                                               ; preds = %82
-  %87 = call i32 @pthread_attr_setscope(ptr noundef nonnull %4, i32 noundef 0) #14
+  %87 = call i32 @pthread_attr_setscope(ptr noundef nonnull %4, i32 noundef 0) #15
   %.not56 = icmp eq i32 %87, 0
   br i1 %.not56, label %91, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call ptr @__errno_location() #15
+  %89 = tail call ptr @__errno_location() #16
   store i32 %87, ptr %89, align 4
-  %90 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #14
+  %90 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31) #15
   br label %91
 
 91:                                               ; preds = %88, %86
-  %92 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %4, i64 noundef 1048576) #14
+  %92 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %4, i64 noundef 1048576) #15
   %.not57 = icmp eq i32 %92, 0
   br i1 %.not57, label %96, label %93
 
 93:                                               ; preds = %91
-  %94 = tail call ptr @__errno_location() #15
+  %94 = tail call ptr @__errno_location() #16
   store i32 %92, ptr %94, align 4
-  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33) #14
+  %95 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32) #15
   br label %96
 
-96:                                               ; preds = %91, %93
-  %97 = call i32 @pthread_create(ptr noundef nonnull @timer_thread_id, ptr noundef nonnull %4, ptr noundef nonnull @_timer_thread, ptr noundef null) #14
+96:                                               ; preds = %93, %91
+  %97 = call i32 @pthread_create(ptr noundef nonnull @timer_thread_id, ptr noundef nonnull %4, ptr noundef nonnull @_timer_thread, ptr noundef null) #15
   %.not58 = icmp eq i32 %97, 0
   br i1 %.not58, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call ptr @__errno_location() #15
+  %99 = tail call ptr @__errno_location() #16
   store i32 %97, ptr %99, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #16
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.acct_gather_profile_startpoll) #17
   unreachable
 
 100:                                              ; preds = %96
-  %101 = call i32 @pthread_attr_destroy(ptr noundef nonnull %4) #14
+  %101 = call i32 @pthread_attr_destroy(ptr noundef nonnull %4) #15
   %.not59 = icmp eq i32 %101, 0
   br i1 %.not59, label %105, label %102
 
 102:                                              ; preds = %100
-  %103 = tail call ptr @__errno_location() #15
+  %103 = tail call ptr @__errno_location() #16
   store i32 %101, ptr %103, align 4
-  %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35) #14
+  %104 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34) #15
   br label %105
 
 105:                                              ; preds = %102, %100
-  %106 = call i32 @get_log_level() #14
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #15
+  %106 = call i32 @get_log_level() #15
   %107 = icmp sgt i32 %106, 6
   br i1 %107, label %108, label %109
 
 108:                                              ; preds = %105
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.36) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.35) #15
   br label %109
 
 109:                                              ; preds = %105, %108, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @acct_gather_energy_startpoll(i32 noundef) local_unnamed_addr #4
+declare i32 @acct_gather_energy_startpoll(i32 noundef) local_unnamed_addr #5
 
-declare i32 @jobacct_gather_startpoll(i16 noundef zeroext) local_unnamed_addr #4
+declare i32 @jobacct_gather_startpoll(i16 noundef zeroext) local_unnamed_addr #5
 
-declare i32 @acct_gather_filesystem_startpoll(i32 noundef) local_unnamed_addr #4
+declare i32 @acct_gather_filesystem_startpoll(i32 noundef) local_unnamed_addr #5
 
-declare i32 @acct_gather_interconnect_startpoll(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #1
+declare i32 @acct_gather_interconnect_startpoll(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setscope(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @_timer_thread(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca %struct.timespec, align 8
-  %4 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef null, ptr noundef null) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  %4 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.54, ptr noundef null, ptr noundef null, ptr noundef null) #15
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__._timer_thread, ptr noundef nonnull @.str.54) #14
+  %7 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__._timer_thread, ptr noundef nonnull @.str.54) #15
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
+  %9 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #15
   %10 = load i64, ptr %2, align 8
   store i64 %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1009,51 +1024,51 @@ define internal noalias noundef ptr @_timer_thread(ptr readnone captures(none) %
   br i1 %.not, label %.critedge, label %17
 
 17:                                               ; preds = %15
-  %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #14
+  %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #15
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #15
+  %20 = tail call ptr @__errno_location() #16
   store i32 %18, ptr %20, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 757, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 21:                                               ; preds = %17
   %.b6.i = load i1, ptr @acct_gather_profile_running, align 1
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not7.i = icmp eq i32 %22, 0
   br i1 %.not7.i, label %acct_gather_profile_test.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @__errno_location() #15
+  %24 = tail call ptr @__errno_location() #16
   store i32 %22, ptr %24, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 759, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 acct_gather_profile_test.exit:                    ; preds = %21
   br i1 %.b6.i, label %25, label %.critedge
 
 25:                                               ; preds = %acct_gather_profile_test.exit
-  %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #14
+  %26 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #15
   %.not46 = icmp eq i32 %26, 0
   br i1 %.not46, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @__errno_location() #15
+  %28 = tail call ptr @__errno_location() #16
   store i32 %26, ptr %28, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 29:                                               ; preds = %25
-  %30 = call i64 @time(ptr noundef null) #14
+  %30 = call i64 @time(ptr noundef null) #15
   %sext = shl i64 %30, 32
   %31 = ashr exact i64 %sext, 32
   br label %32
 
 32:                                               ; preds = %29, %79
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %79 ]
-  %33 = call zeroext i1 @acct_gather_suspend_test() #14
+  %33 = call zeroext i1 @acct_gather_suspend_test() #15
   %34 = getelementptr inbounds nuw [4 x %struct.acct_gather_profile_timer_t], ptr @acct_gather_profile_timer, i64 0, i64 %indvars.iv
   br i1 %33, label %35, label %43
 
@@ -1091,33 +1106,33 @@ acct_gather_profile_test.exit:                    ; preds = %21
   br i1 %50, label %79, label %51
 
 51:                                               ; preds = %46
-  %52 = call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #14
+  %52 = call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #15
   %.not.i57 = icmp eq i32 %52, 0
   br i1 %.not.i57, label %55, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call ptr @__errno_location() #15
+  %54 = tail call ptr @__errno_location() #16
   store i32 %52, ptr %54, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 757, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 55:                                               ; preds = %51
   %.b6.i58 = load i1, ptr @acct_gather_profile_running, align 1
-  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not7.i59 = icmp eq i32 %56, 0
   br i1 %.not7.i59, label %acct_gather_profile_test.exit60, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call ptr @__errno_location() #15
+  %58 = tail call ptr @__errno_location() #16
   store i32 %56, ptr %58, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 759, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 acct_gather_profile_test.exit60:                  ; preds = %55
   br i1 %.b6.i58, label %59, label %80
 
 59:                                               ; preds = %acct_gather_profile_test.exit60
-  %60 = call i32 @get_log_level() #14
+  %60 = call i32 @get_log_level() #15
   %61 = icmp sgt i32 %60, 5
   br i1 %61, label %switch.lookup, label %63
 
@@ -1126,42 +1141,42 @@ switch.lookup:                                    ; preds = %59
   %62 = ashr exact i64 %sext252, 32
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._timer_thread, i64 0, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.56, ptr noundef nonnull %switch.load) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.56, ptr noundef nonnull %switch.load) #15
   br label %63
 
 63:                                               ; preds = %59, %switch.lookup
   %64 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #14
+  %65 = call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #15
   %.not51 = icmp eq i32 %65, 0
   br i1 %.not51, label %68, label %66
 
 66:                                               ; preds = %63
-  %67 = tail call ptr @__errno_location() #15
+  %67 = tail call ptr @__errno_location() #16
   store i32 %65, ptr %67, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 190, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %70 = call i32 @pthread_cond_signal(ptr noundef nonnull %69) #14
+  %70 = call i32 @pthread_cond_signal(ptr noundef nonnull %69) #15
   %.not52 = icmp eq i32 %70, 0
   br i1 %.not52, label %74, label %71
 
 71:                                               ; preds = %68
-  %72 = tail call ptr @__errno_location() #15
+  %72 = tail call ptr @__errno_location() #16
   store i32 %70, ptr %72, align 4
-  %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.2, i32 noundef 192, ptr noundef nonnull @__func__._timer_thread) #14
+  %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 192, ptr noundef nonnull @__func__._timer_thread) #15
   br label %74
 
 74:                                               ; preds = %71, %68
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #14
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #15
   %.not53 = icmp eq i32 %75, 0
   br i1 %.not53, label %78, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call ptr @__errno_location() #15
+  %77 = tail call ptr @__errno_location() #16
   store i32 %75, ptr %77, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 78:                                               ; preds = %74
@@ -1171,84 +1186,86 @@ switch.lookup:                                    ; preds = %59
 79:                                               ; preds = %43, %46, %40, %42, %35, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %80, label %32, !llvm.loop !9
+  br i1 %exitcond.not, label %80, label %32, !llvm.loop !12
 
 80:                                               ; preds = %79, %acct_gather_profile_test.exit60
-  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #14
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #15
   %.not48 = icmp eq i32 %81, 0
   br i1 %.not48, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call ptr @__errno_location() #15
+  %83 = tail call ptr @__errno_location() #16
   store i32 %81, ptr %83, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 197, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 84:                                               ; preds = %80
   %85 = load i64, ptr %3, align 8
   %86 = add nsw i64 %85, 1
   store i64 %86, ptr %3, align 8
-  %87 = call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #14
+  %87 = call i32 @pthread_mutex_lock(ptr noundef nonnull @timer_thread_mutex) #15
   %.not49 = icmp eq i32 %87, 0
   br i1 %.not49, label %90, label %88
 
 88:                                               ; preds = %84
-  %89 = tail call ptr @__errno_location() #15
+  %89 = tail call ptr @__errno_location() #16
   store i32 %87, ptr %89, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 205, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 90:                                               ; preds = %84
-  %91 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @timer_thread_cond, ptr noundef nonnull @timer_thread_mutex, ptr noundef nonnull %3) #14
+  %91 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @timer_thread_cond, ptr noundef nonnull @timer_thread_mutex, ptr noundef nonnull %3) #15
   switch i32 %91, label %92 [
     i32 110, label %95
     i32 0, label %95
   ]
 
 92:                                               ; preds = %90
-  %93 = tail call ptr @__errno_location() #15
+  %93 = tail call ptr @__errno_location() #16
   store i32 %91, ptr %93, align 4
-  %94 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.2, i32 noundef 207, ptr noundef nonnull @__func__._timer_thread) #14
+  %94 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.38, i32 noundef 207, ptr noundef nonnull @__func__._timer_thread) #15
   br label %95
 
 95:                                               ; preds = %90, %90, %92
-  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #14
+  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @timer_thread_mutex) #15
   %.not50 = icmp eq i32 %96, 0
-  br i1 %.not50, label %15, label %97, !llvm.loop !10
+  br i1 %.not50, label %15, label %97, !llvm.loop !13
 
 97:                                               ; preds = %95
-  %98 = tail call ptr @__errno_location() #15
+  %98 = tail call ptr @__errno_location() #16
   store i32 %96, ptr %98, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 208, ptr noundef nonnull @__func__._timer_thread) #16
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._timer_thread) #17
   unreachable
 
 .critedge:                                        ; preds = %15, %acct_gather_profile_test.exit
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
   ret ptr null
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @get_log_level() local_unnamed_addr #4
+declare i32 @get_log_level() local_unnamed_addr #5
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #1
+declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 
-declare i32 @jobacct_gather_endpoll() local_unnamed_addr #4
+declare i32 @jobacct_gather_endpoll() local_unnamed_addr #5
 
-declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_g_child_forked() local_unnamed_addr #0 {
+define dso_local noundef i32 @acct_gather_profile_g_child_forked() local_unnamed_addr #0 {
   %1 = load i32, ptr @plugin_inited, align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @ops, align 8
-  tail call void %4() #14
+  tail call void %4() #15
   br label %5
 
 5:                                                ; preds = %0, %3
@@ -1256,14 +1273,14 @@ define noundef i32 @acct_gather_profile_g_child_forked() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_g_conf_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @acct_gather_profile_g_conf_options(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 8), align 8
-  tail call void %6(ptr noundef %0, ptr noundef %1) #14
+  tail call void %6(ptr noundef %0, ptr noundef %1) #15
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -1271,14 +1288,14 @@ define noundef i32 @acct_gather_profile_g_conf_options(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_g_conf_set(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @acct_gather_profile_g_conf_set(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 16), align 8
-  tail call void %5(ptr noundef %0) #14
+  tail call void %5(ptr noundef %0) #15
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1286,7 +1303,7 @@ define noundef i32 @acct_gather_profile_g_conf_set(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @acct_gather_profile_g_get(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @acct_gather_profile_g_get(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @plugin_inited, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %7
@@ -1302,7 +1319,7 @@ define noundef i32 @acct_gather_profile_g_get(i32 noundef %0, ptr noundef %1) lo
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 24), align 8
-  %9 = tail call ptr %8(i32 noundef %0, ptr noundef %1) #14
+  %9 = tail call ptr %8(i32 noundef %0, ptr noundef %1) #15
   br label %10
 
 10:                                               ; preds = %6, %5, %7
@@ -1310,14 +1327,14 @@ define noundef i32 @acct_gather_profile_g_get(i32 noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_node_step_start(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_node_step_start(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 32), align 8
-  %6 = tail call i32 %5(ptr noundef %0) #14
+  %6 = tail call i32 %5(ptr noundef %0) #15
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1326,14 +1343,14 @@ define i32 @acct_gather_profile_g_node_step_start(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_node_step_end() local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_node_step_end() local_unnamed_addr #0 {
   %1 = load i32, ptr @plugin_inited, align 4
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 40), align 8
-  %5 = tail call i32 %4() #14
+  %5 = tail call i32 %4() #15
   br label %6
 
 6:                                                ; preds = %0, %3
@@ -1342,33 +1359,33 @@ define i32 @acct_gather_profile_g_node_step_end() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_task_start(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_task_start(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #14
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 665, ptr noundef nonnull @__func__.acct_gather_profile_g_task_start) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_g_task_start) #17
   unreachable
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 48), align 8
-  %10 = tail call i32 %9(i32 noundef %0) #14
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
+  %10 = tail call i32 %9(i32 noundef %0) #15
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #15
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @__errno_location() #15
+  %13 = tail call ptr @__errno_location() #16
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 667, ptr noundef nonnull @__func__.acct_gather_profile_g_task_start) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_g_task_start) #17
   unreachable
 
 14:                                               ; preds = %8, %1
@@ -1377,33 +1394,33 @@ define i32 @acct_gather_profile_g_task_start(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_task_end(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_task_end(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #14
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 680, ptr noundef nonnull @__func__.acct_gather_profile_g_task_end) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_g_task_end) #17
   unreachable
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 56), align 8
-  %10 = tail call i32 %9(i32 noundef %0) #14
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
+  %10 = tail call i32 %9(i32 noundef %0) #15
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #15
   %.not9 = icmp eq i32 %11, 0
   br i1 %.not9, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @__errno_location() #15
+  %13 = tail call ptr @__errno_location() #16
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 682, ptr noundef nonnull @__func__.acct_gather_profile_g_task_end) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_g_task_end) #17
   unreachable
 
 14:                                               ; preds = %8, %1
@@ -1412,33 +1429,33 @@ define i32 @acct_gather_profile_g_task_end(i32 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @acct_gather_profile_g_create_group(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @acct_gather_profile_g_create_group(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #14
+  %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 695, ptr noundef nonnull @__func__.acct_gather_profile_g_create_group) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_g_create_group) #17
   unreachable
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 64), align 8
-  %10 = tail call i64 %9(ptr noundef %0) #14
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
+  %10 = tail call i64 %9(ptr noundef %0) #15
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #15
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @__errno_location() #15
+  %13 = tail call ptr @__errno_location() #16
   store i32 %11, ptr %13, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 697, ptr noundef nonnull @__func__.acct_gather_profile_g_create_group) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_g_create_group) #17
   unreachable
 
 14:                                               ; preds = %8, %1
@@ -1447,33 +1464,33 @@ define i64 @acct_gather_profile_g_create_group(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_create_dataset(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_create_dataset(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @plugin_inited, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #14
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #15
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 %7, ptr %9, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 712, ptr noundef nonnull @__func__.acct_gather_profile_g_create_dataset) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_g_create_dataset) #17
   unreachable
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 72), align 8
-  %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, ptr noundef %2) #14
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
+  %12 = tail call i32 %11(ptr noundef %0, i64 noundef %1, ptr noundef %2) #15
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #15
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @__errno_location() #15
+  %15 = tail call ptr @__errno_location() #16
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 714, ptr noundef nonnull @__func__.acct_gather_profile_g_create_dataset) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_g_create_dataset) #17
   unreachable
 
 16:                                               ; preds = %10, %3
@@ -1482,33 +1499,33 @@ define i32 @acct_gather_profile_g_create_dataset(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @acct_gather_profile_g_add_sample_data(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @acct_gather_profile_g_add_sample_data(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @plugin_inited, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #14
+  %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_mutex) #15
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #15
+  %9 = tail call ptr @__errno_location() #16
   store i32 %7, ptr %9, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 728, ptr noundef nonnull @__func__.acct_gather_profile_g_add_sample_data) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_g_add_sample_data) #17
   unreachable
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 80), align 8
-  %12 = tail call i32 %11(i32 noundef %0, ptr noundef %1, i64 noundef %2) #14
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #14
+  %12 = tail call i32 %11(i32 noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_mutex) #15
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @__errno_location() #15
+  %15 = tail call ptr @__errno_location() #16
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 730, ptr noundef nonnull @__func__.acct_gather_profile_g_add_sample_data) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_g_add_sample_data) #17
   unreachable
 
 16:                                               ; preds = %10, %3
@@ -1517,14 +1534,14 @@ define i32 @acct_gather_profile_g_add_sample_data(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @acct_gather_profile_g_conf_values(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @acct_gather_profile_g_conf_values(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 88), align 8
-  tail call void %5(ptr noundef %0) #14
+  tail call void %5(ptr noundef %0) #15
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1532,14 +1549,14 @@ define void @acct_gather_profile_g_conf_values(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @acct_gather_profile_g_is_active(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @acct_gather_profile_g_is_active(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @plugin_inited, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 96), align 8
-  %6 = tail call zeroext i1 %5(i32 noundef %0) #14
+  %6 = tail call zeroext i1 %5(i32 noundef %0) #15
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1548,85 +1565,89 @@ define zeroext i1 @acct_gather_profile_g_is_active(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @acct_gather_profile_test() local_unnamed_addr #0 {
-  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #14
+define dso_local zeroext i1 @acct_gather_profile_test() local_unnamed_addr #0 {
+  %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @profile_running_mutex) #15
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #15
+  %3 = tail call ptr @__errno_location() #16
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 757, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 4:                                                ; preds = %0
   %.b6 = load i1, ptr @acct_gather_profile_running, align 1
-  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #14
+  %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @profile_running_mutex) #15
   %.not7 = icmp eq i32 %5, 0
   br i1 %.not7, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   store i32 %5, ptr %7, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 759, ptr noundef nonnull @__func__.acct_gather_profile_test) #16
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.acct_gather_profile_test) #17
   unreachable
 
 8:                                                ; preds = %4
   ret i1 %.b6
 }
 
-declare i32 @acct_gather_parse_freq(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @acct_gather_parse_freq(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #1
+declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #1
+declare i64 @time(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @acct_gather_suspend_test() local_unnamed_addr #4
+declare zeroext i1 @acct_gather_suspend_test() local_unnamed_addr #5
 
-declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

@@ -3,27 +3,30 @@ source_filename = "bench/slurm/original/licenses.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurmdb_tres_rec_t = type { i64, i32, i64, i32, ptr, ptr }
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.assoc_mgr_lock_t = type { i32, i32, i32, i32, i32, i32, i32 }
+%struct.license_test_args_t = type { ptr, ptr, i32, i8, i64 }
 %struct.bf_licenses_find_resv_t = type { ptr, ptr }
 
 @cluster_license_list = dso_local local_unnamed_addr global ptr null, align 8
 @last_license_update = dso_local local_unnamed_addr global i64 0, align 8
+@preempt_for_licenses = dso_local local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"%s%s:%u\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c",\00", align 1
+@slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
+@.str.3 = private unnamed_addr constant [17 x i8] c"reclaim_licenses\00", align 1
 @license_mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
-@.str.3 = private unnamed_addr constant [35 x i8] c"%s:%d %s: pthread_mutex_lock(): %m\00", align 1
-@.str.4 = private unnamed_addr constant [11 x i8] c"licenses.c\00", align 1
+@.str.4 = private unnamed_addr constant [29 x i8] c"%s: pthread_mutex_lock(): %m\00", align 1
 @__func__.license_init = private unnamed_addr constant [13 x i8] c"license_init\00", align 1
 @.str.5 = private unnamed_addr constant [37 x i8] c"cluster_license_list already defined\00", align 1
 @.str.6 = private unnamed_addr constant [32 x i8] c"Invalid configured licenses: %s\00", align 1
 @.str.7 = private unnamed_addr constant [13 x i8] c"init_license\00", align 1
-@.str.8 = private unnamed_addr constant [37 x i8] c"%s:%d %s: pthread_mutex_unlock(): %m\00", align 1
+@.str.8 = private unnamed_addr constant [31 x i8] c"%s: pthread_mutex_unlock(): %m\00", align 1
 @__func__.license_update = private unnamed_addr constant [15 x i8] c"license_update\00", align 1
 @.str.9 = private unnamed_addr constant [34 x i8] c"license %s removed with %u in use\00", align 1
 @.str.10 = private unnamed_addr constant [27 x i8] c"license %s count decreased\00", align 1
@@ -48,48 +51,50 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [43 x i8] c"License name requested (%s) does not exist\00", align 1
 @.str.20 = private unnamed_addr constant [62 x i8] c"Licenses count requested higher than configured (%s: %u > %u)\00", align 1
 @__func__.license_job_test_with_list = private unnamed_addr constant [27 x i8] c"license_job_test_with_list\00", align 1
-@.str.21 = private unnamed_addr constant [37 x i8] c"could not find license %s for job %u\00", align 1
-@.str.22 = private unnamed_addr constant [46 x i8] c"job %u wants more %s licenses than configured\00", align 1
+@.str.21 = private unnamed_addr constant [20 x i8] c"licenses_to_preempt\00", align 1
+@.str.22 = private unnamed_addr constant [11 x i8] c"licenses.c\00", align 1
 @__func__.license_copy = private unnamed_addr constant [13 x i8] c"license_copy\00", align 1
 @__func__.license_job_get = private unnamed_addr constant [16 x i8] c"license_job_get\00", align 1
-@.str.23 = private unnamed_addr constant [16 x i8] c"acquire_license\00", align 1
-@slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
-@.str.24 = private unnamed_addr constant [20 x i8] c"TRACE_JOBS: %s: %pJ\00", align 1
+@.str.23 = private unnamed_addr constant [37 x i8] c"could not find license %s for job %u\00", align 1
+@.str.24 = private unnamed_addr constant [16 x i8] c"acquire_license\00", align 1
+@.str.25 = private unnamed_addr constant [20 x i8] c"TRACE_JOBS: %s: %pJ\00", align 1
 @__func__.license_job_return_to_list = private unnamed_addr constant [27 x i8] c"license_job_return_to_list\00", align 1
-@.str.25 = private unnamed_addr constant [39 x i8] c"%s: license use count underflow for %s\00", align 1
-@.str.26 = private unnamed_addr constant [42 x i8] c"%s: job returning unknown license name %s\00", align 1
-@.str.27 = private unnamed_addr constant [15 x i8] c"return_license\00", align 1
-@.str.28 = private unnamed_addr constant [29 x i8] c"%s: calling for all licenses\00", align 1
+@.str.26 = private unnamed_addr constant [39 x i8] c"%s: license use count underflow for %s\00", align 1
+@.str.27 = private unnamed_addr constant [42 x i8] c"%s: job returning unknown license name %s\00", align 1
+@.str.28 = private unnamed_addr constant [15 x i8] c"return_license\00", align 1
+@.str.29 = private unnamed_addr constant [29 x i8] c"%s: calling for all licenses\00", align 1
 @__func__.get_all_license_info = private unnamed_addr constant [21 x i8] c"get_all_license_info\00", align 1
-@.str.29 = private unnamed_addr constant [26 x i8] c"%s: processed %d licenses\00", align 1
+@.str.30 = private unnamed_addr constant [26 x i8] c"%s: processed %d licenses\00", align 1
 @__func__.get_total_license_cnt = private unnamed_addr constant [22 x i8] c"get_total_license_cnt\00", align 1
 @licenses_2_tres_str.first_run = internal unnamed_addr global i1 false, align 1
 @licenses_2_tres_str.tres_req = internal global %struct.slurmdb_tres_rec_t zeroinitializer, align 8
-@.str.30 = private unnamed_addr constant [9 x i8] c"%s%u=%lu\00", align 1
+@.str.31 = private unnamed_addr constant [9 x i8] c"%s%u=%lu\00", align 1
 @license_set_job_tres_cnt.first_run = internal unnamed_addr global i1 false, align 1
 @license_set_job_tres_cnt.tres_rec = internal global %struct.slurmdb_tres_rec_t zeroinitializer, align 8
 @__const.license_set_job_tres_cnt.locks = private unnamed_addr constant %struct.assoc_mgr_lock_t { i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0 }, align 4
 @__func__.bf_licenses_initial = private unnamed_addr constant [20 x i8] c"bf_licenses_initial\00", align 1
-@.str.31 = private unnamed_addr constant [14 x i8] c"%s%s%s%s%s:%u\00", align 1
-@.str.32 = private unnamed_addr constant [6 x i8] c"resv=\00", align 1
-@.str.33 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@.str.32 = private unnamed_addr constant [14 x i8] c"%s%s%s%s%s:%u\00", align 1
+@.str.33 = private unnamed_addr constant [6 x i8] c"resv=\00", align 1
+@.str.34 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @__func__.slurm_bf_licenses_copy = private unnamed_addr constant [23 x i8] c"slurm_bf_licenses_copy\00", align 1
-@.str.34 = private unnamed_addr constant [23 x i8] c"%s: missing license %s\00", align 1
+@.str.35 = private unnamed_addr constant [23 x i8] c"%s: missing license %s\00", align 1
 @__func__.slurm_bf_licenses_deduct = private unnamed_addr constant [25 x i8] c"slurm_bf_licenses_deduct\00", align 1
-@.str.35 = private unnamed_addr constant [20 x i8] c"%s: underflow on %s\00", align 1
+@.str.36 = private unnamed_addr constant [20 x i8] c"%s: underflow on %s\00", align 1
 @__func__.slurm_bf_licenses_transfer = private unnamed_addr constant [27 x i8] c"slurm_bf_licenses_transfer\00", align 1
-@.str.36 = private unnamed_addr constant [3 x i8] c",;\00", align 1
+@.str.37 = private unnamed_addr constant [3 x i8] c",;\00", align 1
 @__func__._build_license_list = private unnamed_addr constant [20 x i8] c"_build_license_list\00", align 1
-@.str.37 = private unnamed_addr constant [33 x i8] c"licenses: %s=%s total=%u used=%u\00", align 1
-@.str.38 = private unnamed_addr constant [41 x i8] c"licenses: %s=%s %pJ available=%u used=%u\00", align 1
+@.str.38 = private unnamed_addr constant [33 x i8] c"licenses: %s=%s total=%u used=%u\00", align 1
+@.str.39 = private unnamed_addr constant [41 x i8] c"licenses: %s=%s %pJ available=%u used=%u\00", align 1
 @__func__._add_res_rec_2_lic_list = private unnamed_addr constant [24 x i8] c"_add_res_rec_2_lic_list\00", align 1
-@.str.39 = private unnamed_addr constant [76 x i8] c"allocated more licenses than exist total (%u > %u). this should not happen.\00", align 1
-@.str.40 = private unnamed_addr constant [39 x i8] c"%s: protocol_version %hu not supported\00", align 1
+@.str.40 = private unnamed_addr constant [76 x i8] c"allocated more licenses than exist total (%u > %u). this should not happen.\00", align 1
+@.str.41 = private unnamed_addr constant [46 x i8] c"job %u wants more %s licenses than configured\00", align 1
+@.str.42 = private unnamed_addr constant [39 x i8] c"%s: protocol_version %hu not supported\00", align 1
 @__func__._pack_license = private unnamed_addr constant [14 x i8] c"_pack_license\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_free_rec(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
@@ -100,14 +105,22 @@ define dso_local void @license_free_rec(ptr noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @license_list_to_string(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
@@ -127,7 +140,7 @@ define dso_local ptr @license_list_to_string(ptr noundef %0) local_unnamed_addr 
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0813, ptr noundef %7, i32 noundef %9) #11
   %10 = call ptr @list_next(ptr noundef %4) #11
   %.not11 = icmp eq ptr %10, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @list_iterator_destroy(ptr noundef %4) #11
@@ -136,112 +149,133 @@ define dso_local ptr @license_list_to_string(ptr noundef %0) local_unnamed_addr 
 
 12:                                               ; preds = %1, %._crit_edge
   %.0 = phi ptr [ %11, %._crit_edge ], [ null, %1 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret ptr %.0
 }
 
-declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
+declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #1
+declare ptr @list_next(ptr noundef) local_unnamed_addr #2
 
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
+declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @license_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  %3 = tail call i64 @time(ptr noundef null) #11
-  store i64 %3, ptr @last_license_update, align 8
-  %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %7, label %5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 800), align 8
+  %4 = tail call ptr @xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.3) #11
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @__errno_location() #12
-  store i32 %4, ptr %6, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 278, ptr noundef nonnull @__func__.license_init) #13
+  store i8 1, ptr @preempt_for_licenses, align 1
+  br label %6
+
+6:                                                ; preds = %5, %1
+  %7 = tail call i64 @time(ptr noundef null) #11
+  store i64 %7, ptr @last_license_update, align 8
+  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
+  %.not6 = icmp eq i32 %8, 0
+  br i1 %.not6, label %11, label %9
+
+9:                                                ; preds = %6
+  %10 = tail call ptr @__errno_location() #12
+  store i32 %8, ptr %10, align 4
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_init) #13
   unreachable
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr @cluster_license_list, align 8
-  %.not6 = icmp eq ptr %8, null
-  br i1 %.not6, label %10, label %9
+11:                                               ; preds = %6
+  %12 = load ptr, ptr @cluster_license_list, align 8
+  %.not7 = icmp eq ptr %12, null
+  br i1 %.not7, label %14, label %13
 
-9:                                                ; preds = %7
+13:                                               ; preds = %11
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5) #13
   unreachable
 
-10:                                               ; preds = %7
-  %11 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
-  store ptr %11, ptr @cluster_license_list, align 8
-  %12 = load i8, ptr %2, align 1
-  %13 = trunc i8 %12 to i1
-  br i1 %13, label %15, label %14
+14:                                               ; preds = %11
+  %15 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
+  store ptr %15, ptr @cluster_license_list, align 8
+  %16 = load i8, ptr %2, align 1, !range !11, !noundef !12
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %19, label %18
 
-14:                                               ; preds = %10
+18:                                               ; preds = %14
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef %0) #13
   unreachable
 
-15:                                               ; preds = %10
-  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.7, ptr noundef %11, ptr noundef null)
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not7 = icmp eq i32 %16, 0
-  br i1 %.not7, label %19, label %17
+19:                                               ; preds = %14
+  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.7, ptr noundef %15, ptr noundef null)
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
+  %.not8 = icmp eq i32 %20, 0
+  br i1 %.not8, label %23, label %21
 
-17:                                               ; preds = %15
-  %18 = tail call ptr @__errno_location() #12
-  store i32 %16, ptr %18, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 287, ptr noundef nonnull @__func__.license_init) #13
+21:                                               ; preds = %19
+  %22 = tail call ptr @__errno_location() #12
+  store i32 %20, ptr %22, align 4
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_init) #13
   unreachable
 
-19:                                               ; preds = %15
+23:                                               ; preds = %19
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   ret i32 0
 }
 
-; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #2
+declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
+declare i64 @time(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #5
+
+; Function Attrs: noreturn
+declare void @fatal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef captures(none) initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i8 1, ptr %1, align 1
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %58, label %7
+  br i1 %6, label %56, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %58, label %10
+  br i1 %9, label %56, label %10
 
 10:                                               ; preds = %7
   %11 = tail call ptr @list_create(ptr noundef nonnull @license_free_rec) #11
   %12 = tail call ptr @xstrdup(ptr noundef nonnull %0) #11
   store ptr %12, ptr %4, align 8
-  %13 = call ptr @strtok_r(ptr noundef %12, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #11
-  %.not59 = icmp eq ptr %13, null
-  br i1 %.not59, label %.critedge, label %.lr.ph62
+  %13 = call ptr @strtok_r(ptr noundef %12, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
+  %.not65 = icmp eq ptr %13, null
+  br i1 %.not65, label %.critedge, label %.lr.ph68
 
-.lr.ph62:                                         ; preds = %10, %51
-  %.04060 = phi ptr [ %52, %51 ], [ %13, %10 ]
-  %14 = load i8, ptr %1, align 1
-  %15 = trunc i8 %14 to i1
+.lr.ph68:                                         ; preds = %10, %50
+  %.04266 = phi ptr [ %51, %50 ], [ %13, %10 ]
+  %14 = load i8, ptr %1, align 1, !range !11, !noundef !12
+  %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %.lr.ph62
-  %16 = load i8, ptr %.04060, align 1
-  %.not4857 = icmp eq i8 %16, 0
-  br i1 %.not4857, label %.thread, label %.lr.ph
+.preheader:                                       ; preds = %.lr.ph68
+  %16 = load i8, ptr %.04266, align 1
+  %.not5063 = icmp eq i8 %16, 0
+  br i1 %.not5063, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = tail call ptr @__ctype_b_loc() #12
@@ -255,8 +289,8 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   %22 = getelementptr inbounds i16, ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8192
-  %.not49 = icmp eq i16 %24, 0
-  br i1 %.not49, label %25, label %.thread.thread
+  %.not51 = icmp eq i16 %24, 0
+  br i1 %.not51, label %25, label %.thread57
 
 25:                                               ; preds = %19
   switch i8 %20, label %34 [
@@ -265,15 +299,15 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   ]
 
 26:                                               ; preds = %25, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.04060, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %.04266, i64 %indvars.iv
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = call i64 @strtol(ptr noundef nonnull %28, ptr noundef nonnull %3, i32 noundef 10) #11
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %3, align 8
   %32 = load i8, ptr %31, align 1
-  %.not50 = icmp eq i8 %32, 0
-  br i1 %.not50, label %37, label %33
+  %.not52 = icmp eq i8 %32, 0
+  br i1 %.not52, label %37, label %33
 
 33:                                               ; preds = %26
   store i8 0, ptr %1, align 1
@@ -281,73 +315,76 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
 
 34:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i8, ptr %.04060, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw i8, ptr %.04266, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 1
-  %.not48 = icmp eq i8 %36, 0
-  br i1 %.not48, label %.thread, label %19, !llvm.loop !9
+  %.not50 = icmp eq i8 %36, 0
+  br i1 %.not50, label %.thread, label %19, !llvm.loop !13
 
 37:                                               ; preds = %26, %33
   %38 = icmp slt i32 %30, 0
-  br i1 %38, label %.thread.thread, label %..thread_crit_edge
+  br i1 %38, label %.thread57, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %37
-  %.pre = load i8, ptr %1, align 1
+  %.pre = load i8, ptr %1, align 1, !range !11
   br label %.thread
 
-.thread:                                          ; preds = %34, %..thread_crit_edge, %.preheader
-  %39 = phi i8 [ %.pre, %..thread_crit_edge ], [ %14, %.preheader ], [ %14, %34 ]
-  %.054 = phi i32 [ %30, %..thread_crit_edge ], [ 1, %.preheader ], [ 1, %34 ]
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %.thread.thread
+.thread:                                          ; preds = %34, %..thread_crit_edge
+  %39 = phi i8 [ %.pre, %..thread_crit_edge ], [ %14, %34 ]
+  %.056 = phi i32 [ %30, %..thread_crit_edge ], [ 1, %34 ]
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %.thread.thread, label %.thread57
 
-.thread.thread:                                   ; preds = %.thread, %37, %19
+.thread57:                                        ; preds = %37, %.thread, %19
   store i8 0, ptr %1, align 1
   br label %.critedge
 
-41:                                               ; preds = %.thread
-  %42 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04060) #11
-  %.not51 = icmp eq ptr %42, null
-  br i1 %.not51, label %47, label %43
+.thread.thread:                                   ; preds = %.preheader, %.thread
+  %.05673 = phi i32 [ %.056, %.thread ], [ 1, %.preheader ]
+  %41 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04266) #11
+  %.not53 = icmp eq ptr %41, null
+  br i1 %.not53, label %46, label %42
 
-43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %45 = load i32, ptr %44, align 8
-  %46 = add i32 %45, %.054
-  store i32 %46, ptr %44, align 8
-  br label %51
+42:                                               ; preds = %.thread.thread
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, %.05673
+  store i32 %45, ptr %43, align 8
+  br label %50
 
-47:                                               ; preds = %41
-  %48 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 174, ptr noundef nonnull @__func__._build_license_list) #11
-  %49 = call ptr @xstrdup(ptr noundef nonnull %.04060) #11
-  store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 %.054, ptr %50, align 8
-  call void @list_push(ptr noundef %11, ptr noundef nonnull %48) #11
-  br label %51
+46:                                               ; preds = %.thread.thread
+  %47 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 183, ptr noundef nonnull @__func__._build_license_list) #11
+  %48 = call ptr @xstrdup(ptr noundef nonnull %.04266) #11
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 %.05673, ptr %49, align 8
+  call void @list_push(ptr noundef %11, ptr noundef nonnull %47) #11
+  br label %50
 
-51:                                               ; preds = %47, %43
-  %52 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #11
-  %.not = icmp eq ptr %52, null
-  br i1 %.not, label %.critedge, label %.lr.ph62, !llvm.loop !10
+50:                                               ; preds = %42, %46
+  %51 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
+  %.not = icmp eq ptr %51, null
+  br i1 %.not, label %.critedge, label %.lr.ph68
 
-.critedge:                                        ; preds = %.lr.ph62, %51, %10, %.thread.thread
+.critedge:                                        ; preds = %.lr.ph68, %50, %10, %.thread57
   call void @slurm_xfree(ptr noundef nonnull %4) #11
-  %53 = load i8, ptr %1, align 1
-  %54 = and i8 %53, 1
-  %55 = icmp eq i8 %54, 0
-  br i1 %55, label %56, label %58
+  %52 = load i8, ptr %1, align 1, !range !11, !noundef !12
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %54, label %56
 
-56:                                               ; preds = %.critedge
-  %.not52 = icmp eq ptr %11, null
-  br i1 %.not52, label %58, label %57
+54:                                               ; preds = %.critedge
+  %.not54 = icmp eq ptr %11, null
+  br i1 %.not54, label %56, label %55
 
-57:                                               ; preds = %56
+55:                                               ; preds = %54
   call void @list_destroy(ptr noundef nonnull %11) #11
-  br label %58
+  br label %56
 
-58:                                               ; preds = %.critedge, %57, %56, %2, %7
-  %.042 = phi ptr [ null, %7 ], [ null, %2 ], [ %11, %.critedge ], [ null, %57 ], [ null, %56 ]
-  ret ptr %.042
+56:                                               ; preds = %.critedge, %55, %54, %2, %7
+  %.044 = phi ptr [ null, %7 ], [ null, %2 ], [ %11, %.critedge ], [ null, %55 ], [ null, %54 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  ret ptr %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -356,7 +393,7 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %7 = and i64 %6, 1048576
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %33, label %8
@@ -383,13 +420,13 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef %0, ptr noundef %15, i32 noundef %17, i32 noundef %19) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef %0, ptr noundef %15, i32 noundef %17, i32 noundef %19) #11
   br label %20
 
 20:                                               ; preds = %14, %.lr.ph.split.us
   %21 = tail call ptr @list_next(ptr noundef %9) #11
   %.not16.us = icmp eq ptr %21, null
-  br i1 %.not16.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not16.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %22 = phi ptr [ %32, %31 ], [ %10, %.lr.ph ]
@@ -403,13 +440,13 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %30 = load i32, ptr %29, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef %0, ptr noundef %26, ptr noundef nonnull %2, i32 noundef %28, i32 noundef %30) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %0, ptr noundef %26, ptr noundef nonnull %2, i32 noundef %28, i32 noundef %30) #11
   br label %31
 
 31:                                               ; preds = %.lr.ph.split, %25
   %32 = tail call ptr @list_next(ptr noundef %9) #11
   %.not16 = icmp eq ptr %32, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %31, %20, %8
   tail call void @list_iterator_destroy(ptr noundef %9) #11
@@ -420,15 +457,16 @@ define internal fastcc void @_licenses_print(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   %3 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
   %.fr = freeze ptr %3
-  %4 = load i8, ptr %2, align 1
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr %2, align 1, !range !11, !noundef !12
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
@@ -443,7 +481,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #12
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 304, ptr noundef nonnull @__func__.license_update) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_update) #13
   unreachable
 
 11:                                               ; preds = %7
@@ -460,7 +498,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #12
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 307, ptr noundef nonnull @__func__.license_update) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_update) #13
   unreachable
 
 17:                                               ; preds = %11
@@ -497,7 +535,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 30:                                               ; preds = %26, %.thread.us
   %31 = tail call ptr @list_next(ptr noundef %18) #11
   %.not36.us = icmp eq ptr %31, null
-  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %.not36.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %60
   %32 = phi ptr [ %61, %60 ], [ %20, %.lr.ph ]
@@ -523,7 +561,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
   tail call void @list_append(ptr noundef %.1, ptr noundef nonnull %.us-phi61) #11
   %39 = tail call ptr @list_next(ptr noundef %18) #11
   %.not3646 = icmp eq ptr %39, null
-  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not3646, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
 
 40:                                               ; preds = %.lr.ph.split
   %41 = load ptr, ptr %32, align 8
@@ -564,7 +602,7 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 60:                                               ; preds = %49, %58, %55, %.thread, %45
   %61 = tail call ptr @list_next(ptr noundef %18) #11
   %.not36 = icmp eq ptr %61, null
-  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not36, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 .outer._crit_edge:                                ; preds = %.outer, %60, %30, %17
   %.028.ph.lcssa = phi ptr [ %.fr, %17 ], [ null, %30 ], [ %.028.ph50, %60 ], [ %.1, %.outer ]
@@ -587,20 +625,21 @@ define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr 
 66:                                               ; preds = %64
   %67 = tail call ptr @__errno_location() #12
   store i32 %65, ptr %67, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 344, ptr noundef nonnull @__func__.license_update) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_update) #13
   unreachable
 
 68:                                               ; preds = %64, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   ret i32 0
 }
 
-declare ptr @list_remove(ptr noundef) local_unnamed_addr #1
+declare ptr @list_remove(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_create(ptr noundef) local_unnamed_addr #1
+declare ptr @list_create(ptr noundef) local_unnamed_addr #2
 
-declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_license_find_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -621,15 +660,16 @@ define internal range(i32 0, 2) i32 @_license_find_rec(ptr noundef readonly capt
   ret i32 %.0
 }
 
-declare i32 @get_log_level() local_unnamed_addr #1
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @list_destroy(ptr noundef) local_unnamed_addr #1
+declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_add_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -643,7 +683,7 @@ define dso_local void @license_add_remote(ptr noundef readonly captures(none) %0
 9:                                                ; preds = %1
   %10 = tail call ptr @__errno_location() #12
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 359, ptr noundef nonnull @__func__.license_add_remote) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_add_remote) #13
   unreachable
 
 11:                                               ; preds = %1
@@ -679,14 +719,15 @@ define dso_local void @license_add_remote(ptr noundef readonly captures(none) %0
 23:                                               ; preds = %21
   %24 = tail call ptr @__errno_location() #12
   store i32 %22, ptr %24, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 379, ptr noundef nonnull @__func__.license_add_remote) #13
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_add_remote) #13
   unreachable
 
 25:                                               ; preds = %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_license_find_remote_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -713,11 +754,11 @@ _license_find_rec.exit:                           ; preds = %9, %5, %2
   ret i32 %.0
 }
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_res_rec_2_lic_list(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
-  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 261, ptr noundef nonnull @__func__._add_res_rec_2_lic_list) #11
+  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 270, ptr noundef nonnull @__func__._add_res_rec_2_lic_list) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -768,7 +809,7 @@ define internal fastcc void @_add_res_rec_2_lic_list(ptr noundef readonly captur
 36:                                               ; preds = %33
   %37 = load i32, ptr %29, align 8
   %38 = load i32, ptr %30, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.39, i32 noundef %37, i32 noundef %38) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.40, i32 noundef %37, i32 noundef %38) #11
   br label %_handle_consumed.exit
 
 39:                                               ; preds = %28
@@ -801,6 +842,7 @@ _handle_consumed.exit:                            ; preds = %33, %36, %39
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_update_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -814,7 +856,7 @@ define dso_local void @license_update_remote(ptr noundef readonly captures(none)
 9:                                                ; preds = %1
   %10 = tail call ptr @__errno_location() #12
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 393, ptr noundef nonnull @__func__.license_update_remote) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_update_remote) #13
   unreachable
 
 11:                                               ; preds = %1
@@ -888,7 +930,7 @@ define dso_local void @license_update_remote(ptr noundef readonly captures(none)
 49:                                               ; preds = %46
   %50 = load i32, ptr %42, align 8
   %51 = load i32, ptr %43, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.39, i32 noundef %50, i32 noundef %51) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.40, i32 noundef %50, i32 noundef %51) #11
   br label %_handle_consumed.exit
 
 52:                                               ; preds = %41
@@ -924,16 +966,18 @@ _handle_consumed.exit:                            ; preds = %46, %49, %52
 67:                                               ; preds = %64
   %68 = tail call ptr @__errno_location() #12
   store i32 %66, ptr %68, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 417, ptr noundef nonnull @__func__.license_update_remote) #13
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_update_remote) #13
   unreachable
 
 69:                                               ; preds = %64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_remove_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -941,7 +985,7 @@ define dso_local void @license_remove_remote(ptr noundef readonly captures(none)
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #12
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 429, ptr noundef nonnull @__func__.license_remove_remote) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_remove_remote) #13
   unreachable
 
 6:                                                ; preds = %1
@@ -977,7 +1021,7 @@ define dso_local void @license_remove_remote(ptr noundef readonly captures(none)
 .backedge:                                        ; preds = %.lr.ph, %23
   %22 = tail call ptr @list_next(ptr noundef %17) #11
   %.not16 = icmp eq ptr %22, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %19, align 8
@@ -1018,16 +1062,17 @@ define dso_local void @license_remove_remote(ptr noundef readonly captures(none)
 39:                                               ; preds = %37
   %40 = tail call ptr @__errno_location() #12
   store i32 %38, ptr %40, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 456, ptr noundef nonnull @__func__.license_remove_remote) #13
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_remove_remote) #13
   unreachable
 
 41:                                               ; preds = %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
-declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #1
+declare i32 @list_delete_item(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0 {
@@ -1039,7 +1084,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
 4:                                                ; preds = %1
   %5 = tail call ptr @__errno_location() #12
   store i32 %3, ptr %5, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 465, ptr noundef nonnull @__func__.license_sync_remote) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_sync_remote) #13
   unreachable
 
 6:                                                ; preds = %1
@@ -1057,23 +1102,24 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
 
 12:                                               ; preds = %6
   %13 = tail call ptr @list_iterator_create(ptr noundef %8) #11
-  br i1 %7, label %87, label %14
+  br i1 %7, label %88, label %14
 
 14:                                               ; preds = %.thread, %12
   %15 = phi ptr [ %11, %.thread ], [ %13, %12 ]
   %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #11
   %17 = tail call ptr @list_next(ptr noundef %16) #11
-  %.not4154 = icmp eq ptr %17, null
-  br i1 %.not4154, label %._crit_edge57, label %.lr.ph56
+  %.not4153 = icmp eq ptr %17, null
+  br i1 %.not4153, label %._crit_edge56, label %.lr.ph55
 
-.lr.ph56:                                         ; preds = %14, %.backedge50
-  %18 = phi ptr [ %86, %.backedge50 ], [ %17, %14 ]
+.lr.ph55:                                         ; preds = %14, %86
+  %18 = phi ptr [ %87, %86 ], [ %17, %14 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 8
   %.not45 = icmp eq i32 %20, 1
-  br i1 %.not45, label %21, label %.backedge50
+  br i1 %.not45, label %21, label %86, !llvm.loop !17
 
-21:                                               ; preds = %.lr.ph56
+21:                                               ; preds = %.lr.ph55
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -1081,8 +1127,8 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
   %26 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.12, ptr noundef %23, ptr noundef %25) #11
   store ptr %26, ptr %2, align 8
   %27 = call ptr @list_next(ptr noundef %15) #11
-  %.not4653 = icmp eq ptr %27, null
-  br i1 %.not4653, label %._crit_edge, label %.lr.ph
+  %.not4652 = icmp eq ptr %27, null
+  br i1 %.not4652, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.backedge49
   %28 = phi ptr [ %31, %.backedge49 ], [ %27, %21 ]
@@ -1094,7 +1140,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
 .backedge49:                                      ; preds = %.lr.ph, %32
   %31 = call ptr @list_next(ptr noundef %15) #11
   %.not46 = icmp eq ptr %31, null
-  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %28, align 8
@@ -1142,12 +1188,12 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
 60:                                               ; preds = %55
   %61 = call i32 @get_log_level() #11
   %62 = icmp sgt i32 %61, 4
-  %.pre63 = load i32, ptr %56, align 8
+  %.pre62 = load i32, ptr %56, align 8
   br i1 %62, label %63, label %_handle_consumed.exit
 
 63:                                               ; preds = %60
   %64 = load i32, ptr %57, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.39, i32 noundef %.pre63, i32 noundef %64) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.40, i32 noundef %.pre62, i32 noundef %64) #11
   %.pre = load i32, ptr %56, align 8
   br label %_handle_consumed.exit
 
@@ -1156,7 +1202,7 @@ define dso_local void @license_sync_remote(ptr noundef %0) local_unnamed_addr #0
   br label %_handle_consumed.exit
 
 _handle_consumed.exit:                            ; preds = %60, %63, %65
-  %67 = phi i32 [ %.pre, %63 ], [ %.pre63, %60 ], [ %.sink.i, %65 ]
+  %67 = phi i32 [ %.pre, %63 ], [ %.pre62, %60 ], [ %.sink.i, %65 ]
   %.0.i = phi i32 [ 0, %63 ], [ 0, %60 ], [ %66, %65 ]
   %68 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %69 = load i32, ptr %68, align 4
@@ -1196,76 +1242,77 @@ _handle_consumed.exit:                            ; preds = %60, %63, %65
 
 85:                                               ; preds = %84, %._crit_edge
   call void @list_iterator_reset(ptr noundef %15) #11
-  br label %.backedge50
+  br label %86
 
-.backedge50:                                      ; preds = %85, %.lr.ph56
-  %86 = call ptr @list_next(ptr noundef %16) #11
-  %.not41 = icmp eq ptr %86, null
-  br i1 %.not41, label %._crit_edge57, label %.lr.ph56, !llvm.loop !15
+86:                                               ; preds = %.lr.ph55, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  %87 = call ptr @list_next(ptr noundef %16) #11
+  %.not41 = icmp eq ptr %87, null
+  br i1 %.not41, label %._crit_edge56, label %.lr.ph55
 
-._crit_edge57:                                    ; preds = %.backedge50, %14
+._crit_edge56:                                    ; preds = %86, %14
   call void @list_iterator_destroy(ptr noundef %16) #11
-  br label %87
+  br label %88
 
-87:                                               ; preds = %._crit_edge57, %12
-  %88 = phi ptr [ %15, %._crit_edge57 ], [ %13, %12 ]
-  %89 = call ptr @list_next(ptr noundef %88) #11
-  %.not4258 = icmp eq ptr %89, null
-  br i1 %.not4258, label %._crit_edge61, label %.lr.ph60
+88:                                               ; preds = %._crit_edge56, %12
+  %89 = phi ptr [ %15, %._crit_edge56 ], [ %13, %12 ]
+  %90 = call ptr @list_next(ptr noundef %89) #11
+  %.not4257 = icmp eq ptr %90, null
+  br i1 %.not4257, label %._crit_edge60, label %.lr.ph59
 
-.lr.ph60:                                         ; preds = %87, %.backedge
-  %90 = phi ptr [ %104, %.backedge ], [ %89, %87 ]
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 20
-  %92 = load i8, ptr %91, align 4
-  switch i8 %92, label %.backedge [
-    i8 2, label %103
-    i8 1, label %93
+.lr.ph59:                                         ; preds = %88, %.backedge
+  %91 = phi ptr [ %105, %.backedge ], [ %90, %88 ]
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
+  %93 = load i8, ptr %92, align 4
+  switch i8 %93, label %.backedge [
+    i8 2, label %104
+    i8 1, label %94
   ]
 
-93:                                               ; preds = %.lr.ph60
-  %94 = call i32 @get_log_level() #11
-  %95 = icmp sgt i32 %94, 2
-  br i1 %95, label %96, label %100
+94:                                               ; preds = %.lr.ph59
+  %95 = call i32 @get_log_level() #11
+  %96 = icmp sgt i32 %95, 2
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %90, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %99 = load i32, ptr %98, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef %97, i32 noundef %99) #11
-  br label %100
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %91, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 12
+  %100 = load i32, ptr %99, align 4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef %98, i32 noundef %100) #11
+  br label %101
 
-100:                                              ; preds = %96, %93
-  %101 = call i32 @list_delete_item(ptr noundef %88) #11
-  %102 = call i64 @time(ptr noundef null) #11
-  store i64 %102, ptr @last_license_update, align 8
+101:                                              ; preds = %97, %94
+  %102 = call i32 @list_delete_item(ptr noundef %89) #11
+  %103 = call i64 @time(ptr noundef null) #11
+  store i64 %103, ptr @last_license_update, align 8
   br label %.backedge
 
-103:                                              ; preds = %.lr.ph60
-  store i8 1, ptr %91, align 4
+104:                                              ; preds = %.lr.ph59
+  store i8 1, ptr %92, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %103, %100, %.lr.ph60
-  %104 = call ptr @list_next(ptr noundef %88) #11
-  %.not42 = icmp eq ptr %104, null
-  br i1 %.not42, label %._crit_edge61, label %.lr.ph60, !llvm.loop !16
+.backedge:                                        ; preds = %104, %101, %.lr.ph59
+  %105 = call ptr @list_next(ptr noundef %89) #11
+  %.not42 = icmp eq ptr %105, null
+  br i1 %.not42, label %._crit_edge60, label %.lr.ph59, !llvm.loop !19
 
-._crit_edge61:                                    ; preds = %.backedge, %87
-  call void @list_iterator_destroy(ptr noundef %88) #11
-  %105 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not43 = icmp eq i32 %105, 0
-  br i1 %.not43, label %108, label %106
+._crit_edge60:                                    ; preds = %.backedge, %88
+  call void @list_iterator_destroy(ptr noundef %89) #11
+  %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
+  %.not43 = icmp eq i32 %106, 0
+  br i1 %.not43, label %109, label %107
 
-106:                                              ; preds = %._crit_edge61
-  %107 = tail call ptr @__errno_location() #12
-  store i32 %105, ptr %107, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 516, ptr noundef nonnull @__func__.license_sync_remote) #13
+107:                                              ; preds = %._crit_edge60
+  %108 = tail call ptr @__errno_location() #12
+  store i32 %106, ptr %108, align 4
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_sync_remote) #13
   unreachable
 
-108:                                              ; preds = %._crit_edge61
+109:                                              ; preds = %._crit_edge60
   ret void
 }
 
-declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #1
+declare void @list_iterator_reset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_free() local_unnamed_addr #0 {
@@ -1276,7 +1323,7 @@ define dso_local void @license_free() local_unnamed_addr #0 {
 2:                                                ; preds = %0
   %3 = tail call ptr @__errno_location() #12
   store i32 %1, ptr %3, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 522, ptr noundef nonnull @__func__.license_free) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_free) #13
   unreachable
 
 4:                                                ; preds = %0
@@ -1297,7 +1344,7 @@ define dso_local void @license_free() local_unnamed_addr #0 {
 9:                                                ; preds = %7
   %10 = tail call ptr @__errno_location() #12
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 524, ptr noundef nonnull @__func__.license_free) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_free) #13
   unreachable
 
 11:                                               ; preds = %7
@@ -1311,6 +1358,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   br i1 %.not, label %24, label %7
 
 7:                                                ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) @__const.license_set_job_tres_cnt.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %6) #11
   %8 = load i32, ptr @slurmctld_tres_cnt, align 4
@@ -1343,10 +1391,11 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
   %21 = load i32, ptr @slurmctld_tres_cnt, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %20, %7
   call void @assoc_mgr_unlock(ptr noundef nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #11
   br label %24
 
 24:                                               ; preds = %._crit_edge, %5
@@ -1372,7 +1421,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 30:                                               ; preds = %28
   %31 = tail call ptr @__errno_location() #12
   store i32 %29, ptr %31, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 584, ptr noundef nonnull @__func__.license_validate) #13
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_validate) #13
   unreachable
 
 32:                                               ; preds = %28
@@ -1428,7 +1477,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge.us:                                     ; preds = %40, %41, %52
   %54 = call ptr @list_next(ptr noundef %33) #11
   %.not55.us = icmp eq ptr %54, null
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !18
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph71.split.us, !llvm.loop !21
 
 .lr.ph71.split:                                   ; preds = %.lr.ph71
   br i1 %1, label %.lr.ph71.split.split.us, label %.lr.ph71.split.split
@@ -1488,7 +1537,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge.us79:                                   ; preds = %66, %69, %79
   %81 = call ptr @list_next(ptr noundef %33) #11
   %.not55.us80 = icmp eq ptr %81, null
-  br i1 %.not55.us80, label %.loopexit, label %.lr.ph71.split.split.us, !llvm.loop !18
+  br i1 %.not55.us80, label %.loopexit, label %.lr.ph71.split.split.us, !llvm.loop !21
 
 .lr.ph71.split.split:                             ; preds = %.lr.ph71.split, %.backedge
   %82 = phi ptr [ %94, %.backedge ], [ %34, %.lr.ph71.split ]
@@ -1522,7 +1571,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 .backedge:                                        ; preds = %106, %95, %92
   %94 = call ptr @list_next(ptr noundef %33) #11
   %.not55 = icmp eq ptr %94, null
-  br i1 %.not55, label %.loopexit, label %.lr.ph71.split.split, !llvm.loop !18
+  br i1 %.not55, label %.loopexit, label %.lr.ph71.split.split, !llvm.loop !21
 
 95:                                               ; preds = %84
   %96 = load ptr, ptr %82, align 8
@@ -1569,12 +1618,12 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 113:                                              ; preds = %.loopexit
   %114 = tail call ptr @__errno_location() #12
   store i32 %112, ptr %114, align 4
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 621, ptr noundef nonnull @__func__.license_validate) #13
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_validate) #13
   unreachable
 
 115:                                              ; preds = %.loopexit
-  %116 = load i8, ptr %4, align 1
-  %117 = trunc i8 %116 to i1
+  %116 = load i8, ptr %4, align 1, !range !11, !noundef !12
+  %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %115
@@ -1587,23 +1636,24 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
+declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #2
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #1
+declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-declare i32 @assoc_mgr_find_tres_pos(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare i32 @assoc_mgr_find_tres_pos(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_job_merge(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1621,7 +1671,7 @@ define dso_local void @license_job_merge(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %10, ptr %4, align 8
   tail call void @slurm_xfree(ptr noundef nonnull %8) #11
   %11 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %license_list_to_string.exit, label %12
@@ -1641,7 +1691,7 @@ define dso_local void @license_job_merge(ptr noundef %0) local_unnamed_addr #0 {
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0813.i, ptr noundef %16, i32 noundef %18) #11
   %19 = call ptr @list_next(ptr noundef %13) #11
   %.not11.i = icmp eq ptr %19, null
-  br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   call void @list_iterator_destroy(ptr noundef %13) #11
@@ -1650,119 +1700,224 @@ define dso_local void @license_job_merge(ptr noundef %0) local_unnamed_addr #0 {
 
 license_list_to_string.exit:                      ; preds = %7, %._crit_edge.i
   %.0.i = phi ptr [ %20, %._crit_edge.i ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   store ptr %.0.i, ptr %8, align 8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 12) i32 @license_job_test_with_list(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %6 = load ptr, ptr %5, align 8
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %59, label %7
+define dso_local i32 @license_job_test_with_list(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+  %6 = alloca %struct.license_test_args_t, align 8
+  %7 = zext i1 %2 to i8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
+  store ptr %0, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i8 %7, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %11, i8 0, i64 3, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %14 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %38, label %15
 
-7:                                                ; preds = %4
-  %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
-  %.not39 = icmp eq i32 %8, 0
-  br i1 %.not39, label %11, label %9
+15:                                               ; preds = %5
+  %16 = load i8, ptr @preempt_for_licenses, align 1, !range !11, !noundef !12
+  %17 = trunc nuw i8 %16 to i1
+  %18 = and i1 %4, %17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %20 = load ptr, ptr %19, align 8
+  %.not19 = icmp eq ptr %20, null
+  %brmerge.not = select i1 %.not19, i1 %18, i1 false
+  br i1 %brmerge.not, label %21, label %23
 
-9:                                                ; preds = %7
-  %10 = tail call ptr @__errno_location() #12
-  store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 663, ptr noundef nonnull @__func__.license_job_test_with_list) #13
+21:                                               ; preds = %15
+  %22 = tail call ptr @list_create(ptr noundef null) #11
+  store ptr %22, ptr %19, align 8
+  br label %23
+
+23:                                               ; preds = %15, %21
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
+  %.not20 = icmp eq i32 %24, 0
+  br i1 %.not20, label %27, label %25
+
+25:                                               ; preds = %23
+  %26 = tail call ptr @__errno_location() #12
+  store i32 %24, ptr %26, align 4
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_job_test_with_list) #13
   unreachable
 
-11:                                               ; preds = %7
-  %12 = load ptr, ptr %5, align 8
-  %13 = tail call ptr @list_iterator_create(ptr noundef %12) #11
-  br label %14
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %13, align 8
+  %29 = call i32 @list_for_each(ptr noundef %28, ptr noundef nonnull @_foreach_license_job_test, ptr noundef nonnull %6) #11
+  br i1 %18, label %30, label %32
 
-14:                                               ; preds = %45, %11
-  %15 = tail call ptr @list_next(ptr noundef %13) #11
-  %.not40 = icmp eq ptr %15, null
-  br i1 %.not40, label %.loopexit, label %16
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %19, align 8
+  call fastcc void @_licenses_print(ptr noundef nonnull @.str.21, ptr noundef %31, ptr noundef nonnull %0)
+  br label %32
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %15, align 8
-  %18 = tail call ptr @list_find_first(ptr noundef %3, ptr noundef nonnull @_license_find_rec, ptr noundef %17) #11
-  %.not41 = icmp eq ptr %18, null
-  br i1 %.not41, label %19, label %24
+32:                                               ; preds = %27, %30
+  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
+  %.not21 = icmp eq i32 %33, 0
+  br i1 %.not21, label %36, label %34
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %22 = load i32, ptr %21, align 8
-  %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %20, i32 noundef %22) #11
-  br label %.loopexit
-
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp ugt i32 %26, %28
-  br i1 %29, label %30, label %37
-
-30:                                               ; preds = %24
-  %31 = tail call i32 @get_log_level() #11
-  %32 = icmp sgt i32 %31, 2
-  br i1 %32, label %33, label %.loopexit
-
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %35 = load i32, ptr %34, align 8
-  %36 = load ptr, ptr %18, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.22, i32 noundef %35, ptr noundef %36) #11
-  br label %.loopexit
-
-37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, %26
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = add i32 %40, %42
-  %44 = icmp ugt i32 %43, %28
-  br i1 %44, label %.loopexit, label %45
-
-45:                                               ; preds = %37
-  %46 = load ptr, ptr %15, align 8
-  %47 = tail call i32 @job_test_lic_resv(ptr noundef %0, ptr noundef %46, i64 noundef %1, i1 noundef zeroext %2) #11
-  %48 = load i32, ptr %25, align 8
-  %49 = load i32, ptr %38, align 4
-  %50 = load i32, ptr %41, align 8
-  %51 = add i32 %48, %47
-  %52 = add i32 %51, %49
-  %53 = add i32 %52, %50
-  %54 = load i32, ptr %27, align 8
-  %55 = icmp ugt i32 %53, %54
-  br i1 %55, label %.loopexit, label %14, !llvm.loop !19
-
-.loopexit:                                        ; preds = %45, %37, %14, %30, %33, %19
-  %.032 = phi i32 [ -1, %19 ], [ -1, %33 ], [ -1, %30 ], [ 11, %45 ], [ 11, %37 ], [ 0, %14 ]
-  tail call void @list_iterator_destroy(ptr noundef %13) #11
-  %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
-  %.not42 = icmp eq i32 %56, 0
-  br i1 %.not42, label %59, label %57
-
-57:                                               ; preds = %.loopexit
-  %58 = tail call ptr @__errno_location() #12
-  store i32 %56, ptr %58, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 697, ptr noundef nonnull @__func__.license_job_test_with_list) #13
+34:                                               ; preds = %32
+  %35 = tail call ptr @__errno_location() #12
+  store i32 %33, ptr %35, align 4
+  call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_job_test_with_list) #13
   unreachable
 
-59:                                               ; preds = %.loopexit, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.032, %.loopexit ]
+36:                                               ; preds = %32
+  %37 = load i32, ptr %9, align 8
+  br label %38
+
+38:                                               ; preds = %5, %36
+  %.0 = phi i32 [ %37, %36 ], [ 0, %5 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   ret i32 %.0
 }
 
-declare i32 @job_test_lic_resv(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 12) i32 @license_job_test(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define internal range(i32 -1, 1) i32 @_foreach_license_job_test(ptr noundef %0, ptr noundef captures(none) %1) #0 {
+  %3 = load ptr, ptr %1, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %7 = load i8, ptr %6, align 4, !range !11, !noundef !12
+  %8 = trunc nuw i8 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = load i64, ptr %9, align 8
+  %11 = load ptr, ptr %0, align 8
+  %12 = tail call ptr @list_find_first(ptr noundef %5, ptr noundef nonnull @_license_find_rec, ptr noundef %11) #11
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %21
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 392
+  %16 = load i32, ptr %15, align 8
+  %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %14, i32 noundef %16) #11
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  %19 = load ptr, ptr %18, align 8
+  %.not53 = icmp eq ptr %19, null
+  br i1 %.not53, label %.sink.split, label %20
+
+20:                                               ; preds = %13
+  tail call void @list_destroy(ptr noundef nonnull %19) #11
+  store ptr null, ptr %18, align 8
+  br label %.sink.split
+
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ugt i32 %23, %25
+  br i1 %26, label %27, label %38
+
+27:                                               ; preds = %21
+  %28 = tail call i32 @get_log_level() #11
+  %29 = icmp sgt i32 %28, 2
+  br i1 %29, label %30, label %34
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 392
+  %32 = load i32, ptr %31, align 8
+  %33 = load ptr, ptr %12, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.41, i32 noundef %32, ptr noundef %33) #11
+  br label %34
+
+34:                                               ; preds = %30, %27
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  %36 = load ptr, ptr %35, align 8
+  %.not56 = icmp eq ptr %36, null
+  br i1 %.not56, label %.sink.split, label %37
+
+37:                                               ; preds = %34
+  tail call void @list_destroy(ptr noundef nonnull %36) #11
+  store ptr null, ptr %35, align 8
+  br label %.sink.split
+
+38:                                               ; preds = %21
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %40 = load i32, ptr %39, align 4
+  %41 = add i32 %40, %23
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %43 = load i32, ptr %42, align 8
+  %44 = add i32 %41, %43
+  %45 = icmp ugt i32 %44, %25
+  br i1 %45, label %46, label %53
+
+46:                                               ; preds = %38
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  %48 = load ptr, ptr %47, align 8
+  %.not55 = icmp eq ptr %48, null
+  br i1 %.not55, label %.sink.split, label %49
+
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %0, align 8
+  %51 = tail call ptr @list_find_first(ptr noundef nonnull %48, ptr noundef nonnull @_license_find_rec, ptr noundef %50) #11
+  %.not.i = icmp eq ptr %51, null
+  br i1 %.not.i, label %52, label %.sink.split
+
+52:                                               ; preds = %49
+  tail call void @list_append(ptr noundef nonnull %48, ptr noundef nonnull %0) #11
+  br label %.sink.split
+
+53:                                               ; preds = %38
+  %54 = load ptr, ptr %0, align 8
+  %55 = tail call i32 @job_test_lic_resv(ptr noundef %3, ptr noundef %54, i64 noundef %10, i1 noundef zeroext %8) #11
+  %56 = load i32, ptr %22, align 8
+  %57 = load i32, ptr %39, align 4
+  %58 = load i32, ptr %42, align 8
+  %59 = add i32 %56, %55
+  %60 = add i32 %59, %57
+  %61 = add i32 %60, %58
+  %62 = load i32, ptr %24, align 8
+  %63 = icmp ugt i32 %61, %62
+  br i1 %63, label %64, label %72
+
+64:                                               ; preds = %53
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 480
+  %66 = load ptr, ptr %65, align 8
+  %.not54 = icmp eq ptr %66, null
+  br i1 %.not54, label %.sink.split, label %67
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %0, align 8
+  %69 = tail call ptr @list_find_first(ptr noundef nonnull %66, ptr noundef nonnull @_license_find_rec, ptr noundef %68) #11
+  %.not.i57 = icmp eq ptr %69, null
+  br i1 %.not.i57, label %70, label %.sink.split
+
+70:                                               ; preds = %67
+  tail call void @list_append(ptr noundef nonnull %66, ptr noundef nonnull %0) #11
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %64, %67, %70, %46, %49, %52, %34, %37, %13, %20
+  %.sink = phi i32 [ -1, %20 ], [ -1, %13 ], [ -1, %37 ], [ -1, %34 ], [ 11, %52 ], [ 11, %49 ], [ 11, %46 ], [ 11, %70 ], [ 11, %67 ], [ 11, %64 ]
+  %.0.ph = phi i32 [ -1, %20 ], [ -1, %13 ], [ -1, %37 ], [ -1, %34 ], [ 0, %52 ], [ 0, %49 ], [ 0, %46 ], [ 0, %70 ], [ 0, %67 ], [ 0, %64 ]
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %.sink, ptr %71, align 8
+  br label %72
+
+72:                                               ; preds = %.sink.split, %53
+  %.0 = phi i32 [ 0, %53 ], [ %.0.ph, %.sink.split ]
+  ret i32 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @license_job_test(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @cluster_license_list, align 8
-  %5 = tail call i32 @license_job_test_with_list(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %4)
+  %5 = tail call i32 @license_job_test_with_list(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr noundef %4, i1 noundef zeroext false)
   ret i32 %5
 }
 
@@ -1780,7 +1935,7 @@ define dso_local ptr @license_copy(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi ptr [ %19, %.lr.ph ], [ %5, %2 ]
-  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 731, ptr noundef nonnull @__func__.license_copy) #11
+  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 793, ptr noundef nonnull @__func__.license_copy) #11
   %8 = load ptr, ptr %6, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #11
   store ptr %9, ptr %7, align 8
@@ -1799,7 +1954,7 @@ define dso_local ptr @license_copy(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @list_push(ptr noundef %3, ptr noundef nonnull %7) #11
   %19 = tail call ptr @list_next(ptr noundef %4) #11
   %.not19 = icmp eq ptr %19, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #11
@@ -1810,11 +1965,11 @@ define dso_local ptr @license_copy(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
-declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @list_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -1833,7 +1988,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
 8:                                                ; preds = %5
   %9 = tail call ptr @__errno_location() #12
   store i32 %7, ptr %9, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 759, ptr noundef nonnull @__func__.license_job_get) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_job_get) #13
   unreachable
 
 10:                                               ; preds = %5
@@ -1873,14 +2028,14 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
 29:                                               ; preds = %.lr.ph.split.us
   %30 = load ptr, ptr %15, align 8
   %31 = load i32, ptr %14, align 8
-  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %30, i32 noundef %31) #11
+  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %30, i32 noundef %31) #11
   br label %33
 
 33:                                               ; preds = %19, %29
   %.1.us = phi i32 [ %.02640.us, %19 ], [ -1, %29 ]
   %34 = tail call ptr @list_next(ptr noundef %12) #11
   %.not34.us = icmp eq ptr %34, null
-  br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %35 = phi ptr [ %63, %62 ], [ %13, %.lr.ph ]
@@ -1926,20 +2081,20 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
 58:                                               ; preds = %.lr.ph.split
   %59 = load ptr, ptr %35, align 8
   %60 = load i32, ptr %14, align 8
-  %61 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %59, i32 noundef %60) #11
+  %61 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %59, i32 noundef %60) #11
   br label %62
 
 62:                                               ; preds = %39, %56, %55, %58
   %.1 = phi i32 [ %.02640, %55 ], [ %.02640, %56 ], [ %.02640, %39 ], [ -1, %58 ]
   %63 = tail call ptr @list_next(ptr noundef %12) #11
   %.not34 = icmp eq ptr %63, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not34, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %33, %62, %10
   %.026.lcssa = phi i32 [ 0, %10 ], [ %.1, %62 ], [ %.1.us, %33 ]
   tail call void @list_iterator_destroy(ptr noundef %12) #11
   %64 = load ptr, ptr @cluster_license_list, align 8
-  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.23, ptr noundef %64, ptr noundef %0)
+  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.24, ptr noundef %64, ptr noundef %0)
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @license_mutex) #11
   %.not35 = icmp eq i32 %65, 0
   br i1 %.not35, label %68, label %66
@@ -1947,7 +2102,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_get(ptr noundef %0, i1 nounde
 66:                                               ; preds = %._crit_edge
   %67 = tail call ptr @__errno_location() #12
   store i32 %65, ptr %67, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 782, ptr noundef nonnull @__func__.license_job_get) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_job_get) #13
   unreachable
 
 68:                                               ; preds = %._crit_edge, %2
@@ -1965,7 +2120,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 5:                                                ; preds = %2
   %6 = tail call i64 @time(ptr noundef null) #11
   store i64 %6, ptr @last_license_update, align 8
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %8 = and i64 %7, 268435456
   %.not29 = icmp eq i64 %8, 0
   br i1 %.not29, label %13, label %9
@@ -1976,10 +2131,10 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %9
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef nonnull %0) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef nonnull %0) #11
   br label %13
 
-13:                                               ; preds = %12, %9, %5
+13:                                               ; preds = %5, %12, %9
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
   %.not30 = icmp eq i32 %14, 0
   br i1 %.not30, label %17, label %15
@@ -1987,7 +2142,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 15:                                               ; preds = %13
   %16 = tail call ptr @__errno_location() #12
   store i32 %14, ptr %16, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 803, ptr noundef nonnull @__func__.license_job_return_to_list) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.license_job_return_to_list) #13
   unreachable
 
 17:                                               ; preds = %13
@@ -2019,7 +2174,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %23, align 8
-  %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef %32) #11
+  %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef %32) #11
   br label %34
 
 34:                                               ; preds = %31, %29
@@ -2032,14 +2187,14 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 
 36:                                               ; preds = %.lr.ph
   %37 = load ptr, ptr %21, align 8
-  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef %37) #11
+  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.license_job_return_to_list, ptr noundef %37) #11
   br label %39
 
 39:                                               ; preds = %36, %34
   %.2 = phi i32 [ %.1, %34 ], [ %.02236, %36 ]
   %40 = tail call ptr @list_next(ptr noundef %19) #11
   %.not31 = icmp eq ptr %40, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %39, %17
   %.022.lcssa = phi i32 [ 0, %17 ], [ %.2, %39 ]
@@ -2051,7 +2206,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return_to_list(ptr noundef %0
 42:                                               ; preds = %._crit_edge
   %43 = tail call ptr @__errno_location() #12
   store i32 %41, ptr %43, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 825, ptr noundef nonnull @__func__.license_job_return_to_list) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.license_job_return_to_list) #13
   unreachable
 
 44:                                               ; preds = %._crit_edge, %2
@@ -2064,7 +2219,7 @@ define dso_local range(i32 -1, 1) i32 @license_job_return(ptr noundef %0) local_
   %2 = load ptr, ptr @cluster_license_list, align 8
   %3 = tail call i32 @license_job_return_to_list(ptr noundef %0, ptr noundef %2)
   %4 = load ptr, ptr @cluster_license_list, align 8
-  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.27, ptr noundef %4, ptr noundef %0)
+  tail call fastcc void @_licenses_print(ptr noundef nonnull @.str.28, ptr noundef %4, ptr noundef %0)
   ret i32 %3
 }
 
@@ -2088,7 +2243,7 @@ define dso_local noundef zeroext i1 @license_list_overlap(ptr noundef %0, ptr no
   %10 = load ptr, ptr %8, align 8
   %11 = tail call ptr @list_find_first(ptr noundef nonnull %1, ptr noundef nonnull @_license_find_rec, ptr noundef %10) #11
   %.not13 = icmp eq ptr %11, null
-  br i1 %.not13, label %7, label %12, !llvm.loop !23
+  br i1 %.not13, label %7, label %12, !llvm.loop !25
 
 12:                                               ; preds = %9, %7
   tail call void @list_iterator_destroy(ptr noundef %6) #11
@@ -2107,7 +2262,7 @@ define dso_local noundef ptr @get_all_license_info(i16 noundef zeroext %0) local
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.get_all_license_info) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.get_all_license_info) #11
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -2121,7 +2276,7 @@ define dso_local noundef ptr @get_all_license_info(i16 noundef zeroext %0) local
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #12
   store i32 %8, ptr %10, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 893, ptr noundef nonnull @__func__.get_all_license_info) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.get_all_license_info) #13
   unreachable
 
 11:                                               ; preds = %6
@@ -2136,7 +2291,7 @@ define dso_local noundef ptr @get_all_license_info(i16 noundef zeroext %0) local
   br i1 %.not2729, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %16 = icmp ugt i16 %0, 9983
+  %16 = icmp ugt i16 %0, 10239
   %17 = zext nneg i16 %0 to i32
   br i1 %16, label %.lr.ph.split.us, label %_pack_license.exit
 
@@ -2181,17 +2336,17 @@ _pack_license.exit.us:                            ; preds = %20, %.lr.ph.split.u
   %38 = add i32 %.030.us, 1
   %39 = tail call ptr @list_next(ptr noundef %14) #11
   %.not27.us = icmp eq ptr %39, null
-  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 _pack_license.exit:                               ; preds = %.lr.ph, %_pack_license.exit
   %40 = phi ptr [ %43, %_pack_license.exit ], [ %15, %.lr.ph ]
   %.030 = phi i32 [ %42, %_pack_license.exit ], [ 0, %.lr.ph ]
   tail call void @set_reserved_license_count(ptr noundef nonnull %40) #11
-  %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef nonnull @__func__._pack_license, i32 noundef %17) #11
+  %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._pack_license, i32 noundef %17) #11
   %42 = add i32 %.030, 1
   %43 = tail call ptr @list_next(ptr noundef %14) #11
   %.not27 = icmp eq ptr %43, null
-  br i1 %.not27, label %._crit_edge, label %_pack_license.exit, !llvm.loop !24
+  br i1 %.not27, label %._crit_edge, label %_pack_license.exit, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_pack_license.exit, %_pack_license.exit.us, %13
   %.0.lcssa = phi i32 [ 0, %13 ], [ %38, %_pack_license.exit.us ], [ %42, %_pack_license.exit ]
@@ -2207,7 +2362,7 @@ _pack_license.exit:                               ; preds = %.lr.ph, %_pack_lice
 46:                                               ; preds = %44
   %47 = tail call ptr @__errno_location() #12
   store i32 %45, ptr %47, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 906, ptr noundef nonnull @__func__.get_all_license_info) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.get_all_license_info) #13
   unreachable
 
 48:                                               ; preds = %44
@@ -2216,7 +2371,7 @@ _pack_license.exit:                               ; preds = %.lr.ph, %_pack_lice
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %48
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.get_all_license_info, i32 noundef %.1) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.get_all_license_info, i32 noundef %.1) #11
   br label %52
 
 52:                                               ; preds = %51, %48
@@ -2228,13 +2383,13 @@ _pack_license.exit:                               ; preds = %.lr.ph, %_pack_lice
   ret ptr %7
 }
 
-declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
+declare ptr @init_buf(i32 noundef) local_unnamed_addr #2
 
-declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
+declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @set_reserved_license_count(ptr noundef) local_unnamed_addr #1
+declare void @set_reserved_license_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_total_license_cnt(ptr noundef %0) local_unnamed_addr #0 {
@@ -2245,7 +2400,7 @@ define dso_local i32 @get_total_license_cnt(ptr noundef %0) local_unnamed_addr #
 3:                                                ; preds = %1
   %4 = tail call ptr @__errno_location() #12
   store i32 %2, ptr %4, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 924, ptr noundef nonnull @__func__.get_total_license_cnt) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.get_total_license_cnt) #13
   unreachable
 
 5:                                                ; preds = %1
@@ -2272,7 +2427,7 @@ define dso_local i32 @get_total_license_cnt(ptr noundef %0) local_unnamed_addr #
 14:                                               ; preds = %12
   %15 = tail call ptr @__errno_location() #12
   store i32 %13, ptr %15, align 4
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.4, i32 noundef 932, ptr noundef nonnull @__func__.get_total_license_cnt) #13
+  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.get_total_license_cnt) #13
   unreachable
 
 16:                                               ; preds = %12
@@ -2283,7 +2438,9 @@ define dso_local i32 @get_total_license_cnt(ptr noundef %0) local_unnamed_addr #
 define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.license_set_job_tres_cnt.locks, i64 28, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
@@ -2329,13 +2486,13 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.30, ptr noundef nonnull %19, i32 noundef %20, i64 noundef %23) #11
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %19, i32 noundef %20, i64 noundef %23) #11
   br label %.backedge
 
 .backedge:                                        ; preds = %17, %.lr.ph, %12
   %24 = call ptr @list_next(ptr noundef %7) #11
   %.not12 = icmp eq ptr %24, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.backedge, %6
   call void @list_iterator_destroy(ptr noundef %7) #11
@@ -2345,16 +2502,19 @@ define dso_local ptr @licenses_2_tres_str(ptr noundef %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %1, %._crit_edge
   %.0 = phi ptr [ %25, %._crit_edge ], [ null, %1 ]
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret ptr %.0
 }
 
-declare ptr @assoc_mgr_find_tres_rec(ptr noundef) local_unnamed_addr #1
+declare ptr @assoc_mgr_find_tres_rec(ptr noundef) local_unnamed_addr #2
 
-declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i64 @slurmdb_find_tres_count_in_string(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.assoc_mgr_lock_t, align 4
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const.license_set_job_tres_cnt.locks, i64 28, i1 false)
   %.b = load i1, ptr @license_set_job_tres_cnt.first_run, align 1
   br i1 %.b, label %6, label %5
@@ -2404,7 +2564,7 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
 23:                                               ; preds = %17, %.lr.ph
   %24 = call ptr @list_next(ptr noundef %12) #11
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %23, %11
   call void @list_iterator_destroy(ptr noundef %12) #11
@@ -2414,7 +2574,8 @@ define dso_local void @license_set_job_tres_cnt(ptr noundef %0, ptr noundef writ
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #11
   br label %26
 
-26:                                               ; preds = %6, %25, %._crit_edge
+26:                                               ; preds = %._crit_edge, %25, %6
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #11
   ret void
 }
 
@@ -2442,7 +2603,7 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %10 = phi ptr [ %17, %.lr.ph.split.us ], [ %9, %.lr.ph ]
-  %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1099, ptr noundef nonnull @__func__.bf_licenses_initial) #11
+  %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 1161, ptr noundef nonnull @__func__.bf_licenses_initial) #11
   %12 = load ptr, ptr %10, align 8
   %13 = tail call ptr @xstrdup(ptr noundef %12) #11
   store ptr %13, ptr %11, align 8
@@ -2453,11 +2614,11 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
   tail call void @list_push(ptr noundef %6, ptr noundef nonnull %11) #11
   %17 = tail call ptr @list_next(ptr noundef %8) #11
   %.not15.us = icmp eq ptr %17, null
-  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !27
+  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %18 = phi ptr [ %28, %.lr.ph.split ], [ %9, %.lr.ph ]
-  %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1099, ptr noundef nonnull @__func__.bf_licenses_initial) #11
+  %19 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 1161, ptr noundef nonnull @__func__.bf_licenses_initial) #11
   %20 = load ptr, ptr %18, align 8
   %21 = tail call ptr @xstrdup(ptr noundef %20) #11
   store ptr %21, ptr %19, align 8
@@ -2472,7 +2633,7 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
   tail call void @list_push(ptr noundef %6, ptr noundef nonnull %19) #11
   %28 = tail call ptr @list_next(ptr noundef %8) #11
   %.not15 = icmp eq ptr %28, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   tail call void @list_iterator_destroy(ptr noundef %8) #11
@@ -2483,11 +2644,12 @@ define dso_local ptr @bf_licenses_initial(i1 noundef zeroext %0) local_unnamed_a
   ret ptr %.0
 }
 
-declare i32 @list_count(ptr noundef) local_unnamed_addr #1
+declare i32 @list_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @_bf_license_free_rec(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
@@ -2498,12 +2660,14 @@ define internal void @_bf_license_free_rec(ptr noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %1, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bf_licenses_to_string(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
@@ -2520,7 +2684,7 @@ define dso_local ptr @bf_licenses_to_string(ptr noundef %0) local_unnamed_addr #
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not17 = icmp eq ptr %8, null
-  %9 = select i1 %.not17, ptr @.str, ptr @.str.32
+  %9 = select i1 %.not17, ptr @.str, ptr @.str.33
   br i1 %.not17, label %13, label %10
 
 10:                                               ; preds = %.lr.ph
@@ -2529,15 +2693,15 @@ define dso_local ptr @bf_licenses_to_string(ptr noundef %0) local_unnamed_addr #
   br label %13
 
 13:                                               ; preds = %.lr.ph, %10
-  %14 = phi ptr [ @.str.33, %10 ], [ @.str, %.lr.ph ]
+  %14 = phi ptr [ @.str.34, %10 ], [ @.str, %.lr.ph ]
   %15 = phi ptr [ %12, %10 ], [ @.str, %.lr.ph ]
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.31, ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull %14, ptr noundef nonnull %.01220, ptr noundef %16, i32 noundef %18) #11
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.32, ptr noundef nonnull %9, ptr noundef %15, ptr noundef nonnull %14, ptr noundef nonnull %.01220, ptr noundef %16, i32 noundef %18) #11
   %19 = call ptr @list_next(ptr noundef %4) #11
   %.not16 = icmp eq ptr %19, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %13, %3
   call void @list_iterator_destroy(ptr noundef %4) #11
@@ -2546,6 +2710,7 @@ define dso_local ptr @bf_licenses_to_string(ptr noundef %0) local_unnamed_addr #
 
 21:                                               ; preds = %1, %._crit_edge
   %.0 = phi ptr [ %20, %._crit_edge ], [ null, %1 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret ptr %.0
 }
 
@@ -2563,7 +2728,7 @@ define dso_local ptr @slurm_bf_licenses_copy(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi ptr [ %16, %.lr.ph ], [ %5, %2 ]
-  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1150, ptr noundef nonnull @__func__.slurm_bf_licenses_copy) #11
+  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 1212, ptr noundef nonnull @__func__.slurm_bf_licenses_copy) #11
   %8 = load ptr, ptr %6, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #11
   store ptr %9, ptr %7, align 8
@@ -2578,7 +2743,7 @@ define dso_local ptr @slurm_bf_licenses_copy(ptr noundef %0) local_unnamed_addr 
   tail call void @list_append(ptr noundef %3, ptr noundef nonnull %7) #11
   %16 = tail call ptr @list_next(ptr noundef %4) #11
   %.not16 = icmp eq ptr %16, null
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #11
@@ -2595,90 +2760,97 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr noundef read
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %41, label %6
+  br i1 %.not, label %42, label %6
 
 6:                                                ; preds = %2
   %7 = tail call ptr @list_iterator_create(ptr noundef nonnull %5) #11
   %8 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not3439 = icmp eq ptr %8, null
-  br i1 %.not3439, label %._crit_edge, label %.lr.ph
+  %.not3744 = icmp eq ptr %8, null
+  br i1 %.not3744, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 816
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
-11:                                               ; preds = %.lr.ph, %.backedge
-  %12 = phi ptr [ %8, %.lr.ph ], [ %24, %.backedge ]
+11:                                               ; preds = %.lr.ph, %40
+  %12 = phi ptr [ %8, %.lr.ph ], [ %41, %40 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %9, align 8
-  %.not35 = icmp eq ptr %15, null
-  br i1 %.not35, label %.critedge, label %16
+  %.not38 = icmp eq ptr %15, null
+  br i1 %.not38, label %25, label %16
 
 16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %17 = load ptr, ptr %12, align 8
   store ptr %17, ptr %3, align 8
   store ptr %15, ptr %10, align 8
   %18 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_resv, ptr noundef nonnull %3) #11
-  %.not36 = icmp eq ptr %18, null
-  br i1 %.not36, label %.critedge, label %19
+  %.not39 = icmp eq ptr %18, null
+  br i1 %.not39, label %.critedge.thread, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
-  %.not37 = icmp ugt i32 %14, %21
-  br i1 %.not37, label %25, label %22
+  %.not40 = icmp ugt i32 %14, %21
+  br i1 %.not40, label %22, label %.critedge
 
 22:                                               ; preds = %19
-  %23 = sub nuw i32 %21, %14
-  store i32 %23, ptr %20, align 8
-  br label %.backedge
-
-.backedge:                                        ; preds = %29, %39, %36, %22
-  %24 = call ptr @list_next(ptr noundef %7) #11
-  %.not34 = icmp eq ptr %24, null
-  br i1 %.not34, label %._crit_edge, label %11, !llvm.loop !30
-
-25:                                               ; preds = %19
-  %26 = sub nuw i32 %14, %21
+  %23 = sub nuw i32 %14, %21
   store i32 0, ptr %20, align 8
-  br label %.critedge
+  br label %.critedge.thread
 
-.critedge:                                        ; preds = %16, %25, %11
-  %.0 = phi i32 [ %26, %25 ], [ %14, %11 ], [ %14, %16 ]
-  %27 = load ptr, ptr %12, align 8
-  %28 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %27) #11
-  %.not38 = icmp eq ptr %28, null
-  br i1 %.not38, label %29, label %32
+.critedge.thread:                                 ; preds = %16, %22
+  %.1.ph = phi i32 [ %14, %16 ], [ %23, %22 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %25
 
-29:                                               ; preds = %.critedge
-  %30 = load ptr, ptr %12, align 8
-  %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.slurm_bf_licenses_deduct, ptr noundef %30) #11
-  br label %.backedge
+.critedge:                                        ; preds = %19
+  %24 = sub nuw i32 %21, %14
+  store i32 %24, ptr %20, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %40
 
-32:                                               ; preds = %.critedge
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp ult i32 %34, %.0
-  br i1 %35, label %36, label %39
+25:                                               ; preds = %.critedge.thread, %11
+  %.0 = phi i32 [ %14, %11 ], [ %.1.ph, %.critedge.thread ]
+  %26 = load ptr, ptr %12, align 8
+  %27 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %26) #11
+  %.not41 = icmp eq ptr %27, null
+  br i1 %.not41, label %28, label %31
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %28, align 8
-  %38 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.slurm_bf_licenses_deduct, ptr noundef %37) #11
-  store i32 0, ptr %33, align 8
-  br label %.backedge
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %12, align 8
+  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.slurm_bf_licenses_deduct, ptr noundef %29) #11
+  br label %40
 
-39:                                               ; preds = %32
-  %40 = sub nuw i32 %34, %.0
-  store i32 %40, ptr %33, align 8
-  br label %.backedge
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ult i32 %33, %.0
+  br i1 %34, label %35, label %38
 
-._crit_edge:                                      ; preds = %.backedge, %6
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %27, align 8
+  %37 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.slurm_bf_licenses_deduct, ptr noundef %36) #11
+  store i32 0, ptr %32, align 8
+  br label %40
+
+38:                                               ; preds = %31
+  %39 = sub nuw i32 %33, %.0
+  store i32 %39, ptr %32, align 8
+  br label %40
+
+40:                                               ; preds = %.critedge, %28, %38, %35
+  %41 = call ptr @list_next(ptr noundef %7) #11
+  %.not37 = icmp eq ptr %41, null
+  br i1 %.not37, label %._crit_edge, label %11
+
+._crit_edge:                                      ; preds = %40, %6
   call void @list_iterator_destroy(ptr noundef %7) #11
-  br label %41
+  br label %42
 
-41:                                               ; preds = %2, %._crit_edge
+42:                                               ; preds = %2, %._crit_edge
   ret void
 }
 
@@ -2737,7 +2909,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
   br i1 %.not3032, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 816
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 824
   br label %9
 
 9:                                                ; preds = %.lr.ph, %28
@@ -2751,7 +2923,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %10, align 8
-  %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer, ptr noundef %16) #11
+  %17 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer, ptr noundef %16) #11
   br label %28
 
 18:                                               ; preds = %9
@@ -2762,7 +2934,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %14, align 8
-  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer, ptr noundef %23) #11
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer, ptr noundef %23) #11
   %25 = load i32, ptr %19, align 8
   store i32 0, ptr %19, align 8
   br label %28
@@ -2774,7 +2946,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
 
 28:                                               ; preds = %22, %26, %15
   %.0 = phi i32 [ %25, %22 ], [ %12, %26 ], [ %12, %15 ]
-  %29 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 1253, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer) #11
+  %29 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 1315, ptr noundef nonnull @__func__.slurm_bf_licenses_transfer) #11
   %30 = load ptr, ptr %10, align 8
   %31 = tail call ptr @xstrdup(ptr noundef %30) #11
   store ptr %31, ptr %29, align 8
@@ -2786,7 +2958,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef re
   tail call void @list_push(ptr noundef %0, ptr noundef nonnull %29) #11
   %35 = tail call ptr @list_next(ptr noundef %6) #11
   %.not30 = icmp eq ptr %35, null
-  br i1 %.not30, label %._crit_edge, label %9, !llvm.loop !31
+  br i1 %.not30, label %._crit_edge, label %9, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %28, %5
   tail call void @list_iterator_destroy(ptr noundef %6) #11
@@ -2806,67 +2978,74 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr
 
 6:                                                ; preds = %2
   %7 = tail call ptr @list_iterator_create(ptr noundef nonnull %5) #11
-  %8 = tail call ptr @list_next(ptr noundef %7) #11
-  %.not2732 = icmp eq ptr %8, null
-  br i1 %.not2732, label %.critedge._crit_edge, label %.lr.ph
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 824
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = tail call ptr @list_next(ptr noundef %7) #11
+  %.not3549 = icmp eq ptr %10, null
+  br i1 %.not3549, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %11
+.lr.ph:                                           ; preds = %6, %.backedge
+  %11 = phi ptr [ %30, %.backedge ], [ %10, %6 ]
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = load ptr, ptr %8, align 8
+  %.not36 = icmp eq ptr %14, null
+  br i1 %.not36, label %23, label %15
 
-11:                                               ; preds = %.lr.ph, %.backedge
-  %12 = phi ptr [ %8, %.lr.ph ], [ %22, %.backedge ]
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = load ptr, ptr %9, align 8
-  %.not28 = icmp eq ptr %15, null
-  br i1 %.not28, label %.critedge, label %16
+15:                                               ; preds = %.lr.ph
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  %16 = load ptr, ptr %11, align 8
+  store ptr %16, ptr %3, align 8
+  store ptr %14, ptr %9, align 8
+  %17 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_resv, ptr noundef nonnull %3) #11
+  %.not37 = icmp eq ptr %17, null
+  br i1 %.not37, label %.critedge.thread, label %18
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %12, align 8
-  store ptr %17, ptr %3, align 8
-  store ptr %15, ptr %10, align 8
-  %18 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_resv, ptr noundef nonnull %3) #11
-  %.not29 = icmp eq ptr %18, null
-  br i1 %.not29, label %.critedge, label %19
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load i32, ptr %19, align 8
+  %.not38.not = icmp ugt i32 %13, %20
+  br i1 %.not38.not, label %21, label %.critedge, !llvm.loop !33
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i32, ptr %20, align 8
-  %.not30 = icmp ugt i32 %14, %21
-  br i1 %.not30, label %23, label %.backedge
+21:                                               ; preds = %18
+  %22 = sub nuw i32 %13, %20
+  br label %.critedge.thread
 
-.backedge:                                        ; preds = %19, %27
-  %22 = call ptr @list_next(ptr noundef %7) #11
-  %.not27 = icmp eq ptr %22, null
-  br i1 %.not27, label %.critedge._crit_edge, label %11, !llvm.loop !32
+.critedge.thread:                                 ; preds = %15, %21
+  %.1.ph = phi i32 [ %13, %15 ], [ %22, %21 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %23
 
-23:                                               ; preds = %19
-  %24 = sub nuw i32 %14, %21
-  br label %.critedge
+.critedge:                                        ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  br label %.backedge
 
-.critedge:                                        ; preds = %16, %23, %11
-  %.0 = phi i32 [ %24, %23 ], [ %14, %11 ], [ %14, %16 ]
-  %25 = load ptr, ptr %12, align 8
-  %26 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %25) #11
-  %.not31 = icmp eq ptr %26, null
-  br i1 %.not31, label %.critedge._crit_edge, label %27
+23:                                               ; preds = %.critedge.thread, %.lr.ph
+  %.0 = phi i32 [ %13, %.lr.ph ], [ %.1.ph, %.critedge.thread ]
+  %24 = load ptr, ptr %11, align 8
+  %25 = call ptr @list_find_first(ptr noundef %0, ptr noundef nonnull @_bf_licenses_find_rec, ptr noundef %24) #11
+  %.not39 = icmp eq ptr %25, null
+  br i1 %.not39, label %.thread, label %26
 
-27:                                               ; preds = %.critedge
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp ult i32 %29, %.0
-  br i1 %30, label %.critedge._crit_edge, label %.backedge
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ult i32 %28, %.0
+  br i1 %29, label %.thread, label %.backedge
 
-.critedge._crit_edge:                             ; preds = %.backedge, %27, %.critedge, %6
-  %.not27.lcssa = phi i1 [ true, %6 ], [ false, %.critedge ], [ false, %27 ], [ true, %.backedge ]
+.backedge:                                        ; preds = %26, %.critedge
+  %30 = call ptr @list_next(ptr noundef %7) #11
+  %.not35 = icmp eq ptr %30, null
+  br i1 %.not35, label %.thread, label %.lr.ph
+
+.thread:                                          ; preds = %.backedge, %26, %23, %6
+  %.not35.lcssa = phi i1 [ true, %6 ], [ true, %.backedge ], [ false, %26 ], [ false, %23 ]
   call void @list_iterator_destroy(ptr noundef %7) #11
   br label %31
 
-31:                                               ; preds = %2, %.critedge._crit_edge
-  %.021 = phi i1 [ %.not27.lcssa, %.critedge._crit_edge ], [ true, %2 ]
-  ret i1 %.021
+31:                                               ; preds = %2, %.thread
+  %.023 = phi i1 [ %.not35.lcssa, %.thread ], [ true, %2 ]
+  ret i1 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2899,7 +3078,7 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_equal(ptr noundef %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not14 = icmp eq ptr %16, %18
-  br i1 %.not14, label %4, label %19, !llvm.loop !33
+  br i1 %.not14, label %4, label %19, !llvm.loop !34
 
 19:                                               ; preds = %6, %9, %14, %4
   tail call void @list_iterator_destroy(ptr noundef %3) #11
@@ -2907,47 +3086,43 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_equal(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
+
+declare i32 @job_test_lic_resv(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
-declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
+declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -2956,30 +3131,31 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}

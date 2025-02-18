@@ -4,9 +4,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.assoc_mgr_info_request_msg_t = type { ptr, i32, ptr, ptr }
 %struct.assoc_mgr_info_msg_t = type { ptr, ptr, i32, ptr, ptr }
 %struct.slurmdb_user_rec = type { i16, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr }
-%struct.slurmdb_assoc_rec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr }
+%struct.slurmdb_assoc_rec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, ptr, ptr }
 %struct.slurmdb_assoc_usage = type { i32, ptr, ptr, ptr, ptr, ptr, double, double, i32, ptr, double, ptr, double, i32, x86_fp80, x86_fp80, x86_fp80, ptr, i32, i32, x86_fp80, ptr }
-%struct.slurmdb_qos_rec_t = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, double, double, i64 }
+%struct.slurmdb_qos_rec_t = type { i64, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, double, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i16, i32, i32, ptr, ptr, double, double }
 %struct.slurmdb_qos_usage_t = type { i32, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, double, double, i32, x86_fp80, ptr, ptr }
 %struct.slurmdb_used_limits_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, i32 }
 
@@ -107,12 +107,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.87 = private unnamed_addr constant [17 x i8] c"MaxSubmitJobsPA=\00", align 1
 @.str.88 = private unnamed_addr constant [7 x i8] c"(%u)%s\00", align 1
 @.str.89 = private unnamed_addr constant [10 x i8] c"MaxTRESPA\00", align 1
-@.str.90 = private unnamed_addr constant [2 x i8] c"}\00", align 1
-@.str.91 = private unnamed_addr constant [11 x i8] c"%s%s(%d)%s\00", align 1
-@.str.92 = private unnamed_addr constant [11 x i8] c"MaxJobsPU=\00", align 1
-@.str.93 = private unnamed_addr constant [17 x i8] c"MaxJobsAccruePU=\00", align 1
-@.str.94 = private unnamed_addr constant [17 x i8] c"MaxSubmitJobsPU=\00", align 1
-@.str.95 = private unnamed_addr constant [10 x i8] c"MaxTRESPU\00", align 1
+@.str.90 = private unnamed_addr constant [17 x i8] c"MaxTRESRunMinsPA\00", align 1
+@.str.91 = private unnamed_addr constant [2 x i8] c"}\00", align 1
+@.str.92 = private unnamed_addr constant [11 x i8] c"%s%s(%d)%s\00", align 1
+@.str.93 = private unnamed_addr constant [11 x i8] c"MaxJobsPU=\00", align 1
+@.str.94 = private unnamed_addr constant [17 x i8] c"MaxJobsAccruePU=\00", align 1
+@.str.95 = private unnamed_addr constant [17 x i8] c"MaxSubmitJobsPU=\00", align 1
+@.str.96 = private unnamed_addr constant [10 x i8] c"MaxTRESPU\00", align 1
+@.str.97 = private unnamed_addr constant [17 x i8] c"MaxTRESRunMinsPU\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef %1) #0 {
@@ -127,8 +129,15 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   %11 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   store ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   store ptr null, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 32, i1 false)
   store i32 0, ptr %9, align 4
@@ -148,7 +157,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %5, align 8
   %22 = load ptr, ptr %5, align 8
-  %23 = call i64 @strlen(ptr noundef %22) #6
+  %23 = call i64 @strlen(ptr noundef %22) #8
   %24 = trunc i64 %23 to i32
   store i32 %24, ptr %8, align 4
   %25 = load ptr, ptr %4, align 8
@@ -156,7 +165,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @strchr(ptr noundef %29, i32 noundef 61) #6
+  %30 = call ptr @strchr(ptr noundef %29, i32 noundef 61) #8
   store ptr %30, ptr %6, align 8
   %31 = load ptr, ptr %6, align 8
   %32 = icmp ne ptr %31, null
@@ -175,7 +184,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   %43 = trunc i64 %42 to i32
   store i32 %43, ptr %8, align 4
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i32 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i32 1
   store ptr %45, ptr %6, align 8
   br label %46
 
@@ -218,19 +227,19 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %69, label %82, label %70
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
   %72 = load ptr, ptr %71, align 8
   %73 = icmp ne ptr %72, null
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %70
   %75 = call ptr @list_create(ptr noundef @xfree_ptr)
-  %76 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
+  %76 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
   store ptr %75, ptr %76, align 8
   br label %77
 
 77:                                               ; preds = %74, %70
-  %78 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
+  %78 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 0
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %6, align 8
   %81 = call i32 @slurm_addto_char_list(ptr noundef %79, ptr noundef %80)
@@ -263,7 +272,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %100 = load i32, ptr %99, align 8
   %101 = or i32 %100, 2
   store i32 %101, ptr %99, align 8
@@ -276,7 +285,7 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %108 = load i32, ptr %107, align 8
   %109 = or i32 %108, 1
   store i32 %109, ptr %107, align 8
@@ -289,14 +298,14 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %115 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %116 = load i32, ptr %115, align 8
   %117 = or i32 %116, 4
   store i32 %117, ptr %115, align 8
   br label %118
 
 118:                                              ; preds = %114, %110
-  %119 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %119 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %120 = load i32, ptr %119, align 8
   %121 = icmp ne i32 %120, 0
   br i1 %121, label %126, label %122
@@ -331,19 +340,19 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %138, label %151, label %139
 
 139:                                              ; preds = %134
-  %140 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
+  %140 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
   %141 = load ptr, ptr %140, align 8
   %142 = icmp ne ptr %141, null
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %139
   %144 = call ptr @list_create(ptr noundef @xfree_ptr)
-  %145 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
+  %145 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
   store ptr %144, ptr %145, align 8
   br label %146
 
 146:                                              ; preds = %143, %139
-  %147 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
+  %147 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 2
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %6, align 8
   %150 = call i32 @slurm_addto_char_list(ptr noundef %148, ptr noundef %149)
@@ -370,19 +379,19 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   br i1 %162, label %175, label %163
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
+  %164 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
   %165 = load ptr, ptr %164, align 8
   %166 = icmp ne ptr %165, null
   br i1 %166, label %170, label %167
 
 167:                                              ; preds = %163
   %168 = call ptr @list_create(ptr noundef @xfree_ptr)
-  %169 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
+  %169 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
   store ptr %168, ptr %169, align 8
   br label %170
 
 170:                                              ; preds = %167, %163
-  %171 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
+  %171 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 3
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %6, align 8
   %174 = call i32 @slurm_addto_char_list_with_case(ptr noundef %172, ptr noundef %173, i1 noundef zeroext false)
@@ -422,21 +431,21 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
   %189 = load i32, ptr %9, align 4
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr %9, align 4
-  br label %12, !llvm.loop !7
+  br label %12, !llvm.loop !8
 
 191:                                              ; preds = %12
-  %192 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %192 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %193 = load i32, ptr %192, align 8
   %194 = icmp ne i32 %193, 0
   br i1 %194, label %197, label %195
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %196 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   store i32 7, ptr %196, align 8
   br label %197
 
 197:                                              ; preds = %195, %191
-  %198 = getelementptr inbounds %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
+  %198 = getelementptr inbounds nuw %struct.assoc_mgr_info_request_msg_t, ptr %10, i32 0, i32 1
   %199 = load i32, ptr %198, align 8
   store i32 %199, ptr @req_flags, align 4
   %200 = call i32 @slurm_load_assoc_mgr_info(ptr noundef %10, ptr noundef %11)
@@ -470,34 +479,44 @@ define dso_local void @scontrol_print_assoc_mgr_info(i32 noundef %0, ptr noundef
 
 212:                                              ; preds = %210, %182, %122, %54
   call void @slurm_free_assoc_mgr_info_request_members(ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #3
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) #5
 
-declare ptr @list_create(ptr noundef) #4
+declare ptr @list_create(ptr noundef) #5
 
-declare void @xfree_ptr(ptr noundef) #4
+declare void @xfree_ptr(ptr noundef) #5
 
-declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) #4
+declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) #5
 
-declare ptr @xstrcasestr(ptr noundef, ptr noundef) #4
+declare ptr @xstrcasestr(ptr noundef, ptr noundef) #5
 
-declare i32 @slurm_addto_char_list_with_case(ptr noundef, ptr noundef, i1 noundef zeroext) #4
+declare i32 @slurm_addto_char_list_with_case(ptr noundef, ptr noundef, i1 noundef zeroext) #5
 
-declare i32 @slurm_load_assoc_mgr_info(ptr noundef, ptr noundef) #4
+declare i32 @slurm_load_assoc_mgr_info(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
@@ -511,36 +530,42 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %11, i32 0, i32 2
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = call ptr @llvm.stacksave.p0()
   store ptr %15, ptr %7, align 8
   %16 = alloca i64, i64 %14, align 16
   store i64 %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   %17 = load i32, ptr @one_liner, align 4
   %18 = icmp ne i32 %17, 0
   %19 = select i1 %18, ptr @.str.9, ptr @.str.10
   store ptr %19, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
   %20 = call i32 (ptr, ...) @printf(ptr noundef @.str.11)
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %21, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %21, i32 0, i32 2
   %23 = load i32, ptr %22, align 8
   store i32 %23, ptr @tres_cnt, align 4
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %24, i32 0, i32 3
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr @tres_names, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %27, i32 0, i32 4
+  %28 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %27, i32 0, i32 4
   %29 = load ptr, ptr %28, align 8
   %30 = icmp ne ptr %29, null
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %1
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %32, i32 0, i32 4
+  %33 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %32, i32 0, i32 4
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @list_count(ptr noundef %34)
   %36 = icmp ne i32 %35, 0
@@ -574,7 +599,7 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %56 = select i1 %55, ptr @.str.13, ptr @.str.14
   %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.15, ptr noundef %53, ptr noundef %56)
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %58, i32 0, i32 4
+  %59 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %58, i32 0, i32 4
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @list_iterator_create(ptr noundef %60)
   store ptr %61, ptr %3, align 8
@@ -589,24 +614,24 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.slurmdb_user_rec, ptr %67, i32 0, i32 7
+  %68 = getelementptr inbounds nuw %struct.slurmdb_user_rec, ptr %67, i32 0, i32 7
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds %struct.slurmdb_user_rec, ptr %70, i32 0, i32 9
+  %71 = getelementptr inbounds nuw %struct.slurmdb_user_rec, ptr %70, i32 0, i32 9
   %72 = load i32, ptr %71, align 8
   %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct.slurmdb_user_rec, ptr %73, i32 0, i32 4
+  %74 = getelementptr inbounds nuw %struct.slurmdb_user_rec, ptr %73, i32 0, i32 4
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %4, align 8
-  %77 = getelementptr inbounds %struct.slurmdb_user_rec, ptr %76, i32 0, i32 5
+  %77 = getelementptr inbounds nuw %struct.slurmdb_user_rec, ptr %76, i32 0, i32 5
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds %struct.slurmdb_user_rec, ptr %79, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %struct.slurmdb_user_rec, ptr %79, i32 0, i32 0
   %81 = load i16, ptr %80, align 8
   %82 = zext i16 %81 to i32
   %83 = call ptr @slurmdb_admin_level_str(i32 noundef %82)
   %84 = call i32 (ptr, ...) @printf(ptr noundef @.str.16, ptr noundef %69, i32 noundef %72, ptr noundef %75, ptr noundef %78, ptr noundef %83)
-  br label %62, !llvm.loop !9
+  br label %62, !llvm.loop !11
 
 85:                                               ; preds = %62
   %86 = load ptr, ptr %3, align 8
@@ -615,14 +640,14 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 87:                                               ; preds = %85, %49
   %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %88, i32 0, i32 0
+  %89 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %88, i32 0, i32 0
   %90 = load ptr, ptr %89, align 8
   %91 = icmp ne ptr %90, null
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %87
   %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %93, i32 0, i32 0
+  %94 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %93, i32 0, i32 0
   %95 = load ptr, ptr %94, align 8
   %96 = call i32 @list_count(ptr noundef %95)
   %97 = icmp ne i32 %96, 0
@@ -656,7 +681,7 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %117 = select i1 %116, ptr @.str.13, ptr @.str.14
   %118 = call i32 (ptr, ...) @printf(ptr noundef @.str.18, ptr noundef %114, ptr noundef %117)
   %119 = load ptr, ptr %2, align 8
-  %120 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %119, i32 0, i32 0
+  %120 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %119, i32 0, i32 0
   %121 = load ptr, ptr %120, align 8
   %122 = call ptr @list_iterator_create(ptr noundef %121)
   store ptr %122, ptr %3, align 8
@@ -671,35 +696,35 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %128, i32 0, i32 45
+  %129 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %128, i32 0, i32 43
   %130 = load ptr, ptr %129, align 8
   %131 = icmp ne ptr %130, null
   br i1 %131, label %133, label %132
 
 132:                                              ; preds = %127
-  br label %123, !llvm.loop !10
+  br label %123, !llvm.loop !12
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %134, i32 0, i32 5
+  %135 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %134, i32 0, i32 5
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %137, i32 0, i32 1
+  %138 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %137, i32 0, i32 1
   %139 = load ptr, ptr %138, align 8
   %140 = call i32 (ptr, ...) @printf(ptr noundef @.str.19, ptr noundef %136, ptr noundef %139)
   %141 = load ptr, ptr %5, align 8
-  %142 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %141, i32 0, i32 46
+  %142 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %141, i32 0, i32 44
   %143 = load ptr, ptr %142, align 8
   %144 = icmp ne ptr %143, null
   br i1 %144, label %145, label %153
 
 145:                                              ; preds = %133
   %146 = load ptr, ptr %5, align 8
-  %147 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %146, i32 0, i32 46
+  %147 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %146, i32 0, i32 44
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %5, align 8
-  %150 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %149, i32 0, i32 44
-  %151 = load i32, ptr %150, align 8
+  %150 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %149, i32 0, i32 42
+  %151 = load i32, ptr %150, align 4
   %152 = call i32 (ptr, ...) @printf(ptr noundef @.str.20, ptr noundef %148, i32 noundef %151)
   br label %155
 
@@ -709,14 +734,14 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 155:                                              ; preds = %153, %145
   %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %156, i32 0, i32 39
+  %157 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %156, i32 0, i32 38
   %158 = load ptr, ptr %157, align 8
   %159 = icmp ne ptr %158, null
   br i1 %159, label %160, label %164
 
 160:                                              ; preds = %155
   %161 = load ptr, ptr %5, align 8
-  %162 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %161, i32 0, i32 39
+  %162 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %161, i32 0, i32 38
   %163 = load ptr, ptr %162, align 8
   br label %165
 
@@ -726,25 +751,25 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 165:                                              ; preds = %164, %160
   %166 = phi ptr [ %163, %160 ], [ @.str.13, %164 ]
   %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %167, i32 0, i32 40
+  %168 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %167, i32 0, i32 39
   %169 = load i32, ptr %168, align 8
   %170 = load ptr, ptr %5, align 8
-  %171 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %170, i32 0, i32 19
+  %171 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %170, i32 0, i32 19
   %172 = load i32, ptr %171, align 4
   %173 = load ptr, ptr %9, align 8
   %174 = call i32 (ptr, ...) @printf(ptr noundef @.str.22, ptr noundef %166, i32 noundef %169, i32 noundef %172, ptr noundef %173)
   %175 = load ptr, ptr %5, align 8
-  %176 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %175, i32 0, i32 43
-  %177 = load i32, ptr %176, align 4
+  %176 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %175, i32 0, i32 41
+  %177 = load i32, ptr %176, align 8
   %178 = load ptr, ptr %5, align 8
-  %179 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %178, i32 0, i32 45
+  %179 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %178, i32 0, i32 43
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %180, i32 0, i32 12
+  %181 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %180, i32 0, i32 12
   %182 = load double, ptr %181, align 16
   %183 = load ptr, ptr %5, align 8
-  %184 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %183, i32 0, i32 45
+  %184 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %183, i32 0, i32 43
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %185, i32 0, i32 8
+  %186 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %185, i32 0, i32 8
   %187 = load i32, ptr %186, align 16
   %188 = icmp eq i32 %187, -2
   br i1 %188, label %189, label %190
@@ -754,30 +779,30 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 190:                                              ; preds = %165
   %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %191, i32 0, i32 45
+  %192 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %191, i32 0, i32 43
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %193, i32 0, i32 8
+  %194 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %193, i32 0, i32 8
   %195 = load i32, ptr %194, align 16
   br label %196
 
 196:                                              ; preds = %190, %189
   %197 = phi i32 [ 1, %189 ], [ %195, %190 ]
   %198 = load ptr, ptr %5, align 8
-  %199 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %198, i32 0, i32 45
+  %199 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %198, i32 0, i32 43
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %200, i32 0, i32 7
+  %201 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %200, i32 0, i32 7
   %202 = load double, ptr %201, align 8
   %203 = load ptr, ptr %9, align 8
   %204 = call i32 (ptr, ...) @printf(ptr noundef @.str.23, i32 noundef %177, double noundef %182, i32 noundef %197, double noundef %202, ptr noundef %203)
   %205 = load ptr, ptr %5, align 8
-  %206 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %205, i32 0, i32 45
+  %206 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %205, i32 0, i32 43
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %207, i32 0, i32 16
+  %208 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %207, i32 0, i32 16
   %209 = load x86_fp80, ptr %208, align 16
   %210 = load ptr, ptr %5, align 8
-  %211 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %210, i32 0, i32 45
+  %211 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %210, i32 0, i32 43
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %212, i32 0, i32 15
+  %213 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %212, i32 0, i32 15
   %214 = load x86_fp80, ptr %213, align 16
   %215 = fcmp oeq x86_fp80 %214, 0xK401EFFFFFFFE00000000
   br i1 %215, label %216, label %217
@@ -787,18 +812,18 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 217:                                              ; preds = %196
   %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %218, i32 0, i32 45
+  %219 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %218, i32 0, i32 43
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %220, i32 0, i32 15
+  %221 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %220, i32 0, i32 15
   %222 = load x86_fp80, ptr %221, align 16
   br label %223
 
 223:                                              ; preds = %217, %216
   %224 = phi x86_fp80 [ 0xK3FFF8000000000000000, %216 ], [ %222, %217 ]
   %225 = load ptr, ptr %5, align 8
-  %226 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %225, i32 0, i32 45
+  %226 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %225, i32 0, i32 43
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %227, i32 0, i32 14
+  %228 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %227, i32 0, i32 14
   %229 = load x86_fp80, ptr %228, align 16
   %230 = fcmp oeq x86_fp80 %229, 0xK401EFFFFFFFE00000000
   br i1 %230, label %231, label %232
@@ -808,9 +833,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 232:                                              ; preds = %223
   %233 = load ptr, ptr %5, align 8
-  %234 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %233, i32 0, i32 45
+  %234 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %233, i32 0, i32 43
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %235, i32 0, i32 14
+  %236 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %235, i32 0, i32 14
   %237 = load x86_fp80, ptr %236, align 16
   br label %238
 
@@ -819,17 +844,17 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %240 = load ptr, ptr %9, align 8
   %241 = call i32 (ptr, ...) @printf(ptr noundef @.str.24, x86_fp80 noundef %209, x86_fp80 noundef %224, x86_fp80 noundef %239, ptr noundef %240)
   %242 = load ptr, ptr %5, align 8
-  %243 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %242, i32 0, i32 37
+  %243 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %242, i32 0, i32 36
   %244 = load ptr, ptr %243, align 8
   %245 = icmp ne ptr %244, null
   br i1 %245, label %246, label %254
 
 246:                                              ; preds = %238
   %247 = load ptr, ptr %5, align 8
-  %248 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %247, i32 0, i32 37
+  %248 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %247, i32 0, i32 36
   %249 = load ptr, ptr %248, align 8
   %250 = load ptr, ptr %5, align 8
-  %251 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %250, i32 0, i32 38
+  %251 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %250, i32 0, i32 37
   %252 = load i32, ptr %251, align 8
   %253 = call i32 (ptr, ...) @printf(ptr noundef @.str.25, ptr noundef %249, i32 noundef %252)
   br label %256
@@ -840,10 +865,10 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 256:                                              ; preds = %254, %246
   %257 = load ptr, ptr %5, align 8
-  %258 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %257, i32 0, i32 23
+  %258 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %257, i32 0, i32 22
   %259 = load ptr, ptr %258, align 8
   %260 = load ptr, ptr %5, align 8
-  %261 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %260, i32 0, i32 20
+  %261 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %260, i32 0, i32 20
   %262 = load i16, ptr %261, align 8
   %263 = zext i16 %262 to i32
   %264 = icmp ne i32 %263, 0
@@ -851,56 +876,56 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %266 = load ptr, ptr %9, align 8
   %267 = call i32 (ptr, ...) @printf(ptr noundef @.str.27, ptr noundef %259, ptr noundef %265, ptr noundef %266)
   %268 = load ptr, ptr %5, align 8
-  %269 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %268, i32 0, i32 9
+  %269 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %268, i32 0, i32 9
   %270 = load i32, ptr %269, align 8
   %271 = icmp ne i32 %270, -1
   br i1 %271, label %272, label %282
 
 272:                                              ; preds = %256
   %273 = load ptr, ptr %5, align 8
-  %274 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %273, i32 0, i32 9
+  %274 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %273, i32 0, i32 9
   %275 = load i32, ptr %274, align 8
   %276 = load ptr, ptr %5, align 8
-  %277 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %276, i32 0, i32 45
+  %277 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %276, i32 0, i32 43
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %278, i32 0, i32 18
+  %279 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %278, i32 0, i32 18
   %280 = load i32, ptr %279, align 8
   %281 = call i32 (ptr, ...) @printf(ptr noundef @.str.30, i32 noundef %275, i32 noundef %280)
   br label %289
 
 282:                                              ; preds = %256
   %283 = load ptr, ptr %5, align 8
-  %284 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %283, i32 0, i32 45
+  %284 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %283, i32 0, i32 43
   %285 = load ptr, ptr %284, align 8
-  %286 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %285, i32 0, i32 18
+  %286 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %285, i32 0, i32 18
   %287 = load i32, ptr %286, align 8
   %288 = call i32 (ptr, ...) @printf(ptr noundef @.str.31, i32 noundef %287)
   br label %289
 
 289:                                              ; preds = %282, %272
   %290 = load ptr, ptr %5, align 8
-  %291 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %290, i32 0, i32 10
+  %291 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %290, i32 0, i32 10
   %292 = load i32, ptr %291, align 4
   %293 = icmp ne i32 %292, -1
   br i1 %293, label %294, label %304
 
 294:                                              ; preds = %289
   %295 = load ptr, ptr %5, align 8
-  %296 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %295, i32 0, i32 10
+  %296 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %295, i32 0, i32 10
   %297 = load i32, ptr %296, align 4
   %298 = load ptr, ptr %5, align 8
-  %299 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %298, i32 0, i32 45
+  %299 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %298, i32 0, i32 43
   %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %300, i32 0, i32 0
+  %301 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %300, i32 0, i32 0
   %302 = load i32, ptr %301, align 16
   %303 = call i32 (ptr, ...) @printf(ptr noundef @.str.32, i32 noundef %297, i32 noundef %302)
   br label %311
 
 304:                                              ; preds = %289
   %305 = load ptr, ptr %5, align 8
-  %306 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %305, i32 0, i32 45
+  %306 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %305, i32 0, i32 43
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %307, i32 0, i32 0
+  %308 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %307, i32 0, i32 0
   %309 = load i32, ptr %308, align 16
   %310 = call i32 (ptr, ...) @printf(ptr noundef @.str.33, i32 noundef %309)
   br label %311
@@ -909,47 +934,47 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %312 = load ptr, ptr %9, align 8
   %313 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %312)
   %314 = load ptr, ptr %5, align 8
-  %315 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %314, i32 0, i32 11
+  %315 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %314, i32 0, i32 11
   %316 = load i32, ptr %315, align 8
   %317 = icmp ne i32 %316, -1
   br i1 %317, label %318, label %328
 
 318:                                              ; preds = %311
   %319 = load ptr, ptr %5, align 8
-  %320 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %319, i32 0, i32 11
+  %320 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %319, i32 0, i32 11
   %321 = load i32, ptr %320, align 8
   %322 = load ptr, ptr %5, align 8
-  %323 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %322, i32 0, i32 45
+  %323 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %322, i32 0, i32 43
   %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %324, i32 0, i32 19
+  %325 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %324, i32 0, i32 19
   %326 = load i32, ptr %325, align 4
   %327 = call i32 (ptr, ...) @printf(ptr noundef @.str.35, i32 noundef %321, i32 noundef %326)
   br label %335
 
 328:                                              ; preds = %311
   %329 = load ptr, ptr %5, align 8
-  %330 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %329, i32 0, i32 45
+  %330 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %329, i32 0, i32 43
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %331, i32 0, i32 19
+  %332 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %331, i32 0, i32 19
   %333 = load i32, ptr %332, align 4
   %334 = call i32 (ptr, ...) @printf(ptr noundef @.str.36, i32 noundef %333)
   br label %335
 
 335:                                              ; preds = %328, %318
   %336 = load ptr, ptr %5, align 8
-  %337 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %336, i32 0, i32 18
+  %337 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %336, i32 0, i32 18
   %338 = load i32, ptr %337, align 8
   %339 = icmp ne i32 %338, -1
   br i1 %339, label %340, label %351
 
 340:                                              ; preds = %335
   %341 = load ptr, ptr %5, align 8
-  %342 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %341, i32 0, i32 18
+  %342 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %341, i32 0, i32 18
   %343 = load i32, ptr %342, align 8
   %344 = load ptr, ptr %5, align 8
-  %345 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %344, i32 0, i32 45
+  %345 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %344, i32 0, i32 43
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %346, i32 0, i32 6
+  %347 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %346, i32 0, i32 6
   %348 = load double, ptr %347, align 16
   %349 = fdiv double %348, 6.000000e+01
   %350 = call i32 (ptr, ...) @printf(ptr noundef @.str.37, i32 noundef %343, double noundef %349)
@@ -957,9 +982,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 351:                                              ; preds = %335
   %352 = load ptr, ptr %5, align 8
-  %353 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %352, i32 0, i32 45
+  %353 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %352, i32 0, i32 43
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %354, i32 0, i32 6
+  %355 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %354, i32 0, i32 6
   %356 = load double, ptr %355, align 16
   %357 = fdiv double %356, 6.000000e+01
   %358 = call i32 (ptr, ...) @printf(ptr noundef @.str.38, double noundef %357)
@@ -969,12 +994,12 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %360 = load ptr, ptr %9, align 8
   %361 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %360)
   %362 = load ptr, ptr %5, align 8
-  %363 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %362, i32 0, i32 13
+  %363 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %362, i32 0, i32 13
   %364 = load ptr, ptr %363, align 8
   %365 = load ptr, ptr %5, align 8
-  %366 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %365, i32 0, i32 45
+  %366 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %365, i32 0, i32 43
   %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %367, i32 0, i32 4
+  %368 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %367, i32 0, i32 4
   %369 = load ptr, ptr %368, align 16
   call void @_print_tres_line(ptr noundef @.str.39, ptr noundef %364, ptr noundef %369, i64 noundef 0)
   %370 = load ptr, ptr %9, align 8
@@ -982,9 +1007,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %372 = mul nuw i64 8, %14
   call void @llvm.memset.p0.i64(ptr align 16 %16, i8 0, i64 %372, i1 false)
   %373 = load ptr, ptr %5, align 8
-  %374 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %373, i32 0, i32 45
+  %374 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %373, i32 0, i32 43
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %375, i32 0, i32 17
+  %376 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %375, i32 0, i32 17
   %377 = load ptr, ptr %376, align 16
   %378 = icmp ne ptr %377, null
   br i1 %378, label %379, label %402
@@ -1001,9 +1026,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 384:                                              ; preds = %380
   %385 = load ptr, ptr %5, align 8
-  %386 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %385, i32 0, i32 45
+  %386 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %385, i32 0, i32 43
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %387, i32 0, i32 17
+  %388 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %387, i32 0, i32 17
   %389 = load ptr, ptr %388, align 16
   %390 = load i32, ptr %10, align 4
   %391 = sext i32 %390 to i64
@@ -1020,43 +1045,43 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %399 = load i32, ptr %10, align 4
   %400 = add nsw i32 %399, 1
   store i32 %400, ptr %10, align 4
-  br label %380, !llvm.loop !11
+  br label %380, !llvm.loop !13
 
 401:                                              ; preds = %380
   br label %402
 
 402:                                              ; preds = %401, %359
   %403 = load ptr, ptr %5, align 8
-  %404 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %403, i32 0, i32 15
+  %404 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %403, i32 0, i32 15
   %405 = load ptr, ptr %404, align 8
   call void @_print_tres_line(ptr noundef @.str.40, ptr noundef %405, ptr noundef %16, i64 noundef 60)
   %406 = load ptr, ptr %9, align 8
   %407 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %406)
   %408 = load ptr, ptr %5, align 8
-  %409 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %408, i32 0, i32 17
+  %409 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %408, i32 0, i32 17
   %410 = load ptr, ptr %409, align 8
   %411 = load ptr, ptr %5, align 8
-  %412 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %411, i32 0, i32 45
+  %412 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %411, i32 0, i32 43
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %413, i32 0, i32 5
+  %414 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %413, i32 0, i32 5
   %415 = load ptr, ptr %414, align 8
   call void @_print_tres_line(ptr noundef @.str.41, ptr noundef %410, ptr noundef %415, i64 noundef 60)
   %416 = load ptr, ptr %9, align 8
   %417 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %416)
   %418 = load ptr, ptr %5, align 8
-  %419 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %418, i32 0, i32 24
+  %419 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %418, i32 0, i32 23
   %420 = load i32, ptr %419, align 8
   %421 = icmp ne i32 %420, -1
   br i1 %421, label %422, label %432
 
 422:                                              ; preds = %402
   %423 = load ptr, ptr %5, align 8
-  %424 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %423, i32 0, i32 24
+  %424 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %423, i32 0, i32 23
   %425 = load i32, ptr %424, align 8
   %426 = load ptr, ptr %5, align 8
-  %427 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %426, i32 0, i32 45
+  %427 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %426, i32 0, i32 43
   %428 = load ptr, ptr %427, align 8
-  %429 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %428, i32 0, i32 18
+  %429 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %428, i32 0, i32 18
   %430 = load i32, ptr %429, align 8
   %431 = call i32 (ptr, ...) @printf(ptr noundef @.str.42, i32 noundef %425, i32 noundef %430)
   br label %434
@@ -1067,19 +1092,19 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 434:                                              ; preds = %432, %422
   %435 = load ptr, ptr %5, align 8
-  %436 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %435, i32 0, i32 25
+  %436 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %435, i32 0, i32 24
   %437 = load i32, ptr %436, align 4
   %438 = icmp ne i32 %437, -1
   br i1 %438, label %439, label %449
 
 439:                                              ; preds = %434
   %440 = load ptr, ptr %5, align 8
-  %441 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %440, i32 0, i32 25
+  %441 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %440, i32 0, i32 24
   %442 = load i32, ptr %441, align 4
   %443 = load ptr, ptr %5, align 8
-  %444 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %443, i32 0, i32 45
+  %444 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %443, i32 0, i32 43
   %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %445, i32 0, i32 0
+  %446 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %445, i32 0, i32 0
   %447 = load i32, ptr %446, align 16
   %448 = call i32 (ptr, ...) @printf(ptr noundef @.str.44, i32 noundef %442, i32 noundef %447)
   br label %451
@@ -1090,19 +1115,19 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 451:                                              ; preds = %449, %439
   %452 = load ptr, ptr %5, align 8
-  %453 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %452, i32 0, i32 26
+  %453 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %452, i32 0, i32 25
   %454 = load i32, ptr %453, align 8
   %455 = icmp ne i32 %454, -1
   br i1 %455, label %456, label %466
 
 456:                                              ; preds = %451
   %457 = load ptr, ptr %5, align 8
-  %458 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %457, i32 0, i32 26
+  %458 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %457, i32 0, i32 25
   %459 = load i32, ptr %458, align 8
   %460 = load ptr, ptr %5, align 8
-  %461 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %460, i32 0, i32 45
+  %461 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %460, i32 0, i32 43
   %462 = load ptr, ptr %461, align 8
-  %463 = getelementptr inbounds %struct.slurmdb_assoc_usage, ptr %462, i32 0, i32 19
+  %463 = getelementptr inbounds nuw %struct.slurmdb_assoc_usage, ptr %462, i32 0, i32 19
   %464 = load i32, ptr %463, align 4
   %465 = call i32 (ptr, ...) @printf(ptr noundef @.str.46, i32 noundef %459, i32 noundef %464)
   br label %468
@@ -1113,14 +1138,14 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 468:                                              ; preds = %466, %456
   %469 = load ptr, ptr %5, align 8
-  %470 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %469, i32 0, i32 35
+  %470 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %469, i32 0, i32 34
   %471 = load i32, ptr %470, align 8
   %472 = icmp ne i32 %471, -1
   br i1 %472, label %473, label %478
 
 473:                                              ; preds = %468
   %474 = load ptr, ptr %5, align 8
-  %475 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %474, i32 0, i32 35
+  %475 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %474, i32 0, i32 34
   %476 = load i32, ptr %475, align 8
   %477 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, i32 noundef %476)
   br label %480
@@ -1133,32 +1158,32 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %481 = load ptr, ptr %9, align 8
   %482 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %481)
   %483 = load ptr, ptr %5, align 8
-  %484 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %483, i32 0, i32 32
+  %484 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %483, i32 0, i32 31
   %485 = load ptr, ptr %484, align 8
   call void @_print_tres_line(ptr noundef @.str.50, ptr noundef %485, ptr noundef null, i64 noundef 0)
   %486 = load ptr, ptr %9, align 8
   %487 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %486)
   %488 = load ptr, ptr %5, align 8
-  %489 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %488, i32 0, i32 34
+  %489 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %488, i32 0, i32 33
   %490 = load ptr, ptr %489, align 8
   call void @_print_tres_line(ptr noundef @.str.51, ptr noundef %490, ptr noundef null, i64 noundef 0)
   %491 = load ptr, ptr %9, align 8
   %492 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %491)
   %493 = load ptr, ptr %5, align 8
-  %494 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %493, i32 0, i32 28
+  %494 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %493, i32 0, i32 27
   %495 = load ptr, ptr %494, align 8
   call void @_print_tres_line(ptr noundef @.str.52, ptr noundef %495, ptr noundef null, i64 noundef 0)
   %496 = load ptr, ptr %9, align 8
   %497 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %496)
   %498 = load ptr, ptr %5, align 8
-  %499 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %498, i32 0, i32 36
+  %499 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %498, i32 0, i32 35
   %500 = load i32, ptr %499, align 4
   %501 = icmp ne i32 %500, -1
   br i1 %501, label %502, label %507
 
 502:                                              ; preds = %480
   %503 = load ptr, ptr %5, align 8
-  %504 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %503, i32 0, i32 36
+  %504 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %503, i32 0, i32 35
   %505 = load i32, ptr %504, align 4
   %506 = call i32 (ptr, ...) @printf(ptr noundef @.str.53, i32 noundef %505)
   br label %509
@@ -1171,25 +1196,25 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %510 = load ptr, ptr %9, align 8
   %511 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %510)
   %512 = load ptr, ptr %5, align 8
-  %513 = getelementptr inbounds %struct.slurmdb_assoc_rec, ptr %512, i32 0, i32 6
+  %513 = getelementptr inbounds nuw %struct.slurmdb_assoc_rec, ptr %512, i32 0, i32 6
   %514 = load ptr, ptr %513, align 8
   %515 = call i32 (ptr, ...) @printf(ptr noundef @.str.55, ptr noundef %514)
   %516 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
-  br label %123, !llvm.loop !10
+  br label %123, !llvm.loop !12
 
 517:                                              ; preds = %123
   br label %518
 
 518:                                              ; preds = %517, %110
   %519 = load ptr, ptr %2, align 8
-  %520 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %519, i32 0, i32 1
+  %520 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %519, i32 0, i32 1
   %521 = load ptr, ptr %520, align 8
   %522 = icmp ne ptr %521, null
   br i1 %522, label %523, label %529
 
 523:                                              ; preds = %518
   %524 = load ptr, ptr %2, align 8
-  %525 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %524, i32 0, i32 1
+  %525 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %524, i32 0, i32 1
   %526 = load ptr, ptr %525, align 8
   %527 = call i32 @list_count(ptr noundef %526)
   %528 = icmp ne i32 %527, 0
@@ -1223,7 +1248,7 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %548 = select i1 %547, ptr @.str.13, ptr @.str.14
   %549 = call i32 (ptr, ...) @printf(ptr noundef @.str.57, ptr noundef %545, ptr noundef %548)
   %550 = load ptr, ptr %2, align 8
-  %551 = getelementptr inbounds %struct.assoc_mgr_info_msg_t, ptr %550, i32 0, i32 1
+  %551 = getelementptr inbounds nuw %struct.assoc_mgr_info_msg_t, ptr %550, i32 0, i32 1
   %552 = load ptr, ptr %551, align 8
   %553 = call ptr @list_iterator_create(ptr noundef %552)
   store ptr %553, ptr %3, align 8
@@ -1238,128 +1263,128 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 558:                                              ; preds = %554
   %559 = load ptr, ptr %6, align 8
-  %560 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %559, i32 0, i32 46
+  %560 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %559, i32 0, i32 47
   %561 = load ptr, ptr %560, align 8
   %562 = icmp ne ptr %561, null
   br i1 %562, label %564, label %563
 
 563:                                              ; preds = %558
-  br label %554, !llvm.loop !12
+  br label %554, !llvm.loop !14
 
 564:                                              ; preds = %558
   %565 = load ptr, ptr %6, align 8
-  %566 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %565, i32 0, i32 39
+  %566 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %565, i32 0, i32 40
   %567 = load ptr, ptr %566, align 8
   %568 = load ptr, ptr %6, align 8
-  %569 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %568, i32 0, i32 1
+  %569 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %568, i32 0, i32 2
   %570 = load i32, ptr %569, align 8
   %571 = load ptr, ptr %9, align 8
   %572 = call i32 (ptr, ...) @printf(ptr noundef @.str.58, ptr noundef %567, i32 noundef %570, ptr noundef %571)
   %573 = load ptr, ptr %6, align 8
-  %574 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %573, i32 0, i32 46
+  %574 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %573, i32 0, i32 47
   %575 = load ptr, ptr %574, align 8
-  %576 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %575, i32 0, i32 12
+  %576 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %575, i32 0, i32 12
   %577 = load x86_fp80, ptr %576, align 16
   %578 = load ptr, ptr %9, align 8
   %579 = call i32 (ptr, ...) @printf(ptr noundef @.str.59, x86_fp80 noundef %577, ptr noundef %578)
   %580 = load ptr, ptr %6, align 8
-  %581 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %580, i32 0, i32 5
+  %581 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %580, i32 0, i32 6
   %582 = load i32, ptr %581, align 8
   %583 = icmp ne i32 %582, -1
   br i1 %583, label %584, label %594
 
 584:                                              ; preds = %564
   %585 = load ptr, ptr %6, align 8
-  %586 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %585, i32 0, i32 5
+  %586 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %585, i32 0, i32 6
   %587 = load i32, ptr %586, align 8
   %588 = load ptr, ptr %6, align 8
-  %589 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %588, i32 0, i32 46
+  %589 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %588, i32 0, i32 47
   %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %590, i32 0, i32 5
+  %591 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %590, i32 0, i32 5
   %592 = load i32, ptr %591, align 8
   %593 = call i32 (ptr, ...) @printf(ptr noundef @.str.30, i32 noundef %587, i32 noundef %592)
   br label %601
 
 594:                                              ; preds = %564
   %595 = load ptr, ptr %6, align 8
-  %596 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %595, i32 0, i32 46
+  %596 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %595, i32 0, i32 47
   %597 = load ptr, ptr %596, align 8
-  %598 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %597, i32 0, i32 5
+  %598 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %597, i32 0, i32 5
   %599 = load i32, ptr %598, align 8
   %600 = call i32 (ptr, ...) @printf(ptr noundef @.str.31, i32 noundef %599)
   br label %601
 
 601:                                              ; preds = %594, %584
   %602 = load ptr, ptr %6, align 8
-  %603 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %602, i32 0, i32 4
+  %603 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %602, i32 0, i32 5
   %604 = load i32, ptr %603, align 4
   %605 = icmp ne i32 %604, -1
   br i1 %605, label %606, label %616
 
 606:                                              ; preds = %601
   %607 = load ptr, ptr %6, align 8
-  %608 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %607, i32 0, i32 4
+  %608 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %607, i32 0, i32 5
   %609 = load i32, ptr %608, align 4
   %610 = load ptr, ptr %6, align 8
-  %611 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %610, i32 0, i32 46
+  %611 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %610, i32 0, i32 47
   %612 = load ptr, ptr %611, align 8
-  %613 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %612, i32 0, i32 0
+  %613 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %612, i32 0, i32 0
   %614 = load i32, ptr %613, align 16
   %615 = call i32 (ptr, ...) @printf(ptr noundef @.str.60, i32 noundef %609, i32 noundef %614)
   br label %623
 
 616:                                              ; preds = %601
   %617 = load ptr, ptr %6, align 8
-  %618 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %617, i32 0, i32 46
+  %618 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %617, i32 0, i32 47
   %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %619, i32 0, i32 0
+  %620 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %619, i32 0, i32 0
   %621 = load i32, ptr %620, align 16
   %622 = call i32 (ptr, ...) @printf(ptr noundef @.str.61, i32 noundef %621)
   br label %623
 
 623:                                              ; preds = %616, %606
   %624 = load ptr, ptr %6, align 8
-  %625 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %624, i32 0, i32 6
+  %625 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %624, i32 0, i32 7
   %626 = load i32, ptr %625, align 4
   %627 = icmp ne i32 %626, -1
   br i1 %627, label %628, label %638
 
 628:                                              ; preds = %623
   %629 = load ptr, ptr %6, align 8
-  %630 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %629, i32 0, i32 6
+  %630 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %629, i32 0, i32 7
   %631 = load i32, ptr %630, align 4
   %632 = load ptr, ptr %6, align 8
-  %633 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %632, i32 0, i32 46
+  %633 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %632, i32 0, i32 47
   %634 = load ptr, ptr %633, align 8
-  %635 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %634, i32 0, i32 6
+  %635 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %634, i32 0, i32 6
   %636 = load i32, ptr %635, align 4
   %637 = call i32 (ptr, ...) @printf(ptr noundef @.str.35, i32 noundef %631, i32 noundef %636)
   br label %645
 
 638:                                              ; preds = %623
   %639 = load ptr, ptr %6, align 8
-  %640 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %639, i32 0, i32 46
+  %640 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %639, i32 0, i32 47
   %641 = load ptr, ptr %640, align 8
-  %642 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %641, i32 0, i32 6
+  %642 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %641, i32 0, i32 6
   %643 = load i32, ptr %642, align 4
   %644 = call i32 (ptr, ...) @printf(ptr noundef @.str.36, i32 noundef %643)
   br label %645
 
 645:                                              ; preds = %638, %628
   %646 = load ptr, ptr %6, align 8
-  %647 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %646, i32 0, i32 13
+  %647 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %646, i32 0, i32 14
   %648 = load i32, ptr %647, align 8
   %649 = icmp ne i32 %648, -1
   br i1 %649, label %650, label %661
 
 650:                                              ; preds = %645
   %651 = load ptr, ptr %6, align 8
-  %652 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %651, i32 0, i32 13
+  %652 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %651, i32 0, i32 14
   %653 = load i32, ptr %652, align 8
   %654 = load ptr, ptr %6, align 8
-  %655 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %654, i32 0, i32 46
+  %655 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %654, i32 0, i32 47
   %656 = load ptr, ptr %655, align 8
-  %657 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %656, i32 0, i32 9
+  %657 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %656, i32 0, i32 9
   %658 = load double, ptr %657, align 16
   %659 = fdiv double %658, 6.000000e+01
   %660 = call i32 (ptr, ...) @printf(ptr noundef @.str.37, i32 noundef %653, double noundef %659)
@@ -1367,9 +1392,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 661:                                              ; preds = %645
   %662 = load ptr, ptr %6, align 8
-  %663 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %662, i32 0, i32 46
+  %663 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %662, i32 0, i32 47
   %664 = load ptr, ptr %663, align 8
-  %665 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %664, i32 0, i32 9
+  %665 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %664, i32 0, i32 9
   %666 = load double, ptr %665, align 16
   %667 = fdiv double %666, 6.000000e+01
   %668 = call i32 (ptr, ...) @printf(ptr noundef @.str.38, double noundef %667)
@@ -1379,12 +1404,12 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %670 = load ptr, ptr %9, align 8
   %671 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %670)
   %672 = load ptr, ptr %6, align 8
-  %673 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %672, i32 0, i32 8
+  %673 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %672, i32 0, i32 9
   %674 = load ptr, ptr %673, align 8
   %675 = load ptr, ptr %6, align 8
-  %676 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %675, i32 0, i32 46
+  %676 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %675, i32 0, i32 47
   %677 = load ptr, ptr %676, align 8
-  %678 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %677, i32 0, i32 7
+  %678 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %677, i32 0, i32 7
   %679 = load ptr, ptr %678, align 16
   call void @_print_tres_line(ptr noundef @.str.39, ptr noundef %674, ptr noundef %679, i64 noundef 0)
   %680 = load ptr, ptr %9, align 8
@@ -1392,9 +1417,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %682 = mul nuw i64 8, %14
   call void @llvm.memset.p0.i64(ptr align 16 %16, i8 0, i64 %682, i1 false)
   %683 = load ptr, ptr %6, align 8
-  %684 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %683, i32 0, i32 46
+  %684 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %683, i32 0, i32 47
   %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %685, i32 0, i32 13
+  %686 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %685, i32 0, i32 13
   %687 = load ptr, ptr %686, align 16
   %688 = icmp ne ptr %687, null
   br i1 %688, label %689, label %712
@@ -1411,9 +1436,9 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 694:                                              ; preds = %690
   %695 = load ptr, ptr %6, align 8
-  %696 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %695, i32 0, i32 46
+  %696 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %695, i32 0, i32 47
   %697 = load ptr, ptr %696, align 8
-  %698 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %697, i32 0, i32 13
+  %698 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %697, i32 0, i32 13
   %699 = load ptr, ptr %698, align 16
   %700 = load i32, ptr %10, align 4
   %701 = sext i32 %700 to i64
@@ -1430,38 +1455,38 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %709 = load i32, ptr %10, align 4
   %710 = add nsw i32 %709, 1
   store i32 %710, ptr %10, align 4
-  br label %690, !llvm.loop !13
+  br label %690, !llvm.loop !15
 
 711:                                              ; preds = %690
   br label %712
 
 712:                                              ; preds = %711, %669
   %713 = load ptr, ptr %6, align 8
-  %714 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %713, i32 0, i32 10
+  %714 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %713, i32 0, i32 11
   %715 = load ptr, ptr %714, align 8
   call void @_print_tres_line(ptr noundef @.str.40, ptr noundef %715, ptr noundef %16, i64 noundef 60)
   %716 = load ptr, ptr %9, align 8
   %717 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %716)
   %718 = load ptr, ptr %6, align 8
-  %719 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %718, i32 0, i32 12
+  %719 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %718, i32 0, i32 13
   %720 = load ptr, ptr %719, align 8
   %721 = load ptr, ptr %6, align 8
-  %722 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %721, i32 0, i32 46
+  %722 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %721, i32 0, i32 47
   %723 = load ptr, ptr %722, align 8
-  %724 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %723, i32 0, i32 8
+  %724 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %723, i32 0, i32 8
   %725 = load ptr, ptr %724, align 8
   call void @_print_tres_line(ptr noundef @.str.41, ptr noundef %720, ptr noundef %725, i64 noundef 60)
   %726 = load ptr, ptr %9, align 8
   %727 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %726)
   %728 = load ptr, ptr %6, align 8
-  %729 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %728, i32 0, i32 35
+  %729 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %728, i32 0, i32 36
   %730 = load i32, ptr %729, align 8
   %731 = icmp ne i32 %730, -1
   br i1 %731, label %732, label %737
 
 732:                                              ; preds = %712
   %733 = load ptr, ptr %6, align 8
-  %734 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %733, i32 0, i32 35
+  %734 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %733, i32 0, i32 36
   %735 = load i32, ptr %734, align 8
   %736 = call i32 (ptr, ...) @printf(ptr noundef @.str.48, i32 noundef %735)
   br label %739
@@ -1474,32 +1499,32 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %740 = load ptr, ptr %9, align 8
   %741 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %740)
   %742 = load ptr, ptr %6, align 8
-  %743 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %742, i32 0, i32 26
+  %743 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %742, i32 0, i32 27
   %744 = load ptr, ptr %743, align 8
   call void @_print_tres_line(ptr noundef @.str.50, ptr noundef %744, ptr noundef null, i64 noundef 0)
   %745 = load ptr, ptr %9, align 8
   %746 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %745)
   %747 = load ptr, ptr %6, align 8
-  %748 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %747, i32 0, i32 28
+  %748 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %747, i32 0, i32 29
   %749 = load ptr, ptr %748, align 8
   call void @_print_tres_line(ptr noundef @.str.51, ptr noundef %749, ptr noundef null, i64 noundef 0)
   %750 = load ptr, ptr %9, align 8
   %751 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %750)
   %752 = load ptr, ptr %6, align 8
-  %753 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %752, i32 0, i32 22
+  %753 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %752, i32 0, i32 23
   %754 = load ptr, ptr %753, align 8
   call void @_print_tres_line(ptr noundef @.str.52, ptr noundef %754, ptr noundef null, i64 noundef 0)
   %755 = load ptr, ptr %9, align 8
   %756 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %755)
   %757 = load ptr, ptr %6, align 8
-  %758 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %757, i32 0, i32 36
+  %758 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %757, i32 0, i32 37
   %759 = load i32, ptr %758, align 4
   %760 = icmp ne i32 %759, -1
   br i1 %760, label %761, label %766
 
 761:                                              ; preds = %739
   %762 = load ptr, ptr %6, align 8
-  %763 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %762, i32 0, i32 36
+  %763 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %762, i32 0, i32 37
   %764 = load i32, ptr %763, align 4
   %765 = call i32 (ptr, ...) @printf(ptr noundef @.str.62, i32 noundef %764)
   br label %768
@@ -1512,13 +1537,13 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %769 = load ptr, ptr %9, align 8
   %770 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %769)
   %771 = load ptr, ptr %6, align 8
-  %772 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %771, i32 0, i32 38
+  %772 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %771, i32 0, i32 39
   %773 = load ptr, ptr %772, align 8
   call void @_print_tres_line(ptr noundef @.str.64, ptr noundef %773, ptr noundef null, i64 noundef 0)
   %774 = load ptr, ptr %9, align 8
   %775 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %774)
   %776 = load ptr, ptr %6, align 8
-  %777 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %776, i32 0, i32 42
+  %777 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %776, i32 0, i32 43
   %778 = load i16, ptr %777, align 8
   %779 = call ptr @preempt_mode_string(i16 noundef zeroext %778)
   %780 = load i32, ptr @one_liner, align 4
@@ -1526,14 +1551,14 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %782 = select i1 %781, ptr @.str.9, ptr @.str.10
   %783 = call i32 (ptr, ...) @printf(ptr noundef @.str.65, ptr noundef %779, ptr noundef %782)
   %784 = load ptr, ptr %6, align 8
-  %785 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %784, i32 0, i32 44
+  %785 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %784, i32 0, i32 45
   %786 = load i32, ptr %785, align 8
   %787 = icmp eq i32 %786, -1
   br i1 %787, label %793, label %788
 
 788:                                              ; preds = %768
   %789 = load ptr, ptr %6, align 8
-  %790 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %789, i32 0, i32 44
+  %790 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %789, i32 0, i32 45
   %791 = load i32, ptr %790, align 8
   %792 = icmp eq i32 %791, -2
   br i1 %792, label %793, label %795
@@ -1544,7 +1569,7 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 795:                                              ; preds = %788
   %796 = load ptr, ptr %6, align 8
-  %797 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %796, i32 0, i32 44
+  %797 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %796, i32 0, i32 45
   %798 = load i32, ptr %797, align 8
   %799 = call i32 (ptr, ...) @printf(ptr noundef @.str.67, i32 noundef %798)
   br label %800
@@ -1557,18 +1582,18 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %805 = select i1 %804, ptr @.str.69, ptr @.str.13
   %806 = call i32 (ptr, ...) @printf(ptr noundef @.str.68, ptr noundef %805)
   %807 = load ptr, ptr %6, align 8
-  %808 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %807, i32 0, i32 46
+  %808 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %807, i32 0, i32 47
   %809 = load ptr, ptr %808, align 8
-  %810 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %809, i32 0, i32 1
+  %810 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %809, i32 0, i32 1
   %811 = load ptr, ptr %810, align 8
   %812 = icmp ne ptr %811, null
   br i1 %812, label %813, label %821
 
 813:                                              ; preds = %800
   %814 = load ptr, ptr %6, align 8
-  %815 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %814, i32 0, i32 46
+  %815 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %814, i32 0, i32 47
   %816 = load ptr, ptr %815, align 8
-  %817 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %816, i32 0, i32 1
+  %817 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %816, i32 0, i32 1
   %818 = load ptr, ptr %817, align 8
   %819 = load ptr, ptr %6, align 8
   %820 = call i32 @list_for_each(ptr noundef %818, ptr noundef @_print_used_acct_limit, ptr noundef %819)
@@ -1589,18 +1614,18 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
   %831 = select i1 %830, ptr @.str.69, ptr @.str.13
   %832 = call i32 (ptr, ...) @printf(ptr noundef @.str.72, ptr noundef %831)
   %833 = load ptr, ptr %6, align 8
-  %834 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %833, i32 0, i32 46
+  %834 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %833, i32 0, i32 47
   %835 = load ptr, ptr %834, align 8
-  %836 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %835, i32 0, i32 14
+  %836 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %835, i32 0, i32 14
   %837 = load ptr, ptr %836, align 8
   %838 = icmp ne ptr %837, null
   br i1 %838, label %839, label %847
 
 839:                                              ; preds = %826
   %840 = load ptr, ptr %6, align 8
-  %841 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %840, i32 0, i32 46
+  %841 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %840, i32 0, i32 47
   %842 = load ptr, ptr %841, align 8
-  %843 = getelementptr inbounds %struct.slurmdb_qos_usage_t, ptr %842, i32 0, i32 14
+  %843 = getelementptr inbounds nuw %struct.slurmdb_qos_usage_t, ptr %842, i32 0, i32 14
   %844 = load ptr, ptr %843, align 8
   %845 = load ptr, ptr %6, align 8
   %846 = call i32 @list_for_each(ptr noundef %844, ptr noundef @_print_used_user_limit, ptr noundef %845)
@@ -1615,37 +1640,46 @@ define internal void @_print_assoc_mgr_info(ptr noundef %0) #0 {
 
 852:                                              ; preds = %847, %839
   %853 = call i32 (ptr, ...) @printf(ptr noundef @.str.14)
-  br label %554, !llvm.loop !12
+  br label %554, !llvm.loop !14
 
 854:                                              ; preds = %554
   br label %855
 
 855:                                              ; preds = %854, %541
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   %856 = load ptr, ptr %7, align 8
   call void @llvm.stackrestore.p0(ptr %856)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
-declare void @slurm_perror(ptr noundef) #4
+declare void @slurm_perror(ptr noundef) #5
 
-declare void @slurm_free_assoc_mgr_info_msg(ptr noundef) #4
+declare void @slurm_free_assoc_mgr_info_msg(ptr noundef) #5
 
-declare void @slurm_free_assoc_mgr_info_request_members(ptr noundef) #4
+declare void @slurm_free_assoc_mgr_info_request_members(ptr noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #5
+declare ptr @llvm.stacksave.p0() #6
 
-declare i32 @printf(ptr noundef, ...) #4
+declare i32 @printf(ptr noundef, ...) #5
 
-declare i32 @list_count(ptr noundef) #4
+declare i32 @list_count(ptr noundef) #5
 
-declare ptr @list_iterator_create(ptr noundef) #4
+declare ptr @list_iterator_create(ptr noundef) #5
 
-declare ptr @list_next(ptr noundef) #4
+declare ptr @list_next(ptr noundef) #5
 
-declare ptr @slurmdb_admin_level_str(i32 noundef) #4
+declare ptr @slurmdb_admin_level_str(i32 noundef) #5
 
-declare void @list_iterator_destroy(ptr noundef) #4
+declare void @list_iterator_destroy(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @_print_tres_line(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
@@ -1655,124 +1689,146 @@ define internal void @_print_tres_line(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  %11 = alloca i64, align 8
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
   store i8 0, ptr %10, align 1
-  %12 = load ptr, ptr %5, align 8
-  %13 = call i32 (ptr, ...) @printf(ptr noundef @.str.74, ptr noundef %12)
-  %14 = load ptr, ptr %6, align 8
-  %15 = icmp ne ptr %14, null
-  br i1 %15, label %17, label %16
-
-16:                                               ; preds = %4
-  br label %80
+  %13 = load ptr, ptr %5, align 8
+  %14 = call i32 (ptr, ...) @printf(ptr noundef @.str.74, ptr noundef %13)
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp ne ptr %15, null
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %4
+  store i32 1, ptr %11, align 4
+  br label %82
+
+18:                                               ; preds = %4
   store i32 0, ptr %9, align 4
-  br label %18
+  br label %19
 
-18:                                               ; preds = %77, %17
-  %19 = load i32, ptr %9, align 4
-  %20 = load i32, ptr @tres_cnt, align 4
-  %21 = icmp ult i32 %19, %20
-  br i1 %21, label %22, label %80
+19:                                               ; preds = %78, %18
+  %20 = load i32, ptr %9, align 4
+  %21 = load i32, ptr @tres_cnt, align 4
+  %22 = icmp ult i32 %20, %21
+  br i1 %22, label %23, label %81
 
-22:                                               ; preds = %18
-  %23 = load ptr, ptr %7, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %33, label %25
+23:                                               ; preds = %19
+  %24 = load ptr, ptr %7, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %34, label %26
 
-25:                                               ; preds = %22
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr %9, align 4
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i64, ptr %26, i64 %28
-  %30 = load i64, ptr %29, align 8
-  %31 = icmp eq i64 %30, -1
-  br i1 %31, label %32, label %33
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %9, align 4
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds i64, ptr %27, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = icmp eq i64 %31, -1
+  br i1 %32, label %33, label %34
 
-32:                                               ; preds = %25
+33:                                               ; preds = %26
+  br label %78
+
+34:                                               ; preds = %26, %23
+  %35 = load i8, ptr %10, align 1, !range !16, !noundef !17
+  %36 = trunc i8 %35 to i1
+  %37 = select i1 %36, ptr @.str.76, ptr @.str.13
+  %38 = load ptr, ptr @tres_names, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 (ptr, ...) @printf(ptr noundef @.str.75, ptr noundef %37, ptr noundef %42)
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds i64, ptr %44, i64 %46
+  %48 = load i64, ptr %47, align 8
+  %49 = icmp eq i64 %48, -1
+  br i1 %49, label %50, label %52
+
+50:                                               ; preds = %34
+  %51 = call i32 (ptr, ...) @printf(ptr noundef @.str.77)
+  br label %59
+
+52:                                               ; preds = %34
+  %53 = load ptr, ptr %6, align 8
+  %54 = load i32, ptr %9, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds i64, ptr %53, i64 %55
+  %57 = load i64, ptr %56, align 8
+  %58 = call i32 (ptr, ...) @printf(ptr noundef @.str.78, i64 noundef %57)
+  br label %59
+
+59:                                               ; preds = %52, %50
+  %60 = load ptr, ptr %7, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %77
+
+62:                                               ; preds = %59
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i32, ptr %9, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i64, ptr %63, i64 %65
+  %67 = load i64, ptr %66, align 8
+  store i64 %67, ptr %12, align 8
+  %68 = load i64, ptr %8, align 8
+  %69 = icmp ne i64 %68, 0
+  br i1 %69, label %70, label %74
+
+70:                                               ; preds = %62
+  %71 = load i64, ptr %8, align 8
+  %72 = load i64, ptr %12, align 8
+  %73 = udiv i64 %72, %71
+  store i64 %73, ptr %12, align 8
+  br label %74
+
+74:                                               ; preds = %70, %62
+  %75 = load i64, ptr %12, align 8
+  %76 = call i32 (ptr, ...) @printf(ptr noundef @.str.79, i64 noundef %75)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
   br label %77
 
-33:                                               ; preds = %25, %22
-  %34 = load i8, ptr %10, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = select i1 %35, ptr @.str.76, ptr @.str.13
-  %37 = load ptr, ptr @tres_names, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %37, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = call i32 (ptr, ...) @printf(ptr noundef @.str.75, ptr noundef %36, ptr noundef %41)
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %9, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %43, i64 %45
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp eq i64 %47, -1
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %33
-  %50 = call i32 (ptr, ...) @printf(ptr noundef @.str.77)
-  br label %58
-
-51:                                               ; preds = %33
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %9, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i64, ptr %52, i64 %54
-  %56 = load i64, ptr %55, align 8
-  %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.78, i64 noundef %56)
-  br label %58
-
-58:                                               ; preds = %51, %49
-  %59 = load ptr, ptr %7, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %76
-
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %7, align 8
-  %63 = load i32, ptr %9, align 4
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i64, ptr %62, i64 %64
-  %66 = load i64, ptr %65, align 8
-  store i64 %66, ptr %11, align 8
-  %67 = load i64, ptr %8, align 8
-  %68 = icmp ne i64 %67, 0
-  br i1 %68, label %69, label %73
-
-69:                                               ; preds = %61
-  %70 = load i64, ptr %8, align 8
-  %71 = load i64, ptr %11, align 8
-  %72 = udiv i64 %71, %70
-  store i64 %72, ptr %11, align 8
-  br label %73
-
-73:                                               ; preds = %69, %61
-  %74 = load i64, ptr %11, align 8
-  %75 = call i32 (ptr, ...) @printf(ptr noundef @.str.79, i64 noundef %74)
-  br label %76
-
-76:                                               ; preds = %73, %58
+77:                                               ; preds = %74, %59
   store i8 1, ptr %10, align 1
-  br label %77
+  br label %78
 
-77:                                               ; preds = %76, %32
-  %78 = load i32, ptr %9, align 4
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %9, align 4
-  br label %18, !llvm.loop !14
+78:                                               ; preds = %77, %33
+  %79 = load i32, ptr %9, align 4
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %9, align 4
+  br label %19, !llvm.loop !18
 
-80:                                               ; preds = %18, %16
+81:                                               ; preds = %19
+  store i32 0, ptr %11, align 4
+  br label %82
+
+82:                                               ; preds = %81, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  %83 = load i32, ptr %11, align 4
+  switch i32 %83, label %85 [
+    i32 0, label %84
+    i32 1, label %84
+  ]
+
+84:                                               ; preds = %82, %82
   ret void
+
+85:                                               ; preds = %82
+  unreachable
 }
 
-declare ptr @preempt_mode_string(i16 noundef zeroext) #4
+declare ptr @preempt_mode_string(i16 noundef zeroext) #5
 
-declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) #4
+declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
@@ -1781,6 +1837,7 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %6 = load i32, ptr @one_liner, align 4
   %7 = icmp ne i32 %6, 0
   %8 = select i1 %7, ptr @.str.9, ptr @.str.71
@@ -1789,7 +1846,7 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
   %10 = icmp ne i32 %9, 0
   %11 = select i1 %10, ptr @.str.9, ptr @.str.81
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @one_liner, align 4
   %16 = icmp ne i32 %15, 0
@@ -1807,14 +1864,14 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
   %22 = call i32 (ptr, ...) @printf(ptr noundef @.str.80, ptr noundef %11, ptr noundef %14, ptr noundef %21)
   %23 = call i32 (ptr, ...) @printf(ptr noundef @.str.83)
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %24, i32 0, i32 15
+  %25 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %24, i32 0, i32 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, -1
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %29, i32 0, i32 15
+  %30 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %29, i32 0, i32 16
   %31 = load i32, ptr %30, align 8
   %32 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %31)
   br label %35
@@ -1825,19 +1882,19 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 35:                                               ; preds = %33, %28
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %36, i32 0, i32 2
+  %37 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %36, i32 0, i32 2
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, ...) @printf(ptr noundef @.str.85, i32 noundef %38)
   %40 = call i32 (ptr, ...) @printf(ptr noundef @.str.86)
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %41, i32 0, i32 17
+  %42 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %41, i32 0, i32 18
   %43 = load i32, ptr %42, align 8
   %44 = icmp ne i32 %43, -1
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %46, i32 0, i32 17
+  %47 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %46, i32 0, i32 18
   %48 = load i32, ptr %47, align 8
   %49 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %48)
   br label %52
@@ -1848,19 +1905,19 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 52:                                               ; preds = %50, %45
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %53, i32 0, i32 0
+  %54 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %53, i32 0, i32 0
   %55 = load i32, ptr %54, align 8
   %56 = call i32 (ptr, ...) @printf(ptr noundef @.str.85, i32 noundef %55)
   %57 = call i32 (ptr, ...) @printf(ptr noundef @.str.87)
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %58, i32 0, i32 19
+  %59 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %58, i32 0, i32 20
   %60 = load i32, ptr %59, align 8
   %61 = icmp ne i32 %60, -1
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %52
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %63, i32 0, i32 19
+  %64 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %63, i32 0, i32 20
   %65 = load i32, ptr %64, align 8
   %66 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %65)
   br label %69
@@ -1871,26 +1928,36 @@ define internal i32 @_print_used_acct_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 69:                                               ; preds = %67, %62
   %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %70, i32 0, i32 3
+  %71 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %70, i32 0, i32 3
   %72 = load i32, ptr %71, align 4
   %73 = load ptr, ptr %5, align 8
   %74 = call i32 (ptr, ...) @printf(ptr noundef @.str.88, i32 noundef %72, ptr noundef %73)
   %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %75, i32 0, i32 24
+  %76 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %75, i32 0, i32 25
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %78, i32 0, i32 4
+  %79 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %78, i32 0, i32 4
   %80 = load ptr, ptr %79, align 8
   call void @_print_tres_line(ptr noundef @.str.89, ptr noundef %77, ptr noundef %80, i64 noundef 0)
-  %81 = load i32, ptr @one_liner, align 4
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %85
+  %81 = load ptr, ptr %5, align 8
+  %82 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %81)
+  %83 = load ptr, ptr %4, align 8
+  %84 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %83, i32 0, i32 33
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %3, align 8
+  %87 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %86, i32 0, i32 5
+  %88 = load ptr, ptr %87, align 8
+  call void @_print_tres_line(ptr noundef @.str.90, ptr noundef %85, ptr noundef %88, i64 noundef 60)
+  %89 = load i32, ptr @one_liner, align 4
+  %90 = icmp ne i32 %89, 0
+  br i1 %90, label %91, label %93
 
-83:                                               ; preds = %69
-  %84 = call i32 (ptr, ...) @printf(ptr noundef @.str.90)
-  br label %85
+91:                                               ; preds = %69
+  %92 = call i32 (ptr, ...) @printf(ptr noundef @.str.91)
+  br label %93
 
-85:                                               ; preds = %83, %69
+93:                                               ; preds = %91, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret i32 0
 }
 
@@ -1902,12 +1969,14 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %7 = load i32, ptr @one_liner, align 4
   %8 = icmp ne i32 %7, 0
   %9 = select i1 %8, ptr @.str.9, ptr @.str.71
   store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %10, i32 0, i32 8
+  %11 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %10, i32 0, i32 8
   %12 = load i32, ptr %11, align 8
   %13 = call ptr @uid_to_string(i32 noundef %12)
   store ptr %13, ptr %6, align 8
@@ -1916,7 +1985,7 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
   %16 = select i1 %15, ptr @.str.9, ptr @.str.81
   %17 = load ptr, ptr %6, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %18, i32 0, i32 8
+  %19 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %18, i32 0, i32 8
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr @one_liner, align 4
   %22 = icmp ne i32 %21, 0
@@ -1931,18 +2000,18 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %24, %23
   %27 = phi ptr [ @.str.82, %23 ], [ %25, %24 ]
-  %28 = call i32 (ptr, ...) @printf(ptr noundef @.str.91, ptr noundef %16, ptr noundef %17, i32 noundef %20, ptr noundef %27)
+  %28 = call i32 (ptr, ...) @printf(ptr noundef @.str.92, ptr noundef %16, ptr noundef %17, i32 noundef %20, ptr noundef %27)
   call void @slurm_xfree(ptr noundef %6)
-  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.92)
+  %29 = call i32 (ptr, ...) @printf(ptr noundef @.str.93)
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %30, i32 0, i32 16
+  %31 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %30, i32 0, i32 17
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, -1
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %26
   %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %35, i32 0, i32 16
+  %36 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %35, i32 0, i32 17
   %37 = load i32, ptr %36, align 4
   %38 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %37)
   br label %41
@@ -1953,19 +2022,19 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 41:                                               ; preds = %39, %34
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %42, i32 0, i32 2
+  %43 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %42, i32 0, i32 2
   %44 = load i32, ptr %43, align 8
   %45 = call i32 (ptr, ...) @printf(ptr noundef @.str.85, i32 noundef %44)
-  %46 = call i32 (ptr, ...) @printf(ptr noundef @.str.93)
+  %46 = call i32 (ptr, ...) @printf(ptr noundef @.str.94)
   %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %47, i32 0, i32 18
+  %48 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %47, i32 0, i32 19
   %49 = load i32, ptr %48, align 4
   %50 = icmp ne i32 %49, -1
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %41
   %52 = load ptr, ptr %4, align 8
-  %53 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %52, i32 0, i32 18
+  %53 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %52, i32 0, i32 19
   %54 = load i32, ptr %53, align 4
   %55 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %54)
   br label %58
@@ -1976,19 +2045,19 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 58:                                               ; preds = %56, %51
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %59, i32 0, i32 0
+  %60 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %59, i32 0, i32 0
   %61 = load i32, ptr %60, align 8
   %62 = call i32 (ptr, ...) @printf(ptr noundef @.str.85, i32 noundef %61)
-  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.94)
+  %63 = call i32 (ptr, ...) @printf(ptr noundef @.str.95)
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %64, i32 0, i32 20
+  %65 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %64, i32 0, i32 21
   %66 = load i32, ptr %65, align 4
   %67 = icmp ne i32 %66, -1
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %58
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %69, i32 0, i32 20
+  %70 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %69, i32 0, i32 21
   %71 = load i32, ptr %70, align 4
   %72 = call i32 (ptr, ...) @printf(ptr noundef @.str.84, i32 noundef %71)
   br label %75
@@ -1999,46 +2068,58 @@ define internal i32 @_print_used_user_limit(ptr noundef %0, ptr noundef %1) #0 {
 
 75:                                               ; preds = %73, %68
   %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %76, i32 0, i32 3
+  %77 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %76, i32 0, i32 3
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %5, align 8
   %80 = call i32 (ptr, ...) @printf(ptr noundef @.str.88, i32 noundef %78, ptr noundef %79)
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.slurmdb_qos_rec_t, ptr %81, i32 0, i32 30
+  %82 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %81, i32 0, i32 31
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.slurmdb_used_limits_t, ptr %84, i32 0, i32 4
+  %85 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %84, i32 0, i32 4
   %86 = load ptr, ptr %85, align 8
-  call void @_print_tres_line(ptr noundef @.str.95, ptr noundef %83, ptr noundef %86, i64 noundef 0)
-  %87 = load i32, ptr @one_liner, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %91
+  call void @_print_tres_line(ptr noundef @.str.96, ptr noundef %83, ptr noundef %86, i64 noundef 0)
+  %87 = load ptr, ptr %5, align 8
+  %88 = call i32 (ptr, ...) @printf(ptr noundef @.str.34, ptr noundef %87)
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds nuw %struct.slurmdb_qos_rec_t, ptr %89, i32 0, i32 35
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.slurmdb_used_limits_t, ptr %92, i32 0, i32 5
+  %94 = load ptr, ptr %93, align 8
+  call void @_print_tres_line(ptr noundef @.str.97, ptr noundef %91, ptr noundef %94, i64 noundef 60)
+  %95 = load i32, ptr @one_liner, align 4
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %99
 
-89:                                               ; preds = %75
-  %90 = call i32 (ptr, ...) @printf(ptr noundef @.str.90)
-  br label %91
+97:                                               ; preds = %75
+  %98 = call i32 (ptr, ...) @printf(ptr noundef @.str.91)
+  br label %99
 
-91:                                               ; preds = %89, %75
+99:                                               ; preds = %97, %75
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret i32 0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #5
+declare void @llvm.stackrestore.p0(ptr) #6
 
-declare ptr @uid_to_string(i32 noundef) #4
+declare ptr @uid_to_string(i32 noundef) #5
 
-declare void @slurm_xfree(ptr noundef) #4
+declare void @slurm_xfree(ptr noundef) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -2047,11 +2128,15 @@ attributes #7 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !9, !10}

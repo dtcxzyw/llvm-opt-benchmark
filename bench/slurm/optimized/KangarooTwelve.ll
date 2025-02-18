@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.KeccakWidth1600_12rounds_SpongeInstanceStruct = type { [200 x i8], i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @KangarooTwelve_Initialize(ptr noundef initializes((432, 456)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @KangarooTwelve_Initialize(ptr noundef initializes((432, 456)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -17,21 +17,21 @@ define i32 @KangarooTwelve_Initialize(ptr noundef initializes((432, 456)) %0, i6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %7, i32 noundef 1344, i32 noundef 256) #3
+  %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %7, i32 noundef 1344, i32 noundef 256) #4
   ret i32 %8
 }
 
 declare i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
-  br i1 %.not, label %9, label %.loopexit
+  br i1 %.not, label %9, label %.thread116
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -46,9 +46,9 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %17 = zext i32 %16 to i64
   %18 = tail call i64 @llvm.umin.i64(i64 %2, i64 %17)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %20 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %18) #3
-  %.not74 = icmp eq i32 %20, 0
-  br i1 %.not74, label %21, label %.loopexit
+  %20 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %18) #4
+  %.not94 = icmp eq i32 %20, 0
+  br i1 %.not94, label %21, label %.thread116
 
 21:                                               ; preds = %15
   %22 = trunc nuw i64 %18 to i32
@@ -60,35 +60,41 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %27 = icmp eq i32 %26, 8192
   %28 = icmp ne i64 %24, 0
   %or.cond = and i1 %28, %27
-  br i1 %or.cond, label %29, label %57
+  br i1 %or.cond, label %29, label %.thread
 
 29:                                               ; preds = %21
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
   store i8 3, ptr %4, align 1
   store i32 0, ptr %13, align 8
   store i64 1, ptr %10, align 8
-  %30 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef nonnull %4, i64 noundef 1) #3
-  %.not75 = icmp eq i32 %30, 0
-  br i1 %.not75, label %.thread, label %.loopexit
+  %30 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef nonnull %4, i64 noundef 1) #4
+  %.not95 = icmp eq i32 %30, 0
+  br i1 %.not95, label %.thread.thread, label %.critedge
 
-.thread:                                          ; preds = %29
+.thread.thread:                                   ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 7
   %34 = and i32 %33, -8
   store i32 %34, ptr %31, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
   br label %.lr.ph
 
+.critedge:                                        ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
+  br label %.thread116
+
 35:                                               ; preds = %9
-  %.not69 = icmp eq i32 %14, 0
-  br i1 %.not69, label %57, label %36
+  %.not89 = icmp eq i32 %14, 0
+  br i1 %.not89, label %.thread, label %36
 
 36:                                               ; preds = %35
   %37 = sub i32 8192, %14
   %38 = zext i32 %37 to i64
   %39 = tail call i64 @llvm.umin.i64(i64 %2, i64 %38)
-  %40 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %39) #3
-  %.not70 = icmp eq i32 %40, 0
-  br i1 %.not70, label %41, label %.loopexit
+  %40 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %39) #4
+  %.not90 = icmp eq i32 %40, 0
+  br i1 %.not90, label %41, label %.thread116
 
 41:                                               ; preds = %36
   %42 = trunc nuw i64 %39 to i32
@@ -98,110 +104,129 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   %46 = add i32 %45, %42
   store i32 %46, ptr %13, align 8
   %47 = icmp eq i32 %46, 8192
-  br i1 %47, label %48, label %57
+  br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
   store i32 0, ptr %13, align 8
   %49 = load i64, ptr %10, align 8
   %50 = add i64 %49, 1
   store i64 %50, ptr %10, align 8
-  %51 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
-  %.not71 = icmp eq i32 %51, 0
-  br i1 %.not71, label %52, label %.loopexit
+  %51 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #4
+  %.not91 = icmp eq i32 %51, 0
+  br i1 %.not91, label %52, label %.critedge103
 
 52:                                               ; preds = %48
-  %53 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 32) #3
-  %.not72 = icmp eq i32 %53, 0
-  br i1 %.not72, label %54, label %.loopexit
+  %53 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 32) #4
+  %.not92 = icmp eq i32 %53, 0
+  br i1 %.not92, label %54, label %.critedge103
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %56 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 32) #3
-  %.not73 = icmp eq i32 %56, 0
-  br i1 %.not73, label %57, label %.loopexit
+  %56 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 32) #4
+  %.not93 = icmp eq i32 %56, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  br i1 %.not93, label %.thread, label %.thread116
 
-57:                                               ; preds = %35, %54, %41, %21
-  %.062 = phi i64 [ %24, %21 ], [ %44, %54 ], [ %44, %41 ], [ %2, %35 ]
-  %.061 = phi ptr [ %23, %21 ], [ %43, %54 ], [ %43, %41 ], [ %1, %35 ]
-  %.not7682 = icmp eq i64 %.062, 0
-  br i1 %.not7682, label %.loopexit, label %.lr.ph
+.critedge103:                                     ; preds = %52, %48
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  br label %.thread116
 
-.lr.ph:                                           ; preds = %.thread, %57
-  %.06199 = phi ptr [ %23, %.thread ], [ %.061, %57 ]
-  %.06298 = phi i64 [ %24, %.thread ], [ %.062, %57 ]
+.thread:                                          ; preds = %21, %54, %41, %35
+  %.181 = phi i64 [ %2, %35 ], [ %44, %41 ], [ %44, %54 ], [ %24, %21 ]
+  %.170 = phi ptr [ %1, %35 ], [ %43, %41 ], [ %43, %54 ], [ %23, %21 ]
+  %.not96127 = icmp eq i64 %.181, 0
+  br i1 %.not96127, label %.thread116, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.thread.thread, %.thread
+  %.170140 = phi ptr [ %23, %.thread.thread ], [ %.170, %.thread ]
+  %.181139 = phi i64 [ %24, %.thread.thread ], [ %.181, %.thread ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.lr.ph, %79
-  %.184 = phi ptr [ %.06199, %.lr.ph ], [ %67, %79 ]
-  %.16383 = phi i64 [ %.06298, %.lr.ph ], [ %68, %79 ]
-  %61 = call i64 @llvm.umin.i64(i64 %.16383, i64 8192)
-  %62 = trunc nuw nsw i64 %61 to i32
-  %63 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #3
-  %.not77 = icmp eq i32 %63, 0
-  br i1 %.not77, label %64, label %.loopexit
+59:                                               ; preds = %.lr.ph, %78
+  %.372129 = phi ptr [ %.170140, %.lr.ph ], [ %66, %78 ]
+  %.383128 = phi i64 [ %.181139, %.lr.ph ], [ %67, %78 ]
+  %60 = call i64 @llvm.umin.i64(i64 %.383128, i64 8192)
+  %61 = trunc nuw nsw i64 %60 to i32
+  %62 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #4
+  %.not97 = icmp eq i32 %62, 0
+  br i1 %.not97, label %63, label %.thread116
 
-64:                                               ; preds = %60
-  %65 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.184, i64 noundef %61) #3
-  %.not78 = icmp eq i32 %65, 0
-  br i1 %.not78, label %66, label %.loopexit
+63:                                               ; preds = %59
+  %64 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.372129, i64 noundef %60) #4
+  %.not98 = icmp eq i32 %64, 0
+  br i1 %.not98, label %65, label %.thread116
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %.184, i64 %61
-  %68 = sub i64 %.16383, %61
-  %69 = icmp ugt i64 %.16383, 8191
-  br i1 %69, label %70, label %78
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %.372129, i64 %60
+  %67 = sub i64 %.383128, %60
+  %68 = icmp ugt i64 %.383128, 8191
+  br i1 %68, label %69, label %77
 
-70:                                               ; preds = %66
-  %71 = load i64, ptr %10, align 8
-  %72 = add i64 %71, 1
-  store i64 %72, ptr %10, align 8
-  %73 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
-  %.not79 = icmp eq i32 %73, 0
-  br i1 %.not79, label %74, label %.loopexit
+69:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
+  %70 = load i64, ptr %10, align 8
+  %71 = add i64 %70, 1
+  store i64 %71, ptr %10, align 8
+  %72 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #4
+  %.not99 = icmp eq i32 %72, 0
+  br i1 %.not99, label %73, label %.critedge108
 
-74:                                               ; preds = %70
-  %75 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not80 = icmp eq i32 %75, 0
-  br i1 %.not80, label %76, label %.loopexit
+73:                                               ; preds = %69
+  %74 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #4
+  %.not100 = icmp eq i32 %74, 0
+  br i1 %.not100, label %75, label %.critedge108
 
-76:                                               ; preds = %74
-  %77 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %58, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not81 = icmp eq i32 %77, 0
-  br i1 %.not81, label %79, label %.loopexit
+75:                                               ; preds = %73
+  %76 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %58, ptr noundef nonnull %6, i64 noundef 32) #4
+  %.not101 = icmp eq i32 %76, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  br i1 %.not101, label %78, label %.thread116
 
-78:                                               ; preds = %66
-  store i32 %62, ptr %59, align 8
-  br label %79
+77:                                               ; preds = %65
+  store i32 %61, ptr %57, align 8
+  br label %78
 
-79:                                               ; preds = %76, %78
-  %.not76 = icmp eq i64 %68, 0
-  br i1 %.not76, label %.loopexit, label %60, !llvm.loop !6
+.critedge108:                                     ; preds = %73, %69
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  br label %.thread116
 
-.loopexit:                                        ; preds = %60, %64, %70, %74, %76, %79, %57, %54, %52, %48, %36, %29, %15, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 1, %29 ], [ 1, %36 ], [ 1, %48 ], [ 1, %52 ], [ 1, %54 ], [ 0, %57 ], [ 1, %60 ], [ 1, %64 ], [ 1, %70 ], [ 1, %74 ], [ 1, %76 ], [ 0, %79 ]
+78:                                               ; preds = %77, %75
+  %.not96 = icmp eq i64 %67, 0
+  br i1 %.not96, label %.thread116, label %59
+
+.thread116:                                       ; preds = %78, %75, %59, %63, %.thread, %.critedge108, %.critedge103, %36, %54, %15, %.critedge, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %15 ], [ 1, %54 ], [ 1, %36 ], [ 1, %.critedge103 ], [ 1, %.critedge108 ], [ 0, %.thread ], [ 0, %78 ], [ 1, %75 ], [ 1, %59 ], [ 1, %63 ]
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 declare i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5) #4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
-  br i1 %.not, label %9, label %78
+  br i1 %.not, label %9, label %.critedge48
 
 9:                                                ; preds = %4
-  %.not31 = icmp eq i64 %3, 0
-  br i1 %.not31, label %.split, label %10
+  %.not36 = icmp eq i64 %3, 0
+  br i1 %.not36, label %.split, label %10
 
 .split:                                           ; preds = %9
   store i8 0, ptr %5, align 1
@@ -209,8 +234,8 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 10:                                               ; preds = %9
   %11 = tail call i32 @KangarooTwelve_Update(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3)
-  %.not32 = icmp eq i32 %11, 0
-  br i1 %.not32, label %.lr.ph.i, label %78
+  %.not37 = icmp eq i32 %11, 0
+  br i1 %.not37, label %.lr.ph.i, label %.critedge48
 
 .lr.ph22.preheader.i:                             ; preds = %.lr.ph.i
   %12 = add nuw nsw i32 %.01718.i, 2
@@ -240,7 +265,7 @@ define i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i8 %23, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !9
+  br i1 %exitcond.i, label %right_encode.exit, label %.lr.ph22.i, !llvm.loop !11
 
 right_encode.exit:                                ; preds = %.lr.ph22.i
   %.pre-phi.i = zext nneg i32 %13 to i64
@@ -252,8 +277,8 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 26:                                               ; preds = %right_encode.exit, %.split
   %phi.call = phi i64 [ 1, %.split ], [ %wide.trip.count.i, %right_encode.exit ]
   %27 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call)
-  %.not33 = icmp eq i32 %27, 0
-  br i1 %.not33, label %28, label %78
+  %.not38 = icmp eq i32 %27, 0
+  br i1 %.not38, label %28, label %.critedge48
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -264,26 +289,28 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %34 = load i32, ptr %33, align 8
-  %.not34 = icmp eq i32 %34, 0
-  br i1 %.not34, label %43, label %35
+  %.not39 = icmp eq i32 %34, 0
+  br i1 %.not39, label %43, label %35
 
 35:                                               ; preds = %32
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #4
   %36 = add i64 %30, 1
   store i64 %36, ptr %29, align 8
-  %37 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #3
-  %.not35 = icmp eq i32 %37, 0
-  br i1 %.not35, label %38, label %78
+  %37 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #4
+  %.not40 = icmp eq i32 %37, 0
+  br i1 %.not40, label %38, label %.critedge
 
 38:                                               ; preds = %35
-  %39 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not36 = icmp eq i32 %39, 0
-  br i1 %.not36, label %40, label %78
+  %39 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #4
+  %.not41 = icmp eq i32 %39, 0
+  br i1 %.not41, label %40, label %.critedge
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %42 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %41, ptr noundef nonnull %6, i64 noundef 32) #3
-  %.not37 = icmp eq i32 %42, 0
-  br i1 %.not37, label %._crit_edge, label %78
+  %42 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %41, ptr noundef nonnull %6, i64 noundef 32) #4
+  %.not42 = icmp eq i32 %42, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  br i1 %.not42, label %._crit_edge, label %.critedge48
 
 ._crit_edge:                                      ; preds = %40
   %.pre = load i64, ptr %29, align 8
@@ -293,89 +320,94 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
   %44 = phi i64 [ %.pre, %._crit_edge ], [ %30, %32 ]
   %45 = add i64 %44, -1
   store i64 %45, ptr %29, align 8
-  %.not23.i41 = icmp eq i64 %45, 0
-  br i1 %.not23.i41, label %right_encode.exit56, label %.lr.ph.i42
+  %.not23.i49 = icmp eq i64 %45, 0
+  br i1 %.not23.i49, label %right_encode.exit64, label %.lr.ph.i50
 
-.lr.ph22.preheader.i45:                           ; preds = %.lr.ph.i42
-  %46 = add nuw nsw i32 %.01718.i44, 2
-  %wide.trip.count.i46 = zext nneg i32 %46 to i64
-  %invariant.gep.i47 = getelementptr i8, ptr %5, i64 -1
-  br label %.lr.ph22.i48
+.lr.ph22.preheader.i53:                           ; preds = %.lr.ph.i50
+  %46 = add nuw nsw i32 %.01718.i52, 2
+  %wide.trip.count.i54 = zext nneg i32 %46 to i64
+  %invariant.gep.i55 = getelementptr i8, ptr %5, i64 -1
+  br label %.lr.ph22.i56
 
-.lr.ph.i42:                                       ; preds = %43, %.lr.ph.i42
-  %.019.i43 = phi i64 [ %48, %.lr.ph.i42 ], [ %45, %43 ]
-  %.01718.i44 = phi i32 [ %47, %.lr.ph.i42 ], [ 0, %43 ]
-  %47 = add nuw nsw i32 %.01718.i44, 1
-  %48 = lshr i64 %.019.i43, 8
-  %49 = icmp ugt i64 %.019.i43, 255
-  %50 = icmp samesign ult i32 %.01718.i44, 7
+.lr.ph.i50:                                       ; preds = %43, %.lr.ph.i50
+  %.019.i51 = phi i64 [ %48, %.lr.ph.i50 ], [ %45, %43 ]
+  %.01718.i52 = phi i32 [ %47, %.lr.ph.i50 ], [ 0, %43 ]
+  %47 = add nuw nsw i32 %.01718.i52, 1
+  %48 = lshr i64 %.019.i51, 8
+  %49 = icmp ugt i64 %.019.i51, 255
+  %50 = icmp samesign ult i32 %.01718.i52, 7
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph.i42, label %.lr.ph22.preheader.i45, !llvm.loop !8
+  br i1 %51, label %.lr.ph.i50, label %.lr.ph22.preheader.i53, !llvm.loop !8
 
-.lr.ph22.i48:                                     ; preds = %.lr.ph22.i48, %.lr.ph22.preheader.i45
-  %indvars.iv.i49 = phi i64 [ 1, %.lr.ph22.preheader.i45 ], [ %indvars.iv.next.i51, %.lr.ph22.i48 ]
-  %52 = trunc i64 %indvars.iv.i49 to i32
+.lr.ph22.i56:                                     ; preds = %.lr.ph22.i56, %.lr.ph22.preheader.i53
+  %indvars.iv.i57 = phi i64 [ 1, %.lr.ph22.preheader.i53 ], [ %indvars.iv.next.i59, %.lr.ph22.i56 ]
+  %52 = trunc i64 %indvars.iv.i57 to i32
   %53 = sub i32 %47, %52
   %54 = shl i32 %53, 3
   %55 = zext nneg i32 %54 to i64
   %56 = lshr i64 %45, %55
   %57 = trunc i64 %56 to i8
-  %gep.i50 = getelementptr i8, ptr %invariant.gep.i47, i64 %indvars.iv.i49
-  store i8 %57, ptr %gep.i50, align 1
-  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
-  %exitcond.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i46
-  br i1 %exitcond.i52, label %right_encode.exit56, label %.lr.ph22.i48, !llvm.loop !9
+  %gep.i58 = getelementptr i8, ptr %invariant.gep.i55, i64 %indvars.iv.i57
+  store i8 %57, ptr %gep.i58, align 1
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i57, 1
+  %exitcond.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i54
+  br i1 %exitcond.i60, label %right_encode.exit64, label %.lr.ph22.i56, !llvm.loop !11
 
-right_encode.exit56:                              ; preds = %.lr.ph22.i48, %43
-  %.017.lcssa29.i53 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i48 ]
-  %.pre-phi26.i54 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i48 ]
-  %.pre-phi.i55 = zext i32 %.017.lcssa29.i53 to i64
-  %58 = trunc i32 %.017.lcssa29.i53 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i55
+right_encode.exit64:                              ; preds = %.lr.ph22.i56, %43
+  %.017.lcssa29.i61 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i56 ]
+  %.pre-phi26.i62 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i56 ]
+  %.pre-phi.i63 = zext i32 %.017.lcssa29.i61 to i64
+  %58 = trunc i32 %.017.lcssa29.i61 to i8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i63
   store i8 %58, ptr %59, align 1
-  %60 = add i32 %.pre-phi26.i54, 1
-  %61 = zext i32 %.pre-phi26.i54 to i64
+  %60 = add i32 %.pre-phi26.i62, 1
+  %61 = zext i32 %.pre-phi26.i62 to i64
   %62 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %61
   store i8 -1, ptr %62, align 1
-  %63 = add i32 %.pre-phi26.i54, 2
+  %63 = add i32 %.pre-phi26.i62, 2
   %64 = zext i32 %60 to i64
   %65 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %64
   store i8 -1, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %67 = zext i32 %63 to i64
-  %68 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %66, ptr noundef nonnull %5, i64 noundef %67) #3
-  %.not38 = icmp eq i32 %68, 0
-  br i1 %.not38, label %69, label %78
+  %68 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %66, ptr noundef nonnull %5, i64 noundef %67) #4
+  %.not43 = icmp eq i32 %68, 0
+  br i1 %.not43, label %69, label %.critedge48
 
-69:                                               ; preds = %right_encode.exit56, %28
-  %.027 = phi i8 [ 7, %28 ], [ 6, %right_encode.exit56 ]
+.critedge:                                        ; preds = %38, %35
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #4
+  br label %.critedge48
+
+69:                                               ; preds = %28, %right_encode.exit64
+  %.032 = phi i8 [ 6, %right_encode.exit64 ], [ 7, %28 ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %71 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %70, i8 noundef zeroext %.027) #3
-  %.not39 = icmp eq i32 %71, 0
-  br i1 %.not39, label %72, label %78
+  %71 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %70, i8 noundef zeroext %.032) #4
+  %.not44 = icmp eq i32 %71, 0
+  br i1 %.not44, label %72, label %.critedge48
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %74 = load i64, ptr %73, align 8
-  %.not40 = icmp eq i64 %74, 0
-  br i1 %.not40, label %77, label %75
+  %.not45 = icmp eq i64 %74, 0
+  br i1 %.not45, label %77, label %75
 
 75:                                               ; preds = %72
   store i32 2, ptr %7, align 4
-  %76 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %70, ptr noundef %1, i64 noundef %74) #3
-  br label %78
+  %76 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %70, ptr noundef %1, i64 noundef %74) #4
+  br label %.critedge48
 
 77:                                               ; preds = %72
   store i32 3, ptr %7, align 4
-  br label %78
+  br label %.critedge48
 
-78:                                               ; preds = %69, %right_encode.exit56, %40, %38, %35, %26, %10, %4, %77, %75
-  %.0 = phi i32 [ %76, %75 ], [ 0, %77 ], [ 1, %4 ], [ 1, %10 ], [ 1, %26 ], [ 1, %35 ], [ 1, %38 ], [ 1, %40 ], [ 1, %right_encode.exit56 ], [ 1, %69 ]
+.critedge48:                                      ; preds = %40, %.critedge, %69, %26, %10, %4, %right_encode.exit64, %77, %75
+  %.0 = phi i32 [ %76, %75 ], [ 0, %77 ], [ 1, %right_encode.exit64 ], [ 1, %4 ], [ 1, %10 ], [ 1, %26 ], [ 1, %69 ], [ 1, %.critedge ], [ 1, %40 ]
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5) #4
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 3
@@ -383,7 +415,7 @@ define i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2) #3
+  %8 = tail call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2) #4
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -392,8 +424,9 @@ define i32 @KangarooTwelve_Squeeze(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.KangarooTwelve_Instance, align 8
+  call void @llvm.lifetime.start.p0(i64 456, ptr nonnull %7) #4
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %20, label %9
 
@@ -407,7 +440,7 @@ define i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 452
   store i32 1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %15 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %14, i32 noundef 1344, i32 noundef 256) #3
+  %15 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %14, i32 noundef 1344, i32 noundef 256) #4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
@@ -422,26 +455,30 @@ define i32 @KangarooTwelve(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
 
 20:                                               ; preds = %16, %9, %6, %18
   %.0 = phi i32 [ %19, %18 ], [ 1, %6 ], [ 1, %9 ], [ 1, %16 ]
+  call void @llvm.lifetime.end.p0(i64 456, ptr nonnull %7) #4
   ret i32 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #2
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}

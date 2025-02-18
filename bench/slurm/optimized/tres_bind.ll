@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [49 x i8] c"Failed to validate %s, offending character is %c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -28,7 +28,9 @@ define range(i32 -1, 1) i32 @tres_bind_verify_cmdline(ptr noundef %0) local_unna
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   %10 = icmp eq ptr %0, null
   br i1 %10, label %103, label %11
 
@@ -99,26 +101,26 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
 
 37:                                               ; preds = %35, %33
   %38 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   store ptr null, ptr %7, align 8
   %39 = call ptr @xstrdup(ptr noundef nonnull %38) #6
   store ptr %39, ptr %5, align 8
   %40 = call ptr @strtok_r(ptr noundef %39, ptr noundef nonnull @.str.11, ptr noundef nonnull %7) #6
-  %.not46.i.i = icmp eq ptr %40, null
-  br i1 %.not46.i.i, label %._crit_edge50.i.i, label %.lr.ph49.split.i.i
+  %.not49.i.i = icmp eq ptr %40, null
+  br i1 %.not49.i.i, label %._crit_edge.i.i, label %.lr.ph51.split.i.i
 
-.lr.ph49.split.i.i:                               ; preds = %37, %59
-  %.03047.i.i = phi ptr [ %60, %59 ], [ %40, %37 ]
-  %41 = load i8, ptr %.03047.i.i, align 1
-  %.not3644.i.i = icmp eq i8 %41, 0
-  br i1 %.not3644.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+.lr.ph51.split.i.i:                               ; preds = %37, %59
+  %.03250.i.i = phi ptr [ %60, %59 ], [ %40, %37 ]
+  %41 = load i8, ptr %.03250.i.i, align 1
+  %.not3947.i.i = icmp eq i8 %41, 0
+  br i1 %.not3947.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph49.split.i.i, %46
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %46 ], [ 0, %.lr.ph49.split.i.i ]
-  %42 = phi i8 [ %48, %46 ], [ %41, %.lr.ph49.split.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph51.split.i.i, %46
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %46 ], [ 0, %.lr.ph51.split.i.i ]
+  %42 = phi i8 [ %48, %46 ], [ %41, %.lr.ph51.split.i.i ]
   %43 = sext i8 %42 to i32
   %44 = add nsw i32 %43, -48
   %isdigit.i = icmp ult i32 %44, 10
@@ -127,25 +129,25 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
   br i1 %or.cond.i, label %46, label %.split.us.i.i
 
 .split.us.i.i:                                    ; preds = %.lr.ph.i.i
-  %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %.03047.i.i, i32 noundef %43) #6
+  %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %.03250.i.i, i32 noundef %43) #6
   br label %_valid_num_list.exit.i
 
 46:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %47 = getelementptr inbounds nuw i8, ptr %.03047.i.i, i64 %indvars.iv.next.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.03250.i.i, i64 %indvars.iv.next.i.i
   %48 = load i8, ptr %47, align 1
-  %.not36.i.i = icmp eq i8 %48, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+  %.not39.i.i = icmp eq i8 %48, 0
+  br i1 %.not39.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %46, %.lr.ph49.split.i.i
-  %49 = call i64 @strtol(ptr noundef nonnull %.03047.i.i, ptr noundef nonnull %6, i32 noundef 10) #6
+.critedge.i.i:                                    ; preds = %46, %.lr.ph51.split.i.i
+  %49 = call i64 @strtol(ptr noundef nonnull %.03250.i.i, ptr noundef nonnull %6, i32 noundef 10) #6
   %or.cond.i.i25 = icmp ugt i64 %49, 9223372036854775806
-  br i1 %or.cond.i.i25, label %._crit_edge50.i.i, label %50
+  br i1 %or.cond.i.i25, label %._crit_edge.i.i, label %50
 
-50:                                               ; preds = %._crit_edge.i.i
+50:                                               ; preds = %.critedge.i.i
   %51 = load ptr, ptr %6, align 8
   %52 = load i8, ptr %51, align 1
-  switch i8 %52, label %._crit_edge50.i.i [
+  switch i8 %52, label %._crit_edge.i.i [
     i8 42, label %53
     i8 0, label %59
   ]
@@ -154,29 +156,29 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %55 = call i64 @strtol(ptr noundef nonnull %54, ptr noundef nonnull %6, i32 noundef 0) #6
   %or.cond3.i.i = icmp ugt i64 %55, 9223372036854775806
-  br i1 %or.cond3.i.i, label %._crit_edge50.i.i, label %56
+  br i1 %or.cond3.i.i, label %._crit_edge.i.i, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %6, align 8
   %58 = load i8, ptr %57, align 1
-  %.not39.i.i = icmp eq i8 %58, 0
-  br i1 %.not39.i.i, label %59, label %._crit_edge50.i.i
+  %.not44.i.i = icmp eq i8 %58, 0
+  br i1 %.not44.i.i, label %59, label %._crit_edge.i.i
 
 59:                                               ; preds = %56, %50
   %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %7) #6
   %.not.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i, label %._crit_edge50.i.i, label %.lr.ph49.split.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph51.split.i.i, !llvm.loop !11
 
-._crit_edge50.i.i:                                ; preds = %59, %56, %53, %50, %._crit_edge.i.i, %37
-  %.029.i.i = phi i32 [ 0, %37 ], [ -1, %50 ], [ -1, %53 ], [ -1, %56 ], [ -1, %._crit_edge.i.i ], [ 0, %59 ]
+._crit_edge.i.i:                                  ; preds = %59, %56, %53, %50, %.critedge.i.i, %37
+  %.031.i.i = phi i32 [ 0, %37 ], [ -1, %50 ], [ -1, %53 ], [ -1, %56 ], [ -1, %.critedge.i.i ], [ 0, %59 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %_valid_num_list.exit.i
 
-_valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, %.split.us.i.i
-  %.031.i.i = phi i32 [ -1, %.split.us.i.i ], [ %.029.i.i, %._crit_edge50.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+_valid_num_list.exit.i:                           ; preds = %._crit_edge.i.i, %.split.us.i.i
+  %.2.i.i = phi i32 [ %.031.i.i, %._crit_edge.i.i ], [ -1, %.split.us.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %_valid_gres_bind.exit
 
 61:                                               ; preds = %35
@@ -191,32 +193,32 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
 
 65:                                               ; preds = %63, %61
   %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   store ptr null, ptr %4, align 8
   %67 = call ptr @xstrdup(ptr noundef nonnull %66) #6
   store ptr %67, ptr %2, align 8
   %68 = call ptr @strtok_r(ptr noundef %67, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #6
-  %.not46.i23.i = icmp eq ptr %68, null
-  br i1 %.not46.i23.i, label %._crit_edge50.i25.i, label %.lr.ph49.split.us.i.i
+  %.not49.i23.i = icmp eq ptr %68, null
+  br i1 %.not49.i23.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i
 
-.lr.ph49.split.us.i.i:                            ; preds = %65, %87
-  %.03047.us.i.i = phi ptr [ %88, %87 ], [ %68, %65 ]
-  %69 = call i32 @xstrncmp(ptr noundef nonnull %.03047.us.i.i, ptr noundef nonnull @.str.12, i64 noundef 2) #6
-  %.not35.us.i.i = icmp eq i32 %69, 0
-  %spec.select43.idx.us.i.i = select i1 %.not35.us.i.i, i64 2, i64 0
-  %spec.select43.us.i.i = getelementptr inbounds nuw i8, ptr %.03047.us.i.i, i64 %spec.select43.idx.us.i.i
-  %70 = load i8, ptr %spec.select43.us.i.i, align 1
-  %.not3644.us.i.i = icmp eq i8 %70, 0
-  br i1 %.not3644.us.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i
+.lr.ph51.split.us.i.i:                            ; preds = %65, %87
+  %.03250.us.i.i = phi ptr [ %88, %87 ], [ %68, %65 ]
+  %69 = call i32 @xstrncmp(ptr noundef nonnull %.03250.us.i.i, ptr noundef nonnull @.str.12, i64 noundef 2) #6
+  %.not38.us.i.i = icmp eq i32 %69, 0
+  %spec.select46.idx.us.i.i = select i1 %.not38.us.i.i, i64 2, i64 0
+  %spec.select46.us.i.i = getelementptr inbounds nuw i8, ptr %.03250.us.i.i, i64 %spec.select46.idx.us.i.i
+  %70 = load i8, ptr %spec.select46.us.i.i, align 1
+  %.not3947.us.i.i = icmp eq i8 %70, 0
+  br i1 %.not3947.us.i.i, label %.critedge.us.i.i, label %.lr.ph.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %.lr.ph49.split.us.i.i, %74
-  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %74 ], [ 0, %.lr.ph49.split.us.i.i ]
-  %71 = phi i8 [ %76, %74 ], [ %70, %.lr.ph49.split.us.i.i ]
+.lr.ph.us.i.i:                                    ; preds = %.lr.ph51.split.us.i.i, %74
+  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %74 ], [ 0, %.lr.ph51.split.us.i.i ]
+  %71 = phi i8 [ %76, %74 ], [ %70, %.lr.ph51.split.us.i.i ]
   %72 = sext i8 %71 to i32
-  %73 = call i32 @isxdigit(i32 noundef %72) #6, !callees !9
+  %73 = call i32 @isxdigit(i32 noundef %72) #6, !callees !12
   %.not40.us.i.i = icmp ne i32 %73, 0
   %.not41.us.i.i = icmp eq i8 %71, 42
   %or.cond44.i = or i1 %.not41.us.i.i, %.not40.us.i.i
@@ -224,20 +226,20 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
 
 74:                                               ; preds = %.lr.ph.us.i.i
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
-  %75 = getelementptr inbounds nuw i8, ptr %spec.select43.us.i.i, i64 %indvars.iv.next72.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %spec.select46.us.i.i, i64 %indvars.iv.next72.i.i
   %76 = load i8, ptr %75, align 1
-  %.not36.us.i.i = icmp eq i8 %76, 0
-  br i1 %.not36.us.i.i, label %._crit_edge.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !6
+  %.not39.us.i.i = icmp eq i8 %76, 0
+  br i1 %.not39.us.i.i, label %.critedge.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !8
 
-._crit_edge.us.i.i:                               ; preds = %74, %.lr.ph49.split.us.i.i
-  %77 = call i64 @strtol(ptr noundef nonnull %spec.select43.us.i.i, ptr noundef nonnull %3, i32 noundef 16) #6
+.critedge.us.i.i:                                 ; preds = %74, %.lr.ph51.split.us.i.i
+  %77 = call i64 @strtol(ptr noundef nonnull %spec.select46.us.i.i, ptr noundef nonnull %3, i32 noundef 16) #6
   %or.cond.us.i.i = icmp ugt i64 %77, 9223372036854775806
-  br i1 %or.cond.us.i.i, label %._crit_edge50.i25.i, label %78
+  br i1 %or.cond.us.i.i, label %._crit_edge.i25.i, label %78
 
-78:                                               ; preds = %._crit_edge.us.i.i
+78:                                               ; preds = %.critedge.us.i.i
   %79 = load ptr, ptr %3, align 8
   %80 = load i8, ptr %79, align 1
-  switch i8 %80, label %._crit_edge50.i25.i [
+  switch i8 %80, label %._crit_edge.i25.i [
     i8 42, label %81
     i8 0, label %87
   ]
@@ -246,33 +248,33 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge50.i.i, 
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %83 = call i64 @strtol(ptr noundef nonnull %82, ptr noundef nonnull %3, i32 noundef 0) #6
   %or.cond3.us.i.i = icmp ugt i64 %83, 9223372036854775806
-  br i1 %or.cond3.us.i.i, label %._crit_edge50.i25.i, label %84
+  br i1 %or.cond3.us.i.i, label %._crit_edge.i25.i, label %84
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %3, align 8
   %86 = load i8, ptr %85, align 1
-  %.not39.us.i.i = icmp eq i8 %86, 0
-  br i1 %.not39.us.i.i, label %87, label %._crit_edge50.i25.i
+  %.not44.us.i.i = icmp eq i8 %86, 0
+  br i1 %.not44.us.i.i, label %87, label %._crit_edge.i25.i
 
 87:                                               ; preds = %84, %78
   %88 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #6
   %.not.us.i.i = icmp eq ptr %88, null
-  br i1 %.not.us.i.i, label %._crit_edge50.i25.i, label %.lr.ph49.split.us.i.i, !llvm.loop !8
+  br i1 %.not.us.i.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i, !llvm.loop !11
 
 .split.us.i28.i:                                  ; preds = %.lr.ph.us.i.i
-  %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select43.us.i.i, i32 noundef %72) #6
+  %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select46.us.i.i, i32 noundef %72) #6
   br label %_valid_num_list.exit29.i
 
-._crit_edge50.i25.i:                              ; preds = %87, %84, %81, %78, %._crit_edge.us.i.i, %65
-  %.029.i26.i = phi i32 [ 0, %65 ], [ -1, %78 ], [ -1, %81 ], [ -1, %84 ], [ -1, %._crit_edge.us.i.i ], [ 0, %87 ]
+._crit_edge.i25.i:                                ; preds = %87, %84, %81, %78, %.critedge.us.i.i, %65
+  %.031.i26.i = phi i32 [ 0, %65 ], [ -1, %78 ], [ -1, %81 ], [ -1, %84 ], [ -1, %.critedge.us.i.i ], [ 0, %87 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #6
   br label %_valid_num_list.exit29.i
 
-_valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i, %.split.us.i28.i
-  %.031.i27.i = phi i32 [ -1, %.split.us.i28.i ], [ %.029.i26.i, %._crit_edge50.i25.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+_valid_num_list.exit29.i:                         ; preds = %._crit_edge.i25.i, %.split.us.i28.i
+  %.2.i27.i = phi i32 [ %.031.i26.i, %._crit_edge.i25.i ], [ -1, %.split.us.i28.i ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   br label %_valid_gres_bind.exit
 
 90:                                               ; preds = %63
@@ -305,14 +307,14 @@ _valid_num_list.exit29.i:                         ; preds = %._crit_edge50.i25.i
   br label %_valid_gres_bind.exit
 
 _valid_gres_bind.exit:                            ; preds = %_valid_num_list.exit.i, %_valid_num_list.exit29.i, %94, %99
-  %.014.i = phi i32 [ %..i32.i, %99 ], [ %..i.i24, %94 ], [ %.031.i27.i, %_valid_num_list.exit29.i ], [ %.031.i.i, %_valid_num_list.exit.i ]
+  %.014.i = phi i32 [ %..i32.i, %99 ], [ %..i.i24, %94 ], [ %.2.i27.i, %_valid_num_list.exit29.i ], [ %.2.i.i, %_valid_num_list.exit.i ]
   %.not19 = icmp eq i32 %.014.i, 0
   br i1 %.not19, label %_valid_shared_gres_bind.exit.thread, label %_valid_shared_gres_bind.exit.thread28
 
 _valid_shared_gres_bind.exit.thread:              ; preds = %90, %31, %25, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit
   %102 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %8) #6
   %.not = icmp eq ptr %102, null
-  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !13
 
 _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_bind.exit.thread, %.lr.ph, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit, %18, %27, %97, %14
   %.0 = phi i32 [ 0, %14 ], [ -1, %97 ], [ -1, %27 ], [ -1, %18 ], [ -1, %_valid_gres_bind.exit ], [ -1, %_valid_shared_gres_bind.exit ], [ -1, %.lr.ph ], [ 0, %_valid_shared_gres_bind.exit.thread ]
@@ -321,61 +323,66 @@ _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_
 
 103:                                              ; preds = %1, %11, %_valid_shared_gres_bind.exit.thread28
   %.014 = phi i32 [ %.0, %_valid_shared_gres_bind.exit.thread28 ], [ 0, %11 ], [ 0, %1 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   ret i32 %.014
 }
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @gres_is_shared_name(ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @gres_is_shared_name(ptr noundef) local_unnamed_addr #2
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isxdigit(i32 noundef) local_unnamed_addr #4
+declare i32 @isxdigit(i32 noundef) local_unnamed_addr #5
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{null, ptr @isxdigit}
-!10 = distinct !{!10, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{null, ptr @isxdigit}
+!13 = distinct !{!13, !9, !10}

@@ -3,7 +3,7 @@ source_filename = "bench/slurm/original/cgroup_dbus.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.DBusMessageIter = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.DBusError = type { ptr, ptr, i8, ptr }
 
@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [52 x i8] c"%s: Invalid response type %c not supported by Slurm\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [9 x i8], align 1
   %4 = alloca %struct.DBusMessageIter, align 8
   %5 = alloca ptr, align 8
@@ -57,12 +57,18 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   %19 = alloca ptr, align 8
   %20 = alloca %struct.DBusError, align 8
   %21 = alloca [1 x i32], align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #5
   store ptr @.str, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
   %22 = tail call ptr @xbasename(ptr noundef %1) #5
   store ptr %22, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #5
   store i32 %0, ptr %21, align 4
-  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %24 = and i64 %23, 36028797018963968
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %29, label %25
@@ -76,7 +82,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_dbus_attach_to_scope, ptr noundef %22, i32 noundef %0) #5
   br label %29
 
-29:                                               ; preds = %2, %25, %28
+29:                                               ; preds = %25, %28, %2
   call void @dbus_error_init(ptr noundef nonnull %20) #5
   %30 = call ptr @dbus_bus_get(i32 noundef 1, ptr noundef nonnull %20) #5
   %31 = call i32 @dbus_error_is_set(ptr noundef nonnull %20) #5
@@ -124,25 +130,25 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr %21, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %6, i8 0, i64 288, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store ptr @.str.15, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
   store ptr @.str.16, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
   store ptr @.str.17, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %10, ptr noundef nonnull align 1 dereferenceable(3) @__const._set_scope_properties.pid_prop_sig, i64 3, i1 false)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #5
   store i16 98, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #5
   store i16 116, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #5
   store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
   store i64 -1, ptr %15, align 8
   store i8 40, ptr %13, align 1
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -285,34 +291,34 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 
 112:                                              ; preds = %109, %49
   %113 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._set_scope_properties) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.cgroup_dbus_attach_to_scope) #5
   br label %156
 
 115:                                              ; preds = %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i8 40, ptr %3, align 1
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -346,15 +352,15 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 
 128:                                              ; preds = %127, %115
   %129 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__._set_scope_aux) #5
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #5
   %130 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.cgroup_dbus_attach_to_scope) #5
   br label %156
 
 131:                                              ; preds = %125
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #5
+  %132 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %133 = and i64 %132, 36028797018963968
   %.not23 = icmp eq i64 %133, 0
   br i1 %.not23, label %139, label %134
@@ -369,7 +375,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.cgroup_dbus_attach_to_scope, ptr noundef %138) #5
   br label %139
 
-139:                                              ; preds = %131, %134, %137
+139:                                              ; preds = %134, %137, %131
   %140 = call i32 @dbus_connection_send_with_reply(ptr noundef nonnull %30, ptr noundef nonnull %38, ptr noundef nonnull %19, i32 noundef -1) #5
   %.not24 = icmp eq i32 %140, 0
   br i1 %.not24, label %141, label %143
@@ -413,54 +419,65 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 
 156:                                              ; preds = %153, %36, %151, %145, %141, %128, %112, %47, %43, %39
   %.0 = phi i32 [ -1, %151 ], [ -1, %145 ], [ -1, %141 ], [ -1, %128 ], [ -1, %112 ], [ -1, %47 ], [ -1, %43 ], [ -1, %39 ], [ -1, %36 ], [ %., %153 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
   ret i32 %.0
 }
 
-declare ptr @xbasename(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @xbasename(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @get_log_level() local_unnamed_addr #1
+declare i32 @get_log_level() local_unnamed_addr #2
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @dbus_error_init(ptr noundef) local_unnamed_addr #1
+declare void @dbus_error_init(ptr noundef) local_unnamed_addr #2
 
-declare ptr @dbus_bus_get(i32 noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @dbus_bus_get(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_error_is_set(ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_error_is_set(ptr noundef) local_unnamed_addr #2
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @dbus_error_free(ptr noundef) local_unnamed_addr #1
+declare void @dbus_error_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @dbus_message_new_method_call(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @dbus_message_new_method_call(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_message_iter_init_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @dbus_message_iter_init_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_append_basic(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_append_basic(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @dbus_message_get_signature(ptr noundef) local_unnamed_addr #1
+declare ptr @dbus_message_get_signature(ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_connection_send_with_reply(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @dbus_connection_send_with_reply(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @dbus_connection_flush(ptr noundef) local_unnamed_addr #1
+declare void @dbus_connection_flush(ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_message_unref(ptr noundef) local_unnamed_addr #1
+declare void @dbus_message_unref(ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_pending_call_block(ptr noundef) local_unnamed_addr #1
+declare void @dbus_pending_call_block(ptr noundef) local_unnamed_addr #2
 
-declare ptr @dbus_pending_call_steal_reply(ptr noundef) local_unnamed_addr #1
+declare ptr @dbus_pending_call_steal_reply(ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_connection_unref(ptr noundef) local_unnamed_addr #1
+declare void @dbus_connection_unref(ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_pending_call_unref(ptr noundef) local_unnamed_addr #1
+declare void @dbus_pending_call_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.DBusMessageIter, align 8
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   %4 = call i32 @dbus_message_iter_init(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
   br label %5
 
@@ -475,7 +492,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
 
 7:                                                ; preds = %5
   call void @dbus_message_iter_get_basic(ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %9 = and i64 %8, 36028797018963968
   %.not4 = icmp eq i64 %9, 0
   br i1 %.not4, label %25, label %10
@@ -492,7 +509,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
 
 15:                                               ; preds = %5, %5
   call void @dbus_message_iter_get_basic(ptr noundef nonnull %2, ptr noundef nonnull %3) #5
-  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %17 = and i64 %16, 36028797018963968
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %25, label %18
@@ -511,56 +528,58 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
   %24 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._process_and_close_reply_msg, i32 noundef %6) #5
   br label %25
 
-25:                                               ; preds = %23, %7, %10, %13, %15, %18, %21
+25:                                               ; preds = %23, %10, %13, %7, %18, %21, %15
   %.1 = phi i32 [ -1, %23 ], [ -1, %21 ], [ -1, %18 ], [ -1, %15 ], [ %.0, %13 ], [ %.0, %10 ], [ %.0, %7 ]
   %26 = call i32 @dbus_message_iter_next(ptr noundef nonnull %2) #5
   %.not5 = icmp eq i32 %26, 0
-  br i1 %.not5, label %27, label %5, !llvm.loop !6
+  br i1 %.not5, label %27, label %5, !llvm.loop !8
 
 27:                                               ; preds = %25
   call void @dbus_message_unref(ptr noundef nonnull %0) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #5
   ret i32 %.1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @dbus_message_iter_open_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_open_container(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_append_fixed_array(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_append_fixed_array(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_close_container(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_close_container(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_message_iter_abandon_container_if_open(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @dbus_message_iter_abandon_container_if_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_get_arg_type(ptr noundef) local_unnamed_addr #1
+declare i32 @dbus_message_iter_get_arg_type(ptr noundef) local_unnamed_addr #2
 
-declare void @dbus_message_iter_get_basic(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @dbus_message_iter_get_basic(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dbus_message_iter_next(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare i32 @dbus_message_iter_next(ptr noundef) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}

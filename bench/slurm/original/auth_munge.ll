@@ -1,17 +1,17 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.auth_credential_t = type { i32, i32, ptr, i8, %struct.in_addr, i8, i32, i32, ptr, i32 }
 %struct.in_addr = type { i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
 
-@plugin_name = constant [28 x i8] c"Munge authentication plugin\00", align 16
-@plugin_type = constant [11 x i8] c"auth/munge\00", align 1
-@plugin_id = constant i32 101, align 4
-@plugin_version = constant i32 1574912, align 4
-@hash_enable = constant i8 1, align 1
+@plugin_name = dso_local constant [28 x i8] c"Munge authentication plugin\00", align 16
+@plugin_type = dso_local constant [11 x i8] c"auth/munge\00", align 1
+@plugin_id = dso_local constant i32 101, align 4
+@plugin_version = dso_local constant i32 1639680, align 4
+@hash_enable = dso_local constant i8 1, align 1
 @.str = private unnamed_addr constant [27 x i8] c"SLURM_MUNGE_AUTH_FAIL_TEST\00", align 1
 @bad_cred_test = internal global i32 -1, align 4
 @slurm_conf = external global %struct.slurm_conf_t, align 8
@@ -52,14 +52,16 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [20 x i8] c"%s: %s: DECODED: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @init() #0 {
+define dso_local i32 @init() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #9
   store i32 0, ptr %1, align 4
-  %6 = call ptr @getenv(ptr noundef @.str) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #9
+  %6 = call ptr @getenv(ptr noundef @.str) #9
   store ptr %6, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
   %8 = icmp ne ptr %7, null
@@ -67,7 +69,7 @@ define i32 @init() #0 {
 
 9:                                                ; preds = %0
   %10 = load ptr, ptr %2, align 8
-  %11 = call i32 @atoi(ptr noundef %10) #7
+  %11 = call i32 @atoi(ptr noundef %10) #10
   store i32 %11, ptr @bad_cred_test, align 4
   br label %13
 
@@ -77,72 +79,82 @@ define i32 @init() #0 {
 
 13:                                               ; preds = %12, %9
   %14 = call zeroext i1 @slurm_running_in_slurmstepd()
-  br i1 %14, label %41, label %15
+  br i1 %14, label %39, label %15
 
 15:                                               ; preds = %13
   %16 = call zeroext i1 @slurm_running_in_daemon()
-  br i1 %16, label %17, label %41
+  br i1 %16, label %17, label %39
 
 17:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #9
   store ptr null, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18
-  %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @slurm_auth_opts_to_socket(ptr noundef %19)
-  store ptr %20, ptr %4, align 8
-  %21 = call i32 @getuid() #6
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %5, align 4
-  %23 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %5, align 4
-  %26 = call ptr @auth_p_create(ptr noundef %24, i32 noundef %25, ptr noundef null, i32 noundef 0)
-  store ptr %26, ptr %3, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %31, label %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #9
+  %18 = load ptr, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18), align 8
+  %19 = call ptr @slurm_auth_opts_to_socket(ptr noundef %18)
+  store ptr %19, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #9
+  %20 = call i32 @getuid() #9
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %5, align 4
+  %22 = load ptr, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 18), align 8
+  %23 = load i32, ptr %5, align 4
+  %24 = call ptr @auth_p_create(ptr noundef %22, i32 noundef %23, ptr noundef null, i32 noundef 0)
+  store ptr %24, ptr %3, align 8
+  %25 = load ptr, ptr %3, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %29, label %27
+
+27:                                               ; preds = %17
+  %28 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.1)
+  store i32 -1, ptr %1, align 4
+  br label %37
 
 29:                                               ; preds = %17
-  %30 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.1)
+  %30 = load ptr, ptr %3, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = call i32 @_decode_cred(ptr noundef %30, ptr noundef %31, i1 noundef zeroext true)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %36, label %34
+
+34:                                               ; preds = %29
+  %35 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.2)
   store i32 -1, ptr %1, align 4
-  br label %39
+  br label %36
 
-31:                                               ; preds = %17
-  %32 = load ptr, ptr %3, align 8
-  %33 = load ptr, ptr %4, align 8
-  %34 = call i32 @_decode_cred(ptr noundef %32, ptr noundef %33, i1 noundef zeroext true)
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %38, label %36
+36:                                               ; preds = %34, %29
+  br label %37
 
-36:                                               ; preds = %31
-  %37 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.2)
-  store i32 -1, ptr %1, align 4
-  br label %38
-
-38:                                               ; preds = %36, %31
-  br label %39
-
-39:                                               ; preds = %38, %29
+37:                                               ; preds = %36, %27
   call void @slurm_xfree(ptr noundef %4)
-  %40 = load ptr, ptr %3, align 8
-  call void @auth_p_destroy(ptr noundef %40)
+  %38 = load ptr, ptr %3, align 8
+  call void @auth_p_destroy(ptr noundef %38)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #9
+  br label %39
+
+39:                                               ; preds = %37, %15, %13
+  br label %40
+
+40:                                               ; preds = %39
   br label %41
 
-41:                                               ; preds = %39, %15, %13
-  br label %42
+41:                                               ; preds = %40
+  %42 = call i32 @slurm_get_log_level()
+  %43 = icmp sge i32 %42, 5
+  br i1 %43, label %44, label %45
 
-42:                                               ; preds = %41
-  br label %43
-
-43:                                               ; preds = %42
-  %44 = call i32 @slurm_get_log_level()
-  %45 = icmp sge i32 %44, 5
-  br i1 %45, label %46, label %47
-
-46:                                               ; preds = %43
+44:                                               ; preds = %41
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.3, ptr noundef @plugin_type, ptr noundef @__func__.init)
+  br label %45
+
+45:                                               ; preds = %44, %41
+  br label %46
+
+46:                                               ; preds = %45
   br label %47
 
-47:                                               ; preds = %46, %43
+47:                                               ; preds = %46
   br label %48
 
 48:                                               ; preds = %47
@@ -150,26 +162,38 @@ define i32 @init() #0 {
 
 49:                                               ; preds = %48
   %50 = load i32, ptr %1, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #9
   ret i32 %50
 }
 
-; Function Attrs: nounwind
-declare ptr @getenv(ptr noundef) #1
-
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #2
-
-declare zeroext i1 @slurm_running_in_slurmstepd() #3
-
-declare zeroext i1 @slurm_running_in_daemon() #3
-
-declare ptr @slurm_auth_opts_to_socket(ptr noundef) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind
-declare i32 @getuid() #1
+declare ptr @getenv(ptr noundef) #2
+
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #9
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
+
+declare zeroext i1 @slurm_running_in_slurmstepd() #4
+
+declare zeroext i1 @slurm_running_in_daemon() #4
+
+declare ptr @slurm_auth_opts_to_socket(ptr noundef) #4
+
+; Function Attrs: nounwind
+declare i32 @getuid() #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+define dso_local ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -184,247 +208,278 @@ define ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #9
   store i32 20, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
   store i32 0, ptr %14, align 4
-  %19 = call ptr @munge_ctx_create()
-  store ptr %19, ptr %15, align 8
-  %20 = load ptr, ptr %15, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %24, label %22
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  %20 = call ptr @munge_ctx_create()
+  store ptr %20, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  %21 = load ptr, ptr %15, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %25, label %23
 
-22:                                               ; preds = %4
-  %23 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.4)
+23:                                               ; preds = %4
+  %24 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.4)
   store ptr null, ptr %5, align 8
-  br label %153
+  store i32 1, ptr %18, align 4
+  br label %157
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %27, label %41
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %6, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %42
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @slurm_auth_opts_to_socket(ptr noundef %28)
-  store ptr %29, ptr %17, align 8
-  %30 = load ptr, ptr %15, align 8
-  %31 = load ptr, ptr %17, align 8
-  %32 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %30, i32 noundef 8, ptr noundef %31)
-  store i32 %32, ptr %10, align 4
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @slurm_auth_opts_to_socket(ptr noundef %29)
+  store ptr %30, ptr %17, align 8
+  %31 = load ptr, ptr %15, align 8
+  %32 = load ptr, ptr %17, align 8
+  %33 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %31, i32 noundef 8, ptr noundef %32)
+  store i32 %33, ptr %10, align 4
   call void @slurm_xfree(ptr noundef %17)
-  %33 = load i32, ptr %10, align 4
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %40
+  %34 = load i32, ptr %10, align 4
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %27
-  %36 = load ptr, ptr %15, align 8
-  %37 = call ptr @munge_ctx_strerror(ptr noundef %36)
-  %38 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.5, ptr noundef %37)
-  %39 = load ptr, ptr %15, align 8
-  call void @munge_ctx_destroy(ptr noundef %39)
+36:                                               ; preds = %28
+  %37 = load ptr, ptr %15, align 8
+  %38 = call ptr @munge_ctx_strerror(ptr noundef %37)
+  %39 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.5, ptr noundef %38)
+  %40 = load ptr, ptr %15, align 8
+  call void @munge_ctx_destroy(ptr noundef %40)
   store ptr null, ptr %5, align 8
-  br label %153
+  store i32 1, ptr %18, align 4
+  br label %157
 
-40:                                               ; preds = %27
-  br label %41
+41:                                               ; preds = %28
+  br label %42
 
-41:                                               ; preds = %40, %24
-  %42 = load ptr, ptr %15, align 8
-  %43 = load i32, ptr %7, align 4
-  %44 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %42, i32 noundef 9, i32 noundef %43)
-  store i32 %44, ptr %10, align 4
-  %45 = load i32, ptr %10, align 4
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %52
+42:                                               ; preds = %41, %25
+  %43 = load ptr, ptr %15, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %43, i32 noundef 9, i32 noundef %44)
+  store i32 %45, ptr %10, align 4
+  %46 = load i32, ptr %10, align 4
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %53
 
-47:                                               ; preds = %41
-  %48 = load ptr, ptr %15, align 8
-  %49 = call ptr @munge_ctx_strerror(ptr noundef %48)
-  %50 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.6, ptr noundef %49)
-  %51 = load ptr, ptr %15, align 8
-  call void @munge_ctx_destroy(ptr noundef %51)
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %15, align 8
+  %50 = call ptr @munge_ctx_strerror(ptr noundef %49)
+  %51 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.6, ptr noundef %50)
+  %52 = load ptr, ptr %15, align 8
+  call void @munge_ctx_destroy(ptr noundef %52)
   store ptr null, ptr %5, align 8
-  br label %153
+  store i32 1, ptr %18, align 4
+  br label %157
 
-52:                                               ; preds = %41
-  %53 = call i32 @slurm_get_auth_ttl()
-  store i32 %53, ptr %12, align 4
-  %54 = load i32, ptr %12, align 4
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %56, label %68
+53:                                               ; preds = %42
+  %54 = call i32 @slurm_get_auth_ttl()
+  store i32 %54, ptr %12, align 4
+  %55 = load i32, ptr %12, align 4
+  %56 = icmp ne i32 %55, 0
+  br i1 %56, label %57, label %69
 
-56:                                               ; preds = %52
-  %57 = load ptr, ptr %15, align 8
-  %58 = load i32, ptr %12, align 4
-  %59 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %57, i32 noundef 4, i32 noundef %58)
-  store i32 %59, ptr %10, align 4
-  %60 = load i32, ptr %10, align 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %67
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %15, align 8
+  %59 = load i32, ptr %12, align 4
+  %60 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %58, i32 noundef 4, i32 noundef %59)
+  store i32 %60, ptr %10, align 4
+  %61 = load i32, ptr %10, align 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %68
 
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %15, align 8
-  %64 = call ptr @munge_ctx_strerror(ptr noundef %63)
-  %65 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.7, ptr noundef %64)
-  %66 = load ptr, ptr %15, align 8
-  call void @munge_ctx_destroy(ptr noundef %66)
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %15, align 8
+  %65 = call ptr @munge_ctx_strerror(ptr noundef %64)
+  %66 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.7, ptr noundef %65)
+  %67 = load ptr, ptr %15, align 8
+  call void @munge_ctx_destroy(ptr noundef %67)
   store ptr null, ptr %5, align 8
-  br label %153
+  store i32 1, ptr %18, align 4
+  br label %157
 
-67:                                               ; preds = %56
-  br label %68
+68:                                               ; preds = %57
+  br label %69
 
-68:                                               ; preds = %67, %52
-  %69 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 219, ptr noundef @__func__.auth_p_create)
-  store ptr %69, ptr %13, align 8
-  %70 = load ptr, ptr %13, align 8
-  %71 = getelementptr inbounds %struct.auth_credential_t, ptr %70, i32 0, i32 1
-  store i32 65261, ptr %71, align 4
-  %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct.auth_credential_t, ptr %72, i32 0, i32 5
-  store i8 0, ptr %73, align 8
-  %74 = load ptr, ptr %13, align 8
-  %75 = getelementptr inbounds %struct.auth_credential_t, ptr %74, i32 0, i32 2
-  store ptr null, ptr %75, align 8
-  %76 = load ptr, ptr %13, align 8
-  %77 = getelementptr inbounds %struct.auth_credential_t, ptr %76, i32 0, i32 3
-  store i8 0, ptr %77, align 8
-  %78 = load ptr, ptr %13, align 8
-  %79 = getelementptr inbounds %struct.auth_credential_t, ptr %78, i32 0, i32 8
-  store ptr null, ptr %79, align 8
-  %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct.auth_credential_t, ptr %80, i32 0, i32 9
-  store i32 0, ptr %81, align 8
-  %82 = call ptr @slurm_xsignal(i32 noundef 14, ptr noundef null)
-  store ptr %82, ptr %16, align 8
-  br label %83
+69:                                               ; preds = %68, %53
+  %70 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 219, ptr noundef @__func__.auth_p_create)
+  store ptr %70, ptr %13, align 8
+  %71 = load ptr, ptr %13, align 8
+  %72 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %71, i32 0, i32 1
+  store i32 65261, ptr %72, align 4
+  %73 = load ptr, ptr %13, align 8
+  %74 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %73, i32 0, i32 5
+  store i8 0, ptr %74, align 8
+  %75 = load ptr, ptr %13, align 8
+  %76 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %75, i32 0, i32 2
+  store ptr null, ptr %76, align 8
+  %77 = load ptr, ptr %13, align 8
+  %78 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %77, i32 0, i32 3
+  store i8 0, ptr %78, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %79, i32 0, i32 8
+  store ptr null, ptr %80, align 8
+  %81 = load ptr, ptr %13, align 8
+  %82 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %81, i32 0, i32 9
+  store i32 0, ptr %82, align 8
+  %83 = call ptr @slurm_xsignal(i32 noundef 14, ptr noundef null)
+  store ptr %83, ptr %16, align 8
+  br label %84
 
-83:                                               ; preds = %109, %68
-  %84 = load ptr, ptr %13, align 8
-  %85 = getelementptr inbounds %struct.auth_credential_t, ptr %84, i32 0, i32 2
-  %86 = load ptr, ptr %15, align 8
-  %87 = load ptr, ptr %8, align 8
-  %88 = load i32, ptr %9, align 4
-  %89 = call i32 @munge_encode(ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88)
-  store i32 %89, ptr %14, align 4
-  %90 = load i32, ptr %14, align 4
-  %91 = icmp ne i32 %90, 0
-  br i1 %91, label %92, label %120
+84:                                               ; preds = %112, %69
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %85, i32 0, i32 2
+  %87 = load ptr, ptr %15, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = call i32 @munge_encode(ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89)
+  store i32 %90, ptr %14, align 4
+  %91 = load i32, ptr %14, align 4
+  %92 = icmp ne i32 %91, 0
+  br i1 %92, label %93, label %124
 
-92:                                               ; preds = %83
-  %93 = load i32, ptr %14, align 4
-  %94 = icmp eq i32 %93, 6
-  br i1 %94, label %95, label %111
+93:                                               ; preds = %84
+  %94 = load i32, ptr %14, align 4
+  %95 = icmp eq i32 %94, 6
+  br i1 %95, label %96, label %114
 
-95:                                               ; preds = %92
-  %96 = load i32, ptr %11, align 4
-  %97 = add nsw i32 %96, -1
-  store i32 %97, ptr %11, align 4
-  %98 = icmp ne i32 %96, 0
-  br i1 %98, label %99, label %111
+96:                                               ; preds = %93
+  %97 = load i32, ptr %11, align 4
+  %98 = add nsw i32 %97, -1
+  store i32 %98, ptr %11, align 4
+  %99 = icmp ne i32 %97, 0
+  br i1 %99, label %100, label %114
 
-99:                                               ; preds = %95
-  br label %100
-
-100:                                              ; preds = %99
+100:                                              ; preds = %96
   br label %101
 
 101:                                              ; preds = %100
-  %102 = call i32 @slurm_get_log_level()
-  %103 = icmp sge i32 %102, 5
-  br i1 %103, label %104, label %107
+  br label %102
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %15, align 8
-  %106 = call ptr @munge_ctx_strerror(ptr noundef %105)
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.auth_p_create, ptr noundef %106)
-  br label %107
+102:                                              ; preds = %101
+  %103 = call i32 @slurm_get_log_level()
+  %104 = icmp sge i32 %103, 5
+  br i1 %104, label %105, label %108
 
-107:                                              ; preds = %104, %101
+105:                                              ; preds = %102
+  %106 = load ptr, ptr %15, align 8
+  %107 = call ptr @munge_ctx_strerror(ptr noundef %106)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.9, ptr noundef @plugin_type, ptr noundef @__func__.auth_p_create, ptr noundef %107)
   br label %108
 
-108:                                              ; preds = %107
+108:                                              ; preds = %105, %102
   br label %109
 
 109:                                              ; preds = %108
-  %110 = call i32 @usleep(i32 noundef 100000)
-  br label %83
+  br label %110
 
-111:                                              ; preds = %95, %92
-  %112 = load i32, ptr %14, align 4
-  %113 = icmp eq i32 %112, 6
-  br i1 %113, label %114, label %116
+110:                                              ; preds = %109
+  br label %111
 
-114:                                              ; preds = %111
-  %115 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.10)
-  br label %116
+111:                                              ; preds = %110
+  br label %112
 
-116:                                              ; preds = %114, %111
-  %117 = load ptr, ptr %15, align 8
-  %118 = call ptr @munge_ctx_strerror(ptr noundef %117)
-  %119 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.11, ptr noundef %118)
+112:                                              ; preds = %111
+  %113 = call i32 @usleep(i32 noundef 100000)
+  br label %84
+
+114:                                              ; preds = %96, %93
+  %115 = load i32, ptr %14, align 4
+  %116 = icmp eq i32 %115, 6
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %114
+  %118 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.10)
+  br label %119
+
+119:                                              ; preds = %117, %114
+  %120 = load ptr, ptr %15, align 8
+  %121 = call ptr @munge_ctx_strerror(ptr noundef %120)
+  %122 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.11, ptr noundef %121)
   call void @slurm_xfree(ptr noundef %13)
   store ptr null, ptr %13, align 8
-  call void @slurm_seterrno(i32 noundef 6000)
-  br label %148
+  %123 = call ptr @__errno_location() #11
+  store i32 6000, ptr %123, align 4
+  br label %152
 
-120:                                              ; preds = %83
-  %121 = load i32, ptr @bad_cred_test, align 4
-  %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %123, label %147
+124:                                              ; preds = %84
+  %125 = load i32, ptr @bad_cred_test, align 4
+  %126 = icmp sgt i32 %125, 0
+  br i1 %126, label %127, label %151
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds %struct.auth_credential_t, ptr %124, i32 0, i32 2
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %147
+127:                                              ; preds = %124
+  %128 = load ptr, ptr %13, align 8
+  %129 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %128, i32 0, i32 2
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp ne ptr %130, null
+  br i1 %131, label %132, label %151
 
-128:                                              ; preds = %123
-  %129 = call i64 @time(ptr noundef null) #6
-  %130 = trunc i64 %129 to i32
-  %131 = sext i32 %130 to i64
-  %132 = load ptr, ptr %13, align 8
-  %133 = getelementptr inbounds %struct.auth_credential_t, ptr %132, i32 0, i32 2
-  %134 = load ptr, ptr %133, align 8
-  %135 = call i64 @strlen(ptr noundef %134) #7
-  %136 = sub i64 %135, 4
-  %137 = urem i64 %131, %136
-  %138 = trunc i64 %137 to i32
-  store i32 %138, ptr %18, align 4
-  %139 = load ptr, ptr %13, align 8
-  %140 = getelementptr inbounds %struct.auth_credential_t, ptr %139, i32 0, i32 2
-  %141 = load ptr, ptr %140, align 8
-  %142 = load i32, ptr %18, align 4
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i8, ptr %141, i64 %143
-  %145 = load i8, ptr %144, align 1
-  %146 = add i8 %145, 1
-  store i8 %146, ptr %144, align 1
-  br label %147
+132:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  %133 = call i64 @time(ptr noundef null) #9
+  %134 = trunc i64 %133 to i32
+  %135 = sext i32 %134 to i64
+  %136 = load ptr, ptr %13, align 8
+  %137 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %136, i32 0, i32 2
+  %138 = load ptr, ptr %137, align 8
+  %139 = call i64 @strlen(ptr noundef %138) #10
+  %140 = sub i64 %139, 4
+  %141 = urem i64 %135, %140
+  %142 = trunc i64 %141 to i32
+  store i32 %142, ptr %19, align 4
+  %143 = load ptr, ptr %13, align 8
+  %144 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %143, i32 0, i32 2
+  %145 = load ptr, ptr %144, align 8
+  %146 = load i32, ptr %19, align 4
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds i8, ptr %145, i64 %147
+  %149 = load i8, ptr %148, align 1
+  %150 = add i8 %149, 1
+  store i8 %150, ptr %148, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  br label %151
 
-147:                                              ; preds = %128, %123, %120
-  br label %148
+151:                                              ; preds = %132, %127, %124
+  br label %152
 
-148:                                              ; preds = %147, %116
-  %149 = load ptr, ptr %16, align 8
-  %150 = call ptr @slurm_xsignal(i32 noundef 14, ptr noundef %149)
-  %151 = load ptr, ptr %15, align 8
-  call void @munge_ctx_destroy(ptr noundef %151)
-  %152 = load ptr, ptr %13, align 8
-  store ptr %152, ptr %5, align 8
-  br label %153
+152:                                              ; preds = %151, %119
+  %153 = load ptr, ptr %16, align 8
+  %154 = call ptr @slurm_xsignal(i32 noundef 14, ptr noundef %153)
+  %155 = load ptr, ptr %15, align 8
+  call void @munge_ctx_destroy(ptr noundef %155)
+  %156 = load ptr, ptr %13, align 8
+  store ptr %156, ptr %5, align 8
+  store i32 1, ptr %18, align 4
+  br label %157
 
-153:                                              ; preds = %148, %62, %47, %35, %22
-  %154 = load ptr, ptr %5, align 8
-  ret ptr %154
+157:                                              ; preds = %152, %63, %48, %36, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  %158 = load ptr, ptr %5, align 8
+  ret ptr %158
 }
 
-declare i32 @slurm_error(ptr noundef, ...) #3
+declare i32 @slurm_error(ptr noundef, ...) #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_decode_cred(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
@@ -435,222 +490,241 @@ define internal i32 @_decode_cred(ptr noundef %0, ptr noundef %1, i1 noundef zer
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
-  %11 = zext i1 %2 to i8
-  store i8 %11, ptr %7, align 1
+  %12 = zext i1 %2 to i8
+  store i8 %12, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
   store i32 20, ptr %8, align 4
-  %12 = load ptr, ptr %5, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %3
-  store i32 -1, ptr %4, align 4
-  br label %124
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  %13 = load ptr, ptr %5, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds %struct.auth_credential_t, ptr %16, i32 0, i32 5
-  %18 = load i8, ptr %17, align 8
-  %19 = trunc i8 %18 to i1
-  br i1 %19, label %20, label %21
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %128
 
-20:                                               ; preds = %15
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %17, i32 0, i32 5
+  %19 = load i8, ptr %18, align 8, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %16
   store i32 0, ptr %4, align 4
-  br label %124
+  store i32 1, ptr %11, align 4
+  br label %128
 
-21:                                               ; preds = %15
-  %22 = call ptr @munge_ctx_create()
-  store ptr %22, ptr %10, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %26
+22:                                               ; preds = %16
+  %23 = call ptr @munge_ctx_create()
+  store ptr %23, ptr %10, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %21
-  %25 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.4)
+25:                                               ; preds = %22
+  %26 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.4)
   store i32 -1, ptr %4, align 4
-  br label %124
+  store i32 1, ptr %11, align 4
+  br label %128
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %6, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %37
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %38
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %30, i32 noundef 8, ptr noundef %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %37
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = call i32 (ptr, i32, ...) @munge_ctx_set(ptr noundef %31, i32 noundef 8, ptr noundef %32)
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %38
 
-34:                                               ; preds = %29
-  %35 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.18)
-  %36 = load ptr, ptr %10, align 8
-  call void @munge_ctx_destroy(ptr noundef %36)
+35:                                               ; preds = %30
+  %36 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.18)
+  %37 = load ptr, ptr %10, align 8
+  call void @munge_ctx_destroy(ptr noundef %37)
   store i32 -1, ptr %4, align 4
-  br label %124
+  store i32 1, ptr %11, align 4
+  br label %128
 
-37:                                               ; preds = %29, %26
-  br label %38
+38:                                               ; preds = %30, %27
+  br label %39
 
-38:                                               ; preds = %75, %37
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.auth_credential_t, ptr %39, i32 0, i32 2
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %10, align 8
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds %struct.auth_credential_t, ptr %43, i32 0, i32 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.auth_credential_t, ptr %45, i32 0, i32 9
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.auth_credential_t, ptr %47, i32 0, i32 6
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.auth_credential_t, ptr %49, i32 0, i32 7
-  %51 = call i32 @munge_decode(ptr noundef %41, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50)
-  store i32 %51, ptr %9, align 4
-  %52 = load i32, ptr %9, align 4
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %92
+39:                                               ; preds = %78, %38
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %40, i32 0, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %44, i32 0, i32 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %46, i32 0, i32 9
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %48, i32 0, i32 6
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %50, i32 0, i32 7
+  %52 = call i32 @munge_decode(ptr noundef %42, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51)
+  store i32 %52, ptr %9, align 4
+  %53 = load i32, ptr %9, align 4
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %96
 
-54:                                               ; preds = %38
-  %55 = load i8, ptr %7, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %58
+55:                                               ; preds = %39
+  %56 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %54
-  br label %119
+58:                                               ; preds = %55
+  br label %123
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr %9, align 4
-  %60 = icmp eq i32 %59, 6
-  br i1 %60, label %61, label %77
+59:                                               ; preds = %55
+  %60 = load i32, ptr %9, align 4
+  %61 = icmp eq i32 %60, 6
+  br i1 %61, label %62, label %80
 
-61:                                               ; preds = %58
-  %62 = load i32, ptr %8, align 4
-  %63 = add nsw i32 %62, -1
-  store i32 %63, ptr %8, align 4
-  %64 = icmp ne i32 %62, 0
-  br i1 %64, label %65, label %77
+62:                                               ; preds = %59
+  %63 = load i32, ptr %8, align 4
+  %64 = add nsw i32 %63, -1
+  store i32 %64, ptr %8, align 4
+  %65 = icmp ne i32 %63, 0
+  br i1 %65, label %66, label %80
 
-65:                                               ; preds = %61
-  br label %66
-
-66:                                               ; preds = %65
+66:                                               ; preds = %62
   br label %67
 
 67:                                               ; preds = %66
-  %68 = call i32 @slurm_get_log_level()
-  %69 = icmp sge i32 %68, 5
-  br i1 %69, label %70, label %73
+  br label %68
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %10, align 8
-  %72 = call ptr @munge_ctx_strerror(ptr noundef %71)
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.19, ptr noundef @plugin_type, ptr noundef @__func__._decode_cred, ptr noundef %72)
-  br label %73
+68:                                               ; preds = %67
+  %69 = call i32 @slurm_get_log_level()
+  %70 = icmp sge i32 %69, 5
+  br i1 %70, label %71, label %74
 
-73:                                               ; preds = %70, %67
+71:                                               ; preds = %68
+  %72 = load ptr, ptr %10, align 8
+  %73 = call ptr @munge_ctx_strerror(ptr noundef %72)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.19, ptr noundef @plugin_type, ptr noundef @__func__._decode_cred, ptr noundef %73)
   br label %74
 
-74:                                               ; preds = %73
+74:                                               ; preds = %71, %68
   br label %75
 
 75:                                               ; preds = %74
-  %76 = call i32 @usleep(i32 noundef 100000)
-  br label %38
+  br label %76
 
-77:                                               ; preds = %61, %58
-  %78 = load i32, ptr %9, align 4
-  %79 = icmp eq i32 %78, 6
-  br i1 %79, label %80, label %82
+76:                                               ; preds = %75
+  br label %77
 
-80:                                               ; preds = %77
-  %81 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.10)
-  br label %82
+77:                                               ; preds = %76
+  br label %78
 
-82:                                               ; preds = %80, %77
-  %83 = load ptr, ptr %10, align 8
-  %84 = call ptr @munge_ctx_strerror(ptr noundef %83)
-  %85 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.20, ptr noundef %84)
+78:                                               ; preds = %77
+  %79 = call i32 @usleep(i32 noundef 100000)
+  br label %39
+
+80:                                               ; preds = %62, %59
+  %81 = load i32, ptr %9, align 4
+  %82 = icmp eq i32 %81, 6
+  br i1 %82, label %83, label %85
+
+83:                                               ; preds = %80
+  %84 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.10)
+  br label %85
+
+85:                                               ; preds = %83, %80
   %86 = load ptr, ptr %10, align 8
-  call void @_print_cred(ptr noundef %86)
-  %87 = load i32, ptr %9, align 4
-  %88 = icmp eq i32 %87, 16
-  br i1 %88, label %89, label %91
+  %87 = call ptr @munge_ctx_strerror(ptr noundef %86)
+  %88 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.20, ptr noundef %87)
+  %89 = load ptr, ptr %10, align 8
+  call void @_print_cred(ptr noundef %89)
+  %90 = load i32, ptr %9, align 4
+  %91 = icmp eq i32 %90, 16
+  br i1 %91, label %92, label %94
 
-89:                                               ; preds = %82
-  %90 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.21)
-  br label %91
+92:                                               ; preds = %85
+  %93 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.21)
+  br label %94
 
-91:                                               ; preds = %89, %82
-  call void @slurm_seterrno(i32 noundef 6000)
-  br label %119
+94:                                               ; preds = %92, %85
+  %95 = call ptr @__errno_location() #11
+  store i32 6000, ptr %95, align 4
+  br label %123
 
-92:                                               ; preds = %38
-  %93 = load ptr, ptr %10, align 8
-  %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds %struct.auth_credential_t, ptr %94, i32 0, i32 4
-  %96 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %93, i32 noundef 5, ptr noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %102
+96:                                               ; preds = %39
+  %97 = load ptr, ptr %10, align 8
+  %98 = load ptr, ptr %5, align 8
+  %99 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %98, i32 0, i32 4
+  %100 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %97, i32 noundef 5, ptr noundef %99)
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %106
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %10, align 8
-  %100 = call ptr @munge_ctx_strerror(ptr noundef %99)
-  %101 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.22, ptr noundef %100)
-  br label %102
+102:                                              ; preds = %96
+  %103 = load ptr, ptr %10, align 8
+  %104 = call ptr @munge_ctx_strerror(ptr noundef %103)
+  %105 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.22, ptr noundef %104)
+  br label %106
 
-102:                                              ; preds = %98, %92
-  %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds %struct.auth_credential_t, ptr %103, i32 0, i32 6
-  %105 = load i32, ptr %104, align 4
-  %106 = icmp eq i32 %105, 99
-  br i1 %106, label %107, label %108
+106:                                              ; preds = %102, %96
+  %107 = load ptr, ptr %5, align 8
+  %108 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %107, i32 0, i32 6
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp eq i32 %109, 99
+  br i1 %110, label %111, label %112
 
-107:                                              ; preds = %102
+111:                                              ; preds = %106
   store i32 14, ptr %9, align 4
-  br label %118
+  br label %122
 
-108:                                              ; preds = %102
-  %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr inbounds %struct.auth_credential_t, ptr %109, i32 0, i32 7
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp eq i32 %111, 99
-  br i1 %112, label %113, label %114
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %5, align 8
+  %114 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %113, i32 0, i32 7
+  %115 = load i32, ptr %114, align 8
+  %116 = icmp eq i32 %115, 99
+  br i1 %116, label %117, label %118
 
-113:                                              ; preds = %108
+117:                                              ; preds = %112
   store i32 14, ptr %9, align 4
-  br label %117
+  br label %121
 
-114:                                              ; preds = %108
-  %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds %struct.auth_credential_t, ptr %115, i32 0, i32 5
-  store i8 1, ptr %116, align 8
-  br label %117
+118:                                              ; preds = %112
+  %119 = load ptr, ptr %5, align 8
+  %120 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %119, i32 0, i32 5
+  store i8 1, ptr %120, align 8
+  br label %121
 
-117:                                              ; preds = %114, %113
-  br label %118
+121:                                              ; preds = %118, %117
+  br label %122
 
-118:                                              ; preds = %117, %107
-  br label %119
+122:                                              ; preds = %121, %111
+  br label %123
 
-119:                                              ; preds = %118, %91, %57
-  %120 = load ptr, ptr %10, align 8
-  call void @munge_ctx_destroy(ptr noundef %120)
-  %121 = load i32, ptr %9, align 4
-  %122 = icmp ne i32 %121, 0
-  %123 = select i1 %122, i32 -1, i32 0
-  store i32 %123, ptr %4, align 4
-  br label %124
+123:                                              ; preds = %122, %94, %58
+  %124 = load ptr, ptr %10, align 8
+  call void @munge_ctx_destroy(ptr noundef %124)
+  %125 = load i32, ptr %9, align 4
+  %126 = icmp ne i32 %125, 0
+  %127 = select i1 %126, i32 -1, i32 0
+  store i32 %127, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %128
 
-124:                                              ; preds = %119, %34, %24, %20, %14
-  %125 = load i32, ptr %4, align 4
-  ret i32 %125
+128:                                              ; preds = %123, %35, %25, %21, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %129 = load i32, ptr %4, align 4
+  ret i32 %129
 }
 
-declare void @slurm_xfree(ptr noundef) #3
+declare void @slurm_xfree(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define void @auth_p_destroy(ptr noundef %0) #0 {
+define dso_local void @auth_p_destroy(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -662,29 +736,29 @@ define void @auth_p_destroy(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.auth_credential_t, ptr %7, i32 0, i32 3
-  %9 = load i8, ptr %8, align 8
+  %8 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %7, i32 0, i32 3
+  %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.auth_credential_t, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %12, i32 0, i32 2
   call void @slurm_xfree(ptr noundef %13)
   br label %24
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds %struct.auth_credential_t, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %15, i32 0, i32 2
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds %struct.auth_credential_t, ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %20, i32 0, i32 2
   %22 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %22) #6
+  call void @free(ptr noundef %22) #9
   br label %23
 
 23:                                               ; preds = %19, %14
@@ -692,16 +766,16 @@ define void @auth_p_destroy(ptr noundef %0) #0 {
 
 24:                                               ; preds = %23, %11
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.auth_credential_t, ptr %25, i32 0, i32 8
+  %26 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %25, i32 0, i32 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds %struct.auth_credential_t, ptr %30, i32 0, i32 8
+  %31 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %30, i32 0, i32 8
   %32 = load ptr, ptr %31, align 8
-  call void @free(ptr noundef %32) #6
+  call void @free(ptr noundef %32) #9
   br label %33
 
 33:                                               ; preds = %29, %24
@@ -712,101 +786,115 @@ define void @auth_p_destroy(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @slurm_get_log_level() #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #3
+declare i32 @slurm_get_log_level() #4
+
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @fini() #0 {
+define dso_local i32 @fini() #0 {
   ret i32 0
 }
 
-declare ptr @munge_ctx_create() #3
+declare ptr @munge_ctx_create() #4
 
-declare i32 @munge_ctx_set(ptr noundef, i32 noundef, ...) #3
+declare i32 @munge_ctx_set(ptr noundef, i32 noundef, ...) #4
 
-declare ptr @munge_ctx_strerror(ptr noundef) #3
+declare ptr @munge_ctx_strerror(ptr noundef) #4
 
-declare void @munge_ctx_destroy(ptr noundef) #3
+declare void @munge_ctx_destroy(ptr noundef) #4
 
-declare i32 @slurm_get_auth_ttl() #3
+declare i32 @slurm_get_auth_ttl() #4
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #4
 
-declare ptr @slurm_xsignal(i32 noundef, ptr noundef) #3
+declare ptr @slurm_xsignal(i32 noundef, ptr noundef) #4
 
-declare i32 @munge_encode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
+declare i32 @munge_encode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #4
 
-declare i32 @usleep(i32 noundef) #3
+declare i32 @usleep(i32 noundef) #4
 
-declare void @slurm_seterrno(i32 noundef) #3
+; Function Attrs: nounwind willreturn memory(none)
+declare ptr @__errno_location() #5
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i64 @time(ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #6
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #1
+declare void @free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %2
-  call void @slurm_seterrno(i32 noundef 6004)
-  store i32 -1, ptr %3, align 4
-  br label %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.auth_credential_t, ptr %12, i32 0, i32 5
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %11
-  store i32 0, ptr %3, align 4
-  br label %27
-
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @slurm_auth_opts_to_socket(ptr noundef %18)
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @_decode_cred(ptr noundef %20, ptr noundef %21, i1 noundef zeroext false)
-  store i32 %22, ptr %6, align 4
-  call void @slurm_xfree(ptr noundef %7)
-  %23 = load i32, ptr %6, align 4
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %17
+  %12 = call ptr @__errno_location() #11
+  store i32 6004, ptr %12, align 4
   store i32 -1, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %8, align 4
+  br label %29
 
-26:                                               ; preds = %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %14, i32 0, i32 5
+  %16 = load i8, ptr %15, align 8, !range !8, !noundef !9
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %13
   store i32 0, ptr %3, align 4
-  br label %27
+  store i32 1, ptr %8, align 4
+  br label %29
 
-27:                                               ; preds = %26, %25, %16, %10
-  %28 = load i32, ptr %3, align 4
-  ret i32 %28
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %5, align 8
+  %21 = call ptr @slurm_auth_opts_to_socket(ptr noundef %20)
+  store ptr %21, ptr %7, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = call i32 @_decode_cred(ptr noundef %22, ptr noundef %23, i1 noundef zeroext false)
+  store i32 %24, ptr %6, align 4
+  call void @slurm_xfree(ptr noundef %7)
+  %25 = load i32, ptr %6, align 4
+  %26 = icmp slt i32 %25, 0
+  br i1 %26, label %27, label %28
+
+27:                                               ; preds = %19
+  store i32 -1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %29
+
+28:                                               ; preds = %19
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %29
+
+29:                                               ; preds = %28, %27, %18, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %30 = load i32, ptr %3, align 4
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable
-define void @auth_p_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local void @auth_p_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -819,8 +907,8 @@ define void @auth_p_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.auth_credential_t, ptr %10, i32 0, i32 5
-  %12 = load i8, ptr %11, align 8
+  %11 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %10, i32 0, i32 5
+  %12 = load i8, ptr %11, align 8, !range !8, !noundef !9
   %13 = trunc i8 %12 to i1
   br i1 %13, label %17, label %14
 
@@ -833,12 +921,12 @@ define void @auth_p_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.auth_credential_t, ptr %18, i32 0, i32 6
+  %19 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %18, i32 0, i32 6
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr %5, align 8
   store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct.auth_credential_t, ptr %22, i32 0, i32 7
+  %23 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %22, i32 0, i32 7
   %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr %6, align 8
   store i32 %24, ptr %25, align 4
@@ -849,135 +937,166 @@ define void @auth_p_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_p_get_host(ptr noundef %0) #0 {
+define dso_local ptr @auth_p_get_host(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sockaddr_storage, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 128, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
   store ptr %4, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
   store ptr null, ptr %7, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %15
+  %9 = load ptr, ptr %3, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %16
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.auth_credential_t, ptr %11, i32 0, i32 5
-  %13 = load i8, ptr %12, align 8
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %16, label %15
+11:                                               ; preds = %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %12, i32 0, i32 5
+  %14 = load i8, ptr %13, align 8, !range !8, !noundef !9
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %18, label %16
 
-15:                                               ; preds = %10, %1
-  call void @slurm_seterrno(i32 noundef 6004)
+16:                                               ; preds = %11, %1
+  %17 = call ptr @__errno_location() #11
+  store i32 6004, ptr %17, align 4
   store ptr null, ptr %2, align 8
-  br label %68
+  store i32 1, ptr %8, align 4
+  br label %69
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds %struct.sockaddr_storage, ptr %4, i32 0, i32 0
-  store i16 2, ptr %17, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.auth_credential_t, ptr %18, i32 0, i32 4
-  %20 = getelementptr inbounds %struct.in_addr, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.sockaddr_in, ptr %22, i32 0, i32 2
-  %24 = getelementptr inbounds %struct.in_addr, ptr %23, i32 0, i32 0
-  store i32 %21, ptr %24, align 4
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.sockaddr_in, ptr %25, i32 0, i32 2
-  %27 = getelementptr inbounds %struct.in_addr, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 4
-  %29 = call i32 @ntohl(i32 noundef %28) #8
-  %30 = and i32 %29, -16777216
-  %31 = icmp eq i32 %30, 2130706432
-  br i1 %31, label %32, label %33
+18:                                               ; preds = %11
+  %19 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %4, i32 0, i32 0
+  store i16 2, ptr %19, align 8
+  %20 = load ptr, ptr %3, align 8
+  %21 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %20, i32 0, i32 4
+  %22 = getelementptr inbounds nuw %struct.in_addr, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.sockaddr_in, ptr %24, i32 0, i32 2
+  %26 = getelementptr inbounds nuw %struct.in_addr, ptr %25, i32 0, i32 0
+  store i32 %23, ptr %26, align 4
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.sockaddr_in, ptr %27, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %struct.in_addr, ptr %28, i32 0, i32 0
+  %30 = load i32, ptr %29, align 4
+  %31 = call i32 @__bswap_32(i32 noundef %30)
+  %32 = and i32 %31, -16777216
+  %33 = icmp eq i32 %32, 2130706432
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %16
+34:                                               ; preds = %18
   store ptr null, ptr %2, align 8
-  br label %68
+  store i32 1, ptr %8, align 4
+  br label %69
 
-33:                                               ; preds = %16
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.sockaddr_in, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds %struct.in_addr, ptr %35, i32 0, i32 0
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %51
+35:                                               ; preds = %18
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.sockaddr_in, ptr %36, i32 0, i32 2
+  %38 = getelementptr inbounds nuw %struct.in_addr, ptr %37, i32 0, i32 0
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %53
 
-39:                                               ; preds = %33
-  %40 = call ptr @xgetnameinfo(ptr noundef %4, i32 noundef 128)
-  store ptr %40, ptr %6, align 8
-  %41 = load ptr, ptr %6, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %50
+41:                                               ; preds = %35
+  %42 = call ptr @xgetnameinfo(ptr noundef %4)
+  store ptr %42, ptr %6, align 8
+  %43 = load ptr, ptr %6, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %52
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %6, align 8
-  %45 = call ptr @strchr(ptr noundef %44, i32 noundef 46) #7
-  store ptr %45, ptr %7, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %50
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %6, align 8
+  %47 = call ptr @strchr(ptr noundef %46, i32 noundef 46) #10
+  store ptr %47, ptr %7, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %52
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 0
-  store i8 0, ptr %49, align 1
-  br label %50
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 0
+  store i8 0, ptr %51, align 1
+  br label %52
 
-50:                                               ; preds = %47, %43, %39
-  br label %51
+52:                                               ; preds = %49, %45, %41
+  br label %53
 
-51:                                               ; preds = %50, %33
-  %52 = load ptr, ptr %6, align 8
-  %53 = icmp ne ptr %52, null
-  br i1 %53, label %66, label %54
+53:                                               ; preds = %52, %35
+  %54 = load ptr, ptr %6, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %67, label %56
 
-54:                                               ; preds = %51
-  %55 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 392, ptr noundef @__func__.auth_p_get_host)
-  store ptr %55, ptr %6, align 8
-  %56 = load ptr, ptr %6, align 8
-  call void @slurm_get_ip_str(ptr noundef %4, ptr noundef %56, i32 noundef 16)
-  %57 = getelementptr inbounds %struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 31
-  %58 = load i32, ptr %57, align 4
-  %59 = zext i32 %58 to i64
-  %60 = and i64 %59, 128
-  %61 = icmp ne i64 %60, 0
-  br i1 %61, label %65, label %62
+56:                                               ; preds = %53
+  %57 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 391, ptr noundef @__func__.auth_p_get_host)
+  store ptr %57, ptr %6, align 8
+  %58 = load ptr, ptr %6, align 8
+  call void @slurm_get_ip_str(ptr noundef %4, ptr noundef %58, i32 noundef 16)
+  %59 = load i32, ptr getelementptr inbounds nuw (%struct.slurm_conf_t, ptr @slurm_conf, i32 0, i32 34), align 4
+  %60 = zext i32 %59 to i64
+  %61 = and i64 %60, 128
+  %62 = icmp ne i64 %61, 0
+  br i1 %62, label %66, label %63
 
-62:                                               ; preds = %54
-  %63 = load ptr, ptr %6, align 8
-  %64 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.12, ptr noundef @__func__.auth_p_get_host, ptr noundef %63)
-  br label %65
-
-65:                                               ; preds = %62, %54
+63:                                               ; preds = %56
+  %64 = load ptr, ptr %6, align 8
+  %65 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.12, ptr noundef @__func__.auth_p_get_host, ptr noundef %64)
   br label %66
 
-66:                                               ; preds = %65, %51
-  %67 = load ptr, ptr %6, align 8
-  store ptr %67, ptr %2, align 8
-  br label %68
+66:                                               ; preds = %63, %56
+  br label %67
 
-68:                                               ; preds = %66, %32, %15
-  %69 = load ptr, ptr %2, align 8
-  ret ptr %69
+67:                                               ; preds = %66, %53
+  %68 = load ptr, ptr %6, align 8
+  store ptr %68, ptr %2, align 8
+  store i32 1, ptr %8, align 4
+  br label %69
+
+69:                                               ; preds = %67, %34, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 128, ptr %4) #9
+  %70 = load ptr, ptr %2, align 8
+  ret ptr %70
 }
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) #4
+; Function Attrs: inlinehint nounwind uwtable
+define internal i32 @__bswap_32(i32 noundef %0) #7 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4
+  %3 = load i32, ptr %2, align 4
+  %4 = and i32 %3, -16777216
+  %5 = lshr i32 %4, 24
+  %6 = load i32, ptr %2, align 4
+  %7 = and i32 %6, 16711680
+  %8 = lshr i32 %7, 8
+  %9 = or i32 %5, %8
+  %10 = load i32, ptr %2, align 4
+  %11 = and i32 %10, 65280
+  %12 = shl i32 %11, 8
+  %13 = or i32 %9, %12
+  %14 = load i32, ptr %2, align 4
+  %15 = and i32 %14, 255
+  %16 = shl i32 %15, 24
+  %17 = or i32 %13, %16
+  ret i32 %17
+}
 
-declare ptr @xgetnameinfo(ptr noundef, i32 noundef) #3
+declare ptr @xgetnameinfo(ptr noundef) #4
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+declare ptr @strchr(ptr noundef, i32 noundef) #6
 
-declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @slurm_get_ip_str(ptr noundef, ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @auth_p_get_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local i32 @auth_p_get_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -991,99 +1110,101 @@ define i32 @auth_p_get_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.auth_credential_t, ptr %11, i32 0, i32 5
-  %13 = load i8, ptr %12, align 8
+  %12 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %11, i32 0, i32 5
+  %13 = load i8, ptr %12, align 8, !range !8, !noundef !9
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %16, label %15
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10, %3
-  call void @slurm_seterrno(i32 noundef 6004)
+  %16 = call ptr @__errno_location() #11
+  store i32 6004, ptr %16, align 4
   store i32 -1, ptr %4, align 4
-  br label %50
+  br label %51
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.auth_credential_t, ptr %17, i32 0, i32 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %21, label %46
+17:                                               ; preds = %10
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %18, i32 0, i32 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %22, label %47
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.auth_credential_t, ptr %22, i32 0, i32 9
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %46
+22:                                               ; preds = %17
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %23, i32 0, i32 9
+  %25 = load i32, ptr %24, align 8
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %47
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.auth_credential_t, ptr %27, i32 0, i32 9
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %31 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %30, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 419, ptr noundef @__func__.auth_p_get_data)
-  %32 = load ptr, ptr %6, align 8
-  store ptr %31, ptr %32, align 8
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %28, i32 0, i32 9
+  %30 = load i32, ptr %29, align 8
+  %31 = sext i32 %30 to i64
+  %32 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 418, ptr noundef @__func__.auth_p_get_data)
   %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds %struct.auth_credential_t, ptr %35, i32 0, i32 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.auth_credential_t, ptr %38, i32 0, i32 9
-  %40 = load i32, ptr %39, align 8
-  %41 = sext i32 %40 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %37, i64 %41, i1 false)
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.auth_credential_t, ptr %42, i32 0, i32 9
-  %44 = load i32, ptr %43, align 8
-  %45 = load ptr, ptr %7, align 8
-  store i32 %44, ptr %45, align 4
-  br label %49
-
-46:                                               ; preds = %21, %16
-  %47 = load ptr, ptr %6, align 8
-  store ptr null, ptr %47, align 8
-  %48 = load ptr, ptr %7, align 8
-  store i32 0, ptr %48, align 4
-  br label %49
-
-49:                                               ; preds = %46, %26
-  store i32 0, ptr %4, align 4
+  store ptr %32, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %36, i32 0, i32 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %39, i32 0, i32 9
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %38, i64 %42, i1 false)
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %43, i32 0, i32 9
+  %45 = load i32, ptr %44, align 8
+  %46 = load ptr, ptr %7, align 8
+  store i32 %45, ptr %46, align 4
   br label %50
 
-50:                                               ; preds = %49, %15
-  %51 = load i32, ptr %4, align 4
-  ret i32 %51
+47:                                               ; preds = %22, %17
+  %48 = load ptr, ptr %6, align 8
+  store ptr null, ptr %48, align 8
+  %49 = load ptr, ptr %7, align 8
+  store i32 0, ptr %49, align 4
+  br label %50
+
+50:                                               ; preds = %47, %27
+  store i32 0, ptr %4, align 4
+  br label %51
+
+51:                                               ; preds = %50, %15
+  %52 = load i32, ptr %4, align 4
+  ret i32 %52
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_p_get_identity(ptr noundef %0) #0 {
+define dso_local ptr @auth_p_get_identity(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
-  br i1 %5, label %7, label %6
+  br i1 %5, label %8, label %6
 
 6:                                                ; preds = %1
-  call void @slurm_seterrno(i32 noundef 6004)
+  %7 = call ptr @__errno_location() #11
+  store i32 6004, ptr %7, align 4
   store ptr null, ptr %2, align 8
-  br label %8
+  br label %9
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %6
-  %9 = load ptr, ptr %2, align 8
-  ret ptr %9
+9:                                                ; preds = %8, %6
+  %10 = load ptr, ptr %2, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @auth_p_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
+define dso_local i32 @auth_p_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1099,241 +1220,282 @@ define i32 @auth_p_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %6, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
+  br i1 %13, label %16, label %14
 
 14:                                               ; preds = %11, %3
-  call void @slurm_seterrno(i32 noundef 6004)
+  %15 = call ptr @__errno_location() #11
+  store i32 6004, ptr %15, align 4
   store i32 -1, ptr %4, align 4
-  br label %44
+  br label %45
 
-15:                                               ; preds = %11
-  %16 = load i16, ptr %7, align 2
-  %17 = zext i16 %16 to i32
-  %18 = icmp sge i32 %17, 9984
-  br i1 %18, label %19, label %39
+16:                                               ; preds = %11
+  %17 = load i16, ptr %7, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp sge i32 %18, 10240
+  br i1 %19, label %20, label %40
 
-19:                                               ; preds = %15
-  br label %20
+20:                                               ; preds = %16
+  br label %21
 
-20:                                               ; preds = %19
+21:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
   store i32 0, ptr %8, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.auth_credential_t, ptr %21, i32 0, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ne ptr %23, null
-  br i1 %24, label %25, label %32
+  %22 = load ptr, ptr %5, align 8
+  %23 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  br i1 %25, label %26, label %33
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.auth_credential_t, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  %29 = call i64 @strlen(ptr noundef %28) #7
-  %30 = trunc i64 %29 to i32
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %8, align 4
-  br label %32
+26:                                               ; preds = %21
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i64 @strlen(ptr noundef %29) #10
+  %31 = trunc i64 %30 to i32
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %8, align 4
+  br label %33
 
-32:                                               ; preds = %25, %20
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.auth_credential_t, ptr %33, i32 0, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %8, align 4
-  %37 = load ptr, ptr %6, align 8
-  call void @slurm_packmem(ptr noundef %35, i32 noundef %36, ptr noundef %37)
-  br label %38
+33:                                               ; preds = %26, %21
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %8, align 4
+  %38 = load ptr, ptr %6, align 8
+  call void @slurm_packmem(ptr noundef %36, i32 noundef %37, ptr noundef %38)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  br label %39
 
-38:                                               ; preds = %32
-  br label %43
+39:                                               ; preds = %33
+  br label %44
 
-39:                                               ; preds = %15
-  %40 = load i16, ptr %7, align 2
-  %41 = zext i16 %40 to i32
-  %42 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.13, ptr noundef @__func__.auth_p_pack, i32 noundef %41)
+40:                                               ; preds = %16
+  %41 = load i16, ptr %7, align 2
+  %42 = zext i16 %41 to i32
+  %43 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.13, ptr noundef @__func__.auth_p_pack, i32 noundef %42)
   store i32 -1, ptr %4, align 4
-  br label %44
+  br label %45
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   store i32 0, ptr %4, align 4
-  br label %44
+  br label %45
 
-44:                                               ; preds = %43, %39, %14
-  %45 = load i32, ptr %4, align 4
-  ret i32 %45
+45:                                               ; preds = %44, %40, %14
+  %46 = load i32, ptr %4, align 4
+  ret i32 %46
 }
 
-declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) #3
+declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_p_unpack(ptr noundef %0, i16 noundef zeroext %1) #0 {
+define dso_local ptr @auth_p_unpack(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i16 %1, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
   store ptr null, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %11, label %10
-
-10:                                               ; preds = %2
-  call void @slurm_seterrno(i32 noundef 6004)
-  store ptr null, ptr %3, align 8
-  br label %40
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = load i16, ptr %5, align 2
-  %13 = zext i16 %12 to i32
-  %14 = icmp sge i32 %13, 9984
-  br i1 %14, label %15, label %32
+  %12 = call ptr @__errno_location() #11
+  store i32 6004, ptr %12, align 4
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %47
 
-15:                                               ; preds = %11
-  %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 479, ptr noundef @__func__.auth_p_unpack)
-  store ptr %16, ptr %6, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.auth_credential_t, ptr %17, i32 0, i32 1
-  store i32 65261, ptr %18, align 4
+13:                                               ; preds = %2
+  %14 = load i16, ptr %5, align 2
+  %15 = zext i16 %14 to i32
+  %16 = icmp sge i32 %15, 10240
+  br i1 %16, label %17, label %38
+
+17:                                               ; preds = %13
+  %18 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.8, i32 noundef 477, ptr noundef @__func__.auth_p_unpack)
+  store ptr %18, ptr %6, align 8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.auth_credential_t, ptr %19, i32 0, i32 5
-  store i8 0, ptr %20, align 8
+  %20 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %19, i32 0, i32 1
+  store i32 65261, ptr %20, align 4
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.auth_credential_t, ptr %21, i32 0, i32 3
-  store i8 1, ptr %22, align 8
-  br label %23
+  %22 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %21, i32 0, i32 5
+  store i8 0, ptr %22, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %23, i32 0, i32 3
+  store i8 1, ptr %24, align 8
+  br label %25
 
-23:                                               ; preds = %15
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.auth_credential_t, ptr %24, i32 0, i32 2
-  %26 = load ptr, ptr %4, align 8
-  %27 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %25, ptr noundef %7, ptr noundef %26)
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
+25:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #9
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.auth_credential_t, ptr %26, i32 0, i32 2
+  %28 = load ptr, ptr %4, align 8
+  %29 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %27, ptr noundef %8, ptr noundef %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
 
-29:                                               ; preds = %23
-  br label %38
+31:                                               ; preds = %25
+  store i32 4, ptr %7, align 4
+  br label %33
 
-30:                                               ; preds = %23
-  br label %31
+32:                                               ; preds = %25
+  store i32 0, ptr %7, align 4
+  br label %33
 
-31:                                               ; preds = %30
+33:                                               ; preds = %31, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #9
+  %34 = load i32, ptr %7, align 4
+  switch i32 %34, label %47 [
+    i32 0, label %35
+    i32 4, label %44
+  ]
+
+35:                                               ; preds = %33
   br label %36
 
-32:                                               ; preds = %11
-  %33 = load i16, ptr %5, align 2
-  %34 = zext i16 %33 to i32
-  %35 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.14, ptr noundef @__func__.auth_p_unpack, i32 noundef %34)
-  br label %38
+36:                                               ; preds = %35
+  br label %37
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %6, align 8
-  store ptr %37, ptr %3, align 8
-  br label %40
+37:                                               ; preds = %36
+  br label %42
 
-38:                                               ; preds = %32, %29
-  call void @slurm_seterrno(i32 noundef 6007)
-  %39 = load ptr, ptr %6, align 8
-  call void @auth_p_destroy(ptr noundef %39)
+38:                                               ; preds = %13
+  %39 = load i16, ptr %5, align 2
+  %40 = zext i16 %39 to i32
+  %41 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.14, ptr noundef @__func__.auth_p_unpack, i32 noundef %40)
+  br label %44
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %6, align 8
+  store ptr %43, ptr %3, align 8
+  store i32 1, ptr %7, align 4
+  br label %47
+
+44:                                               ; preds = %33, %38
+  %45 = call ptr @__errno_location() #11
+  store i32 6007, ptr %45, align 4
+  %46 = load ptr, ptr %6, align 8
+  call void @auth_p_destroy(ptr noundef %46)
   store ptr null, ptr %3, align 8
-  br label %40
+  store i32 1, ptr %7, align 4
+  br label %47
 
-40:                                               ; preds = %38, %36, %10
-  %41 = load ptr, ptr %3, align 8
-  ret ptr %41
+47:                                               ; preds = %44, %42, %33, %11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  %48 = load ptr, ptr %3, align 8
+  ret ptr %48
 }
 
-declare i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @auth_p_thread_config(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @auth_p_thread_config(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #9
   store i32 6000, ptr %6, align 4
-  %8 = load ptr, ptr %4, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %13, label %10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #9
+  %9 = load ptr, ptr %4, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %14, label %11
 
-10:                                               ; preds = %2
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %17, label %13
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %18, label %14
 
-13:                                               ; preds = %10, %2
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.15, ptr noundef %14)
-  %16 = load i32, ptr %6, align 4
-  store i32 %16, ptr %3, align 4
-  br label %40
+14:                                               ; preds = %11, %2
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.15, ptr noundef %15)
+  %17 = load i32, ptr %6, align 4
+  store i32 %17, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %43
 
-17:                                               ; preds = %10
-  %18 = call i32 @getuid() #6
-  %19 = call ptr @uid_to_string_or_null(i32 noundef %18)
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = call i32 @slurm_xstrcmp(ptr noundef %20, ptr noundef %21)
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %34, label %24
+18:                                               ; preds = %11
+  %19 = call i32 @getuid() #9
+  %20 = call ptr @uid_to_string_or_null(i32 noundef %19)
+  store ptr %20, ptr %7, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = call i32 @slurm_xstrcmp(ptr noundef %21, ptr noundef %22)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %37, label %25
 
-24:                                               ; preds = %17
-  br label %25
-
-25:                                               ; preds = %24
+25:                                               ; preds = %18
   br label %26
 
 26:                                               ; preds = %25
-  %27 = call i32 @slurm_get_log_level()
-  %28 = icmp sge i32 %27, 5
-  br i1 %28, label %29, label %31
+  br label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.16, ptr noundef @plugin_type, ptr noundef @__func__.auth_p_thread_config, ptr noundef %30)
-  br label %31
+27:                                               ; preds = %26
+  %28 = call i32 @slurm_get_log_level()
+  %29 = icmp sge i32 %28, 5
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %29, %26
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.16, ptr noundef @plugin_type, ptr noundef @__func__.auth_p_thread_config, ptr noundef %31)
   br label %32
 
-32:                                               ; preds = %31
+32:                                               ; preds = %30, %27
   br label %33
 
 33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35
   store i32 0, ptr %6, align 4
-  br label %38
+  br label %41
 
-34:                                               ; preds = %17
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.17, ptr noundef %35, ptr noundef %36)
-  br label %38
+37:                                               ; preds = %18
+  %38 = load ptr, ptr %5, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.17, ptr noundef %38, ptr noundef %39)
+  br label %41
 
-38:                                               ; preds = %34, %33
+41:                                               ; preds = %37, %36
   call void @slurm_xfree(ptr noundef %7)
-  %39 = load i32, ptr %6, align 4
-  store i32 %39, ptr %3, align 4
-  br label %40
+  %42 = load i32, ptr %6, align 4
+  store i32 %42, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %43
 
-40:                                               ; preds = %38, %13
-  %41 = load i32, ptr %3, align 4
-  ret i32 %41
+43:                                               ; preds = %41, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #9
+  %44 = load i32, ptr %3, align 4
+  ret i32 %44
 }
 
-declare ptr @uid_to_string_or_null(i32 noundef) #3
+declare ptr @uid_to_string_or_null(i32 noundef) #4
 
-declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) #3
+declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define void @auth_p_thread_clear() #0 {
+define dso_local void @auth_p_thread_clear() #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @auth_p_token_generate(ptr noundef %0, i32 noundef %1) #0 {
+define dso_local ptr @auth_p_token_generate(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
@@ -1341,7 +1503,15 @@ define ptr @auth_p_token_generate(ptr noundef %0, i32 noundef %1) #0 {
   ret ptr null
 }
 
-declare i32 @munge_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+; Function Attrs: nounwind uwtable
+define dso_local i32 @auth_p_get_reconfig_fd() #0 {
+  ret i32 -1
+}
+
+; Function Attrs: nounwind
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #2
+
+declare i32 @munge_decode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_print_cred(ptr noundef %0) #0 {
@@ -1351,12 +1521,16 @@ define internal void @_print_cred(ptr noundef %0) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #9
+  call void @llvm.lifetime.start.p0(i64 256, ptr %4) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #9
   %7 = load ptr, ptr %2, align 8
   %8 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %7, i32 noundef 6, ptr noundef %5)
   store i32 %8, ptr %3, align 4
   %9 = load i32, ptr %3, align 4
   %10 = icmp ne i32 %9, 0
-  br i1 %10, label %11, label %22
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %1
   br label %12
@@ -1382,117 +1556,152 @@ define internal void @_print_cred(ptr noundef %0) #0 {
   br label %21
 
 21:                                               ; preds = %20
-  br label %33
+  br label %22
 
-22:                                               ; preds = %1
+22:                                               ; preds = %21
   br label %23
 
 23:                                               ; preds = %22
-  br label %24
+  br label %37
 
-24:                                               ; preds = %23
-  %25 = call i32 @slurm_get_log_level()
-  %26 = icmp sge i32 %25, 3
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %1
+  br label %25
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
-  %29 = call ptr @slurm_ctime2_r(ptr noundef %5, ptr noundef %28)
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.24, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %29)
-  br label %30
+25:                                               ; preds = %24
+  br label %26
 
-30:                                               ; preds = %27, %24
-  br label %31
+26:                                               ; preds = %25
+  %27 = call i32 @slurm_get_log_level()
+  %28 = icmp sge i32 %27, 3
+  br i1 %28, label %29, label %32
 
-31:                                               ; preds = %30
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
+  %31 = call ptr @slurm_ctime2_r(ptr noundef %5, ptr noundef %30)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.24, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %31)
   br label %32
 
-32:                                               ; preds = %31
+32:                                               ; preds = %29, %26
   br label %33
 
-33:                                               ; preds = %32, %21
-  %34 = load ptr, ptr %2, align 8
-  %35 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %34, i32 noundef 7, ptr noundef %6)
-  store i32 %35, ptr %3, align 4
-  %36 = load i32, ptr %3, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %49
+33:                                               ; preds = %32
+  br label %34
 
-38:                                               ; preds = %33
-  br label %39
+34:                                               ; preds = %33
+  br label %35
 
-39:                                               ; preds = %38
-  br label %40
+35:                                               ; preds = %34
+  br label %36
 
-40:                                               ; preds = %39
-  %41 = call i32 @slurm_get_log_level()
-  %42 = icmp sge i32 %41, 5
-  br i1 %42, label %43, label %46
+36:                                               ; preds = %35
+  br label %37
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %2, align 8
-  %45 = call ptr @munge_ctx_strerror(ptr noundef %44)
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.25, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %45)
-  br label %46
+37:                                               ; preds = %36, %23
+  %38 = load ptr, ptr %2, align 8
+  %39 = call i32 (ptr, i32, ...) @munge_ctx_get(ptr noundef %38, i32 noundef 7, ptr noundef %6)
+  store i32 %39, ptr %3, align 4
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp ne i32 %40, 0
+  br i1 %41, label %42, label %55
 
-46:                                               ; preds = %43, %40
-  br label %47
+42:                                               ; preds = %37
+  br label %43
 
-47:                                               ; preds = %46
-  br label %48
+43:                                               ; preds = %42
+  br label %44
 
-48:                                               ; preds = %47
-  br label %60
+44:                                               ; preds = %43
+  %45 = call i32 @slurm_get_log_level()
+  %46 = icmp sge i32 %45, 5
+  br i1 %46, label %47, label %50
 
-49:                                               ; preds = %33
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %2, align 8
+  %49 = call ptr @munge_ctx_strerror(ptr noundef %48)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef @.str.25, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %49)
   br label %50
 
-50:                                               ; preds = %49
+50:                                               ; preds = %47, %44
   br label %51
 
 51:                                               ; preds = %50
-  %52 = call i32 @slurm_get_log_level()
-  %53 = icmp sge i32 %52, 3
-  br i1 %53, label %54, label %57
+  br label %52
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
-  %56 = call ptr @slurm_ctime2_r(ptr noundef %6, ptr noundef %55)
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.26, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %56)
+52:                                               ; preds = %51
+  br label %53
+
+53:                                               ; preds = %52
+  br label %54
+
+54:                                               ; preds = %53
+  br label %68
+
+55:                                               ; preds = %37
+  br label %56
+
+56:                                               ; preds = %55
   br label %57
 
-57:                                               ; preds = %54, %51
-  br label %58
+57:                                               ; preds = %56
+  %58 = call i32 @slurm_get_log_level()
+  %59 = icmp sge i32 %58, 3
+  br i1 %59, label %60, label %63
 
-58:                                               ; preds = %57
-  br label %59
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 0
+  %62 = call ptr @slurm_ctime2_r(ptr noundef %6, ptr noundef %61)
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef @.str.26, ptr noundef @plugin_type, ptr noundef @__func__._print_cred, ptr noundef %62)
+  br label %63
 
-59:                                               ; preds = %58
-  br label %60
+63:                                               ; preds = %60, %57
+  br label %64
 
-60:                                               ; preds = %59, %48
+64:                                               ; preds = %63
+  br label %65
+
+65:                                               ; preds = %64
+  br label %66
+
+66:                                               ; preds = %65
+  br label %67
+
+67:                                               ; preds = %66
+  br label %68
+
+68:                                               ; preds = %67, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #9
+  call void @llvm.lifetime.end.p0(i64 256, ptr %4) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #9
   ret void
 }
 
-declare i32 @munge_ctx_get(ptr noundef, i32 noundef, ...) #3
+declare i32 @munge_ctx_get(ptr noundef, i32 noundef, ...) #4
 
-declare ptr @slurm_ctime2_r(ptr noundef, ptr noundef) #3
+declare ptr @slurm_ctime2_r(ptr noundef, ptr noundef) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind willreturn memory(none) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = !{i8 0, i8 2}
+!9 = !{}

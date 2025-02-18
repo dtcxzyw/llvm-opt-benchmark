@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__func__.sacctmgr_list_problem) #7
+  %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef nonnull @__func__.sacctmgr_list_problem) #7
   %4 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #7
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -38,7 +38,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.not114.i = icmp eq ptr %4, null
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_set_cond.exit
@@ -276,8 +276,8 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   %135 = load ptr, ptr %30, align 8
   %136 = sext i32 %.097124.i to i64
   %137 = getelementptr inbounds i8, ptr %135, i64 %136
-  %138 = load i8, ptr @user_case_norm, align 1
-  %139 = trunc i8 %138 to i1
+  %138 = load i8, ptr @user_case_norm, align 1, !range !8, !noundef !9
+  %139 = trunc nuw i8 %138 to i1
   %140 = tail call i32 @slurm_addto_char_list_with_case(ptr noundef %134, ptr noundef nonnull %137, i1 noundef zeroext %139) #7
   br label %145
 
@@ -292,13 +292,13 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %0, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %_set_cond.exit, label %29, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_set_cond.exit, label %29, !llvm.loop !10
 
 _set_cond.exit:                                   ; preds = %145, %26
   %.098.lcssa.i = phi i32 [ %.094, %26 ], [ %0, %145 ]
   %146 = add nsw i32 %.098.lcssa.i, 1
   %147 = icmp slt i32 %146, %0
-  br i1 %147, label %10, label %._crit_edge, !llvm.loop !9
+  br i1 %147, label %10, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   %148 = load i32, ptr @exit_code, align 4
@@ -383,7 +383,7 @@ _set_cond.exit:                                   ; preds = %145, %26
   br i1 %.not8696, label %._crit_edge99, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.preheader
-  %179 = getelementptr inbounds nuw i8, ptr %177, i64 320
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 304
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 132
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %182 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -429,14 +429,14 @@ _set_cond.exit:                                   ; preds = %145, %26
   %202 = add nuw nsw i32 %.097, 1
   %203 = tail call ptr @list_next(ptr noundef %174) #7
   %.not86 = icmp eq ptr %203, null
-  br i1 %.not86, label %._crit_edge99, label %183, !llvm.loop !10
+  br i1 %.not86, label %._crit_edge99, label %183, !llvm.loop !14
 
 ._crit_edge99:                                    ; preds = %199, %.preheader
   tail call void @list_iterator_reset(ptr noundef %174) #7
   %putchar = tail call i32 @putchar(i32 10)
   %204 = tail call ptr @list_next(ptr noundef %173) #7
   %.not84 = icmp eq ptr %204, null
-  br i1 %.not84, label %._crit_edge101, label %.preheader, !llvm.loop !11
+  br i1 %.not84, label %._crit_edge101, label %.preheader, !llvm.loop !15
 
 ._crit_edge101:                                   ; preds = %._crit_edge99, %172
   tail call void @list_iterator_destroy(ptr noundef %174) #7
@@ -523,7 +523,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { cold nounwind }
 attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -532,8 +532,12 @@ attributes #10 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !11, !12}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!"llvm.loop.unroll.disable"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}

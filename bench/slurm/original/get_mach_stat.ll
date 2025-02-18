@@ -22,43 +22,54 @@ define dso_local i32 @get_memory(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  store i64 1, ptr %5, align 8
-  %6 = call i64 @sysconf(i32 noundef 85) #4
-  store i64 %6, ptr %4, align 8
-  %7 = load i64, ptr %4, align 8
-  %8 = icmp slt i64 %7, 1
-  br i1 %8, label %9, label %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %6 = load ptr, ptr %3, align 8
+  store i64 1, ptr %6, align 8
+  %7 = call i64 @sysconf(i32 noundef 85) #5
+  store i64 %7, ptr %4, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = icmp slt i64 %8, 1
+  br i1 %9, label %10, label %12
 
-9:                                                ; preds = %1
-  %10 = call i32 (ptr, ...) @error(ptr noundef @.str)
+10:                                               ; preds = %1
+  %11 = call i32 (ptr, ...) @error(ptr noundef @.str)
   store i32 22, ptr %2, align 4
-  br label %21
+  store i32 1, ptr %5, align 4
+  br label %22
 
-11:                                               ; preds = %1
-  %12 = load i64, ptr %4, align 8
-  %13 = sitofp i64 %12 to float
-  %14 = fpext float %13 to double
-  %15 = call i64 @sysconf(i32 noundef 30) #4
-  %16 = sitofp i64 %15 to double
-  %17 = fdiv double %16, 0x4130000000000000
-  %18 = fmul double %14, %17
-  %19 = fptoui double %18 to i64
-  %20 = load ptr, ptr %3, align 8
-  store i64 %19, ptr %20, align 8
+12:                                               ; preds = %1
+  %13 = load i64, ptr %4, align 8
+  %14 = sitofp i64 %13 to float
+  %15 = fpext float %14 to double
+  %16 = call i64 @sysconf(i32 noundef 30) #5
+  %17 = sitofp i64 %16 to double
+  %18 = fdiv double %17, 0x4130000000000000
+  %19 = fmul double %15, %18
+  %20 = fptoui double %19 to i64
+  %21 = load ptr, ptr %3, align 8
+  store i64 %20, ptr %21, align 8
   store i32 0, ptr %2, align 4
-  br label %21
+  store i32 1, ptr %5, align 4
+  br label %22
 
-21:                                               ; preds = %11, %9
-  %22 = load i32, ptr %2, align 4
-  ret i32 %22
+22:                                               ; preds = %12, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %23 = load i32, ptr %2, align 4
+  ret i32 %23
 }
 
-; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @error(ptr noundef, ...) #2
+; Function Attrs: nounwind
+declare i64 @sysconf(i32 noundef) #2
+
+declare i32 @error(ptr noundef, ...) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_tmp_disk(ptr noundef %0, ptr noundef %1) #0 {
@@ -70,8 +81,12 @@ define dso_local i32 @get_tmp_disk(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 112, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   store i64 0, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
@@ -87,14 +102,14 @@ define dso_local i32 @get_tmp_disk(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %13, %2
   %15 = load ptr, ptr %8, align 8
-  %16 = call i32 @statvfs(ptr noundef %15, ptr noundef %6) #4
+  %16 = call i32 @statvfs(ptr noundef %15, ptr noundef %6) #5
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds %struct.statvfs, ptr %6, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.statvfs, ptr %6, i32 0, i32 2
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.statvfs, ptr %6, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct.statvfs, ptr %6, i32 0, i32 1
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %20, %22
   store i64 %23, ptr %7, align 8
@@ -104,16 +119,16 @@ define dso_local i32 @get_tmp_disk(ptr noundef %0, ptr noundef %1) #0 {
   br label %38
 
 26:                                               ; preds = %14
-  %27 = call ptr @__errno_location() #5
+  %27 = call ptr @__errno_location() #6
   %28 = load i32, ptr %27, align 4
   %29 = icmp ne i32 %28, 2
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
-  %31 = call ptr @__errno_location() #5
+  %31 = call ptr @__errno_location() #6
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %5, align 4
-  %33 = call ptr @__errno_location() #5
+  %33 = call ptr @__errno_location() #6
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %8, align 8
   %36 = call i32 (ptr, ...) @error(ptr noundef @.str.2, i32 noundef %34, ptr noundef %35)
@@ -130,71 +145,83 @@ define dso_local i32 @get_tmp_disk(ptr noundef %0, ptr noundef %1) #0 {
   %43 = add i32 %42, %40
   store i32 %43, ptr %41, align 4
   %44 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 112, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret i32 %44
 }
 
 ; Function Attrs: nounwind
-declare i32 @statvfs(ptr noundef, ptr noundef) #1
+declare i32 @statvfs(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #3
+declare ptr @__errno_location() #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_up_time(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sysinfo, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr @conf, align 8
-  %6 = getelementptr inbounds %struct.slurmd_config, ptr %5, i32 0, i32 54
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp ne i64 %7, 0
-  br i1 %8, label %9, label %17
+  %6 = load ptr, ptr @conf, align 8
+  %7 = getelementptr inbounds nuw %struct.slurmd_config, ptr %6, i32 0, i32 54
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %18
 
-9:                                                ; preds = %1
-  %10 = call i64 @time(ptr noundef null) #4
-  %11 = load ptr, ptr @conf, align 8
-  %12 = getelementptr inbounds %struct.slurmd_config, ptr %11, i32 0, i32 54
-  %13 = load i64, ptr %12, align 8
-  %14 = sub nsw i64 %10, %13
-  %15 = trunc i64 %14 to i32
-  %16 = load ptr, ptr %3, align 8
-  store i32 %15, ptr %16, align 4
+10:                                               ; preds = %1
+  %11 = call i64 @time(ptr noundef null) #5
+  %12 = load ptr, ptr @conf, align 8
+  %13 = getelementptr inbounds nuw %struct.slurmd_config, ptr %12, i32 0, i32 54
+  %14 = load i64, ptr %13, align 8
+  %15 = sub nsw i64 %11, %14
+  %16 = trunc i64 %15 to i32
+  %17 = load ptr, ptr %3, align 8
+  store i32 %16, ptr %17, align 4
   store i32 0, ptr %2, align 4
-  br label %29
+  br label %31
 
-17:                                               ; preds = %1
-  %18 = call i32 @sysinfo(ptr noundef %4) #4
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %24
+18:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 112, ptr %4) #5
+  %19 = call i32 @sysinfo(ptr noundef %4) #5
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %3, align 8
-  store i32 0, ptr %21, align 4
-  %22 = call ptr @__errno_location() #5
-  %23 = load i32, ptr %22, align 4
-  store i32 %23, ptr %2, align 4
-  br label %29
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %3, align 8
+  store i32 0, ptr %22, align 4
+  %23 = call ptr @__errno_location() #6
+  %24 = load i32, ptr %23, align 4
+  store i32 %24, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %30
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds %struct.sysinfo, ptr %4, i32 0, i32 0
-  %26 = load i64, ptr %25, align 8
-  %27 = trunc i64 %26 to i32
-  %28 = load ptr, ptr %3, align 8
-  store i32 %27, ptr %28, align 4
+25:                                               ; preds = %18
+  %26 = getelementptr inbounds nuw %struct.sysinfo, ptr %4, i32 0, i32 0
+  %27 = load i64, ptr %26, align 8
+  %28 = trunc i64 %27 to i32
+  %29 = load ptr, ptr %3, align 8
+  store i32 %28, ptr %29, align 4
   store i32 0, ptr %2, align 4
-  br label %29
+  store i32 1, ptr %5, align 4
+  br label %30
 
-29:                                               ; preds = %24, %20, %9
-  %30 = load i32, ptr %2, align 4
-  ret i32 %30
+30:                                               ; preds = %25, %21
+  call void @llvm.lifetime.end.p0(i64 112, ptr %4) #5
+  br label %31
+
+31:                                               ; preds = %30, %10
+  %32 = load i32, ptr %2, align 4
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i64 @time(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @sysinfo(ptr noundef) #1
+declare i32 @sysinfo(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_cpu_load(ptr noundef %0) #0 {
@@ -202,38 +229,45 @@ define dso_local i32 @get_cpu_load(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sysinfo, align 8
   %5 = alloca float, align 4
+  %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 112, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   store float 6.553600e+04, ptr %5, align 4
-  %6 = call i32 @sysinfo(ptr noundef %4) #4
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %12
+  %7 = call i32 @sysinfo(ptr noundef %4) #5
+  %8 = icmp slt i32 %7, 0
+  br i1 %8, label %9, label %13
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %3, align 8
-  store i32 0, ptr %9, align 4
-  %10 = call ptr @__errno_location() #5
-  %11 = load i32, ptr %10, align 4
-  store i32 %11, ptr %2, align 4
-  br label %23
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %3, align 8
+  store i32 0, ptr %10, align 4
+  %11 = call ptr @__errno_location() #6
+  %12 = load i32, ptr %11, align 4
+  store i32 %12, ptr %2, align 4
+  store i32 1, ptr %6, align 4
+  br label %24
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds %struct.sysinfo, ptr %4, i32 0, i32 1
-  %14 = getelementptr inbounds [3 x i64], ptr %13, i64 0, i64 1
-  %15 = load i64, ptr %14, align 8
-  %16 = uitofp i64 %15 to float
-  %17 = load float, ptr %5, align 4
-  %18 = fdiv float %16, %17
-  %19 = fpext float %18 to double
-  %20 = fmul double %19, 1.000000e+02
-  %21 = fptoui double %20 to i32
-  %22 = load ptr, ptr %3, align 8
-  store i32 %21, ptr %22, align 4
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw %struct.sysinfo, ptr %4, i32 0, i32 1
+  %15 = getelementptr inbounds [3 x i64], ptr %14, i64 0, i64 1
+  %16 = load i64, ptr %15, align 8
+  %17 = uitofp i64 %16 to float
+  %18 = load float, ptr %5, align 4
+  %19 = fdiv float %17, %18
+  %20 = fpext float %19 to double
+  %21 = fmul double %20, 1.000000e+02
+  %22 = fptoui double %21 to i32
+  %23 = load ptr, ptr %3, align 8
+  store i32 %22, ptr %23, align 4
   store i32 0, ptr %2, align 4
-  br label %23
+  store i32 1, ptr %6, align 4
+  br label %24
 
-23:                                               ; preds = %12, %8
-  %24 = load i32, ptr %2, align 4
-  ret i32 %24
+24:                                               ; preds = %13, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 112, ptr %4) #5
+  %25 = load i32, ptr %2, align 4
+  ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
@@ -241,45 +275,51 @@ define dso_local i32 @get_free_mem(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sysinfo, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = call i32 @sysinfo(ptr noundef %4) #4
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %11
+  call void @llvm.lifetime.start.p0(i64 112, ptr %4) #5
+  %6 = call i32 @sysinfo(ptr noundef %4) #5
+  %7 = icmp slt i32 %6, 0
+  br i1 %7, label %8, label %12
 
-7:                                                ; preds = %1
-  %8 = load ptr, ptr %3, align 8
-  store i64 0, ptr %8, align 8
-  %9 = call ptr @__errno_location() #5
-  %10 = load i32, ptr %9, align 4
-  store i32 %10, ptr %2, align 4
-  br label %20
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %3, align 8
+  store i64 0, ptr %9, align 8
+  %10 = call ptr @__errno_location() #6
+  %11 = load i32, ptr %10, align 4
+  store i32 %11, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %21
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds %struct.sysinfo, ptr %4, i32 0, i32 3
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.sysinfo, ptr %4, i32 0, i32 12
-  %15 = load i32, ptr %14, align 8
-  %16 = zext i32 %15 to i64
-  %17 = mul i64 %13, %16
-  %18 = udiv i64 %17, 1048576
-  %19 = load ptr, ptr %3, align 8
-  store i64 %18, ptr %19, align 8
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %struct.sysinfo, ptr %4, i32 0, i32 3
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.sysinfo, ptr %4, i32 0, i32 12
+  %16 = load i32, ptr %15, align 8
+  %17 = zext i32 %16 to i64
+  %18 = mul i64 %14, %17
+  %19 = udiv i64 %18, 1048576
+  %20 = load ptr, ptr %3, align 8
+  store i64 %19, ptr %20, align 8
   store i32 0, ptr %2, align 4
-  br label %20
+  store i32 1, ptr %5, align 4
+  br label %21
 
-20:                                               ; preds = %11, %7
-  %21 = load i32, ptr %2, align 4
-  ret i32 %21
+21:                                               ; preds = %12, %8
+  call void @llvm.lifetime.end.p0(i64 112, ptr %4) #5
+  %22 = load i32, ptr %2, align 4
+  ret i32 %22
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -288,3 +328,4 @@ attributes #5 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}

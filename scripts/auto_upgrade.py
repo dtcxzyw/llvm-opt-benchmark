@@ -57,6 +57,7 @@ supported_project = [
     "redis",
     "spike",
     "ruby",
+    "slurm",
 ]
 
 modify_only = [
@@ -76,6 +77,7 @@ modify_only = [
     "redis",
     "spike",
     "ruby",
+    "slurm",
 ]
 
 

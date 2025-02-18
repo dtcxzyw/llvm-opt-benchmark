@@ -10,12 +10,12 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.xhash_add = private unnamed_addr constant [10 x i8] c"xhash_add\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @xhash_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @xhash_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @__func__.xhash_init) #10
+  %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @__func__.xhash_init) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8
   store i32 0, ptr %4, align 8
@@ -30,10 +30,16 @@ define noundef ptr @xhash_init(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret ptr %.0
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @xhash_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local ptr @xhash_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -48,7 +54,7 @@ define ptr @xhash_get(ptr noundef readonly captures(address_is_null) %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -111,7 +117,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   %50 = getelementptr inbounds nuw i8, ptr %.0176245, i64 12
   %51 = add i32 %.0177244, -12
   %52 = icmp ugt i32 %51, 11
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0184.lcssa = phi i32 [ -17973521, %.preheader ], [ %49, %.lr.ph ]
@@ -337,7 +343,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
   %189 = load i64, ptr %172, align 8
   %190 = sub i64 0, %189
   %191 = getelementptr inbounds i8, ptr %187, i64 %190
-  br label %173, !llvm.loop !8
+  br label %173, !llvm.loop !11
 
 .loopexit:                                        ; preds = %185, %181, %156, %117, %3
   %.0 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ null, %185 ], [ %.1194251, %181 ]
@@ -345,8 +351,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @xhash_get_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+define dso_local ptr @xhash_get_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = tail call fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef nonnull readonly %1, i32 noundef %4)
   %.not.i = icmp eq ptr %5, null
@@ -362,13 +368,15 @@ xhash_get.exit:                                   ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store ptr null, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -376,29 +384,29 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br i1 %or.cond, label %7, label %342
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.xhash_add) #10
+  %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 117, ptr noundef nonnull @__func__.xhash_add) #11
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  call void %10(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  call void %10(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %11 = load ptr, ptr %3, align 8
   %12 = load i32, ptr %4, align 4
   %13 = icmp ugt i32 %12, 11
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.0257332 = phi i32 [ %56, %.lr.ph ], [ -17973521, %7 ]
+  %.0259332 = phi i32 [ %56, %.lr.ph ], [ -17973521, %7 ]
   %.0260331 = phi i32 [ %48, %.lr.ph ], [ -1640531527, %7 ]
   %.0265330 = phi i32 [ %52, %.lr.ph ], [ -1640531527, %7 ]
-  %.0274329 = phi i32 [ %58, %.lr.ph ], [ %12, %7 ]
-  %.0275328 = phi ptr [ %57, %.lr.ph ], [ %11, %7 ]
-  %14 = load i32, ptr %.0275328, align 1
-  %15 = getelementptr inbounds nuw i8, ptr %.0275328, i64 4
+  %.0274329 = phi ptr [ %57, %.lr.ph ], [ %11, %7 ]
+  %.0275328 = phi i32 [ %58, %.lr.ph ], [ %12, %7 ]
+  %14 = load i32, ptr %.0274329, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %.0274329, i64 4
   %16 = load i32, ptr %15, align 1
   %17 = add i32 %16, %.0265330
-  %18 = getelementptr inbounds nuw i8, ptr %.0275328, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0274329, i64 8
   %19 = load i32, ptr %18, align 1
-  %20 = add i32 %19, %.0257332
+  %20 = add i32 %19, %.0259332
   %.neg311 = add i32 %14, %.0260331
   %21 = add i32 %17, %20
   %22 = sub i32 %.neg311, %21
@@ -436,19 +444,19 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   %54 = sub i32 %44, %53
   %55 = lshr i32 %52, 15
   %56 = xor i32 %54, %55
-  %57 = getelementptr inbounds nuw i8, ptr %.0275328, i64 12
-  %58 = add i32 %.0274329, -12
+  %57 = getelementptr inbounds nuw i8, ptr %.0274329, i64 12
+  %58 = add i32 %.0275328, -12
   %59 = icmp ugt i32 %58, 11
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.0275.lcssa = phi ptr [ %11, %7 ], [ %57, %.lr.ph ]
-  %.0274.lcssa = phi i32 [ %12, %7 ], [ %58, %.lr.ph ]
+  %.0275.lcssa = phi i32 [ %12, %7 ], [ %58, %.lr.ph ]
+  %.0274.lcssa = phi ptr [ %11, %7 ], [ %57, %.lr.ph ]
   %.0265.lcssa = phi i32 [ -1640531527, %7 ], [ %52, %.lr.ph ]
   %.0260.lcssa = phi i32 [ -1640531527, %7 ], [ %48, %.lr.ph ]
-  %.0257.lcssa = phi i32 [ -17973521, %7 ], [ %56, %.lr.ph ]
-  %60 = add i32 %.0257.lcssa, %12
-  switch i32 %.0274.lcssa, label %124 [
+  %.0259.lcssa = phi i32 [ -17973521, %7 ], [ %56, %.lr.ph ]
+  %60 = add i32 %.0259.lcssa, %12
+  switch i32 %.0275.lcssa, label %124 [
     i32 11, label %61
     i32 10, label %67
     i32 9, label %73
@@ -463,7 +471,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   ]
 
 61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 10
+  %62 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 10
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw i32 %64, 24
@@ -472,7 +480,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 
 67:                                               ; preds = %61, %._crit_edge
   %.1 = phi i32 [ %60, %._crit_edge ], [ %66, %61 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 9
+  %68 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 9
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 16
@@ -481,7 +489,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 
 73:                                               ; preds = %67, %._crit_edge
   %.2 = phi i32 [ %60, %._crit_edge ], [ %72, %67 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 8
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 8
@@ -490,7 +498,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 
 79:                                               ; preds = %73, %._crit_edge
   %.3 = phi i32 [ %60, %._crit_edge ], [ %78, %73 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 7
+  %80 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 7
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw i32 %82, 24
@@ -500,7 +508,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 85:                                               ; preds = %79, %._crit_edge
   %.1266 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %84, %79 ]
   %.4 = phi i32 [ %60, %._crit_edge ], [ %.3, %79 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 6
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = shl nuw nsw i32 %88, 16
@@ -510,7 +518,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 91:                                               ; preds = %85, %._crit_edge
   %.2267 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %90, %85 ]
   %.5 = phi i32 [ %60, %._crit_edge ], [ %.4, %85 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 5
+  %92 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 5
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, 8
@@ -520,7 +528,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 97:                                               ; preds = %91, %._crit_edge
   %.3268 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %96, %91 ]
   %.6 = phi i32 [ %60, %._crit_edge ], [ %.5, %91 ]
-  %98 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 4
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = add i32 %.3268, %100
@@ -529,7 +537,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 102:                                              ; preds = %97, %._crit_edge
   %.4269 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %101, %97 ]
   %.7 = phi i32 [ %60, %._crit_edge ], [ %.6, %97 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 3
+  %103 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 3
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = shl nuw i32 %105, 24
@@ -540,7 +548,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   %.5270 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.4269, %102 ]
   %.1261 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %107, %102 ]
   %.8 = phi i32 [ %60, %._crit_edge ], [ %.7, %102 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = shl nuw nsw i32 %111, 16
@@ -551,7 +559,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   %.6271 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.5270, %108 ]
   %.2262 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %113, %108 ]
   %.9 = phi i32 [ %60, %._crit_edge ], [ %.8, %108 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.0275.lcssa, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.0274.lcssa, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = shl nuw nsw i32 %117, 8
@@ -562,7 +570,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   %.7272 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.6271, %114 ]
   %.3263 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %119, %114 ]
   %.10 = phi i32 [ %60, %._crit_edge ], [ %.9, %114 ]
-  %121 = load i8, ptr %.0275.lcssa, align 1
+  %121 = load i8, ptr %.0274.lcssa, align 1
   %122 = zext i8 %121 to i32
   %123 = add i32 %.3263, %122
   br label %124
@@ -628,7 +636,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br i1 %.not284, label %169, label %170
 
 169:                                              ; preds = %167
-  call void @exit(i32 noundef -1) #12
+  call void @exit(i32 noundef -1) #13
   unreachable
 
 170:                                              ; preds = %167
@@ -648,7 +656,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br i1 %.not285, label %176, label %177
 
 176:                                              ; preds = %170
-  call void @exit(i32 noundef -1) #12
+  call void @exit(i32 noundef -1) #13
   unreachable
 
 177:                                              ; preds = %170
@@ -750,7 +758,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br i1 %.not289, label %243, label %244
 
 243:                                              ; preds = %238
-  call void @exit(i32 noundef -1) #12
+  call void @exit(i32 noundef -1) #13
   unreachable
 
 244:                                              ; preds = %238
@@ -787,10 +795,10 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br i1 %.not291337, label %._crit_edge341, label %.lr.ph340
 
 .lr.ph340:                                        ; preds = %.lr.ph344, %302
-  %.0258338 = phi ptr [ %267, %302 ], [ %265, %.lr.ph344 ]
-  %266 = getelementptr inbounds nuw i8, ptr %.0258338, i64 32
+  %.0257338 = phi ptr [ %267, %302 ], [ %265, %.lr.ph344 ]
+  %266 = getelementptr inbounds nuw i8, ptr %.0257338, i64 32
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %.0258338, i64 52
+  %268 = getelementptr inbounds nuw i8, ptr %.0257338, i64 52
   %269 = load i32, ptr %268, align 4
   %270 = load ptr, ptr %161, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -829,7 +837,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   br label %297
 
 297:                                              ; preds = %284, %295, %.lr.ph340
-  %298 = getelementptr inbounds nuw i8, ptr %.0258338, i64 24
+  %298 = getelementptr inbounds nuw i8, ptr %.0257338, i64 24
   store ptr null, ptr %298, align 8
   %299 = load ptr, ptr %277, align 8
   store ptr %299, ptr %266, align 8
@@ -838,13 +846,13 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 24
-  store ptr %.0258338, ptr %301, align 8
+  store ptr %.0257338, ptr %301, align 8
   br label %302
 
 302:                                              ; preds = %300, %297
-  store ptr %.0258338, ptr %277, align 8
+  store ptr %.0257338, ptr %277, align 8
   %.not291 = icmp eq ptr %267, null
-  br i1 %.not291, label %._crit_edge341.loopexit, label %.lr.ph340, !llvm.loop !10
+  br i1 %.not291, label %._crit_edge341.loopexit, label %.lr.ph340, !llvm.loop !13
 
 ._crit_edge341.loopexit:                          ; preds = %302
   %.pre355 = load ptr, ptr %161, align 8
@@ -857,12 +865,12 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   %305 = load i32, ptr %304, align 8
   %306 = zext i32 %305 to i64
   %307 = icmp samesign ult i64 %indvars.iv.next, %306
-  br i1 %307, label %.lr.ph344, label %._crit_edge345, !llvm.loop !11
+  br i1 %307, label %.lr.ph344, label %._crit_edge345, !llvm.loop !14
 
 ._crit_edge345:                                   ; preds = %._crit_edge341, %244
   %.lcssa = phi ptr [ %259, %244 ], [ %303, %._crit_edge341 ]
   %308 = load ptr, ptr %.lcssa, align 8
-  call void @free(ptr noundef %308) #10
+  call void @free(ptr noundef %308) #11
   %309 = load ptr, ptr %161, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load i32, ptr %310, align 8
@@ -905,7 +913,7 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
   store i32 1, ptr %337, align 4
   br label %338
 
-338:                                              ; preds = %329, %336, %234, %228
+338:                                              ; preds = %336, %329, %234, %228
   %339 = load i32, ptr %0, align 8
   %340 = add i32 %339, 1
   store i32 %340, ptr %0, align 8
@@ -914,21 +922,24 @@ define ptr @xhash_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) 
 
 342:                                              ; preds = %2, %338
   %.0 = phi ptr [ %341, %338 ], [ null, %2 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret ptr %.0
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %5 = tail call fastcc ptr @xhash_find(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   store ptr %5, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -954,11 +965,11 @@ define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef capt
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %21) #10
+  tail call void @free(ptr noundef %21) #11
   %22 = load ptr, ptr %17, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %24) #10
+  tail call void @free(ptr noundef %24) #11
   store ptr null, ptr %17, align 8
   br label %95
 
@@ -1070,7 +1081,7 @@ define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef capt
   store ptr %86, ptr %87, align 8
   br label %88
 
-88:                                               ; preds = %._crit_edge, %85
+88:                                               ; preds = %85, %._crit_edge
   %89 = load ptr, ptr %26, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
@@ -1080,8 +1091,8 @@ define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef capt
   store i32 %94, ptr %92, align 8
   br label %95
 
-95:                                               ; preds = %16, %88
-  call void @slurm_xfree(ptr noundef nonnull %4) #10
+95:                                               ; preds = %88, %16
+  call void @slurm_xfree(ptr noundef nonnull %4) #11
   %96 = load i32, ptr %0, align 8
   %97 = add i32 %96, -1
   store i32 %97, ptr %0, align 8
@@ -1089,21 +1100,22 @@ define ptr @xhash_pop(ptr noundef captures(address_is_null) %0, ptr noundef capt
 
 98:                                               ; preds = %3, %95
   %.0 = phi ptr [ %7, %95 ], [ null, %3 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret ptr %.0
 }
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+define dso_local ptr @xhash_pop_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @xhash_pop(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1119,16 +1131,16 @@ define void @xhash_delete(ptr noundef captures(address_is_null) %0, ptr noundef 
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %7
-  tail call void %10(ptr noundef %8) #10
+  tail call void %10(ptr noundef %8) #11
   br label %12
 
-12:                                               ; preds = %3, %11, %7
+12:                                               ; preds = %7, %11, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+define dso_local void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %4, 0
@@ -1143,7 +1155,7 @@ define void @xhash_delete_str(ptr noundef captures(address_is_null) %0, ptr noun
   br i1 %.not.i, label %xhash_delete.exit, label %11
 
 11:                                               ; preds = %7
-  tail call void %10(ptr noundef %8) #10
+  tail call void %10(ptr noundef %8) #11
   br label %xhash_delete.exit
 
 xhash_delete.exit:                                ; preds = %2, %7, %11
@@ -1151,7 +1163,7 @@ xhash_delete.exit:                                ; preds = %2, %7, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @xhash_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local i32 @xhash_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -1165,7 +1177,7 @@ define i32 @xhash_count(ptr noundef readonly captures(address_is_null) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_walk(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @xhash_walk(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -1182,17 +1194,18 @@ define void @xhash_walk(ptr noundef readonly captures(address_is_null) %0, ptr n
   %9 = getelementptr inbounds nuw i8, ptr %.sink23, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %.sink23, align 8
-  tail call void %1(ptr noundef %11, ptr noundef %2) #10
+  tail call void %1(ptr noundef %11, ptr noundef %2) #11
   %.not18 = icmp eq ptr %10, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %100, label %3
 
@@ -1232,11 +1245,11 @@ define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed
   %19 = getelementptr inbounds nuw i8, ptr %.pre65, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %21) #10
+  call void @free(ptr noundef %21) #11
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  call void @free(ptr noundef %24) #10
+  call void @free(ptr noundef %24) #11
   store ptr null, ptr %4, align 8
   br label %94
 
@@ -1347,7 +1360,7 @@ define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed
   store ptr %85, ptr %86, align 8
   br label %87
 
-87:                                               ; preds = %._crit_edge69, %84
+87:                                               ; preds = %84, %._crit_edge69
   %88 = load ptr, ptr %4, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
@@ -1357,7 +1370,7 @@ define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed
   store i32 %93, ptr %91, align 8
   br label %94
 
-94:                                               ; preds = %18, %87
+94:                                               ; preds = %87, %18
   %95 = load ptr, ptr %6, align 8
   %.not60 = icmp eq ptr %95, null
   br i1 %.not60, label %99, label %96
@@ -1365,25 +1378,26 @@ define void @xhash_clear(ptr noundef captures(address_is_null) %0) local_unnamed
 96:                                               ; preds = %94
   %97 = load ptr, ptr %2, align 8
   %98 = load ptr, ptr %97, align 8
-  call void %95(ptr noundef %98) #10
+  call void %95(ptr noundef %98) #11
   br label %99
 
 99:                                               ; preds = %96, %94
-  call void @slurm_xfree(ptr noundef nonnull %2) #10
+  call void @slurm_xfree(ptr noundef nonnull %2) #11
   store ptr %9, ptr %2, align 8
   %.not61 = icmp eq ptr %9, null
-  br i1 %.not61, label %._crit_edge, label %7, !llvm.loop !13
+  br i1 %.not61, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %99, %3
   store i32 0, ptr %0, align 8
   br label %100
 
 100:                                              ; preds = %1, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @xhash_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @xhash_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1394,7 +1408,7 @@ define void @xhash_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   tail call void @xhash_clear(ptr noundef nonnull %3)
-  tail call void @slurm_xfree(ptr noundef nonnull %0) #10
+  tail call void @slurm_xfree(ptr noundef nonnull %0) #11
   br label %5
 
 5:                                                ; preds = %1, %2, %4
@@ -1402,38 +1416,42 @@ define void @xhash_free_ptr(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { cold noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

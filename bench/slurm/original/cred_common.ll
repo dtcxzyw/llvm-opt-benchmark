@@ -4,10 +4,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_cred_t = type { i32, %union.pthread_rwlock_t, ptr, i32, i16, ptr, i64, ptr, i8 }
 %union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
 %struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.slurm_cred_arg_t = type { %struct.slurm_step_id_msg, i32, i32, ptr, i16, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i64, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i16, ptr, ptr, ptr, i16, ptr, i64, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr }
-%struct.slurm_step_id_msg = type { i32, i32, i32 }
-%struct.identity_t = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
+%struct.slurm_cred_arg_t = type { %struct.slurm_step_id_msg, i32, i32, ptr, i16, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i64, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i16, ptr, ptr, ptr, i16, ptr, i64, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr }
+%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.buf_t = type { i32, ptr, i32, i32, i8, i8 }
+%struct.identity_t = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.sbcast_cred_arg_t = type { i32, i32, i32, ptr, i64, ptr }
 %struct.sbcast_cred = type { i64, %struct.sbcast_cred_arg_t, ptr, ptr, i8 }
 
@@ -17,9 +17,11 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.sbcast_cred_unpack = private unnamed_addr constant [19 x i8] c"sbcast_cred_unpack\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"%s: %s: %s: need to fetch identity\00", align 1
 @plugin_type = external constant [0 x i8], align 1
+@.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.4 = private unnamed_addr constant [29 x i8] c"switch_g_unpack_stepinfo: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) #0 {
+define dso_local ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
@@ -54,112 +56,120 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %34 = alloca i32, align 4
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
-  %37 = alloca i32, align 4
-  %38 = alloca ptr, align 8
-  %39 = alloca i32, align 4
-  %40 = alloca ptr, align 8
+  %37 = alloca ptr, align 8
+  %38 = alloca i32, align 4
+  %39 = alloca ptr, align 8
+  %40 = alloca i32, align 4
   %41 = alloca i32, align 4
   %42 = alloca i32, align 4
   %43 = alloca i32, align 4
-  %44 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i16 %1, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
   store i32 0, ptr %6, align 4
-  %45 = call i64 @time(ptr noundef null) #5
-  store i64 %45, ptr %8, align 8
-  %46 = call ptr @slurm_cred_alloc(i1 noundef zeroext false)
-  store ptr %46, ptr %5, align 8
-  %47 = call ptr @init_buf(i32 noundef 4096)
-  store ptr %47, ptr %7, align 8
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct.slurm_cred_t, ptr %48, i32 0, i32 2
-  store ptr %47, ptr %49, align 8
-  %50 = load i16, ptr %4, align 2
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.slurm_cred_t, ptr %51, i32 0, i32 4
-  store i16 %50, ptr %52, align 4
-  %53 = load i16, ptr %4, align 2
-  %54 = zext i16 %53 to i32
-  %55 = icmp sge i32 %54, 10240
-  br i1 %55, label %56, label %574
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %44 = call i64 @time(ptr noundef null) #6
+  store i64 %44, ptr %8, align 8
+  %45 = call ptr @slurm_cred_alloc(i1 noundef zeroext false)
+  store ptr %45, ptr %5, align 8
+  %46 = call ptr @init_buf(i32 noundef 4096)
+  store ptr %46, ptr %7, align 8
+  %47 = load ptr, ptr %5, align 8
+  %48 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %47, i32 0, i32 2
+  store ptr %46, ptr %48, align 8
+  %49 = load i16, ptr %4, align 2
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %50, i32 0, i32 4
+  store i16 %49, ptr %51, align 4
+  %52 = load i16, ptr %4, align 2
+  %53 = zext i16 %52 to i32
+  %54 = icmp sge i32 %53, 10752
+  br i1 %54, label %55, label %594
 
-56:                                               ; preds = %2
-  %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %57, i32 0, i32 0
-  %59 = load ptr, ptr %7, align 8
-  %60 = load i16, ptr %4, align 2
-  call void @pack_step_id(ptr noundef %58, ptr noundef %59, i16 noundef zeroext %60)
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %61, i32 0, i32 3
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = load i16, ptr %4, align 2
-  call void @pack_identity(ptr noundef %63, ptr noundef %64, i16 noundef zeroext %65)
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %66, i32 0, i32 28
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %71, i32 0, i32 0
-  %73 = load i32, ptr %72, align 8
-  %74 = load i16, ptr %4, align 2
-  %75 = call i32 @gres_job_state_pack(ptr noundef %68, ptr noundef %69, i32 noundef %73, i1 noundef zeroext false, i16 noundef zeroext %74)
-  %76 = load ptr, ptr %3, align 8
-  %77 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %76, i32 0, i32 43
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %80, i32 0, i32 0
-  %82 = load i16, ptr %4, align 2
-  %83 = call i32 @gres_step_state_pack(ptr noundef %78, ptr noundef %79, ptr noundef %81, i16 noundef zeroext %82)
-  %84 = load ptr, ptr %3, align 8
-  %85 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %84, i32 0, i32 16
-  %86 = load i16, ptr %85, align 8
-  %87 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %86, ptr noundef %87)
-  br label %88
+55:                                               ; preds = %2
+  %56 = load ptr, ptr %3, align 8
+  %57 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i16, ptr %4, align 2
+  call void @pack_step_id(ptr noundef %57, ptr noundef %58, i16 noundef zeroext %59)
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %60, i32 0, i32 3
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = load i16, ptr %4, align 2
+  call void @pack_identity(ptr noundef %62, ptr noundef %63, i16 noundef zeroext %64)
+  %65 = load ptr, ptr %3, align 8
+  %66 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %65, i32 0, i32 28
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = load ptr, ptr %3, align 8
+  %70 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %69, i32 0, i32 0
+  %71 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %70, i32 0, i32 1
+  %72 = load i32, ptr %71, align 8
+  %73 = load i16, ptr %4, align 2
+  %74 = call i32 @gres_job_state_pack(ptr noundef %67, ptr noundef %68, i32 noundef %72, i1 noundef zeroext false, i16 noundef zeroext %73)
+  %75 = load ptr, ptr %3, align 8
+  %76 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %75, i32 0, i32 43
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %7, align 8
+  %79 = load ptr, ptr %3, align 8
+  %80 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %79, i32 0, i32 0
+  %81 = load i16, ptr %4, align 2
+  %82 = call i32 @gres_step_state_pack(ptr noundef %77, ptr noundef %78, ptr noundef %80, i16 noundef zeroext %81)
+  %83 = load ptr, ptr %3, align 8
+  %84 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %83, i32 0, i32 16
+  %85 = load i16, ptr %84, align 8
+  %86 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %85, ptr noundef %86)
+  br label %87
 
-88:                                               ; preds = %56
+87:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %89, i32 0, i32 11
-  %91 = load ptr, ptr %90, align 8
-  %92 = icmp ne ptr %91, null
-  br i1 %92, label %93, label %100
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %88, i32 0, i32 11
+  %90 = load ptr, ptr %89, align 8
+  %91 = icmp ne ptr %90, null
+  br i1 %91, label %92, label %99
 
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %94, i32 0, i32 11
-  %96 = load ptr, ptr %95, align 8
-  %97 = call i64 @strlen(ptr noundef %96) #6
-  %98 = trunc i64 %97 to i32
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %9, align 4
-  br label %100
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %3, align 8
+  %94 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %93, i32 0, i32 11
+  %95 = load ptr, ptr %94, align 8
+  %96 = call i64 @strlen(ptr noundef %95) #7
+  %97 = trunc i64 %96 to i32
+  %98 = add i32 %97, 1
+  store i32 %98, ptr %9, align 4
+  br label %99
 
-100:                                              ; preds = %93, %88
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %101, i32 0, i32 11
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %9, align 4
-  %105 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %103, i32 noundef %104, ptr noundef %105)
+99:                                               ; preds = %92, %87
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %100, i32 0, i32 11
+  %102 = load ptr, ptr %101, align 8
+  %103 = load i32, ptr %9, align 4
+  %104 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %102, i32 noundef %103, ptr noundef %104)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  br label %105
+
+105:                                              ; preds = %99
   br label %106
 
-106:                                              ; preds = %100
+106:                                              ; preds = %105
   %107 = load ptr, ptr %3, align 8
-  %108 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %107, i32 0, i32 25
+  %108 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %107, i32 0, i32 25
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %110, i32 0, i32 25
+  %111 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %110, i32 0, i32 25
   %112 = load ptr, ptr %111, align 8
   %113 = icmp ne ptr %112, null
   br i1 %113, label %114, label %118
 
 114:                                              ; preds = %106
   %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %115, i32 0, i32 24
+  %116 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %115, i32 0, i32 24
   %117 = load i32, ptr %116, align 4
   br label %119
 
@@ -173,18 +183,19 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) #0 {
   br label %122
 
 122:                                              ; preds = %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
   %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %123, i32 0, i32 12
+  %124 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %123, i32 0, i32 12
   %125 = load ptr, ptr %124, align 8
   %126 = icmp ne ptr %125, null
   br i1 %126, label %127, label %134
 
 127:                                              ; preds = %122
   %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %128, i32 0, i32 12
+  %129 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %128, i32 0, i32 12
   %130 = load ptr, ptr %129, align 8
-  %131 = call i64 @strlen(ptr noundef %130) #6
+  %131 = call i64 @strlen(ptr noundef %130) #7
   %132 = trunc i64 %131 to i32
   %133 = add i32 %132, 1
   store i32 %133, ptr %10, align 4
@@ -192,1453 +203,1771 @@ define ptr @cred_create(ptr noundef %0, i16 noundef zeroext %1) #0 {
 
 134:                                              ; preds = %127, %122
   %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %135, i32 0, i32 12
+  %136 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %135, i32 0, i32 12
   %137 = load ptr, ptr %136, align 8
   %138 = load i32, ptr %10, align 4
   %139 = load ptr, ptr %7, align 8
   call void @packmem(ptr noundef %137, i32 noundef %138, ptr noundef %139)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
   br label %140
 
 140:                                              ; preds = %134
   br label %141
 
 141:                                              ; preds = %140
+  br label %142
+
+142:                                              ; preds = %141
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %142, i32 0, i32 13
-  %144 = load ptr, ptr %143, align 8
-  %145 = icmp ne ptr %144, null
-  br i1 %145, label %146, label %153
+  %143 = load ptr, ptr %3, align 8
+  %144 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %143, i32 0, i32 13
+  %145 = load ptr, ptr %144, align 8
+  %146 = icmp ne ptr %145, null
+  br i1 %146, label %147, label %154
 
-146:                                              ; preds = %141
-  %147 = load ptr, ptr %3, align 8
-  %148 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %147, i32 0, i32 13
-  %149 = load ptr, ptr %148, align 8
-  %150 = call i64 @strlen(ptr noundef %149) #6
-  %151 = trunc i64 %150 to i32
-  %152 = add i32 %151, 1
-  store i32 %152, ptr %11, align 4
-  br label %153
+147:                                              ; preds = %142
+  %148 = load ptr, ptr %3, align 8
+  %149 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %148, i32 0, i32 13
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i64 @strlen(ptr noundef %150) #7
+  %152 = trunc i64 %151 to i32
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %11, align 4
+  br label %154
 
-153:                                              ; preds = %146, %141
-  %154 = load ptr, ptr %3, align 8
-  %155 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %154, i32 0, i32 13
-  %156 = load ptr, ptr %155, align 8
-  %157 = load i32, ptr %11, align 4
-  %158 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %156, i32 noundef %157, ptr noundef %158)
-  br label %159
-
-159:                                              ; preds = %153
+154:                                              ; preds = %147, %142
+  %155 = load ptr, ptr %3, align 8
+  %156 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %155, i32 0, i32 13
+  %157 = load ptr, ptr %156, align 8
+  %158 = load i32, ptr %11, align 4
+  %159 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %157, i32 noundef %158, ptr noundef %159)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
   br label %160
 
-160:                                              ; preds = %159
+160:                                              ; preds = %154
+  br label %161
+
+161:                                              ; preds = %160
+  br label %162
+
+162:                                              ; preds = %161
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   store i32 0, ptr %12, align 4
-  %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %161, i32 0, i32 14
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp ne ptr %163, null
-  br i1 %164, label %165, label %172
+  %163 = load ptr, ptr %3, align 8
+  %164 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %163, i32 0, i32 14
+  %165 = load ptr, ptr %164, align 8
+  %166 = icmp ne ptr %165, null
+  br i1 %166, label %167, label %174
 
-165:                                              ; preds = %160
-  %166 = load ptr, ptr %3, align 8
-  %167 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %166, i32 0, i32 14
-  %168 = load ptr, ptr %167, align 8
-  %169 = call i64 @strlen(ptr noundef %168) #6
-  %170 = trunc i64 %169 to i32
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %12, align 4
-  br label %172
+167:                                              ; preds = %162
+  %168 = load ptr, ptr %3, align 8
+  %169 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %168, i32 0, i32 14
+  %170 = load ptr, ptr %169, align 8
+  %171 = call i64 @strlen(ptr noundef %170) #7
+  %172 = trunc i64 %171 to i32
+  %173 = add i32 %172, 1
+  store i32 %173, ptr %12, align 4
+  br label %174
 
-172:                                              ; preds = %165, %160
-  %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %173, i32 0, i32 14
-  %175 = load ptr, ptr %174, align 8
-  %176 = load i32, ptr %12, align 4
-  %177 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %175, i32 noundef %176, ptr noundef %177)
-  br label %178
+174:                                              ; preds = %167, %162
+  %175 = load ptr, ptr %3, align 8
+  %176 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %175, i32 0, i32 14
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i32, ptr %12, align 4
+  %179 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %177, i32 noundef %178, ptr noundef %179)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  br label %180
 
-178:                                              ; preds = %172
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %179, i32 0, i32 17
-  %181 = load i64, ptr %180, align 8
-  %182 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %181, ptr noundef %182)
-  br label %183
+180:                                              ; preds = %174
+  br label %181
 
-183:                                              ; preds = %178
+181:                                              ; preds = %180
+  %182 = load ptr, ptr %3, align 8
+  %183 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %182, i32 0, i32 17
+  %184 = load i64, ptr %183, align 8
+  %185 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %184, ptr noundef %185)
+  br label %186
+
+186:                                              ; preds = %181
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %184, i32 0, i32 18
-  %186 = load ptr, ptr %185, align 8
-  %187 = icmp ne ptr %186, null
-  br i1 %187, label %188, label %195
+  %187 = load ptr, ptr %3, align 8
+  %188 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %187, i32 0, i32 18
+  %189 = load ptr, ptr %188, align 8
+  %190 = icmp ne ptr %189, null
+  br i1 %190, label %191, label %198
 
-188:                                              ; preds = %183
-  %189 = load ptr, ptr %3, align 8
-  %190 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %189, i32 0, i32 18
-  %191 = load ptr, ptr %190, align 8
-  %192 = call i64 @strlen(ptr noundef %191) #6
-  %193 = trunc i64 %192 to i32
-  %194 = add i32 %193, 1
-  store i32 %194, ptr %13, align 4
-  br label %195
+191:                                              ; preds = %186
+  %192 = load ptr, ptr %3, align 8
+  %193 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %192, i32 0, i32 18
+  %194 = load ptr, ptr %193, align 8
+  %195 = call i64 @strlen(ptr noundef %194) #7
+  %196 = trunc i64 %195 to i32
+  %197 = add i32 %196, 1
+  store i32 %197, ptr %13, align 4
+  br label %198
 
-195:                                              ; preds = %188, %183
-  %196 = load ptr, ptr %3, align 8
-  %197 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %196, i32 0, i32 18
-  %198 = load ptr, ptr %197, align 8
-  %199 = load i32, ptr %13, align 4
-  %200 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %198, i32 noundef %199, ptr noundef %200)
-  br label %201
+198:                                              ; preds = %191, %186
+  %199 = load ptr, ptr %3, align 8
+  %200 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %199, i32 0, i32 18
+  %201 = load ptr, ptr %200, align 8
+  %202 = load i32, ptr %13, align 4
+  %203 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %201, i32 noundef %202, ptr noundef %203)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %204
 
-201:                                              ; preds = %195
-  %202 = load ptr, ptr %3, align 8
-  %203 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %202, i32 0, i32 27
-  %204 = load i16, ptr %203, align 4
-  %205 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %204, ptr noundef %205)
-  br label %206
+204:                                              ; preds = %198
+  br label %205
 
-206:                                              ; preds = %201
+205:                                              ; preds = %204
+  %206 = load ptr, ptr %3, align 8
+  %207 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %206, i32 0, i32 27
+  %208 = load i16, ptr %207, align 4
+  %209 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %208, ptr noundef %209)
+  br label %210
+
+210:                                              ; preds = %205
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
   store i32 0, ptr %14, align 4
-  %207 = load ptr, ptr %3, align 8
-  %208 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %207, i32 0, i32 29
-  %209 = load ptr, ptr %208, align 8
-  %210 = icmp ne ptr %209, null
-  br i1 %210, label %211, label %218
+  %211 = load ptr, ptr %3, align 8
+  %212 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %211, i32 0, i32 29
+  %213 = load ptr, ptr %212, align 8
+  %214 = icmp ne ptr %213, null
+  br i1 %214, label %215, label %222
 
-211:                                              ; preds = %206
-  %212 = load ptr, ptr %3, align 8
-  %213 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %212, i32 0, i32 29
-  %214 = load ptr, ptr %213, align 8
-  %215 = call i64 @strlen(ptr noundef %214) #6
-  %216 = trunc i64 %215 to i32
-  %217 = add i32 %216, 1
-  store i32 %217, ptr %14, align 4
-  br label %218
+215:                                              ; preds = %210
+  %216 = load ptr, ptr %3, align 8
+  %217 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %216, i32 0, i32 29
+  %218 = load ptr, ptr %217, align 8
+  %219 = call i64 @strlen(ptr noundef %218) #7
+  %220 = trunc i64 %219 to i32
+  %221 = add i32 %220, 1
+  store i32 %221, ptr %14, align 4
+  br label %222
 
-218:                                              ; preds = %211, %206
-  %219 = load ptr, ptr %3, align 8
-  %220 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %219, i32 0, i32 29
-  %221 = load ptr, ptr %220, align 8
-  %222 = load i32, ptr %14, align 4
-  %223 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %221, i32 noundef %222, ptr noundef %223)
-  br label %224
+222:                                              ; preds = %215, %210
+  %223 = load ptr, ptr %3, align 8
+  %224 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %223, i32 0, i32 29
+  %225 = load ptr, ptr %224, align 8
+  %226 = load i32, ptr %14, align 4
+  %227 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %225, i32 noundef %226, ptr noundef %227)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  br label %228
 
-224:                                              ; preds = %218
-  br label %225
+228:                                              ; preds = %222
+  br label %229
 
-225:                                              ; preds = %224
+229:                                              ; preds = %228
+  br label %230
+
+230:                                              ; preds = %229
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
-  %226 = load ptr, ptr %3, align 8
-  %227 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %226, i32 0, i32 30
-  %228 = load ptr, ptr %227, align 8
-  %229 = icmp ne ptr %228, null
-  br i1 %229, label %230, label %237
-
-230:                                              ; preds = %225
   %231 = load ptr, ptr %3, align 8
-  %232 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %231, i32 0, i32 30
+  %232 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %231, i32 0, i32 30
   %233 = load ptr, ptr %232, align 8
-  %234 = call i64 @strlen(ptr noundef %233) #6
-  %235 = trunc i64 %234 to i32
-  %236 = add i32 %235, 1
-  store i32 %236, ptr %15, align 4
-  br label %237
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %242
 
-237:                                              ; preds = %230, %225
-  %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %238, i32 0, i32 30
-  %240 = load ptr, ptr %239, align 8
-  %241 = load i32, ptr %15, align 4
-  %242 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %240, i32 noundef %241, ptr noundef %242)
-  br label %243
+235:                                              ; preds = %230
+  %236 = load ptr, ptr %3, align 8
+  %237 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %236, i32 0, i32 30
+  %238 = load ptr, ptr %237, align 8
+  %239 = call i64 @strlen(ptr noundef %238) #7
+  %240 = trunc i64 %239 to i32
+  %241 = add i32 %240, 1
+  store i32 %241, ptr %15, align 4
+  br label %242
 
-243:                                              ; preds = %237
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %244, i32 0, i32 31
-  %246 = load i16, ptr %245, align 8
+242:                                              ; preds = %235, %230
+  %243 = load ptr, ptr %3, align 8
+  %244 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %243, i32 0, i32 30
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i32, ptr %15, align 4
   %247 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %246, ptr noundef %247)
-  %248 = load ptr, ptr %3, align 8
-  %249 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %248, i32 0, i32 33
-  %250 = load i64, ptr %249, align 8
-  %251 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %250, ptr noundef %251)
-  br label %252
+  call void @packmem(ptr noundef %245, i32 noundef %246, ptr noundef %247)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %248
 
-252:                                              ; preds = %243
+248:                                              ; preds = %242
+  br label %249
+
+249:                                              ; preds = %248
+  %250 = load ptr, ptr %3, align 8
+  %251 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %250, i32 0, i32 31
+  %252 = load i16, ptr %251, align 8
+  %253 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %252, ptr noundef %253)
+  %254 = load ptr, ptr %3, align 8
+  %255 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %254, i32 0, i32 33
+  %256 = load i64, ptr %255, align 8
+  %257 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %256, ptr noundef %257)
+  br label %258
+
+258:                                              ; preds = %249
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
   store i32 0, ptr %16, align 4
-  %253 = load ptr, ptr %3, align 8
-  %254 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %253, i32 0, i32 34
-  %255 = load ptr, ptr %254, align 8
-  %256 = icmp ne ptr %255, null
-  br i1 %256, label %257, label %264
+  %259 = load ptr, ptr %3, align 8
+  %260 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %259, i32 0, i32 34
+  %261 = load ptr, ptr %260, align 8
+  %262 = icmp ne ptr %261, null
+  br i1 %262, label %263, label %270
 
-257:                                              ; preds = %252
-  %258 = load ptr, ptr %3, align 8
-  %259 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %258, i32 0, i32 34
-  %260 = load ptr, ptr %259, align 8
-  %261 = call i64 @strlen(ptr noundef %260) #6
-  %262 = trunc i64 %261 to i32
-  %263 = add i32 %262, 1
-  store i32 %263, ptr %16, align 4
-  br label %264
-
-264:                                              ; preds = %257, %252
-  %265 = load ptr, ptr %3, align 8
-  %266 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %265, i32 0, i32 34
-  %267 = load ptr, ptr %266, align 8
-  %268 = load i32, ptr %16, align 4
-  %269 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %267, i32 noundef %268, ptr noundef %269)
+263:                                              ; preds = %258
+  %264 = load ptr, ptr %3, align 8
+  %265 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %264, i32 0, i32 34
+  %266 = load ptr, ptr %265, align 8
+  %267 = call i64 @strlen(ptr noundef %266) #7
+  %268 = trunc i64 %267 to i32
+  %269 = add i32 %268, 1
+  store i32 %269, ptr %16, align 4
   br label %270
 
-270:                                              ; preds = %264
-  br label %271
+270:                                              ; preds = %263, %258
+  %271 = load ptr, ptr %3, align 8
+  %272 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %271, i32 0, i32 34
+  %273 = load ptr, ptr %272, align 8
+  %274 = load i32, ptr %16, align 4
+  %275 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %273, i32 noundef %274, ptr noundef %275)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  br label %276
 
-271:                                              ; preds = %270
+276:                                              ; preds = %270
+  br label %277
+
+277:                                              ; preds = %276
+  br label %278
+
+278:                                              ; preds = %277
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
   store i32 0, ptr %17, align 4
-  %272 = load ptr, ptr %3, align 8
-  %273 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %272, i32 0, i32 35
-  %274 = load ptr, ptr %273, align 8
-  %275 = icmp ne ptr %274, null
-  br i1 %275, label %276, label %283
+  %279 = load ptr, ptr %3, align 8
+  %280 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %279, i32 0, i32 35
+  %281 = load ptr, ptr %280, align 8
+  %282 = icmp ne ptr %281, null
+  br i1 %282, label %283, label %290
 
-276:                                              ; preds = %271
-  %277 = load ptr, ptr %3, align 8
-  %278 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %277, i32 0, i32 35
-  %279 = load ptr, ptr %278, align 8
-  %280 = call i64 @strlen(ptr noundef %279) #6
-  %281 = trunc i64 %280 to i32
-  %282 = add i32 %281, 1
-  store i32 %282, ptr %17, align 4
-  br label %283
-
-283:                                              ; preds = %276, %271
+283:                                              ; preds = %278
   %284 = load ptr, ptr %3, align 8
-  %285 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %284, i32 0, i32 35
+  %285 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %284, i32 0, i32 35
   %286 = load ptr, ptr %285, align 8
-  %287 = load i32, ptr %17, align 4
-  %288 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %286, i32 noundef %287, ptr noundef %288)
-  br label %289
-
-289:                                              ; preds = %283
+  %287 = call i64 @strlen(ptr noundef %286) #7
+  %288 = trunc i64 %287 to i32
+  %289 = add i32 %288, 1
+  store i32 %289, ptr %17, align 4
   br label %290
 
-290:                                              ; preds = %289
-  store i32 0, ptr %18, align 4
+290:                                              ; preds = %283, %278
   %291 = load ptr, ptr %3, align 8
-  %292 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %291, i32 0, i32 36
+  %292 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %291, i32 0, i32 35
   %293 = load ptr, ptr %292, align 8
-  %294 = icmp ne ptr %293, null
-  br i1 %294, label %295, label %302
+  %294 = load i32, ptr %17, align 4
+  %295 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %293, i32 noundef %294, ptr noundef %295)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  br label %296
 
-295:                                              ; preds = %290
-  %296 = load ptr, ptr %3, align 8
-  %297 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %296, i32 0, i32 36
-  %298 = load ptr, ptr %297, align 8
-  %299 = call i64 @strlen(ptr noundef %298) #6
-  %300 = trunc i64 %299 to i32
-  %301 = add i32 %300, 1
-  store i32 %301, ptr %18, align 4
-  br label %302
+296:                                              ; preds = %290
+  br label %297
 
-302:                                              ; preds = %295, %290
-  %303 = load ptr, ptr %3, align 8
-  %304 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %303, i32 0, i32 36
-  %305 = load ptr, ptr %304, align 8
-  %306 = load i32, ptr %18, align 4
-  %307 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %305, i32 noundef %306, ptr noundef %307)
-  br label %308
+297:                                              ; preds = %296
+  br label %298
 
-308:                                              ; preds = %302
-  br label %309
+298:                                              ; preds = %297
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  store i32 0, ptr %18, align 4
+  %299 = load ptr, ptr %3, align 8
+  %300 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %299, i32 0, i32 36
+  %301 = load ptr, ptr %300, align 8
+  %302 = icmp ne ptr %301, null
+  br i1 %302, label %303, label %310
 
-309:                                              ; preds = %308
+303:                                              ; preds = %298
+  %304 = load ptr, ptr %3, align 8
+  %305 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %304, i32 0, i32 36
+  %306 = load ptr, ptr %305, align 8
+  %307 = call i64 @strlen(ptr noundef %306) #7
+  %308 = trunc i64 %307 to i32
+  %309 = add i32 %308, 1
+  store i32 %309, ptr %18, align 4
+  br label %310
+
+310:                                              ; preds = %303, %298
+  %311 = load ptr, ptr %3, align 8
+  %312 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %311, i32 0, i32 36
+  %313 = load ptr, ptr %312, align 8
+  %314 = load i32, ptr %18, align 4
+  %315 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %313, i32 noundef %314, ptr noundef %315)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %316
+
+316:                                              ; preds = %310
+  br label %317
+
+317:                                              ; preds = %316
+  br label %318
+
+318:                                              ; preds = %317
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
   store i32 0, ptr %19, align 4
-  %310 = load ptr, ptr %3, align 8
-  %311 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %310, i32 0, i32 39
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp ne ptr %312, null
-  br i1 %313, label %314, label %321
+  %319 = load ptr, ptr %3, align 8
+  %320 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %319, i32 0, i32 39
+  %321 = load ptr, ptr %320, align 8
+  %322 = icmp ne ptr %321, null
+  br i1 %322, label %323, label %330
 
-314:                                              ; preds = %309
-  %315 = load ptr, ptr %3, align 8
-  %316 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %315, i32 0, i32 39
-  %317 = load ptr, ptr %316, align 8
-  %318 = call i64 @strlen(ptr noundef %317) #6
-  %319 = trunc i64 %318 to i32
-  %320 = add i32 %319, 1
-  store i32 %320, ptr %19, align 4
-  br label %321
+323:                                              ; preds = %318
+  %324 = load ptr, ptr %3, align 8
+  %325 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %324, i32 0, i32 39
+  %326 = load ptr, ptr %325, align 8
+  %327 = call i64 @strlen(ptr noundef %326) #7
+  %328 = trunc i64 %327 to i32
+  %329 = add i32 %328, 1
+  store i32 %329, ptr %19, align 4
+  br label %330
 
-321:                                              ; preds = %314, %309
-  %322 = load ptr, ptr %3, align 8
-  %323 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %322, i32 0, i32 39
-  %324 = load ptr, ptr %323, align 8
-  %325 = load i32, ptr %19, align 4
-  %326 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %324, i32 noundef %325, ptr noundef %326)
-  br label %327
+330:                                              ; preds = %323, %318
+  %331 = load ptr, ptr %3, align 8
+  %332 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %331, i32 0, i32 39
+  %333 = load ptr, ptr %332, align 8
+  %334 = load i32, ptr %19, align 4
+  %335 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %333, i32 noundef %334, ptr noundef %335)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  br label %336
 
-327:                                              ; preds = %321
-  %328 = load ptr, ptr %3, align 8
-  %329 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %328, i32 0, i32 37
-  %330 = load i16, ptr %329, align 8
-  %331 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %330, ptr noundef %331)
-  %332 = load i64, ptr %8, align 8
-  %333 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %332, ptr noundef %333)
-  %334 = load ptr, ptr %3, align 8
-  %335 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %334, i32 0, i32 15
-  %336 = load ptr, ptr %335, align 8
-  %337 = icmp ne ptr %336, null
-  br i1 %337, label %338, label %344
+336:                                              ; preds = %330
+  br label %337
 
-338:                                              ; preds = %327
-  %339 = load ptr, ptr %3, align 8
-  %340 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %339, i32 0, i32 15
-  %341 = load ptr, ptr %340, align 8
-  %342 = call i64 @bit_size(ptr noundef %341)
-  %343 = trunc i64 %342 to i32
-  store i32 %343, ptr %6, align 4
-  br label %344
+337:                                              ; preds = %336
+  %338 = load ptr, ptr %3, align 8
+  %339 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %338, i32 0, i32 37
+  %340 = load i16, ptr %339, align 8
+  %341 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %340, ptr noundef %341)
+  %342 = load i64, ptr %8, align 8
+  %343 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %342, ptr noundef %343)
+  %344 = load ptr, ptr %3, align 8
+  %345 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %344, i32 0, i32 15
+  %346 = load ptr, ptr %345, align 8
+  %347 = icmp ne ptr %346, null
+  br i1 %347, label %348, label %354
 
-344:                                              ; preds = %338, %327
-  %345 = load i32, ptr %6, align 4
-  %346 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %345, ptr noundef %346)
-  br label %347
+348:                                              ; preds = %337
+  %349 = load ptr, ptr %3, align 8
+  %350 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %349, i32 0, i32 15
+  %351 = load ptr, ptr %350, align 8
+  %352 = call i64 @bit_size(ptr noundef %351)
+  %353 = trunc i64 %352 to i32
+  store i32 %353, ptr %6, align 4
+  br label %354
 
-347:                                              ; preds = %344
-  %348 = load ptr, ptr %3, align 8
-  %349 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %348, i32 0, i32 15
-  %350 = load ptr, ptr %349, align 8
-  %351 = icmp ne ptr %350, null
-  br i1 %351, label %352, label %371
+354:                                              ; preds = %348, %337
+  %355 = load i32, ptr %6, align 4
+  %356 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %355, ptr noundef %356)
+  br label %357
 
-352:                                              ; preds = %347
-  %353 = load ptr, ptr %3, align 8
-  %354 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %353, i32 0, i32 15
-  %355 = load ptr, ptr %354, align 8
-  %356 = call ptr @bit_fmt_hexmask(ptr noundef %355)
-  store ptr %356, ptr %20, align 8
-  %357 = load ptr, ptr %3, align 8
-  %358 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %357, i32 0, i32 15
-  %359 = load ptr, ptr %358, align 8
-  %360 = call i64 @bit_size(ptr noundef %359)
-  %361 = trunc i64 %360 to i32
-  store i32 %361, ptr %21, align 4
-  %362 = load i32, ptr %21, align 4
-  %363 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %362, ptr noundef %363)
-  %364 = load ptr, ptr %20, align 8
-  %365 = call i64 @strlen(ptr noundef %364) #6
-  %366 = add i64 %365, 1
-  %367 = trunc i64 %366 to i32
-  store i32 %367, ptr %21, align 4
-  %368 = load ptr, ptr %20, align 8
-  %369 = load i32, ptr %21, align 4
-  %370 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %368, i32 noundef %369, ptr noundef %370)
+357:                                              ; preds = %354
+  %358 = load ptr, ptr %3, align 8
+  %359 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %358, i32 0, i32 15
+  %360 = load ptr, ptr %359, align 8
+  %361 = icmp ne ptr %360, null
+  br i1 %361, label %362, label %381
+
+362:                                              ; preds = %357
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %363 = load ptr, ptr %3, align 8
+  %364 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %363, i32 0, i32 15
+  %365 = load ptr, ptr %364, align 8
+  %366 = call ptr @bit_fmt_hexmask(ptr noundef %365)
+  store ptr %366, ptr %20, align 8
+  %367 = load ptr, ptr %3, align 8
+  %368 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %367, i32 0, i32 15
+  %369 = load ptr, ptr %368, align 8
+  %370 = call i64 @bit_size(ptr noundef %369)
+  %371 = trunc i64 %370 to i32
+  store i32 %371, ptr %21, align 4
+  %372 = load i32, ptr %21, align 4
+  %373 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %372, ptr noundef %373)
+  %374 = load ptr, ptr %20, align 8
+  %375 = call i64 @strlen(ptr noundef %374) #7
+  %376 = add i64 %375, 1
+  %377 = trunc i64 %376 to i32
+  store i32 %377, ptr %21, align 4
+  %378 = load ptr, ptr %20, align 8
+  %379 = load i32, ptr %21, align 4
+  %380 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %378, i32 noundef %379, ptr noundef %380)
   call void @slurm_xfree(ptr noundef %20)
-  br label %373
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  br label %383
 
-371:                                              ; preds = %347
-  %372 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef -2, ptr noundef %372)
-  br label %373
+381:                                              ; preds = %357
+  %382 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef -2, ptr noundef %382)
+  br label %383
 
-373:                                              ; preds = %371, %352
-  br label %374
+383:                                              ; preds = %381, %362
+  br label %384
 
-374:                                              ; preds = %373
-  br label %375
+384:                                              ; preds = %383
+  br label %385
 
-375:                                              ; preds = %374
-  %376 = load ptr, ptr %3, align 8
-  %377 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %376, i32 0, i32 38
-  %378 = load ptr, ptr %377, align 8
-  %379 = icmp ne ptr %378, null
-  br i1 %379, label %380, label %399
+385:                                              ; preds = %384
+  br label %386
 
-380:                                              ; preds = %375
-  %381 = load ptr, ptr %3, align 8
-  %382 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %381, i32 0, i32 38
-  %383 = load ptr, ptr %382, align 8
-  %384 = call ptr @bit_fmt_hexmask(ptr noundef %383)
-  store ptr %384, ptr %22, align 8
-  %385 = load ptr, ptr %3, align 8
-  %386 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %385, i32 0, i32 38
-  %387 = load ptr, ptr %386, align 8
-  %388 = call i64 @bit_size(ptr noundef %387)
-  %389 = trunc i64 %388 to i32
-  store i32 %389, ptr %23, align 4
-  %390 = load i32, ptr %23, align 4
-  %391 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %390, ptr noundef %391)
-  %392 = load ptr, ptr %22, align 8
-  %393 = call i64 @strlen(ptr noundef %392) #6
-  %394 = add i64 %393, 1
-  %395 = trunc i64 %394 to i32
-  store i32 %395, ptr %23, align 4
-  %396 = load ptr, ptr %22, align 8
-  %397 = load i32, ptr %23, align 4
-  %398 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %396, i32 noundef %397, ptr noundef %398)
+386:                                              ; preds = %385
+  %387 = load ptr, ptr %3, align 8
+  %388 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %387, i32 0, i32 38
+  %389 = load ptr, ptr %388, align 8
+  %390 = icmp ne ptr %389, null
+  br i1 %390, label %391, label %410
+
+391:                                              ; preds = %386
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  %392 = load ptr, ptr %3, align 8
+  %393 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %392, i32 0, i32 38
+  %394 = load ptr, ptr %393, align 8
+  %395 = call ptr @bit_fmt_hexmask(ptr noundef %394)
+  store ptr %395, ptr %22, align 8
+  %396 = load ptr, ptr %3, align 8
+  %397 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %396, i32 0, i32 38
+  %398 = load ptr, ptr %397, align 8
+  %399 = call i64 @bit_size(ptr noundef %398)
+  %400 = trunc i64 %399 to i32
+  store i32 %400, ptr %23, align 4
+  %401 = load i32, ptr %23, align 4
+  %402 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %401, ptr noundef %402)
+  %403 = load ptr, ptr %22, align 8
+  %404 = call i64 @strlen(ptr noundef %403) #7
+  %405 = add i64 %404, 1
+  %406 = trunc i64 %405 to i32
+  store i32 %406, ptr %23, align 4
+  %407 = load ptr, ptr %22, align 8
+  %408 = load i32, ptr %23, align 4
+  %409 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %407, i32 noundef %408, ptr noundef %409)
   call void @slurm_xfree(ptr noundef %22)
-  br label %401
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %412
 
-399:                                              ; preds = %375
-  %400 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef -2, ptr noundef %400)
-  br label %401
+410:                                              ; preds = %386
+  %411 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef -2, ptr noundef %411)
+  br label %412
 
-401:                                              ; preds = %399, %380
-  br label %402
+412:                                              ; preds = %410, %391
+  br label %413
 
-402:                                              ; preds = %401
-  %403 = load ptr, ptr %3, align 8
-  %404 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %403, i32 0, i32 4
-  %405 = load i16, ptr %404, align 8
-  %406 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %405, ptr noundef %406)
-  %407 = load ptr, ptr %3, align 8
-  %408 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %407, i32 0, i32 4
-  %409 = load i16, ptr %408, align 8
-  %410 = icmp ne i16 %409, 0
-  br i1 %410, label %411, label %436
+413:                                              ; preds = %412
+  br label %414
 
-411:                                              ; preds = %402
-  %412 = load ptr, ptr %3, align 8
-  %413 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %412, i32 0, i32 5
-  %414 = load ptr, ptr %413, align 8
+414:                                              ; preds = %413
   %415 = load ptr, ptr %3, align 8
-  %416 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %415, i32 0, i32 4
+  %416 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %415, i32 0, i32 4
   %417 = load i16, ptr %416, align 8
-  %418 = zext i16 %417 to i32
-  %419 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %414, i32 noundef %418, ptr noundef %419)
-  %420 = load ptr, ptr %3, align 8
-  %421 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %420, i32 0, i32 6
-  %422 = load ptr, ptr %421, align 8
-  %423 = load ptr, ptr %3, align 8
-  %424 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %423, i32 0, i32 4
-  %425 = load i16, ptr %424, align 8
-  %426 = zext i16 %425 to i32
-  %427 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %422, i32 noundef %426, ptr noundef %427)
-  %428 = load ptr, ptr %3, align 8
-  %429 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %428, i32 0, i32 7
-  %430 = load ptr, ptr %429, align 8
-  %431 = load ptr, ptr %3, align 8
-  %432 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %431, i32 0, i32 4
-  %433 = load i16, ptr %432, align 8
-  %434 = zext i16 %433 to i32
-  %435 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %430, i32 noundef %434, ptr noundef %435)
-  br label %436
+  %418 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %417, ptr noundef %418)
+  %419 = load ptr, ptr %3, align 8
+  %420 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %419, i32 0, i32 4
+  %421 = load i16, ptr %420, align 8
+  %422 = icmp ne i16 %421, 0
+  br i1 %422, label %423, label %448
 
-436:                                              ; preds = %411, %402
-  %437 = load ptr, ptr %3, align 8
-  %438 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %437, i32 0, i32 8
-  %439 = load i32, ptr %438, align 8
-  %440 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %439, ptr noundef %440)
-  %441 = load ptr, ptr %3, align 8
-  %442 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %441, i32 0, i32 8
-  %443 = load i32, ptr %442, align 8
-  %444 = icmp ne i32 %443, 0
-  br i1 %444, label %445, label %460
+423:                                              ; preds = %414
+  %424 = load ptr, ptr %3, align 8
+  %425 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %424, i32 0, i32 5
+  %426 = load ptr, ptr %425, align 8
+  %427 = load ptr, ptr %3, align 8
+  %428 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %427, i32 0, i32 4
+  %429 = load i16, ptr %428, align 8
+  %430 = zext i16 %429 to i32
+  %431 = load ptr, ptr %7, align 8
+  call void @pack16_array(ptr noundef %426, i32 noundef %430, ptr noundef %431)
+  %432 = load ptr, ptr %3, align 8
+  %433 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %432, i32 0, i32 6
+  %434 = load ptr, ptr %433, align 8
+  %435 = load ptr, ptr %3, align 8
+  %436 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %435, i32 0, i32 4
+  %437 = load i16, ptr %436, align 8
+  %438 = zext i16 %437 to i32
+  %439 = load ptr, ptr %7, align 8
+  call void @pack16_array(ptr noundef %434, i32 noundef %438, ptr noundef %439)
+  %440 = load ptr, ptr %3, align 8
+  %441 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %440, i32 0, i32 7
+  %442 = load ptr, ptr %441, align 8
+  %443 = load ptr, ptr %3, align 8
+  %444 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %443, i32 0, i32 4
+  %445 = load i16, ptr %444, align 8
+  %446 = zext i16 %445 to i32
+  %447 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %442, i32 noundef %446, ptr noundef %447)
+  br label %448
 
-445:                                              ; preds = %436
-  %446 = load ptr, ptr %3, align 8
-  %447 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %446, i32 0, i32 9
-  %448 = load ptr, ptr %447, align 8
+448:                                              ; preds = %423, %414
   %449 = load ptr, ptr %3, align 8
-  %450 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %449, i32 0, i32 8
+  %450 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %449, i32 0, i32 8
   %451 = load i32, ptr %450, align 8
   %452 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %448, i32 noundef %451, ptr noundef %452)
+  call void @pack32(i32 noundef %451, ptr noundef %452)
   %453 = load ptr, ptr %3, align 8
-  %454 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %453, i32 0, i32 10
-  %455 = load ptr, ptr %454, align 8
-  %456 = load ptr, ptr %3, align 8
-  %457 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %456, i32 0, i32 8
-  %458 = load i32, ptr %457, align 8
-  %459 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %455, i32 noundef %458, ptr noundef %459)
-  br label %460
+  %454 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %453, i32 0, i32 8
+  %455 = load i32, ptr %454, align 8
+  %456 = icmp ne i32 %455, 0
+  br i1 %456, label %457, label %472
 
-460:                                              ; preds = %445, %436
+457:                                              ; preds = %448
+  %458 = load ptr, ptr %3, align 8
+  %459 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %458, i32 0, i32 9
+  %460 = load ptr, ptr %459, align 8
   %461 = load ptr, ptr %3, align 8
-  %462 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %461, i32 0, i32 24
-  %463 = load i32, ptr %462, align 4
+  %462 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %461, i32 0, i32 8
+  %463 = load i32, ptr %462, align 8
   %464 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %463, ptr noundef %464)
+  call void @pack16_array(ptr noundef %460, i32 noundef %463, ptr noundef %464)
   %465 = load ptr, ptr %3, align 8
-  %466 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %465, i32 0, i32 26
-  %467 = load i32, ptr %466, align 8
-  %468 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %467, ptr noundef %468)
-  br label %469
+  %466 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %465, i32 0, i32 10
+  %467 = load ptr, ptr %466, align 8
+  %468 = load ptr, ptr %3, align 8
+  %469 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %468, i32 0, i32 8
+  %470 = load i32, ptr %469, align 8
+  %471 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %467, i32 noundef %470, ptr noundef %471)
+  br label %472
 
-469:                                              ; preds = %460
-  store i32 0, ptr %24, align 4
-  %470 = load ptr, ptr %3, align 8
-  %471 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %470, i32 0, i32 19
-  %472 = load ptr, ptr %471, align 8
-  %473 = icmp ne ptr %472, null
-  br i1 %473, label %474, label %481
-
-474:                                              ; preds = %469
-  %475 = load ptr, ptr %3, align 8
-  %476 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %475, i32 0, i32 19
-  %477 = load ptr, ptr %476, align 8
-  %478 = call i64 @strlen(ptr noundef %477) #6
-  %479 = trunc i64 %478 to i32
-  %480 = add i32 %479, 1
-  store i32 %480, ptr %24, align 4
+472:                                              ; preds = %457, %448
+  %473 = load ptr, ptr %3, align 8
+  %474 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %473, i32 0, i32 24
+  %475 = load i32, ptr %474, align 4
+  %476 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %475, ptr noundef %476)
+  %477 = load ptr, ptr %3, align 8
+  %478 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %477, i32 0, i32 26
+  %479 = load i32, ptr %478, align 8
+  %480 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %479, ptr noundef %480)
   br label %481
 
-481:                                              ; preds = %474, %469
+481:                                              ; preds = %472
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  store i32 0, ptr %24, align 4
   %482 = load ptr, ptr %3, align 8
-  %483 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %482, i32 0, i32 19
+  %483 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %482, i32 0, i32 19
   %484 = load ptr, ptr %483, align 8
-  %485 = load i32, ptr %24, align 4
-  %486 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %484, i32 noundef %485, ptr noundef %486)
-  br label %487
+  %485 = icmp ne ptr %484, null
+  br i1 %485, label %486, label %493
 
-487:                                              ; preds = %481
-  br label %488
+486:                                              ; preds = %481
+  %487 = load ptr, ptr %3, align 8
+  %488 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %487, i32 0, i32 19
+  %489 = load ptr, ptr %488, align 8
+  %490 = call i64 @strlen(ptr noundef %489) #7
+  %491 = trunc i64 %490 to i32
+  %492 = add i32 %491, 1
+  store i32 %492, ptr %24, align 4
+  br label %493
 
-488:                                              ; preds = %487
-  store i32 0, ptr %25, align 4
-  %489 = load ptr, ptr %3, align 8
-  %490 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %489, i32 0, i32 20
-  %491 = load ptr, ptr %490, align 8
-  %492 = icmp ne ptr %491, null
-  br i1 %492, label %493, label %500
-
-493:                                              ; preds = %488
+493:                                              ; preds = %486, %481
   %494 = load ptr, ptr %3, align 8
-  %495 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %494, i32 0, i32 20
+  %495 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %494, i32 0, i32 19
   %496 = load ptr, ptr %495, align 8
-  %497 = call i64 @strlen(ptr noundef %496) #6
-  %498 = trunc i64 %497 to i32
-  %499 = add i32 %498, 1
-  store i32 %499, ptr %25, align 4
+  %497 = load i32, ptr %24, align 4
+  %498 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %496, i32 noundef %497, ptr noundef %498)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  br label %499
+
+499:                                              ; preds = %493
   br label %500
 
-500:                                              ; preds = %493, %488
-  %501 = load ptr, ptr %3, align 8
-  %502 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %501, i32 0, i32 20
-  %503 = load ptr, ptr %502, align 8
-  %504 = load i32, ptr %25, align 4
-  %505 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %503, i32 noundef %504, ptr noundef %505)
-  br label %506
+500:                                              ; preds = %499
+  br label %501
 
-506:                                              ; preds = %500
+501:                                              ; preds = %500
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  store i32 0, ptr %25, align 4
+  %502 = load ptr, ptr %3, align 8
+  %503 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %502, i32 0, i32 20
+  %504 = load ptr, ptr %503, align 8
+  %505 = icmp ne ptr %504, null
+  br i1 %505, label %506, label %513
+
+506:                                              ; preds = %501
   %507 = load ptr, ptr %3, align 8
-  %508 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %507, i32 0, i32 23
-  %509 = load i32, ptr %508, align 8
-  %510 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %509, ptr noundef %510)
-  %511 = load ptr, ptr %3, align 8
-  %512 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %511, i32 0, i32 23
-  %513 = load i32, ptr %512, align 8
-  %514 = icmp ne i32 %513, 0
-  br i1 %514, label %515, label %530
+  %508 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %507, i32 0, i32 20
+  %509 = load ptr, ptr %508, align 8
+  %510 = call i64 @strlen(ptr noundef %509) #7
+  %511 = trunc i64 %510 to i32
+  %512 = add i32 %511, 1
+  store i32 %512, ptr %25, align 4
+  br label %513
 
-515:                                              ; preds = %506
-  %516 = load ptr, ptr %3, align 8
-  %517 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %516, i32 0, i32 21
-  %518 = load ptr, ptr %517, align 8
-  %519 = load ptr, ptr %3, align 8
-  %520 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %519, i32 0, i32 23
-  %521 = load i32, ptr %520, align 8
-  %522 = load ptr, ptr %7, align 8
-  call void @pack64_array(ptr noundef %518, i32 noundef %521, ptr noundef %522)
-  %523 = load ptr, ptr %3, align 8
-  %524 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %523, i32 0, i32 22
-  %525 = load ptr, ptr %524, align 8
-  %526 = load ptr, ptr %3, align 8
-  %527 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %526, i32 0, i32 23
-  %528 = load i32, ptr %527, align 8
-  %529 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %525, i32 noundef %528, ptr noundef %529)
-  br label %530
+513:                                              ; preds = %506, %501
+  %514 = load ptr, ptr %3, align 8
+  %515 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %514, i32 0, i32 20
+  %516 = load ptr, ptr %515, align 8
+  %517 = load i32, ptr %25, align 4
+  %518 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %516, i32 noundef %517, ptr noundef %518)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  br label %519
 
-530:                                              ; preds = %515, %506
-  %531 = load ptr, ptr %3, align 8
-  %532 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %531, i32 0, i32 42
-  %533 = load i32, ptr %532, align 8
-  %534 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %533, ptr noundef %534)
-  %535 = load ptr, ptr %3, align 8
-  %536 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %535, i32 0, i32 42
-  %537 = load i32, ptr %536, align 8
-  %538 = icmp ne i32 %537, 0
-  br i1 %538, label %539, label %554
+519:                                              ; preds = %513
+  br label %520
 
-539:                                              ; preds = %530
+520:                                              ; preds = %519
+  %521 = load ptr, ptr %3, align 8
+  %522 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %521, i32 0, i32 23
+  %523 = load i32, ptr %522, align 8
+  %524 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %523, ptr noundef %524)
+  %525 = load ptr, ptr %3, align 8
+  %526 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %525, i32 0, i32 23
+  %527 = load i32, ptr %526, align 8
+  %528 = icmp ne i32 %527, 0
+  br i1 %528, label %529, label %544
+
+529:                                              ; preds = %520
+  %530 = load ptr, ptr %3, align 8
+  %531 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %530, i32 0, i32 21
+  %532 = load ptr, ptr %531, align 8
+  %533 = load ptr, ptr %3, align 8
+  %534 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %533, i32 0, i32 23
+  %535 = load i32, ptr %534, align 8
+  %536 = load ptr, ptr %7, align 8
+  call void @pack64_array(ptr noundef %532, i32 noundef %535, ptr noundef %536)
+  %537 = load ptr, ptr %3, align 8
+  %538 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %537, i32 0, i32 22
+  %539 = load ptr, ptr %538, align 8
   %540 = load ptr, ptr %3, align 8
-  %541 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %540, i32 0, i32 40
-  %542 = load ptr, ptr %541, align 8
-  %543 = load ptr, ptr %3, align 8
-  %544 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %543, i32 0, i32 42
-  %545 = load i32, ptr %544, align 8
-  %546 = load ptr, ptr %7, align 8
-  call void @pack64_array(ptr noundef %542, i32 noundef %545, ptr noundef %546)
-  %547 = load ptr, ptr %3, align 8
-  %548 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %547, i32 0, i32 41
-  %549 = load ptr, ptr %548, align 8
-  %550 = load ptr, ptr %3, align 8
-  %551 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %550, i32 0, i32 42
-  %552 = load i32, ptr %551, align 8
-  %553 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %549, i32 noundef %552, ptr noundef %553)
-  br label %554
+  %541 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %540, i32 0, i32 23
+  %542 = load i32, ptr %541, align 8
+  %543 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %539, i32 noundef %542, ptr noundef %543)
+  br label %544
 
-554:                                              ; preds = %539, %530
-  br label %555
+544:                                              ; preds = %529, %520
+  %545 = load ptr, ptr %3, align 8
+  %546 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %545, i32 0, i32 42
+  %547 = load i32, ptr %546, align 8
+  %548 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %547, ptr noundef %548)
+  %549 = load ptr, ptr %3, align 8
+  %550 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %549, i32 0, i32 42
+  %551 = load i32, ptr %550, align 8
+  %552 = icmp ne i32 %551, 0
+  br i1 %552, label %553, label %568
 
-555:                                              ; preds = %554
-  store i32 0, ptr %26, align 4
-  %556 = load ptr, ptr %3, align 8
-  %557 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %556, i32 0, i32 32
-  %558 = load ptr, ptr %557, align 8
-  %559 = icmp ne ptr %558, null
-  br i1 %559, label %560, label %567
-
-560:                                              ; preds = %555
+553:                                              ; preds = %544
+  %554 = load ptr, ptr %3, align 8
+  %555 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %554, i32 0, i32 40
+  %556 = load ptr, ptr %555, align 8
+  %557 = load ptr, ptr %3, align 8
+  %558 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %557, i32 0, i32 42
+  %559 = load i32, ptr %558, align 8
+  %560 = load ptr, ptr %7, align 8
+  call void @pack64_array(ptr noundef %556, i32 noundef %559, ptr noundef %560)
   %561 = load ptr, ptr %3, align 8
-  %562 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %561, i32 0, i32 32
+  %562 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %561, i32 0, i32 41
   %563 = load ptr, ptr %562, align 8
-  %564 = call i64 @strlen(ptr noundef %563) #6
-  %565 = trunc i64 %564 to i32
-  %566 = add i32 %565, 1
-  store i32 %566, ptr %26, align 4
-  br label %567
+  %564 = load ptr, ptr %3, align 8
+  %565 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %564, i32 0, i32 42
+  %566 = load i32, ptr %565, align 8
+  %567 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %563, i32 noundef %566, ptr noundef %567)
+  br label %568
 
-567:                                              ; preds = %560, %555
-  %568 = load ptr, ptr %3, align 8
-  %569 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %568, i32 0, i32 32
-  %570 = load ptr, ptr %569, align 8
-  %571 = load i32, ptr %26, align 4
-  %572 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %570, i32 noundef %571, ptr noundef %572)
-  br label %573
+568:                                              ; preds = %553, %544
+  br label %569
 
-573:                                              ; preds = %567
-  br label %1082
+569:                                              ; preds = %568
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
+  store i32 0, ptr %26, align 4
+  %570 = load ptr, ptr %3, align 8
+  %571 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %570, i32 0, i32 32
+  %572 = load ptr, ptr %571, align 8
+  %573 = icmp ne ptr %572, null
+  br i1 %573, label %574, label %581
 
-574:                                              ; preds = %2
-  %575 = load i16, ptr %4, align 2
-  %576 = zext i16 %575 to i32
-  %577 = icmp sge i32 %576, 9984
-  br i1 %577, label %578, label %1081
+574:                                              ; preds = %569
+  %575 = load ptr, ptr %3, align 8
+  %576 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %575, i32 0, i32 32
+  %577 = load ptr, ptr %576, align 8
+  %578 = call i64 @strlen(ptr noundef %577) #7
+  %579 = trunc i64 %578 to i32
+  %580 = add i32 %579, 1
+  store i32 %580, ptr %26, align 4
+  br label %581
 
-578:                                              ; preds = %574
-  %579 = load ptr, ptr %3, align 8
-  %580 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %579, i32 0, i32 0
-  %581 = load ptr, ptr %7, align 8
-  %582 = load i16, ptr %4, align 2
-  call void @pack_step_id(ptr noundef %580, ptr noundef %581, i16 noundef zeroext %582)
-  %583 = load ptr, ptr %3, align 8
-  %584 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %583, i32 0, i32 3
-  %585 = load ptr, ptr %584, align 8
+581:                                              ; preds = %574, %569
+  %582 = load ptr, ptr %3, align 8
+  %583 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %582, i32 0, i32 32
+  %584 = load ptr, ptr %583, align 8
+  %585 = load i32, ptr %26, align 4
   %586 = load ptr, ptr %7, align 8
-  %587 = load i16, ptr %4, align 2
-  call void @pack_identity(ptr noundef %585, ptr noundef %586, i16 noundef zeroext %587)
-  %588 = load ptr, ptr %3, align 8
-  %589 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %588, i32 0, i32 28
-  %590 = load ptr, ptr %589, align 8
-  %591 = load ptr, ptr %7, align 8
-  %592 = load ptr, ptr %3, align 8
-  %593 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %592, i32 0, i32 0
-  %594 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %593, i32 0, i32 0
-  %595 = load i32, ptr %594, align 8
-  %596 = load i16, ptr %4, align 2
-  %597 = call i32 @gres_job_state_pack(ptr noundef %590, ptr noundef %591, i32 noundef %595, i1 noundef zeroext false, i16 noundef zeroext %596)
-  %598 = load ptr, ptr %3, align 8
-  %599 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %598, i32 0, i32 43
-  %600 = load ptr, ptr %599, align 8
+  call void @packmem(ptr noundef %584, i32 noundef %585, ptr noundef %586)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  br label %587
+
+587:                                              ; preds = %581
+  br label %588
+
+588:                                              ; preds = %587
+  %589 = load ptr, ptr %3, align 8
+  %590 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %589, i32 0, i32 44
+  %591 = load ptr, ptr %590, align 8
+  %592 = load ptr, ptr %7, align 8
+  %593 = load i16, ptr %4, align 2
+  call void @switch_g_pack_stepinfo(ptr noundef %591, ptr noundef %592, i16 noundef zeroext %593)
+  br label %1121
+
+594:                                              ; preds = %2
+  %595 = load i16, ptr %4, align 2
+  %596 = zext i16 %595 to i32
+  %597 = icmp sge i32 %596, 10240
+  br i1 %597, label %598, label %1120
+
+598:                                              ; preds = %594
+  %599 = load ptr, ptr %3, align 8
+  %600 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %599, i32 0, i32 0
   %601 = load ptr, ptr %7, align 8
-  %602 = load ptr, ptr %3, align 8
-  %603 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %602, i32 0, i32 0
-  %604 = load i16, ptr %4, align 2
-  %605 = call i32 @gres_step_state_pack(ptr noundef %600, ptr noundef %601, ptr noundef %603, i16 noundef zeroext %604)
-  %606 = load ptr, ptr %3, align 8
-  %607 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %606, i32 0, i32 16
-  %608 = load i16, ptr %607, align 8
-  %609 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %608, ptr noundef %609)
-  br label %610
+  %602 = load i16, ptr %4, align 2
+  call void @pack_step_id(ptr noundef %600, ptr noundef %601, i16 noundef zeroext %602)
+  %603 = load ptr, ptr %3, align 8
+  %604 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %603, i32 0, i32 3
+  %605 = load ptr, ptr %604, align 8
+  %606 = load ptr, ptr %7, align 8
+  %607 = load i16, ptr %4, align 2
+  call void @pack_identity(ptr noundef %605, ptr noundef %606, i16 noundef zeroext %607)
+  %608 = load ptr, ptr %3, align 8
+  %609 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %608, i32 0, i32 28
+  %610 = load ptr, ptr %609, align 8
+  %611 = load ptr, ptr %7, align 8
+  %612 = load ptr, ptr %3, align 8
+  %613 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %612, i32 0, i32 0
+  %614 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %613, i32 0, i32 1
+  %615 = load i32, ptr %614, align 8
+  %616 = load i16, ptr %4, align 2
+  %617 = call i32 @gres_job_state_pack(ptr noundef %610, ptr noundef %611, i32 noundef %615, i1 noundef zeroext false, i16 noundef zeroext %616)
+  %618 = load ptr, ptr %3, align 8
+  %619 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %618, i32 0, i32 43
+  %620 = load ptr, ptr %619, align 8
+  %621 = load ptr, ptr %7, align 8
+  %622 = load ptr, ptr %3, align 8
+  %623 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %622, i32 0, i32 0
+  %624 = load i16, ptr %4, align 2
+  %625 = call i32 @gres_step_state_pack(ptr noundef %620, ptr noundef %621, ptr noundef %623, i16 noundef zeroext %624)
+  %626 = load ptr, ptr %3, align 8
+  %627 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %626, i32 0, i32 16
+  %628 = load i16, ptr %627, align 8
+  %629 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %628, ptr noundef %629)
+  br label %630
 
-610:                                              ; preds = %578
+630:                                              ; preds = %598
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
   store i32 0, ptr %27, align 4
-  %611 = load ptr, ptr %3, align 8
-  %612 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %611, i32 0, i32 11
-  %613 = load ptr, ptr %612, align 8
-  %614 = icmp ne ptr %613, null
-  br i1 %614, label %615, label %622
+  %631 = load ptr, ptr %3, align 8
+  %632 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %631, i32 0, i32 11
+  %633 = load ptr, ptr %632, align 8
+  %634 = icmp ne ptr %633, null
+  br i1 %634, label %635, label %642
 
-615:                                              ; preds = %610
-  %616 = load ptr, ptr %3, align 8
-  %617 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %616, i32 0, i32 11
-  %618 = load ptr, ptr %617, align 8
-  %619 = call i64 @strlen(ptr noundef %618) #6
-  %620 = trunc i64 %619 to i32
-  %621 = add i32 %620, 1
-  store i32 %621, ptr %27, align 4
-  br label %622
+635:                                              ; preds = %630
+  %636 = load ptr, ptr %3, align 8
+  %637 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %636, i32 0, i32 11
+  %638 = load ptr, ptr %637, align 8
+  %639 = call i64 @strlen(ptr noundef %638) #7
+  %640 = trunc i64 %639 to i32
+  %641 = add i32 %640, 1
+  store i32 %641, ptr %27, align 4
+  br label %642
 
-622:                                              ; preds = %615, %610
-  %623 = load ptr, ptr %3, align 8
-  %624 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %623, i32 0, i32 11
-  %625 = load ptr, ptr %624, align 8
-  %626 = load i32, ptr %27, align 4
-  %627 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %625, i32 noundef %626, ptr noundef %627)
-  br label %628
-
-628:                                              ; preds = %622
-  br label %629
-
-629:                                              ; preds = %628
-  store i32 0, ptr %28, align 4
-  %630 = load ptr, ptr %3, align 8
-  %631 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %630, i32 0, i32 12
-  %632 = load ptr, ptr %631, align 8
-  %633 = icmp ne ptr %632, null
-  br i1 %633, label %634, label %641
-
-634:                                              ; preds = %629
-  %635 = load ptr, ptr %3, align 8
-  %636 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %635, i32 0, i32 12
-  %637 = load ptr, ptr %636, align 8
-  %638 = call i64 @strlen(ptr noundef %637) #6
-  %639 = trunc i64 %638 to i32
-  %640 = add i32 %639, 1
-  store i32 %640, ptr %28, align 4
-  br label %641
-
-641:                                              ; preds = %634, %629
-  %642 = load ptr, ptr %3, align 8
-  %643 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %642, i32 0, i32 12
-  %644 = load ptr, ptr %643, align 8
-  %645 = load i32, ptr %28, align 4
-  %646 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %644, i32 noundef %645, ptr noundef %646)
-  br label %647
-
-647:                                              ; preds = %641
+642:                                              ; preds = %635, %630
+  %643 = load ptr, ptr %3, align 8
+  %644 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %643, i32 0, i32 11
+  %645 = load ptr, ptr %644, align 8
+  %646 = load i32, ptr %27, align 4
+  %647 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %645, i32 noundef %646, ptr noundef %647)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
   br label %648
 
-648:                                              ; preds = %647
-  store i32 0, ptr %29, align 4
-  %649 = load ptr, ptr %3, align 8
-  %650 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %649, i32 0, i32 13
-  %651 = load ptr, ptr %650, align 8
-  %652 = icmp ne ptr %651, null
-  br i1 %652, label %653, label %660
+648:                                              ; preds = %642
+  br label %649
 
-653:                                              ; preds = %648
-  %654 = load ptr, ptr %3, align 8
-  %655 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %654, i32 0, i32 13
-  %656 = load ptr, ptr %655, align 8
-  %657 = call i64 @strlen(ptr noundef %656) #6
-  %658 = trunc i64 %657 to i32
-  %659 = add i32 %658, 1
-  store i32 %659, ptr %29, align 4
-  br label %660
+649:                                              ; preds = %648
+  %650 = load ptr, ptr %3, align 8
+  %651 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %650, i32 0, i32 25
+  %652 = load ptr, ptr %651, align 8
+  %653 = load ptr, ptr %3, align 8
+  %654 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %653, i32 0, i32 25
+  %655 = load ptr, ptr %654, align 8
+  %656 = icmp ne ptr %655, null
+  br i1 %656, label %657, label %661
 
-660:                                              ; preds = %653, %648
-  %661 = load ptr, ptr %3, align 8
-  %662 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %661, i32 0, i32 13
-  %663 = load ptr, ptr %662, align 8
-  %664 = load i32, ptr %29, align 4
-  %665 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %663, i32 noundef %664, ptr noundef %665)
-  br label %666
+657:                                              ; preds = %649
+  %658 = load ptr, ptr %3, align 8
+  %659 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %658, i32 0, i32 24
+  %660 = load i32, ptr %659, align 4
+  br label %662
 
-666:                                              ; preds = %660
-  br label %667
+661:                                              ; preds = %649
+  br label %662
 
-667:                                              ; preds = %666
-  store i32 0, ptr %30, align 4
-  %668 = load ptr, ptr %3, align 8
-  %669 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %668, i32 0, i32 14
-  %670 = load ptr, ptr %669, align 8
-  %671 = icmp ne ptr %670, null
-  br i1 %671, label %672, label %679
+662:                                              ; preds = %661, %657
+  %663 = phi i32 [ %660, %657 ], [ 0, %661 ]
+  %664 = load ptr, ptr %7, align 8
+  call void @slurm_pack_addr_array(ptr noundef %652, i32 noundef %663, ptr noundef %664)
+  br label %665
 
-672:                                              ; preds = %667
-  %673 = load ptr, ptr %3, align 8
-  %674 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %673, i32 0, i32 14
-  %675 = load ptr, ptr %674, align 8
-  %676 = call i64 @strlen(ptr noundef %675) #6
-  %677 = trunc i64 %676 to i32
-  %678 = add i32 %677, 1
-  store i32 %678, ptr %30, align 4
-  br label %679
+665:                                              ; preds = %662
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
+  store i32 0, ptr %28, align 4
+  %666 = load ptr, ptr %3, align 8
+  %667 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %666, i32 0, i32 12
+  %668 = load ptr, ptr %667, align 8
+  %669 = icmp ne ptr %668, null
+  br i1 %669, label %670, label %677
 
-679:                                              ; preds = %672, %667
-  %680 = load ptr, ptr %3, align 8
-  %681 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %680, i32 0, i32 14
-  %682 = load ptr, ptr %681, align 8
-  %683 = load i32, ptr %30, align 4
-  %684 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %682, i32 noundef %683, ptr noundef %684)
+670:                                              ; preds = %665
+  %671 = load ptr, ptr %3, align 8
+  %672 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %671, i32 0, i32 12
+  %673 = load ptr, ptr %672, align 8
+  %674 = call i64 @strlen(ptr noundef %673) #7
+  %675 = trunc i64 %674 to i32
+  %676 = add i32 %675, 1
+  store i32 %676, ptr %28, align 4
+  br label %677
+
+677:                                              ; preds = %670, %665
+  %678 = load ptr, ptr %3, align 8
+  %679 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %678, i32 0, i32 12
+  %680 = load ptr, ptr %679, align 8
+  %681 = load i32, ptr %28, align 4
+  %682 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %680, i32 noundef %681, ptr noundef %682)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  br label %683
+
+683:                                              ; preds = %677
+  br label %684
+
+684:                                              ; preds = %683
   br label %685
 
-685:                                              ; preds = %679
+685:                                              ; preds = %684
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #6
+  store i32 0, ptr %29, align 4
   %686 = load ptr, ptr %3, align 8
-  %687 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %686, i32 0, i32 17
-  %688 = load i64, ptr %687, align 8
-  %689 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %688, ptr noundef %689)
-  br label %690
+  %687 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %686, i32 0, i32 13
+  %688 = load ptr, ptr %687, align 8
+  %689 = icmp ne ptr %688, null
+  br i1 %689, label %690, label %697
 
 690:                                              ; preds = %685
-  store i32 0, ptr %31, align 4
   %691 = load ptr, ptr %3, align 8
-  %692 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %691, i32 0, i32 18
+  %692 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %691, i32 0, i32 13
   %693 = load ptr, ptr %692, align 8
-  %694 = icmp ne ptr %693, null
-  br i1 %694, label %695, label %702
+  %694 = call i64 @strlen(ptr noundef %693) #7
+  %695 = trunc i64 %694 to i32
+  %696 = add i32 %695, 1
+  store i32 %696, ptr %29, align 4
+  br label %697
 
-695:                                              ; preds = %690
-  %696 = load ptr, ptr %3, align 8
-  %697 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %696, i32 0, i32 18
-  %698 = load ptr, ptr %697, align 8
-  %699 = call i64 @strlen(ptr noundef %698) #6
-  %700 = trunc i64 %699 to i32
-  %701 = add i32 %700, 1
-  store i32 %701, ptr %31, align 4
-  br label %702
+697:                                              ; preds = %690, %685
+  %698 = load ptr, ptr %3, align 8
+  %699 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %698, i32 0, i32 13
+  %700 = load ptr, ptr %699, align 8
+  %701 = load i32, ptr %29, align 4
+  %702 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %700, i32 noundef %701, ptr noundef %702)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #6
+  br label %703
 
-702:                                              ; preds = %695, %690
-  %703 = load ptr, ptr %3, align 8
-  %704 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %703, i32 0, i32 18
-  %705 = load ptr, ptr %704, align 8
-  %706 = load i32, ptr %31, align 4
-  %707 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %705, i32 noundef %706, ptr noundef %707)
-  br label %708
+703:                                              ; preds = %697
+  br label %704
 
-708:                                              ; preds = %702
-  %709 = load ptr, ptr %3, align 8
-  %710 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %709, i32 0, i32 27
-  %711 = load i16, ptr %710, align 4
-  %712 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %711, ptr noundef %712)
-  br label %713
+704:                                              ; preds = %703
+  br label %705
 
-713:                                              ; preds = %708
+705:                                              ; preds = %704
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
+  store i32 0, ptr %30, align 4
+  %706 = load ptr, ptr %3, align 8
+  %707 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %706, i32 0, i32 14
+  %708 = load ptr, ptr %707, align 8
+  %709 = icmp ne ptr %708, null
+  br i1 %709, label %710, label %717
+
+710:                                              ; preds = %705
+  %711 = load ptr, ptr %3, align 8
+  %712 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %711, i32 0, i32 14
+  %713 = load ptr, ptr %712, align 8
+  %714 = call i64 @strlen(ptr noundef %713) #7
+  %715 = trunc i64 %714 to i32
+  %716 = add i32 %715, 1
+  store i32 %716, ptr %30, align 4
+  br label %717
+
+717:                                              ; preds = %710, %705
+  %718 = load ptr, ptr %3, align 8
+  %719 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %718, i32 0, i32 14
+  %720 = load ptr, ptr %719, align 8
+  %721 = load i32, ptr %30, align 4
+  %722 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %720, i32 noundef %721, ptr noundef %722)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  br label %723
+
+723:                                              ; preds = %717
+  br label %724
+
+724:                                              ; preds = %723
+  %725 = load ptr, ptr %3, align 8
+  %726 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %725, i32 0, i32 17
+  %727 = load i64, ptr %726, align 8
+  %728 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %727, ptr noundef %728)
+  br label %729
+
+729:                                              ; preds = %724
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #6
+  store i32 0, ptr %31, align 4
+  %730 = load ptr, ptr %3, align 8
+  %731 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %730, i32 0, i32 18
+  %732 = load ptr, ptr %731, align 8
+  %733 = icmp ne ptr %732, null
+  br i1 %733, label %734, label %741
+
+734:                                              ; preds = %729
+  %735 = load ptr, ptr %3, align 8
+  %736 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %735, i32 0, i32 18
+  %737 = load ptr, ptr %736, align 8
+  %738 = call i64 @strlen(ptr noundef %737) #7
+  %739 = trunc i64 %738 to i32
+  %740 = add i32 %739, 1
+  store i32 %740, ptr %31, align 4
+  br label %741
+
+741:                                              ; preds = %734, %729
+  %742 = load ptr, ptr %3, align 8
+  %743 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %742, i32 0, i32 18
+  %744 = load ptr, ptr %743, align 8
+  %745 = load i32, ptr %31, align 4
+  %746 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %744, i32 noundef %745, ptr noundef %746)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #6
+  br label %747
+
+747:                                              ; preds = %741
+  br label %748
+
+748:                                              ; preds = %747
+  %749 = load ptr, ptr %3, align 8
+  %750 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %749, i32 0, i32 27
+  %751 = load i16, ptr %750, align 4
+  %752 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %751, ptr noundef %752)
+  %753 = load ptr, ptr %3, align 8
+  %754 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %753, i32 0, i32 29
+  %755 = load ptr, ptr %754, align 8
+  %756 = load ptr, ptr %3, align 8
+  %757 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %756, i32 0, i32 44
+  %758 = load ptr, ptr %757, align 8
+  %759 = load ptr, ptr %7, align 8
+  %760 = load i16, ptr %4, align 2
+  call void @_packstr_and_switch(ptr noundef %755, ptr noundef %758, ptr noundef %759, i16 noundef zeroext %760)
+  br label %761
+
+761:                                              ; preds = %748
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #6
   store i32 0, ptr %32, align 4
-  %714 = load ptr, ptr %3, align 8
-  %715 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %714, i32 0, i32 29
-  %716 = load ptr, ptr %715, align 8
-  %717 = icmp ne ptr %716, null
-  br i1 %717, label %718, label %725
+  %762 = load ptr, ptr %3, align 8
+  %763 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %762, i32 0, i32 30
+  %764 = load ptr, ptr %763, align 8
+  %765 = icmp ne ptr %764, null
+  br i1 %765, label %766, label %773
 
-718:                                              ; preds = %713
-  %719 = load ptr, ptr %3, align 8
-  %720 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %719, i32 0, i32 29
-  %721 = load ptr, ptr %720, align 8
-  %722 = call i64 @strlen(ptr noundef %721) #6
-  %723 = trunc i64 %722 to i32
-  %724 = add i32 %723, 1
-  store i32 %724, ptr %32, align 4
-  br label %725
+766:                                              ; preds = %761
+  %767 = load ptr, ptr %3, align 8
+  %768 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %767, i32 0, i32 30
+  %769 = load ptr, ptr %768, align 8
+  %770 = call i64 @strlen(ptr noundef %769) #7
+  %771 = trunc i64 %770 to i32
+  %772 = add i32 %771, 1
+  store i32 %772, ptr %32, align 4
+  br label %773
 
-725:                                              ; preds = %718, %713
-  %726 = load ptr, ptr %3, align 8
-  %727 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %726, i32 0, i32 29
-  %728 = load ptr, ptr %727, align 8
-  %729 = load i32, ptr %32, align 4
-  %730 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %728, i32 noundef %729, ptr noundef %730)
-  br label %731
+773:                                              ; preds = %766, %761
+  %774 = load ptr, ptr %3, align 8
+  %775 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %774, i32 0, i32 30
+  %776 = load ptr, ptr %775, align 8
+  %777 = load i32, ptr %32, align 4
+  %778 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %776, i32 noundef %777, ptr noundef %778)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #6
+  br label %779
 
-731:                                              ; preds = %725
-  br label %732
+779:                                              ; preds = %773
+  br label %780
 
-732:                                              ; preds = %731
+780:                                              ; preds = %779
+  %781 = load ptr, ptr %3, align 8
+  %782 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %781, i32 0, i32 31
+  %783 = load i16, ptr %782, align 8
+  %784 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %783, ptr noundef %784)
+  %785 = load ptr, ptr %3, align 8
+  %786 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %785, i32 0, i32 33
+  %787 = load i64, ptr %786, align 8
+  %788 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %787, ptr noundef %788)
+  br label %789
+
+789:                                              ; preds = %780
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
   store i32 0, ptr %33, align 4
-  %733 = load ptr, ptr %3, align 8
-  %734 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %733, i32 0, i32 30
-  %735 = load ptr, ptr %734, align 8
-  %736 = icmp ne ptr %735, null
-  br i1 %736, label %737, label %744
+  %790 = load ptr, ptr %3, align 8
+  %791 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %790, i32 0, i32 34
+  %792 = load ptr, ptr %791, align 8
+  %793 = icmp ne ptr %792, null
+  br i1 %793, label %794, label %801
 
-737:                                              ; preds = %732
-  %738 = load ptr, ptr %3, align 8
-  %739 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %738, i32 0, i32 30
-  %740 = load ptr, ptr %739, align 8
-  %741 = call i64 @strlen(ptr noundef %740) #6
-  %742 = trunc i64 %741 to i32
-  %743 = add i32 %742, 1
-  store i32 %743, ptr %33, align 4
-  br label %744
+794:                                              ; preds = %789
+  %795 = load ptr, ptr %3, align 8
+  %796 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %795, i32 0, i32 34
+  %797 = load ptr, ptr %796, align 8
+  %798 = call i64 @strlen(ptr noundef %797) #7
+  %799 = trunc i64 %798 to i32
+  %800 = add i32 %799, 1
+  store i32 %800, ptr %33, align 4
+  br label %801
 
-744:                                              ; preds = %737, %732
-  %745 = load ptr, ptr %3, align 8
-  %746 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %745, i32 0, i32 30
-  %747 = load ptr, ptr %746, align 8
-  %748 = load i32, ptr %33, align 4
-  %749 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %747, i32 noundef %748, ptr noundef %749)
-  br label %750
+801:                                              ; preds = %794, %789
+  %802 = load ptr, ptr %3, align 8
+  %803 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %802, i32 0, i32 34
+  %804 = load ptr, ptr %803, align 8
+  %805 = load i32, ptr %33, align 4
+  %806 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %804, i32 noundef %805, ptr noundef %806)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
+  br label %807
 
-750:                                              ; preds = %744
-  %751 = load ptr, ptr %3, align 8
-  %752 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %751, i32 0, i32 31
-  %753 = load i16, ptr %752, align 8
-  %754 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %753, ptr noundef %754)
-  %755 = load ptr, ptr %3, align 8
-  %756 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %755, i32 0, i32 33
-  %757 = load i64, ptr %756, align 8
-  %758 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %757, ptr noundef %758)
-  br label %759
+807:                                              ; preds = %801
+  br label %808
 
-759:                                              ; preds = %750
-  store i32 0, ptr %34, align 4
-  %760 = load ptr, ptr %3, align 8
-  %761 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %760, i32 0, i32 34
-  %762 = load ptr, ptr %761, align 8
-  %763 = icmp ne ptr %762, null
-  br i1 %763, label %764, label %771
-
-764:                                              ; preds = %759
-  %765 = load ptr, ptr %3, align 8
-  %766 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %765, i32 0, i32 34
-  %767 = load ptr, ptr %766, align 8
-  %768 = call i64 @strlen(ptr noundef %767) #6
-  %769 = trunc i64 %768 to i32
-  %770 = add i32 %769, 1
-  store i32 %770, ptr %34, align 4
-  br label %771
-
-771:                                              ; preds = %764, %759
-  %772 = load ptr, ptr %3, align 8
-  %773 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %772, i32 0, i32 34
-  %774 = load ptr, ptr %773, align 8
-  %775 = load i32, ptr %34, align 4
-  %776 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %774, i32 noundef %775, ptr noundef %776)
-  br label %777
-
-777:                                              ; preds = %771
-  br label %778
-
-778:                                              ; preds = %777
-  store i32 0, ptr %35, align 4
-  %779 = load ptr, ptr %3, align 8
-  %780 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %779, i32 0, i32 35
-  %781 = load ptr, ptr %780, align 8
-  %782 = icmp ne ptr %781, null
-  br i1 %782, label %783, label %790
-
-783:                                              ; preds = %778
-  %784 = load ptr, ptr %3, align 8
-  %785 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %784, i32 0, i32 35
-  %786 = load ptr, ptr %785, align 8
-  %787 = call i64 @strlen(ptr noundef %786) #6
-  %788 = trunc i64 %787 to i32
-  %789 = add i32 %788, 1
-  store i32 %789, ptr %35, align 4
-  br label %790
-
-790:                                              ; preds = %783, %778
-  %791 = load ptr, ptr %3, align 8
-  %792 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %791, i32 0, i32 35
-  %793 = load ptr, ptr %792, align 8
-  %794 = load i32, ptr %35, align 4
-  %795 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %793, i32 noundef %794, ptr noundef %795)
-  br label %796
-
-796:                                              ; preds = %790
-  br label %797
-
-797:                                              ; preds = %796
-  store i32 0, ptr %36, align 4
-  %798 = load ptr, ptr %3, align 8
-  %799 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %798, i32 0, i32 36
-  %800 = load ptr, ptr %799, align 8
-  %801 = icmp ne ptr %800, null
-  br i1 %801, label %802, label %809
-
-802:                                              ; preds = %797
-  %803 = load ptr, ptr %3, align 8
-  %804 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %803, i32 0, i32 36
-  %805 = load ptr, ptr %804, align 8
-  %806 = call i64 @strlen(ptr noundef %805) #6
-  %807 = trunc i64 %806 to i32
-  %808 = add i32 %807, 1
-  store i32 %808, ptr %36, align 4
+808:                                              ; preds = %807
   br label %809
 
-809:                                              ; preds = %802, %797
+809:                                              ; preds = %808
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #6
+  store i32 0, ptr %34, align 4
   %810 = load ptr, ptr %3, align 8
-  %811 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %810, i32 0, i32 36
+  %811 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %810, i32 0, i32 35
   %812 = load ptr, ptr %811, align 8
-  %813 = load i32, ptr %36, align 4
-  %814 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %812, i32 noundef %813, ptr noundef %814)
-  br label %815
+  %813 = icmp ne ptr %812, null
+  br i1 %813, label %814, label %821
 
-815:                                              ; preds = %809
-  br label %816
+814:                                              ; preds = %809
+  %815 = load ptr, ptr %3, align 8
+  %816 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %815, i32 0, i32 35
+  %817 = load ptr, ptr %816, align 8
+  %818 = call i64 @strlen(ptr noundef %817) #7
+  %819 = trunc i64 %818 to i32
+  %820 = add i32 %819, 1
+  store i32 %820, ptr %34, align 4
+  br label %821
 
-816:                                              ; preds = %815
-  store i32 0, ptr %37, align 4
-  %817 = load ptr, ptr %3, align 8
-  %818 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %817, i32 0, i32 39
-  %819 = load ptr, ptr %818, align 8
-  %820 = icmp ne ptr %819, null
-  br i1 %820, label %821, label %828
-
-821:                                              ; preds = %816
+821:                                              ; preds = %814, %809
   %822 = load ptr, ptr %3, align 8
-  %823 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %822, i32 0, i32 39
+  %823 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %822, i32 0, i32 35
   %824 = load ptr, ptr %823, align 8
-  %825 = call i64 @strlen(ptr noundef %824) #6
-  %826 = trunc i64 %825 to i32
-  %827 = add i32 %826, 1
-  store i32 %827, ptr %37, align 4
+  %825 = load i32, ptr %34, align 4
+  %826 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %824, i32 noundef %825, ptr noundef %826)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #6
+  br label %827
+
+827:                                              ; preds = %821
   br label %828
 
-828:                                              ; preds = %821, %816
-  %829 = load ptr, ptr %3, align 8
-  %830 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %829, i32 0, i32 39
-  %831 = load ptr, ptr %830, align 8
-  %832 = load i32, ptr %37, align 4
-  %833 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %831, i32 noundef %832, ptr noundef %833)
-  br label %834
+828:                                              ; preds = %827
+  br label %829
 
-834:                                              ; preds = %828
+829:                                              ; preds = %828
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  store i32 0, ptr %35, align 4
+  %830 = load ptr, ptr %3, align 8
+  %831 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %830, i32 0, i32 36
+  %832 = load ptr, ptr %831, align 8
+  %833 = icmp ne ptr %832, null
+  br i1 %833, label %834, label %841
+
+834:                                              ; preds = %829
   %835 = load ptr, ptr %3, align 8
-  %836 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %835, i32 0, i32 37
-  %837 = load i16, ptr %836, align 8
-  %838 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %837, ptr noundef %838)
-  %839 = load i64, ptr %8, align 8
-  %840 = load ptr, ptr %7, align 8
-  call void @pack_time(i64 noundef %839, ptr noundef %840)
-  %841 = load ptr, ptr %3, align 8
-  %842 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %841, i32 0, i32 15
-  %843 = load ptr, ptr %842, align 8
-  %844 = icmp ne ptr %843, null
-  br i1 %844, label %845, label %851
+  %836 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %835, i32 0, i32 36
+  %837 = load ptr, ptr %836, align 8
+  %838 = call i64 @strlen(ptr noundef %837) #7
+  %839 = trunc i64 %838 to i32
+  %840 = add i32 %839, 1
+  store i32 %840, ptr %35, align 4
+  br label %841
 
-845:                                              ; preds = %834
-  %846 = load ptr, ptr %3, align 8
-  %847 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %846, i32 0, i32 15
-  %848 = load ptr, ptr %847, align 8
-  %849 = call i64 @bit_size(ptr noundef %848)
-  %850 = trunc i64 %849 to i32
-  store i32 %850, ptr %6, align 4
-  br label %851
+841:                                              ; preds = %834, %829
+  %842 = load ptr, ptr %3, align 8
+  %843 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %842, i32 0, i32 36
+  %844 = load ptr, ptr %843, align 8
+  %845 = load i32, ptr %35, align 4
+  %846 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %844, i32 noundef %845, ptr noundef %846)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
+  br label %847
 
-851:                                              ; preds = %845, %834
-  %852 = load i32, ptr %6, align 4
-  %853 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %852, ptr noundef %853)
-  br label %854
+847:                                              ; preds = %841
+  br label %848
 
-854:                                              ; preds = %851
+848:                                              ; preds = %847
+  br label %849
+
+849:                                              ; preds = %848
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #6
+  store i32 0, ptr %36, align 4
+  %850 = load ptr, ptr %3, align 8
+  %851 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %850, i32 0, i32 39
+  %852 = load ptr, ptr %851, align 8
+  %853 = icmp ne ptr %852, null
+  br i1 %853, label %854, label %861
+
+854:                                              ; preds = %849
   %855 = load ptr, ptr %3, align 8
-  %856 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %855, i32 0, i32 15
+  %856 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %855, i32 0, i32 39
   %857 = load ptr, ptr %856, align 8
-  %858 = icmp ne ptr %857, null
-  br i1 %858, label %859, label %878
+  %858 = call i64 @strlen(ptr noundef %857) #7
+  %859 = trunc i64 %858 to i32
+  %860 = add i32 %859, 1
+  store i32 %860, ptr %36, align 4
+  br label %861
 
-859:                                              ; preds = %854
-  %860 = load ptr, ptr %3, align 8
-  %861 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %860, i32 0, i32 15
-  %862 = load ptr, ptr %861, align 8
-  %863 = call ptr @bit_fmt_hexmask(ptr noundef %862)
-  store ptr %863, ptr %38, align 8
-  %864 = load ptr, ptr %3, align 8
-  %865 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %864, i32 0, i32 15
-  %866 = load ptr, ptr %865, align 8
-  %867 = call i64 @bit_size(ptr noundef %866)
-  %868 = trunc i64 %867 to i32
-  store i32 %868, ptr %39, align 4
-  %869 = load i32, ptr %39, align 4
-  %870 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %869, ptr noundef %870)
-  %871 = load ptr, ptr %38, align 8
-  %872 = call i64 @strlen(ptr noundef %871) #6
-  %873 = add i64 %872, 1
-  %874 = trunc i64 %873 to i32
-  store i32 %874, ptr %39, align 4
-  %875 = load ptr, ptr %38, align 8
-  %876 = load i32, ptr %39, align 4
-  %877 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %875, i32 noundef %876, ptr noundef %877)
-  call void @slurm_xfree(ptr noundef %38)
-  br label %880
+861:                                              ; preds = %854, %849
+  %862 = load ptr, ptr %3, align 8
+  %863 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %862, i32 0, i32 39
+  %864 = load ptr, ptr %863, align 8
+  %865 = load i32, ptr %36, align 4
+  %866 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %864, i32 noundef %865, ptr noundef %866)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #6
+  br label %867
 
-878:                                              ; preds = %854
-  %879 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef -2, ptr noundef %879)
-  br label %880
+867:                                              ; preds = %861
+  br label %868
 
-880:                                              ; preds = %878, %859
-  br label %881
+868:                                              ; preds = %867
+  %869 = load ptr, ptr %3, align 8
+  %870 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %869, i32 0, i32 37
+  %871 = load i16, ptr %870, align 8
+  %872 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %871, ptr noundef %872)
+  %873 = load i64, ptr %8, align 8
+  %874 = load ptr, ptr %7, align 8
+  call void @pack_time(i64 noundef %873, ptr noundef %874)
+  %875 = load ptr, ptr %3, align 8
+  %876 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %875, i32 0, i32 15
+  %877 = load ptr, ptr %876, align 8
+  %878 = icmp ne ptr %877, null
+  br i1 %878, label %879, label %885
 
-881:                                              ; preds = %880
-  br label %882
+879:                                              ; preds = %868
+  %880 = load ptr, ptr %3, align 8
+  %881 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %880, i32 0, i32 15
+  %882 = load ptr, ptr %881, align 8
+  %883 = call i64 @bit_size(ptr noundef %882)
+  %884 = trunc i64 %883 to i32
+  store i32 %884, ptr %6, align 4
+  br label %885
 
-882:                                              ; preds = %881
-  %883 = load ptr, ptr %3, align 8
-  %884 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %883, i32 0, i32 38
-  %885 = load ptr, ptr %884, align 8
-  %886 = icmp ne ptr %885, null
-  br i1 %886, label %887, label %906
+885:                                              ; preds = %879, %868
+  %886 = load i32, ptr %6, align 4
+  %887 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %886, ptr noundef %887)
+  br label %888
 
-887:                                              ; preds = %882
-  %888 = load ptr, ptr %3, align 8
-  %889 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %888, i32 0, i32 38
-  %890 = load ptr, ptr %889, align 8
-  %891 = call ptr @bit_fmt_hexmask(ptr noundef %890)
-  store ptr %891, ptr %40, align 8
-  %892 = load ptr, ptr %3, align 8
-  %893 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %892, i32 0, i32 38
-  %894 = load ptr, ptr %893, align 8
-  %895 = call i64 @bit_size(ptr noundef %894)
-  %896 = trunc i64 %895 to i32
-  store i32 %896, ptr %41, align 4
-  %897 = load i32, ptr %41, align 4
-  %898 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %897, ptr noundef %898)
-  %899 = load ptr, ptr %40, align 8
-  %900 = call i64 @strlen(ptr noundef %899) #6
-  %901 = add i64 %900, 1
+888:                                              ; preds = %885
+  %889 = load ptr, ptr %3, align 8
+  %890 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %889, i32 0, i32 15
+  %891 = load ptr, ptr %890, align 8
+  %892 = icmp ne ptr %891, null
+  br i1 %892, label %893, label %912
+
+893:                                              ; preds = %888
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #6
+  %894 = load ptr, ptr %3, align 8
+  %895 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %894, i32 0, i32 15
+  %896 = load ptr, ptr %895, align 8
+  %897 = call ptr @bit_fmt_hexmask(ptr noundef %896)
+  store ptr %897, ptr %37, align 8
+  %898 = load ptr, ptr %3, align 8
+  %899 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %898, i32 0, i32 15
+  %900 = load ptr, ptr %899, align 8
+  %901 = call i64 @bit_size(ptr noundef %900)
   %902 = trunc i64 %901 to i32
-  store i32 %902, ptr %41, align 4
-  %903 = load ptr, ptr %40, align 8
-  %904 = load i32, ptr %41, align 4
-  %905 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %903, i32 noundef %904, ptr noundef %905)
-  call void @slurm_xfree(ptr noundef %40)
-  br label %908
+  store i32 %902, ptr %38, align 4
+  %903 = load i32, ptr %38, align 4
+  %904 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %903, ptr noundef %904)
+  %905 = load ptr, ptr %37, align 8
+  %906 = call i64 @strlen(ptr noundef %905) #7
+  %907 = add i64 %906, 1
+  %908 = trunc i64 %907 to i32
+  store i32 %908, ptr %38, align 4
+  %909 = load ptr, ptr %37, align 8
+  %910 = load i32, ptr %38, align 4
+  %911 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %909, i32 noundef %910, ptr noundef %911)
+  call void @slurm_xfree(ptr noundef %37)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #6
+  br label %914
 
-906:                                              ; preds = %882
-  %907 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef -2, ptr noundef %907)
-  br label %908
-
-908:                                              ; preds = %906, %887
-  br label %909
-
-909:                                              ; preds = %908
-  %910 = load ptr, ptr %3, align 8
-  %911 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %910, i32 0, i32 4
-  %912 = load i16, ptr %911, align 8
+912:                                              ; preds = %888
   %913 = load ptr, ptr %7, align 8
-  call void @pack16(i16 noundef zeroext %912, ptr noundef %913)
-  %914 = load ptr, ptr %3, align 8
-  %915 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %914, i32 0, i32 4
-  %916 = load i16, ptr %915, align 8
-  %917 = icmp ne i16 %916, 0
-  br i1 %917, label %918, label %943
+  call void @pack32(i32 noundef -2, ptr noundef %913)
+  br label %914
 
-918:                                              ; preds = %909
-  %919 = load ptr, ptr %3, align 8
-  %920 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %919, i32 0, i32 5
-  %921 = load ptr, ptr %920, align 8
-  %922 = load ptr, ptr %3, align 8
-  %923 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %922, i32 0, i32 4
-  %924 = load i16, ptr %923, align 8
-  %925 = zext i16 %924 to i32
-  %926 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %921, i32 noundef %925, ptr noundef %926)
+914:                                              ; preds = %912, %893
+  br label %915
+
+915:                                              ; preds = %914
+  br label %916
+
+916:                                              ; preds = %915
+  br label %917
+
+917:                                              ; preds = %916
+  %918 = load ptr, ptr %3, align 8
+  %919 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %918, i32 0, i32 38
+  %920 = load ptr, ptr %919, align 8
+  %921 = icmp ne ptr %920, null
+  br i1 %921, label %922, label %941
+
+922:                                              ; preds = %917
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #6
+  %923 = load ptr, ptr %3, align 8
+  %924 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %923, i32 0, i32 38
+  %925 = load ptr, ptr %924, align 8
+  %926 = call ptr @bit_fmt_hexmask(ptr noundef %925)
+  store ptr %926, ptr %39, align 8
   %927 = load ptr, ptr %3, align 8
-  %928 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %927, i32 0, i32 6
+  %928 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %927, i32 0, i32 38
   %929 = load ptr, ptr %928, align 8
-  %930 = load ptr, ptr %3, align 8
-  %931 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %930, i32 0, i32 4
-  %932 = load i16, ptr %931, align 8
-  %933 = zext i16 %932 to i32
-  %934 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %929, i32 noundef %933, ptr noundef %934)
-  %935 = load ptr, ptr %3, align 8
-  %936 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %935, i32 0, i32 7
-  %937 = load ptr, ptr %936, align 8
-  %938 = load ptr, ptr %3, align 8
-  %939 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %938, i32 0, i32 4
-  %940 = load i16, ptr %939, align 8
-  %941 = zext i16 %940 to i32
-  %942 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %937, i32 noundef %941, ptr noundef %942)
+  %930 = call i64 @bit_size(ptr noundef %929)
+  %931 = trunc i64 %930 to i32
+  store i32 %931, ptr %40, align 4
+  %932 = load i32, ptr %40, align 4
+  %933 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %932, ptr noundef %933)
+  %934 = load ptr, ptr %39, align 8
+  %935 = call i64 @strlen(ptr noundef %934) #7
+  %936 = add i64 %935, 1
+  %937 = trunc i64 %936 to i32
+  store i32 %937, ptr %40, align 4
+  %938 = load ptr, ptr %39, align 8
+  %939 = load i32, ptr %40, align 4
+  %940 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %938, i32 noundef %939, ptr noundef %940)
+  call void @slurm_xfree(ptr noundef %39)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #6
   br label %943
 
-943:                                              ; preds = %918, %909
-  %944 = load ptr, ptr %3, align 8
-  %945 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %944, i32 0, i32 8
-  %946 = load i32, ptr %945, align 8
-  %947 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %946, ptr noundef %947)
-  %948 = load ptr, ptr %3, align 8
-  %949 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %948, i32 0, i32 8
-  %950 = load i32, ptr %949, align 8
-  %951 = icmp ne i32 %950, 0
-  br i1 %951, label %952, label %967
+941:                                              ; preds = %917
+  %942 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef -2, ptr noundef %942)
+  br label %943
 
-952:                                              ; preds = %943
-  %953 = load ptr, ptr %3, align 8
-  %954 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %953, i32 0, i32 9
-  %955 = load ptr, ptr %954, align 8
-  %956 = load ptr, ptr %3, align 8
-  %957 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %956, i32 0, i32 8
-  %958 = load i32, ptr %957, align 8
-  %959 = load ptr, ptr %7, align 8
-  call void @pack16_array(ptr noundef %955, i32 noundef %958, ptr noundef %959)
-  %960 = load ptr, ptr %3, align 8
-  %961 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %960, i32 0, i32 10
-  %962 = load ptr, ptr %961, align 8
+943:                                              ; preds = %941, %922
+  br label %944
+
+944:                                              ; preds = %943
+  br label %945
+
+945:                                              ; preds = %944
+  %946 = load ptr, ptr %3, align 8
+  %947 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %946, i32 0, i32 4
+  %948 = load i16, ptr %947, align 8
+  %949 = load ptr, ptr %7, align 8
+  call void @pack16(i16 noundef zeroext %948, ptr noundef %949)
+  %950 = load ptr, ptr %3, align 8
+  %951 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %950, i32 0, i32 4
+  %952 = load i16, ptr %951, align 8
+  %953 = icmp ne i16 %952, 0
+  br i1 %953, label %954, label %979
+
+954:                                              ; preds = %945
+  %955 = load ptr, ptr %3, align 8
+  %956 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %955, i32 0, i32 5
+  %957 = load ptr, ptr %956, align 8
+  %958 = load ptr, ptr %3, align 8
+  %959 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %958, i32 0, i32 4
+  %960 = load i16, ptr %959, align 8
+  %961 = zext i16 %960 to i32
+  %962 = load ptr, ptr %7, align 8
+  call void @pack16_array(ptr noundef %957, i32 noundef %961, ptr noundef %962)
   %963 = load ptr, ptr %3, align 8
-  %964 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %963, i32 0, i32 8
-  %965 = load i32, ptr %964, align 8
-  %966 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %962, i32 noundef %965, ptr noundef %966)
-  br label %967
+  %964 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %963, i32 0, i32 6
+  %965 = load ptr, ptr %964, align 8
+  %966 = load ptr, ptr %3, align 8
+  %967 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %966, i32 0, i32 4
+  %968 = load i16, ptr %967, align 8
+  %969 = zext i16 %968 to i32
+  %970 = load ptr, ptr %7, align 8
+  call void @pack16_array(ptr noundef %965, i32 noundef %969, ptr noundef %970)
+  %971 = load ptr, ptr %3, align 8
+  %972 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %971, i32 0, i32 7
+  %973 = load ptr, ptr %972, align 8
+  %974 = load ptr, ptr %3, align 8
+  %975 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %974, i32 0, i32 4
+  %976 = load i16, ptr %975, align 8
+  %977 = zext i16 %976 to i32
+  %978 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %973, i32 noundef %977, ptr noundef %978)
+  br label %979
 
-967:                                              ; preds = %952, %943
-  %968 = load ptr, ptr %3, align 8
-  %969 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %968, i32 0, i32 24
-  %970 = load i32, ptr %969, align 4
-  %971 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %970, ptr noundef %971)
-  %972 = load ptr, ptr %3, align 8
-  %973 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %972, i32 0, i32 26
-  %974 = load i32, ptr %973, align 8
-  %975 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %974, ptr noundef %975)
-  br label %976
+979:                                              ; preds = %954, %945
+  %980 = load ptr, ptr %3, align 8
+  %981 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %980, i32 0, i32 8
+  %982 = load i32, ptr %981, align 8
+  %983 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %982, ptr noundef %983)
+  %984 = load ptr, ptr %3, align 8
+  %985 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %984, i32 0, i32 8
+  %986 = load i32, ptr %985, align 8
+  %987 = icmp ne i32 %986, 0
+  br i1 %987, label %988, label %1003
 
-976:                                              ; preds = %967
-  store i32 0, ptr %42, align 4
-  %977 = load ptr, ptr %3, align 8
-  %978 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %977, i32 0, i32 19
-  %979 = load ptr, ptr %978, align 8
-  %980 = icmp ne ptr %979, null
-  br i1 %980, label %981, label %988
-
-981:                                              ; preds = %976
-  %982 = load ptr, ptr %3, align 8
-  %983 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %982, i32 0, i32 19
-  %984 = load ptr, ptr %983, align 8
-  %985 = call i64 @strlen(ptr noundef %984) #6
-  %986 = trunc i64 %985 to i32
-  %987 = add i32 %986, 1
-  store i32 %987, ptr %42, align 4
-  br label %988
-
-988:                                              ; preds = %981, %976
+988:                                              ; preds = %979
   %989 = load ptr, ptr %3, align 8
-  %990 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %989, i32 0, i32 19
+  %990 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %989, i32 0, i32 9
   %991 = load ptr, ptr %990, align 8
-  %992 = load i32, ptr %42, align 4
-  %993 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %991, i32 noundef %992, ptr noundef %993)
-  br label %994
-
-994:                                              ; preds = %988
-  br label %995
-
-995:                                              ; preds = %994
-  store i32 0, ptr %43, align 4
+  %992 = load ptr, ptr %3, align 8
+  %993 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %992, i32 0, i32 8
+  %994 = load i32, ptr %993, align 8
+  %995 = load ptr, ptr %7, align 8
+  call void @pack16_array(ptr noundef %991, i32 noundef %994, ptr noundef %995)
   %996 = load ptr, ptr %3, align 8
-  %997 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %996, i32 0, i32 20
+  %997 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %996, i32 0, i32 10
   %998 = load ptr, ptr %997, align 8
-  %999 = icmp ne ptr %998, null
-  br i1 %999, label %1000, label %1007
+  %999 = load ptr, ptr %3, align 8
+  %1000 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %999, i32 0, i32 8
+  %1001 = load i32, ptr %1000, align 8
+  %1002 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %998, i32 noundef %1001, ptr noundef %1002)
+  br label %1003
 
-1000:                                             ; preds = %995
-  %1001 = load ptr, ptr %3, align 8
-  %1002 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1001, i32 0, i32 20
-  %1003 = load ptr, ptr %1002, align 8
-  %1004 = call i64 @strlen(ptr noundef %1003) #6
-  %1005 = trunc i64 %1004 to i32
-  %1006 = add i32 %1005, 1
-  store i32 %1006, ptr %43, align 4
-  br label %1007
-
-1007:                                             ; preds = %1000, %995
+1003:                                             ; preds = %988, %979
+  %1004 = load ptr, ptr %3, align 8
+  %1005 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1004, i32 0, i32 24
+  %1006 = load i32, ptr %1005, align 4
+  %1007 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %1006, ptr noundef %1007)
   %1008 = load ptr, ptr %3, align 8
-  %1009 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1008, i32 0, i32 20
-  %1010 = load ptr, ptr %1009, align 8
-  %1011 = load i32, ptr %43, align 4
-  %1012 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %1010, i32 noundef %1011, ptr noundef %1012)
-  br label %1013
+  %1009 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1008, i32 0, i32 26
+  %1010 = load i32, ptr %1009, align 8
+  %1011 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %1010, ptr noundef %1011)
+  br label %1012
 
-1013:                                             ; preds = %1007
-  %1014 = load ptr, ptr %3, align 8
-  %1015 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1014, i32 0, i32 23
-  %1016 = load i32, ptr %1015, align 8
-  %1017 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %1016, ptr noundef %1017)
+1012:                                             ; preds = %1003
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #6
+  store i32 0, ptr %41, align 4
+  %1013 = load ptr, ptr %3, align 8
+  %1014 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1013, i32 0, i32 19
+  %1015 = load ptr, ptr %1014, align 8
+  %1016 = icmp ne ptr %1015, null
+  br i1 %1016, label %1017, label %1024
+
+1017:                                             ; preds = %1012
   %1018 = load ptr, ptr %3, align 8
-  %1019 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1018, i32 0, i32 23
-  %1020 = load i32, ptr %1019, align 8
-  %1021 = icmp ne i32 %1020, 0
-  br i1 %1021, label %1022, label %1037
+  %1019 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1018, i32 0, i32 19
+  %1020 = load ptr, ptr %1019, align 8
+  %1021 = call i64 @strlen(ptr noundef %1020) #7
+  %1022 = trunc i64 %1021 to i32
+  %1023 = add i32 %1022, 1
+  store i32 %1023, ptr %41, align 4
+  br label %1024
 
-1022:                                             ; preds = %1013
-  %1023 = load ptr, ptr %3, align 8
-  %1024 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1023, i32 0, i32 21
-  %1025 = load ptr, ptr %1024, align 8
-  %1026 = load ptr, ptr %3, align 8
-  %1027 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1026, i32 0, i32 23
-  %1028 = load i32, ptr %1027, align 8
+1024:                                             ; preds = %1017, %1012
+  %1025 = load ptr, ptr %3, align 8
+  %1026 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1025, i32 0, i32 19
+  %1027 = load ptr, ptr %1026, align 8
+  %1028 = load i32, ptr %41, align 4
   %1029 = load ptr, ptr %7, align 8
-  call void @pack64_array(ptr noundef %1025, i32 noundef %1028, ptr noundef %1029)
-  %1030 = load ptr, ptr %3, align 8
-  %1031 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1030, i32 0, i32 22
-  %1032 = load ptr, ptr %1031, align 8
+  call void @packmem(ptr noundef %1027, i32 noundef %1028, ptr noundef %1029)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #6
+  br label %1030
+
+1030:                                             ; preds = %1024
+  br label %1031
+
+1031:                                             ; preds = %1030
+  br label %1032
+
+1032:                                             ; preds = %1031
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #6
+  store i32 0, ptr %42, align 4
   %1033 = load ptr, ptr %3, align 8
-  %1034 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1033, i32 0, i32 23
-  %1035 = load i32, ptr %1034, align 8
-  %1036 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %1032, i32 noundef %1035, ptr noundef %1036)
-  br label %1037
+  %1034 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1033, i32 0, i32 20
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = icmp ne ptr %1035, null
+  br i1 %1036, label %1037, label %1044
 
-1037:                                             ; preds = %1022, %1013
+1037:                                             ; preds = %1032
   %1038 = load ptr, ptr %3, align 8
-  %1039 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1038, i32 0, i32 42
-  %1040 = load i32, ptr %1039, align 8
-  %1041 = load ptr, ptr %7, align 8
-  call void @pack32(i32 noundef %1040, ptr noundef %1041)
-  %1042 = load ptr, ptr %3, align 8
-  %1043 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1042, i32 0, i32 42
-  %1044 = load i32, ptr %1043, align 8
-  %1045 = icmp ne i32 %1044, 0
-  br i1 %1045, label %1046, label %1061
+  %1039 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1038, i32 0, i32 20
+  %1040 = load ptr, ptr %1039, align 8
+  %1041 = call i64 @strlen(ptr noundef %1040) #7
+  %1042 = trunc i64 %1041 to i32
+  %1043 = add i32 %1042, 1
+  store i32 %1043, ptr %42, align 4
+  br label %1044
 
-1046:                                             ; preds = %1037
-  %1047 = load ptr, ptr %3, align 8
-  %1048 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1047, i32 0, i32 40
-  %1049 = load ptr, ptr %1048, align 8
-  %1050 = load ptr, ptr %3, align 8
-  %1051 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1050, i32 0, i32 42
-  %1052 = load i32, ptr %1051, align 8
-  %1053 = load ptr, ptr %7, align 8
-  call void @pack64_array(ptr noundef %1049, i32 noundef %1052, ptr noundef %1053)
-  %1054 = load ptr, ptr %3, align 8
-  %1055 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1054, i32 0, i32 41
-  %1056 = load ptr, ptr %1055, align 8
-  %1057 = load ptr, ptr %3, align 8
-  %1058 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1057, i32 0, i32 42
-  %1059 = load i32, ptr %1058, align 8
-  %1060 = load ptr, ptr %7, align 8
-  call void @pack32_array(ptr noundef %1056, i32 noundef %1059, ptr noundef %1060)
-  br label %1061
+1044:                                             ; preds = %1037, %1032
+  %1045 = load ptr, ptr %3, align 8
+  %1046 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1045, i32 0, i32 20
+  %1047 = load ptr, ptr %1046, align 8
+  %1048 = load i32, ptr %42, align 4
+  %1049 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %1047, i32 noundef %1048, ptr noundef %1049)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #6
+  br label %1050
 
-1061:                                             ; preds = %1046, %1037
-  br label %1062
+1050:                                             ; preds = %1044
+  br label %1051
 
-1062:                                             ; preds = %1061
-  store i32 0, ptr %44, align 4
-  %1063 = load ptr, ptr %3, align 8
-  %1064 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1063, i32 0, i32 32
-  %1065 = load ptr, ptr %1064, align 8
-  %1066 = icmp ne ptr %1065, null
-  br i1 %1066, label %1067, label %1074
+1051:                                             ; preds = %1050
+  %1052 = load ptr, ptr %3, align 8
+  %1053 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1052, i32 0, i32 23
+  %1054 = load i32, ptr %1053, align 8
+  %1055 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %1054, ptr noundef %1055)
+  %1056 = load ptr, ptr %3, align 8
+  %1057 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1056, i32 0, i32 23
+  %1058 = load i32, ptr %1057, align 8
+  %1059 = icmp ne i32 %1058, 0
+  br i1 %1059, label %1060, label %1075
 
-1067:                                             ; preds = %1062
+1060:                                             ; preds = %1051
+  %1061 = load ptr, ptr %3, align 8
+  %1062 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1061, i32 0, i32 21
+  %1063 = load ptr, ptr %1062, align 8
+  %1064 = load ptr, ptr %3, align 8
+  %1065 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1064, i32 0, i32 23
+  %1066 = load i32, ptr %1065, align 8
+  %1067 = load ptr, ptr %7, align 8
+  call void @pack64_array(ptr noundef %1063, i32 noundef %1066, ptr noundef %1067)
   %1068 = load ptr, ptr %3, align 8
-  %1069 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1068, i32 0, i32 32
+  %1069 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1068, i32 0, i32 22
   %1070 = load ptr, ptr %1069, align 8
-  %1071 = call i64 @strlen(ptr noundef %1070) #6
-  %1072 = trunc i64 %1071 to i32
-  %1073 = add i32 %1072, 1
-  store i32 %1073, ptr %44, align 4
-  br label %1074
+  %1071 = load ptr, ptr %3, align 8
+  %1072 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1071, i32 0, i32 23
+  %1073 = load i32, ptr %1072, align 8
+  %1074 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %1070, i32 noundef %1073, ptr noundef %1074)
+  br label %1075
 
-1074:                                             ; preds = %1067, %1062
-  %1075 = load ptr, ptr %3, align 8
-  %1076 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1075, i32 0, i32 32
-  %1077 = load ptr, ptr %1076, align 8
-  %1078 = load i32, ptr %44, align 4
+1075:                                             ; preds = %1060, %1051
+  %1076 = load ptr, ptr %3, align 8
+  %1077 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1076, i32 0, i32 42
+  %1078 = load i32, ptr %1077, align 8
   %1079 = load ptr, ptr %7, align 8
-  call void @packmem(ptr noundef %1077, i32 noundef %1078, ptr noundef %1079)
-  br label %1080
+  call void @pack32(i32 noundef %1078, ptr noundef %1079)
+  %1080 = load ptr, ptr %3, align 8
+  %1081 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1080, i32 0, i32 42
+  %1082 = load i32, ptr %1081, align 8
+  %1083 = icmp ne i32 %1082, 0
+  br i1 %1083, label %1084, label %1099
 
-1080:                                             ; preds = %1074
-  br label %1081
+1084:                                             ; preds = %1075
+  %1085 = load ptr, ptr %3, align 8
+  %1086 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1085, i32 0, i32 40
+  %1087 = load ptr, ptr %1086, align 8
+  %1088 = load ptr, ptr %3, align 8
+  %1089 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1088, i32 0, i32 42
+  %1090 = load i32, ptr %1089, align 8
+  %1091 = load ptr, ptr %7, align 8
+  call void @pack64_array(ptr noundef %1087, i32 noundef %1090, ptr noundef %1091)
+  %1092 = load ptr, ptr %3, align 8
+  %1093 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1092, i32 0, i32 41
+  %1094 = load ptr, ptr %1093, align 8
+  %1095 = load ptr, ptr %3, align 8
+  %1096 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1095, i32 0, i32 42
+  %1097 = load i32, ptr %1096, align 8
+  %1098 = load ptr, ptr %7, align 8
+  call void @pack32_array(ptr noundef %1094, i32 noundef %1097, ptr noundef %1098)
+  br label %1099
 
-1081:                                             ; preds = %1080, %574
-  br label %1082
+1099:                                             ; preds = %1084, %1075
+  br label %1100
 
-1082:                                             ; preds = %1081, %573
-  %1083 = load ptr, ptr %5, align 8
-  ret ptr %1083
+1100:                                             ; preds = %1099
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #6
+  store i32 0, ptr %43, align 4
+  %1101 = load ptr, ptr %3, align 8
+  %1102 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1101, i32 0, i32 32
+  %1103 = load ptr, ptr %1102, align 8
+  %1104 = icmp ne ptr %1103, null
+  br i1 %1104, label %1105, label %1112
+
+1105:                                             ; preds = %1100
+  %1106 = load ptr, ptr %3, align 8
+  %1107 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1106, i32 0, i32 32
+  %1108 = load ptr, ptr %1107, align 8
+  %1109 = call i64 @strlen(ptr noundef %1108) #7
+  %1110 = trunc i64 %1109 to i32
+  %1111 = add i32 %1110, 1
+  store i32 %1111, ptr %43, align 4
+  br label %1112
+
+1112:                                             ; preds = %1105, %1100
+  %1113 = load ptr, ptr %3, align 8
+  %1114 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1113, i32 0, i32 32
+  %1115 = load ptr, ptr %1114, align 8
+  %1116 = load i32, ptr %43, align 4
+  %1117 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %1115, i32 noundef %1116, ptr noundef %1117)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #6
+  br label %1118
+
+1118:                                             ; preds = %1112
+  br label %1119
+
+1119:                                             ; preds = %1118
+  br label %1120
+
+1120:                                             ; preds = %1119, %594
+  br label %1121
+
+1121:                                             ; preds = %1120, %588
+  %1122 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %1122
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) #1
+declare i64 @time(ptr noundef) #2
 
-declare ptr @slurm_cred_alloc(i1 noundef zeroext) #2
+declare ptr @slurm_cred_alloc(i1 noundef zeroext) #3
 
-declare ptr @init_buf(i32 noundef) #2
+declare ptr @init_buf(i32 noundef) #3
 
-declare void @pack_step_id(ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare void @pack_step_id(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare void @pack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare void @pack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare i32 @gres_job_state_pack(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i16 noundef zeroext) #2
+declare i32 @gres_job_state_pack(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i16 noundef zeroext) #3
 
-declare i32 @gres_step_state_pack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare i32 @gres_step_state_pack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare void @pack16(i16 noundef zeroext, ptr noundef) #2
+declare void @pack16(i16 noundef zeroext, ptr noundef) #3
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+declare i64 @strlen(ptr noundef) #4
 
-declare void @packmem(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @packmem(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @slurm_pack_addr_array(ptr noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @pack_time(i64 noundef, ptr noundef) #2
+declare void @slurm_pack_addr_array(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare i64 @bit_size(ptr noundef) #2
+declare void @pack_time(i64 noundef, ptr noundef) #3
 
-declare void @pack32(i32 noundef, ptr noundef) #2
+declare i64 @bit_size(ptr noundef) #3
 
-declare ptr @bit_fmt_hexmask(ptr noundef) #2
+declare void @pack32(i32 noundef, ptr noundef) #3
 
-declare void @slurm_xfree(ptr noundef) #2
+declare ptr @bit_fmt_hexmask(ptr noundef) #3
 
-declare void @pack16_array(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @slurm_xfree(ptr noundef) #3
 
-declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @pack16_array(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) #2
+declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) #3
+
+declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) #3
+
+declare void @switch_g_pack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
+define internal void @_packstr_and_switch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i16, align 2
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = icmp ne ptr %14, null
+  br i1 %15, label %31, label %16
+
+16:                                               ; preds = %4
+  br label %17
+
+17:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  store i32 0, ptr %11, align 4
+  %18 = load ptr, ptr %5, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %25
+
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %5, align 8
+  %22 = call i64 @strlen(ptr noundef %21) #7
+  %23 = trunc i64 %22 to i32
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %11, align 4
+  br label %25
+
+25:                                               ; preds = %20, %17
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %11, align 4
+  %28 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %26, i32 noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  br label %29
+
+29:                                               ; preds = %25
+  br label %30
+
+30:                                               ; preds = %29
+  store i32 1, ptr %12, align 4
+  br label %71
+
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %5, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %31
+  store ptr @.str.3, ptr %5, align 8
+  br label %35
+
+35:                                               ; preds = %34, %31
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds nuw %struct.buf_t, ptr %36, i32 0, i32 3
+  %38 = load i32, ptr %37, align 4
+  store i32 %38, ptr %9, align 4
+  br label %39
+
+39:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  store i32 0, ptr %13, align 4
+  %40 = load ptr, ptr %5, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %47
+
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = call i64 @strlen(ptr noundef %43) #7
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %45, 1
+  store i32 %46, ptr %13, align 4
+  br label %47
+
+47:                                               ; preds = %42, %39
+  %48 = load ptr, ptr %5, align 8
+  %49 = load i32, ptr %13, align 4
+  %50 = load ptr, ptr %7, align 8
+  call void @packmem(ptr noundef %48, i32 noundef %49, ptr noundef %50)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  br label %51
+
+51:                                               ; preds = %47
+  br label %52
+
+52:                                               ; preds = %51
+  %53 = load ptr, ptr %6, align 8
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i16, ptr %8, align 2
+  call void @switch_g_pack_stepinfo(ptr noundef %53, ptr noundef %54, i16 noundef zeroext %55)
+  %56 = load ptr, ptr %7, align 8
+  call void @pack8(i8 noundef zeroext 0, ptr noundef %56)
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw %struct.buf_t, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 4
+  store i32 %59, ptr %10, align 4
+  %60 = load i32, ptr %9, align 4
+  %61 = load ptr, ptr %7, align 8
+  %62 = getelementptr inbounds nuw %struct.buf_t, ptr %61, i32 0, i32 3
+  store i32 %60, ptr %62, align 4
+  %63 = load i32, ptr %10, align 4
+  %64 = load i32, ptr %9, align 4
+  %65 = sub i32 %63, %64
+  %66 = sub i32 %65, 4
+  %67 = load ptr, ptr %7, align 8
+  call void @pack32(i32 noundef %66, ptr noundef %67)
+  %68 = load i32, ptr %10, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct.buf_t, ptr %69, i32 0, i32 3
+  store i32 %68, ptr %70, align 4
+  store i32 0, ptr %12, align 4
+  br label %71
+
+71:                                               ; preds = %52, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  %72 = load i32, ptr %12, align 4
+  switch i32 %72, label %74 [
+    i32 0, label %73
+    i32 1, label %73
+  ]
+
+73:                                               ; preds = %71, %71
+  ret void
+
+74:                                               ; preds = %71
+  unreachable
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1648,7 +1977,7 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
+  %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
@@ -1660,12 +1989,12 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  %25 = alloca ptr, align 8
+  %25 = alloca i32, align 4
   %26 = alloca i32, align 4
-  %27 = alloca i32, align 4
-  %28 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
   %29 = alloca i32, align 4
-  %30 = alloca i32, align 4
+  %30 = alloca ptr, align 8
   %31 = alloca i32, align 4
   %32 = alloca i32, align 4
   %33 = alloca i32, align 4
@@ -1680,214 +2009,260 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
   %42 = alloca i32, align 4
   %43 = alloca i32, align 4
   %44 = alloca i32, align 4
-  %45 = alloca ptr, align 8
-  %46 = alloca i32, align 4
+  %45 = alloca i32, align 4
+  %46 = alloca ptr, align 8
   %47 = alloca i32, align 4
-  %48 = alloca ptr, align 8
-  %49 = alloca i32, align 4
+  %48 = alloca i32, align 4
+  %49 = alloca ptr, align 8
   %50 = alloca i32, align 4
   %51 = alloca i32, align 4
   %52 = alloca i32, align 4
   %53 = alloca i32, align 4
+  %54 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i16 %2, ptr %7, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   store ptr null, ptr %12, align 8
-  %54 = call ptr @slurm_cred_alloc(i1 noundef zeroext true)
-  store ptr %54, ptr %10, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.slurm_cred_t, ptr %55, i32 0, i32 5
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %11, align 8
-  %58 = load i16, ptr %7, align 2
-  %59 = zext i16 %58 to i32
-  %60 = icmp sge i32 %59, 10240
-  br i1 %60, label %61, label %638
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %55 = call ptr @slurm_cred_alloc(i1 noundef zeroext true)
+  store ptr %55, ptr %10, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %56, i32 0, i32 5
+  %58 = load ptr, ptr %57, align 8
+  store ptr %58, ptr %11, align 8
+  %59 = load i16, ptr %7, align 2
+  %60 = zext i16 %59 to i32
+  %61 = icmp sge i32 %60, 10752
+  br i1 %61, label %62, label %748
 
-61:                                               ; preds = %3
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i16, ptr %7, align 2
-  %66 = call i32 @unpack_step_id_members(ptr noundef %63, ptr noundef %64, i16 noundef zeroext %65)
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %69
+62:                                               ; preds = %3
+  %63 = load ptr, ptr %11, align 8
+  %64 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i16, ptr %7, align 2
+  %67 = call i32 @unpack_step_id_members(ptr noundef %64, ptr noundef %65, i16 noundef zeroext %66)
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %70
 
-68:                                               ; preds = %61
-  br label %1234
+69:                                               ; preds = %62
+  br label %1450
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %70, i32 0, i32 3
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i16, ptr %7, align 2
-  %74 = call i32 @unpack_identity(ptr noundef %71, ptr noundef %72, i16 noundef zeroext %73)
-  %75 = icmp ne i32 %74, 0
-  br i1 %75, label %76, label %77
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %11, align 8
+  %72 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %71, i32 0, i32 3
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i16, ptr %7, align 2
+  %75 = call i32 @unpack_identity(ptr noundef %72, ptr noundef %73, i16 noundef zeroext %74)
+  %76 = icmp ne i32 %75, 0
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %69
-  br label %1234
+77:                                               ; preds = %70
+  br label %1450
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %78, i32 0, i32 28
-  %80 = load ptr, ptr %6, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %81, i32 0, i32 0
-  %83 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %82, i32 0, i32 0
-  %84 = load i32, ptr %83, align 8
-  %85 = load i16, ptr %7, align 2
-  %86 = call i32 @gres_job_state_unpack(ptr noundef %79, ptr noundef %80, i32 noundef %84, i16 noundef zeroext %85)
-  %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %89
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %11, align 8
+  %80 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %79, i32 0, i32 28
+  %81 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %82, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %83, i32 0, i32 1
+  %85 = load i32, ptr %84, align 8
+  %86 = load i16, ptr %7, align 2
+  %87 = call i32 @gres_job_state_unpack(ptr noundef %80, ptr noundef %81, i32 noundef %85, i16 noundef zeroext %86)
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %90
 
-88:                                               ; preds = %77
-  br label %1234
+89:                                               ; preds = %78
+  br label %1450
 
-89:                                               ; preds = %77
-  %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %90, i32 0, i32 43
-  %92 = load ptr, ptr %6, align 8
-  %93 = load ptr, ptr %11, align 8
-  %94 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %93, i32 0, i32 0
-  %95 = load i16, ptr %7, align 2
-  %96 = call i32 @gres_step_state_unpack(ptr noundef %91, ptr noundef %92, ptr noundef %94, i16 noundef zeroext %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %99
+90:                                               ; preds = %78
+  %91 = load ptr, ptr %11, align 8
+  %92 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %91, i32 0, i32 43
+  %93 = load ptr, ptr %6, align 8
+  %94 = load ptr, ptr %11, align 8
+  %95 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %94, i32 0, i32 0
+  %96 = load i16, ptr %7, align 2
+  %97 = call i32 @gres_step_state_unpack(ptr noundef %92, ptr noundef %93, ptr noundef %95, i16 noundef zeroext %96)
+  %98 = icmp ne i32 %97, 0
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %89
-  br label %1234
+99:                                               ; preds = %90
+  br label %1450
 
-99:                                               ; preds = %89
-  br label %100
+100:                                              ; preds = %90
+  br label %101
 
-100:                                              ; preds = %99
-  %101 = load ptr, ptr %11, align 8
-  %102 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %101, i32 0, i32 16
-  %103 = load ptr, ptr %6, align 8
-  %104 = call i32 @unpack16(ptr noundef %102, ptr noundef %103)
-  %105 = icmp ne i32 %104, 0
-  br i1 %105, label %106, label %107
+101:                                              ; preds = %100
+  %102 = load ptr, ptr %11, align 8
+  %103 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %102, i32 0, i32 16
+  %104 = load ptr, ptr %6, align 8
+  %105 = call i32 @unpack16(ptr noundef %103, ptr noundef %104)
+  %106 = icmp ne i32 %105, 0
+  br i1 %106, label %107, label %108
 
-106:                                              ; preds = %100
-  br label %1234
+107:                                              ; preds = %101
+  br label %1450
 
-107:                                              ; preds = %100
-  br label %108
-
-108:                                              ; preds = %107
+108:                                              ; preds = %101
   br label %109
 
 109:                                              ; preds = %108
-  %110 = load ptr, ptr %11, align 8
-  %111 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %110, i32 0, i32 11
-  %112 = load ptr, ptr %6, align 8
-  %113 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %111, ptr noundef %14, ptr noundef %112)
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %116
+  br label %110
 
-115:                                              ; preds = %109
-  br label %1234
+110:                                              ; preds = %109
+  br label %111
 
-116:                                              ; preds = %109
-  br label %117
+111:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %112 = load ptr, ptr %11, align 8
+  %113 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %112, i32 0, i32 11
+  %114 = load ptr, ptr %6, align 8
+  %115 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %113, ptr noundef %15, ptr noundef %114)
+  %116 = icmp ne i32 %115, 0
+  br i1 %116, label %117, label %118
 
-117:                                              ; preds = %116
-  %118 = load ptr, ptr %11, align 8
-  %119 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %118, i32 0, i32 25
-  %120 = load ptr, ptr %6, align 8
-  %121 = call i32 @slurm_unpack_addr_array(ptr noundef %119, ptr noundef %9, ptr noundef %120)
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %124
+117:                                              ; preds = %111
+  store i32 2, ptr %16, align 4
+  br label %119
 
-123:                                              ; preds = %117
-  br label %1234
+118:                                              ; preds = %111
+  store i32 0, ptr %16, align 4
+  br label %119
 
-124:                                              ; preds = %117
-  br label %125
+119:                                              ; preds = %117, %118
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  %120 = load i32, ptr %16, align 4
+  switch i32 %120, label %1452 [
+    i32 0, label %121
+    i32 2, label %1450
+  ]
 
-125:                                              ; preds = %124
-  %126 = load ptr, ptr %11, align 8
-  %127 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %126, i32 0, i32 12
-  %128 = load ptr, ptr %6, align 8
-  %129 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %127, ptr noundef %15, ptr noundef %128)
-  %130 = icmp ne i32 %129, 0
-  br i1 %130, label %131, label %132
+121:                                              ; preds = %119
+  br label %122
 
-131:                                              ; preds = %125
-  br label %1234
+122:                                              ; preds = %121
+  br label %123
 
-132:                                              ; preds = %125
-  br label %133
+123:                                              ; preds = %122
+  %124 = load ptr, ptr %11, align 8
+  %125 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %124, i32 0, i32 25
+  %126 = load ptr, ptr %6, align 8
+  %127 = call i32 @slurm_unpack_addr_array(ptr noundef %125, ptr noundef %9, ptr noundef %126)
+  %128 = icmp ne i32 %127, 0
+  br i1 %128, label %129, label %130
 
-133:                                              ; preds = %132
-  br label %134
+129:                                              ; preds = %123
+  br label %1450
 
-134:                                              ; preds = %133
-  %135 = load ptr, ptr %11, align 8
-  %136 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %135, i32 0, i32 13
-  %137 = load ptr, ptr %6, align 8
-  %138 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %136, ptr noundef %16, ptr noundef %137)
-  %139 = icmp ne i32 %138, 0
-  br i1 %139, label %140, label %141
+130:                                              ; preds = %123
+  br label %131
 
-140:                                              ; preds = %134
-  br label %1234
+131:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %132 = load ptr, ptr %11, align 8
+  %133 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %132, i32 0, i32 12
+  %134 = load ptr, ptr %6, align 8
+  %135 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %133, ptr noundef %17, ptr noundef %134)
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %137, label %138
 
-141:                                              ; preds = %134
+137:                                              ; preds = %131
+  store i32 2, ptr %16, align 4
+  br label %139
+
+138:                                              ; preds = %131
+  store i32 0, ptr %16, align 4
+  br label %139
+
+139:                                              ; preds = %137, %138
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  %140 = load i32, ptr %16, align 4
+  switch i32 %140, label %1452 [
+    i32 0, label %141
+    i32 2, label %1450
+  ]
+
+141:                                              ; preds = %139
   br label %142
 
 142:                                              ; preds = %141
   br label %143
 
 143:                                              ; preds = %142
-  %144 = load ptr, ptr %11, align 8
-  %145 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %144, i32 0, i32 14
-  %146 = load ptr, ptr %6, align 8
-  %147 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %145, ptr noundef %17, ptr noundef %146)
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %150
+  br label %144
 
-149:                                              ; preds = %143
-  br label %1234
+144:                                              ; preds = %143
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %145 = load ptr, ptr %11, align 8
+  %146 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %145, i32 0, i32 13
+  %147 = load ptr, ptr %6, align 8
+  %148 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %146, ptr noundef %18, ptr noundef %147)
+  %149 = icmp ne i32 %148, 0
+  br i1 %149, label %150, label %151
 
-150:                                              ; preds = %143
-  br label %151
-
-151:                                              ; preds = %150
+150:                                              ; preds = %144
+  store i32 2, ptr %16, align 4
   br label %152
 
-152:                                              ; preds = %151
-  %153 = load ptr, ptr %11, align 8
-  %154 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %153, i32 0, i32 17
-  %155 = load ptr, ptr %6, align 8
-  %156 = call i32 @unpack_time(ptr noundef %154, ptr noundef %155)
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %158, label %159
+151:                                              ; preds = %144
+  store i32 0, ptr %16, align 4
+  br label %152
 
-158:                                              ; preds = %152
-  br label %1234
+152:                                              ; preds = %150, %151
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  %153 = load i32, ptr %16, align 4
+  switch i32 %153, label %1452 [
+    i32 0, label %154
+    i32 2, label %1450
+  ]
 
-159:                                              ; preds = %152
-  br label %160
+154:                                              ; preds = %152
+  br label %155
 
-160:                                              ; preds = %159
-  br label %161
+155:                                              ; preds = %154
+  br label %156
 
-161:                                              ; preds = %160
-  %162 = load ptr, ptr %11, align 8
-  %163 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %162, i32 0, i32 18
-  %164 = load ptr, ptr %6, align 8
-  %165 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %163, ptr noundef %18, ptr noundef %164)
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %167, label %168
+156:                                              ; preds = %155
+  br label %157
 
-167:                                              ; preds = %161
-  br label %1234
+157:                                              ; preds = %156
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %158 = load ptr, ptr %11, align 8
+  %159 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %158, i32 0, i32 14
+  %160 = load ptr, ptr %6, align 8
+  %161 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %159, ptr noundef %19, ptr noundef %160)
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %164
 
-168:                                              ; preds = %161
+163:                                              ; preds = %157
+  store i32 2, ptr %16, align 4
+  br label %165
+
+164:                                              ; preds = %157
+  store i32 0, ptr %16, align 4
+  br label %165
+
+165:                                              ; preds = %163, %164
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  %166 = load i32, ptr %16, align 4
+  switch i32 %166, label %1452 [
+    i32 0, label %167
+    i32 2, label %1450
+  ]
+
+167:                                              ; preds = %165
+  br label %168
+
+168:                                              ; preds = %167
   br label %169
 
 169:                                              ; preds = %168
@@ -1895,14 +2270,14 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
 
 170:                                              ; preds = %169
   %171 = load ptr, ptr %11, align 8
-  %172 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %171, i32 0, i32 27
+  %172 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %171, i32 0, i32 17
   %173 = load ptr, ptr %6, align 8
-  %174 = call i32 @unpack16(ptr noundef %172, ptr noundef %173)
+  %174 = call i32 @unpack_time(ptr noundef %172, ptr noundef %173)
   %175 = icmp ne i32 %174, 0
   br i1 %175, label %176, label %177
 
 176:                                              ; preds = %170
-  br label %1234
+  br label %1450
 
 177:                                              ; preds = %170
   br label %178
@@ -1911,942 +2286,1117 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
   br label %179
 
 179:                                              ; preds = %178
-  %180 = load ptr, ptr %11, align 8
-  %181 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %180, i32 0, i32 29
-  %182 = load ptr, ptr %6, align 8
-  %183 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %181, ptr noundef %19, ptr noundef %182)
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %186
+  br label %180
 
-185:                                              ; preds = %179
-  br label %1234
+180:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %181 = load ptr, ptr %11, align 8
+  %182 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %181, i32 0, i32 18
+  %183 = load ptr, ptr %6, align 8
+  %184 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %182, ptr noundef %20, ptr noundef %183)
+  %185 = icmp ne i32 %184, 0
+  br i1 %185, label %186, label %187
 
-186:                                              ; preds = %179
-  br label %187
-
-187:                                              ; preds = %186
+186:                                              ; preds = %180
+  store i32 2, ptr %16, align 4
   br label %188
 
-188:                                              ; preds = %187
-  %189 = load ptr, ptr %11, align 8
-  %190 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %189, i32 0, i32 30
-  %191 = load ptr, ptr %6, align 8
-  %192 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %190, ptr noundef %20, ptr noundef %191)
-  %193 = icmp ne i32 %192, 0
-  br i1 %193, label %194, label %195
+187:                                              ; preds = %180
+  store i32 0, ptr %16, align 4
+  br label %188
 
-194:                                              ; preds = %188
-  br label %1234
+188:                                              ; preds = %186, %187
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  %189 = load i32, ptr %16, align 4
+  switch i32 %189, label %1452 [
+    i32 0, label %190
+    i32 2, label %1450
+  ]
 
-195:                                              ; preds = %188
-  br label %196
+190:                                              ; preds = %188
+  br label %191
 
-196:                                              ; preds = %195
-  br label %197
+191:                                              ; preds = %190
+  br label %192
 
-197:                                              ; preds = %196
-  %198 = load ptr, ptr %11, align 8
-  %199 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %198, i32 0, i32 31
-  %200 = load ptr, ptr %6, align 8
-  %201 = call i32 @unpack16(ptr noundef %199, ptr noundef %200)
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %204
+192:                                              ; preds = %191
+  br label %193
 
-203:                                              ; preds = %197
-  br label %1234
+193:                                              ; preds = %192
+  %194 = load ptr, ptr %11, align 8
+  %195 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %194, i32 0, i32 27
+  %196 = load ptr, ptr %6, align 8
+  %197 = call i32 @unpack16(ptr noundef %195, ptr noundef %196)
+  %198 = icmp ne i32 %197, 0
+  br i1 %198, label %199, label %200
 
-204:                                              ; preds = %197
-  br label %205
+199:                                              ; preds = %193
+  br label %1450
 
-205:                                              ; preds = %204
-  br label %206
+200:                                              ; preds = %193
+  br label %201
 
-206:                                              ; preds = %205
-  %207 = load ptr, ptr %11, align 8
-  %208 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %207, i32 0, i32 33
-  %209 = load ptr, ptr %6, align 8
-  %210 = call i32 @unpack_time(ptr noundef %208, ptr noundef %209)
-  %211 = icmp ne i32 %210, 0
-  br i1 %211, label %212, label %213
+201:                                              ; preds = %200
+  br label %202
 
-212:                                              ; preds = %206
-  br label %1234
+202:                                              ; preds = %201
+  br label %203
 
-213:                                              ; preds = %206
+203:                                              ; preds = %202
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  %204 = load ptr, ptr %11, align 8
+  %205 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %204, i32 0, i32 29
+  %206 = load ptr, ptr %6, align 8
+  %207 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %205, ptr noundef %21, ptr noundef %206)
+  %208 = icmp ne i32 %207, 0
+  br i1 %208, label %209, label %210
+
+209:                                              ; preds = %203
+  store i32 2, ptr %16, align 4
+  br label %211
+
+210:                                              ; preds = %203
+  store i32 0, ptr %16, align 4
+  br label %211
+
+211:                                              ; preds = %209, %210
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  %212 = load i32, ptr %16, align 4
+  switch i32 %212, label %1452 [
+    i32 0, label %213
+    i32 2, label %1450
+  ]
+
+213:                                              ; preds = %211
   br label %214
 
 214:                                              ; preds = %213
   br label %215
 
 215:                                              ; preds = %214
-  %216 = load ptr, ptr %11, align 8
-  %217 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %216, i32 0, i32 34
-  %218 = load ptr, ptr %6, align 8
-  %219 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %217, ptr noundef %21, ptr noundef %218)
-  %220 = icmp ne i32 %219, 0
-  br i1 %220, label %221, label %222
+  br label %216
 
-221:                                              ; preds = %215
-  br label %1234
+216:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
+  %217 = load ptr, ptr %11, align 8
+  %218 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %217, i32 0, i32 30
+  %219 = load ptr, ptr %6, align 8
+  %220 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %218, ptr noundef %22, ptr noundef %219)
+  %221 = icmp ne i32 %220, 0
+  br i1 %221, label %222, label %223
 
-222:                                              ; preds = %215
-  br label %223
-
-223:                                              ; preds = %222
+222:                                              ; preds = %216
+  store i32 2, ptr %16, align 4
   br label %224
 
-224:                                              ; preds = %223
-  %225 = load ptr, ptr %11, align 8
-  %226 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %225, i32 0, i32 35
-  %227 = load ptr, ptr %6, align 8
-  %228 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %226, ptr noundef %22, ptr noundef %227)
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %231
+223:                                              ; preds = %216
+  store i32 0, ptr %16, align 4
+  br label %224
 
-230:                                              ; preds = %224
-  br label %1234
+224:                                              ; preds = %222, %223
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  %225 = load i32, ptr %16, align 4
+  switch i32 %225, label %1452 [
+    i32 0, label %226
+    i32 2, label %1450
+  ]
 
-231:                                              ; preds = %224
-  br label %232
+226:                                              ; preds = %224
+  br label %227
 
-232:                                              ; preds = %231
-  br label %233
+227:                                              ; preds = %226
+  br label %228
 
-233:                                              ; preds = %232
-  %234 = load ptr, ptr %11, align 8
-  %235 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %234, i32 0, i32 36
-  %236 = load ptr, ptr %6, align 8
-  %237 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %235, ptr noundef %23, ptr noundef %236)
-  %238 = icmp ne i32 %237, 0
-  br i1 %238, label %239, label %240
+228:                                              ; preds = %227
+  br label %229
 
-239:                                              ; preds = %233
-  br label %1234
+229:                                              ; preds = %228
+  %230 = load ptr, ptr %11, align 8
+  %231 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %230, i32 0, i32 31
+  %232 = load ptr, ptr %6, align 8
+  %233 = call i32 @unpack16(ptr noundef %231, ptr noundef %232)
+  %234 = icmp ne i32 %233, 0
+  br i1 %234, label %235, label %236
 
-240:                                              ; preds = %233
-  br label %241
+235:                                              ; preds = %229
+  br label %1450
 
-241:                                              ; preds = %240
-  br label %242
+236:                                              ; preds = %229
+  br label %237
 
-242:                                              ; preds = %241
-  %243 = load ptr, ptr %11, align 8
-  %244 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %243, i32 0, i32 39
-  %245 = load ptr, ptr %6, align 8
-  %246 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %244, ptr noundef %24, ptr noundef %245)
-  %247 = icmp ne i32 %246, 0
-  br i1 %247, label %248, label %249
+237:                                              ; preds = %236
+  br label %238
 
-248:                                              ; preds = %242
-  br label %1234
+238:                                              ; preds = %237
+  br label %239
 
-249:                                              ; preds = %242
-  br label %250
+239:                                              ; preds = %238
+  %240 = load ptr, ptr %11, align 8
+  %241 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %240, i32 0, i32 33
+  %242 = load ptr, ptr %6, align 8
+  %243 = call i32 @unpack_time(ptr noundef %241, ptr noundef %242)
+  %244 = icmp ne i32 %243, 0
+  br i1 %244, label %245, label %246
 
-250:                                              ; preds = %249
-  br label %251
+245:                                              ; preds = %239
+  br label %1450
 
-251:                                              ; preds = %250
-  %252 = load ptr, ptr %11, align 8
-  %253 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %252, i32 0, i32 37
-  %254 = load ptr, ptr %6, align 8
-  %255 = call i32 @unpack16(ptr noundef %253, ptr noundef %254)
-  %256 = icmp ne i32 %255, 0
-  br i1 %256, label %257, label %258
+246:                                              ; preds = %239
+  br label %247
 
-257:                                              ; preds = %251
-  br label %1234
+247:                                              ; preds = %246
+  br label %248
 
-258:                                              ; preds = %251
-  br label %259
+248:                                              ; preds = %247
+  br label %249
 
-259:                                              ; preds = %258
+249:                                              ; preds = %248
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  %250 = load ptr, ptr %11, align 8
+  %251 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %250, i32 0, i32 34
+  %252 = load ptr, ptr %6, align 8
+  %253 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %251, ptr noundef %23, ptr noundef %252)
+  %254 = icmp ne i32 %253, 0
+  br i1 %254, label %255, label %256
+
+255:                                              ; preds = %249
+  store i32 2, ptr %16, align 4
+  br label %257
+
+256:                                              ; preds = %249
+  store i32 0, ptr %16, align 4
+  br label %257
+
+257:                                              ; preds = %255, %256
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  %258 = load i32, ptr %16, align 4
+  switch i32 %258, label %1452 [
+    i32 0, label %259
+    i32 2, label %1450
+  ]
+
+259:                                              ; preds = %257
   br label %260
 
 260:                                              ; preds = %259
-  %261 = load ptr, ptr %10, align 8
-  %262 = getelementptr inbounds %struct.slurm_cred_t, ptr %261, i32 0, i32 6
-  %263 = load ptr, ptr %6, align 8
-  %264 = call i32 @unpack_time(ptr noundef %262, ptr noundef %263)
-  %265 = icmp ne i32 %264, 0
-  br i1 %265, label %266, label %267
+  br label %261
 
-266:                                              ; preds = %260
-  br label %1234
+261:                                              ; preds = %260
+  br label %262
 
-267:                                              ; preds = %260
-  br label %268
+262:                                              ; preds = %261
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  %263 = load ptr, ptr %11, align 8
+  %264 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %263, i32 0, i32 35
+  %265 = load ptr, ptr %6, align 8
+  %266 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %264, ptr noundef %24, ptr noundef %265)
+  %267 = icmp ne i32 %266, 0
+  br i1 %267, label %268, label %269
 
-268:                                              ; preds = %267
-  br label %269
+268:                                              ; preds = %262
+  store i32 2, ptr %16, align 4
+  br label %270
 
-269:                                              ; preds = %268
-  %270 = load ptr, ptr %6, align 8
-  %271 = call i32 @unpack32(ptr noundef %13, ptr noundef %270)
-  %272 = icmp ne i32 %271, 0
-  br i1 %272, label %273, label %274
+269:                                              ; preds = %262
+  store i32 0, ptr %16, align 4
+  br label %270
 
-273:                                              ; preds = %269
-  br label %1234
+270:                                              ; preds = %268, %269
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  %271 = load i32, ptr %16, align 4
+  switch i32 %271, label %1452 [
+    i32 0, label %272
+    i32 2, label %1450
+  ]
 
-274:                                              ; preds = %269
+272:                                              ; preds = %270
+  br label %273
+
+273:                                              ; preds = %272
+  br label %274
+
+274:                                              ; preds = %273
   br label %275
 
 275:                                              ; preds = %274
-  br label %276
-
-276:                                              ; preds = %275
-  store ptr null, ptr %25, align 8
-  br label %277
-
-277:                                              ; preds = %276
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  %276 = load ptr, ptr %11, align 8
+  %277 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %276, i32 0, i32 36
   %278 = load ptr, ptr %6, align 8
-  %279 = call i32 @unpack32(ptr noundef %26, ptr noundef %278)
+  %279 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %277, ptr noundef %25, ptr noundef %278)
   %280 = icmp ne i32 %279, 0
   br i1 %280, label %281, label %282
 
-281:                                              ; preds = %277
-  br label %1234
-
-282:                                              ; preds = %277
+281:                                              ; preds = %275
+  store i32 2, ptr %16, align 4
   br label %283
 
-283:                                              ; preds = %282
-  %284 = load i32, ptr %26, align 4
-  %285 = icmp ne i32 %284, -2
-  br i1 %285, label %286, label %326
+282:                                              ; preds = %275
+  store i32 0, ptr %16, align 4
+  br label %283
 
-286:                                              ; preds = %283
+283:                                              ; preds = %281, %282
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  %284 = load i32, ptr %16, align 4
+  switch i32 %284, label %1452 [
+    i32 0, label %285
+    i32 2, label %1450
+  ]
+
+285:                                              ; preds = %283
+  br label %286
+
+286:                                              ; preds = %285
   br label %287
 
 287:                                              ; preds = %286
-  %288 = load ptr, ptr %6, align 8
-  %289 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %25, ptr noundef %27, ptr noundef %288)
-  %290 = icmp ne i32 %289, 0
-  br i1 %290, label %291, label %292
+  br label %288
 
-291:                                              ; preds = %287
-  br label %1234
+288:                                              ; preds = %287
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
+  %289 = load ptr, ptr %11, align 8
+  %290 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %289, i32 0, i32 39
+  %291 = load ptr, ptr %6, align 8
+  %292 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %290, ptr noundef %26, ptr noundef %291)
+  %293 = icmp ne i32 %292, 0
+  br i1 %293, label %294, label %295
 
-292:                                              ; preds = %287
-  br label %293
+294:                                              ; preds = %288
+  store i32 2, ptr %16, align 4
+  br label %296
 
-293:                                              ; preds = %292
-  %294 = load i32, ptr %26, align 4
-  %295 = icmp ne i32 %294, 0
-  br i1 %295, label %296, label %322
+295:                                              ; preds = %288
+  store i32 0, ptr %16, align 4
+  br label %296
 
-296:                                              ; preds = %293
-  %297 = load i32, ptr %26, align 4
-  %298 = zext i32 %297 to i64
-  %299 = call ptr @bit_alloc(i64 noundef %298)
-  %300 = load ptr, ptr %11, align 8
-  %301 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %300, i32 0, i32 15
-  store ptr %299, ptr %301, align 8
+296:                                              ; preds = %294, %295
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  %297 = load i32, ptr %16, align 4
+  switch i32 %297, label %1452 [
+    i32 0, label %298
+    i32 2, label %1450
+  ]
+
+298:                                              ; preds = %296
+  br label %299
+
+299:                                              ; preds = %298
+  br label %300
+
+300:                                              ; preds = %299
+  br label %301
+
+301:                                              ; preds = %300
   %302 = load ptr, ptr %11, align 8
-  %303 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %302, i32 0, i32 15
-  %304 = load ptr, ptr %303, align 8
-  %305 = load ptr, ptr %25, align 8
-  %306 = call i32 @bit_unfmt_hexmask(ptr noundef %304, ptr noundef %305)
-  %307 = icmp ne i32 %306, 0
-  br i1 %307, label %308, label %321
+  %303 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %302, i32 0, i32 37
+  %304 = load ptr, ptr %6, align 8
+  %305 = call i32 @unpack16(ptr noundef %303, ptr noundef %304)
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %307, label %308
 
-308:                                              ; preds = %296
+307:                                              ; preds = %301
+  br label %1450
+
+308:                                              ; preds = %301
   br label %309
 
 309:                                              ; preds = %308
-  %310 = load ptr, ptr %11, align 8
-  %311 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %310, i32 0, i32 15
-  %312 = load ptr, ptr %311, align 8
-  %313 = icmp ne ptr %312, null
-  br i1 %313, label %314, label %317
+  br label %310
 
-314:                                              ; preds = %309
-  %315 = load ptr, ptr %11, align 8
-  %316 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %315, i32 0, i32 15
-  call void @slurm_bit_free(ptr noundef %316)
-  br label %317
+310:                                              ; preds = %309
+  br label %311
 
-317:                                              ; preds = %314, %309
-  %318 = load ptr, ptr %11, align 8
-  %319 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %318, i32 0, i32 15
-  store ptr null, ptr %319, align 8
+311:                                              ; preds = %310
+  %312 = load ptr, ptr %10, align 8
+  %313 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %312, i32 0, i32 6
+  %314 = load ptr, ptr %6, align 8
+  %315 = call i32 @unpack_time(ptr noundef %313, ptr noundef %314)
+  %316 = icmp ne i32 %315, 0
+  br i1 %316, label %317, label %318
+
+317:                                              ; preds = %311
+  br label %1450
+
+318:                                              ; preds = %311
+  br label %319
+
+319:                                              ; preds = %318
   br label %320
 
-320:                                              ; preds = %317
-  call void @slurm_xfree(ptr noundef %25)
-  br label %1234
+320:                                              ; preds = %319
+  br label %321
 
-321:                                              ; preds = %296
-  br label %325
+321:                                              ; preds = %320
+  %322 = load ptr, ptr %6, align 8
+  %323 = call i32 @unpack32(ptr noundef %14, ptr noundef %322)
+  %324 = icmp ne i32 %323, 0
+  br i1 %324, label %325, label %326
 
-322:                                              ; preds = %293
-  %323 = load ptr, ptr %11, align 8
-  %324 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %323, i32 0, i32 15
-  store ptr null, ptr %324, align 8
-  br label %325
+325:                                              ; preds = %321
+  br label %1450
 
-325:                                              ; preds = %322, %321
-  call void @slurm_xfree(ptr noundef %25)
+326:                                              ; preds = %321
+  br label %327
+
+327:                                              ; preds = %326
+  br label %328
+
+328:                                              ; preds = %327
   br label %329
 
-326:                                              ; preds = %283
-  %327 = load ptr, ptr %11, align 8
-  %328 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %327, i32 0, i32 15
-  store ptr null, ptr %328, align 8
-  br label %329
-
-329:                                              ; preds = %326, %325
+329:                                              ; preds = %328
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #6
+  store ptr null, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
   br label %330
 
 330:                                              ; preds = %329
-  br label %331
+  %331 = load ptr, ptr %6, align 8
+  %332 = call i32 @unpack32(ptr noundef %28, ptr noundef %331)
+  %333 = icmp ne i32 %332, 0
+  br i1 %333, label %334, label %335
 
-331:                                              ; preds = %330
-  store ptr null, ptr %28, align 8
-  br label %332
+334:                                              ; preds = %330
+  store i32 2, ptr %16, align 4
+  br label %389
 
-332:                                              ; preds = %331
-  %333 = load ptr, ptr %6, align 8
-  %334 = call i32 @unpack32(ptr noundef %29, ptr noundef %333)
-  %335 = icmp ne i32 %334, 0
-  br i1 %335, label %336, label %337
+335:                                              ; preds = %330
+  br label %336
 
-336:                                              ; preds = %332
-  br label %1234
+336:                                              ; preds = %335
+  br label %337
 
-337:                                              ; preds = %332
-  br label %338
+337:                                              ; preds = %336
+  %338 = load i32, ptr %28, align 4
+  %339 = icmp ne i32 %338, -2
+  br i1 %339, label %340, label %385
 
-338:                                              ; preds = %337
-  %339 = load i32, ptr %29, align 4
-  %340 = icmp ne i32 %339, -2
-  br i1 %340, label %341, label %381
+340:                                              ; preds = %337
+  br label %341
 
-341:                                              ; preds = %338
-  br label %342
+341:                                              ; preds = %340
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #6
+  %342 = load ptr, ptr %6, align 8
+  %343 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %27, ptr noundef %29, ptr noundef %342)
+  %344 = icmp ne i32 %343, 0
+  br i1 %344, label %345, label %346
 
-342:                                              ; preds = %341
-  %343 = load ptr, ptr %6, align 8
-  %344 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %28, ptr noundef %30, ptr noundef %343)
-  %345 = icmp ne i32 %344, 0
-  br i1 %345, label %346, label %347
+345:                                              ; preds = %341
+  store i32 2, ptr %16, align 4
+  br label %347
 
-346:                                              ; preds = %342
-  br label %1234
+346:                                              ; preds = %341
+  store i32 0, ptr %16, align 4
+  br label %347
 
-347:                                              ; preds = %342
-  br label %348
+347:                                              ; preds = %345, %346
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #6
+  %348 = load i32, ptr %16, align 4
+  switch i32 %348, label %389 [
+    i32 0, label %349
+  ]
 
-348:                                              ; preds = %347
-  %349 = load i32, ptr %29, align 4
-  %350 = icmp ne i32 %349, 0
-  br i1 %350, label %351, label %377
+349:                                              ; preds = %347
+  br label %350
 
-351:                                              ; preds = %348
-  %352 = load i32, ptr %29, align 4
-  %353 = zext i32 %352 to i64
-  %354 = call ptr @bit_alloc(i64 noundef %353)
-  %355 = load ptr, ptr %11, align 8
-  %356 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %355, i32 0, i32 38
-  store ptr %354, ptr %356, align 8
-  %357 = load ptr, ptr %11, align 8
-  %358 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %357, i32 0, i32 38
-  %359 = load ptr, ptr %358, align 8
-  %360 = load ptr, ptr %28, align 8
-  %361 = call i32 @bit_unfmt_hexmask(ptr noundef %359, ptr noundef %360)
-  %362 = icmp ne i32 %361, 0
-  br i1 %362, label %363, label %376
+350:                                              ; preds = %349
+  br label %351
 
-363:                                              ; preds = %351
-  br label %364
+351:                                              ; preds = %350
+  %352 = load i32, ptr %28, align 4
+  %353 = icmp ne i32 %352, 0
+  br i1 %353, label %354, label %381
 
-364:                                              ; preds = %363
-  %365 = load ptr, ptr %11, align 8
-  %366 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %365, i32 0, i32 38
-  %367 = load ptr, ptr %366, align 8
-  %368 = icmp ne ptr %367, null
-  br i1 %368, label %369, label %372
+354:                                              ; preds = %351
+  %355 = load i32, ptr %28, align 4
+  %356 = zext i32 %355 to i64
+  %357 = call ptr @bit_alloc(i64 noundef %356)
+  %358 = load ptr, ptr %11, align 8
+  %359 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %358, i32 0, i32 15
+  store ptr %357, ptr %359, align 8
+  %360 = load ptr, ptr %11, align 8
+  %361 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %360, i32 0, i32 15
+  %362 = load ptr, ptr %361, align 8
+  %363 = load ptr, ptr %27, align 8
+  %364 = call i32 @bit_unfmt_hexmask(ptr noundef %362, ptr noundef %363)
+  %365 = icmp ne i32 %364, 0
+  br i1 %365, label %366, label %380
 
-369:                                              ; preds = %364
-  %370 = load ptr, ptr %11, align 8
-  %371 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %370, i32 0, i32 38
-  call void @slurm_bit_free(ptr noundef %371)
-  br label %372
+366:                                              ; preds = %354
+  br label %367
 
-372:                                              ; preds = %369, %364
+367:                                              ; preds = %366
+  %368 = load ptr, ptr %11, align 8
+  %369 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %368, i32 0, i32 15
+  %370 = load ptr, ptr %369, align 8
+  %371 = icmp ne ptr %370, null
+  br i1 %371, label %372, label %375
+
+372:                                              ; preds = %367
   %373 = load ptr, ptr %11, align 8
-  %374 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %373, i32 0, i32 38
-  store ptr null, ptr %374, align 8
+  %374 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %373, i32 0, i32 15
+  call void @slurm_bit_free(ptr noundef %374)
   br label %375
 
-375:                                              ; preds = %372
-  call void @slurm_xfree(ptr noundef %28)
-  br label %1234
+375:                                              ; preds = %372, %367
+  %376 = load ptr, ptr %11, align 8
+  %377 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %376, i32 0, i32 15
+  store ptr null, ptr %377, align 8
+  br label %378
 
-376:                                              ; preds = %351
-  br label %380
+378:                                              ; preds = %375
+  br label %379
 
-377:                                              ; preds = %348
-  %378 = load ptr, ptr %11, align 8
-  %379 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %378, i32 0, i32 38
-  store ptr null, ptr %379, align 8
-  br label %380
+379:                                              ; preds = %378
+  call void @slurm_xfree(ptr noundef %27)
+  store i32 2, ptr %16, align 4
+  br label %389
 
-380:                                              ; preds = %377, %376
-  call void @slurm_xfree(ptr noundef %28)
+380:                                              ; preds = %354
   br label %384
 
-381:                                              ; preds = %338
+381:                                              ; preds = %351
   %382 = load ptr, ptr %11, align 8
-  %383 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %382, i32 0, i32 38
+  %383 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %382, i32 0, i32 15
   store ptr null, ptr %383, align 8
   br label %384
 
 384:                                              ; preds = %381, %380
-  br label %385
+  call void @slurm_xfree(ptr noundef %27)
+  br label %388
 
-385:                                              ; preds = %384
-  br label %386
+385:                                              ; preds = %337
+  %386 = load ptr, ptr %11, align 8
+  %387 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %386, i32 0, i32 15
+  store ptr null, ptr %387, align 8
+  br label %388
 
-386:                                              ; preds = %385
-  %387 = load ptr, ptr %11, align 8
-  %388 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %387, i32 0, i32 4
-  %389 = load ptr, ptr %6, align 8
-  %390 = call i32 @unpack16(ptr noundef %388, ptr noundef %389)
-  %391 = icmp ne i32 %390, 0
-  br i1 %391, label %392, label %393
+388:                                              ; preds = %385, %384
+  store i32 0, ptr %16, align 4
+  br label %389
 
-392:                                              ; preds = %386
-  br label %1234
+389:                                              ; preds = %379, %334, %388, %347
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #6
+  %390 = load i32, ptr %16, align 4
+  switch i32 %390, label %1452 [
+    i32 0, label %391
+    i32 2, label %1450
+  ]
 
-393:                                              ; preds = %386
+391:                                              ; preds = %389
+  br label %392
+
+392:                                              ; preds = %391
+  br label %393
+
+393:                                              ; preds = %392
   br label %394
 
 394:                                              ; preds = %393
-  %395 = load ptr, ptr %11, align 8
-  %396 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %395, i32 0, i32 4
-  %397 = load i16, ptr %396, align 8
-  %398 = icmp ne i16 %397, 0
-  br i1 %398, label %399, label %451
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #6
+  store ptr null, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #6
+  br label %395
 
-399:                                              ; preds = %394
-  br label %400
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %6, align 8
+  %397 = call i32 @unpack32(ptr noundef %31, ptr noundef %396)
+  %398 = icmp ne i32 %397, 0
+  br i1 %398, label %399, label %400
 
-400:                                              ; preds = %399
-  %401 = load ptr, ptr %11, align 8
-  %402 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %401, i32 0, i32 5
-  %403 = load ptr, ptr %6, align 8
-  %404 = call i32 @unpack16_array(ptr noundef %402, ptr noundef %8, ptr noundef %403)
-  %405 = icmp ne i32 %404, 0
-  br i1 %405, label %406, label %407
+399:                                              ; preds = %395
+  store i32 2, ptr %16, align 4
+  br label %454
 
-406:                                              ; preds = %400
-  br label %1234
+400:                                              ; preds = %395
+  br label %401
 
-407:                                              ; preds = %400
-  br label %408
+401:                                              ; preds = %400
+  br label %402
 
-408:                                              ; preds = %407
-  %409 = load i32, ptr %8, align 4
-  %410 = load ptr, ptr %11, align 8
-  %411 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %410, i32 0, i32 4
-  %412 = load i16, ptr %411, align 8
-  %413 = zext i16 %412 to i32
-  %414 = icmp ne i32 %409, %413
-  br i1 %414, label %415, label %416
+402:                                              ; preds = %401
+  %403 = load i32, ptr %31, align 4
+  %404 = icmp ne i32 %403, -2
+  br i1 %404, label %405, label %450
 
-415:                                              ; preds = %408
-  br label %1234
+405:                                              ; preds = %402
+  br label %406
 
-416:                                              ; preds = %408
-  br label %417
+406:                                              ; preds = %405
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #6
+  %407 = load ptr, ptr %6, align 8
+  %408 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %30, ptr noundef %32, ptr noundef %407)
+  %409 = icmp ne i32 %408, 0
+  br i1 %409, label %410, label %411
 
-417:                                              ; preds = %416
-  %418 = load ptr, ptr %11, align 8
-  %419 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %418, i32 0, i32 6
-  %420 = load ptr, ptr %6, align 8
-  %421 = call i32 @unpack16_array(ptr noundef %419, ptr noundef %8, ptr noundef %420)
-  %422 = icmp ne i32 %421, 0
-  br i1 %422, label %423, label %424
+410:                                              ; preds = %406
+  store i32 2, ptr %16, align 4
+  br label %412
 
-423:                                              ; preds = %417
-  br label %1234
+411:                                              ; preds = %406
+  store i32 0, ptr %16, align 4
+  br label %412
 
-424:                                              ; preds = %417
-  br label %425
+412:                                              ; preds = %410, %411
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #6
+  %413 = load i32, ptr %16, align 4
+  switch i32 %413, label %454 [
+    i32 0, label %414
+  ]
 
-425:                                              ; preds = %424
-  %426 = load i32, ptr %8, align 4
-  %427 = load ptr, ptr %11, align 8
-  %428 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %427, i32 0, i32 4
-  %429 = load i16, ptr %428, align 8
-  %430 = zext i16 %429 to i32
-  %431 = icmp ne i32 %426, %430
-  br i1 %431, label %432, label %433
+414:                                              ; preds = %412
+  br label %415
 
-432:                                              ; preds = %425
-  br label %1234
+415:                                              ; preds = %414
+  br label %416
 
-433:                                              ; preds = %425
-  br label %434
+416:                                              ; preds = %415
+  %417 = load i32, ptr %31, align 4
+  %418 = icmp ne i32 %417, 0
+  br i1 %418, label %419, label %446
 
-434:                                              ; preds = %433
-  %435 = load ptr, ptr %11, align 8
-  %436 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %435, i32 0, i32 7
-  %437 = load ptr, ptr %6, align 8
-  %438 = call i32 @unpack32_array(ptr noundef %436, ptr noundef %8, ptr noundef %437)
-  %439 = icmp ne i32 %438, 0
-  br i1 %439, label %440, label %441
+419:                                              ; preds = %416
+  %420 = load i32, ptr %31, align 4
+  %421 = zext i32 %420 to i64
+  %422 = call ptr @bit_alloc(i64 noundef %421)
+  %423 = load ptr, ptr %11, align 8
+  %424 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %423, i32 0, i32 38
+  store ptr %422, ptr %424, align 8
+  %425 = load ptr, ptr %11, align 8
+  %426 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %425, i32 0, i32 38
+  %427 = load ptr, ptr %426, align 8
+  %428 = load ptr, ptr %30, align 8
+  %429 = call i32 @bit_unfmt_hexmask(ptr noundef %427, ptr noundef %428)
+  %430 = icmp ne i32 %429, 0
+  br i1 %430, label %431, label %445
 
-440:                                              ; preds = %434
-  br label %1234
+431:                                              ; preds = %419
+  br label %432
 
-441:                                              ; preds = %434
-  br label %442
+432:                                              ; preds = %431
+  %433 = load ptr, ptr %11, align 8
+  %434 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %433, i32 0, i32 38
+  %435 = load ptr, ptr %434, align 8
+  %436 = icmp ne ptr %435, null
+  br i1 %436, label %437, label %440
 
-442:                                              ; preds = %441
-  %443 = load i32, ptr %8, align 4
-  %444 = load ptr, ptr %11, align 8
-  %445 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %444, i32 0, i32 4
-  %446 = load i16, ptr %445, align 8
-  %447 = zext i16 %446 to i32
-  %448 = icmp ne i32 %443, %447
-  br i1 %448, label %449, label %450
+437:                                              ; preds = %432
+  %438 = load ptr, ptr %11, align 8
+  %439 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %438, i32 0, i32 38
+  call void @slurm_bit_free(ptr noundef %439)
+  br label %440
 
-449:                                              ; preds = %442
-  br label %1234
+440:                                              ; preds = %437, %432
+  %441 = load ptr, ptr %11, align 8
+  %442 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %441, i32 0, i32 38
+  store ptr null, ptr %442, align 8
+  br label %443
 
-450:                                              ; preds = %442
-  br label %451
+443:                                              ; preds = %440
+  br label %444
 
-451:                                              ; preds = %450, %394
-  br label %452
+444:                                              ; preds = %443
+  call void @slurm_xfree(ptr noundef %30)
+  store i32 2, ptr %16, align 4
+  br label %454
 
-452:                                              ; preds = %451
-  %453 = load ptr, ptr %11, align 8
-  %454 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %453, i32 0, i32 8
-  %455 = load ptr, ptr %6, align 8
-  %456 = call i32 @unpack32(ptr noundef %454, ptr noundef %455)
-  %457 = icmp ne i32 %456, 0
-  br i1 %457, label %458, label %459
+445:                                              ; preds = %419
+  br label %449
 
-458:                                              ; preds = %452
-  br label %1234
+446:                                              ; preds = %416
+  %447 = load ptr, ptr %11, align 8
+  %448 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %447, i32 0, i32 38
+  store ptr null, ptr %448, align 8
+  br label %449
 
-459:                                              ; preds = %452
-  br label %460
+449:                                              ; preds = %446, %445
+  call void @slurm_xfree(ptr noundef %30)
+  br label %453
 
-460:                                              ; preds = %459
-  %461 = load ptr, ptr %11, align 8
-  %462 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %461, i32 0, i32 8
-  %463 = load i32, ptr %462, align 8
+450:                                              ; preds = %402
+  %451 = load ptr, ptr %11, align 8
+  %452 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %451, i32 0, i32 38
+  store ptr null, ptr %452, align 8
+  br label %453
+
+453:                                              ; preds = %450, %449
+  store i32 0, ptr %16, align 4
+  br label %454
+
+454:                                              ; preds = %444, %399, %453, %412
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #6
+  %455 = load i32, ptr %16, align 4
+  switch i32 %455, label %1452 [
+    i32 0, label %456
+    i32 2, label %1450
+  ]
+
+456:                                              ; preds = %454
+  br label %457
+
+457:                                              ; preds = %456
+  br label %458
+
+458:                                              ; preds = %457
+  br label %459
+
+459:                                              ; preds = %458
+  %460 = load ptr, ptr %11, align 8
+  %461 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %460, i32 0, i32 4
+  %462 = load ptr, ptr %6, align 8
+  %463 = call i32 @unpack16(ptr noundef %461, ptr noundef %462)
   %464 = icmp ne i32 %463, 0
-  br i1 %464, label %465, label %498
+  br i1 %464, label %465, label %466
 
-465:                                              ; preds = %460
-  br label %466
+465:                                              ; preds = %459
+  br label %1450
 
-466:                                              ; preds = %465
-  %467 = load ptr, ptr %11, align 8
-  %468 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %467, i32 0, i32 9
-  %469 = load ptr, ptr %6, align 8
-  %470 = call i32 @unpack16_array(ptr noundef %468, ptr noundef %8, ptr noundef %469)
-  %471 = icmp ne i32 %470, 0
-  br i1 %471, label %472, label %473
+466:                                              ; preds = %459
+  br label %467
 
-472:                                              ; preds = %466
-  br label %1234
+467:                                              ; preds = %466
+  br label %468
 
-473:                                              ; preds = %466
+468:                                              ; preds = %467
+  %469 = load ptr, ptr %11, align 8
+  %470 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %469, i32 0, i32 4
+  %471 = load i16, ptr %470, align 8
+  %472 = icmp ne i16 %471, 0
+  br i1 %472, label %473, label %528
+
+473:                                              ; preds = %468
   br label %474
 
 474:                                              ; preds = %473
-  %475 = load i32, ptr %8, align 4
-  %476 = load ptr, ptr %11, align 8
-  %477 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %476, i32 0, i32 8
-  %478 = load i32, ptr %477, align 8
-  %479 = icmp ne i32 %475, %478
+  %475 = load ptr, ptr %11, align 8
+  %476 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %475, i32 0, i32 5
+  %477 = load ptr, ptr %6, align 8
+  %478 = call i32 @unpack16_array(ptr noundef %476, ptr noundef %8, ptr noundef %477)
+  %479 = icmp ne i32 %478, 0
   br i1 %479, label %480, label %481
 
 480:                                              ; preds = %474
-  br label %1234
+  br label %1450
 
 481:                                              ; preds = %474
   br label %482
 
 482:                                              ; preds = %481
-  %483 = load ptr, ptr %11, align 8
-  %484 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %483, i32 0, i32 10
-  %485 = load ptr, ptr %6, align 8
-  %486 = call i32 @unpack32_array(ptr noundef %484, ptr noundef %8, ptr noundef %485)
-  %487 = icmp ne i32 %486, 0
-  br i1 %487, label %488, label %489
+  br label %483
 
-488:                                              ; preds = %482
-  br label %1234
+483:                                              ; preds = %482
+  %484 = load i32, ptr %8, align 4
+  %485 = load ptr, ptr %11, align 8
+  %486 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %485, i32 0, i32 4
+  %487 = load i16, ptr %486, align 8
+  %488 = zext i16 %487 to i32
+  %489 = icmp ne i32 %484, %488
+  br i1 %489, label %490, label %491
 
-489:                                              ; preds = %482
-  br label %490
+490:                                              ; preds = %483
+  br label %1450
 
-490:                                              ; preds = %489
-  %491 = load i32, ptr %8, align 4
-  %492 = load ptr, ptr %11, align 8
-  %493 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %492, i32 0, i32 8
-  %494 = load i32, ptr %493, align 8
-  %495 = icmp ne i32 %491, %494
-  br i1 %495, label %496, label %497
+491:                                              ; preds = %483
+  br label %492
 
-496:                                              ; preds = %490
-  br label %1234
+492:                                              ; preds = %491
+  %493 = load ptr, ptr %11, align 8
+  %494 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %493, i32 0, i32 6
+  %495 = load ptr, ptr %6, align 8
+  %496 = call i32 @unpack16_array(ptr noundef %494, ptr noundef %8, ptr noundef %495)
+  %497 = icmp ne i32 %496, 0
+  br i1 %497, label %498, label %499
 
-497:                                              ; preds = %490
-  br label %498
+498:                                              ; preds = %492
+  br label %1450
 
-498:                                              ; preds = %497, %460
-  br label %499
+499:                                              ; preds = %492
+  br label %500
 
-499:                                              ; preds = %498
-  %500 = load ptr, ptr %11, align 8
-  %501 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %500, i32 0, i32 24
-  %502 = load ptr, ptr %6, align 8
-  %503 = call i32 @unpack32(ptr noundef %501, ptr noundef %502)
-  %504 = icmp ne i32 %503, 0
-  br i1 %504, label %505, label %506
+500:                                              ; preds = %499
+  br label %501
 
-505:                                              ; preds = %499
-  br label %1234
+501:                                              ; preds = %500
+  %502 = load i32, ptr %8, align 4
+  %503 = load ptr, ptr %11, align 8
+  %504 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %503, i32 0, i32 4
+  %505 = load i16, ptr %504, align 8
+  %506 = zext i16 %505 to i32
+  %507 = icmp ne i32 %502, %506
+  br i1 %507, label %508, label %509
 
-506:                                              ; preds = %499
-  br label %507
+508:                                              ; preds = %501
+  br label %1450
 
-507:                                              ; preds = %506
-  br label %508
+509:                                              ; preds = %501
+  br label %510
 
-508:                                              ; preds = %507
-  %509 = load ptr, ptr %11, align 8
-  %510 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %509, i32 0, i32 26
-  %511 = load ptr, ptr %6, align 8
-  %512 = call i32 @unpack32(ptr noundef %510, ptr noundef %511)
-  %513 = icmp ne i32 %512, 0
-  br i1 %513, label %514, label %515
+510:                                              ; preds = %509
+  %511 = load ptr, ptr %11, align 8
+  %512 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %511, i32 0, i32 7
+  %513 = load ptr, ptr %6, align 8
+  %514 = call i32 @unpack32_array(ptr noundef %512, ptr noundef %8, ptr noundef %513)
+  %515 = icmp ne i32 %514, 0
+  br i1 %515, label %516, label %517
 
-514:                                              ; preds = %508
-  br label %1234
+516:                                              ; preds = %510
+  br label %1450
 
-515:                                              ; preds = %508
-  br label %516
+517:                                              ; preds = %510
+  br label %518
 
-516:                                              ; preds = %515
-  br label %517
+518:                                              ; preds = %517
+  br label %519
 
-517:                                              ; preds = %516
-  %518 = load ptr, ptr %11, align 8
-  %519 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %518, i32 0, i32 19
-  %520 = load ptr, ptr %6, align 8
-  %521 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %519, ptr noundef %31, ptr noundef %520)
-  %522 = icmp ne i32 %521, 0
-  br i1 %522, label %523, label %524
+519:                                              ; preds = %518
+  %520 = load i32, ptr %8, align 4
+  %521 = load ptr, ptr %11, align 8
+  %522 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %521, i32 0, i32 4
+  %523 = load i16, ptr %522, align 8
+  %524 = zext i16 %523 to i32
+  %525 = icmp ne i32 %520, %524
+  br i1 %525, label %526, label %527
 
-523:                                              ; preds = %517
-  br label %1234
+526:                                              ; preds = %519
+  br label %1450
 
-524:                                              ; preds = %517
-  br label %525
+527:                                              ; preds = %519
+  br label %528
 
-525:                                              ; preds = %524
-  br label %526
+528:                                              ; preds = %527, %468
+  br label %529
 
-526:                                              ; preds = %525
-  %527 = load ptr, ptr %11, align 8
-  %528 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %527, i32 0, i32 20
-  %529 = load ptr, ptr %6, align 8
-  %530 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %528, ptr noundef %32, ptr noundef %529)
-  %531 = icmp ne i32 %530, 0
-  br i1 %531, label %532, label %533
+529:                                              ; preds = %528
+  %530 = load ptr, ptr %11, align 8
+  %531 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %530, i32 0, i32 8
+  %532 = load ptr, ptr %6, align 8
+  %533 = call i32 @unpack32(ptr noundef %531, ptr noundef %532)
+  %534 = icmp ne i32 %533, 0
+  br i1 %534, label %535, label %536
 
-532:                                              ; preds = %526
-  br label %1234
+535:                                              ; preds = %529
+  br label %1450
 
-533:                                              ; preds = %526
-  br label %534
+536:                                              ; preds = %529
+  br label %537
 
-534:                                              ; preds = %533
-  br label %535
+537:                                              ; preds = %536
+  br label %538
 
-535:                                              ; preds = %534
-  %536 = load ptr, ptr %11, align 8
-  %537 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %536, i32 0, i32 23
-  %538 = load ptr, ptr %6, align 8
-  %539 = call i32 @unpack32(ptr noundef %537, ptr noundef %538)
-  %540 = icmp ne i32 %539, 0
-  br i1 %540, label %541, label %542
+538:                                              ; preds = %537
+  %539 = load ptr, ptr %11, align 8
+  %540 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %539, i32 0, i32 8
+  %541 = load i32, ptr %540, align 8
+  %542 = icmp ne i32 %541, 0
+  br i1 %542, label %543, label %578
 
-541:                                              ; preds = %535
-  br label %1234
+543:                                              ; preds = %538
+  br label %544
 
-542:                                              ; preds = %535
-  br label %543
+544:                                              ; preds = %543
+  %545 = load ptr, ptr %11, align 8
+  %546 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %545, i32 0, i32 9
+  %547 = load ptr, ptr %6, align 8
+  %548 = call i32 @unpack16_array(ptr noundef %546, ptr noundef %8, ptr noundef %547)
+  %549 = icmp ne i32 %548, 0
+  br i1 %549, label %550, label %551
 
-543:                                              ; preds = %542
-  %544 = load ptr, ptr %11, align 8
-  %545 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %544, i32 0, i32 23
-  %546 = load i32, ptr %545, align 8
-  %547 = icmp ne i32 %546, 0
-  br i1 %547, label %548, label %581
+550:                                              ; preds = %544
+  br label %1450
 
-548:                                              ; preds = %543
-  br label %549
+551:                                              ; preds = %544
+  br label %552
 
-549:                                              ; preds = %548
-  %550 = load ptr, ptr %11, align 8
-  %551 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %550, i32 0, i32 21
-  %552 = load ptr, ptr %6, align 8
-  %553 = call i32 @unpack64_array(ptr noundef %551, ptr noundef %8, ptr noundef %552)
-  %554 = icmp ne i32 %553, 0
-  br i1 %554, label %555, label %556
+552:                                              ; preds = %551
+  br label %553
 
-555:                                              ; preds = %549
-  br label %1234
+553:                                              ; preds = %552
+  %554 = load i32, ptr %8, align 4
+  %555 = load ptr, ptr %11, align 8
+  %556 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %555, i32 0, i32 8
+  %557 = load i32, ptr %556, align 8
+  %558 = icmp ne i32 %554, %557
+  br i1 %558, label %559, label %560
 
-556:                                              ; preds = %549
-  br label %557
+559:                                              ; preds = %553
+  br label %1450
 
-557:                                              ; preds = %556
-  %558 = load i32, ptr %8, align 4
-  %559 = load ptr, ptr %11, align 8
-  %560 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %559, i32 0, i32 23
-  %561 = load i32, ptr %560, align 8
-  %562 = icmp ne i32 %558, %561
-  br i1 %562, label %563, label %564
+560:                                              ; preds = %553
+  br label %561
 
-563:                                              ; preds = %557
-  br label %1234
+561:                                              ; preds = %560
+  %562 = load ptr, ptr %11, align 8
+  %563 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %562, i32 0, i32 10
+  %564 = load ptr, ptr %6, align 8
+  %565 = call i32 @unpack32_array(ptr noundef %563, ptr noundef %8, ptr noundef %564)
+  %566 = icmp ne i32 %565, 0
+  br i1 %566, label %567, label %568
 
-564:                                              ; preds = %557
-  br label %565
+567:                                              ; preds = %561
+  br label %1450
 
-565:                                              ; preds = %564
-  %566 = load ptr, ptr %11, align 8
-  %567 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %566, i32 0, i32 22
-  %568 = load ptr, ptr %6, align 8
-  %569 = call i32 @unpack32_array(ptr noundef %567, ptr noundef %8, ptr noundef %568)
-  %570 = icmp ne i32 %569, 0
-  br i1 %570, label %571, label %572
+568:                                              ; preds = %561
+  br label %569
 
-571:                                              ; preds = %565
-  br label %1234
+569:                                              ; preds = %568
+  br label %570
 
-572:                                              ; preds = %565
-  br label %573
+570:                                              ; preds = %569
+  %571 = load i32, ptr %8, align 4
+  %572 = load ptr, ptr %11, align 8
+  %573 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %572, i32 0, i32 8
+  %574 = load i32, ptr %573, align 8
+  %575 = icmp ne i32 %571, %574
+  br i1 %575, label %576, label %577
 
-573:                                              ; preds = %572
-  %574 = load i32, ptr %8, align 4
-  %575 = load ptr, ptr %11, align 8
-  %576 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %575, i32 0, i32 23
-  %577 = load i32, ptr %576, align 8
-  %578 = icmp ne i32 %574, %577
-  br i1 %578, label %579, label %580
+576:                                              ; preds = %570
+  br label %1450
 
-579:                                              ; preds = %573
-  br label %1234
+577:                                              ; preds = %570
+  br label %578
 
-580:                                              ; preds = %573
-  br label %581
+578:                                              ; preds = %577, %538
+  br label %579
 
-581:                                              ; preds = %580, %543
-  br label %582
+579:                                              ; preds = %578
+  %580 = load ptr, ptr %11, align 8
+  %581 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %580, i32 0, i32 24
+  %582 = load ptr, ptr %6, align 8
+  %583 = call i32 @unpack32(ptr noundef %581, ptr noundef %582)
+  %584 = icmp ne i32 %583, 0
+  br i1 %584, label %585, label %586
 
-582:                                              ; preds = %581
-  %583 = load ptr, ptr %11, align 8
-  %584 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %583, i32 0, i32 42
-  %585 = load ptr, ptr %6, align 8
-  %586 = call i32 @unpack32(ptr noundef %584, ptr noundef %585)
-  %587 = icmp ne i32 %586, 0
-  br i1 %587, label %588, label %589
+585:                                              ; preds = %579
+  br label %1450
 
-588:                                              ; preds = %582
-  br label %1234
+586:                                              ; preds = %579
+  br label %587
 
-589:                                              ; preds = %582
-  br label %590
+587:                                              ; preds = %586
+  br label %588
 
-590:                                              ; preds = %589
-  %591 = load ptr, ptr %11, align 8
-  %592 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %591, i32 0, i32 42
-  %593 = load i32, ptr %592, align 8
+588:                                              ; preds = %587
+  br label %589
+
+589:                                              ; preds = %588
+  %590 = load ptr, ptr %11, align 8
+  %591 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %590, i32 0, i32 26
+  %592 = load ptr, ptr %6, align 8
+  %593 = call i32 @unpack32(ptr noundef %591, ptr noundef %592)
   %594 = icmp ne i32 %593, 0
-  br i1 %594, label %595, label %628
+  br i1 %594, label %595, label %596
 
-595:                                              ; preds = %590
-  br label %596
+595:                                              ; preds = %589
+  br label %1450
 
-596:                                              ; preds = %595
-  %597 = load ptr, ptr %11, align 8
-  %598 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %597, i32 0, i32 40
-  %599 = load ptr, ptr %6, align 8
-  %600 = call i32 @unpack64_array(ptr noundef %598, ptr noundef %8, ptr noundef %599)
-  %601 = icmp ne i32 %600, 0
-  br i1 %601, label %602, label %603
+596:                                              ; preds = %589
+  br label %597
 
-602:                                              ; preds = %596
-  br label %1234
+597:                                              ; preds = %596
+  br label %598
 
-603:                                              ; preds = %596
-  br label %604
+598:                                              ; preds = %597
+  br label %599
 
-604:                                              ; preds = %603
-  %605 = load i32, ptr %8, align 4
-  %606 = load ptr, ptr %11, align 8
-  %607 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %606, i32 0, i32 42
-  %608 = load i32, ptr %607, align 8
-  %609 = icmp ne i32 %605, %608
-  br i1 %609, label %610, label %611
+599:                                              ; preds = %598
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
+  %600 = load ptr, ptr %11, align 8
+  %601 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %600, i32 0, i32 19
+  %602 = load ptr, ptr %6, align 8
+  %603 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %601, ptr noundef %33, ptr noundef %602)
+  %604 = icmp ne i32 %603, 0
+  br i1 %604, label %605, label %606
 
-610:                                              ; preds = %604
-  br label %1234
+605:                                              ; preds = %599
+  store i32 2, ptr %16, align 4
+  br label %607
 
-611:                                              ; preds = %604
+606:                                              ; preds = %599
+  store i32 0, ptr %16, align 4
+  br label %607
+
+607:                                              ; preds = %605, %606
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
+  %608 = load i32, ptr %16, align 4
+  switch i32 %608, label %1452 [
+    i32 0, label %609
+    i32 2, label %1450
+  ]
+
+609:                                              ; preds = %607
+  br label %610
+
+610:                                              ; preds = %609
+  br label %611
+
+611:                                              ; preds = %610
   br label %612
 
 612:                                              ; preds = %611
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #6
   %613 = load ptr, ptr %11, align 8
-  %614 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %613, i32 0, i32 41
+  %614 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %613, i32 0, i32 20
   %615 = load ptr, ptr %6, align 8
-  %616 = call i32 @unpack32_array(ptr noundef %614, ptr noundef %8, ptr noundef %615)
+  %616 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %614, ptr noundef %34, ptr noundef %615)
   %617 = icmp ne i32 %616, 0
   br i1 %617, label %618, label %619
 
 618:                                              ; preds = %612
-  br label %1234
-
-619:                                              ; preds = %612
+  store i32 2, ptr %16, align 4
   br label %620
 
-620:                                              ; preds = %619
-  %621 = load i32, ptr %8, align 4
-  %622 = load ptr, ptr %11, align 8
-  %623 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %622, i32 0, i32 42
-  %624 = load i32, ptr %623, align 8
-  %625 = icmp ne i32 %621, %624
-  br i1 %625, label %626, label %627
+619:                                              ; preds = %612
+  store i32 0, ptr %16, align 4
+  br label %620
 
-626:                                              ; preds = %620
-  br label %1234
+620:                                              ; preds = %618, %619
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #6
+  %621 = load i32, ptr %16, align 4
+  switch i32 %621, label %1452 [
+    i32 0, label %622
+    i32 2, label %1450
+  ]
 
-627:                                              ; preds = %620
-  br label %628
+622:                                              ; preds = %620
+  br label %623
 
-628:                                              ; preds = %627, %590
-  br label %629
+623:                                              ; preds = %622
+  br label %624
 
-629:                                              ; preds = %628
-  %630 = load ptr, ptr %11, align 8
-  %631 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %630, i32 0, i32 32
-  %632 = load ptr, ptr %6, align 8
-  %633 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %631, ptr noundef %33, ptr noundef %632)
-  %634 = icmp ne i32 %633, 0
-  br i1 %634, label %635, label %636
+624:                                              ; preds = %623
+  br label %625
 
-635:                                              ; preds = %629
-  br label %1234
+625:                                              ; preds = %624
+  %626 = load ptr, ptr %11, align 8
+  %627 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %626, i32 0, i32 23
+  %628 = load ptr, ptr %6, align 8
+  %629 = call i32 @unpack32(ptr noundef %627, ptr noundef %628)
+  %630 = icmp ne i32 %629, 0
+  br i1 %630, label %631, label %632
 
-636:                                              ; preds = %629
-  br label %637
+631:                                              ; preds = %625
+  br label %1450
 
-637:                                              ; preds = %636
-  br label %1217
+632:                                              ; preds = %625
+  br label %633
 
-638:                                              ; preds = %3
-  %639 = load i16, ptr %7, align 2
-  %640 = zext i16 %639 to i32
-  %641 = icmp sge i32 %640, 9984
-  br i1 %641, label %642, label %1212
+633:                                              ; preds = %632
+  br label %634
 
-642:                                              ; preds = %638
-  %643 = load ptr, ptr %11, align 8
-  %644 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %643, i32 0, i32 0
-  %645 = load ptr, ptr %6, align 8
-  %646 = load i16, ptr %7, align 2
-  %647 = call i32 @unpack_step_id_members(ptr noundef %644, ptr noundef %645, i16 noundef zeroext %646)
-  %648 = icmp ne i32 %647, 0
-  br i1 %648, label %649, label %650
+634:                                              ; preds = %633
+  %635 = load ptr, ptr %11, align 8
+  %636 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %635, i32 0, i32 23
+  %637 = load i32, ptr %636, align 8
+  %638 = icmp ne i32 %637, 0
+  br i1 %638, label %639, label %674
 
-649:                                              ; preds = %642
-  br label %1234
+639:                                              ; preds = %634
+  br label %640
 
-650:                                              ; preds = %642
+640:                                              ; preds = %639
+  %641 = load ptr, ptr %11, align 8
+  %642 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %641, i32 0, i32 21
+  %643 = load ptr, ptr %6, align 8
+  %644 = call i32 @unpack64_array(ptr noundef %642, ptr noundef %8, ptr noundef %643)
+  %645 = icmp ne i32 %644, 0
+  br i1 %645, label %646, label %647
+
+646:                                              ; preds = %640
+  br label %1450
+
+647:                                              ; preds = %640
+  br label %648
+
+648:                                              ; preds = %647
+  br label %649
+
+649:                                              ; preds = %648
+  %650 = load i32, ptr %8, align 4
   %651 = load ptr, ptr %11, align 8
-  %652 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %651, i32 0, i32 3
-  %653 = load ptr, ptr %6, align 8
-  %654 = load i16, ptr %7, align 2
-  %655 = call i32 @unpack_identity(ptr noundef %652, ptr noundef %653, i16 noundef zeroext %654)
-  %656 = icmp ne i32 %655, 0
-  br i1 %656, label %657, label %658
+  %652 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %651, i32 0, i32 23
+  %653 = load i32, ptr %652, align 8
+  %654 = icmp ne i32 %650, %653
+  br i1 %654, label %655, label %656
 
-657:                                              ; preds = %650
-  br label %1234
+655:                                              ; preds = %649
+  br label %1450
 
-658:                                              ; preds = %650
-  %659 = load ptr, ptr %11, align 8
-  %660 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %659, i32 0, i32 28
-  %661 = load ptr, ptr %6, align 8
-  %662 = load ptr, ptr %11, align 8
-  %663 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %662, i32 0, i32 0
-  %664 = getelementptr inbounds %struct.slurm_step_id_msg, ptr %663, i32 0, i32 0
-  %665 = load i32, ptr %664, align 8
-  %666 = load i16, ptr %7, align 2
-  %667 = call i32 @gres_job_state_unpack(ptr noundef %660, ptr noundef %661, i32 noundef %665, i16 noundef zeroext %666)
-  %668 = icmp ne i32 %667, 0
-  br i1 %668, label %669, label %670
+656:                                              ; preds = %649
+  br label %657
 
-669:                                              ; preds = %658
-  br label %1234
+657:                                              ; preds = %656
+  %658 = load ptr, ptr %11, align 8
+  %659 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %658, i32 0, i32 22
+  %660 = load ptr, ptr %6, align 8
+  %661 = call i32 @unpack32_array(ptr noundef %659, ptr noundef %8, ptr noundef %660)
+  %662 = icmp ne i32 %661, 0
+  br i1 %662, label %663, label %664
 
-670:                                              ; preds = %658
-  %671 = load ptr, ptr %11, align 8
-  %672 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %671, i32 0, i32 43
-  %673 = load ptr, ptr %6, align 8
-  %674 = load ptr, ptr %11, align 8
-  %675 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %674, i32 0, i32 0
-  %676 = load i16, ptr %7, align 2
-  %677 = call i32 @gres_step_state_unpack(ptr noundef %672, ptr noundef %673, ptr noundef %675, i16 noundef zeroext %676)
-  %678 = icmp ne i32 %677, 0
-  br i1 %678, label %679, label %680
+663:                                              ; preds = %657
+  br label %1450
 
-679:                                              ; preds = %670
-  br label %1234
+664:                                              ; preds = %657
+  br label %665
 
-680:                                              ; preds = %670
-  br label %681
+665:                                              ; preds = %664
+  br label %666
 
-681:                                              ; preds = %680
-  %682 = load ptr, ptr %11, align 8
-  %683 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %682, i32 0, i32 16
-  %684 = load ptr, ptr %6, align 8
-  %685 = call i32 @unpack16(ptr noundef %683, ptr noundef %684)
-  %686 = icmp ne i32 %685, 0
-  br i1 %686, label %687, label %688
+666:                                              ; preds = %665
+  %667 = load i32, ptr %8, align 4
+  %668 = load ptr, ptr %11, align 8
+  %669 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %668, i32 0, i32 23
+  %670 = load i32, ptr %669, align 8
+  %671 = icmp ne i32 %667, %670
+  br i1 %671, label %672, label %673
 
-687:                                              ; preds = %681
-  br label %1234
+672:                                              ; preds = %666
+  br label %1450
 
-688:                                              ; preds = %681
-  br label %689
+673:                                              ; preds = %666
+  br label %674
 
-689:                                              ; preds = %688
+674:                                              ; preds = %673, %634
+  br label %675
+
+675:                                              ; preds = %674
+  %676 = load ptr, ptr %11, align 8
+  %677 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %676, i32 0, i32 42
+  %678 = load ptr, ptr %6, align 8
+  %679 = call i32 @unpack32(ptr noundef %677, ptr noundef %678)
+  %680 = icmp ne i32 %679, 0
+  br i1 %680, label %681, label %682
+
+681:                                              ; preds = %675
+  br label %1450
+
+682:                                              ; preds = %675
+  br label %683
+
+683:                                              ; preds = %682
+  br label %684
+
+684:                                              ; preds = %683
+  %685 = load ptr, ptr %11, align 8
+  %686 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %685, i32 0, i32 42
+  %687 = load i32, ptr %686, align 8
+  %688 = icmp ne i32 %687, 0
+  br i1 %688, label %689, label %724
+
+689:                                              ; preds = %684
   br label %690
 
 690:                                              ; preds = %689
   %691 = load ptr, ptr %11, align 8
-  %692 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %691, i32 0, i32 11
+  %692 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %691, i32 0, i32 40
   %693 = load ptr, ptr %6, align 8
-  %694 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %692, ptr noundef %34, ptr noundef %693)
+  %694 = call i32 @unpack64_array(ptr noundef %692, ptr noundef %8, ptr noundef %693)
   %695 = icmp ne i32 %694, 0
   br i1 %695, label %696, label %697
 
 696:                                              ; preds = %690
-  br label %1234
+  br label %1450
 
 697:                                              ; preds = %690
   br label %698
@@ -2855,1034 +3405,1779 @@ define i32 @cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) 
   br label %699
 
 699:                                              ; preds = %698
-  %700 = load ptr, ptr %11, align 8
-  %701 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %700, i32 0, i32 12
-  %702 = load ptr, ptr %6, align 8
-  %703 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %701, ptr noundef %35, ptr noundef %702)
-  %704 = icmp ne i32 %703, 0
+  %700 = load i32, ptr %8, align 4
+  %701 = load ptr, ptr %11, align 8
+  %702 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %701, i32 0, i32 42
+  %703 = load i32, ptr %702, align 8
+  %704 = icmp ne i32 %700, %703
   br i1 %704, label %705, label %706
 
 705:                                              ; preds = %699
-  br label %1234
+  br label %1450
 
 706:                                              ; preds = %699
   br label %707
 
 707:                                              ; preds = %706
-  br label %708
+  %708 = load ptr, ptr %11, align 8
+  %709 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %708, i32 0, i32 41
+  %710 = load ptr, ptr %6, align 8
+  %711 = call i32 @unpack32_array(ptr noundef %709, ptr noundef %8, ptr noundef %710)
+  %712 = icmp ne i32 %711, 0
+  br i1 %712, label %713, label %714
 
-708:                                              ; preds = %707
-  %709 = load ptr, ptr %11, align 8
-  %710 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %709, i32 0, i32 13
-  %711 = load ptr, ptr %6, align 8
-  %712 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %710, ptr noundef %36, ptr noundef %711)
-  %713 = icmp ne i32 %712, 0
-  br i1 %713, label %714, label %715
+713:                                              ; preds = %707
+  br label %1450
 
-714:                                              ; preds = %708
-  br label %1234
+714:                                              ; preds = %707
+  br label %715
 
-715:                                              ; preds = %708
+715:                                              ; preds = %714
   br label %716
 
 716:                                              ; preds = %715
-  br label %717
-
-717:                                              ; preds = %716
+  %717 = load i32, ptr %8, align 4
   %718 = load ptr, ptr %11, align 8
-  %719 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %718, i32 0, i32 14
-  %720 = load ptr, ptr %6, align 8
-  %721 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %719, ptr noundef %37, ptr noundef %720)
-  %722 = icmp ne i32 %721, 0
-  br i1 %722, label %723, label %724
+  %719 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %718, i32 0, i32 42
+  %720 = load i32, ptr %719, align 8
+  %721 = icmp ne i32 %717, %720
+  br i1 %721, label %722, label %723
 
-723:                                              ; preds = %717
-  br label %1234
+722:                                              ; preds = %716
+  br label %1450
 
-724:                                              ; preds = %717
+723:                                              ; preds = %716
+  br label %724
+
+724:                                              ; preds = %723, %684
   br label %725
 
 725:                                              ; preds = %724
-  br label %726
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  %726 = load ptr, ptr %11, align 8
+  %727 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %726, i32 0, i32 32
+  %728 = load ptr, ptr %6, align 8
+  %729 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %727, ptr noundef %35, ptr noundef %728)
+  %730 = icmp ne i32 %729, 0
+  br i1 %730, label %731, label %732
 
-726:                                              ; preds = %725
-  %727 = load ptr, ptr %11, align 8
-  %728 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %727, i32 0, i32 17
-  %729 = load ptr, ptr %6, align 8
-  %730 = call i32 @unpack_time(ptr noundef %728, ptr noundef %729)
-  %731 = icmp ne i32 %730, 0
-  br i1 %731, label %732, label %733
+731:                                              ; preds = %725
+  store i32 2, ptr %16, align 4
+  br label %733
 
-732:                                              ; preds = %726
-  br label %1234
+732:                                              ; preds = %725
+  store i32 0, ptr %16, align 4
+  br label %733
 
-733:                                              ; preds = %726
-  br label %734
+733:                                              ; preds = %731, %732
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
+  %734 = load i32, ptr %16, align 4
+  switch i32 %734, label %1452 [
+    i32 0, label %735
+    i32 2, label %1450
+  ]
 
-734:                                              ; preds = %733
-  br label %735
+735:                                              ; preds = %733
+  br label %736
 
-735:                                              ; preds = %734
-  %736 = load ptr, ptr %11, align 8
-  %737 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %736, i32 0, i32 18
+736:                                              ; preds = %735
+  br label %737
+
+737:                                              ; preds = %736
   %738 = load ptr, ptr %6, align 8
-  %739 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %737, ptr noundef %38, ptr noundef %738)
-  %740 = icmp ne i32 %739, 0
-  br i1 %740, label %741, label %742
+  %739 = load i16, ptr %7, align 2
+  %740 = call i32 @switch_g_unpack_stepinfo(ptr noundef %13, ptr noundef %738, i16 noundef zeroext %739)
+  %741 = icmp ne i32 %740, 0
+  br i1 %741, label %742, label %744
 
-741:                                              ; preds = %735
-  br label %1234
+742:                                              ; preds = %737
+  %743 = load ptr, ptr %13, align 8
+  call void @switch_g_free_stepinfo(ptr noundef %743)
+  br label %1450
 
-742:                                              ; preds = %735
-  br label %743
+744:                                              ; preds = %737
+  %745 = load ptr, ptr %13, align 8
+  %746 = load ptr, ptr %11, align 8
+  %747 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %746, i32 0, i32 44
+  store ptr %745, ptr %747, align 8
+  br label %1433
 
-743:                                              ; preds = %742
-  br label %744
+748:                                              ; preds = %3
+  %749 = load i16, ptr %7, align 2
+  %750 = zext i16 %749 to i32
+  %751 = icmp sge i32 %750, 10240
+  br i1 %751, label %752, label %1428
 
-744:                                              ; preds = %743
-  %745 = load ptr, ptr %11, align 8
-  %746 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %745, i32 0, i32 27
-  %747 = load ptr, ptr %6, align 8
-  %748 = call i32 @unpack16(ptr noundef %746, ptr noundef %747)
-  %749 = icmp ne i32 %748, 0
-  br i1 %749, label %750, label %751
-
-750:                                              ; preds = %744
-  br label %1234
-
-751:                                              ; preds = %744
-  br label %752
-
-752:                                              ; preds = %751
-  br label %753
-
-753:                                              ; preds = %752
-  %754 = load ptr, ptr %11, align 8
-  %755 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %754, i32 0, i32 29
-  %756 = load ptr, ptr %6, align 8
-  %757 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %755, ptr noundef %39, ptr noundef %756)
+752:                                              ; preds = %748
+  %753 = load ptr, ptr %11, align 8
+  %754 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %753, i32 0, i32 0
+  %755 = load ptr, ptr %6, align 8
+  %756 = load i16, ptr %7, align 2
+  %757 = call i32 @unpack_step_id_members(ptr noundef %754, ptr noundef %755, i16 noundef zeroext %756)
   %758 = icmp ne i32 %757, 0
   br i1 %758, label %759, label %760
 
-759:                                              ; preds = %753
-  br label %1234
+759:                                              ; preds = %752
+  br label %1450
 
-760:                                              ; preds = %753
-  br label %761
+760:                                              ; preds = %752
+  %761 = load ptr, ptr %11, align 8
+  %762 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %761, i32 0, i32 3
+  %763 = load ptr, ptr %6, align 8
+  %764 = load i16, ptr %7, align 2
+  %765 = call i32 @unpack_identity(ptr noundef %762, ptr noundef %763, i16 noundef zeroext %764)
+  %766 = icmp ne i32 %765, 0
+  br i1 %766, label %767, label %768
 
-761:                                              ; preds = %760
-  br label %762
+767:                                              ; preds = %760
+  br label %1450
 
-762:                                              ; preds = %761
-  %763 = load ptr, ptr %11, align 8
-  %764 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %763, i32 0, i32 30
-  %765 = load ptr, ptr %6, align 8
-  %766 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %764, ptr noundef %40, ptr noundef %765)
-  %767 = icmp ne i32 %766, 0
-  br i1 %767, label %768, label %769
-
-768:                                              ; preds = %762
-  br label %1234
-
-769:                                              ; preds = %762
-  br label %770
-
-770:                                              ; preds = %769
-  br label %771
-
-771:                                              ; preds = %770
+768:                                              ; preds = %760
+  %769 = load ptr, ptr %11, align 8
+  %770 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %769, i32 0, i32 28
+  %771 = load ptr, ptr %6, align 8
   %772 = load ptr, ptr %11, align 8
-  %773 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %772, i32 0, i32 31
-  %774 = load ptr, ptr %6, align 8
-  %775 = call i32 @unpack16(ptr noundef %773, ptr noundef %774)
-  %776 = icmp ne i32 %775, 0
-  br i1 %776, label %777, label %778
+  %773 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %772, i32 0, i32 0
+  %774 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %773, i32 0, i32 1
+  %775 = load i32, ptr %774, align 8
+  %776 = load i16, ptr %7, align 2
+  %777 = call i32 @gres_job_state_unpack(ptr noundef %770, ptr noundef %771, i32 noundef %775, i16 noundef zeroext %776)
+  %778 = icmp ne i32 %777, 0
+  br i1 %778, label %779, label %780
 
-777:                                              ; preds = %771
-  br label %1234
+779:                                              ; preds = %768
+  br label %1450
 
-778:                                              ; preds = %771
-  br label %779
-
-779:                                              ; preds = %778
-  br label %780
-
-780:                                              ; preds = %779
+780:                                              ; preds = %768
   %781 = load ptr, ptr %11, align 8
-  %782 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %781, i32 0, i32 33
+  %782 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %781, i32 0, i32 43
   %783 = load ptr, ptr %6, align 8
-  %784 = call i32 @unpack_time(ptr noundef %782, ptr noundef %783)
-  %785 = icmp ne i32 %784, 0
-  br i1 %785, label %786, label %787
+  %784 = load ptr, ptr %11, align 8
+  %785 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %784, i32 0, i32 0
+  %786 = load i16, ptr %7, align 2
+  %787 = call i32 @gres_step_state_unpack(ptr noundef %782, ptr noundef %783, ptr noundef %785, i16 noundef zeroext %786)
+  %788 = icmp ne i32 %787, 0
+  br i1 %788, label %789, label %790
 
-786:                                              ; preds = %780
-  br label %1234
+789:                                              ; preds = %780
+  br label %1450
 
-787:                                              ; preds = %780
-  br label %788
+790:                                              ; preds = %780
+  br label %791
 
-788:                                              ; preds = %787
-  br label %789
+791:                                              ; preds = %790
+  %792 = load ptr, ptr %11, align 8
+  %793 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %792, i32 0, i32 16
+  %794 = load ptr, ptr %6, align 8
+  %795 = call i32 @unpack16(ptr noundef %793, ptr noundef %794)
+  %796 = icmp ne i32 %795, 0
+  br i1 %796, label %797, label %798
 
-789:                                              ; preds = %788
-  %790 = load ptr, ptr %11, align 8
-  %791 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %790, i32 0, i32 34
-  %792 = load ptr, ptr %6, align 8
-  %793 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %791, ptr noundef %41, ptr noundef %792)
-  %794 = icmp ne i32 %793, 0
-  br i1 %794, label %795, label %796
+797:                                              ; preds = %791
+  br label %1450
 
-795:                                              ; preds = %789
-  br label %1234
+798:                                              ; preds = %791
+  br label %799
 
-796:                                              ; preds = %789
-  br label %797
+799:                                              ; preds = %798
+  br label %800
 
-797:                                              ; preds = %796
-  br label %798
+800:                                              ; preds = %799
+  br label %801
 
-798:                                              ; preds = %797
-  %799 = load ptr, ptr %11, align 8
-  %800 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %799, i32 0, i32 35
-  %801 = load ptr, ptr %6, align 8
-  %802 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %800, ptr noundef %42, ptr noundef %801)
-  %803 = icmp ne i32 %802, 0
-  br i1 %803, label %804, label %805
+801:                                              ; preds = %800
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #6
+  %802 = load ptr, ptr %11, align 8
+  %803 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %802, i32 0, i32 11
+  %804 = load ptr, ptr %6, align 8
+  %805 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %803, ptr noundef %36, ptr noundef %804)
+  %806 = icmp ne i32 %805, 0
+  br i1 %806, label %807, label %808
 
-804:                                              ; preds = %798
-  br label %1234
+807:                                              ; preds = %801
+  store i32 2, ptr %16, align 4
+  br label %809
 
-805:                                              ; preds = %798
-  br label %806
+808:                                              ; preds = %801
+  store i32 0, ptr %16, align 4
+  br label %809
 
-806:                                              ; preds = %805
-  br label %807
+809:                                              ; preds = %807, %808
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #6
+  %810 = load i32, ptr %16, align 4
+  switch i32 %810, label %1452 [
+    i32 0, label %811
+    i32 2, label %1450
+  ]
 
-807:                                              ; preds = %806
-  %808 = load ptr, ptr %11, align 8
-  %809 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %808, i32 0, i32 36
-  %810 = load ptr, ptr %6, align 8
-  %811 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %809, ptr noundef %43, ptr noundef %810)
-  %812 = icmp ne i32 %811, 0
-  br i1 %812, label %813, label %814
+811:                                              ; preds = %809
+  br label %812
 
-813:                                              ; preds = %807
-  br label %1234
+812:                                              ; preds = %811
+  br label %813
 
-814:                                              ; preds = %807
-  br label %815
+813:                                              ; preds = %812
+  %814 = load ptr, ptr %11, align 8
+  %815 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %814, i32 0, i32 25
+  %816 = load ptr, ptr %6, align 8
+  %817 = call i32 @slurm_unpack_addr_array(ptr noundef %815, ptr noundef %9, ptr noundef %816)
+  %818 = icmp ne i32 %817, 0
+  br i1 %818, label %819, label %820
 
-815:                                              ; preds = %814
-  br label %816
+819:                                              ; preds = %813
+  br label %1450
 
-816:                                              ; preds = %815
-  %817 = load ptr, ptr %11, align 8
-  %818 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %817, i32 0, i32 39
-  %819 = load ptr, ptr %6, align 8
-  %820 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %818, ptr noundef %44, ptr noundef %819)
-  %821 = icmp ne i32 %820, 0
-  br i1 %821, label %822, label %823
+820:                                              ; preds = %813
+  br label %821
 
-822:                                              ; preds = %816
-  br label %1234
+821:                                              ; preds = %820
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #6
+  %822 = load ptr, ptr %11, align 8
+  %823 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %822, i32 0, i32 12
+  %824 = load ptr, ptr %6, align 8
+  %825 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %823, ptr noundef %37, ptr noundef %824)
+  %826 = icmp ne i32 %825, 0
+  br i1 %826, label %827, label %828
 
-823:                                              ; preds = %816
-  br label %824
+827:                                              ; preds = %821
+  store i32 2, ptr %16, align 4
+  br label %829
 
-824:                                              ; preds = %823
-  br label %825
+828:                                              ; preds = %821
+  store i32 0, ptr %16, align 4
+  br label %829
 
-825:                                              ; preds = %824
-  %826 = load ptr, ptr %11, align 8
-  %827 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %826, i32 0, i32 37
-  %828 = load ptr, ptr %6, align 8
-  %829 = call i32 @unpack16(ptr noundef %827, ptr noundef %828)
-  %830 = icmp ne i32 %829, 0
-  br i1 %830, label %831, label %832
+829:                                              ; preds = %827, %828
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #6
+  %830 = load i32, ptr %16, align 4
+  switch i32 %830, label %1452 [
+    i32 0, label %831
+    i32 2, label %1450
+  ]
 
-831:                                              ; preds = %825
-  br label %1234
+831:                                              ; preds = %829
+  br label %832
 
-832:                                              ; preds = %825
+832:                                              ; preds = %831
   br label %833
 
 833:                                              ; preds = %832
   br label %834
 
 834:                                              ; preds = %833
-  %835 = load ptr, ptr %10, align 8
-  %836 = getelementptr inbounds %struct.slurm_cred_t, ptr %835, i32 0, i32 6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #6
+  %835 = load ptr, ptr %11, align 8
+  %836 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %835, i32 0, i32 13
   %837 = load ptr, ptr %6, align 8
-  %838 = call i32 @unpack_time(ptr noundef %836, ptr noundef %837)
+  %838 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %836, ptr noundef %38, ptr noundef %837)
   %839 = icmp ne i32 %838, 0
   br i1 %839, label %840, label %841
 
 840:                                              ; preds = %834
-  br label %1234
-
-841:                                              ; preds = %834
+  store i32 2, ptr %16, align 4
   br label %842
 
-842:                                              ; preds = %841
-  br label %843
+841:                                              ; preds = %834
+  store i32 0, ptr %16, align 4
+  br label %842
 
-843:                                              ; preds = %842
-  %844 = load ptr, ptr %6, align 8
-  %845 = call i32 @unpack32(ptr noundef %13, ptr noundef %844)
-  %846 = icmp ne i32 %845, 0
-  br i1 %846, label %847, label %848
+842:                                              ; preds = %840, %841
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #6
+  %843 = load i32, ptr %16, align 4
+  switch i32 %843, label %1452 [
+    i32 0, label %844
+    i32 2, label %1450
+  ]
 
-847:                                              ; preds = %843
-  br label %1234
+844:                                              ; preds = %842
+  br label %845
 
-848:                                              ; preds = %843
-  br label %849
+845:                                              ; preds = %844
+  br label %846
 
-849:                                              ; preds = %848
-  br label %850
+846:                                              ; preds = %845
+  br label %847
 
-850:                                              ; preds = %849
-  store ptr null, ptr %45, align 8
-  br label %851
+847:                                              ; preds = %846
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #6
+  %848 = load ptr, ptr %11, align 8
+  %849 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %848, i32 0, i32 14
+  %850 = load ptr, ptr %6, align 8
+  %851 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %849, ptr noundef %39, ptr noundef %850)
+  %852 = icmp ne i32 %851, 0
+  br i1 %852, label %853, label %854
 
-851:                                              ; preds = %850
-  %852 = load ptr, ptr %6, align 8
-  %853 = call i32 @unpack32(ptr noundef %46, ptr noundef %852)
-  %854 = icmp ne i32 %853, 0
-  br i1 %854, label %855, label %856
+853:                                              ; preds = %847
+  store i32 2, ptr %16, align 4
+  br label %855
 
-855:                                              ; preds = %851
-  br label %1234
+854:                                              ; preds = %847
+  store i32 0, ptr %16, align 4
+  br label %855
 
-856:                                              ; preds = %851
-  br label %857
+855:                                              ; preds = %853, %854
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #6
+  %856 = load i32, ptr %16, align 4
+  switch i32 %856, label %1452 [
+    i32 0, label %857
+    i32 2, label %1450
+  ]
 
-857:                                              ; preds = %856
-  %858 = load i32, ptr %46, align 4
-  %859 = icmp ne i32 %858, -2
-  br i1 %859, label %860, label %900
+857:                                              ; preds = %855
+  br label %858
 
-860:                                              ; preds = %857
-  br label %861
+858:                                              ; preds = %857
+  br label %859
 
-861:                                              ; preds = %860
-  %862 = load ptr, ptr %6, align 8
-  %863 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %45, ptr noundef %47, ptr noundef %862)
-  %864 = icmp ne i32 %863, 0
-  br i1 %864, label %865, label %866
+859:                                              ; preds = %858
+  br label %860
 
-865:                                              ; preds = %861
-  br label %1234
+860:                                              ; preds = %859
+  %861 = load ptr, ptr %11, align 8
+  %862 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %861, i32 0, i32 17
+  %863 = load ptr, ptr %6, align 8
+  %864 = call i32 @unpack_time(ptr noundef %862, ptr noundef %863)
+  %865 = icmp ne i32 %864, 0
+  br i1 %865, label %866, label %867
 
-866:                                              ; preds = %861
-  br label %867
+866:                                              ; preds = %860
+  br label %1450
 
-867:                                              ; preds = %866
-  %868 = load i32, ptr %46, align 4
-  %869 = icmp ne i32 %868, 0
-  br i1 %869, label %870, label %896
+867:                                              ; preds = %860
+  br label %868
 
-870:                                              ; preds = %867
-  %871 = load i32, ptr %46, align 4
-  %872 = zext i32 %871 to i64
-  %873 = call ptr @bit_alloc(i64 noundef %872)
-  %874 = load ptr, ptr %11, align 8
-  %875 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %874, i32 0, i32 15
-  store ptr %873, ptr %875, align 8
-  %876 = load ptr, ptr %11, align 8
-  %877 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %876, i32 0, i32 15
-  %878 = load ptr, ptr %877, align 8
-  %879 = load ptr, ptr %45, align 8
-  %880 = call i32 @bit_unfmt_hexmask(ptr noundef %878, ptr noundef %879)
-  %881 = icmp ne i32 %880, 0
-  br i1 %881, label %882, label %895
+868:                                              ; preds = %867
+  br label %869
 
-882:                                              ; preds = %870
+869:                                              ; preds = %868
+  br label %870
+
+870:                                              ; preds = %869
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #6
+  %871 = load ptr, ptr %11, align 8
+  %872 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %871, i32 0, i32 18
+  %873 = load ptr, ptr %6, align 8
+  %874 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %872, ptr noundef %40, ptr noundef %873)
+  %875 = icmp ne i32 %874, 0
+  br i1 %875, label %876, label %877
+
+876:                                              ; preds = %870
+  store i32 2, ptr %16, align 4
+  br label %878
+
+877:                                              ; preds = %870
+  store i32 0, ptr %16, align 4
+  br label %878
+
+878:                                              ; preds = %876, %877
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #6
+  %879 = load i32, ptr %16, align 4
+  switch i32 %879, label %1452 [
+    i32 0, label %880
+    i32 2, label %1450
+  ]
+
+880:                                              ; preds = %878
+  br label %881
+
+881:                                              ; preds = %880
+  br label %882
+
+882:                                              ; preds = %881
   br label %883
 
 883:                                              ; preds = %882
   %884 = load ptr, ptr %11, align 8
-  %885 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %884, i32 0, i32 15
-  %886 = load ptr, ptr %885, align 8
-  %887 = icmp ne ptr %886, null
-  br i1 %887, label %888, label %891
+  %885 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %884, i32 0, i32 27
+  %886 = load ptr, ptr %6, align 8
+  %887 = call i32 @unpack16(ptr noundef %885, ptr noundef %886)
+  %888 = icmp ne i32 %887, 0
+  br i1 %888, label %889, label %890
 
-888:                                              ; preds = %883
-  %889 = load ptr, ptr %11, align 8
-  %890 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %889, i32 0, i32 15
-  call void @slurm_bit_free(ptr noundef %890)
+889:                                              ; preds = %883
+  br label %1450
+
+890:                                              ; preds = %883
   br label %891
 
-891:                                              ; preds = %888, %883
-  %892 = load ptr, ptr %11, align 8
-  %893 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %892, i32 0, i32 15
-  store ptr null, ptr %893, align 8
-  br label %894
+891:                                              ; preds = %890
+  br label %892
 
-894:                                              ; preds = %891
-  call void @slurm_xfree(ptr noundef %45)
-  br label %1234
+892:                                              ; preds = %891
+  br label %893
 
-895:                                              ; preds = %870
-  br label %899
+893:                                              ; preds = %892
+  %894 = load ptr, ptr %11, align 8
+  %895 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %894, i32 0, i32 29
+  %896 = load ptr, ptr %11, align 8
+  %897 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %896, i32 0, i32 44
+  %898 = load ptr, ptr %6, align 8
+  %899 = load i16, ptr %7, align 2
+  %900 = call i32 @_unpackstr_and_switch(ptr noundef %895, ptr noundef %897, ptr noundef %898, i16 noundef zeroext %899)
+  %901 = icmp ne i32 %900, 0
+  br i1 %901, label %902, label %903
 
-896:                                              ; preds = %867
-  %897 = load ptr, ptr %11, align 8
-  %898 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %897, i32 0, i32 15
-  store ptr null, ptr %898, align 8
-  br label %899
+902:                                              ; preds = %893
+  br label %1450
 
-899:                                              ; preds = %896, %895
-  call void @slurm_xfree(ptr noundef %45)
-  br label %903
-
-900:                                              ; preds = %857
-  %901 = load ptr, ptr %11, align 8
-  %902 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %901, i32 0, i32 15
-  store ptr null, ptr %902, align 8
-  br label %903
-
-903:                                              ; preds = %900, %899
+903:                                              ; preds = %893
   br label %904
 
 904:                                              ; preds = %903
   br label %905
 
 905:                                              ; preds = %904
-  store ptr null, ptr %48, align 8
   br label %906
 
 906:                                              ; preds = %905
-  %907 = load ptr, ptr %6, align 8
-  %908 = call i32 @unpack32(ptr noundef %49, ptr noundef %907)
-  %909 = icmp ne i32 %908, 0
-  br i1 %909, label %910, label %911
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #6
+  %907 = load ptr, ptr %11, align 8
+  %908 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %907, i32 0, i32 30
+  %909 = load ptr, ptr %6, align 8
+  %910 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %908, ptr noundef %41, ptr noundef %909)
+  %911 = icmp ne i32 %910, 0
+  br i1 %911, label %912, label %913
 
-910:                                              ; preds = %906
-  br label %1234
+912:                                              ; preds = %906
+  store i32 2, ptr %16, align 4
+  br label %914
 
-911:                                              ; preds = %906
-  br label %912
+913:                                              ; preds = %906
+  store i32 0, ptr %16, align 4
+  br label %914
 
-912:                                              ; preds = %911
-  %913 = load i32, ptr %49, align 4
-  %914 = icmp ne i32 %913, -2
-  br i1 %914, label %915, label %955
+914:                                              ; preds = %912, %913
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #6
+  %915 = load i32, ptr %16, align 4
+  switch i32 %915, label %1452 [
+    i32 0, label %916
+    i32 2, label %1450
+  ]
 
-915:                                              ; preds = %912
-  br label %916
+916:                                              ; preds = %914
+  br label %917
 
-916:                                              ; preds = %915
-  %917 = load ptr, ptr %6, align 8
-  %918 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %48, ptr noundef %50, ptr noundef %917)
-  %919 = icmp ne i32 %918, 0
-  br i1 %919, label %920, label %921
+917:                                              ; preds = %916
+  br label %918
 
-920:                                              ; preds = %916
-  br label %1234
+918:                                              ; preds = %917
+  br label %919
 
-921:                                              ; preds = %916
-  br label %922
-
-922:                                              ; preds = %921
-  %923 = load i32, ptr %49, align 4
+919:                                              ; preds = %918
+  %920 = load ptr, ptr %11, align 8
+  %921 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %920, i32 0, i32 31
+  %922 = load ptr, ptr %6, align 8
+  %923 = call i32 @unpack16(ptr noundef %921, ptr noundef %922)
   %924 = icmp ne i32 %923, 0
-  br i1 %924, label %925, label %951
+  br i1 %924, label %925, label %926
 
-925:                                              ; preds = %922
-  %926 = load i32, ptr %49, align 4
-  %927 = zext i32 %926 to i64
-  %928 = call ptr @bit_alloc(i64 noundef %927)
-  %929 = load ptr, ptr %11, align 8
-  %930 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %929, i32 0, i32 38
-  store ptr %928, ptr %930, align 8
-  %931 = load ptr, ptr %11, align 8
-  %932 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %931, i32 0, i32 38
-  %933 = load ptr, ptr %932, align 8
-  %934 = load ptr, ptr %48, align 8
-  %935 = call i32 @bit_unfmt_hexmask(ptr noundef %933, ptr noundef %934)
-  %936 = icmp ne i32 %935, 0
-  br i1 %936, label %937, label %950
+925:                                              ; preds = %919
+  br label %1450
 
-937:                                              ; preds = %925
+926:                                              ; preds = %919
+  br label %927
+
+927:                                              ; preds = %926
+  br label %928
+
+928:                                              ; preds = %927
+  br label %929
+
+929:                                              ; preds = %928
+  %930 = load ptr, ptr %11, align 8
+  %931 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %930, i32 0, i32 33
+  %932 = load ptr, ptr %6, align 8
+  %933 = call i32 @unpack_time(ptr noundef %931, ptr noundef %932)
+  %934 = icmp ne i32 %933, 0
+  br i1 %934, label %935, label %936
+
+935:                                              ; preds = %929
+  br label %1450
+
+936:                                              ; preds = %929
+  br label %937
+
+937:                                              ; preds = %936
   br label %938
 
 938:                                              ; preds = %937
-  %939 = load ptr, ptr %11, align 8
-  %940 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %939, i32 0, i32 38
-  %941 = load ptr, ptr %940, align 8
-  %942 = icmp ne ptr %941, null
-  br i1 %942, label %943, label %946
+  br label %939
 
-943:                                              ; preds = %938
-  %944 = load ptr, ptr %11, align 8
-  %945 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %944, i32 0, i32 38
-  call void @slurm_bit_free(ptr noundef %945)
-  br label %946
+939:                                              ; preds = %938
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #6
+  %940 = load ptr, ptr %11, align 8
+  %941 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %940, i32 0, i32 34
+  %942 = load ptr, ptr %6, align 8
+  %943 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %941, ptr noundef %42, ptr noundef %942)
+  %944 = icmp ne i32 %943, 0
+  br i1 %944, label %945, label %946
 
-946:                                              ; preds = %943, %938
-  %947 = load ptr, ptr %11, align 8
-  %948 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %947, i32 0, i32 38
-  store ptr null, ptr %948, align 8
-  br label %949
+945:                                              ; preds = %939
+  store i32 2, ptr %16, align 4
+  br label %947
 
-949:                                              ; preds = %946
-  call void @slurm_xfree(ptr noundef %48)
-  br label %1234
+946:                                              ; preds = %939
+  store i32 0, ptr %16, align 4
+  br label %947
 
-950:                                              ; preds = %925
-  br label %954
+947:                                              ; preds = %945, %946
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #6
+  %948 = load i32, ptr %16, align 4
+  switch i32 %948, label %1452 [
+    i32 0, label %949
+    i32 2, label %1450
+  ]
 
-951:                                              ; preds = %922
-  %952 = load ptr, ptr %11, align 8
-  %953 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %952, i32 0, i32 38
-  store ptr null, ptr %953, align 8
-  br label %954
+949:                                              ; preds = %947
+  br label %950
 
-954:                                              ; preds = %951, %950
-  call void @slurm_xfree(ptr noundef %48)
-  br label %958
+950:                                              ; preds = %949
+  br label %951
 
-955:                                              ; preds = %912
-  %956 = load ptr, ptr %11, align 8
-  %957 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %956, i32 0, i32 38
-  store ptr null, ptr %957, align 8
-  br label %958
+951:                                              ; preds = %950
+  br label %952
 
-958:                                              ; preds = %955, %954
-  br label %959
+952:                                              ; preds = %951
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #6
+  %953 = load ptr, ptr %11, align 8
+  %954 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %953, i32 0, i32 35
+  %955 = load ptr, ptr %6, align 8
+  %956 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %954, ptr noundef %43, ptr noundef %955)
+  %957 = icmp ne i32 %956, 0
+  br i1 %957, label %958, label %959
 
-959:                                              ; preds = %958
+958:                                              ; preds = %952
+  store i32 2, ptr %16, align 4
   br label %960
 
-960:                                              ; preds = %959
-  %961 = load ptr, ptr %11, align 8
-  %962 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %961, i32 0, i32 4
-  %963 = load ptr, ptr %6, align 8
-  %964 = call i32 @unpack16(ptr noundef %962, ptr noundef %963)
-  %965 = icmp ne i32 %964, 0
-  br i1 %965, label %966, label %967
+959:                                              ; preds = %952
+  store i32 0, ptr %16, align 4
+  br label %960
 
-966:                                              ; preds = %960
-  br label %1234
+960:                                              ; preds = %958, %959
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #6
+  %961 = load i32, ptr %16, align 4
+  switch i32 %961, label %1452 [
+    i32 0, label %962
+    i32 2, label %1450
+  ]
 
-967:                                              ; preds = %960
-  br label %968
+962:                                              ; preds = %960
+  br label %963
 
-968:                                              ; preds = %967
-  %969 = load ptr, ptr %11, align 8
-  %970 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %969, i32 0, i32 4
-  %971 = load i16, ptr %970, align 8
-  %972 = icmp ne i16 %971, 0
-  br i1 %972, label %973, label %1025
+963:                                              ; preds = %962
+  br label %964
 
-973:                                              ; preds = %968
-  br label %974
+964:                                              ; preds = %963
+  br label %965
 
-974:                                              ; preds = %973
-  %975 = load ptr, ptr %11, align 8
-  %976 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %975, i32 0, i32 5
-  %977 = load ptr, ptr %6, align 8
-  %978 = call i32 @unpack16_array(ptr noundef %976, ptr noundef %8, ptr noundef %977)
-  %979 = icmp ne i32 %978, 0
-  br i1 %979, label %980, label %981
+965:                                              ; preds = %964
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #6
+  %966 = load ptr, ptr %11, align 8
+  %967 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %966, i32 0, i32 36
+  %968 = load ptr, ptr %6, align 8
+  %969 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %967, ptr noundef %44, ptr noundef %968)
+  %970 = icmp ne i32 %969, 0
+  br i1 %970, label %971, label %972
 
-980:                                              ; preds = %974
-  br label %1234
+971:                                              ; preds = %965
+  store i32 2, ptr %16, align 4
+  br label %973
 
-981:                                              ; preds = %974
-  br label %982
+972:                                              ; preds = %965
+  store i32 0, ptr %16, align 4
+  br label %973
 
-982:                                              ; preds = %981
-  %983 = load i32, ptr %8, align 4
-  %984 = load ptr, ptr %11, align 8
-  %985 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %984, i32 0, i32 4
-  %986 = load i16, ptr %985, align 8
-  %987 = zext i16 %986 to i32
-  %988 = icmp ne i32 %983, %987
-  br i1 %988, label %989, label %990
+973:                                              ; preds = %971, %972
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #6
+  %974 = load i32, ptr %16, align 4
+  switch i32 %974, label %1452 [
+    i32 0, label %975
+    i32 2, label %1450
+  ]
 
-989:                                              ; preds = %982
-  br label %1234
+975:                                              ; preds = %973
+  br label %976
 
-990:                                              ; preds = %982
+976:                                              ; preds = %975
+  br label %977
+
+977:                                              ; preds = %976
+  br label %978
+
+978:                                              ; preds = %977
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #6
+  %979 = load ptr, ptr %11, align 8
+  %980 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %979, i32 0, i32 39
+  %981 = load ptr, ptr %6, align 8
+  %982 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %980, ptr noundef %45, ptr noundef %981)
+  %983 = icmp ne i32 %982, 0
+  br i1 %983, label %984, label %985
+
+984:                                              ; preds = %978
+  store i32 2, ptr %16, align 4
+  br label %986
+
+985:                                              ; preds = %978
+  store i32 0, ptr %16, align 4
+  br label %986
+
+986:                                              ; preds = %984, %985
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #6
+  %987 = load i32, ptr %16, align 4
+  switch i32 %987, label %1452 [
+    i32 0, label %988
+    i32 2, label %1450
+  ]
+
+988:                                              ; preds = %986
+  br label %989
+
+989:                                              ; preds = %988
+  br label %990
+
+990:                                              ; preds = %989
   br label %991
 
 991:                                              ; preds = %990
   %992 = load ptr, ptr %11, align 8
-  %993 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %992, i32 0, i32 6
+  %993 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %992, i32 0, i32 37
   %994 = load ptr, ptr %6, align 8
-  %995 = call i32 @unpack16_array(ptr noundef %993, ptr noundef %8, ptr noundef %994)
+  %995 = call i32 @unpack16(ptr noundef %993, ptr noundef %994)
   %996 = icmp ne i32 %995, 0
   br i1 %996, label %997, label %998
 
 997:                                              ; preds = %991
-  br label %1234
+  br label %1450
 
 998:                                              ; preds = %991
   br label %999
 
 999:                                              ; preds = %998
-  %1000 = load i32, ptr %8, align 4
-  %1001 = load ptr, ptr %11, align 8
-  %1002 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1001, i32 0, i32 4
-  %1003 = load i16, ptr %1002, align 8
-  %1004 = zext i16 %1003 to i32
-  %1005 = icmp ne i32 %1000, %1004
-  br i1 %1005, label %1006, label %1007
+  br label %1000
 
-1006:                                             ; preds = %999
-  br label %1234
+1000:                                             ; preds = %999
+  br label %1001
 
-1007:                                             ; preds = %999
-  br label %1008
+1001:                                             ; preds = %1000
+  %1002 = load ptr, ptr %10, align 8
+  %1003 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %1002, i32 0, i32 6
+  %1004 = load ptr, ptr %6, align 8
+  %1005 = call i32 @unpack_time(ptr noundef %1003, ptr noundef %1004)
+  %1006 = icmp ne i32 %1005, 0
+  br i1 %1006, label %1007, label %1008
 
-1008:                                             ; preds = %1007
-  %1009 = load ptr, ptr %11, align 8
-  %1010 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1009, i32 0, i32 7
-  %1011 = load ptr, ptr %6, align 8
-  %1012 = call i32 @unpack32_array(ptr noundef %1010, ptr noundef %8, ptr noundef %1011)
-  %1013 = icmp ne i32 %1012, 0
-  br i1 %1013, label %1014, label %1015
+1007:                                             ; preds = %1001
+  br label %1450
 
-1014:                                             ; preds = %1008
-  br label %1234
+1008:                                             ; preds = %1001
+  br label %1009
 
-1015:                                             ; preds = %1008
-  br label %1016
+1009:                                             ; preds = %1008
+  br label %1010
 
-1016:                                             ; preds = %1015
-  %1017 = load i32, ptr %8, align 4
-  %1018 = load ptr, ptr %11, align 8
-  %1019 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1018, i32 0, i32 4
-  %1020 = load i16, ptr %1019, align 8
-  %1021 = zext i16 %1020 to i32
-  %1022 = icmp ne i32 %1017, %1021
-  br i1 %1022, label %1023, label %1024
+1010:                                             ; preds = %1009
+  br label %1011
 
-1023:                                             ; preds = %1016
-  br label %1234
+1011:                                             ; preds = %1010
+  %1012 = load ptr, ptr %6, align 8
+  %1013 = call i32 @unpack32(ptr noundef %14, ptr noundef %1012)
+  %1014 = icmp ne i32 %1013, 0
+  br i1 %1014, label %1015, label %1016
 
-1024:                                             ; preds = %1016
-  br label %1025
+1015:                                             ; preds = %1011
+  br label %1450
 
-1025:                                             ; preds = %1024, %968
+1016:                                             ; preds = %1011
+  br label %1017
+
+1017:                                             ; preds = %1016
+  br label %1018
+
+1018:                                             ; preds = %1017
+  br label %1019
+
+1019:                                             ; preds = %1018
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #6
+  store ptr null, ptr %46, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %47) #6
+  br label %1020
+
+1020:                                             ; preds = %1019
+  %1021 = load ptr, ptr %6, align 8
+  %1022 = call i32 @unpack32(ptr noundef %47, ptr noundef %1021)
+  %1023 = icmp ne i32 %1022, 0
+  br i1 %1023, label %1024, label %1025
+
+1024:                                             ; preds = %1020
+  store i32 2, ptr %16, align 4
+  br label %1079
+
+1025:                                             ; preds = %1020
   br label %1026
 
 1026:                                             ; preds = %1025
-  %1027 = load ptr, ptr %11, align 8
-  %1028 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1027, i32 0, i32 8
-  %1029 = load ptr, ptr %6, align 8
-  %1030 = call i32 @unpack32(ptr noundef %1028, ptr noundef %1029)
-  %1031 = icmp ne i32 %1030, 0
-  br i1 %1031, label %1032, label %1033
+  br label %1027
 
-1032:                                             ; preds = %1026
-  br label %1234
+1027:                                             ; preds = %1026
+  %1028 = load i32, ptr %47, align 4
+  %1029 = icmp ne i32 %1028, -2
+  br i1 %1029, label %1030, label %1075
 
-1033:                                             ; preds = %1026
-  br label %1034
+1030:                                             ; preds = %1027
+  br label %1031
 
-1034:                                             ; preds = %1033
-  %1035 = load ptr, ptr %11, align 8
-  %1036 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1035, i32 0, i32 8
-  %1037 = load i32, ptr %1036, align 8
-  %1038 = icmp ne i32 %1037, 0
-  br i1 %1038, label %1039, label %1072
+1031:                                             ; preds = %1030
+  call void @llvm.lifetime.start.p0(i64 4, ptr %48) #6
+  %1032 = load ptr, ptr %6, align 8
+  %1033 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %46, ptr noundef %48, ptr noundef %1032)
+  %1034 = icmp ne i32 %1033, 0
+  br i1 %1034, label %1035, label %1036
 
-1039:                                             ; preds = %1034
+1035:                                             ; preds = %1031
+  store i32 2, ptr %16, align 4
+  br label %1037
+
+1036:                                             ; preds = %1031
+  store i32 0, ptr %16, align 4
+  br label %1037
+
+1037:                                             ; preds = %1035, %1036
+  call void @llvm.lifetime.end.p0(i64 4, ptr %48) #6
+  %1038 = load i32, ptr %16, align 4
+  switch i32 %1038, label %1079 [
+    i32 0, label %1039
+  ]
+
+1039:                                             ; preds = %1037
   br label %1040
 
 1040:                                             ; preds = %1039
-  %1041 = load ptr, ptr %11, align 8
-  %1042 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1041, i32 0, i32 9
-  %1043 = load ptr, ptr %6, align 8
-  %1044 = call i32 @unpack16_array(ptr noundef %1042, ptr noundef %8, ptr noundef %1043)
-  %1045 = icmp ne i32 %1044, 0
-  br i1 %1045, label %1046, label %1047
+  br label %1041
 
-1046:                                             ; preds = %1040
-  br label %1234
+1041:                                             ; preds = %1040
+  %1042 = load i32, ptr %47, align 4
+  %1043 = icmp ne i32 %1042, 0
+  br i1 %1043, label %1044, label %1071
 
-1047:                                             ; preds = %1040
-  br label %1048
-
-1048:                                             ; preds = %1047
-  %1049 = load i32, ptr %8, align 4
+1044:                                             ; preds = %1041
+  %1045 = load i32, ptr %47, align 4
+  %1046 = zext i32 %1045 to i64
+  %1047 = call ptr @bit_alloc(i64 noundef %1046)
+  %1048 = load ptr, ptr %11, align 8
+  %1049 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1048, i32 0, i32 15
+  store ptr %1047, ptr %1049, align 8
   %1050 = load ptr, ptr %11, align 8
-  %1051 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1050, i32 0, i32 8
-  %1052 = load i32, ptr %1051, align 8
-  %1053 = icmp ne i32 %1049, %1052
-  br i1 %1053, label %1054, label %1055
+  %1051 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1050, i32 0, i32 15
+  %1052 = load ptr, ptr %1051, align 8
+  %1053 = load ptr, ptr %46, align 8
+  %1054 = call i32 @bit_unfmt_hexmask(ptr noundef %1052, ptr noundef %1053)
+  %1055 = icmp ne i32 %1054, 0
+  br i1 %1055, label %1056, label %1070
 
-1054:                                             ; preds = %1048
-  br label %1234
+1056:                                             ; preds = %1044
+  br label %1057
 
-1055:                                             ; preds = %1048
-  br label %1056
+1057:                                             ; preds = %1056
+  %1058 = load ptr, ptr %11, align 8
+  %1059 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1058, i32 0, i32 15
+  %1060 = load ptr, ptr %1059, align 8
+  %1061 = icmp ne ptr %1060, null
+  br i1 %1061, label %1062, label %1065
 
-1056:                                             ; preds = %1055
-  %1057 = load ptr, ptr %11, align 8
-  %1058 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1057, i32 0, i32 10
-  %1059 = load ptr, ptr %6, align 8
-  %1060 = call i32 @unpack32_array(ptr noundef %1058, ptr noundef %8, ptr noundef %1059)
-  %1061 = icmp ne i32 %1060, 0
-  br i1 %1061, label %1062, label %1063
+1062:                                             ; preds = %1057
+  %1063 = load ptr, ptr %11, align 8
+  %1064 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1063, i32 0, i32 15
+  call void @slurm_bit_free(ptr noundef %1064)
+  br label %1065
 
-1062:                                             ; preds = %1056
-  br label %1234
-
-1063:                                             ; preds = %1056
-  br label %1064
-
-1064:                                             ; preds = %1063
-  %1065 = load i32, ptr %8, align 4
+1065:                                             ; preds = %1062, %1057
   %1066 = load ptr, ptr %11, align 8
-  %1067 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1066, i32 0, i32 8
-  %1068 = load i32, ptr %1067, align 8
-  %1069 = icmp ne i32 %1065, %1068
-  br i1 %1069, label %1070, label %1071
+  %1067 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1066, i32 0, i32 15
+  store ptr null, ptr %1067, align 8
+  br label %1068
 
-1070:                                             ; preds = %1064
-  br label %1234
+1068:                                             ; preds = %1065
+  br label %1069
 
-1071:                                             ; preds = %1064
-  br label %1072
+1069:                                             ; preds = %1068
+  call void @slurm_xfree(ptr noundef %46)
+  store i32 2, ptr %16, align 4
+  br label %1079
 
-1072:                                             ; preds = %1071, %1034
-  br label %1073
+1070:                                             ; preds = %1044
+  br label %1074
 
-1073:                                             ; preds = %1072
-  %1074 = load ptr, ptr %11, align 8
-  %1075 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1074, i32 0, i32 24
-  %1076 = load ptr, ptr %6, align 8
-  %1077 = call i32 @unpack32(ptr noundef %1075, ptr noundef %1076)
-  %1078 = icmp ne i32 %1077, 0
-  br i1 %1078, label %1079, label %1080
+1071:                                             ; preds = %1041
+  %1072 = load ptr, ptr %11, align 8
+  %1073 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1072, i32 0, i32 15
+  store ptr null, ptr %1073, align 8
+  br label %1074
 
-1079:                                             ; preds = %1073
-  br label %1234
+1074:                                             ; preds = %1071, %1070
+  call void @slurm_xfree(ptr noundef %46)
+  br label %1078
 
-1080:                                             ; preds = %1073
-  br label %1081
+1075:                                             ; preds = %1027
+  %1076 = load ptr, ptr %11, align 8
+  %1077 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1076, i32 0, i32 15
+  store ptr null, ptr %1077, align 8
+  br label %1078
 
-1081:                                             ; preds = %1080
+1078:                                             ; preds = %1075, %1074
+  store i32 0, ptr %16, align 4
+  br label %1079
+
+1079:                                             ; preds = %1069, %1024, %1078, %1037
+  call void @llvm.lifetime.end.p0(i64 4, ptr %47) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #6
+  %1080 = load i32, ptr %16, align 4
+  switch i32 %1080, label %1452 [
+    i32 0, label %1081
+    i32 2, label %1450
+  ]
+
+1081:                                             ; preds = %1079
   br label %1082
 
 1082:                                             ; preds = %1081
-  %1083 = load ptr, ptr %11, align 8
-  %1084 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1083, i32 0, i32 26
-  %1085 = load ptr, ptr %6, align 8
-  %1086 = call i32 @unpack32(ptr noundef %1084, ptr noundef %1085)
-  %1087 = icmp ne i32 %1086, 0
-  br i1 %1087, label %1088, label %1089
+  br label %1083
 
-1088:                                             ; preds = %1082
-  br label %1234
+1083:                                             ; preds = %1082
+  br label %1084
 
-1089:                                             ; preds = %1082
-  br label %1090
+1084:                                             ; preds = %1083
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #6
+  store ptr null, ptr %49, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #6
+  br label %1085
 
-1090:                                             ; preds = %1089
+1085:                                             ; preds = %1084
+  %1086 = load ptr, ptr %6, align 8
+  %1087 = call i32 @unpack32(ptr noundef %50, ptr noundef %1086)
+  %1088 = icmp ne i32 %1087, 0
+  br i1 %1088, label %1089, label %1090
+
+1089:                                             ; preds = %1085
+  store i32 2, ptr %16, align 4
+  br label %1144
+
+1090:                                             ; preds = %1085
   br label %1091
 
 1091:                                             ; preds = %1090
-  %1092 = load ptr, ptr %11, align 8
-  %1093 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1092, i32 0, i32 19
-  %1094 = load ptr, ptr %6, align 8
-  %1095 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1093, ptr noundef %51, ptr noundef %1094)
-  %1096 = icmp ne i32 %1095, 0
-  br i1 %1096, label %1097, label %1098
+  br label %1092
 
-1097:                                             ; preds = %1091
-  br label %1234
+1092:                                             ; preds = %1091
+  %1093 = load i32, ptr %50, align 4
+  %1094 = icmp ne i32 %1093, -2
+  br i1 %1094, label %1095, label %1140
 
-1098:                                             ; preds = %1091
-  br label %1099
+1095:                                             ; preds = %1092
+  br label %1096
 
-1099:                                             ; preds = %1098
-  br label %1100
+1096:                                             ; preds = %1095
+  call void @llvm.lifetime.start.p0(i64 4, ptr %51) #6
+  %1097 = load ptr, ptr %6, align 8
+  %1098 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %49, ptr noundef %51, ptr noundef %1097)
+  %1099 = icmp ne i32 %1098, 0
+  br i1 %1099, label %1100, label %1101
 
-1100:                                             ; preds = %1099
-  %1101 = load ptr, ptr %11, align 8
-  %1102 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1101, i32 0, i32 20
-  %1103 = load ptr, ptr %6, align 8
-  %1104 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1102, ptr noundef %52, ptr noundef %1103)
-  %1105 = icmp ne i32 %1104, 0
-  br i1 %1105, label %1106, label %1107
+1100:                                             ; preds = %1096
+  store i32 2, ptr %16, align 4
+  br label %1102
 
-1106:                                             ; preds = %1100
-  br label %1234
+1101:                                             ; preds = %1096
+  store i32 0, ptr %16, align 4
+  br label %1102
 
-1107:                                             ; preds = %1100
-  br label %1108
+1102:                                             ; preds = %1100, %1101
+  call void @llvm.lifetime.end.p0(i64 4, ptr %51) #6
+  %1103 = load i32, ptr %16, align 4
+  switch i32 %1103, label %1144 [
+    i32 0, label %1104
+  ]
 
-1108:                                             ; preds = %1107
-  br label %1109
+1104:                                             ; preds = %1102
+  br label %1105
 
-1109:                                             ; preds = %1108
-  %1110 = load ptr, ptr %11, align 8
-  %1111 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1110, i32 0, i32 23
-  %1112 = load ptr, ptr %6, align 8
-  %1113 = call i32 @unpack32(ptr noundef %1111, ptr noundef %1112)
-  %1114 = icmp ne i32 %1113, 0
-  br i1 %1114, label %1115, label %1116
+1105:                                             ; preds = %1104
+  br label %1106
 
-1115:                                             ; preds = %1109
-  br label %1234
+1106:                                             ; preds = %1105
+  %1107 = load i32, ptr %50, align 4
+  %1108 = icmp ne i32 %1107, 0
+  br i1 %1108, label %1109, label %1136
 
-1116:                                             ; preds = %1109
-  br label %1117
+1109:                                             ; preds = %1106
+  %1110 = load i32, ptr %50, align 4
+  %1111 = zext i32 %1110 to i64
+  %1112 = call ptr @bit_alloc(i64 noundef %1111)
+  %1113 = load ptr, ptr %11, align 8
+  %1114 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1113, i32 0, i32 38
+  store ptr %1112, ptr %1114, align 8
+  %1115 = load ptr, ptr %11, align 8
+  %1116 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1115, i32 0, i32 38
+  %1117 = load ptr, ptr %1116, align 8
+  %1118 = load ptr, ptr %49, align 8
+  %1119 = call i32 @bit_unfmt_hexmask(ptr noundef %1117, ptr noundef %1118)
+  %1120 = icmp ne i32 %1119, 0
+  br i1 %1120, label %1121, label %1135
 
-1117:                                             ; preds = %1116
-  %1118 = load ptr, ptr %11, align 8
-  %1119 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1118, i32 0, i32 23
-  %1120 = load i32, ptr %1119, align 8
-  %1121 = icmp ne i32 %1120, 0
-  br i1 %1121, label %1122, label %1155
+1121:                                             ; preds = %1109
+  br label %1122
 
-1122:                                             ; preds = %1117
-  br label %1123
+1122:                                             ; preds = %1121
+  %1123 = load ptr, ptr %11, align 8
+  %1124 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1123, i32 0, i32 38
+  %1125 = load ptr, ptr %1124, align 8
+  %1126 = icmp ne ptr %1125, null
+  br i1 %1126, label %1127, label %1130
 
-1123:                                             ; preds = %1122
-  %1124 = load ptr, ptr %11, align 8
-  %1125 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1124, i32 0, i32 21
-  %1126 = load ptr, ptr %6, align 8
-  %1127 = call i32 @unpack64_array(ptr noundef %1125, ptr noundef %8, ptr noundef %1126)
-  %1128 = icmp ne i32 %1127, 0
-  br i1 %1128, label %1129, label %1130
+1127:                                             ; preds = %1122
+  %1128 = load ptr, ptr %11, align 8
+  %1129 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1128, i32 0, i32 38
+  call void @slurm_bit_free(ptr noundef %1129)
+  br label %1130
 
-1129:                                             ; preds = %1123
-  br label %1234
+1130:                                             ; preds = %1127, %1122
+  %1131 = load ptr, ptr %11, align 8
+  %1132 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1131, i32 0, i32 38
+  store ptr null, ptr %1132, align 8
+  br label %1133
 
-1130:                                             ; preds = %1123
-  br label %1131
+1133:                                             ; preds = %1130
+  br label %1134
 
-1131:                                             ; preds = %1130
-  %1132 = load i32, ptr %8, align 4
-  %1133 = load ptr, ptr %11, align 8
-  %1134 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1133, i32 0, i32 23
-  %1135 = load i32, ptr %1134, align 8
-  %1136 = icmp ne i32 %1132, %1135
-  br i1 %1136, label %1137, label %1138
+1134:                                             ; preds = %1133
+  call void @slurm_xfree(ptr noundef %49)
+  store i32 2, ptr %16, align 4
+  br label %1144
 
-1137:                                             ; preds = %1131
-  br label %1234
-
-1138:                                             ; preds = %1131
+1135:                                             ; preds = %1109
   br label %1139
 
-1139:                                             ; preds = %1138
-  %1140 = load ptr, ptr %11, align 8
-  %1141 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1140, i32 0, i32 22
-  %1142 = load ptr, ptr %6, align 8
-  %1143 = call i32 @unpack32_array(ptr noundef %1141, ptr noundef %8, ptr noundef %1142)
-  %1144 = icmp ne i32 %1143, 0
-  br i1 %1144, label %1145, label %1146
+1136:                                             ; preds = %1106
+  %1137 = load ptr, ptr %11, align 8
+  %1138 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1137, i32 0, i32 38
+  store ptr null, ptr %1138, align 8
+  br label %1139
 
-1145:                                             ; preds = %1139
-  br label %1234
+1139:                                             ; preds = %1136, %1135
+  call void @slurm_xfree(ptr noundef %49)
+  br label %1143
 
-1146:                                             ; preds = %1139
+1140:                                             ; preds = %1092
+  %1141 = load ptr, ptr %11, align 8
+  %1142 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1141, i32 0, i32 38
+  store ptr null, ptr %1142, align 8
+  br label %1143
+
+1143:                                             ; preds = %1140, %1139
+  store i32 0, ptr %16, align 4
+  br label %1144
+
+1144:                                             ; preds = %1134, %1089, %1143, %1102
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #6
+  %1145 = load i32, ptr %16, align 4
+  switch i32 %1145, label %1452 [
+    i32 0, label %1146
+    i32 2, label %1450
+  ]
+
+1146:                                             ; preds = %1144
   br label %1147
 
 1147:                                             ; preds = %1146
-  %1148 = load i32, ptr %8, align 4
-  %1149 = load ptr, ptr %11, align 8
-  %1150 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1149, i32 0, i32 23
-  %1151 = load i32, ptr %1150, align 8
-  %1152 = icmp ne i32 %1148, %1151
-  br i1 %1152, label %1153, label %1154
+  br label %1148
 
-1153:                                             ; preds = %1147
-  br label %1234
+1148:                                             ; preds = %1147
+  br label %1149
 
-1154:                                             ; preds = %1147
-  br label %1155
+1149:                                             ; preds = %1148
+  %1150 = load ptr, ptr %11, align 8
+  %1151 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1150, i32 0, i32 4
+  %1152 = load ptr, ptr %6, align 8
+  %1153 = call i32 @unpack16(ptr noundef %1151, ptr noundef %1152)
+  %1154 = icmp ne i32 %1153, 0
+  br i1 %1154, label %1155, label %1156
 
-1155:                                             ; preds = %1154, %1117
-  br label %1156
+1155:                                             ; preds = %1149
+  br label %1450
 
-1156:                                             ; preds = %1155
-  %1157 = load ptr, ptr %11, align 8
-  %1158 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1157, i32 0, i32 42
-  %1159 = load ptr, ptr %6, align 8
-  %1160 = call i32 @unpack32(ptr noundef %1158, ptr noundef %1159)
-  %1161 = icmp ne i32 %1160, 0
-  br i1 %1161, label %1162, label %1163
+1156:                                             ; preds = %1149
+  br label %1157
 
-1162:                                             ; preds = %1156
-  br label %1234
+1157:                                             ; preds = %1156
+  br label %1158
 
-1163:                                             ; preds = %1156
+1158:                                             ; preds = %1157
+  %1159 = load ptr, ptr %11, align 8
+  %1160 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1159, i32 0, i32 4
+  %1161 = load i16, ptr %1160, align 8
+  %1162 = icmp ne i16 %1161, 0
+  br i1 %1162, label %1163, label %1218
+
+1163:                                             ; preds = %1158
   br label %1164
 
 1164:                                             ; preds = %1163
   %1165 = load ptr, ptr %11, align 8
-  %1166 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1165, i32 0, i32 42
-  %1167 = load i32, ptr %1166, align 8
-  %1168 = icmp ne i32 %1167, 0
-  br i1 %1168, label %1169, label %1202
+  %1166 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1165, i32 0, i32 5
+  %1167 = load ptr, ptr %6, align 8
+  %1168 = call i32 @unpack16_array(ptr noundef %1166, ptr noundef %8, ptr noundef %1167)
+  %1169 = icmp ne i32 %1168, 0
+  br i1 %1169, label %1170, label %1171
 
-1169:                                             ; preds = %1164
-  br label %1170
+1170:                                             ; preds = %1164
+  br label %1450
 
-1170:                                             ; preds = %1169
-  %1171 = load ptr, ptr %11, align 8
-  %1172 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1171, i32 0, i32 40
-  %1173 = load ptr, ptr %6, align 8
-  %1174 = call i32 @unpack64_array(ptr noundef %1172, ptr noundef %8, ptr noundef %1173)
-  %1175 = icmp ne i32 %1174, 0
-  br i1 %1175, label %1176, label %1177
+1171:                                             ; preds = %1164
+  br label %1172
 
-1176:                                             ; preds = %1170
-  br label %1234
+1172:                                             ; preds = %1171
+  br label %1173
 
-1177:                                             ; preds = %1170
-  br label %1178
+1173:                                             ; preds = %1172
+  %1174 = load i32, ptr %8, align 4
+  %1175 = load ptr, ptr %11, align 8
+  %1176 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1175, i32 0, i32 4
+  %1177 = load i16, ptr %1176, align 8
+  %1178 = zext i16 %1177 to i32
+  %1179 = icmp ne i32 %1174, %1178
+  br i1 %1179, label %1180, label %1181
 
-1178:                                             ; preds = %1177
-  %1179 = load i32, ptr %8, align 4
-  %1180 = load ptr, ptr %11, align 8
-  %1181 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1180, i32 0, i32 42
-  %1182 = load i32, ptr %1181, align 8
-  %1183 = icmp ne i32 %1179, %1182
-  br i1 %1183, label %1184, label %1185
+1180:                                             ; preds = %1173
+  br label %1450
 
-1184:                                             ; preds = %1178
-  br label %1234
+1181:                                             ; preds = %1173
+  br label %1182
 
-1185:                                             ; preds = %1178
-  br label %1186
+1182:                                             ; preds = %1181
+  %1183 = load ptr, ptr %11, align 8
+  %1184 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1183, i32 0, i32 6
+  %1185 = load ptr, ptr %6, align 8
+  %1186 = call i32 @unpack16_array(ptr noundef %1184, ptr noundef %8, ptr noundef %1185)
+  %1187 = icmp ne i32 %1186, 0
+  br i1 %1187, label %1188, label %1189
 
-1186:                                             ; preds = %1185
-  %1187 = load ptr, ptr %11, align 8
-  %1188 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1187, i32 0, i32 41
-  %1189 = load ptr, ptr %6, align 8
-  %1190 = call i32 @unpack32_array(ptr noundef %1188, ptr noundef %8, ptr noundef %1189)
-  %1191 = icmp ne i32 %1190, 0
-  br i1 %1191, label %1192, label %1193
+1188:                                             ; preds = %1182
+  br label %1450
 
-1192:                                             ; preds = %1186
-  br label %1234
+1189:                                             ; preds = %1182
+  br label %1190
 
-1193:                                             ; preds = %1186
-  br label %1194
+1190:                                             ; preds = %1189
+  br label %1191
 
-1194:                                             ; preds = %1193
-  %1195 = load i32, ptr %8, align 4
-  %1196 = load ptr, ptr %11, align 8
-  %1197 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1196, i32 0, i32 42
-  %1198 = load i32, ptr %1197, align 8
-  %1199 = icmp ne i32 %1195, %1198
-  br i1 %1199, label %1200, label %1201
+1191:                                             ; preds = %1190
+  %1192 = load i32, ptr %8, align 4
+  %1193 = load ptr, ptr %11, align 8
+  %1194 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1193, i32 0, i32 4
+  %1195 = load i16, ptr %1194, align 8
+  %1196 = zext i16 %1195 to i32
+  %1197 = icmp ne i32 %1192, %1196
+  br i1 %1197, label %1198, label %1199
 
-1200:                                             ; preds = %1194
-  br label %1234
+1198:                                             ; preds = %1191
+  br label %1450
 
-1201:                                             ; preds = %1194
-  br label %1202
+1199:                                             ; preds = %1191
+  br label %1200
 
-1202:                                             ; preds = %1201, %1164
-  br label %1203
+1200:                                             ; preds = %1199
+  %1201 = load ptr, ptr %11, align 8
+  %1202 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1201, i32 0, i32 7
+  %1203 = load ptr, ptr %6, align 8
+  %1204 = call i32 @unpack32_array(ptr noundef %1202, ptr noundef %8, ptr noundef %1203)
+  %1205 = icmp ne i32 %1204, 0
+  br i1 %1205, label %1206, label %1207
 
-1203:                                             ; preds = %1202
-  %1204 = load ptr, ptr %11, align 8
-  %1205 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1204, i32 0, i32 32
-  %1206 = load ptr, ptr %6, align 8
-  %1207 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1205, ptr noundef %53, ptr noundef %1206)
-  %1208 = icmp ne i32 %1207, 0
-  br i1 %1208, label %1209, label %1210
+1206:                                             ; preds = %1200
+  br label %1450
 
-1209:                                             ; preds = %1203
-  br label %1234
+1207:                                             ; preds = %1200
+  br label %1208
 
-1210:                                             ; preds = %1203
-  br label %1211
+1208:                                             ; preds = %1207
+  br label %1209
 
-1211:                                             ; preds = %1210
-  br label %1216
-
-1212:                                             ; preds = %638
-  %1213 = load i16, ptr %7, align 2
+1209:                                             ; preds = %1208
+  %1210 = load i32, ptr %8, align 4
+  %1211 = load ptr, ptr %11, align 8
+  %1212 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1211, i32 0, i32 4
+  %1213 = load i16, ptr %1212, align 8
   %1214 = zext i16 %1213 to i32
-  %1215 = call i32 (ptr, ...) @error(ptr noundef @.str, ptr noundef @__func__.cred_unpack, i32 noundef %1214)
+  %1215 = icmp ne i32 %1210, %1214
+  br i1 %1215, label %1216, label %1217
+
+1216:                                             ; preds = %1209
+  br label %1450
+
+1217:                                             ; preds = %1209
+  br label %1218
+
+1218:                                             ; preds = %1217, %1158
+  br label %1219
+
+1219:                                             ; preds = %1218
+  %1220 = load ptr, ptr %11, align 8
+  %1221 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1220, i32 0, i32 8
+  %1222 = load ptr, ptr %6, align 8
+  %1223 = call i32 @unpack32(ptr noundef %1221, ptr noundef %1222)
+  %1224 = icmp ne i32 %1223, 0
+  br i1 %1224, label %1225, label %1226
+
+1225:                                             ; preds = %1219
+  br label %1450
+
+1226:                                             ; preds = %1219
+  br label %1227
+
+1227:                                             ; preds = %1226
+  br label %1228
+
+1228:                                             ; preds = %1227
+  %1229 = load ptr, ptr %11, align 8
+  %1230 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1229, i32 0, i32 8
+  %1231 = load i32, ptr %1230, align 8
+  %1232 = icmp ne i32 %1231, 0
+  br i1 %1232, label %1233, label %1268
+
+1233:                                             ; preds = %1228
   br label %1234
 
-1216:                                             ; preds = %1211
-  br label %1217
+1234:                                             ; preds = %1233
+  %1235 = load ptr, ptr %11, align 8
+  %1236 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1235, i32 0, i32 9
+  %1237 = load ptr, ptr %6, align 8
+  %1238 = call i32 @unpack16_array(ptr noundef %1236, ptr noundef %8, ptr noundef %1237)
+  %1239 = icmp ne i32 %1238, 0
+  br i1 %1239, label %1240, label %1241
 
-1217:                                             ; preds = %1216, %637
-  %1218 = load ptr, ptr %11, align 8
-  %1219 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1218, i32 0, i32 3
-  %1220 = load ptr, ptr %1219, align 8
-  %1221 = getelementptr inbounds %struct.identity_t, ptr %1220, i32 0, i32 0
-  %1222 = load i32, ptr %1221, align 8
-  %1223 = load ptr, ptr %11, align 8
-  %1224 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1223, i32 0, i32 1
-  store i32 %1222, ptr %1224, align 4
-  %1225 = load ptr, ptr %11, align 8
-  %1226 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1225, i32 0, i32 3
-  %1227 = load ptr, ptr %1226, align 8
-  %1228 = getelementptr inbounds %struct.identity_t, ptr %1227, i32 0, i32 1
-  %1229 = load i32, ptr %1228, align 4
-  %1230 = load ptr, ptr %11, align 8
-  %1231 = getelementptr inbounds %struct.slurm_cred_arg_t, ptr %1230, i32 0, i32 2
-  store i32 %1229, ptr %1231, align 8
-  %1232 = load ptr, ptr %10, align 8
-  %1233 = load ptr, ptr %5, align 8
-  store ptr %1232, ptr %1233, align 8
+1240:                                             ; preds = %1234
+  br label %1450
+
+1241:                                             ; preds = %1234
+  br label %1242
+
+1242:                                             ; preds = %1241
+  br label %1243
+
+1243:                                             ; preds = %1242
+  %1244 = load i32, ptr %8, align 4
+  %1245 = load ptr, ptr %11, align 8
+  %1246 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1245, i32 0, i32 8
+  %1247 = load i32, ptr %1246, align 8
+  %1248 = icmp ne i32 %1244, %1247
+  br i1 %1248, label %1249, label %1250
+
+1249:                                             ; preds = %1243
+  br label %1450
+
+1250:                                             ; preds = %1243
+  br label %1251
+
+1251:                                             ; preds = %1250
+  %1252 = load ptr, ptr %11, align 8
+  %1253 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1252, i32 0, i32 10
+  %1254 = load ptr, ptr %6, align 8
+  %1255 = call i32 @unpack32_array(ptr noundef %1253, ptr noundef %8, ptr noundef %1254)
+  %1256 = icmp ne i32 %1255, 0
+  br i1 %1256, label %1257, label %1258
+
+1257:                                             ; preds = %1251
+  br label %1450
+
+1258:                                             ; preds = %1251
+  br label %1259
+
+1259:                                             ; preds = %1258
+  br label %1260
+
+1260:                                             ; preds = %1259
+  %1261 = load i32, ptr %8, align 4
+  %1262 = load ptr, ptr %11, align 8
+  %1263 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1262, i32 0, i32 8
+  %1264 = load i32, ptr %1263, align 8
+  %1265 = icmp ne i32 %1261, %1264
+  br i1 %1265, label %1266, label %1267
+
+1266:                                             ; preds = %1260
+  br label %1450
+
+1267:                                             ; preds = %1260
+  br label %1268
+
+1268:                                             ; preds = %1267, %1228
+  br label %1269
+
+1269:                                             ; preds = %1268
+  %1270 = load ptr, ptr %11, align 8
+  %1271 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1270, i32 0, i32 24
+  %1272 = load ptr, ptr %6, align 8
+  %1273 = call i32 @unpack32(ptr noundef %1271, ptr noundef %1272)
+  %1274 = icmp ne i32 %1273, 0
+  br i1 %1274, label %1275, label %1276
+
+1275:                                             ; preds = %1269
+  br label %1450
+
+1276:                                             ; preds = %1269
+  br label %1277
+
+1277:                                             ; preds = %1276
+  br label %1278
+
+1278:                                             ; preds = %1277
+  br label %1279
+
+1279:                                             ; preds = %1278
+  %1280 = load ptr, ptr %11, align 8
+  %1281 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1280, i32 0, i32 26
+  %1282 = load ptr, ptr %6, align 8
+  %1283 = call i32 @unpack32(ptr noundef %1281, ptr noundef %1282)
+  %1284 = icmp ne i32 %1283, 0
+  br i1 %1284, label %1285, label %1286
+
+1285:                                             ; preds = %1279
+  br label %1450
+
+1286:                                             ; preds = %1279
+  br label %1287
+
+1287:                                             ; preds = %1286
+  br label %1288
+
+1288:                                             ; preds = %1287
+  br label %1289
+
+1289:                                             ; preds = %1288
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #6
+  %1290 = load ptr, ptr %11, align 8
+  %1291 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1290, i32 0, i32 19
+  %1292 = load ptr, ptr %6, align 8
+  %1293 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1291, ptr noundef %52, ptr noundef %1292)
+  %1294 = icmp ne i32 %1293, 0
+  br i1 %1294, label %1295, label %1296
+
+1295:                                             ; preds = %1289
+  store i32 2, ptr %16, align 4
+  br label %1297
+
+1296:                                             ; preds = %1289
+  store i32 0, ptr %16, align 4
+  br label %1297
+
+1297:                                             ; preds = %1295, %1296
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #6
+  %1298 = load i32, ptr %16, align 4
+  switch i32 %1298, label %1452 [
+    i32 0, label %1299
+    i32 2, label %1450
+  ]
+
+1299:                                             ; preds = %1297
+  br label %1300
+
+1300:                                             ; preds = %1299
+  br label %1301
+
+1301:                                             ; preds = %1300
+  br label %1302
+
+1302:                                             ; preds = %1301
+  call void @llvm.lifetime.start.p0(i64 4, ptr %53) #6
+  %1303 = load ptr, ptr %11, align 8
+  %1304 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1303, i32 0, i32 20
+  %1305 = load ptr, ptr %6, align 8
+  %1306 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1304, ptr noundef %53, ptr noundef %1305)
+  %1307 = icmp ne i32 %1306, 0
+  br i1 %1307, label %1308, label %1309
+
+1308:                                             ; preds = %1302
+  store i32 2, ptr %16, align 4
+  br label %1310
+
+1309:                                             ; preds = %1302
+  store i32 0, ptr %16, align 4
+  br label %1310
+
+1310:                                             ; preds = %1308, %1309
+  call void @llvm.lifetime.end.p0(i64 4, ptr %53) #6
+  %1311 = load i32, ptr %16, align 4
+  switch i32 %1311, label %1452 [
+    i32 0, label %1312
+    i32 2, label %1450
+  ]
+
+1312:                                             ; preds = %1310
+  br label %1313
+
+1313:                                             ; preds = %1312
+  br label %1314
+
+1314:                                             ; preds = %1313
+  br label %1315
+
+1315:                                             ; preds = %1314
+  %1316 = load ptr, ptr %11, align 8
+  %1317 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1316, i32 0, i32 23
+  %1318 = load ptr, ptr %6, align 8
+  %1319 = call i32 @unpack32(ptr noundef %1317, ptr noundef %1318)
+  %1320 = icmp ne i32 %1319, 0
+  br i1 %1320, label %1321, label %1322
+
+1321:                                             ; preds = %1315
+  br label %1450
+
+1322:                                             ; preds = %1315
+  br label %1323
+
+1323:                                             ; preds = %1322
+  br label %1324
+
+1324:                                             ; preds = %1323
+  %1325 = load ptr, ptr %11, align 8
+  %1326 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1325, i32 0, i32 23
+  %1327 = load i32, ptr %1326, align 8
+  %1328 = icmp ne i32 %1327, 0
+  br i1 %1328, label %1329, label %1364
+
+1329:                                             ; preds = %1324
+  br label %1330
+
+1330:                                             ; preds = %1329
+  %1331 = load ptr, ptr %11, align 8
+  %1332 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1331, i32 0, i32 21
+  %1333 = load ptr, ptr %6, align 8
+  %1334 = call i32 @unpack64_array(ptr noundef %1332, ptr noundef %8, ptr noundef %1333)
+  %1335 = icmp ne i32 %1334, 0
+  br i1 %1335, label %1336, label %1337
+
+1336:                                             ; preds = %1330
+  br label %1450
+
+1337:                                             ; preds = %1330
+  br label %1338
+
+1338:                                             ; preds = %1337
+  br label %1339
+
+1339:                                             ; preds = %1338
+  %1340 = load i32, ptr %8, align 4
+  %1341 = load ptr, ptr %11, align 8
+  %1342 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1341, i32 0, i32 23
+  %1343 = load i32, ptr %1342, align 8
+  %1344 = icmp ne i32 %1340, %1343
+  br i1 %1344, label %1345, label %1346
+
+1345:                                             ; preds = %1339
+  br label %1450
+
+1346:                                             ; preds = %1339
+  br label %1347
+
+1347:                                             ; preds = %1346
+  %1348 = load ptr, ptr %11, align 8
+  %1349 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1348, i32 0, i32 22
+  %1350 = load ptr, ptr %6, align 8
+  %1351 = call i32 @unpack32_array(ptr noundef %1349, ptr noundef %8, ptr noundef %1350)
+  %1352 = icmp ne i32 %1351, 0
+  br i1 %1352, label %1353, label %1354
+
+1353:                                             ; preds = %1347
+  br label %1450
+
+1354:                                             ; preds = %1347
+  br label %1355
+
+1355:                                             ; preds = %1354
+  br label %1356
+
+1356:                                             ; preds = %1355
+  %1357 = load i32, ptr %8, align 4
+  %1358 = load ptr, ptr %11, align 8
+  %1359 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1358, i32 0, i32 23
+  %1360 = load i32, ptr %1359, align 8
+  %1361 = icmp ne i32 %1357, %1360
+  br i1 %1361, label %1362, label %1363
+
+1362:                                             ; preds = %1356
+  br label %1450
+
+1363:                                             ; preds = %1356
+  br label %1364
+
+1364:                                             ; preds = %1363, %1324
+  br label %1365
+
+1365:                                             ; preds = %1364
+  %1366 = load ptr, ptr %11, align 8
+  %1367 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1366, i32 0, i32 42
+  %1368 = load ptr, ptr %6, align 8
+  %1369 = call i32 @unpack32(ptr noundef %1367, ptr noundef %1368)
+  %1370 = icmp ne i32 %1369, 0
+  br i1 %1370, label %1371, label %1372
+
+1371:                                             ; preds = %1365
+  br label %1450
+
+1372:                                             ; preds = %1365
+  br label %1373
+
+1373:                                             ; preds = %1372
+  br label %1374
+
+1374:                                             ; preds = %1373
+  %1375 = load ptr, ptr %11, align 8
+  %1376 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1375, i32 0, i32 42
+  %1377 = load i32, ptr %1376, align 8
+  %1378 = icmp ne i32 %1377, 0
+  br i1 %1378, label %1379, label %1414
+
+1379:                                             ; preds = %1374
+  br label %1380
+
+1380:                                             ; preds = %1379
+  %1381 = load ptr, ptr %11, align 8
+  %1382 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1381, i32 0, i32 40
+  %1383 = load ptr, ptr %6, align 8
+  %1384 = call i32 @unpack64_array(ptr noundef %1382, ptr noundef %8, ptr noundef %1383)
+  %1385 = icmp ne i32 %1384, 0
+  br i1 %1385, label %1386, label %1387
+
+1386:                                             ; preds = %1380
+  br label %1450
+
+1387:                                             ; preds = %1380
+  br label %1388
+
+1388:                                             ; preds = %1387
+  br label %1389
+
+1389:                                             ; preds = %1388
+  %1390 = load i32, ptr %8, align 4
+  %1391 = load ptr, ptr %11, align 8
+  %1392 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1391, i32 0, i32 42
+  %1393 = load i32, ptr %1392, align 8
+  %1394 = icmp ne i32 %1390, %1393
+  br i1 %1394, label %1395, label %1396
+
+1395:                                             ; preds = %1389
+  br label %1450
+
+1396:                                             ; preds = %1389
+  br label %1397
+
+1397:                                             ; preds = %1396
+  %1398 = load ptr, ptr %11, align 8
+  %1399 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1398, i32 0, i32 41
+  %1400 = load ptr, ptr %6, align 8
+  %1401 = call i32 @unpack32_array(ptr noundef %1399, ptr noundef %8, ptr noundef %1400)
+  %1402 = icmp ne i32 %1401, 0
+  br i1 %1402, label %1403, label %1404
+
+1403:                                             ; preds = %1397
+  br label %1450
+
+1404:                                             ; preds = %1397
+  br label %1405
+
+1405:                                             ; preds = %1404
+  br label %1406
+
+1406:                                             ; preds = %1405
+  %1407 = load i32, ptr %8, align 4
+  %1408 = load ptr, ptr %11, align 8
+  %1409 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1408, i32 0, i32 42
+  %1410 = load i32, ptr %1409, align 8
+  %1411 = icmp ne i32 %1407, %1410
+  br i1 %1411, label %1412, label %1413
+
+1412:                                             ; preds = %1406
+  br label %1450
+
+1413:                                             ; preds = %1406
+  br label %1414
+
+1414:                                             ; preds = %1413, %1374
+  br label %1415
+
+1415:                                             ; preds = %1414
+  call void @llvm.lifetime.start.p0(i64 4, ptr %54) #6
+  %1416 = load ptr, ptr %11, align 8
+  %1417 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1416, i32 0, i32 32
+  %1418 = load ptr, ptr %6, align 8
+  %1419 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %1417, ptr noundef %54, ptr noundef %1418)
+  %1420 = icmp ne i32 %1419, 0
+  br i1 %1420, label %1421, label %1422
+
+1421:                                             ; preds = %1415
+  store i32 2, ptr %16, align 4
+  br label %1423
+
+1422:                                             ; preds = %1415
+  store i32 0, ptr %16, align 4
+  br label %1423
+
+1423:                                             ; preds = %1421, %1422
+  call void @llvm.lifetime.end.p0(i64 4, ptr %54) #6
+  %1424 = load i32, ptr %16, align 4
+  switch i32 %1424, label %1452 [
+    i32 0, label %1425
+    i32 2, label %1450
+  ]
+
+1425:                                             ; preds = %1423
+  br label %1426
+
+1426:                                             ; preds = %1425
+  br label %1427
+
+1427:                                             ; preds = %1426
+  br label %1432
+
+1428:                                             ; preds = %748
+  %1429 = load i16, ptr %7, align 2
+  %1430 = zext i16 %1429 to i32
+  %1431 = call i32 (ptr, ...) @error(ptr noundef @.str, ptr noundef @__func__.cred_unpack, i32 noundef %1430)
+  br label %1450
+
+1432:                                             ; preds = %1427
+  br label %1433
+
+1433:                                             ; preds = %1432, %744
+  %1434 = load ptr, ptr %11, align 8
+  %1435 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1434, i32 0, i32 3
+  %1436 = load ptr, ptr %1435, align 8
+  %1437 = getelementptr inbounds nuw %struct.identity_t, ptr %1436, i32 0, i32 0
+  %1438 = load i32, ptr %1437, align 8
+  %1439 = load ptr, ptr %11, align 8
+  %1440 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1439, i32 0, i32 1
+  store i32 %1438, ptr %1440, align 8
+  %1441 = load ptr, ptr %11, align 8
+  %1442 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1441, i32 0, i32 3
+  %1443 = load ptr, ptr %1442, align 8
+  %1444 = getelementptr inbounds nuw %struct.identity_t, ptr %1443, i32 0, i32 1
+  %1445 = load i32, ptr %1444, align 4
+  %1446 = load ptr, ptr %11, align 8
+  %1447 = getelementptr inbounds nuw %struct.slurm_cred_arg_t, ptr %1446, i32 0, i32 2
+  store i32 %1445, ptr %1447, align 4
+  %1448 = load ptr, ptr %10, align 8
+  %1449 = load ptr, ptr %5, align 8
+  store ptr %1448, ptr %1449, align 8
   store i32 0, ptr %4, align 4
-  br label %1236
+  store i32 1, ptr %16, align 4
+  br label %1452
 
-1234:                                             ; preds = %1212, %1209, %1200, %1192, %1184, %1176, %1162, %1153, %1145, %1137, %1129, %1115, %1106, %1097, %1088, %1079, %1070, %1062, %1054, %1046, %1032, %1023, %1014, %1006, %997, %989, %980, %966, %949, %920, %910, %894, %865, %855, %847, %840, %831, %822, %813, %804, %795, %786, %777, %768, %759, %750, %741, %732, %723, %714, %705, %696, %687, %679, %669, %657, %649, %635, %626, %618, %610, %602, %588, %579, %571, %563, %555, %541, %532, %523, %514, %505, %496, %488, %480, %472, %458, %449, %440, %432, %423, %415, %406, %392, %375, %346, %336, %320, %291, %281, %273, %266, %257, %248, %239, %230, %221, %212, %203, %194, %185, %176, %167, %158, %149, %140, %131, %123, %115, %106, %98, %88, %76, %68
+1450:                                             ; preds = %1423, %1310, %1297, %1144, %1079, %986, %973, %960, %947, %914, %878, %855, %842, %829, %809, %733, %620, %607, %454, %389, %296, %283, %270, %257, %224, %211, %188, %165, %152, %139, %119, %1428, %1412, %1403, %1395, %1386, %1371, %1362, %1353, %1345, %1336, %1321, %1285, %1275, %1266, %1257, %1249, %1240, %1225, %1216, %1206, %1198, %1188, %1180, %1170, %1155, %1015, %1007, %997, %935, %925, %902, %889, %866, %819, %797, %789, %779, %767, %759, %742, %722, %713, %705, %696, %681, %672, %663, %655, %646, %631, %595, %585, %576, %567, %559, %550, %535, %526, %516, %508, %498, %490, %480, %465, %325, %317, %307, %245, %235, %199, %176, %129, %107, %99, %89, %77, %69
   call void @slurm_xfree(ptr noundef %12)
-  %1235 = load ptr, ptr %10, align 8
-  call void @slurm_cred_destroy(ptr noundef %1235)
+  %1451 = load ptr, ptr %10, align 8
+  call void @slurm_cred_destroy(ptr noundef %1451)
   store i32 -1, ptr %4, align 4
-  br label %1236
+  store i32 1, ptr %16, align 4
+  br label %1452
 
-1236:                                             ; preds = %1234, %1217
-  %1237 = load i32, ptr %4, align 4
-  ret i32 %1237
+1452:                                             ; preds = %1450, %1433, %1423, %1310, %1297, %1144, %1079, %986, %973, %960, %947, %914, %878, %855, %842, %829, %809, %733, %620, %607, %454, %389, %296, %283, %270, %257, %224, %211, %188, %165, %152, %139, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %1453 = load i32, ptr %4, align 4
+  ret i32 %1453
 }
 
-declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare i32 @unpack_step_id_members(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare i32 @unpack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare i32 @unpack_identity(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare i32 @gres_job_state_unpack(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #2
+declare i32 @gres_job_state_unpack(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #3
 
-declare i32 @gres_step_state_unpack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #2
+declare i32 @gres_step_state_unpack(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare i32 @unpack16(ptr noundef, ptr noundef) #2
+declare i32 @unpack16(ptr noundef, ptr noundef) #3
 
-declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @slurm_unpack_addr_array(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @slurm_unpack_addr_array(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @unpack_time(ptr noundef, ptr noundef) #2
+declare i32 @unpack_time(ptr noundef, ptr noundef) #3
 
-declare i32 @unpack32(ptr noundef, ptr noundef) #2
+declare i32 @unpack32(ptr noundef, ptr noundef) #3
 
-declare ptr @bit_alloc(i64 noundef) #2
+declare ptr @bit_alloc(i64 noundef) #3
 
-declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) #2
+declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) #3
 
-declare void @slurm_bit_free(ptr noundef) #2
+declare void @slurm_bit_free(ptr noundef) #3
 
-declare i32 @unpack16_array(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @unpack16_array(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @error(ptr noundef, ...) #2
+declare i32 @switch_g_unpack_stepinfo(ptr noundef, ptr noundef, i16 noundef zeroext) #3
 
-declare void @slurm_cred_destroy(ptr noundef) #2
+declare void @switch_g_free_stepinfo(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) #0 {
+define internal i32 @_unpackstr_and_switch(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i16, align 2
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store i16 %3, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  store i32 0, ptr %12, align 4
+  %16 = load ptr, ptr %8, align 8
+  %17 = getelementptr inbounds nuw %struct.buf_t, ptr %16, i32 0, i32 3
+  %18 = load i32, ptr %17, align 4
+  store i32 %18, ptr %10, align 4
+  br label %19
+
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %20, ptr noundef %11, ptr noundef %21)
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %25
+
+24:                                               ; preds = %19
+  br label %71
+
+25:                                               ; preds = %19
+  br label %26
+
+26:                                               ; preds = %25
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = load ptr, ptr %6, align 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %32, label %31
+
+31:                                               ; preds = %27
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+32:                                               ; preds = %27
+  %33 = call zeroext i1 @running_in_slurmstepd()
+  br i1 %33, label %35, label %34
+
+34:                                               ; preds = %32
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = call i64 @strlen(ptr noundef %37) #7
+  %39 = add i64 %38, 1
+  %40 = trunc i64 %39 to i32
+  store i32 %40, ptr %12, align 4
+  %41 = load i32, ptr %11, align 4
+  %42 = load i32, ptr %12, align 4
+  %43 = icmp ugt i32 %41, %42
+  br i1 %43, label %44, label %70
+
+44:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %45 = load ptr, ptr %8, align 8
+  %46 = getelementptr inbounds nuw %struct.buf_t, ptr %45, i32 0, i32 3
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr %15, align 4
+  %48 = load i32, ptr %10, align 4
+  %49 = load i32, ptr %12, align 4
+  %50 = add i32 %48, %49
+  %51 = add i32 %50, 4
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw %struct.buf_t, ptr %52, i32 0, i32 3
+  store i32 %51, ptr %53, align 4
+  %54 = load ptr, ptr %8, align 8
+  %55 = load i16, ptr %9, align 2
+  %56 = call i32 @switch_g_unpack_stepinfo(ptr noundef %14, ptr noundef %54, i16 noundef zeroext %55)
+  %57 = icmp ne i32 %56, 0
+  br i1 %57, label %58, label %61
+
+58:                                               ; preds = %44
+  %59 = call i32 (ptr, ...) @error(ptr noundef @.str.4)
+  %60 = load ptr, ptr %14, align 8
+  call void @switch_g_free_stepinfo(ptr noundef %60)
+  store i32 4, ptr %13, align 4
+  br label %67
+
+61:                                               ; preds = %44
+  %62 = load ptr, ptr %14, align 8
+  %63 = load ptr, ptr %7, align 8
+  store ptr %62, ptr %63, align 8
+  %64 = load i32, ptr %15, align 4
+  %65 = load ptr, ptr %8, align 8
+  %66 = getelementptr inbounds nuw %struct.buf_t, ptr %65, i32 0, i32 3
+  store i32 %64, ptr %66, align 4
+  store i32 0, ptr %13, align 4
+  br label %67
+
+67:                                               ; preds = %58, %61
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  %68 = load i32, ptr %13, align 4
+  switch i32 %68, label %72 [
+    i32 0, label %69
+    i32 4, label %71
+  ]
+
+69:                                               ; preds = %67
+  br label %70
+
+70:                                               ; preds = %69, %35
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+71:                                               ; preds = %67, %24
+  store i32 -1, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %72
+
+72:                                               ; preds = %71, %70, %67, %34, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %73 = load i32, ptr %5, align 4
+  ret i32 %73
+}
+
+declare i32 @error(ptr noundef, ...) #3
+
+declare void @slurm_cred_destroy(ptr noundef) #3
+
+; Function Attrs: nounwind uwtable
+define dso_local ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
@@ -3890,326 +5185,232 @@ define ptr @cred_unpack_with_signature(ptr noundef %0, i16 noundef zeroext %1) #
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i16 %1, ptr %5, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   store ptr null, ptr %6, align 8
-  %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.buf_t, ptr %10, i32 0, i32 3
-  %12 = load i32, ptr %11, align 4
-  store i32 %12, ptr %7, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i16, ptr %5, align 2
-  %15 = call i32 @cred_unpack(ptr noundef %6, ptr noundef %13, i16 noundef zeroext %14)
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %2
-  br label %69
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.buf_t, ptr %11, i32 0, i32 3
+  %13 = load i32, ptr %12, align 4
+  store i32 %13, ptr %7, align 4
+  %14 = load ptr, ptr %4, align 8
+  %15 = load i16, ptr %5, align 2
+  %16 = call i32 @cred_unpack(ptr noundef %6, ptr noundef %14, i16 noundef zeroext %15)
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.buf_t, ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = sub i32 %21, %22
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds %struct.slurm_cred_t, ptr %24, i32 0, i32 3
-  store i32 %23, ptr %25, align 8
-  br label %26
+  br label %74
 
-26:                                               ; preds = %18
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.slurm_cred_t, ptr %27, i32 0, i32 7
-  %29 = load ptr, ptr %4, align 8
-  %30 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %28, ptr noundef %9, ptr noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %32, label %33
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.buf_t, ptr %20, i32 0, i32 3
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %7, align 4
+  %24 = sub i32 %22, %23
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %25, i32 0, i32 3
+  store i32 %24, ptr %26, align 8
+  br label %27
 
-32:                                               ; preds = %26
-  br label %69
+27:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %28, i32 0, i32 7
+  %30 = load ptr, ptr %4, align 8
+  %31 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %29, ptr noundef %9, ptr noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %34
 
-33:                                               ; preds = %26
-  br label %34
+33:                                               ; preds = %27
+  store i32 2, ptr %10, align 4
+  br label %35
 
-34:                                               ; preds = %33
-  %35 = call zeroext i1 @running_in_slurmstepd()
-  br i1 %35, label %67, label %36
+34:                                               ; preds = %27
+  store i32 0, ptr %10, align 4
+  br label %35
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %struct.buf_t, ptr %37, i32 0, i32 3
-  %39 = load i32, ptr %38, align 4
-  %40 = load i32, ptr %7, align 4
-  %41 = sub i32 %39, %40
-  store i32 %41, ptr %8, align 4
-  %42 = load i32, ptr %8, align 4
-  %43 = call ptr @init_buf(i32 noundef %42)
-  %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.slurm_cred_t, ptr %44, i32 0, i32 2
-  store ptr %43, ptr %45, align 8
-  %46 = load i16, ptr %5, align 2
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct.slurm_cred_t, ptr %47, i32 0, i32 4
-  store i16 %46, ptr %48, align 4
+35:                                               ; preds = %33, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  %36 = load i32, ptr %10, align 4
+  switch i32 %36, label %76 [
+    i32 0, label %37
+    i32 2, label %74
+  ]
+
+37:                                               ; preds = %35
+  br label %38
+
+38:                                               ; preds = %37
+  br label %39
+
+39:                                               ; preds = %38
+  %40 = call zeroext i1 @running_in_slurmstepd()
+  br i1 %40, label %72, label %41
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct.buf_t, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 4
+  %45 = load i32, ptr %7, align 4
+  %46 = sub i32 %44, %45
+  store i32 %46, ptr %8, align 4
+  %47 = load i32, ptr %8, align 4
+  %48 = call ptr @init_buf(i32 noundef %47)
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct.slurm_cred_t, ptr %49, i32 0, i32 2
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.buf_t, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.buf_t, ptr %54, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %49, i32 0, i32 2
+  store ptr %48, ptr %50, align 8
+  %51 = load i16, ptr %5, align 2
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %52, i32 0, i32 4
+  store i16 %51, ptr %53, align 4
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %54, i32 0, i32 2
   %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %7, align 4
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %56, i64 %58
-  %60 = load i32, ptr %8, align 4
-  %61 = zext i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %59, i64 %61, i1 false)
-  %62 = load i32, ptr %8, align 4
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds %struct.slurm_cred_t, ptr %63, i32 0, i32 2
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds %struct.buf_t, ptr %65, i32 0, i32 3
-  store i32 %62, ptr %66, align 4
-  br label %67
-
-67:                                               ; preds = %36, %34
+  %57 = getelementptr inbounds nuw %struct.buf_t, ptr %56, i32 0, i32 1
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct.buf_t, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load i32, ptr %7, align 4
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %63
+  %65 = load i32, ptr %8, align 4
+  %66 = zext i32 %65 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %64, i64 %66, i1 false)
+  %67 = load i32, ptr %8, align 4
   %68 = load ptr, ptr %6, align 8
-  store ptr %68, ptr %3, align 8
-  br label %71
+  %69 = getelementptr inbounds nuw %struct.slurm_cred_t, ptr %68, i32 0, i32 2
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw %struct.buf_t, ptr %70, i32 0, i32 3
+  store i32 %67, ptr %71, align 4
+  br label %72
 
-69:                                               ; preds = %32, %17
-  %70 = load ptr, ptr %6, align 8
-  call void @slurm_cred_destroy(ptr noundef %70)
+72:                                               ; preds = %41, %39
+  %73 = load ptr, ptr %6, align 8
+  store ptr %73, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %76
+
+74:                                               ; preds = %35, %18
+  %75 = load ptr, ptr %6, align 8
+  call void @slurm_cred_destroy(ptr noundef %75)
   store ptr null, ptr %3, align 8
-  br label %71
+  store i32 1, ptr %10, align 4
+  br label %76
 
-71:                                               ; preds = %69, %67
-  %72 = load ptr, ptr %3, align 8
-  ret ptr %72
+76:                                               ; preds = %74, %72, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %77 = load ptr, ptr %3, align 8
+  ret ptr %77
 }
 
-declare zeroext i1 @running_in_slurmstepd() #2
+declare zeroext i1 @running_in_slurmstepd() #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_cred_pack(ptr noundef %0, i16 noundef zeroext %1) #0 {
+define dso_local ptr @sbcast_cred_pack(ptr noundef %0, i16 noundef zeroext %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i16, align 2
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i16 %1, ptr %4, align 2
-  %10 = call ptr @init_buf(i32 noundef 4096)
-  store ptr %10, ptr %5, align 8
-  %11 = call i64 @time(ptr noundef null) #5
-  store i64 %11, ptr %6, align 8
-  %12 = load i16, ptr %4, align 2
-  %13 = zext i16 %12 to i32
-  %14 = icmp sge i32 %13, 10240
-  br i1 %14, label %15, label %58
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  %8 = call ptr @init_buf(i32 noundef 4096)
+  store ptr %8, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %9 = call i64 @time(ptr noundef null) #6
+  store i64 %9, ptr %6, align 8
+  %10 = load i16, ptr %4, align 2
+  %11 = zext i16 %10 to i32
+  %12 = icmp sge i32 %11, 10240
+  br i1 %12, label %13, label %57
 
-15:                                               ; preds = %2
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %16, i32 0, i32 3
-  %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i16, ptr %4, align 2
-  call void @pack_identity(ptr noundef %18, ptr noundef %19, i16 noundef zeroext %20)
-  %21 = load i64, ptr %6, align 8
-  %22 = load ptr, ptr %5, align 8
-  call void @pack_time(i64 noundef %21, ptr noundef %22)
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %23, i32 0, i32 4
-  %25 = load i64, ptr %24, align 8
-  %26 = load ptr, ptr %5, align 8
-  call void @pack_time(i64 noundef %25, ptr noundef %26)
-  %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %27, i32 0, i32 0
-  %29 = load i32, ptr %28, align 8
-  %30 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %29, ptr noundef %30)
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %31, i32 0, i32 1
-  %33 = load i32, ptr %32, align 4
-  %34 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %35, i32 0, i32 2
-  %37 = load i32, ptr %36, align 8
-  %38 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %37, ptr noundef %38)
-  br label %39
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i16, ptr %4, align 2
+  call void @pack_identity(ptr noundef %16, ptr noundef %17, i16 noundef zeroext %18)
+  %19 = load i64, ptr %6, align 8
+  %20 = load ptr, ptr %5, align 8
+  call void @pack_time(i64 noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %21, i32 0, i32 4
+  %23 = load i64, ptr %22, align 8
+  %24 = load ptr, ptr %5, align 8
+  call void @pack_time(i64 noundef %23, ptr noundef %24)
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %25, i32 0, i32 0
+  %27 = load i32, ptr %26, align 8
+  %28 = load ptr, ptr %5, align 8
+  call void @pack32(i32 noundef %27, ptr noundef %28)
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %29, i32 0, i32 1
+  %31 = load i32, ptr %30, align 4
+  %32 = load ptr, ptr %5, align 8
+  call void @pack32(i32 noundef %31, ptr noundef %32)
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  %36 = load ptr, ptr %5, align 8
+  call void @pack32(i32 noundef %35, ptr noundef %36)
+  br label %37
 
-39:                                               ; preds = %15
+37:                                               ; preds = %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %40, i32 0, i32 5
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %51
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %38, i32 0, i32 5
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %49
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %45, i32 0, i32 5
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i64 @strlen(ptr noundef %47) #6
-  %49 = trunc i64 %48 to i32
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %7, align 4
-  br label %51
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %3, align 8
+  %44 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %43, i32 0, i32 5
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i64 @strlen(ptr noundef %45) #7
+  %47 = trunc i64 %46 to i32
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %7, align 4
+  br label %49
 
-51:                                               ; preds = %44, %39
-  %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %52, i32 0, i32 5
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %7, align 4
-  %56 = load ptr, ptr %5, align 8
-  call void @packmem(ptr noundef %54, i32 noundef %55, ptr noundef %56)
+49:                                               ; preds = %42, %37
+  %50 = load ptr, ptr %3, align 8
+  %51 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %50, i32 0, i32 5
+  %52 = load ptr, ptr %51, align 8
+  %53 = load i32, ptr %7, align 4
+  %54 = load ptr, ptr %5, align 8
+  call void @packmem(ptr noundef %52, i32 noundef %53, ptr noundef %54)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  br label %55
+
+55:                                               ; preds = %49
+  br label %56
+
+56:                                               ; preds = %55
   br label %57
 
-57:                                               ; preds = %51
-  br label %149
-
-58:                                               ; preds = %2
-  %59 = load i16, ptr %4, align 2
-  %60 = zext i16 %59 to i32
-  %61 = icmp sge i32 %60, 9984
-  br i1 %61, label %62, label %148
-
-62:                                               ; preds = %58
-  %63 = load i64, ptr %6, align 8
-  %64 = load ptr, ptr %5, align 8
-  call void @pack_time(i64 noundef %63, ptr noundef %64)
-  %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %65, i32 0, i32 4
-  %67 = load i64, ptr %66, align 8
-  %68 = load ptr, ptr %5, align 8
-  call void @pack_time(i64 noundef %67, ptr noundef %68)
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %69, i32 0, i32 0
-  %71 = load i32, ptr %70, align 8
-  %72 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %71, ptr noundef %72)
-  %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %73, i32 0, i32 1
-  %75 = load i32, ptr %74, align 4
-  %76 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %75, ptr noundef %76)
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %77, i32 0, i32 2
-  %79 = load i32, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %79, ptr noundef %80)
-  %81 = load ptr, ptr %3, align 8
-  %82 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %81, i32 0, i32 3
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds %struct.identity_t, ptr %83, i32 0, i32 0
-  %85 = load i32, ptr %84, align 8
-  %86 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %85, ptr noundef %86)
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %87, i32 0, i32 3
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds %struct.identity_t, ptr %89, i32 0, i32 1
-  %91 = load i32, ptr %90, align 4
-  %92 = load ptr, ptr %5, align 8
-  call void @pack32(i32 noundef %91, ptr noundef %92)
-  br label %93
-
-93:                                               ; preds = %62
-  store i32 0, ptr %8, align 4
-  %94 = load ptr, ptr %3, align 8
-  %95 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %94, i32 0, i32 3
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct.identity_t, ptr %96, i32 0, i32 2
-  %98 = load ptr, ptr %97, align 8
-  %99 = icmp ne ptr %98, null
-  br i1 %99, label %100, label %109
-
-100:                                              ; preds = %93
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %101, i32 0, i32 3
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds %struct.identity_t, ptr %103, i32 0, i32 2
-  %105 = load ptr, ptr %104, align 8
-  %106 = call i64 @strlen(ptr noundef %105) #6
-  %107 = trunc i64 %106 to i32
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %8, align 4
-  br label %109
-
-109:                                              ; preds = %100, %93
-  %110 = load ptr, ptr %3, align 8
-  %111 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %110, i32 0, i32 3
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %struct.identity_t, ptr %112, i32 0, i32 2
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i32, ptr %8, align 4
-  %116 = load ptr, ptr %5, align 8
-  call void @packmem(ptr noundef %114, i32 noundef %115, ptr noundef %116)
-  br label %117
-
-117:                                              ; preds = %109
-  %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %118, i32 0, i32 3
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds %struct.identity_t, ptr %120, i32 0, i32 7
-  %122 = load ptr, ptr %121, align 8
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %123, i32 0, i32 3
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds %struct.identity_t, ptr %125, i32 0, i32 6
-  %127 = load i32, ptr %126, align 8
-  %128 = load ptr, ptr %5, align 8
-  call void @pack32_array(ptr noundef %122, i32 noundef %127, ptr noundef %128)
-  br label %129
-
-129:                                              ; preds = %117
-  store i32 0, ptr %9, align 4
-  %130 = load ptr, ptr %3, align 8
-  %131 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %130, i32 0, i32 5
-  %132 = load ptr, ptr %131, align 8
-  %133 = icmp ne ptr %132, null
-  br i1 %133, label %134, label %141
-
-134:                                              ; preds = %129
-  %135 = load ptr, ptr %3, align 8
-  %136 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %135, i32 0, i32 5
-  %137 = load ptr, ptr %136, align 8
-  %138 = call i64 @strlen(ptr noundef %137) #6
-  %139 = trunc i64 %138 to i32
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %9, align 4
-  br label %141
-
-141:                                              ; preds = %134, %129
-  %142 = load ptr, ptr %3, align 8
-  %143 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %142, i32 0, i32 5
-  %144 = load ptr, ptr %143, align 8
-  %145 = load i32, ptr %9, align 4
-  %146 = load ptr, ptr %5, align 8
-  call void @packmem(ptr noundef %144, i32 noundef %145, ptr noundef %146)
-  br label %147
-
-147:                                              ; preds = %141
-  br label %148
-
-148:                                              ; preds = %147, %58
-  br label %149
-
-149:                                              ; preds = %148, %57
-  %150 = load ptr, ptr %5, align 8
-  ret ptr %150
+57:                                               ; preds = %56, %2
+  %58 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
+  ret ptr %58
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
+define dso_local ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4222,68 +5423,74 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroe
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i16 %2, ptr %7, align 2
-  %18 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.1, i32 noundef 523, ptr noundef @__func__.sbcast_cred_unpack)
-  store ptr %18, ptr %8, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.buf_t, ptr %19, i32 0, i32 3
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %9, align 4
-  %22 = load i16, ptr %7, align 2
-  %23 = zext i16 %22 to i32
-  %24 = icmp sge i32 %23, 10240
-  br i1 %24, label %25, label %152
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.1, i32 noundef 609, ptr noundef @__func__.sbcast_cred_unpack)
+  store ptr %16, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %17 = load ptr, ptr %5, align 8
+  %18 = getelementptr inbounds nuw %struct.buf_t, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  store i32 %19, ptr %9, align 4
+  %20 = load i16, ptr %7, align 2
+  %21 = zext i16 %20 to i32
+  %22 = icmp sge i32 %21, 10240
+  br i1 %22, label %23, label %165
 
-25:                                               ; preds = %3
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.sbcast_cred, ptr %26, i32 0, i32 1
-  %28 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i16, ptr %7, align 2
-  %31 = call i32 @unpack_identity(ptr noundef %28, ptr noundef %29, i16 noundef zeroext %30)
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %34
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %24, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %25, i32 0, i32 3
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i16, ptr %7, align 2
+  %29 = call i32 @unpack_identity(ptr noundef %26, ptr noundef %27, i16 noundef zeroext %28)
+  %30 = icmp ne i32 %29, 0
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %25
-  br label %333
+31:                                               ; preds = %23
+  br label %227
 
-34:                                               ; preds = %25
-  br label %35
+32:                                               ; preds = %23
+  br label %33
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.sbcast_cred, ptr %36, i32 0, i32 0
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @unpack_time(ptr noundef %37, ptr noundef %38)
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %42
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %5, align 8
+  %37 = call i32 @unpack_time(ptr noundef %35, ptr noundef %36)
+  %38 = icmp ne i32 %37, 0
+  br i1 %38, label %39, label %40
 
-41:                                               ; preds = %35
-  br label %333
+39:                                               ; preds = %33
+  br label %227
 
-42:                                               ; preds = %35
+40:                                               ; preds = %33
+  br label %41
+
+41:                                               ; preds = %40
+  br label %42
+
+42:                                               ; preds = %41
   br label %43
 
 43:                                               ; preds = %42
-  br label %44
+  %44 = load ptr, ptr %8, align 8
+  %45 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %44, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %45, i32 0, i32 4
+  %47 = load ptr, ptr %5, align 8
+  %48 = call i32 @unpack_time(ptr noundef %46, ptr noundef %47)
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %51
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.sbcast_cred, ptr %45, i32 0, i32 1
-  %47 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %46, i32 0, i32 4
-  %48 = load ptr, ptr %5, align 8
-  %49 = call i32 @unpack_time(ptr noundef %47, ptr noundef %48)
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %52
+50:                                               ; preds = %43
+  br label %227
 
-51:                                               ; preds = %44
-  br label %333
+51:                                               ; preds = %43
+  br label %52
 
-52:                                               ; preds = %44
+52:                                               ; preds = %51
   br label %53
 
 53:                                               ; preds = %52
@@ -4291,15 +5498,15 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroe
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.sbcast_cred, ptr %55, i32 0, i32 1
-  %57 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %56, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %55, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %56, i32 0, i32 0
   %58 = load ptr, ptr %5, align 8
   %59 = call i32 @unpack32(ptr noundef %57, ptr noundef %58)
   %60 = icmp ne i32 %59, 0
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %54
-  br label %333
+  br label %227
 
 62:                                               ; preds = %54
   br label %63
@@ -4308,488 +5515,355 @@ define ptr @sbcast_cred_unpack(ptr noundef %0, ptr noundef %1, i16 noundef zeroe
   br label %64
 
 64:                                               ; preds = %63
-  %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr inbounds %struct.sbcast_cred, ptr %65, i32 0, i32 1
-  %67 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %5, align 8
-  %69 = call i32 @unpack32(ptr noundef %67, ptr noundef %68)
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %72
+  br label %65
 
-71:                                               ; preds = %64
-  br label %333
+65:                                               ; preds = %64
+  %66 = load ptr, ptr %8, align 8
+  %67 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %66, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %67, i32 0, i32 1
+  %69 = load ptr, ptr %5, align 8
+  %70 = call i32 @unpack32(ptr noundef %68, ptr noundef %69)
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %73
 
-72:                                               ; preds = %64
-  br label %73
+72:                                               ; preds = %65
+  br label %227
 
-73:                                               ; preds = %72
+73:                                               ; preds = %65
   br label %74
 
 74:                                               ; preds = %73
-  %75 = load ptr, ptr %8, align 8
-  %76 = getelementptr inbounds %struct.sbcast_cred, ptr %75, i32 0, i32 1
-  %77 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %76, i32 0, i32 2
-  %78 = load ptr, ptr %5, align 8
-  %79 = call i32 @unpack32(ptr noundef %77, ptr noundef %78)
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %82
+  br label %75
 
-81:                                               ; preds = %74
-  br label %333
+75:                                               ; preds = %74
+  br label %76
 
-82:                                               ; preds = %74
-  br label %83
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %8, align 8
+  %78 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %77, i32 0, i32 1
+  %79 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %78, i32 0, i32 2
+  %80 = load ptr, ptr %5, align 8
+  %81 = call i32 @unpack32(ptr noundef %79, ptr noundef %80)
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %84
 
-83:                                               ; preds = %82
-  br label %84
+83:                                               ; preds = %76
+  br label %227
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct.sbcast_cred, ptr %85, i32 0, i32 1
-  %87 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %86, i32 0, i32 5
-  %88 = load ptr, ptr %5, align 8
-  %89 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %87, ptr noundef %10, ptr noundef %88)
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %92
+84:                                               ; preds = %76
+  br label %85
 
-91:                                               ; preds = %84
-  br label %333
+85:                                               ; preds = %84
+  br label %86
 
-92:                                               ; preds = %84
-  br label %93
+86:                                               ; preds = %85
+  br label %87
 
-93:                                               ; preds = %92
-  %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds %struct.sbcast_cred, ptr %94, i32 0, i32 1
-  %96 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %95, i32 0, i32 3
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds %struct.identity_t, ptr %97, i32 0, i32 2
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp ne ptr %99, null
-  br i1 %100, label %151, label %101
+87:                                               ; preds = %86
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %88, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %89, i32 0, i32 5
+  %91 = load ptr, ptr %5, align 8
+  %92 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %90, ptr noundef %10, ptr noundef %91)
+  %93 = icmp ne i32 %92, 0
+  br i1 %93, label %94, label %95
 
-101:                                              ; preds = %93
-  %102 = load ptr, ptr %8, align 8
-  %103 = getelementptr inbounds %struct.sbcast_cred, ptr %102, i32 0, i32 1
-  %104 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %103, i32 0, i32 3
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %struct.identity_t, ptr %105, i32 0, i32 0
-  %107 = load i32, ptr %106, align 8
-  store i32 %107, ptr %11, align 4
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.sbcast_cred, ptr %108, i32 0, i32 1
-  %110 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %109, i32 0, i32 3
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct.identity_t, ptr %111, i32 0, i32 1
-  %113 = load i32, ptr %112, align 4
-  store i32 %113, ptr %12, align 4
-  br label %114
+94:                                               ; preds = %87
+  store i32 2, ptr %11, align 4
+  br label %96
 
-114:                                              ; preds = %101
-  br label %115
+95:                                               ; preds = %87
+  store i32 0, ptr %11, align 4
+  br label %96
 
-115:                                              ; preds = %114
-  %116 = call i32 @get_log_level()
-  %117 = icmp sge i32 %116, 6
-  br i1 %117, label %118, label %119
+96:                                               ; preds = %94, %95
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %97 = load i32, ptr %11, align 4
+  switch i32 %97, label %229 [
+    i32 0, label %98
+    i32 2, label %227
+  ]
 
-118:                                              ; preds = %115
-  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.2, ptr noundef @plugin_type, ptr noundef @__func__.sbcast_cred_unpack, ptr noundef @__func__.sbcast_cred_unpack)
-  br label %119
+98:                                               ; preds = %96
+  br label %99
 
-119:                                              ; preds = %118, %115
-  br label %120
+99:                                               ; preds = %98
+  br label %100
 
-120:                                              ; preds = %119
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %8, align 8
+  %102 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %101, i32 0, i32 1
+  %103 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %102, i32 0, i32 3
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw %struct.identity_t, ptr %104, i32 0, i32 2
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp ne ptr %106, null
+  br i1 %107, label %164, label %108
+
+108:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %109, i32 0, i32 1
+  %111 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %110, i32 0, i32 3
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw %struct.identity_t, ptr %112, i32 0, i32 0
+  %114 = load i32, ptr %113, align 8
+  store i32 %114, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %115 = load ptr, ptr %8, align 8
+  %116 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %115, i32 0, i32 1
+  %117 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %116, i32 0, i32 3
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %struct.identity_t, ptr %118, i32 0, i32 1
+  %120 = load i32, ptr %119, align 4
+  store i32 %120, ptr %13, align 4
   br label %121
 
-121:                                              ; preds = %120
+121:                                              ; preds = %108
   br label %122
 
 122:                                              ; preds = %121
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.sbcast_cred, ptr %123, i32 0, i32 1
-  %125 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %124, i32 0, i32 3
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %133
+  %123 = call i32 @get_log_level()
+  %124 = icmp sge i32 %123, 6
+  br i1 %124, label %125, label %126
 
-128:                                              ; preds = %122
-  %129 = load ptr, ptr %8, align 8
-  %130 = getelementptr inbounds %struct.sbcast_cred, ptr %129, i32 0, i32 1
-  %131 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %130, i32 0, i32 3
-  %132 = load ptr, ptr %131, align 8
-  call void @destroy_identity(ptr noundef %132)
-  br label %133
+125:                                              ; preds = %122
+  call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef @.str.2, ptr noundef @plugin_type, ptr noundef @__func__.sbcast_cred_unpack, ptr noundef @__func__.sbcast_cred_unpack)
+  br label %126
 
-133:                                              ; preds = %128, %122
-  %134 = load ptr, ptr %8, align 8
-  %135 = getelementptr inbounds %struct.sbcast_cred, ptr %134, i32 0, i32 1
-  %136 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %135, i32 0, i32 3
-  store ptr null, ptr %136, align 8
-  br label %137
+126:                                              ; preds = %125, %122
+  br label %127
 
-137:                                              ; preds = %133
-  %138 = load i32, ptr %11, align 4
-  %139 = load i32, ptr %12, align 4
-  %140 = call ptr @fetch_identity(i32 noundef %138, i32 noundef %139, i1 noundef zeroext false)
-  %141 = load ptr, ptr %8, align 8
-  %142 = getelementptr inbounds %struct.sbcast_cred, ptr %141, i32 0, i32 1
-  %143 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %142, i32 0, i32 3
-  store ptr %140, ptr %143, align 8
-  %144 = load ptr, ptr %8, align 8
-  %145 = getelementptr inbounds %struct.sbcast_cred, ptr %144, i32 0, i32 1
-  %146 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %145, i32 0, i32 3
-  %147 = load ptr, ptr %146, align 8
-  %148 = icmp ne ptr %147, null
-  br i1 %148, label %150, label %149
+127:                                              ; preds = %126
+  br label %128
 
-149:                                              ; preds = %137
-  br label %333
+128:                                              ; preds = %127
+  br label %129
 
-150:                                              ; preds = %137
-  br label %151
+129:                                              ; preds = %128
+  br label %130
 
-151:                                              ; preds = %150, %93
-  br label %276
+130:                                              ; preds = %129
+  br label %131
 
-152:                                              ; preds = %3
-  %153 = load i16, ptr %7, align 2
-  %154 = zext i16 %153 to i32
-  %155 = icmp sge i32 %154, 9984
-  br i1 %155, label %156, label %274
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %8, align 8
+  %133 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %132, i32 0, i32 1
+  %134 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %133, i32 0, i32 3
+  %135 = load ptr, ptr %134, align 8
+  %136 = icmp ne ptr %135, null
+  br i1 %136, label %137, label %142
 
-156:                                              ; preds = %152
-  store i32 0, ptr %13, align 4
-  %157 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.1, i32 noundef 549, ptr noundef @__func__.sbcast_cred_unpack)
-  %158 = load ptr, ptr %8, align 8
-  %159 = getelementptr inbounds %struct.sbcast_cred, ptr %158, i32 0, i32 1
-  %160 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %159, i32 0, i32 3
-  store ptr %157, ptr %160, align 8
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %8, align 8
+  %139 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %138, i32 0, i32 1
+  %140 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %139, i32 0, i32 3
+  %141 = load ptr, ptr %140, align 8
+  call void @destroy_identity(ptr noundef %141)
+  br label %142
+
+142:                                              ; preds = %137, %131
+  %143 = load ptr, ptr %8, align 8
+  %144 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %143, i32 0, i32 1
+  %145 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %144, i32 0, i32 3
+  store ptr null, ptr %145, align 8
+  br label %146
+
+146:                                              ; preds = %142
+  br label %147
+
+147:                                              ; preds = %146
+  %148 = load i32, ptr %12, align 4
+  %149 = load i32, ptr %13, align 4
+  %150 = call ptr @fetch_identity(i32 noundef %148, i32 noundef %149, i1 noundef zeroext false)
+  %151 = load ptr, ptr %8, align 8
+  %152 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %151, i32 0, i32 1
+  %153 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %152, i32 0, i32 3
+  store ptr %150, ptr %153, align 8
+  %154 = load ptr, ptr %8, align 8
+  %155 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %154, i32 0, i32 1
+  %156 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %155, i32 0, i32 3
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp ne ptr %157, null
+  br i1 %158, label %160, label %159
+
+159:                                              ; preds = %147
+  store i32 2, ptr %11, align 4
   br label %161
 
-161:                                              ; preds = %156
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds %struct.sbcast_cred, ptr %162, i32 0, i32 0
-  %164 = load ptr, ptr %5, align 8
-  %165 = call i32 @unpack_time(ptr noundef %163, ptr noundef %164)
-  %166 = icmp ne i32 %165, 0
-  br i1 %166, label %167, label %168
+160:                                              ; preds = %147
+  store i32 0, ptr %11, align 4
+  br label %161
 
-167:                                              ; preds = %161
-  br label %333
+161:                                              ; preds = %159, %160
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  %162 = load i32, ptr %11, align 4
+  switch i32 %162, label %229 [
+    i32 0, label %163
+    i32 2, label %227
+  ]
 
-168:                                              ; preds = %161
-  br label %169
+163:                                              ; preds = %161
+  br label %164
 
-169:                                              ; preds = %168
-  br label %170
+164:                                              ; preds = %163, %100
+  br label %166
 
-170:                                              ; preds = %169
-  %171 = load ptr, ptr %8, align 8
-  %172 = getelementptr inbounds %struct.sbcast_cred, ptr %171, i32 0, i32 1
-  %173 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %172, i32 0, i32 4
-  %174 = load ptr, ptr %5, align 8
-  %175 = call i32 @unpack_time(ptr noundef %173, ptr noundef %174)
-  %176 = icmp ne i32 %175, 0
-  br i1 %176, label %177, label %178
+165:                                              ; preds = %3
+  br label %227
 
-177:                                              ; preds = %170
-  br label %333
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %8, align 8
+  %168 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %167, i32 0, i32 1
+  %169 = getelementptr inbounds nuw %struct.sbcast_cred_arg_t, ptr %168, i32 0, i32 3
+  %170 = load ptr, ptr %169, align 8
+  call void @identity_debug2(ptr noundef %170, ptr noundef @__func__.sbcast_cred_unpack)
+  %171 = load ptr, ptr %5, align 8
+  %172 = getelementptr inbounds nuw %struct.buf_t, ptr %171, i32 0, i32 3
+  %173 = load i32, ptr %172, align 4
+  %174 = load i32, ptr %9, align 4
+  %175 = sub i32 %173, %174
+  %176 = load ptr, ptr %6, align 8
+  store i32 %175, ptr %176, align 4
+  br label %177
 
-178:                                              ; preds = %170
-  br label %179
+177:                                              ; preds = %166
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  %178 = load ptr, ptr %8, align 8
+  %179 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %178, i32 0, i32 3
+  %180 = load ptr, ptr %5, align 8
+  %181 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %179, ptr noundef %14, ptr noundef %180)
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %183, label %184
 
-179:                                              ; preds = %178
-  br label %180
+183:                                              ; preds = %177
+  store i32 2, ptr %11, align 4
+  br label %185
 
-180:                                              ; preds = %179
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds %struct.sbcast_cred, ptr %181, i32 0, i32 1
-  %183 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %182, i32 0, i32 0
-  %184 = load ptr, ptr %5, align 8
-  %185 = call i32 @unpack32(ptr noundef %183, ptr noundef %184)
-  %186 = icmp ne i32 %185, 0
-  br i1 %186, label %187, label %188
+184:                                              ; preds = %177
+  store i32 0, ptr %11, align 4
+  br label %185
 
-187:                                              ; preds = %180
-  br label %333
+185:                                              ; preds = %183, %184
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  %186 = load i32, ptr %11, align 4
+  switch i32 %186, label %229 [
+    i32 0, label %187
+    i32 2, label %227
+  ]
 
-188:                                              ; preds = %180
+187:                                              ; preds = %185
+  br label %188
+
+188:                                              ; preds = %187
   br label %189
 
 189:                                              ; preds = %188
-  br label %190
+  %190 = load ptr, ptr %8, align 8
+  %191 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %190, i32 0, i32 3
+  %192 = load ptr, ptr %191, align 8
+  %193 = icmp ne ptr %192, null
+  br i1 %193, label %195, label %194
 
-190:                                              ; preds = %189
-  %191 = load ptr, ptr %8, align 8
-  %192 = getelementptr inbounds %struct.sbcast_cred, ptr %191, i32 0, i32 1
-  %193 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %192, i32 0, i32 1
-  %194 = load ptr, ptr %5, align 8
-  %195 = call i32 @unpack32(ptr noundef %193, ptr noundef %194)
-  %196 = icmp ne i32 %195, 0
-  br i1 %196, label %197, label %198
+194:                                              ; preds = %189
+  br label %227
 
-197:                                              ; preds = %190
-  br label %333
+195:                                              ; preds = %189
+  %196 = call zeroext i1 @running_in_slurmd()
+  br i1 %196, label %225, label %197
 
-198:                                              ; preds = %190
-  br label %199
-
-199:                                              ; preds = %198
-  br label %200
-
-200:                                              ; preds = %199
-  %201 = load ptr, ptr %8, align 8
-  %202 = getelementptr inbounds %struct.sbcast_cred, ptr %201, i32 0, i32 1
-  %203 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %202, i32 0, i32 2
-  %204 = load ptr, ptr %5, align 8
-  %205 = call i32 @unpack32(ptr noundef %203, ptr noundef %204)
-  %206 = icmp ne i32 %205, 0
-  br i1 %206, label %207, label %208
-
-207:                                              ; preds = %200
-  br label %333
-
-208:                                              ; preds = %200
-  br label %209
-
-209:                                              ; preds = %208
-  br label %210
-
-210:                                              ; preds = %209
-  %211 = load ptr, ptr %8, align 8
-  %212 = getelementptr inbounds %struct.sbcast_cred, ptr %211, i32 0, i32 1
-  %213 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %212, i32 0, i32 3
+197:                                              ; preds = %195
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  %198 = load ptr, ptr %5, align 8
+  %199 = getelementptr inbounds nuw %struct.buf_t, ptr %198, i32 0, i32 3
+  %200 = load i32, ptr %199, align 4
+  %201 = load i32, ptr %9, align 4
+  %202 = sub i32 %200, %201
+  store i32 %202, ptr %15, align 4
+  %203 = load i32, ptr %15, align 4
+  %204 = call ptr @init_buf(i32 noundef %203)
+  %205 = load ptr, ptr %8, align 8
+  %206 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %205, i32 0, i32 2
+  store ptr %204, ptr %206, align 8
+  %207 = load ptr, ptr %8, align 8
+  %208 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %207, i32 0, i32 2
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds nuw %struct.buf_t, ptr %209, i32 0, i32 1
+  %211 = load ptr, ptr %210, align 8
+  %212 = load ptr, ptr %5, align 8
+  %213 = getelementptr inbounds nuw %struct.buf_t, ptr %212, i32 0, i32 1
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds %struct.identity_t, ptr %214, i32 0, i32 0
-  %216 = load ptr, ptr %5, align 8
-  %217 = call i32 @unpack32(ptr noundef %215, ptr noundef %216)
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %219, label %220
+  %215 = load i32, ptr %9, align 4
+  %216 = zext i32 %215 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 %216
+  %218 = load i32, ptr %15, align 4
+  %219 = zext i32 %218 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %211, ptr align 1 %217, i64 %219, i1 false)
+  %220 = load i32, ptr %15, align 4
+  %221 = load ptr, ptr %8, align 8
+  %222 = getelementptr inbounds nuw %struct.sbcast_cred, ptr %221, i32 0, i32 2
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds nuw %struct.buf_t, ptr %223, i32 0, i32 3
+  store i32 %220, ptr %224, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  br label %225
 
-219:                                              ; preds = %210
-  br label %333
+225:                                              ; preds = %197, %195
+  %226 = load ptr, ptr %8, align 8
+  store ptr %226, ptr %4, align 8
+  store i32 1, ptr %11, align 4
+  br label %229
 
-220:                                              ; preds = %210
-  br label %221
-
-221:                                              ; preds = %220
-  br label %222
-
-222:                                              ; preds = %221
-  %223 = load ptr, ptr %8, align 8
-  %224 = getelementptr inbounds %struct.sbcast_cred, ptr %223, i32 0, i32 1
-  %225 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %224, i32 0, i32 3
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds %struct.identity_t, ptr %226, i32 0, i32 1
-  %228 = load ptr, ptr %5, align 8
-  %229 = call i32 @unpack32(ptr noundef %227, ptr noundef %228)
-  %230 = icmp ne i32 %229, 0
-  br i1 %230, label %231, label %232
-
-231:                                              ; preds = %222
-  br label %333
-
-232:                                              ; preds = %222
-  br label %233
-
-233:                                              ; preds = %232
-  br label %234
-
-234:                                              ; preds = %233
-  %235 = load ptr, ptr %8, align 8
-  %236 = getelementptr inbounds %struct.sbcast_cred, ptr %235, i32 0, i32 1
-  %237 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %236, i32 0, i32 3
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.identity_t, ptr %238, i32 0, i32 2
-  %240 = load ptr, ptr %5, align 8
-  %241 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %239, ptr noundef %14, ptr noundef %240)
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %243, label %244
-
-243:                                              ; preds = %234
-  br label %333
-
-244:                                              ; preds = %234
-  br label %245
-
-245:                                              ; preds = %244
-  br label %246
-
-246:                                              ; preds = %245
-  %247 = load ptr, ptr %8, align 8
-  %248 = getelementptr inbounds %struct.sbcast_cred, ptr %247, i32 0, i32 1
-  %249 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %248, i32 0, i32 3
-  %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %struct.identity_t, ptr %250, i32 0, i32 7
-  %252 = load ptr, ptr %5, align 8
-  %253 = call i32 @unpack32_array(ptr noundef %251, ptr noundef %13, ptr noundef %252)
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %256
-
-255:                                              ; preds = %246
-  br label %333
-
-256:                                              ; preds = %246
-  br label %257
-
-257:                                              ; preds = %256
-  %258 = load i32, ptr %13, align 4
-  %259 = load ptr, ptr %8, align 8
-  %260 = getelementptr inbounds %struct.sbcast_cred, ptr %259, i32 0, i32 1
-  %261 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %260, i32 0, i32 3
-  %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds %struct.identity_t, ptr %262, i32 0, i32 6
-  store i32 %258, ptr %263, align 8
-  br label %264
-
-264:                                              ; preds = %257
-  %265 = load ptr, ptr %8, align 8
-  %266 = getelementptr inbounds %struct.sbcast_cred, ptr %265, i32 0, i32 1
-  %267 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %266, i32 0, i32 5
-  %268 = load ptr, ptr %5, align 8
-  %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %267, ptr noundef %15, ptr noundef %268)
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %272
-
-271:                                              ; preds = %264
-  br label %333
-
-272:                                              ; preds = %264
-  br label %273
-
-273:                                              ; preds = %272
-  br label %275
-
-274:                                              ; preds = %152
-  br label %333
-
-275:                                              ; preds = %273
-  br label %276
-
-276:                                              ; preds = %275, %151
-  %277 = load ptr, ptr %8, align 8
-  %278 = getelementptr inbounds %struct.sbcast_cred, ptr %277, i32 0, i32 1
-  %279 = getelementptr inbounds %struct.sbcast_cred_arg_t, ptr %278, i32 0, i32 3
-  %280 = load ptr, ptr %279, align 8
-  call void @identity_debug2(ptr noundef %280, ptr noundef @__func__.sbcast_cred_unpack)
-  %281 = load ptr, ptr %5, align 8
-  %282 = getelementptr inbounds %struct.buf_t, ptr %281, i32 0, i32 3
-  %283 = load i32, ptr %282, align 4
-  %284 = load i32, ptr %9, align 4
-  %285 = sub i32 %283, %284
-  %286 = load ptr, ptr %6, align 8
-  store i32 %285, ptr %286, align 4
-  br label %287
-
-287:                                              ; preds = %276
-  %288 = load ptr, ptr %8, align 8
-  %289 = getelementptr inbounds %struct.sbcast_cred, ptr %288, i32 0, i32 3
-  %290 = load ptr, ptr %5, align 8
-  %291 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %289, ptr noundef %16, ptr noundef %290)
-  %292 = icmp ne i32 %291, 0
-  br i1 %292, label %293, label %294
-
-293:                                              ; preds = %287
-  br label %333
-
-294:                                              ; preds = %287
-  br label %295
-
-295:                                              ; preds = %294
-  %296 = load ptr, ptr %8, align 8
-  %297 = getelementptr inbounds %struct.sbcast_cred, ptr %296, i32 0, i32 3
-  %298 = load ptr, ptr %297, align 8
-  %299 = icmp ne ptr %298, null
-  br i1 %299, label %301, label %300
-
-300:                                              ; preds = %295
-  br label %333
-
-301:                                              ; preds = %295
-  %302 = call zeroext i1 @running_in_slurmd()
-  br i1 %302, label %331, label %303
-
-303:                                              ; preds = %301
-  %304 = load ptr, ptr %5, align 8
-  %305 = getelementptr inbounds %struct.buf_t, ptr %304, i32 0, i32 3
-  %306 = load i32, ptr %305, align 4
-  %307 = load i32, ptr %9, align 4
-  %308 = sub i32 %306, %307
-  store i32 %308, ptr %17, align 4
-  %309 = load i32, ptr %17, align 4
-  %310 = call ptr @init_buf(i32 noundef %309)
-  %311 = load ptr, ptr %8, align 8
-  %312 = getelementptr inbounds %struct.sbcast_cred, ptr %311, i32 0, i32 2
-  store ptr %310, ptr %312, align 8
-  %313 = load ptr, ptr %8, align 8
-  %314 = getelementptr inbounds %struct.sbcast_cred, ptr %313, i32 0, i32 2
-  %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds %struct.buf_t, ptr %315, i32 0, i32 1
-  %317 = load ptr, ptr %316, align 8
-  %318 = load ptr, ptr %5, align 8
-  %319 = getelementptr inbounds %struct.buf_t, ptr %318, i32 0, i32 1
-  %320 = load ptr, ptr %319, align 8
-  %321 = load i32, ptr %9, align 4
-  %322 = zext i32 %321 to i64
-  %323 = getelementptr inbounds i8, ptr %320, i64 %322
-  %324 = load i32, ptr %17, align 4
-  %325 = zext i32 %324 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr align 1 %323, i64 %325, i1 false)
-  %326 = load i32, ptr %17, align 4
-  %327 = load ptr, ptr %8, align 8
-  %328 = getelementptr inbounds %struct.sbcast_cred, ptr %327, i32 0, i32 2
-  %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds %struct.buf_t, ptr %329, i32 0, i32 3
-  store i32 %326, ptr %330, align 4
-  br label %331
-
-331:                                              ; preds = %303, %301
-  %332 = load ptr, ptr %8, align 8
-  store ptr %332, ptr %4, align 8
-  br label %335
-
-333:                                              ; preds = %300, %293, %274, %271, %255, %243, %231, %219, %207, %197, %187, %177, %167, %149, %91, %81, %71, %61, %51, %41, %33
-  %334 = load ptr, ptr %8, align 8
-  call void @delete_sbcast_cred(ptr noundef %334)
+227:                                              ; preds = %185, %161, %96, %194, %165, %83, %72, %61, %50, %39, %31
+  %228 = load ptr, ptr %8, align 8
+  call void @delete_sbcast_cred(ptr noundef %228)
   store ptr null, ptr %4, align 8
-  br label %335
+  store i32 1, ptr %11, align 4
+  br label %229
 
-335:                                              ; preds = %333, %331
-  %336 = load ptr, ptr %4, align 8
-  ret ptr %336
+229:                                              ; preds = %227, %225, %185, %161, %96
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  %230 = load ptr, ptr %4, align 8
+  ret ptr %230
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #2
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @get_log_level() #2
+declare i32 @get_log_level() #3
 
-declare void @log_var(i32 noundef, ptr noundef, ...) #2
+declare void @log_var(i32 noundef, ptr noundef, ...) #3
 
-declare void @destroy_identity(ptr noundef) #2
+declare void @destroy_identity(ptr noundef) #3
 
-declare ptr @fetch_identity(i32 noundef, i32 noundef, i1 noundef zeroext) #2
+declare ptr @fetch_identity(i32 noundef, i32 noundef, i1 noundef zeroext) #3
 
-declare void @identity_debug2(ptr noundef, ptr noundef) #2
+declare void @identity_debug2(ptr noundef, ptr noundef) #3
 
-declare zeroext i1 @running_in_slurmd() #2
+declare zeroext i1 @running_in_slurmd() #3
 
-declare void @delete_sbcast_cred(ptr noundef) #2
+declare void @delete_sbcast_cred(ptr noundef) #3
+
+declare void @pack8(i8 noundef zeroext, ptr noundef) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}

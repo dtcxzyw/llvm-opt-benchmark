@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @reverse_tree_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
+define dso_local void @reverse_tree_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %.not = icmp slt i32 %0, %1
   br i1 %.not, label %9, label %8
 
@@ -43,14 +43,14 @@ define void @reverse_tree_info(i32 noundef %0, i32 noundef %1, i32 noundef %2, p
   %16 = mul nsw i32 %.112.i.i, %2
   %17 = add nuw nsw i32 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %17, %.078.i
-  br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.010.i.i = phi i32 [ %2, %.lr.ph.i ], [ %16, %.lr.ph.i.i ]
   %18 = add nsw i32 %.010.i.i, %.09.i
   %19 = add nuw nsw i32 %.078.i, 1
   %20 = icmp slt i32 %18, %13
-  br i1 %20, label %.lr.ph.i, label %dep.exit, !llvm.loop !8
+  br i1 %20, label %.lr.ph.i, label %dep.exit, !llvm.loop !11
 
 dep.exit:                                         ; preds = %int_pow.exit.i, %12
   %.07.lcssa.i = phi i32 [ 0, %12 ], [ %.078.i, %int_pow.exit.i ]
@@ -78,7 +78,7 @@ dep.exit:                                         ; preds = %int_pow.exit.i, %12
   %26 = mul nsw i32 %.112.i.i39, %2
   %27 = add nuw nsw i32 %.013.i.i38, 1
   %exitcond.not.i.i40 = icmp eq i32 %.013.i.i38, %.07.lcssa.i
-  br i1 %exitcond.not.i.i40, label %geometric_series.exit, label %.lr.ph.i.i37, !llvm.loop !6
+  br i1 %exitcond.not.i.i40, label %geometric_series.exit, label %.lr.ph.i.i37, !llvm.loop !8
 
 geometric_series.exit:                            ; preds = %.lr.ph.i.i37, %25
   %.010.i.i36 = phi i32 [ %2, %25 ], [ %26, %.lr.ph.i.i37 ]
@@ -123,7 +123,7 @@ tailrecurse.loopexit.i:                           ; preds = %50
 45:                                               ; preds = %50
   %46 = add nuw i32 %.056.i, 1
   %exitcond.not.i = icmp eq i32 %.056.i, %2
-  br i1 %exitcond.not.i, label %search_tree.exit, label %47, !llvm.loop !9
+  br i1 %exitcond.not.i, label %search_tree.exit, label %47, !llvm.loop !12
 
 47:                                               ; preds = %45, %.preheader.i
   %.056.i = phi i32 [ 1, %.preheader.i ], [ %46, %45 ]
@@ -157,7 +157,7 @@ search_tree.exit:                                 ; preds = %tailrecurse.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @reverse_tree_direct_children(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local i32 @reverse_tree_direct_children(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %2, %1
   br i1 %6, label %.loopexit, label %7
 
@@ -178,14 +178,14 @@ define i32 @reverse_tree_direct_children(i32 noundef %0, i32 noundef %1, i32 nou
   %11 = mul nsw i32 %.112.i.i, %2
   %12 = add nuw nsw i32 %.013.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %12, %.078.i
-  br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %int_pow.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 int_pow.exit.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.010.i.i = phi i32 [ %2, %.lr.ph.i ], [ %11, %.lr.ph.i.i ]
   %13 = add nsw i32 %.010.i.i, %.09.i
   %14 = add nuw nsw i32 %.078.i, 1
   %15 = icmp slt i32 %13, %8
-  br i1 %15, label %.lr.ph.i, label %dep.exit, !llvm.loop !8
+  br i1 %15, label %.lr.ph.i, label %dep.exit, !llvm.loop !11
 
 dep.exit:                                         ; preds = %int_pow.exit.i, %7
   %.07.lcssa.i = phi i32 [ 0, %7 ], [ %.078.i, %int_pow.exit.i ]
@@ -220,7 +220,7 @@ dep.exit:                                         ; preds = %int_pow.exit.i, %7
   %25 = mul nsw i32 %.112.i.i32, %2
   %26 = add nuw nsw i32 %.013.i.i31, 1
   %exitcond.not.i.i33 = icmp eq i32 %.013.i.i31, %18
-  br i1 %exitcond.not.i.i33, label %int_pow.exit.i28, label %.lr.ph.i.i30, !llvm.loop !6
+  br i1 %exitcond.not.i.i33, label %int_pow.exit.i28, label %.lr.ph.i.i30, !llvm.loop !8
 
 int_pow.exit.i28:                                 ; preds = %.lr.ph.i.i30, %24, %.preheader.i.i, %22
   %.010.i.i29 = phi i32 [ %2, %24 ], [ 1, %22 ], [ %2, %.preheader.i.i ], [ %25, %.lr.ph.i.i30 ]
@@ -252,7 +252,7 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
   %39 = icmp samesign ult i64 %indvars.iv.next, %36
   %40 = icmp slt i32 %38, %1
   %41 = select i1 %39, i1 %40, i1 false
-  br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !10
+  br i1 %41, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !13
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %42 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -265,16 +265,19 @@ geometric_series.exit:                            ; preds = %20, %int_pow.exit.i
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

@@ -3,11 +3,11 @@ source_filename = "bench/slurm/original/gres_c_s.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, ptr, i16, i16, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, i32, i16, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i16, ptr, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
+%struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
-@shared_info = local_unnamed_addr global ptr null, align 8
+@shared_info = dso_local local_unnamed_addr global ptr null, align 8
 @slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
 @.str = private unnamed_addr constant [32 x i8] c"%s: %s: Resetting share_devices\00", align 1
 @plugin_type = external constant [0 x i8], align 1
@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [15 x i8] c"fake_gpus.conf\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_c_s_fini() local_unnamed_addr #0 {
+define dso_local void @gres_c_s_fini() local_unnamed_addr #0 {
   %1 = load ptr, ptr @shared_info, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
@@ -51,10 +51,10 @@ define void @gres_c_s_fini() local_unnamed_addr #0 {
 declare void @slurm_list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %8 = and i64 %7, 64
   %.not = icmp eq i64 %8, 0
   %. = select i1 %.not, i32 5, i32 4
@@ -86,7 +86,7 @@ define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %17, %15
   store ptr null, ptr %1, align 8
-  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
+  %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre73 = and i64 %.pre, 64
   br label %19
 
@@ -104,7 +104,7 @@ define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, 
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.gres_c_s_init_share_devices) #7
   br label %24
 
-24:                                               ; preds = %19, %20, %23
+24:                                               ; preds = %20, %23, %19
   tail call void @print_gres_list(ptr noundef %0, i32 noundef %.) #7
   %25 = icmp eq ptr %0, null
   br i1 %25, label %_build_sharing_list.exit.thread, label %27
@@ -149,7 +149,7 @@ _build_sharing_list.exit.thread:                  ; preds = %24
 .outer.i:                                         ; preds = %41, %40
   %43 = tail call ptr @slurm_list_next(ptr noundef %29) #7
   %.not57.i = icmp eq ptr %43, null
-  br i1 %.not57.i, label %_build_sharing_list.exit.thread65, label %.lr.ph58.i, !llvm.loop !6
+  br i1 %.not57.i, label %_build_sharing_list.exit.thread65, label %.lr.ph58.i, !llvm.loop !8
 
 44:                                               ; preds = %37
   %45 = load i32, ptr %33, align 8
@@ -165,7 +165,7 @@ _build_sharing_list.exit.thread:                  ; preds = %24
 .backedge.i:                                      ; preds = %._crit_edge.i, %47, %32
   %49 = tail call ptr @slurm_list_next(ptr noundef %29) #7
   %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_build_sharing_list.exit.thread65, label %32, !llvm.loop !6
+  br i1 %.not.i, label %_build_sharing_list.exit.thread65, label %32, !llvm.loop !8
 
 50:                                               ; preds = %44
   %51 = tail call ptr @slurm_hostlist_create(ptr noundef nonnull %39) #7
@@ -244,7 +244,7 @@ _build_sharing_list.exit.thread:                  ; preds = %24
   tail call void @free(ptr noundef nonnull %61) #7
   %95 = tail call ptr @slurm_hostlist_shift(ptr noundef %51) #7
   %.not53.i = icmp eq ptr %95, null
-  br i1 %.not53.i, label %._crit_edge.i, label %60, !llvm.loop !8
+  br i1 %.not53.i, label %._crit_edge.i, label %60, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %78, %50
   tail call void @slurm_hostlist_destroy(ptr noundef %51) #7
@@ -274,7 +274,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @slurm_xstrcmp(ptr noundef %105, ptr noundef %98) #7
   %.not77.i = icmp eq i32 %106, 0
-  br i1 %.not77.i, label %107, label %101, !llvm.loop !9
+  br i1 %.not77.i, label %107, label %101, !llvm.loop !12
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 56
@@ -445,7 +445,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   tail call void @free(ptr noundef nonnull %170) #7
   %201 = tail call ptr @slurm_hostlist_shift(ptr noundef %156) #7
   %.not84.i = icmp eq ptr %201, null
-  br i1 %.not84.i, label %._crit_edge.i50, label %169, !llvm.loop !10
+  br i1 %.not84.i, label %._crit_edge.i50, label %169, !llvm.loop !13
 
 ._crit_edge.i50:                                  ; preds = %187, %155
   tail call void @slurm_hostlist_destroy(ptr noundef %156) #7
@@ -455,7 +455,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   %.169.i = phi i32 [ 0, %._crit_edge.i50 ], [ 1, %138 ]
   %.1.i = phi i32 [ %153, %._crit_edge.i50 ], [ 0, %138 ]
   %203 = tail call i32 @slurm_list_delete_item(ptr noundef %100) #7
-  br label %.outer.i47, !llvm.loop !9
+  br label %.outer.i47, !llvm.loop !12
 
 204:                                              ; preds = %101
   tail call void @slurm_list_iterator_destroy(ptr noundef %100) #7
@@ -519,7 +519,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %227) #7
   %233 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
   %.not.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i, label %_distribute_count.exit.i, label %226, !llvm.loop !11
+  br i1 %.not.i.i, label %_distribute_count.exit.i, label %226, !llvm.loop !14
 
 _distribute_count.exit.i:                         ; preds = %226, %219
   %234 = tail call i32 @slurm_list_flush(ptr noundef %.070.i) #7
@@ -615,7 +615,7 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   tail call void @slurm_list_append(ptr noundef %0, ptr noundef nonnull %237) #7
   %277 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
   %.not48.i = icmp eq ptr %277, null
-  br i1 %.not48.i, label %._crit_edge.i57, label %.lr.ph.i52, !llvm.loop !12
+  br i1 %.not48.i, label %._crit_edge.i57, label %.lr.ph.i52, !llvm.loop !15
 
 ._crit_edge.i57:                                  ; preds = %276, %235
   %278 = tail call i32 @slurm_list_delete_all(ptr noundef %.070.i, ptr noundef nonnull @_delete_leftovers, ptr noundef null) #7
@@ -682,7 +682,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
 295:                                              ; preds = %293
   %296 = load i32, ptr %294, align 8
   %297 = tail call zeroext i1 @gres_id_shared(i32 noundef %296) #7
-  br i1 %297, label %298, label %293, !llvm.loop !13
+  br i1 %297, label %298, label %293, !llvm.loop !16
 
 298:                                              ; preds = %295
   %299 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 240, ptr noundef nonnull @__func__._build_shared_dev_info) #7
@@ -722,7 +722,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   %317 = mul nuw nsw i32 %.022.i.i, 10
   %.016.i.i = add nsw i32 %.01623.i.i, -1
   %318 = icmp sgt i32 %.01623.i.i, 0
-  br i1 %318, label %.lr.ph.i.i62, label %_compute_local_id.exit.i, !llvm.loop !14
+  br i1 %318, label %.lr.ph.i.i62, label %_compute_local_id.exit.i, !llvm.loop !17
 
 _compute_local_id.exit.i:                         ; preds = %312, %.lr.ph.i.i62, %304, %298
   %.017.i.i = phi i32 [ -1, %298 ], [ -1, %304 ], [ %.01521.i.i, %.lr.ph.i.i62 ], [ %316, %312 ]
@@ -732,7 +732,7 @@ _compute_local_id.exit.i:                         ; preds = %312, %.lr.ph.i.i62,
   tail call void @slurm_list_append(ptr noundef %320, ptr noundef nonnull %299) #7
   %321 = load i64, ptr %300, align 8
   %322 = add i64 %321, %.0.ph.i60
-  br label %.outer.i59, !llvm.loop !13
+  br label %.outer.i59, !llvm.loop !16
 
 _build_shared_dev_info.exit:                      ; preds = %293
   tail call void @slurm_list_iterator_destroy(ptr noundef %292) #7
@@ -749,15 +749,15 @@ _build_shared_dev_info.exit:                      ; preds = %293
 328:                                              ; preds = %325, %_build_shared_dev_info.exit
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %., ptr noundef nonnull @.str.4) #7
   tail call void @print_gres_list(ptr noundef %0, i32 noundef %.) #7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   %329 = tail call ptr @slurm_get_extra_conf_path(ptr noundef nonnull @.str.15) #7
   store ptr %329, ptr %6, align 8
   %330 = call i32 @stat(ptr noundef %329, ptr noundef nonnull %5) #7
   %331 = icmp sgt i32 %330, -1
   call void @slurm_xfree(ptr noundef nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
   br i1 %331, label %332, label %337
 
 332:                                              ; preds = %328
@@ -777,6 +777,9 @@ _build_shared_dev_info.exit:                      ; preds = %293
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
 declare i32 @slurm_get_log_level() local_unnamed_addr #1
 
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -784,7 +787,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @print_gres_list(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #2
+declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @gres_node_config_load(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -802,8 +805,11 @@ define internal range(i32 0, 2) i32 @_remove_shared_recs(ptr noundef readonly ca
 
 declare void @print_gres_list_parsable(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define void @gres_c_s_send_stepd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @gres_c_s_send_stepd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @shared_info, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %4
@@ -831,7 +837,7 @@ define void @gres_c_s_send_stepd(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @slurm_pack64(i64 noundef %13, ptr noundef %0) #7
   %14 = tail call ptr @slurm_list_next(ptr noundef %7) #7
   %.not10 = icmp eq ptr %14, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %7) #7
@@ -854,24 +860,27 @@ declare void @slurm_pack64(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   store ptr null, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   %5 = call i32 @slurm_unpack32(ptr noundef nonnull %4, ptr noundef %0) #7
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %.loopexit9
+  br i1 %.not, label %6, label %.thread
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %4, align 4
-  %.not5 = icmp eq i32 %7, 0
-  br i1 %.not5, label %.loopexit, label %8
+  %.not7 = icmp eq i32 %7, 0
+  br i1 %.not7, label %.loopexit, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @shared_info, align 8
-  %.not6 = icmp eq ptr %9, null
-  br i1 %.not6, label %11, label %10
+  %.not8 = icmp eq ptr %9, null
+  br i1 %.not8, label %11, label %10
 
 10:                                               ; preds = %8
   call void @slurm_list_destroy(ptr noundef nonnull %9) #7
@@ -882,23 +891,23 @@ define void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0 {
   %12 = call ptr @slurm_list_create(ptr noundef nonnull @slurm_xfree_ptr) #7
   store ptr %12, ptr @shared_info, align 8
   %13 = load i32, ptr %4, align 4
-  %.not11 = icmp eq i32 %13, 0
-  br i1 %.not11, label %.loopexit, label %.lr.ph
+  %.not14 = icmp eq i32 %13, 0
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %19
-  %.010 = phi i32 [ %24, %19 ], [ 0, %11 ]
+  %.013 = phi i32 [ %24, %19 ], [ 0, %11 ]
   %14 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 558, ptr noundef nonnull @__func__.gres_c_s_recv_stepd) #7
   store ptr %14, ptr %2, align 8
   %15 = call i32 @slurm_unpack64(ptr noundef nonnull %3, ptr noundef %0) #7
-  %.not7 = icmp eq i32 %15, 0
-  br i1 %.not7, label %16, label %.loopexit9
+  %.not9 = icmp eq i32 %15, 0
+  br i1 %.not9, label %16, label %.thread
 
 16:                                               ; preds = %.lr.ph
   %17 = load i64, ptr %3, align 8
   store i64 %17, ptr %14, align 8
   %18 = call i32 @slurm_unpack64(ptr noundef nonnull %3, ptr noundef %0) #7
-  %.not8 = icmp eq i32 %18, 0
-  br i1 %.not8, label %19, label %.loopexit9
+  %.not10 = icmp eq i32 %18, 0
+  br i1 %.not10, label %19, label %.thread
 
 19:                                               ; preds = %16
   %20 = load i64, ptr %3, align 8
@@ -907,17 +916,20 @@ define void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %21, ptr %22, align 8
   %23 = load ptr, ptr @shared_info, align 8
   call void @slurm_list_append(ptr noundef %23, ptr noundef nonnull %14) #7
-  %24 = add nuw i32 %.010, 1
+  %24 = add nuw i32 %.013, 1
   %25 = load i32, ptr %4, align 4
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
-.loopexit9:                                       ; preds = %16, %.lr.ph, %1
+.thread:                                          ; preds = %16, %.lr.ph, %1
   %27 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.7) #7
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %11, %6, %.loopexit9
+.loopexit:                                        ; preds = %19, %11, %6, %.thread
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
   ret void
 }
 
@@ -952,7 +964,7 @@ declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @slurm_hostlist_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -1075,46 +1087,43 @@ declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @gres_build_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @slurm_get_extra_conf_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

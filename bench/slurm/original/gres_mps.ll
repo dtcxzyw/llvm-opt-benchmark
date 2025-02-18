@@ -2,15 +2,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.common_gres_env_t = type { ptr, ptr, i32, i32, ptr, i64, i32, ptr, i8, i8, ptr, ptr, ptr, i8 }
-%struct.gres_job_state = type { i32, ptr, i16, i16, i64, i64, i64, i64, i64, i16, i16, i64, i32, ptr, ptr, ptr, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.gres_job_state = type { i32, ptr, i16, i16, i64, i64, i64, i64, i64, i16, i16, i64, i32, ptr, ptr, ptr, ptr, i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.gres_prep_t = type { i32, i32, ptr, ptr, ptr }
 %struct.gres_device_t = type { i32, i32, %struct.gres_device_id_t, i32, ptr, ptr }
 %struct.gres_device_id_t = type { i32, i32, i32 }
 %struct.shared_dev_info_t = type { i64, i32 }
 
-@plugin_name = constant [16 x i8] c"Gres MPS plugin\00", align 16
-@plugin_type = constant [9 x i8] c"gres/mps\00", align 1
-@plugin_version = constant i32 1574912, align 4
+@plugin_name = dso_local constant [16 x i8] c"Gres MPS plugin\00", align 16
+@plugin_type = dso_local constant [9 x i8] c"gres/mps\00", align 1
+@plugin_version = dso_local constant i32 1639680, align 4
 @.str = private unnamed_addr constant [15 x i8] c"%s: %s: loaded\00", align 1
 @__func__.init = private unnamed_addr constant [5 x i8] c"init\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"%s: %s: unloading\00", align 1
@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [47 x i8] c"Could not find gres/mps count for device ID %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @init() #0 {
+define dso_local i32 @init() #0 {
   br label %1
 
 1:                                                ; preds = %0
@@ -58,7 +58,7 @@ declare i32 @slurm_get_log_level() #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @fini() #0 {
+define dso_local i32 @fini() #0 {
   br label %1
 
 1:                                                ; preds = %0
@@ -106,7 +106,7 @@ declare void @slurm_list_destroy(ptr noundef) #1
 declare void @gres_c_s_fini() #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_p_node_config_load(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @gres_p_node_config_load(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -120,7 +120,7 @@ define i32 @gres_p_node_config_load(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @gres_c_s_init_share_devices(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define dso_local void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -130,41 +130,55 @@ define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %10 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 96, ptr %9) #5
+  %10 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 2
   %15 = load i32, ptr %8, align 4
   store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 3
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 4
+  %17 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 4
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 5
+  %18 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 5
   %19 = load i64, ptr %7, align 8
   store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 6
+  %20 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 6
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 7
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 8
-  store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 9
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 10
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 11
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 12
+  %21 = getelementptr i8, ptr %9, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 4, i1 false)
+  %22 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 7
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 8
+  store i8 1, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 9
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr i8, ptr %9, i64 58
+  call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 6, i1 false)
+  %26 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 10
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 13
-  store i8 0, ptr %27, align 8
+  %27 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 11
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 12
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 13
+  store i8 0, ptr %29, align 8
+  %30 = getelementptr i8, ptr %9, i64 89
+  call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 7, i1 false)
   call void @_set_env(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 96, ptr %9) #5
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_set_env(ptr noundef %0) #0 {
@@ -173,23 +187,26 @@ define internal void @_set_env(ptr noundef %0) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.common_gres_env_t, ptr %6, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %6, i32 0, i32 3
   store i32 -1, ptr %7, align 4
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.common_gres_env_t, ptr %8, i32 0, i32 6
+  %9 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %8, i32 0, i32 6
   store i32 32, ptr %9, align 8
   %10 = load ptr, ptr @gres_devices, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 7
+  %12 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 7
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.common_gres_env_t, ptr %13, i32 0, i32 11
+  %14 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %13, i32 0, i32 11
   store ptr @.str.6, ptr %14, align 8
   %15 = load ptr, ptr %2, align 8
   call void @gres_common_gpu_set_env(ptr noundef %15)
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.common_gres_env_t, ptr %16, i32 0, i32 5
+  %17 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %16, i32 0, i32 5
   %18 = load i64, ptr %17, align 8
   %19 = icmp ne i64 %18, 0
   br i1 %19, label %20, label %54
@@ -201,7 +218,7 @@ define internal void @_set_env(ptr noundef %0) #0 {
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds %struct.common_gres_env_t, ptr %24, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %24, i32 0, i32 3
   %26 = load i32, ptr %25, align 4
   %27 = call i64 @_get_dev_count(i32 noundef %26)
   store i64 %27, ptr %4, align 8
@@ -211,7 +228,7 @@ define internal void @_set_env(ptr noundef %0) #0 {
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds %struct.common_gres_env_t, ptr %31, i32 0, i32 5
+  %32 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %31, i32 0, i32 5
   %33 = load i64, ptr %32, align 8
   %34 = mul i64 %33, 100
   %35 = load i64, ptr %4, align 8
@@ -240,9 +257,9 @@ define internal void @_set_env(ptr noundef %0) #0 {
 45:                                               ; preds = %44, %42
   %46 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
   %47 = load i64, ptr %5, align 8
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef 64, ptr noundef @.str.5, i64 noundef %47) #3
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %46, i64 noundef 64, ptr noundef @.str.5, i64 noundef %47) #5
   %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds %struct.common_gres_env_t, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %49, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
   %53 = call i32 @slurm_env_array_overwrite(ptr noundef %51, ptr noundef @.str.4, ptr noundef %52)
@@ -250,7 +267,7 @@ define internal void @_set_env(ptr noundef %0) #0 {
 
 54:                                               ; preds = %20, %1
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds %struct.common_gres_env_t, ptr %55, i32 0, i32 5
+  %56 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %55, i32 0, i32 5
   %57 = load i64, ptr %56, align 8
   %58 = icmp ne i64 %57, 0
   br i1 %58, label %59, label %71
@@ -259,11 +276,11 @@ define internal void @_set_env(ptr noundef %0) #0 {
   %60 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.7)
   %61 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds %struct.common_gres_env_t, ptr %62, i32 0, i32 5
+  %63 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %62, i32 0, i32 5
   %64 = load i64, ptr %63, align 8
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef 64, ptr noundef @.str.5, i64 noundef %64) #3
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %61, i64 noundef 64, ptr noundef @.str.5, i64 noundef %64) #5
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.common_gres_env_t, ptr %66, i32 0, i32 1
+  %67 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %66, i32 0, i32 1
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 0
   %70 = call i32 @slurm_env_array_overwrite(ptr noundef %68, ptr noundef @.str.4, ptr noundef %69)
@@ -271,7 +288,7 @@ define internal void @_set_env(ptr noundef %0) #0 {
 
 71:                                               ; preds = %54
   %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds %struct.common_gres_env_t, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %72, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
   call void @slurm_unsetenvp(ptr noundef %75, ptr noundef @.str.4)
@@ -281,11 +298,17 @@ define internal void @_set_env(ptr noundef %0) #0 {
   br label %77
 
 77:                                               ; preds = %76, %45
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr %3) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nounwind uwtable
-define void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
+define dso_local void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -295,44 +318,52 @@ define void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %10 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 96, ptr %9) #5
+  %10 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 2
   %15 = load i32, ptr %8, align 4
   store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 3
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 4
+  %17 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 4
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 5
+  %18 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 5
   %19 = load i64, ptr %7, align 8
   store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 6
+  %20 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 6
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 7
-  store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 8
-  store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 9
-  store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 10
-  store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 11
-  store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 12
+  %21 = getelementptr i8, ptr %9, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 4, i1 false)
+  %22 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 7
+  store ptr null, ptr %22, align 8
+  %23 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 8
+  store i8 0, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 9
+  store i8 0, ptr %24, align 1
+  %25 = getelementptr i8, ptr %9, i64 58
+  call void @llvm.memset.p0.i64(ptr align 2 %25, i8 0, i64 6, i1 false)
+  %26 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 10
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.common_gres_env_t, ptr %9, i32 0, i32 13
-  store i8 0, ptr %27, align 8
+  %27 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 11
+  store ptr null, ptr %27, align 8
+  %28 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 12
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %9, i32 0, i32 13
+  store i8 0, ptr %29, align 8
+  %30 = getelementptr i8, ptr %9, i64 89
+  call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 7, i1 false)
   call void @_set_env(ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 96, ptr %9) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_task_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+define dso_local void @gres_p_task_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -344,45 +375,53 @@ define void @gres_p_task_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store i64 %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
-  %12 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 96, ptr %11) #5
+  %12 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 1
   %15 = load ptr, ptr %6, align 8
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 2
   %17 = load i32, ptr %10, align 4
   store i32 %17, ptr %16, align 8
-  %18 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 3
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 4
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 5
+  %20 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 5
   %21 = load i64, ptr %8, align 8
   store i64 %21, ptr %20, align 8
-  %22 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 6
+  %22 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 6
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 7
-  store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 8
-  store i8 0, ptr %24, align 8
-  %25 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 9
-  store i8 1, ptr %25, align 1
-  %26 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 10
-  store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 11
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 12
-  %29 = load ptr, ptr %9, align 8
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds %struct.common_gres_env_t, ptr %11, i32 0, i32 13
-  store i8 0, ptr %30, align 8
+  %23 = getelementptr i8, ptr %11, i64 44
+  call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 4, i1 false)
+  %24 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 7
+  store ptr null, ptr %24, align 8
+  %25 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 8
+  store i8 0, ptr %25, align 8
+  %26 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 9
+  store i8 1, ptr %26, align 1
+  %27 = getelementptr i8, ptr %11, i64 58
+  call void @llvm.memset.p0.i64(ptr align 2 %27, i8 0, i64 6, i1 false)
+  %28 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 10
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 11
+  store ptr null, ptr %29, align 8
+  %30 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 12
+  %31 = load ptr, ptr %9, align 8
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds nuw %struct.common_gres_env_t, ptr %11, i32 0, i32 13
+  store i8 0, ptr %32, align 8
+  %33 = getelementptr i8, ptr %11, i64 89
+  call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 7, i1 false)
   call void @_set_env(ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 96, ptr %11) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_send_stepd(ptr noundef %0) #0 {
+define dso_local void @gres_p_send_stepd(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -398,7 +437,7 @@ declare void @gres_send_stepd(ptr noundef, ptr noundef) #1
 declare void @gres_c_s_send_stepd(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_recv_stepd(ptr noundef %0) #0 {
+define dso_local void @gres_p_recv_stepd(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -413,39 +452,13 @@ declare void @gres_recv_stepd(ptr noundef, ptr noundef) #1
 declare void @gres_c_s_recv_stepd(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_p_get_job_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  ret i32 22
-}
-
-; Function Attrs: nounwind uwtable
-define i32 @gres_p_get_step_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  ret i32 22
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @gres_p_get_devices() #0 {
+define dso_local ptr @gres_p_get_devices() #0 {
   %1 = load ptr, ptr @gres_devices, align 8
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_step_hardware_init(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local void @gres_p_step_hardware_init(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -454,39 +467,41 @@ define void @gres_p_step_hardware_init(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_step_hardware_fini() #0 {
+define dso_local void @gres_p_step_hardware_fini() #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
+define dso_local ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %5 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 338, ptr noundef @__func__.gres_p_prep_build_env)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  %5 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 303, ptr noundef @__func__.gres_p_prep_build_env)
   store ptr %5, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.gres_job_state, ptr %6, i32 0, i32 17
+  %7 = getelementptr inbounds nuw %struct.gres_job_state, ptr %6, i32 0, i32 19
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.gres_prep_t, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %9, i32 0, i32 1
   store i32 %8, ptr %10, align 4
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.gres_prep_t, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = call ptr @slurm_xcalloc(i64 noundef %14, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 341, ptr noundef @__func__.gres_p_prep_build_env)
+  %15 = call ptr @slurm_xcalloc(i64 noundef %14, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 306, ptr noundef @__func__.gres_p_prep_build_env)
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.gres_prep_t, ptr %16, i32 0, i32 3
+  %17 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %16, i32 0, i32 3
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds %struct.gres_prep_t, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %18, i32 0, i32 1
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = call ptr @slurm_xcalloc(i64 noundef %21, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 343, ptr noundef @__func__.gres_p_prep_build_env)
+  %22 = call ptr @slurm_xcalloc(i64 noundef %21, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.3, i32 noundef 308, ptr noundef @__func__.gres_p_prep_build_env)
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct.gres_prep_t, ptr %23, i32 0, i32 4
+  %24 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %23, i32 0, i32 4
   store ptr %22, ptr %24, align 8
   store i32 0, ptr %3, align 4
   br label %25
@@ -494,21 +509,21 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
 25:                                               ; preds = %89, %1
   %26 = load i32, ptr %3, align 4
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %struct.gres_prep_t, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %27, i32 0, i32 1
   %29 = load i32, ptr %28, align 4
   %30 = icmp ult i32 %26, %29
   br i1 %30, label %31, label %92
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds %struct.gres_job_state, ptr %32, i32 0, i32 18
+  %33 = getelementptr inbounds nuw %struct.gres_job_state, ptr %32, i32 0, i32 20
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ne ptr %34, null
   br i1 %35, label %36, label %60
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds %struct.gres_job_state, ptr %37, i32 0, i32 18
+  %38 = getelementptr inbounds nuw %struct.gres_job_state, ptr %37, i32 0, i32 20
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %3, align 4
   %41 = sext i32 %40 to i64
@@ -519,7 +534,7 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds %struct.gres_job_state, ptr %46, i32 0, i32 18
+  %47 = getelementptr inbounds nuw %struct.gres_job_state, ptr %46, i32 0, i32 20
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %3, align 4
   %50 = sext i32 %49 to i64
@@ -527,7 +542,7 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @slurm_bit_copy(ptr noundef %52)
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct.gres_prep_t, ptr %54, i32 0, i32 3
+  %55 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %54, i32 0, i32 3
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %3, align 4
   %58 = sext i32 %57 to i64
@@ -537,14 +552,14 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
 
 60:                                               ; preds = %45, %36, %31
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds %struct.gres_job_state, ptr %61, i32 0, i32 18
+  %62 = getelementptr inbounds nuw %struct.gres_job_state, ptr %61, i32 0, i32 20
   %63 = load ptr, ptr %62, align 8
   %64 = icmp ne ptr %63, null
   br i1 %64, label %65, label %88
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds %struct.gres_job_state, ptr %66, i32 0, i32 18
+  %67 = getelementptr inbounds nuw %struct.gres_job_state, ptr %66, i32 0, i32 20
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %3, align 4
   %70 = sext i32 %69 to i64
@@ -555,14 +570,14 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
 
 74:                                               ; preds = %65
   %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds %struct.gres_job_state, ptr %75, i32 0, i32 19
+  %76 = getelementptr inbounds nuw %struct.gres_job_state, ptr %75, i32 0, i32 21
   %77 = load ptr, ptr %76, align 8
   %78 = load i32, ptr %3, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i64, ptr %77, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds %struct.gres_prep_t, ptr %82, i32 0, i32 4
+  %83 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %82, i32 0, i32 4
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %3, align 4
   %86 = sext i32 %85 to i64
@@ -577,10 +592,12 @@ define ptr @gres_p_prep_build_env(ptr noundef %0) #0 {
   %90 = load i32, ptr %3, align 4
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %3, align 4
-  br label %25, !llvm.loop !6
+  br label %25, !llvm.loop !8
 
 92:                                               ; preds = %25
   %93 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #5
   ret ptr %93
 }
 
@@ -589,7 +606,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare ptr @slurm_bit_copy(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+define dso_local void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -601,171 +618,190 @@ define void @gres_p_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   store i32 -1, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   store i32 -1, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   store i64 0, ptr %11, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr %6, align 4
-  %18 = load ptr, ptr @gres_devices, align 8
-  %19 = call zeroext i1 @gres_common_prep_set_env(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 32, ptr noundef %18)
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %3
-  br label %115
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = load ptr, ptr @gres_devices, align 8
+  %20 = call zeroext i1 @gres_common_prep_set_env(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 32, ptr noundef %19)
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %3
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.gres_prep_t, ptr %22, i32 0, i32 3
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %45
+  store i32 1, ptr %15, align 4
+  br label %116
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.gres_prep_t, ptr %27, i32 0, i32 3
-  %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %6, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %45
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %23, i32 0, i32 3
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %46
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.gres_prep_t, ptr %36, i32 0, i32 3
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %6, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %40
-  %42 = load ptr, ptr %41, align 8
-  %43 = call i64 @slurm_bit_ffs(ptr noundef %42)
-  %44 = trunc i64 %43 to i32
-  store i32 %44, ptr %7, align 4
-  br label %45
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %28, i32 0, i32 3
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %46
 
-45:                                               ; preds = %35, %26, %21
-  %46 = load i32, ptr %7, align 4
-  %47 = icmp sge i32 %46, 0
-  br i1 %47, label %48, label %68
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %37, i32 0, i32 3
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = call i64 @slurm_bit_ffs(ptr noundef %43)
+  %45 = trunc i64 %44 to i32
+  store i32 %45, ptr %7, align 4
+  br label %46
 
-48:                                               ; preds = %45
+46:                                               ; preds = %36, %27, %22
+  %47 = load i32, ptr %7, align 4
+  %48 = icmp sge i32 %47, 0
+  br i1 %48, label %49, label %69
+
+49:                                               ; preds = %46
   store i32 -1, ptr %9, align 4
-  %49 = load ptr, ptr @gres_devices, align 8
-  %50 = call ptr @slurm_list_iterator_create(ptr noundef %49)
-  store ptr %50, ptr %14, align 8
-  br label %51
+  %50 = load ptr, ptr @gres_devices, align 8
+  %51 = call ptr @slurm_list_iterator_create(ptr noundef %50)
+  store ptr %51, ptr %14, align 8
+  br label %52
 
-51:                                               ; preds = %65, %48
-  %52 = load ptr, ptr %14, align 8
-  %53 = call ptr @slurm_list_next(ptr noundef %52)
-  store ptr %53, ptr %13, align 8
-  %54 = icmp ne ptr %53, null
-  br i1 %54, label %55, label %66
+52:                                               ; preds = %66, %49
+  %53 = load ptr, ptr %14, align 8
+  %54 = call ptr @slurm_list_next(ptr noundef %53)
+  store ptr %54, ptr %13, align 8
+  %55 = icmp ne ptr %54, null
+  br i1 %55, label %56, label %67
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %9, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %9, align 4
-  %58 = load i32, ptr %9, align 4
-  %59 = load i32, ptr %7, align 4
-  %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %65
+56:                                               ; preds = %52
+  %57 = load i32, ptr %9, align 4
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %9, align 4
+  %59 = load i32, ptr %9, align 4
+  %60 = load i32, ptr %7, align 4
+  %61 = icmp eq i32 %59, %60
+  br i1 %61, label %62, label %66
 
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr inbounds %struct.gres_device_t, ptr %62, i32 0, i32 3
-  %64 = load i32, ptr %63, align 4
-  store i32 %64, ptr %8, align 4
-  br label %66
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %13, align 8
+  %64 = getelementptr inbounds nuw %struct.gres_device_t, ptr %63, i32 0, i32 3
+  %65 = load i32, ptr %64, align 4
+  store i32 %65, ptr %8, align 4
+  br label %67
 
-65:                                               ; preds = %55
-  br label %51, !llvm.loop !8
+66:                                               ; preds = %56
+  br label %52, !llvm.loop !11
 
-66:                                               ; preds = %61, %51
-  %67 = load ptr, ptr %14, align 8
-  call void @slurm_list_iterator_destroy(ptr noundef %67)
-  br label %68
+67:                                               ; preds = %62, %52
+  %68 = load ptr, ptr %14, align 8
+  call void @slurm_list_iterator_destroy(ptr noundef %68)
+  br label %69
 
-68:                                               ; preds = %66, %45
-  %69 = load i32, ptr %8, align 4
-  %70 = icmp sge i32 %69, 0
-  br i1 %70, label %71, label %114
+69:                                               ; preds = %67, %46
+  %70 = load i32, ptr %8, align 4
+  %71 = icmp sge i32 %70, 0
+  br i1 %71, label %72, label %115
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds %struct.gres_prep_t, ptr %72, i32 0, i32 4
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp ne ptr %74, null
-  br i1 %75, label %76, label %114
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %5, align 8
+  %74 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %73, i32 0, i32 4
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp ne ptr %75, null
+  br i1 %76, label %77, label %115
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds %struct.gres_prep_t, ptr %77, i32 0, i32 4
-  %79 = load ptr, ptr %78, align 8
-  %80 = load i32, ptr %6, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i64, ptr %79, i64 %81
-  %83 = load i64, ptr %82, align 8
-  %84 = icmp ne i64 %83, 0
-  br i1 %84, label %85, label %114
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %5, align 8
+  %79 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %78, i32 0, i32 4
+  %80 = load ptr, ptr %79, align 8
+  %81 = load i32, ptr %6, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i64, ptr %80, i64 %82
+  %84 = load i64, ptr %83, align 8
+  %85 = icmp ne i64 %84, 0
+  br i1 %85, label %86, label %115
 
-85:                                               ; preds = %76
-  %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds %struct.gres_prep_t, ptr %86, i32 0, i32 4
-  %88 = load ptr, ptr %87, align 8
-  %89 = load i32, ptr %6, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i64, ptr %88, i64 %90
-  %92 = load i64, ptr %91, align 8
-  store i64 %92, ptr %11, align 8
-  %93 = load i32, ptr %8, align 4
-  %94 = call i64 @_get_dev_count(i32 noundef %93)
-  store i64 %94, ptr %10, align 8
-  %95 = load i64, ptr %10, align 8
-  %96 = icmp ugt i64 %95, 0
-  br i1 %96, label %97, label %109
+86:                                               ; preds = %77
+  %87 = load ptr, ptr %5, align 8
+  %88 = getelementptr inbounds nuw %struct.gres_prep_t, ptr %87, i32 0, i32 4
+  %89 = load ptr, ptr %88, align 8
+  %90 = load i32, ptr %6, align 4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i64, ptr %89, i64 %91
+  %93 = load i64, ptr %92, align 8
+  store i64 %93, ptr %11, align 8
+  %94 = load i32, ptr %8, align 4
+  %95 = call i64 @_get_dev_count(i32 noundef %94)
+  store i64 %95, ptr %10, align 8
+  %96 = load i64, ptr %10, align 8
+  %97 = icmp ugt i64 %96, 0
+  br i1 %97, label %98, label %110
 
-97:                                               ; preds = %85
-  %98 = load i64, ptr %11, align 8
-  %99 = mul i64 %98, 100
-  %100 = load i64, ptr %10, align 8
-  %101 = udiv i64 %99, %100
-  store i64 %101, ptr %12, align 8
-  %102 = load i64, ptr %12, align 8
-  %103 = icmp ugt i64 %102, 1
-  br i1 %103, label %104, label %106
+98:                                               ; preds = %86
+  %99 = load i64, ptr %11, align 8
+  %100 = mul i64 %99, 100
+  %101 = load i64, ptr %10, align 8
+  %102 = udiv i64 %100, %101
+  store i64 %102, ptr %12, align 8
+  %103 = load i64, ptr %12, align 8
+  %104 = icmp ugt i64 %103, 1
+  br i1 %104, label %105, label %107
 
-104:                                              ; preds = %97
-  %105 = load i64, ptr %12, align 8
-  br label %107
+105:                                              ; preds = %98
+  %106 = load i64, ptr %12, align 8
+  br label %108
 
-106:                                              ; preds = %97
-  br label %107
+107:                                              ; preds = %98
+  br label %108
 
-107:                                              ; preds = %106, %104
-  %108 = phi i64 [ %105, %104 ], [ 1, %106 ]
-  store i64 %108, ptr %12, align 8
-  br label %110
+108:                                              ; preds = %107, %105
+  %109 = phi i64 [ %106, %105 ], [ 1, %107 ]
+  store i64 %109, ptr %12, align 8
+  br label %111
 
-109:                                              ; preds = %85
+110:                                              ; preds = %86
   store i64 0, ptr %12, align 8
-  br label %110
+  br label %111
 
-110:                                              ; preds = %109, %107
-  %111 = load ptr, ptr %4, align 8
-  %112 = load i64, ptr %12, align 8
-  %113 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %111, ptr noundef @.str.4, ptr noundef @.str.5, i64 noundef %112)
-  br label %114
-
-114:                                              ; preds = %110, %76, %71, %68
+111:                                              ; preds = %110, %108
+  %112 = load ptr, ptr %4, align 8
+  %113 = load i64, ptr %12, align 8
+  %114 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %112, ptr noundef @.str.4, ptr noundef @.str.5, i64 noundef %113)
   br label %115
 
-115:                                              ; preds = %114, %20
+115:                                              ; preds = %111, %77, %72, %69
+  store i32 1, ptr %15, align 4
+  br label %116
+
+116:                                              ; preds = %115, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret void
 }
 
@@ -786,69 +822,79 @@ define internal i64 @_get_dev_count(i32 noundef %0) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
+  %7 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
   store i64 -2, ptr %6, align 8
-  %7 = load ptr, ptr @shared_info, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %11, label %9
+  %8 = load ptr, ptr @shared_info, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %1
-  %10 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.8)
+10:                                               ; preds = %1
+  %11 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.8)
   store i64 100, ptr %2, align 8
-  br label %38
+  store i32 1, ptr %7, align 4
+  br label %39
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr @shared_info, align 8
-  %13 = call ptr @slurm_list_iterator_create(ptr noundef %12)
-  store ptr %13, ptr %4, align 8
-  br label %14
+12:                                               ; preds = %1
+  %13 = load ptr, ptr @shared_info, align 8
+  %14 = call ptr @slurm_list_iterator_create(ptr noundef %13)
+  store ptr %14, ptr %4, align 8
+  br label %15
 
-14:                                               ; preds = %28, %11
-  %15 = load ptr, ptr %4, align 8
-  %16 = call ptr @slurm_list_next(ptr noundef %15)
-  store ptr %16, ptr %5, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %29
+15:                                               ; preds = %29, %12
+  %16 = load ptr, ptr %4, align 8
+  %17 = call ptr @slurm_list_next(ptr noundef %16)
+  store ptr %17, ptr %5, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %30
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.shared_dev_info_t, ptr %19, i32 0, i32 1
-  %21 = load i32, ptr %20, align 8
-  %22 = load i32, ptr %3, align 4
-  %23 = icmp eq i32 %21, %22
-  br i1 %23, label %24, label %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds nuw %struct.shared_dev_info_t, ptr %20, i32 0, i32 1
+  %22 = load i32, ptr %21, align 8
+  %23 = load i32, ptr %3, align 4
+  %24 = icmp eq i32 %22, %23
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.shared_dev_info_t, ptr %25, i32 0, i32 0
-  %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr %6, align 8
-  br label %29
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %5, align 8
+  %27 = getelementptr inbounds nuw %struct.shared_dev_info_t, ptr %26, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8
+  store i64 %28, ptr %6, align 8
+  br label %30
 
-28:                                               ; preds = %18
-  br label %14, !llvm.loop !9
+29:                                               ; preds = %19
+  br label %15, !llvm.loop !12
 
-29:                                               ; preds = %24, %14
-  %30 = load ptr, ptr %4, align 8
-  call void @slurm_list_iterator_destroy(ptr noundef %30)
-  %31 = load i64, ptr %6, align 8
-  %32 = icmp eq i64 %31, -2
-  br i1 %32, label %33, label %36
+30:                                               ; preds = %25, %15
+  %31 = load ptr, ptr %4, align 8
+  call void @slurm_list_iterator_destroy(ptr noundef %31)
+  %32 = load i64, ptr %6, align 8
+  %33 = icmp eq i64 %32, -2
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %3, align 4
-  %35 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9, i32 noundef %34)
+34:                                               ; preds = %30
+  %35 = load i32, ptr %3, align 4
+  %36 = call i32 (ptr, ...) @slurm_error(ptr noundef @.str.9, i32 noundef %35)
   store i64 100, ptr %2, align 8
-  br label %38
+  store i32 1, ptr %7, align 4
+  br label %39
 
-36:                                               ; preds = %29
-  %37 = load i64, ptr %6, align 8
-  store i64 %37, ptr %2, align 8
-  br label %38
+37:                                               ; preds = %30
+  %38 = load i64, ptr %6, align 8
+  store i64 %38, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %39
 
-38:                                               ; preds = %36, %33, %9
-  %39 = load i64, ptr %2, align 8
-  ret i64 %39
+39:                                               ; preds = %37, %34, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #5
+  %40 = load i64, ptr %2, align 8
+  ret i64 %40
 }
 
 declare i32 @slurm_env_array_overwrite_fmt(ptr noundef, ptr noundef, ptr noundef, ...) #1
@@ -856,7 +902,7 @@ declare i32 @slurm_env_array_overwrite_fmt(ptr noundef, ptr noundef, ptr noundef
 declare void @gres_common_gpu_set_env(ptr noundef) #1
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
 
 declare i32 @slurm_env_array_overwrite(ptr noundef, ptr noundef, ptr noundef) #1
 
@@ -866,18 +912,23 @@ declare void @slurm_unsetenvp(ptr noundef, ptr noundef) #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

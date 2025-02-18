@@ -2,7 +2,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pmi2_job_info = type { %struct.slurm_step_id_msg, i32, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.slurm_step_id_msg = type { i32, i32, i32 }
+%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.pmix_ring_msg = type { i32, ptr, ptr }
 %struct.buf_t = type { i32, ptr, i32, i32, i8, i8 }
 %struct.client_response = type { ptr }
@@ -41,16 +41,18 @@ target triple = "x86_64-pc-linux-gnu"
 @job_info = external global %struct.pmi2_job_info, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_ring_id_by_rank(i32 noundef %0) #0 {
+define dso_local i32 @pmix_ring_id_by_rank(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %5 = load i32, ptr @pmix_stepd_rank, align 4
   %6 = load i32, ptr @pmix_stepd_width, align 4
   %7 = mul nsw i32 %5, %6
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
   %9 = load i32, ptr %2, align 4
   %10 = load i32, ptr %3, align 4
   %11 = sub nsw i32 %9, %10
@@ -79,11 +81,19 @@ define i32 @pmix_ring_id_by_rank(i32 noundef %0) #0 {
 
 24:                                               ; preds = %23, %19
   %25 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i32 %25
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_ring_init(ptr noundef %0, ptr noundef %1) #0 {
+define dso_local i32 @pmix_ring_init(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -94,18 +104,22 @@ define i32 @pmix_ring_init(ptr noundef %0, ptr noundef %1) #0 {
   %10 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #6
   store i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @slurm_getenvp(ptr noundef %12, ptr noundef @.str)
   store ptr %13, ptr %7, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = icmp ne ptr %14, null
-  br i1 %15, label %16, label %35
+  br i1 %15, label %16, label %37
 
 16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
   %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @atoi(ptr noundef %17) #4
+  %18 = call i32 @atoi(ptr noundef %17) #7
   store i32 %18, ptr %8, align 4
   %19 = load i32, ptr %8, align 4
   %20 = icmp sge i32 %19, 2
@@ -114,7 +128,7 @@ define i32 @pmix_ring_init(ptr noundef %0, ptr noundef %1) #0 {
 21:                                               ; preds = %16
   %22 = load i32, ptr %8, align 4
   store i32 %22, ptr @pmix_stepd_width, align 4
-  br label %34
+  br label %36
 
 23:                                               ; preds = %16
   br label %24
@@ -142,141 +156,163 @@ define i32 @pmix_ring_init(ptr noundef %0, ptr noundef %1) #0 {
 33:                                               ; preds = %32
   br label %34
 
-34:                                               ; preds = %33, %21
+34:                                               ; preds = %33
   br label %35
 
-35:                                               ; preds = %34, %2
-  %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.pmi2_job_info, ptr %36, i32 0, i32 9
-  %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @slurm_hostlist_create(ptr noundef %38)
-  store ptr %39, ptr @pmix_stepd_hostlist, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.pmi2_job_info, ptr %40, i32 0, i32 3
-  %42 = load i32, ptr %41, align 4
-  store i32 %42, ptr @pmix_stepd_rank, align 4
-  %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.pmi2_job_info, ptr %43, i32 0, i32 2
-  %45 = load i32, ptr %44, align 8
-  store i32 %45, ptr @pmix_stepd_ranks, align 4
-  %46 = load ptr, ptr %3, align 8
-  %47 = getelementptr inbounds %struct.pmi2_job_info, ptr %46, i32 0, i32 5
-  %48 = load i32, ptr %47, align 4
-  store i32 %48, ptr @pmix_app_children, align 4
-  %49 = load i32, ptr @pmix_stepd_rank, align 4
-  %50 = load i32, ptr @pmix_stepd_width, align 4
-  %51 = mul nsw i32 %49, %50
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %9, align 4
-  %53 = load i32, ptr @pmix_stepd_rank, align 4
-  %54 = load i32, ptr @pmix_stepd_width, align 4
-  %55 = mul nsw i32 %53, %54
+35:                                               ; preds = %34
+  br label %36
+
+36:                                               ; preds = %35, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  br label %37
+
+37:                                               ; preds = %36, %2
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.pmi2_job_info, ptr %38, i32 0, i32 9
+  %40 = load ptr, ptr %39, align 8
+  %41 = call ptr @slurm_hostlist_create(ptr noundef %40)
+  store ptr %41, ptr @pmix_stepd_hostlist, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.pmi2_job_info, ptr %42, i32 0, i32 3
+  %44 = load i32, ptr %43, align 8
+  store i32 %44, ptr @pmix_stepd_rank, align 4
+  %45 = load ptr, ptr %3, align 8
+  %46 = getelementptr inbounds nuw %struct.pmi2_job_info, ptr %45, i32 0, i32 2
+  %47 = load i32, ptr %46, align 4
+  store i32 %47, ptr @pmix_stepd_ranks, align 4
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw %struct.pmi2_job_info, ptr %48, i32 0, i32 5
+  %50 = load i32, ptr %49, align 8
+  store i32 %50, ptr @pmix_app_children, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  %51 = load i32, ptr @pmix_stepd_rank, align 4
+  %52 = load i32, ptr @pmix_stepd_width, align 4
+  %53 = mul nsw i32 %51, %52
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %55 = load i32, ptr @pmix_stepd_rank, align 4
   %56 = load i32, ptr @pmix_stepd_width, align 4
-  %57 = add nsw i32 %55, %56
-  store i32 %57, ptr %10, align 4
-  %58 = load i32, ptr %9, align 4
-  %59 = load i32, ptr @pmix_stepd_ranks, align 4
-  %60 = icmp sge i32 %58, %59
-  br i1 %60, label %61, label %63
+  %57 = mul nsw i32 %55, %56
+  %58 = load i32, ptr @pmix_stepd_width, align 4
+  %59 = add nsw i32 %57, %58
+  store i32 %59, ptr %10, align 4
+  %60 = load i32, ptr %9, align 4
+  %61 = load i32, ptr @pmix_stepd_ranks, align 4
+  %62 = icmp sge i32 %60, %61
+  br i1 %62, label %63, label %65
 
-61:                                               ; preds = %35
-  %62 = load i32, ptr @pmix_stepd_ranks, align 4
-  store i32 %62, ptr %9, align 4
-  br label %63
+63:                                               ; preds = %37
+  %64 = load i32, ptr @pmix_stepd_ranks, align 4
+  store i32 %64, ptr %9, align 4
+  br label %65
 
-63:                                               ; preds = %61, %35
-  %64 = load i32, ptr %10, align 4
-  %65 = load i32, ptr @pmix_stepd_ranks, align 4
-  %66 = icmp sge i32 %64, %65
-  br i1 %66, label %67, label %70
+65:                                               ; preds = %63, %37
+  %66 = load i32, ptr %10, align 4
+  %67 = load i32, ptr @pmix_stepd_ranks, align 4
+  %68 = icmp sge i32 %66, %67
+  br i1 %68, label %69, label %72
 
-67:                                               ; preds = %63
-  %68 = load i32, ptr @pmix_stepd_ranks, align 4
-  %69 = sub nsw i32 %68, 1
-  store i32 %69, ptr %10, align 4
-  br label %70
+69:                                               ; preds = %65
+  %70 = load i32, ptr @pmix_stepd_ranks, align 4
+  %71 = sub nsw i32 %70, 1
+  store i32 %71, ptr %10, align 4
+  br label %72
 
-70:                                               ; preds = %67, %63
-  %71 = load i32, ptr %10, align 4
-  %72 = load i32, ptr %9, align 4
-  %73 = sub nsw i32 %71, %72
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr @pmix_stepd_children, align 4
-  %75 = load i32, ptr @pmix_app_children, align 4
-  %76 = load i32, ptr @pmix_stepd_children, align 4
-  %77 = add nsw i32 %75, %76
-  store i32 %77, ptr @pmix_ring_children, align 4
-  %78 = load i32, ptr @pmix_ring_children, align 4
-  %79 = sext i32 %78 to i64
-  %80 = mul i64 %79, 24
-  %81 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.2, i32 noundef 299, ptr noundef @__func__.pmix_ring_init)
-  store ptr %81, ptr @pmix_ring_msgs, align 8
+72:                                               ; preds = %69, %65
+  %73 = load i32, ptr %10, align 4
+  %74 = load i32, ptr %9, align 4
+  %75 = sub nsw i32 %73, %74
+  %76 = add nsw i32 %75, 1
+  store i32 %76, ptr @pmix_stepd_children, align 4
+  %77 = load i32, ptr @pmix_app_children, align 4
+  %78 = load i32, ptr @pmix_stepd_children, align 4
+  %79 = add nsw i32 %77, %78
+  store i32 %79, ptr @pmix_ring_children, align 4
+  %80 = load i32, ptr @pmix_ring_children, align 4
+  %81 = sext i32 %80 to i64
+  %82 = call ptr @slurm_xcalloc(i64 noundef %81, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.2, i32 noundef 299, ptr noundef @__func__.pmix_ring_init)
+  store ptr %82, ptr @pmix_ring_msgs, align 8
   store i32 0, ptr %5, align 4
-  br label %82
+  br label %83
 
-82:                                               ; preds = %102, %70
-  %83 = load i32, ptr %5, align 4
-  %84 = load i32, ptr @pmix_ring_children, align 4
-  %85 = icmp slt i32 %83, %84
-  br i1 %85, label %86, label %105
+83:                                               ; preds = %103, %72
+  %84 = load i32, ptr %5, align 4
+  %85 = load i32, ptr @pmix_ring_children, align 4
+  %86 = icmp slt i32 %84, %85
+  br i1 %86, label %87, label %106
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr @pmix_ring_msgs, align 8
-  %88 = load i32, ptr %5, align 4
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.pmix_ring_msg, ptr %87, i64 %89
-  %91 = getelementptr inbounds %struct.pmix_ring_msg, ptr %90, i32 0, i32 0
-  store i32 0, ptr %91, align 8
-  %92 = load ptr, ptr @pmix_ring_msgs, align 8
-  %93 = load i32, ptr %5, align 4
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.pmix_ring_msg, ptr %92, i64 %94
-  %96 = getelementptr inbounds %struct.pmix_ring_msg, ptr %95, i32 0, i32 1
-  store ptr null, ptr %96, align 8
-  %97 = load ptr, ptr @pmix_ring_msgs, align 8
-  %98 = load i32, ptr %5, align 4
-  %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.pmix_ring_msg, ptr %97, i64 %99
-  %101 = getelementptr inbounds %struct.pmix_ring_msg, ptr %100, i32 0, i32 2
-  store ptr null, ptr %101, align 8
-  br label %102
+87:                                               ; preds = %83
+  %88 = load ptr, ptr @pmix_ring_msgs, align 8
+  %89 = load i32, ptr %5, align 4
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds %struct.pmix_ring_msg, ptr %88, i64 %90
+  %92 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %91, i32 0, i32 0
+  store i32 0, ptr %92, align 8
+  %93 = load ptr, ptr @pmix_ring_msgs, align 8
+  %94 = load i32, ptr %5, align 4
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds %struct.pmix_ring_msg, ptr %93, i64 %95
+  %97 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %96, i32 0, i32 1
+  store ptr null, ptr %97, align 8
+  %98 = load ptr, ptr @pmix_ring_msgs, align 8
+  %99 = load i32, ptr %5, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr inbounds %struct.pmix_ring_msg, ptr %98, i64 %100
+  %102 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %101, i32 0, i32 2
+  store ptr null, ptr %102, align 8
+  br label %103
 
-102:                                              ; preds = %86
-  %103 = load i32, ptr %5, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %5, align 4
-  br label %82, !llvm.loop !6
+103:                                              ; preds = %87
+  %104 = load i32, ptr %5, align 4
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %5, align 4
+  br label %83, !llvm.loop !8
 
-105:                                              ; preds = %82
+106:                                              ; preds = %83
   store i32 0, ptr @pmix_ring_count, align 4
-  %106 = load i32, ptr %6, align 4
-  ret i32 %106
+  %107 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret i32 %107
 }
 
-declare ptr @slurm_getenvp(ptr noundef, ptr noundef) #1
+declare ptr @slurm_getenvp(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef) #2
+; Function Attrs: inlinehint nounwind willreturn memory(read) uwtable
+define available_externally i32 @atoi(ptr noundef nonnull %0) #3 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strtol(ptr noundef %3, ptr noundef null, i32 noundef 10) #6
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
 
-declare i32 @slurm_get_log_level() #1
+declare i32 @slurm_get_log_level() #2
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #1
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) #2
 
-declare ptr @slurm_hostlist_create(ptr noundef) #1
+declare ptr @slurm_hostlist_create(ptr noundef) #2
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #1
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_ring_finalize() #0 {
+define dso_local i32 @pmix_ring_finalize() #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #6
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr @pmix_ring_msgs, align 8
   %5 = icmp ne ptr %4, null
   br i1 %5, label %6, label %42
 
 6:                                                ; preds = %0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #6
   store i32 0, ptr %2, align 4
   br label %7
 
@@ -287,57 +323,60 @@ define i32 @pmix_ring_finalize() #0 {
   br i1 %10, label %11, label %41
 
 11:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #6
   %12 = load ptr, ptr @pmix_ring_msgs, align 8
   %13 = load i32, ptr %2, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds %struct.pmix_ring_msg, ptr %12, i64 %14
   store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds %struct.pmix_ring_msg, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %16, i32 0, i32 0
   store i32 0, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.pmix_ring_msg, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.pmix_ring_msg, ptr %23, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %23, i32 0, i32 1
   call void @slurm_xfree(ptr noundef %24)
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.pmix_ring_msg, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %25, i32 0, i32 1
   store ptr null, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %22, %11
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.pmix_ring_msg, ptr %28, i32 0, i32 2
+  %29 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %28, i32 0, i32 2
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.pmix_ring_msg, ptr %33, i32 0, i32 2
+  %34 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %33, i32 0, i32 2
   call void @slurm_xfree(ptr noundef %34)
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds %struct.pmix_ring_msg, ptr %35, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %35, i32 0, i32 2
   store ptr null, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %32, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #6
   br label %38
 
 38:                                               ; preds = %37
   %39 = load i32, ptr %2, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %2, align 4
-  br label %7, !llvm.loop !8
+  br label %7, !llvm.loop !11
 
 41:                                               ; preds = %7
   call void @slurm_xfree(ptr noundef @pmix_ring_msgs)
   store ptr null, ptr @pmix_ring_msgs, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #6
   br label %42
 
 42:                                               ; preds = %41, %0
@@ -358,16 +397,20 @@ define i32 @pmix_ring_finalize() #0 {
   br label %49
 
 49:                                               ; preds = %48
-  %50 = load i32, ptr %1, align 4
-  ret i32 %50
+  br label %50
+
+50:                                               ; preds = %49
+  %51 = load i32, ptr %1, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #6
+  ret i32 %51
 }
 
-declare void @slurm_xfree(ptr noundef) #1
+declare void @slurm_xfree(ptr noundef) #2
 
-declare void @slurm_hostlist_destroy(ptr noundef) #1
+declare void @slurm_hostlist_destroy(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -388,6 +431,7 @@ define i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   store i32 %0, ptr %4, align 4
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
   br label %21
 
@@ -414,465 +458,522 @@ define i32 @pmix_ring_out(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %32
 
 32:                                               ; preds = %31
-  %33 = load i32, ptr @pmix_ring_children, align 4
-  %34 = sext i32 %33 to i64
-  %35 = mul i64 %34, 24
-  %36 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %35, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.2, i32 noundef 366, ptr noundef @__func__.pmix_ring_out)
-  store ptr %36, ptr %8, align 8
+  br label %33
+
+33:                                               ; preds = %32
+  br label %34
+
+34:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
+  %35 = load i32, ptr @pmix_ring_children, align 4
+  %36 = sext i32 %35 to i64
+  %37 = call ptr @slurm_xcalloc(i64 noundef %36, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef @.str.2, i32 noundef 366, ptr noundef @__func__.pmix_ring_out)
+  store ptr %37, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
-  br label %37
+  br label %38
 
-37:                                               ; preds = %57, %32
-  %38 = load i32, ptr %9, align 4
-  %39 = load i32, ptr @pmix_ring_children, align 4
-  %40 = icmp slt i32 %38, %39
-  br i1 %40, label %41, label %60
+38:                                               ; preds = %58, %34
+  %39 = load i32, ptr %9, align 4
+  %40 = load i32, ptr @pmix_ring_children, align 4
+  %41 = icmp slt i32 %39, %40
+  br i1 %41, label %42, label %61
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %8, align 8
-  %43 = load i32, ptr %9, align 4
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.pmix_ring_msg, ptr %42, i64 %44
-  %46 = getelementptr inbounds %struct.pmix_ring_msg, ptr %45, i32 0, i32 0
-  store i32 0, ptr %46, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = load i32, ptr %9, align 4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.pmix_ring_msg, ptr %47, i64 %49
-  %51 = getelementptr inbounds %struct.pmix_ring_msg, ptr %50, i32 0, i32 1
-  store ptr null, ptr %51, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load i32, ptr %9, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.pmix_ring_msg, ptr %52, i64 %54
-  %56 = getelementptr inbounds %struct.pmix_ring_msg, ptr %55, i32 0, i32 2
-  store ptr null, ptr %56, align 8
-  br label %57
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i32, ptr %9, align 4
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds %struct.pmix_ring_msg, ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %46, i32 0, i32 0
+  store i32 0, ptr %47, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = load i32, ptr %9, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds %struct.pmix_ring_msg, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %51, i32 0, i32 1
+  store ptr null, ptr %52, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = load i32, ptr %9, align 4
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.pmix_ring_msg, ptr %53, i64 %55
+  %57 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %56, i32 0, i32 2
+  store ptr null, ptr %57, align 8
+  br label %58
 
-57:                                               ; preds = %41
-  %58 = load i32, ptr %9, align 4
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %9, align 4
-  br label %37, !llvm.loop !9
+58:                                               ; preds = %42
+  %59 = load i32, ptr %9, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %9, align 4
+  br label %38, !llvm.loop !12
 
-60:                                               ; preds = %37
+61:                                               ; preds = %38
   store i32 0, ptr %9, align 4
-  br label %61
+  br label %62
 
-61:                                               ; preds = %97, %60
-  %62 = load i32, ptr %9, align 4
-  %63 = load i32, ptr @pmix_ring_children, align 4
-  %64 = icmp slt i32 %62, %63
-  br i1 %64, label %65, label %100
+62:                                               ; preds = %98, %61
+  %63 = load i32, ptr %9, align 4
+  %64 = load i32, ptr @pmix_ring_children, align 4
+  %65 = icmp slt i32 %63, %64
+  br i1 %65, label %66, label %101
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %4, align 4
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr %9, align 4
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.pmix_ring_msg, ptr %67, i64 %69
-  %71 = getelementptr inbounds %struct.pmix_ring_msg, ptr %70, i32 0, i32 0
-  store i32 %66, ptr %71, align 8
-  %72 = load ptr, ptr @pmix_ring_msgs, align 8
-  %73 = load i32, ptr %9, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.pmix_ring_msg, ptr %72, i64 %74
-  %76 = getelementptr inbounds %struct.pmix_ring_msg, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 8
-  %78 = load i32, ptr %4, align 4
-  %79 = add nsw i32 %78, %77
-  store i32 %79, ptr %4, align 4
-  %80 = load ptr, ptr %5, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i32, ptr %9, align 4
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.pmix_ring_msg, ptr %81, i64 %83
-  %85 = getelementptr inbounds %struct.pmix_ring_msg, ptr %84, i32 0, i32 1
-  store ptr %80, ptr %85, align 8
-  %86 = load ptr, ptr @pmix_ring_msgs, align 8
-  %87 = load i32, ptr %9, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.pmix_ring_msg, ptr %86, i64 %88
-  %90 = getelementptr inbounds %struct.pmix_ring_msg, ptr %89, i32 0, i32 2
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %10, align 8
-  %92 = load ptr, ptr %10, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %96
+66:                                               ; preds = %62
+  %67 = load i32, ptr %4, align 4
+  %68 = load ptr, ptr %8, align 8
+  %69 = load i32, ptr %9, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds %struct.pmix_ring_msg, ptr %68, i64 %70
+  %72 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %71, i32 0, i32 0
+  store i32 %67, ptr %72, align 8
+  %73 = load ptr, ptr @pmix_ring_msgs, align 8
+  %74 = load i32, ptr %9, align 4
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds %struct.pmix_ring_msg, ptr %73, i64 %75
+  %77 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr %77, align 8
+  %79 = load i32, ptr %4, align 4
+  %80 = add nsw i32 %79, %78
+  store i32 %80, ptr %4, align 4
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = load i32, ptr %9, align 4
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds %struct.pmix_ring_msg, ptr %82, i64 %84
+  %86 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %85, i32 0, i32 1
+  store ptr %81, ptr %86, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  %87 = load ptr, ptr @pmix_ring_msgs, align 8
+  %88 = load i32, ptr %9, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds %struct.pmix_ring_msg, ptr %87, i64 %89
+  %91 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %10, align 8
+  %93 = load ptr, ptr %10, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %65
-  %95 = load ptr, ptr %10, align 8
-  store ptr %95, ptr %5, align 8
-  br label %96
-
-96:                                               ; preds = %94, %65
+95:                                               ; preds = %66
+  %96 = load ptr, ptr %10, align 8
+  store ptr %96, ptr %5, align 8
   br label %97
 
-97:                                               ; preds = %96
-  %98 = load i32, ptr %9, align 4
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %9, align 4
-  br label %61, !llvm.loop !10
+97:                                               ; preds = %95, %66
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  br label %98
 
-100:                                              ; preds = %61
-  %101 = load i32, ptr @pmix_ring_children, align 4
-  %102 = sub nsw i32 %101, 1
-  store i32 %102, ptr %9, align 4
-  br label %103
+98:                                               ; preds = %97
+  %99 = load i32, ptr %9, align 4
+  %100 = add nsw i32 %99, 1
+  store i32 %100, ptr %9, align 4
+  br label %62, !llvm.loop !13
 
-103:                                              ; preds = %124, %100
-  %104 = load i32, ptr %9, align 4
-  %105 = icmp sge i32 %104, 0
-  br i1 %105, label %106, label %127
+101:                                              ; preds = %62
+  %102 = load i32, ptr @pmix_ring_children, align 4
+  %103 = sub nsw i32 %102, 1
+  store i32 %103, ptr %9, align 4
+  br label %104
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %6, align 8
-  %108 = load ptr, ptr %8, align 8
-  %109 = load i32, ptr %9, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds %struct.pmix_ring_msg, ptr %108, i64 %110
-  %112 = getelementptr inbounds %struct.pmix_ring_msg, ptr %111, i32 0, i32 2
-  store ptr %107, ptr %112, align 8
-  %113 = load ptr, ptr @pmix_ring_msgs, align 8
-  %114 = load i32, ptr %9, align 4
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %struct.pmix_ring_msg, ptr %113, i64 %115
-  %117 = getelementptr inbounds %struct.pmix_ring_msg, ptr %116, i32 0, i32 1
-  %118 = load ptr, ptr %117, align 8
-  store ptr %118, ptr %11, align 8
-  %119 = load ptr, ptr %11, align 8
-  %120 = icmp ne ptr %119, null
-  br i1 %120, label %121, label %123
+104:                                              ; preds = %125, %101
+  %105 = load i32, ptr %9, align 4
+  %106 = icmp sge i32 %105, 0
+  br i1 %106, label %107, label %128
 
-121:                                              ; preds = %106
-  %122 = load ptr, ptr %11, align 8
-  store ptr %122, ptr %6, align 8
-  br label %123
+107:                                              ; preds = %104
+  %108 = load ptr, ptr %6, align 8
+  %109 = load ptr, ptr %8, align 8
+  %110 = load i32, ptr %9, align 4
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds %struct.pmix_ring_msg, ptr %109, i64 %111
+  %113 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %112, i32 0, i32 2
+  store ptr %108, ptr %113, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %114 = load ptr, ptr @pmix_ring_msgs, align 8
+  %115 = load i32, ptr %9, align 4
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds %struct.pmix_ring_msg, ptr %114, i64 %116
+  %118 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %117, i32 0, i32 1
+  %119 = load ptr, ptr %118, align 8
+  store ptr %119, ptr %11, align 8
+  %120 = load ptr, ptr %11, align 8
+  %121 = icmp ne ptr %120, null
+  br i1 %121, label %122, label %124
 
-123:                                              ; preds = %121, %106
+122:                                              ; preds = %107
+  %123 = load ptr, ptr %11, align 8
+  store ptr %123, ptr %6, align 8
   br label %124
 
-124:                                              ; preds = %123
-  %125 = load i32, ptr %9, align 4
-  %126 = add nsw i32 %125, -1
-  store i32 %126, ptr %9, align 4
-  br label %103, !llvm.loop !11
+124:                                              ; preds = %122, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  br label %125
 
-127:                                              ; preds = %103
+125:                                              ; preds = %124
+  %126 = load i32, ptr %9, align 4
+  %127 = add nsw i32 %126, -1
+  store i32 %127, ptr %9, align 4
+  br label %104, !llvm.loop !14
+
+128:                                              ; preds = %104
   store i32 0, ptr %9, align 4
-  br label %128
+  br label %129
 
-128:                                              ; preds = %220, %127
-  %129 = load i32, ptr %9, align 4
-  %130 = load i32, ptr @pmix_stepd_children, align 4
-  %131 = icmp slt i32 %129, %130
-  br i1 %131, label %132, label %223
+129:                                              ; preds = %226, %128
+  %130 = load i32, ptr %9, align 4
+  %131 = load i32, ptr @pmix_stepd_children, align 4
+  %132 = icmp slt i32 %130, %131
+  br i1 %132, label %133, label %229
 
-132:                                              ; preds = %128
-  %133 = load i32, ptr @pmix_app_children, align 4
-  %134 = load i32, ptr %9, align 4
-  %135 = add nsw i32 %133, %134
-  store i32 %135, ptr %12, align 4
-  %136 = load ptr, ptr %8, align 8
-  %137 = load i32, ptr %12, align 4
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds %struct.pmix_ring_msg, ptr %136, i64 %138
-  store ptr %139, ptr %13, align 8
-  %140 = call ptr @slurm_init_buf(i32 noundef 1024)
-  store ptr %140, ptr %14, align 8
-  %141 = load ptr, ptr %14, align 8
-  call void @slurm_pack16(i16 noundef zeroext 8, ptr noundef %141)
-  %142 = load ptr, ptr %13, align 8
-  %143 = getelementptr inbounds %struct.pmix_ring_msg, ptr %142, i32 0, i32 0
-  %144 = load i32, ptr %143, align 8
-  %145 = load ptr, ptr %14, align 8
-  call void @slurm_pack32(i32 noundef %144, ptr noundef %145)
-  br label %146
+133:                                              ; preds = %129
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  %134 = load i32, ptr @pmix_app_children, align 4
+  %135 = load i32, ptr %9, align 4
+  %136 = add nsw i32 %134, %135
+  store i32 %136, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  %137 = load ptr, ptr %8, align 8
+  %138 = load i32, ptr %12, align 4
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds %struct.pmix_ring_msg, ptr %137, i64 %139
+  store ptr %140, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %141 = call ptr @slurm_init_buf(i32 noundef 1024)
+  store ptr %141, ptr %14, align 8
+  %142 = load ptr, ptr %14, align 8
+  call void @slurm_pack16(i16 noundef zeroext 8, ptr noundef %142)
+  %143 = load ptr, ptr %13, align 8
+  %144 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %143, i32 0, i32 0
+  %145 = load i32, ptr %144, align 8
+  %146 = load ptr, ptr %14, align 8
+  call void @slurm_pack32(i32 noundef %145, ptr noundef %146)
+  br label %147
 
-146:                                              ; preds = %132
+147:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
-  %147 = load ptr, ptr %13, align 8
-  %148 = getelementptr inbounds %struct.pmix_ring_msg, ptr %147, i32 0, i32 1
-  %149 = load ptr, ptr %148, align 8
-  %150 = icmp ne ptr %149, null
-  br i1 %150, label %151, label %158
+  %148 = load ptr, ptr %13, align 8
+  %149 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %148, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp ne ptr %150, null
+  br i1 %151, label %152, label %159
 
-151:                                              ; preds = %146
-  %152 = load ptr, ptr %13, align 8
-  %153 = getelementptr inbounds %struct.pmix_ring_msg, ptr %152, i32 0, i32 1
-  %154 = load ptr, ptr %153, align 8
-  %155 = call i64 @strlen(ptr noundef %154) #4
-  %156 = trunc i64 %155 to i32
-  %157 = add i32 %156, 1
-  store i32 %157, ptr %15, align 4
-  br label %158
+152:                                              ; preds = %147
+  %153 = load ptr, ptr %13, align 8
+  %154 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  %156 = call i64 @strlen(ptr noundef %155) #7
+  %157 = trunc i64 %156 to i32
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %15, align 4
+  br label %159
 
-158:                                              ; preds = %151, %146
-  %159 = load ptr, ptr %13, align 8
-  %160 = getelementptr inbounds %struct.pmix_ring_msg, ptr %159, i32 0, i32 1
-  %161 = load ptr, ptr %160, align 8
-  %162 = load i32, ptr %15, align 4
-  %163 = load ptr, ptr %14, align 8
-  call void @slurm_packmem(ptr noundef %161, i32 noundef %162, ptr noundef %163)
-  br label %164
-
-164:                                              ; preds = %158
+159:                                              ; preds = %152, %147
+  %160 = load ptr, ptr %13, align 8
+  %161 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %160, i32 0, i32 1
+  %162 = load ptr, ptr %161, align 8
+  %163 = load i32, ptr %15, align 4
+  %164 = load ptr, ptr %14, align 8
+  call void @slurm_packmem(ptr noundef %162, i32 noundef %163, ptr noundef %164)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
   br label %165
 
-165:                                              ; preds = %164
+165:                                              ; preds = %159
+  br label %166
+
+166:                                              ; preds = %165
+  br label %167
+
+167:                                              ; preds = %166
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
   store i32 0, ptr %16, align 4
-  %166 = load ptr, ptr %13, align 8
-  %167 = getelementptr inbounds %struct.pmix_ring_msg, ptr %166, i32 0, i32 2
-  %168 = load ptr, ptr %167, align 8
-  %169 = icmp ne ptr %168, null
-  br i1 %169, label %170, label %177
+  %168 = load ptr, ptr %13, align 8
+  %169 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %168, i32 0, i32 2
+  %170 = load ptr, ptr %169, align 8
+  %171 = icmp ne ptr %170, null
+  br i1 %171, label %172, label %179
 
-170:                                              ; preds = %165
-  %171 = load ptr, ptr %13, align 8
-  %172 = getelementptr inbounds %struct.pmix_ring_msg, ptr %171, i32 0, i32 2
-  %173 = load ptr, ptr %172, align 8
-  %174 = call i64 @strlen(ptr noundef %173) #4
-  %175 = trunc i64 %174 to i32
-  %176 = add i32 %175, 1
-  store i32 %176, ptr %16, align 4
-  br label %177
+172:                                              ; preds = %167
+  %173 = load ptr, ptr %13, align 8
+  %174 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %173, i32 0, i32 2
+  %175 = load ptr, ptr %174, align 8
+  %176 = call i64 @strlen(ptr noundef %175) #7
+  %177 = trunc i64 %176 to i32
+  %178 = add i32 %177, 1
+  store i32 %178, ptr %16, align 4
+  br label %179
 
-177:                                              ; preds = %170, %165
-  %178 = load ptr, ptr %13, align 8
-  %179 = getelementptr inbounds %struct.pmix_ring_msg, ptr %178, i32 0, i32 2
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i32, ptr %16, align 4
-  %182 = load ptr, ptr %14, align 8
-  call void @slurm_packmem(ptr noundef %180, i32 noundef %181, ptr noundef %182)
-  br label %183
+179:                                              ; preds = %172, %167
+  %180 = load ptr, ptr %13, align 8
+  %181 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %180, i32 0, i32 2
+  %182 = load ptr, ptr %181, align 8
+  %183 = load i32, ptr %16, align 4
+  %184 = load ptr, ptr %14, align 8
+  call void @slurm_packmem(ptr noundef %182, i32 noundef %183, ptr noundef %184)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  br label %185
 
-183:                                              ; preds = %177
-  %184 = load i32, ptr %9, align 4
-  %185 = call i32 @pmix_stepd_rank_child(i32 noundef %184)
-  store i32 %185, ptr %17, align 4
+185:                                              ; preds = %179
   br label %186
 
-186:                                              ; preds = %183
-  br label %187
+186:                                              ; preds = %185
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  %187 = load i32, ptr %9, align 4
+  %188 = call i32 @pmix_stepd_rank_child(i32 noundef %187)
+  store i32 %188, ptr %17, align 4
+  br label %189
 
-187:                                              ; preds = %186
-  %188 = call i32 @slurm_get_log_level()
-  %189 = icmp sge i32 %188, 7
-  br i1 %189, label %190, label %202
+189:                                              ; preds = %186
+  br label %190
 
-190:                                              ; preds = %187
-  %191 = load i32, ptr @pmix_stepd_rank, align 4
-  %192 = load i32, ptr %17, align 4
-  %193 = load ptr, ptr %13, align 8
-  %194 = getelementptr inbounds %struct.pmix_ring_msg, ptr %193, i32 0, i32 0
-  %195 = load i32, ptr %194, align 8
+190:                                              ; preds = %189
+  %191 = call i32 @slurm_get_log_level()
+  %192 = icmp sge i32 %191, 7
+  br i1 %192, label %193, label %205
+
+193:                                              ; preds = %190
+  %194 = load i32, ptr @pmix_stepd_rank, align 4
+  %195 = load i32, ptr %17, align 4
   %196 = load ptr, ptr %13, align 8
-  %197 = getelementptr inbounds %struct.pmix_ring_msg, ptr %196, i32 0, i32 1
-  %198 = load ptr, ptr %197, align 8
+  %197 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %196, i32 0, i32 0
+  %198 = load i32, ptr %197, align 8
   %199 = load ptr, ptr %13, align 8
-  %200 = getelementptr inbounds %struct.pmix_ring_msg, ptr %199, i32 0, i32 2
+  %200 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %199, i32 0, i32 1
   %201 = load ptr, ptr %200, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_out, i32 noundef %191, i32 noundef %192, i32 noundef %195, ptr noundef %198, ptr noundef %201)
-  br label %202
+  %202 = load ptr, ptr %13, align 8
+  %203 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %202, i32 0, i32 2
+  %204 = load ptr, ptr %203, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.4, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_out, i32 noundef %194, i32 noundef %195, i32 noundef %198, ptr noundef %201, ptr noundef %204)
+  br label %205
 
-202:                                              ; preds = %190, %187
-  br label %203
+205:                                              ; preds = %193, %190
+  br label %206
 
-203:                                              ; preds = %202
-  br label %204
+206:                                              ; preds = %205
+  br label %207
 
-204:                                              ; preds = %203
-  %205 = load ptr, ptr %14, align 8
-  %206 = getelementptr inbounds %struct.buf_t, ptr %205, i32 0, i32 1
-  %207 = load ptr, ptr %206, align 8
-  %208 = load ptr, ptr %14, align 8
-  %209 = getelementptr inbounds %struct.buf_t, ptr %208, i32 0, i32 2
-  %210 = load i32, ptr %209, align 8
-  %211 = load i32, ptr %17, align 4
-  %212 = call i32 @pmix_stepd_send(ptr noundef %207, i32 noundef %210, i32 noundef %211)
-  store i32 %212, ptr %7, align 4
-  br label %213
+207:                                              ; preds = %206
+  br label %208
 
-213:                                              ; preds = %204
-  %214 = load ptr, ptr %14, align 8
-  %215 = icmp ne ptr %214, null
-  br i1 %215, label %216, label %218
+208:                                              ; preds = %207
+  br label %209
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %14, align 8
-  call void @slurm_free_buf(ptr noundef %217)
+209:                                              ; preds = %208
+  %210 = load ptr, ptr %14, align 8
+  %211 = getelementptr inbounds nuw %struct.buf_t, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  %213 = load ptr, ptr %14, align 8
+  %214 = getelementptr inbounds nuw %struct.buf_t, ptr %213, i32 0, i32 2
+  %215 = load i32, ptr %214, align 8
+  %216 = load i32, ptr %17, align 4
+  %217 = call i32 @pmix_stepd_send(ptr noundef %212, i32 noundef %215, i32 noundef %216)
+  store i32 %217, ptr %7, align 4
   br label %218
 
-218:                                              ; preds = %216, %213
+218:                                              ; preds = %209
+  %219 = load ptr, ptr %14, align 8
+  %220 = icmp ne ptr %219, null
+  br i1 %220, label %221, label %223
+
+221:                                              ; preds = %218
+  %222 = load ptr, ptr %14, align 8
+  call void @slurm_free_buf(ptr noundef %222)
+  br label %223
+
+223:                                              ; preds = %221, %218
   store ptr null, ptr %14, align 8
-  br label %219
-
-219:                                              ; preds = %218
-  br label %220
-
-220:                                              ; preds = %219
-  %221 = load i32, ptr %9, align 4
-  %222 = add nsw i32 %221, 1
-  store i32 %222, ptr %9, align 4
-  br label %128, !llvm.loop !12
-
-223:                                              ; preds = %128
-  store i32 0, ptr %9, align 4
   br label %224
 
-224:                                              ; preds = %256, %223
-  %225 = load i32, ptr %9, align 4
-  %226 = load i32, ptr @pmix_app_children, align 4
-  %227 = icmp slt i32 %225, %226
-  br i1 %227, label %228, label %259
+224:                                              ; preds = %223
+  br label %225
 
-228:                                              ; preds = %224
-  %229 = load ptr, ptr %8, align 8
-  %230 = load i32, ptr %9, align 4
-  %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds %struct.pmix_ring_msg, ptr %229, i64 %231
-  store ptr %232, ptr %18, align 8
-  %233 = call ptr @client_resp_new()
-  store ptr %233, ptr %19, align 8
-  br label %234
+225:                                              ; preds = %224
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  br label %226
 
-234:                                              ; preds = %228
-  %235 = load ptr, ptr %19, align 8
-  %236 = getelementptr inbounds %struct.client_response, ptr %235, i32 0, i32 0
-  %237 = load ptr, ptr %18, align 8
-  %238 = getelementptr inbounds %struct.pmix_ring_msg, ptr %237, i32 0, i32 0
-  %239 = load i32, ptr %238, align 8
-  %240 = load ptr, ptr %18, align 8
-  %241 = getelementptr inbounds %struct.pmix_ring_msg, ptr %240, i32 0, i32 1
-  %242 = load ptr, ptr %241, align 8
+226:                                              ; preds = %225
+  %227 = load i32, ptr %9, align 4
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %9, align 4
+  br label %129, !llvm.loop !15
+
+229:                                              ; preds = %129
+  store i32 0, ptr %9, align 4
+  br label %230
+
+230:                                              ; preds = %263, %229
+  %231 = load i32, ptr %9, align 4
+  %232 = load i32, ptr @pmix_app_children, align 4
+  %233 = icmp slt i32 %231, %232
+  br i1 %233, label %234, label %266
+
+234:                                              ; preds = %230
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %235 = load ptr, ptr %8, align 8
+  %236 = load i32, ptr %9, align 4
+  %237 = sext i32 %236 to i64
+  %238 = getelementptr inbounds %struct.pmix_ring_msg, ptr %235, i64 %237
+  store ptr %238, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  %239 = call ptr @client_resp_new()
+  store ptr %239, ptr %19, align 8
+  br label %240
+
+240:                                              ; preds = %234
+  %241 = load ptr, ptr %19, align 8
+  %242 = getelementptr inbounds nuw %struct.client_response, ptr %241, i32 0, i32 0
   %243 = load ptr, ptr %18, align 8
-  %244 = getelementptr inbounds %struct.pmix_ring_msg, ptr %243, i32 0, i32 2
-  %245 = load ptr, ptr %244, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %236, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef @.str.9, i32 noundef %239, ptr noundef @.str.10, ptr noundef %242, ptr noundef @.str.11, ptr noundef %245)
-  br label %246
+  %244 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %243, i32 0, i32 0
+  %245 = load i32, ptr %244, align 8
+  %246 = load ptr, ptr %18, align 8
+  %247 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %246, i32 0, i32 1
+  %248 = load ptr, ptr %247, align 8
+  %249 = load ptr, ptr %18, align 8
+  %250 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %249, i32 0, i32 2
+  %251 = load ptr, ptr %250, align 8
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %242, ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7, ptr noundef @.str.8, i32 noundef 0, ptr noundef @.str.9, i32 noundef %245, ptr noundef @.str.10, ptr noundef %248, ptr noundef @.str.11, ptr noundef %251)
+  br label %252
 
-246:                                              ; preds = %234
-  %247 = load ptr, ptr %19, align 8
-  %248 = load ptr, ptr @task_socks, align 8
-  %249 = load i32, ptr %9, align 4
-  %250 = mul nsw i32 %249, 2
-  %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds i32, ptr %248, i64 %251
-  %253 = load i32, ptr %252, align 4
-  %254 = call i32 @client_resp_send(ptr noundef %247, i32 noundef %253)
-  %255 = load ptr, ptr %19, align 8
-  call void @client_resp_free(ptr noundef %255)
-  br label %256
+252:                                              ; preds = %240
+  br label %253
 
-256:                                              ; preds = %246
-  %257 = load i32, ptr %9, align 4
-  %258 = add nsw i32 %257, 1
-  store i32 %258, ptr %9, align 4
-  br label %224, !llvm.loop !13
+253:                                              ; preds = %252
+  %254 = load ptr, ptr %19, align 8
+  %255 = load ptr, ptr @task_socks, align 8
+  %256 = load i32, ptr %9, align 4
+  %257 = mul nsw i32 %256, 2
+  %258 = sext i32 %257 to i64
+  %259 = getelementptr inbounds i32, ptr %255, i64 %258
+  %260 = load i32, ptr %259, align 4
+  %261 = call i32 @client_resp_send(ptr noundef %254, i32 noundef %260)
+  %262 = load ptr, ptr %19, align 8
+  call void @client_resp_free(ptr noundef %262)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  br label %263
 
-259:                                              ; preds = %224
+263:                                              ; preds = %253
+  %264 = load i32, ptr %9, align 4
+  %265 = add nsw i32 %264, 1
+  store i32 %265, ptr %9, align 4
+  br label %230, !llvm.loop !16
+
+266:                                              ; preds = %230
   call void @slurm_xfree(ptr noundef %8)
   store i32 0, ptr %9, align 4
-  br label %260
+  br label %267
 
-260:                                              ; preds = %291, %259
-  %261 = load i32, ptr %9, align 4
-  %262 = load i32, ptr @pmix_ring_children, align 4
-  %263 = icmp slt i32 %261, %262
-  br i1 %263, label %264, label %294
+267:                                              ; preds = %298, %266
+  %268 = load i32, ptr %9, align 4
+  %269 = load i32, ptr @pmix_ring_children, align 4
+  %270 = icmp slt i32 %268, %269
+  br i1 %270, label %271, label %301
 
-264:                                              ; preds = %260
-  %265 = load ptr, ptr @pmix_ring_msgs, align 8
-  %266 = load i32, ptr %9, align 4
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds %struct.pmix_ring_msg, ptr %265, i64 %267
-  store ptr %268, ptr %20, align 8
-  %269 = load ptr, ptr %20, align 8
-  %270 = getelementptr inbounds %struct.pmix_ring_msg, ptr %269, i32 0, i32 0
-  store i32 0, ptr %270, align 8
-  %271 = load ptr, ptr %20, align 8
-  %272 = getelementptr inbounds %struct.pmix_ring_msg, ptr %271, i32 0, i32 1
-  %273 = load ptr, ptr %272, align 8
-  %274 = icmp ne ptr %273, null
-  br i1 %274, label %275, label %280
-
-275:                                              ; preds = %264
+271:                                              ; preds = %267
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  %272 = load ptr, ptr @pmix_ring_msgs, align 8
+  %273 = load i32, ptr %9, align 4
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr inbounds %struct.pmix_ring_msg, ptr %272, i64 %274
+  store ptr %275, ptr %20, align 8
   %276 = load ptr, ptr %20, align 8
-  %277 = getelementptr inbounds %struct.pmix_ring_msg, ptr %276, i32 0, i32 1
-  call void @slurm_xfree(ptr noundef %277)
+  %277 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %276, i32 0, i32 0
+  store i32 0, ptr %277, align 8
   %278 = load ptr, ptr %20, align 8
-  %279 = getelementptr inbounds %struct.pmix_ring_msg, ptr %278, i32 0, i32 1
-  store ptr null, ptr %279, align 8
-  br label %280
+  %279 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %278, i32 0, i32 1
+  %280 = load ptr, ptr %279, align 8
+  %281 = icmp ne ptr %280, null
+  br i1 %281, label %282, label %287
 
-280:                                              ; preds = %275, %264
-  %281 = load ptr, ptr %20, align 8
-  %282 = getelementptr inbounds %struct.pmix_ring_msg, ptr %281, i32 0, i32 2
-  %283 = load ptr, ptr %282, align 8
-  %284 = icmp ne ptr %283, null
-  br i1 %284, label %285, label %290
+282:                                              ; preds = %271
+  %283 = load ptr, ptr %20, align 8
+  %284 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %283, i32 0, i32 1
+  call void @slurm_xfree(ptr noundef %284)
+  %285 = load ptr, ptr %20, align 8
+  %286 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %285, i32 0, i32 1
+  store ptr null, ptr %286, align 8
+  br label %287
 
-285:                                              ; preds = %280
-  %286 = load ptr, ptr %20, align 8
-  %287 = getelementptr inbounds %struct.pmix_ring_msg, ptr %286, i32 0, i32 2
-  call void @slurm_xfree(ptr noundef %287)
+287:                                              ; preds = %282, %271
   %288 = load ptr, ptr %20, align 8
-  %289 = getelementptr inbounds %struct.pmix_ring_msg, ptr %288, i32 0, i32 2
-  store ptr null, ptr %289, align 8
-  br label %290
+  %289 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %288, i32 0, i32 2
+  %290 = load ptr, ptr %289, align 8
+  %291 = icmp ne ptr %290, null
+  br i1 %291, label %292, label %297
 
-290:                                              ; preds = %285, %280
-  br label %291
+292:                                              ; preds = %287
+  %293 = load ptr, ptr %20, align 8
+  %294 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %293, i32 0, i32 2
+  call void @slurm_xfree(ptr noundef %294)
+  %295 = load ptr, ptr %20, align 8
+  %296 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %295, i32 0, i32 2
+  store ptr null, ptr %296, align 8
+  br label %297
 
-291:                                              ; preds = %290
-  %292 = load i32, ptr %9, align 4
-  %293 = add nsw i32 %292, 1
-  store i32 %293, ptr %9, align 4
-  br label %260, !llvm.loop !14
+297:                                              ; preds = %292, %287
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  br label %298
 
-294:                                              ; preds = %260
+298:                                              ; preds = %297
+  %299 = load i32, ptr %9, align 4
+  %300 = add nsw i32 %299, 1
+  store i32 %300, ptr %9, align 4
+  br label %267, !llvm.loop !17
+
+301:                                              ; preds = %267
   store i32 0, ptr @pmix_ring_count, align 4
-  br label %295
-
-295:                                              ; preds = %294
-  br label %296
-
-296:                                              ; preds = %295
-  %297 = call i32 @slurm_get_log_level()
-  %298 = icmp sge i32 %297, 7
-  br i1 %298, label %299, label %300
-
-299:                                              ; preds = %296
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_out)
-  br label %300
-
-300:                                              ; preds = %299, %296
-  br label %301
-
-301:                                              ; preds = %300
   br label %302
 
 302:                                              ; preds = %301
-  %303 = load i32, ptr %7, align 4
-  ret i32 %303
+  br label %303
+
+303:                                              ; preds = %302
+  %304 = call i32 @slurm_get_log_level()
+  %305 = icmp sge i32 %304, 7
+  br i1 %305, label %306, label %307
+
+306:                                              ; preds = %303
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.12, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_out)
+  br label %307
+
+307:                                              ; preds = %306, %303
+  br label %308
+
+308:                                              ; preds = %307
+  br label %309
+
+309:                                              ; preds = %308
+  br label %310
+
+310:                                              ; preds = %309
+  br label %311
+
+311:                                              ; preds = %310
+  %312 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
+  ret i32 %312
 }
 
-declare ptr @slurm_init_buf(i32 noundef) #1
+declare ptr @slurm_init_buf(i32 noundef) #2
 
-declare void @slurm_pack16(i16 noundef zeroext, ptr noundef) #1
+declare void @slurm_pack16(i16 noundef zeroext, ptr noundef) #2
 
-declare void @slurm_pack32(i32 noundef, ptr noundef) #1
+declare void @slurm_pack32(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+declare i64 @strlen(ptr noundef) #4
 
-declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) #1
+declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_stepd_rank_child(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #6
   %4 = load i32, ptr @pmix_stepd_rank, align 4
   %5 = load i32, ptr @pmix_stepd_width, align 4
   %6 = mul nsw i32 %4, %5
@@ -881,6 +982,7 @@ define internal i32 @pmix_stepd_rank_child(i32 noundef %0) #0 {
   %9 = add nsw i32 %6, %8
   store i32 %9, ptr %3, align 4
   %10 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #6
   ret i32 %10
 }
 
@@ -896,69 +998,79 @@ define internal i32 @pmix_stepd_send(ptr noundef %0, i32 noundef %1, i32 noundef
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %11 = load ptr, ptr @pmix_stepd_hostlist, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call ptr @slurm_hostlist_nth(ptr noundef %11, i32 noundef %12)
   store ptr %13, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 1, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
   br label %14
 
 14:                                               ; preds = %31, %3
-  %15 = load i32, ptr %5, align 4
-  %16 = load ptr, ptr %4, align 8
-  %17 = call i32 @slurm_forward_data(ptr noundef %8, ptr noundef @tree_sock_addr, i32 noundef %15, ptr noundef %16)
-  store i32 %17, ptr %7, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %21
+  br label %15
 
-20:                                               ; preds = %14
+15:                                               ; preds = %14
+  %16 = load i32, ptr %5, align 4
+  %17 = load ptr, ptr %4, align 8
+  %18 = call i32 @slurm_forward_data(ptr noundef %8, ptr noundef @tree_sock_addr, i32 noundef %16, ptr noundef %17)
+  store i32 %18, ptr %7, align 4
+  %19 = load i32, ptr %7, align 4
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %15
   br label %36
 
-21:                                               ; preds = %14
-  %22 = load i32, ptr %10, align 4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %10, align 4
-  %24 = load i32, ptr %10, align 4
-  %25 = icmp sge i32 %24, 5
-  br i1 %25, label %26, label %31
+22:                                               ; preds = %15
+  %23 = load i32, ptr %10, align 4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %10, align 4
+  %25 = load i32, ptr %10, align 4
+  %26 = icmp sge i32 %25, 5
+  br i1 %26, label %27, label %31
 
-26:                                               ; preds = %21
-  %27 = load i32, ptr @job_info, align 8
-  %28 = getelementptr inbounds %struct.slurm_step_id_msg, ptr @job_info, i32 0, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = call i32 @slurm_kill_job_step(i32 noundef %27, i32 noundef %29, i16 noundef zeroext 9, i16 noundef zeroext 0)
+27:                                               ; preds = %22
+  %28 = load i32, ptr getelementptr inbounds nuw (%struct.slurm_step_id_msg, ptr @job_info, i32 0, i32 1), align 8
+  %29 = load i32, ptr getelementptr inbounds nuw (%struct.slurm_step_id_msg, ptr @job_info, i32 0, i32 3), align 8
+  %30 = call i32 @slurm_kill_job_step(i32 noundef %28, i32 noundef %29, i16 noundef zeroext 9, i16 noundef zeroext 0)
   br label %31
 
-31:                                               ; preds = %26, %21
+31:                                               ; preds = %27, %22
   %32 = load i32, ptr %9, align 4
   %33 = call i32 @sleep(i32 noundef %32)
   %34 = load i32, ptr %9, align 4
   %35 = mul i32 %34, 2
   store i32 %35, ptr %9, align 4
-  br label %14
+  br label %14, !llvm.loop !18
 
-36:                                               ; preds = %20
+36:                                               ; preds = %21
   %37 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %37) #5
+  call void @free(ptr noundef %37) #6
   %38 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret i32 %38
 }
 
-declare void @slurm_free_buf(ptr noundef) #1
+declare void @slurm_free_buf(ptr noundef) #2
 
-declare ptr @client_resp_new() #1
+declare ptr @client_resp_new() #2
 
-declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) #1
+declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) #2
 
-declare i32 @client_resp_send(ptr noundef, i32 noundef) #1
+declare i32 @client_resp_send(ptr noundef, i32 noundef) #2
 
-declare void @client_resp_free(ptr noundef) #1
+declare void @client_resp_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define dso_local i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -979,6 +1091,8 @@ define i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
   br label %21
 
@@ -1006,250 +1120,303 @@ define i32 @pmix_ring_in(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   br label %33
 
 33:                                               ; preds = %32
-  %34 = load ptr, ptr @pmix_ring_msgs, align 8
-  %35 = load i32, ptr %5, align 4
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.pmix_ring_msg, ptr %34, i64 %36
-  store ptr %37, ptr %11, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = load ptr, ptr %11, align 8
-  %40 = getelementptr inbounds %struct.pmix_ring_msg, ptr %39, i32 0, i32 0
-  store i32 %38, ptr %40, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = call ptr @slurm_xstrdup(ptr noundef %41)
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct.pmix_ring_msg, ptr %43, i32 0, i32 1
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %8, align 8
-  %46 = call ptr @slurm_xstrdup(ptr noundef %45)
-  %47 = load ptr, ptr %11, align 8
-  %48 = getelementptr inbounds %struct.pmix_ring_msg, ptr %47, i32 0, i32 2
-  store ptr %46, ptr %48, align 8
-  %49 = load i32, ptr @pmix_ring_count, align 4
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr @pmix_ring_count, align 4
-  %51 = load i32, ptr @pmix_ring_count, align 4
-  %52 = load i32, ptr @pmix_ring_children, align 4
-  %53 = icmp eq i32 %51, %52
-  br i1 %53, label %54, label %154
+  br label %34
 
-54:                                               ; preds = %33
-  %55 = load ptr, ptr @pmix_ring_msgs, align 8
-  %56 = getelementptr inbounds %struct.pmix_ring_msg, ptr %55, i64 0
-  %57 = getelementptr inbounds %struct.pmix_ring_msg, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %12, align 8
-  %59 = load i32, ptr @pmix_ring_children, align 4
-  %60 = sub nsw i32 %59, 1
-  store i32 %60, ptr %13, align 4
-  %61 = load ptr, ptr @pmix_ring_msgs, align 8
-  %62 = load i32, ptr %13, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.pmix_ring_msg, ptr %61, i64 %63
-  %65 = getelementptr inbounds %struct.pmix_ring_msg, ptr %64, i32 0, i32 2
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %14, align 8
+34:                                               ; preds = %33
+  br label %35
+
+35:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %36 = load ptr, ptr @pmix_ring_msgs, align 8
+  %37 = load i32, ptr %5, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds %struct.pmix_ring_msg, ptr %36, i64 %38
+  store ptr %39, ptr %11, align 8
+  %40 = load i32, ptr %6, align 4
+  %41 = load ptr, ptr %11, align 8
+  %42 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %41, i32 0, i32 0
+  store i32 %40, ptr %42, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = call ptr @slurm_xstrdup(ptr noundef %43)
+  %45 = load ptr, ptr %11, align 8
+  %46 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %45, i32 0, i32 1
+  store ptr %44, ptr %46, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = call ptr @slurm_xstrdup(ptr noundef %47)
+  %49 = load ptr, ptr %11, align 8
+  %50 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %49, i32 0, i32 2
+  store ptr %48, ptr %50, align 8
+  %51 = load i32, ptr @pmix_ring_count, align 4
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr @pmix_ring_count, align 4
+  %53 = load i32, ptr @pmix_ring_count, align 4
+  %54 = load i32, ptr @pmix_ring_children, align 4
+  %55 = icmp eq i32 %53, %54
+  br i1 %55, label %56, label %161
+
+56:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  %57 = load ptr, ptr @pmix_ring_msgs, align 8
+  %58 = getelementptr inbounds %struct.pmix_ring_msg, ptr %57, i64 0
+  %59 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %58, i32 0, i32 1
+  %60 = load ptr, ptr %59, align 8
+  store ptr %60, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  %61 = load i32, ptr @pmix_ring_children, align 4
+  %62 = sub nsw i32 %61, 1
+  store i32 %62, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  %63 = load ptr, ptr @pmix_ring_msgs, align 8
+  %64 = load i32, ptr %13, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.pmix_ring_msg, ptr %63, i64 %65
+  %67 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %66, i32 0, i32 2
+  %68 = load ptr, ptr %67, align 8
+  store ptr %68, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
   store i32 0, ptr %9, align 4
-  br label %67
+  br label %69
 
-67:                                               ; preds = %80, %54
-  %68 = load i32, ptr %9, align 4
-  %69 = load i32, ptr @pmix_ring_children, align 4
-  %70 = icmp slt i32 %68, %69
-  br i1 %70, label %71, label %83
+69:                                               ; preds = %82, %56
+  %70 = load i32, ptr %9, align 4
+  %71 = load i32, ptr @pmix_ring_children, align 4
+  %72 = icmp slt i32 %70, %71
+  br i1 %72, label %73, label %85
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr @pmix_ring_msgs, align 8
-  %73 = load i32, ptr %9, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.pmix_ring_msg, ptr %72, i64 %74
-  %76 = getelementptr inbounds %struct.pmix_ring_msg, ptr %75, i32 0, i32 0
-  %77 = load i32, ptr %76, align 8
-  %78 = load i32, ptr %15, align 4
-  %79 = add i32 %78, %77
-  store i32 %79, ptr %15, align 4
-  br label %80
+73:                                               ; preds = %69
+  %74 = load ptr, ptr @pmix_ring_msgs, align 8
+  %75 = load i32, ptr %9, align 4
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr inbounds %struct.pmix_ring_msg, ptr %74, i64 %76
+  %78 = getelementptr inbounds nuw %struct.pmix_ring_msg, ptr %77, i32 0, i32 0
+  %79 = load i32, ptr %78, align 8
+  %80 = load i32, ptr %15, align 4
+  %81 = add i32 %80, %79
+  store i32 %81, ptr %15, align 4
+  br label %82
 
-80:                                               ; preds = %71
-  %81 = load i32, ptr %9, align 4
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %9, align 4
-  br label %67, !llvm.loop !15
+82:                                               ; preds = %73
+  %83 = load i32, ptr %9, align 4
+  %84 = add nsw i32 %83, 1
+  store i32 %84, ptr %9, align 4
+  br label %69, !llvm.loop !19
 
-83:                                               ; preds = %67
-  %84 = load i32, ptr @pmix_stepd_rank, align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %86, label %149
+85:                                               ; preds = %69
+  %86 = load i32, ptr @pmix_stepd_rank, align 4
+  %87 = icmp sgt i32 %86, 0
+  br i1 %87, label %88, label %156
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr @pmix_stepd_rank, align 4
-  store i32 %87, ptr %16, align 4
-  %88 = call ptr @slurm_init_buf(i32 noundef 1024)
-  store ptr %88, ptr %17, align 8
-  %89 = load ptr, ptr %17, align 8
-  call void @slurm_pack16(i16 noundef zeroext 7, ptr noundef %89)
-  %90 = load i32, ptr %16, align 4
+88:                                               ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  %89 = load i32, ptr @pmix_stepd_rank, align 4
+  store i32 %89, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  %90 = call ptr @slurm_init_buf(i32 noundef 1024)
+  store ptr %90, ptr %17, align 8
   %91 = load ptr, ptr %17, align 8
-  call void @slurm_pack32(i32 noundef %90, ptr noundef %91)
-  %92 = load i32, ptr %15, align 4
+  call void @slurm_pack16(i16 noundef zeroext 7, ptr noundef %91)
+  %92 = load i32, ptr %16, align 4
   %93 = load ptr, ptr %17, align 8
   call void @slurm_pack32(i32 noundef %92, ptr noundef %93)
-  br label %94
+  %94 = load i32, ptr %15, align 4
+  %95 = load ptr, ptr %17, align 8
+  call void @slurm_pack32(i32 noundef %94, ptr noundef %95)
+  br label %96
 
-94:                                               ; preds = %86
+96:                                               ; preds = %88
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
   store i32 0, ptr %18, align 4
-  %95 = load ptr, ptr %12, align 8
-  %96 = icmp ne ptr %95, null
-  br i1 %96, label %97, label %102
+  %97 = load ptr, ptr %12, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %99, label %104
 
-97:                                               ; preds = %94
-  %98 = load ptr, ptr %12, align 8
-  %99 = call i64 @strlen(ptr noundef %98) #4
-  %100 = trunc i64 %99 to i32
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %18, align 4
-  br label %102
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %12, align 8
+  %101 = call i64 @strlen(ptr noundef %100) #7
+  %102 = trunc i64 %101 to i32
+  %103 = add i32 %102, 1
+  store i32 %103, ptr %18, align 4
+  br label %104
 
-102:                                              ; preds = %97, %94
-  %103 = load ptr, ptr %12, align 8
-  %104 = load i32, ptr %18, align 4
-  %105 = load ptr, ptr %17, align 8
-  call void @slurm_packmem(ptr noundef %103, i32 noundef %104, ptr noundef %105)
-  br label %106
+104:                                              ; preds = %99, %96
+  %105 = load ptr, ptr %12, align 8
+  %106 = load i32, ptr %18, align 4
+  %107 = load ptr, ptr %17, align 8
+  call void @slurm_packmem(ptr noundef %105, i32 noundef %106, ptr noundef %107)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  br label %108
 
-106:                                              ; preds = %102
-  br label %107
+108:                                              ; preds = %104
+  br label %109
 
-107:                                              ; preds = %106
+109:                                              ; preds = %108
+  br label %110
+
+110:                                              ; preds = %109
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
   store i32 0, ptr %19, align 4
-  %108 = load ptr, ptr %14, align 8
-  %109 = icmp ne ptr %108, null
-  br i1 %109, label %110, label %115
-
-110:                                              ; preds = %107
   %111 = load ptr, ptr %14, align 8
-  %112 = call i64 @strlen(ptr noundef %111) #4
-  %113 = trunc i64 %112 to i32
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %19, align 4
-  br label %115
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %118
 
-115:                                              ; preds = %110, %107
-  %116 = load ptr, ptr %14, align 8
-  %117 = load i32, ptr %19, align 4
-  %118 = load ptr, ptr %17, align 8
-  call void @slurm_packmem(ptr noundef %116, i32 noundef %117, ptr noundef %118)
-  br label %119
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %14, align 8
+  %115 = call i64 @strlen(ptr noundef %114) #7
+  %116 = trunc i64 %115 to i32
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %19, align 4
+  br label %118
 
-119:                                              ; preds = %115
-  %120 = call i32 @pmix_stepd_rank_parent()
-  store i32 %120, ptr %20, align 4
-  br label %121
-
-121:                                              ; preds = %119
+118:                                              ; preds = %113, %110
+  %119 = load ptr, ptr %14, align 8
+  %120 = load i32, ptr %19, align 4
+  %121 = load ptr, ptr %17, align 8
+  call void @slurm_packmem(ptr noundef %119, i32 noundef %120, ptr noundef %121)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
   br label %122
 
-122:                                              ; preds = %121
-  %123 = call i32 @slurm_get_log_level()
-  %124 = icmp sge i32 %123, 7
-  br i1 %124, label %125, label %131
+122:                                              ; preds = %118
+  br label %123
 
-125:                                              ; preds = %122
-  %126 = load i32, ptr %16, align 4
-  %127 = load i32, ptr %20, align 4
-  %128 = load i32, ptr %6, align 4
-  %129 = load ptr, ptr %12, align 8
-  %130 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.14, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_in, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef %129, ptr noundef %130)
-  br label %131
+123:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %124 = call i32 @pmix_stepd_rank_parent()
+  store i32 %124, ptr %20, align 4
+  br label %125
 
-131:                                              ; preds = %125, %122
-  br label %132
+125:                                              ; preds = %123
+  br label %126
 
-132:                                              ; preds = %131
-  br label %133
+126:                                              ; preds = %125
+  %127 = call i32 @slurm_get_log_level()
+  %128 = icmp sge i32 %127, 7
+  br i1 %128, label %129, label %135
 
-133:                                              ; preds = %132
-  %134 = load ptr, ptr %17, align 8
-  %135 = getelementptr inbounds %struct.buf_t, ptr %134, i32 0, i32 1
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %17, align 8
-  %138 = getelementptr inbounds %struct.buf_t, ptr %137, i32 0, i32 2
-  %139 = load i32, ptr %138, align 8
-  %140 = load i32, ptr %20, align 4
-  %141 = call i32 @pmix_stepd_send(ptr noundef %136, i32 noundef %139, i32 noundef %140)
-  store i32 %141, ptr %10, align 4
-  br label %142
+129:                                              ; preds = %126
+  %130 = load i32, ptr %16, align 4
+  %131 = load i32, ptr %20, align 4
+  %132 = load i32, ptr %6, align 4
+  %133 = load ptr, ptr %12, align 8
+  %134 = load ptr, ptr %14, align 8
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.14, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_in, i32 noundef %130, i32 noundef %131, i32 noundef %132, ptr noundef %133, ptr noundef %134)
+  br label %135
 
-142:                                              ; preds = %133
+135:                                              ; preds = %129, %126
+  br label %136
+
+136:                                              ; preds = %135
+  br label %137
+
+137:                                              ; preds = %136
+  br label %138
+
+138:                                              ; preds = %137
+  br label %139
+
+139:                                              ; preds = %138
+  %140 = load ptr, ptr %17, align 8
+  %141 = getelementptr inbounds nuw %struct.buf_t, ptr %140, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %17, align 8
-  %144 = icmp ne ptr %143, null
-  br i1 %144, label %145, label %147
-
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %17, align 8
-  call void @slurm_free_buf(ptr noundef %146)
-  br label %147
-
-147:                                              ; preds = %145, %142
-  store ptr null, ptr %17, align 8
+  %144 = getelementptr inbounds nuw %struct.buf_t, ptr %143, i32 0, i32 2
+  %145 = load i32, ptr %144, align 8
+  %146 = load i32, ptr %20, align 4
+  %147 = call i32 @pmix_stepd_send(ptr noundef %142, i32 noundef %145, i32 noundef %146)
+  store i32 %147, ptr %10, align 4
   br label %148
 
-148:                                              ; preds = %147
+148:                                              ; preds = %139
+  %149 = load ptr, ptr %17, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %153
+
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %17, align 8
+  call void @slurm_free_buf(ptr noundef %152)
   br label %153
 
-149:                                              ; preds = %83
-  %150 = load ptr, ptr %14, align 8
-  %151 = load ptr, ptr %12, align 8
-  %152 = call i32 @pmix_ring_out(i32 noundef 0, ptr noundef %150, ptr noundef %151)
-  br label %153
-
-153:                                              ; preds = %149, %148
+153:                                              ; preds = %151, %148
+  store ptr null, ptr %17, align 8
   br label %154
 
-154:                                              ; preds = %153, %33
+154:                                              ; preds = %153
   br label %155
 
 155:                                              ; preds = %154
-  br label %156
-
-156:                                              ; preds = %155
-  %157 = call i32 @slurm_get_log_level()
-  %158 = icmp sge i32 %157, 7
-  br i1 %158, label %159, label %160
-
-159:                                              ; preds = %156
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.15, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_in)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
   br label %160
 
-160:                                              ; preds = %159, %156
+156:                                              ; preds = %85
+  %157 = load ptr, ptr %14, align 8
+  %158 = load ptr, ptr %12, align 8
+  %159 = call i32 @pmix_ring_out(i32 noundef 0, ptr noundef %157, ptr noundef %158)
+  br label %160
+
+160:                                              ; preds = %156, %155
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   br label %161
 
-161:                                              ; preds = %160
+161:                                              ; preds = %160, %35
   br label %162
 
 162:                                              ; preds = %161
-  %163 = load i32, ptr %10, align 4
-  ret i32 %163
+  br label %163
+
+163:                                              ; preds = %162
+  %164 = call i32 @slurm_get_log_level()
+  %165 = icmp sge i32 %164, 7
+  br i1 %165, label %166, label %167
+
+166:                                              ; preds = %163
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef @.str.15, ptr noundef @plugin_type, ptr noundef @__func__.pmix_ring_in)
+  br label %167
+
+167:                                              ; preds = %166, %163
+  br label %168
+
+168:                                              ; preds = %167
+  br label %169
+
+169:                                              ; preds = %168
+  br label %170
+
+170:                                              ; preds = %169
+  br label %171
+
+171:                                              ; preds = %170
+  %172 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %172
 }
 
-declare ptr @slurm_xstrdup(ptr noundef) #1
-
-declare ptr @slurm_hostlist_nth(ptr noundef, i32 noundef) #1
-
-declare i32 @slurm_forward_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
-
-declare i32 @slurm_kill_job_step(i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) #1
-
-declare i32 @sleep(i32 noundef) #1
+declare ptr @slurm_xstrdup(ptr noundef) #2
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #5
+
+declare ptr @slurm_hostlist_nth(ptr noundef, i32 noundef) #2
+
+declare i32 @slurm_forward_data(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
+
+declare i32 @slurm_kill_job_step(i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) #2
+
+declare i32 @sleep(i32 noundef) #2
+
+; Function Attrs: nounwind
+declare void @free(ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_stepd_rank_parent() #0 {
   %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #6
   store i32 -1, ptr %1, align 4
   %2 = load i32, ptr @pmix_stepd_rank, align 4
   %3 = icmp sgt i32 %2, 0
@@ -1265,31 +1432,38 @@ define internal i32 @pmix_stepd_rank_parent() #0 {
 
 9:                                                ; preds = %4, %0
   %10 = load i32, ptr %1, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #6
   ret i32 %10
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
-attributes #5 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !9, !10}

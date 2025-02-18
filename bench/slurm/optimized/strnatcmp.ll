@@ -3,22 +3,22 @@ source_filename = "bench/slurm/original/strnatcmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @strnatcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local i32 @strnatcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @strnatcmp0(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
-; Function Attrs: nofree nounwind memory(read) uwtable
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  %4 = tail call ptr @__ctype_b_loc() #4
+  %4 = tail call ptr @__ctype_b_loc() #3
   %5 = load ptr, ptr %4, align 8
   %.not53 = icmp eq i32 %2, 0
   br label %6
 
-6:                                                ; preds = %98, %3
-  %.042 = phi i64 [ 0, %3 ], [ %99, %98 ]
-  %.040 = phi i32 [ 0, %3 ], [ %100, %98 ]
+6:                                                ; preds = %100, %3
+  %.042 = phi i64 [ 0, %3 ], [ %101, %100 ]
+  %.040 = phi i32 [ 0, %3 ], [ %102, %100 ]
   %7 = sext i32 %.040 to i64
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = load i8, ptr %8, align 1
@@ -36,7 +36,7 @@ define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, p
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  br i1 %.not, label %.preheader, label %11, !llvm.loop !6
+  br i1 %.not, label %.preheader, label %11, !llvm.loop !8
 
 .preheader:                                       ; preds = %11
   %.038.in.le = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
@@ -44,33 +44,34 @@ define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, p
   %17 = getelementptr inbounds nuw i16, ptr %5, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 8192
-  %.not4872 = icmp eq i16 %19, 0
-  br i1 %.not4872, label %._crit_edge, label %.lr.ph
+  %.not4874 = icmp eq i16 %19, 0
+  br i1 %.not4874, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.lr.ph ], [ %7, %.preheader ]
-  %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next89
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.lr.ph ], [ %7, %.preheader ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
+  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next94
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw i16, ptr %5, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8192
   %.not48 = icmp eq i16 %25, 0
-  br i1 %.not48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not48, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %26 = trunc nsw i64 %indvars.iv.next89 to i32
+  %26 = trunc nsw i64 %indvars.iv.next94 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.141.lcssa = phi i32 [ %.040, %.preheader ], [ %26, %._crit_edge.loopexit ]
   %.037.lcssa = phi i8 [ %9, %.preheader ], [ %21, %._crit_edge.loopexit ]
-  %.lcssa67 = phi i16 [ %18, %.preheader ], [ %24, %._crit_edge.loopexit ]
-  %27 = and i16 %14, %.lcssa67
+  %.lcssa69 = phi i64 [ %16, %.preheader ], [ %22, %._crit_edge.loopexit ]
+  %.lcssa68 = phi i16 [ %18, %.preheader ], [ %24, %._crit_edge.loopexit ]
+  %27 = and i16 %14, %.lcssa68
   %28 = and i16 %27, 2048
-  %or.cond.not76.not = icmp eq i16 %28, 0
-  br i1 %or.cond.not76.not, label %84, label %29
+  %or.cond.not79.not = icmp eq i16 %28, 0
+  br i1 %or.cond.not79.not, label %84, label %29
 
 29:                                               ; preds = %._crit_edge
   %30 = icmp eq i8 %.038, 48
@@ -109,7 +110,7 @@ define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, p
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 2048
   %.not.i = icmp eq i16 %52, 0
-  br i1 %.not.i, label %compare_left.exit, label %.lr.ph.i
+  br i1 %.not.i, label %compare_left.exit, label %.lr.ph.i, !llvm.loop !12
 
 compare_left.exit:                                ; preds = %45
   %53 = load i8, ptr %47, align 1
@@ -174,7 +175,7 @@ compare_left.exit:                                ; preds = %45
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 2048
   %.not.i55 = icmp eq i16 %83, 0
-  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.i54
+  br i1 %.not.i55, label %._crit_edge.i56, label %.lr.ph.i54, !llvm.loop !13
 
 compare_right.exit:                               ; preds = %74, %._crit_edge.i56
   %.019.i = phi i32 [ %.1.i, %._crit_edge.i56 ], [ %.035.i, %74 ]
@@ -187,39 +188,41 @@ compare_right.exit:                               ; preds = %74, %._crit_edge.i5
   br i1 %or.cond.not, label %compare_left.exit.thread, label %86
 
 86:                                               ; preds = %84
-  br i1 %.not53, label %94, label %87
+  br i1 %.not53, label %96, label %87
 
 87:                                               ; preds = %86
-  %88 = zext i8 %.038 to i32
-  %89 = tail call i32 @toupper(i32 noundef %88) #5
-  %90 = trunc i32 %89 to i8
-  %91 = zext i8 %.037.lcssa to i32
-  %92 = tail call i32 @toupper(i32 noundef %91) #5
-  %93 = trunc i32 %92 to i8
-  br label %94
+  %88 = tail call ptr @__ctype_toupper_loc() #3
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %12
+  %91 = load i32, ptr %90, align 4
+  %92 = trunc i32 %91 to i8
+  %93 = getelementptr inbounds nuw i32, ptr %89, i64 %.lcssa69
+  %94 = load i32, ptr %93, align 4
+  %95 = trunc i32 %94 to i8
+  br label %96
 
-94:                                               ; preds = %87, %86
-  %.139 = phi i8 [ %90, %87 ], [ %.038, %86 ]
-  %.1 = phi i8 [ %93, %87 ], [ %.037.lcssa, %86 ]
-  %95 = icmp slt i8 %.139, %.1
-  br i1 %95, label %compare_left.exit.thread, label %96
-
-96:                                               ; preds = %94
-  %97 = icmp sgt i8 %.139, %.1
+96:                                               ; preds = %87, %86
+  %.139 = phi i8 [ %92, %87 ], [ %.038, %86 ]
+  %.1 = phi i8 [ %95, %87 ], [ %.037.lcssa, %86 ]
+  %97 = icmp slt i8 %.139, %.1
   br i1 %97, label %compare_left.exit.thread, label %98
 
 98:                                               ; preds = %96
-  %99 = add i64 %indvars.iv, 1
-  %100 = add nsw i32 %.141.lcssa, 1
-  br label %6
+  %99 = icmp sgt i8 %.139, %.1
+  br i1 %99, label %compare_left.exit.thread, label %100
 
-compare_left.exit.thread:                         ; preds = %._crit_edge.i56, %96, %94, %84, %compare_right.exit, %compare_left.exit, %.lr.ph.i54, %.lr.ph.i, %41, %43
-  %.0 = phi i32 [ 1, %43 ], [ -1, %41 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i54 ], [ -1, %._crit_edge.i56 ], [ 1, %96 ], [ -1, %94 ], [ 0, %84 ], [ %.019.i, %compare_right.exit ], [ -1, %compare_left.exit ]
+100:                                              ; preds = %98
+  %101 = add i64 %indvars.iv, 1
+  %102 = add nsw i32 %.141.lcssa, 1
+  br label %6, !llvm.loop !14
+
+compare_left.exit.thread:                         ; preds = %._crit_edge.i56, %98, %96, %84, %compare_right.exit, %compare_left.exit, %.lr.ph.i54, %.lr.ph.i, %41, %43
+  %.0 = phi i32 [ 1, %43 ], [ -1, %41 ], [ 1, %.lr.ph.i ], [ 1, %.lr.ph.i54 ], [ -1, %._crit_edge.i56 ], [ 1, %98 ], [ -1, %96 ], [ 0, %84 ], [ %.019.i, %compare_right.exit ], [ -1, %compare_left.exit ]
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @strnatcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
+define dso_local i32 @strnatcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @strnatcmp0(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }
@@ -227,27 +230,31 @@ define i32 @strnatcasecmp(ptr noundef readonly captures(none) %0, ptr noundef re
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare ptr @__ctype_toupper_loc() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #2
 
-attributes #0 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind willreturn memory(none) }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}

@@ -58,12 +58,12 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %18
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 708
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 716
   store i8 1, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %.sink.split, %13, %15
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 704
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 712
   %23 = load i32, ptr %22, align 8
   %.not45 = icmp eq i32 %23, 0
   br i1 %.not45, label %.thread, label %24
@@ -85,9 +85,9 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %61
 
 .thread:                                          ; preds = %21, %24
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 708
-  %32 = load i8, ptr %31, align 4
-  %33 = trunc i8 %32 to i1
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 716
+  %32 = load i8, ptr %31, align 4, !range !8, !noundef !9
+  %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %56
 
 34:                                               ; preds = %.thread
@@ -151,7 +151,7 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, i32 noundef %1) #2
   br label %60
 
-60:                                               ; preds = %34, %34, %56, %59, %.thread54, %52, %54
+60:                                               ; preds = %34, %34, %54, %52, %.thread54, %56, %59
   tail call void @prolog_running_decr(ptr noundef nonnull %4) #2
   br label %61
 
@@ -193,7 +193,7 @@ define dso_local void @prep_epilog_slurmctld_callback(i32 noundef %0, i32 nounde
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.prep_epilog_slurmctld_callback, i32 noundef %1) #2
-  br label %29
+  br label %25
 
 7:                                                ; preds = %3
   br i1 %2, label %8, label %10
@@ -203,61 +203,52 @@ define dso_local void @prep_epilog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %10
 
 10:                                               ; preds = %8, %7
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 700
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 708
   %12 = load i32, ptr %11, align 4
-  %.not13 = icmp eq i32 %12, 0
-  br i1 %.not13, label %.thread, label %13
+  %.not11 = icmp eq i32 %12, 0
+  br i1 %.not11, label %.thread, label %13
 
 13:                                               ; preds = %10
   %14 = add i32 %12, -1
   store i32 %14, ptr %11, align 4
-  %.not14 = icmp eq i32 %14, 0
-  br i1 %.not14, label %.thread, label %15
+  %.not12 = icmp eq i32 %14, 0
+  br i1 %.not12, label %.thread, label %15
 
 15:                                               ; preds = %13
   %16 = tail call i32 @get_log_level() #2
   %17 = icmp sgt i32 %16, 5
-  br i1 %17, label %18, label %29
+  br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %11, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.prep_epilog_slurmctld_callback, i32 noundef %19) #2
-  br label %29
+  br label %25
 
 .thread:                                          ; preds = %10, %13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 600
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 448
   %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %29
+  %23 = and i32 %22, 32768
+  %.not13 = icmp eq i32 %23, 0
+  br i1 %.not13, label %25, label %24
 
 24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 448
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 32768
-  %.not15 = icmp eq i32 %27, 0
-  br i1 %.not15, label %29, label %28
+  tail call void @cleanup_completing(ptr noundef nonnull %4, i1 noundef zeroext true) #2
+  br label %25
 
-28:                                               ; preds = %24
-  tail call void @cleanup_completing(ptr noundef nonnull %4) #2
-  tail call void @batch_requeue_fini(ptr noundef nonnull %4) #2
-  br label %29
-
-29:                                               ; preds = %.thread, %24, %28, %15, %18, %5
+25:                                               ; preds = %.thread, %24, %15, %18, %5
   tail call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.prep_epilog_slurmctld_callback.job_write_lock) #2
   ret void
 }
 
-declare void @cleanup_completing(ptr noundef) local_unnamed_addr #1
-
-declare void @batch_requeue_fini(ptr noundef) local_unnamed_addr #1
+declare void @cleanup_completing(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
@@ -266,3 +257,6 @@ attributes #2 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = !{i8 0, i8 2}
+!9 = !{}

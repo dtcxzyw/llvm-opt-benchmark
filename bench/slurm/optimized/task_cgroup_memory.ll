@@ -3,7 +3,7 @@ source_filename = "bench/slurm/original/task_cgroup_memory.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cgroup_conf_t = type { ptr, ptr, i8, i8, float, float, i64, i8, float, float, i64, i8, ptr, i8, i8, i8, i8 }
+%struct.cgroup_conf_t = type { ptr, ptr, i8, i8, float, float, i64, i8, float, float, i64, i8, ptr, i8, i8, i8, i8, i64 }
 %struct.cgroup_limits_t = type { ptr, i32, ptr, ptr, i64, i64, i8, %struct.gres_device_id_t, i64, i64, i64, i64 }
 %struct.gres_device_id_t = type { i32, i32, i32 }
 
@@ -40,90 +40,88 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [62 x i8] c"%s: %s: %s: alloc=%luMB mem.limit=%luMB memsw.limit=unlimited\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
-  %1 = tail call i32 @cgroup_g_initialize(i32 noundef 2) #4
+define dso_local range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
+  %1 = tail call i32 @cgroup_g_initialize(i32 noundef 2) #5
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %2, label %58
+  br i1 %.not, label %2, label %56
 
 2:                                                ; preds = %0
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 17), align 1
-  %4 = and i8 %3, 1
-  store i8 %4, ptr @constrain_ram_space, align 1
-  %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 40), align 8
-  %6 = and i8 %5, 1
-  store i8 %6, ptr @constrain_swap_space, align 1
-  %7 = trunc i8 %3 to i1
-  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 20), align 4
-  %storemerge = select i1 %7, float %8, float 1.000000e+02
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 17), align 1, !range !8, !noundef !9
+  store i8 %3, ptr @constrain_ram_space, align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 40), align 8, !range !8, !noundef !9
+  store i8 %4, ptr @constrain_swap_space, align 1
+  %5 = trunc nuw i8 %3 to i1
+  %6 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 20), align 4
+  %storemerge = select i1 %5, float %6, float 1.000000e+02
   store float %storemerge, ptr @allowed_ram_space, align 4
-  %9 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 44), align 4
-  store float %9, ptr @allowed_swap_space, align 4
-  %10 = load ptr, ptr @conf, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4208
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr @totalram, align 8
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %14, label %16
+  %7 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 44), align 4
+  store float %7, ptr @allowed_swap_space, align 4
+  %8 = load ptr, ptr @conf, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4208
+  %10 = load i64, ptr %9, align 8
+  store i64 %10, ptr @totalram, align 8
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %14
 
-14:                                               ; preds = %2
-  %15 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #4
+12:                                               ; preds = %2
+  %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #5
   %.pre = load i64, ptr @totalram, align 8
-  br label %16
+  br label %14
 
-16:                                               ; preds = %14, %2
-  %17 = phi i64 [ %.pre, %14 ], [ %12, %2 ]
-  %18 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 24), align 8
-  %19 = shl i64 %17, 20
-  %20 = uitofp i64 %19 to double
-  %21 = fpext float %18 to double
-  %22 = fdiv double %21, 1.000000e+02
-  %23 = fmul double %22, %20
-  %24 = fptoui double %23 to i64
-  store i64 %24, ptr @max_ram, align 8
-  %25 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 48), align 8
-  %26 = fpext float %25 to double
-  %27 = fdiv double %26, 1.000000e+02
-  %28 = fmul double %27, %20
-  %29 = fptoui double %28 to i64
-  %30 = add i64 %29, %24
-  store i64 %30, ptr @max_swap, align 8
-  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 32), align 8
-  %32 = shl i64 %31, 20
-  store i64 %32, ptr @min_ram_space, align 8
-  %33 = tail call i32 @get_log_level() #4
-  %34 = icmp sgt i32 %33, 4
-  br i1 %34, label %35, label %56
+14:                                               ; preds = %12, %2
+  %15 = phi i64 [ %.pre, %12 ], [ %10, %2 ]
+  %16 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 24), align 8
+  %17 = shl i64 %15, 20
+  %18 = uitofp i64 %17 to double
+  %19 = fpext float %16 to double
+  %20 = fdiv double %19, 1.000000e+02
+  %21 = fmul double %20, %18
+  %22 = fptoui double %21 to i64
+  store i64 %22, ptr @max_ram, align 8
+  %23 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 48), align 8
+  %24 = fpext float %23 to double
+  %25 = fdiv double %24, 1.000000e+02
+  %26 = fmul double %25, %18
+  %27 = fptoui double %26 to i64
+  %28 = add i64 %27, %22
+  store i64 %28, ptr @max_swap, align 8
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 32), align 8
+  %30 = shl i64 %29, 20
+  store i64 %30, ptr @min_ram_space, align 8
+  %31 = tail call i32 @get_log_level() #5
+  %32 = icmp sgt i32 %31, 4
+  br i1 %32, label %33, label %54
 
-35:                                               ; preds = %16
-  %36 = load i64, ptr @totalram, align 8
-  %37 = load float, ptr @allowed_ram_space, align 4
-  %38 = fpext float %37 to double
-  %39 = load i8, ptr @constrain_ram_space, align 1
-  %40 = trunc nuw i8 %39 to i1
-  %41 = select i1 %40, ptr @.str.2, ptr @.str.3
-  %42 = load float, ptr @allowed_swap_space, align 4
-  %43 = fpext float %42 to double
-  %44 = load i8, ptr @constrain_swap_space, align 1
-  %45 = trunc nuw i8 %44 to i1
-  %46 = select i1 %45, ptr @.str.2, ptr @.str.3
-  %47 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 24), align 8
-  %48 = fpext float %47 to double
-  %49 = load i64, ptr @max_ram, align 8
-  %50 = lshr i64 %49, 20
-  %51 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 48), align 8
-  %52 = fpext float %51 to double
-  %53 = load i64, ptr @max_swap, align 8
-  %54 = lshr i64 %53, 20
-  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 32), align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_init, i64 noundef %36, double noundef %38, ptr noundef nonnull %41, double noundef %43, ptr noundef nonnull %46, double noundef %48, i64 noundef %50, double noundef %52, i64 noundef %54, i64 noundef %55) #4
+33:                                               ; preds = %14
+  %34 = load i64, ptr @totalram, align 8
+  %35 = load float, ptr @allowed_ram_space, align 4
+  %36 = fpext float %35 to double
+  %37 = load i8, ptr @constrain_ram_space, align 1, !range !8, !noundef !9
+  %38 = trunc nuw i8 %37 to i1
+  %39 = select i1 %38, ptr @.str.2, ptr @.str.3
+  %40 = load float, ptr @allowed_swap_space, align 4
+  %41 = fpext float %40 to double
+  %42 = load i8, ptr @constrain_swap_space, align 1, !range !8, !noundef !9
+  %43 = trunc nuw i8 %42 to i1
+  %44 = select i1 %43, ptr @.str.2, ptr @.str.3
+  %45 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 24), align 8
+  %46 = fpext float %45 to double
+  %47 = load i64, ptr @max_ram, align 8
+  %48 = lshr i64 %47, 20
+  %49 = load float, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 48), align 8
+  %50 = fpext float %49 to double
+  %51 = load i64, ptr @max_swap, align 8
+  %52 = lshr i64 %51, 20
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 32), align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_init, i64 noundef %34, double noundef %36, ptr noundef nonnull %39, double noundef %41, ptr noundef nonnull %44, double noundef %46, i64 noundef %48, double noundef %50, i64 noundef %52, i64 noundef %53) #5
+  br label %54
+
+54:                                               ; preds = %33, %14
+  %55 = tail call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0) #5
   br label %56
 
-56:                                               ; preds = %35, %16
-  %57 = tail call i32 @setenv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 0) #4
-  br label %58
-
-58:                                               ; preds = %0, %56
-  %.0 = phi i32 [ 0, %56 ], [ -1, %0 ]
+56:                                               ; preds = %0, %54
+  %.0 = phi i32 [ 0, %54 ], [ -1, %0 ]
   ret i32 %.0
 }
 
@@ -139,36 +137,37 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_cgroup_memory_fini() local_unnamed_addr #0 {
-  %1 = tail call i32 @cgroup_g_step_destroy(i32 noundef 2) #4
+define dso_local i32 @task_cgroup_memory_fini() local_unnamed_addr #0 {
+  %1 = tail call i32 @cgroup_g_step_destroy(i32 noundef 2) #5
   ret i32 %1
 }
 
 declare i32 @cgroup_g_step_destroy(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call i32 @cgroup_g_step_create(i32 noundef 2, ptr noundef %0) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  %3 = tail call i32 @cgroup_g_step_create(i32 noundef 2, ptr noundef %0) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %19
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i64, ptr %5, align 8
   %7 = tail call fastcc i32 @_memcg_initialize(i64 noundef %6, i1 noundef zeroext false)
-  %.not5 = icmp eq i32 %7, 0
-  br i1 %.not5, label %8, label %19
+  %.not6 = icmp eq i32 %7, 0
+  br i1 %.not6, label %8, label %19
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i64, ptr %9, align 8
   %11 = tail call fastcc i32 @_memcg_initialize(i64 noundef %10, i1 noundef zeroext true)
-  %.not6 = icmp eq i32 %11, 0
-  br i1 %.not6, label %12, label %19
+  %.not7 = icmp eq i32 %11, 0
+  br i1 %.not7, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @cgroup_g_step_start_oom_mgr() #4
+  %13 = tail call i32 @cgroup_g_step_start_oom_mgr(ptr noundef nonnull %0) #5
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
 
@@ -177,15 +176,19 @@ define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = tail call i32 @getpid() #4
+  %17 = tail call i32 @getpid() #5
   store i32 %17, ptr %2, align 4
-  %18 = call i32 @cgroup_g_step_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #4
+  %18 = call i32 @cgroup_g_step_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #5
   br label %19
 
 19:                                               ; preds = %8, %4, %1, %16
   %.0 = phi i32 [ %18, %16 ], [ -1, %1 ], [ -1, %4 ], [ -1, %8 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -239,23 +242,24 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %31 = load i64, ptr @max_swap, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %29, i64 %31)
   %.0.i31 = select i1 %30, i64 %23, i64 %..i
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #5
   %32 = icmp ugt i64 %.0.i2912, %.0.i410
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %swap_limit_in_bytes.exit
-  %34 = tail call i32 @get_log_level() #4
+  %34 = tail call i32 @get_log_level() #5
   %35 = icmp sgt i32 %34, 5
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
   %37 = select i1 %1, ptr @.str.12, ptr @.str.13
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, i64 noundef %.0.i2912, i64 noundef %.0.i410, ptr noundef nonnull %37) #4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, i64 noundef %.0.i2912, i64 noundef %.0.i410, ptr noundef nonnull %37) #5
   br label %38
 
 38:                                               ; preds = %33, %36, %swap_limit_in_bytes.exit
   %.022 = phi i64 [ %.0.i2912, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
-  call void @cgroup_init_limits(ptr noundef nonnull %3) #4
-  %39 = load i8, ptr @constrain_ram_space, align 1
+  call void @cgroup_init_limits(ptr noundef nonnull %3) #5
+  %39 = load i8, ptr @constrain_ram_space, align 1, !range !8, !noundef !9
   %40 = trunc nuw i8 %39 to i1
   %spec.select = select i1 %40, i64 %.0.i410, i64 %.0.i31
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -266,7 +270,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   store i64 -2, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 -2, ptr %44, align 8
-  %45 = load i8, ptr @constrain_swap_space, align 1
+  %45 = load i8, ptr @constrain_swap_space, align 1, !range !8, !noundef !9
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %56
 
@@ -274,7 +278,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 56), align 8
   store i64 %48, ptr %44, align 8
   store i64 %.0.i31, ptr %43, align 8
-  %49 = call i32 @get_log_level() #4
+  %49 = call i32 @get_log_level() #5
   %50 = icmp sgt i32 %49, 2
   br i1 %50, label %51, label %62
 
@@ -283,30 +287,30 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %53 = lshr i64 %spec.select, 20
   %54 = lshr i64 %.0.i31, 20
   %55 = load i64, ptr %44, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, ptr noundef nonnull %52, i64 noundef %0, i64 noundef %53, i64 noundef %54, i64 noundef %55) #4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, ptr noundef nonnull %52, i64 noundef %0, i64 noundef %53, i64 noundef %54, i64 noundef %55) #5
   br label %62
 
 56:                                               ; preds = %38
-  %57 = call i32 @get_log_level() #4
+  %57 = call i32 @get_log_level() #5
   %58 = icmp sgt i32 %57, 2
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
   %60 = select i1 %1, ptr @.str.12, ptr @.str.13
   %61 = lshr i64 %spec.select, 20
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, ptr noundef nonnull %60, i64 noundef %0, i64 noundef %61) #4
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._memcg_initialize, ptr noundef nonnull %60, i64 noundef %0, i64 noundef %61) #5
   br label %62
 
 62:                                               ; preds = %56, %59, %47, %51
   br i1 %1, label %65, label %63
 
 63:                                               ; preds = %62
-  %64 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #4
+  %64 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %67, label %68
 
 65:                                               ; preds = %62
-  %66 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #4
+  %66 = call i32 @cgroup_g_constrain_set(i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #5
   %.not26 = icmp eq i32 %66, 0
   br i1 %.not26, label %67, label %68
 
@@ -315,27 +319,32 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
 
 68:                                               ; preds = %65, %63, %67
   %.0 = phi i32 [ 0, %67 ], [ -1, %63 ], [ -1, %65 ]
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #5
   ret i32 %.0
 }
 
-declare i32 @cgroup_g_step_start_oom_mgr() local_unnamed_addr #1
+declare i32 @cgroup_g_step_start_oom_mgr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #2
 
 declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %.b10 = load i1, ptr @oom_mgr_started, align 1
-  br i1 %.b10, label %3, label %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  %.b13 = load i1, ptr @oom_mgr_started, align 1
+  br i1 %.b13, label %3, label %49
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @cgroup_g_step_stop_oom_mgr(ptr noundef %0) #4
+  %4 = tail call ptr @cgroup_g_step_stop_oom_mgr(ptr noundef %0) #5
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %40, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -344,94 +353,108 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @get_log_level() #4
+  %10 = tail call i32 @get_log_level() #5
   %11 = icmp sgt i32 %10, 2
   br i1 %11, label %.sink.split, label %18
 
 12:                                               ; preds = %6
   %13 = load i64, ptr %4, align 8
-  %.not11 = icmp eq i64 %13, 0
-  br i1 %.not11, label %18, label %14
+  %.not14 = icmp eq i64 %13, 0
+  br i1 %.not14, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @get_log_level() #4
+  %15 = tail call i32 @get_log_level() #5
   %16 = icmp sgt i32 %15, 2
   br i1 %16, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %14, %9
   %.str.7.sink = phi ptr [ @.str.6, %9 ], [ @.str.7, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %17) #4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %17) #5
   br label %18
 
 18:                                               ; preds = %.sink.split, %12, %14, %9
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load i64, ptr %19, align 8
-  %.not12 = icmp eq i64 %20, 0
-  br i1 %.not12, label %24, label %21
+  %.not15 = icmp eq i64 %20, 0
+  br i1 %.not15, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @get_log_level() #4
+  %22 = tail call i32 @get_log_level() #5
   %23 = icmp sgt i32 %22, 2
-  br i1 %23, label %.sink.split15, label %31
+  br i1 %23, label %.sink.split18, label %31
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load i64, ptr %25, align 8
-  %.not13 = icmp eq i64 %26, 0
-  br i1 %.not13, label %31, label %27
+  %.not16 = icmp eq i64 %26, 0
+  br i1 %.not16, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @get_log_level() #4
+  %28 = tail call i32 @get_log_level() #5
   %29 = icmp sgt i32 %28, 2
-  br i1 %29, label %.sink.split15, label %31
+  br i1 %29, label %.sink.split18, label %31
 
-.sink.split15:                                    ; preds = %27, %21
-  %.str.7.sink16 = phi ptr [ @.str.6, %21 ], [ @.str.7, %27 ]
+.sink.split18:                                    ; preds = %27, %21
+  %.str.7.sink19 = phi ptr [ @.str.6, %21 ], [ @.str.7, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink16, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %30) #4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %30) #5
   br label %31
 
-31:                                               ; preds = %.sink.split15, %24, %27, %21
+31:                                               ; preds = %.sink.split18, %24, %27, %21
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i64, ptr %32, align 8
-  %.not14 = icmp eq i64 %33, 0
-  br i1 %.not14, label %39, label %34
+  %.not17 = icmp eq i64 %33, 0
+  br i1 %.not17, label %48, label %34
 
 34:                                               ; preds = %31
   %35 = icmp eq i64 %33, 1
   %36 = select i1 %35, ptr @.str.9, ptr @.str.10
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, i64 noundef %33, ptr noundef nonnull %36, ptr noundef nonnull %37) #4
-  br label %39
+  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, i64 noundef %33, ptr noundef nonnull %36, ptr noundef nonnull %37) #5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %40 = load i8, ptr %39, align 8, !range !8, !noundef !9
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %48
 
-39:                                               ; preds = %34, %31
-  %.0 = phi i32 [ 12, %34 ], [ 0, %31 ]
-  call void @slurm_xfree(ptr noundef nonnull %2) #4
-  br label %40
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %44 = load i32, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %46 = load i32, ptr %45, align 8
+  %47 = tail call i32 @slurm_terminate_job_step(i32 noundef %44, i32 noundef %46) #5
+  br label %48
 
-40:                                               ; preds = %3, %1, %39
-  %.07 = phi i32 [ %.0, %39 ], [ 0, %1 ], [ -1, %3 ]
-  ret i32 %.07
+48:                                               ; preds = %34, %42, %31
+  %.0 = phi i32 [ 0, %31 ], [ 12, %42 ], [ 12, %34 ]
+  call void @slurm_xfree(ptr noundef nonnull %2) #5
+  br label %49
+
+49:                                               ; preds = %3, %1, %48
+  %.010 = phi i32 [ %.0, %48 ], [ 0, %1 ], [ -1, %3 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  ret i32 %.010
 }
 
 declare ptr @cgroup_g_step_stop_oom_mgr(ptr noundef) local_unnamed_addr #1
 
+declare i32 @slurm_terminate_job_step(i32 noundef, i32 noundef) local_unnamed_addr #1
+
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_cgroup_memory_add_pid(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @cgroup_g_task_addto(i32 noundef 2, ptr noundef %0, i32 noundef %1, i32 noundef %2) #4
+define dso_local i32 @task_cgroup_memory_add_pid(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call i32 @cgroup_g_task_addto(i32 noundef 2, ptr noundef %0, i32 noundef %1, i32 noundef %2) #5
   ret i32 %4
 }
 
 declare i32 @cgroup_g_task_addto(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @task_cgroup_memory_add_extern_pid(i32 noundef %0) local_unnamed_addr #0 {
+define dso_local i32 @task_cgroup_memory_add_extern_pid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
-  %3 = call i32 @cgroup_g_step_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #4
+  %3 = call i32 @cgroup_g_step_addto(i32 noundef 2, ptr noundef nonnull %2, i32 noundef 1) #5
   ret i32 %3
 }
 
@@ -440,19 +463,24 @@ declare void @cgroup_init_limits(ptr noundef) local_unnamed_addr #1
 declare i32 @cgroup_g_constrain_set(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #3
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
 !0 = !{i32 7, !"Dwarf Version", i32 5}
 !1 = !{i32 2, !"Debug Info Version", i32 3}
 !2 = !{i32 1, !"wchar_size", i32 4}
 !3 = !{i32 8, !"PIC Level", i32 2}
-!4 = !{i32 7, !"uwtable", i32 2}
-!5 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = !{i8 0, i8 2}
+!9 = !{}
