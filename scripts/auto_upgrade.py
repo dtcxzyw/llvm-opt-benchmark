@@ -77,6 +77,7 @@ supported_project = [
     "cpp-httplib",
     "crow",
     "csmith",
+    "cvc5",
 ]
 
 modify_only = [

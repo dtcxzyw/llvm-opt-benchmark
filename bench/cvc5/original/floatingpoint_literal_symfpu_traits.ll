@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::BitVector" = type { i32, %"class.cvc5::internal::Integer" }
@@ -29,13 +29,9 @@ $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj = comdat a
 
 $_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv = comdat any
 
-$_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev = comdat any
-
 $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8maxValueERKj = comdat any
 
 $_ZN4cvc58internal9BitVectorC2Ejj = comdat any
-
-$_ZN4cvc58internal9BitVectorD2Ev = comdat any
 
 $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8minValueERKj = comdat any
 
@@ -113,7 +109,7 @@ $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj = comdat a
 
 $_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv = comdat any
 
-$_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev = comdat any
+$_ZN4cvc58internal9BitVectorD2Ev = comdat any
 
 $_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8maxValueERKj = comdat any
 
@@ -204,9 +200,8 @@ $_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKS2_ = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -219,2738 +214,2797 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5Ejj) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %w.addr = alloca i32, align 4
-  %v.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %v, ptr %v.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %w.addr, align 4
-  %1 = load i32, ptr %v.addr, align 4
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, i32 noundef %1)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5Ejj) align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4, !tbaa !8
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %8, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %p) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKb) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = trunc i8 %1 to i1
-  %cond = select i1 %tobool, i32 1, i32 0
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 1, i32 noundef %cond)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKb) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !12, !range !14, !noundef !15
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, i32 1, i32 0
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKS3_) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %old.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %old, ptr %old.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %old.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKS3_) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8, !tbaa !18
+  store i32 %9, ptr %6, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %11, i32 0, i32 1
+  call void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_size = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %.addr, align 8
-  %d_size2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %d_size2, align 8
-  store i32 %2, ptr %d_size, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %.addr, align 8
-  %d_value3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %3, i32 0, i32 1
-  call void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value3)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKNS0_9BitVectorE) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKNS0_9BitVectorE) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %old.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %old, ptr %old.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %old.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  ret i32 %call
+define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  ret i32 %4
 }
 
 declare noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %1, i32 noundef 1)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %1, i32 noundef 0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8maxValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca %"class.cvc5::internal::BitVector", align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !22
+  %11 = load i32, ptr %10, align 4, !tbaa !8
+  %12 = sub i32 %11, 1
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %12, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %13 unwind label %16
+
+13:                                               ; preds = %2
+  invoke void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 1)
+          to label %14 unwind label %20
+
+14:                                               ; preds = %13
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %15 unwind label %24
+
+15:                                               ; preds = %14
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
+
+16:                                               ; preds = %2
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %8, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %9, align 4
+  br label %29
+
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %8, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %9, align 4
+  br label %28
+
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  br label %28
+
+28:                                               ; preds = %24, %20
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  br label %29
+
+29:                                               ; preds = %28, %16
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %30
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %base = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp1 = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  %sub = sub i32 %1, 1
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %base, i32 noundef %sub, i32 noundef 0)
-  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %base)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.cvc5::internal::Integer", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %10, i32 0, i32 0
+  %12 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %12, ptr %11, align 8, !tbaa !18
+  %13 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %10, i32 0, i32 1
+  %14 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal7IntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %14)
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #3
+  %15 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %10, i32 0, i32 1
+  %16 = load i32, ptr %5, align 4, !tbaa !8
+  invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %16)
+          to label %17 unwind label %21
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i32 noundef 1)
-          to label %invoke.cont3 unwind label %lpad2
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %10, i32 0, i32 1
+  %19 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %20 unwind label %25
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %base) #3
+20:                                               ; preds = %17
+  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  br label %ehcleanup6
+  %23 = extractvalue { ptr, i32 } %22, 0
+  store ptr %23, ptr %8, align 8
+  %24 = extractvalue { ptr, i32 } %22, 1
+  store i32 %24, ptr %9, align 4
+  br label %29
 
-lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+25:                                               ; preds = %17
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %8, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %9, align 4
+  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #3
+  br label %29
 
-lpad4:                                            ; preds = %invoke.cont3
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  %9 = extractvalue { ptr, i32 } %8, 0
-  store ptr %9, ptr %exn.slot, align 8
-  %10 = extractvalue { ptr, i32 } %8, 1
-  store i32 %10, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %ehcleanup
+29:                                               ; preds = %25, %21
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #3
+  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #3
+  br label %30
 
-ehcleanup:                                        ; preds = %lpad4, %lpad2
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #3
-  br label %ehcleanup6
-
-ehcleanup6:                                       ; preds = %ehcleanup, %lpad
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %base) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup6
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val7 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val7
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i32, ptr %9, align 4
+  %33 = insertvalue { ptr, i32 } poison, ptr %31, 0
+  %34 = insertvalue { ptr, i32 } %33, i32 %32, 1
+  resume { ptr, i32 } %34
 }
+
+declare void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+declare void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %size, i32 noundef %z) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  %z.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  store i32 %z, ptr %z.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_size = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %size.addr, align 4
-  store i32 %0, ptr %d_size, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %z.addr, align 4
-  call void @_ZN4cvc58internal7IntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %1)
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %size.addr, align 4
-  invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value2, i32 noundef %2)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8minValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca %"class.cvc5::internal::BitVector", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.cvc5::internal::BitVector", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !22
+  %11 = load i32, ptr %10, align 4, !tbaa !8
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %11, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #3
+  %12 = load ptr, ptr %4, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 4, !tbaa !8
+  %14 = load ptr, ptr %4, align 8, !tbaa !22
+  %15 = load i32, ptr %14, align 4, !tbaa !8
+  %16 = sub i32 %15, 1
+  invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %13, i32 noundef %16)
+          to label %17 unwind label %20
 
-invoke.cont:                                      ; preds = %entry
-  %d_value3 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont5 unwind label %lpad4
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #3
+  invoke void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+          to label %18 unwind label %24
 
-invoke.cont5:                                     ; preds = %invoke.cont
-  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #3
+18:                                               ; preds = %17
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %19 unwind label %28
+
+19:                                               ; preds = %18
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+20:                                               ; preds = %2
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %7, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %8, align 4
+  br label %33
 
-lpad4:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+24:                                               ; preds = %17
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #3
-  br label %ehcleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %7, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %8, align 4
+  br label %32
 
-ehcleanup:                                        ; preds = %lpad4, %lpad
-  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_value) #3
-  br label %eh.resume
+28:                                               ; preds = %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %7, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %8, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %32
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+32:                                               ; preds = %28, %24
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  br label %33
+
+33:                                               ; preds = %32, %20
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %34
+
+34:                                               ; preds = %33
+  %35 = load ptr, ptr %7, align 8
+  %36 = load i32, ptr %8, align 4
+  %37 = insertvalue { ptr, i32 } poison, ptr %35, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %36, 1
+  resume { ptr, i32 } %38
 }
 
-declare void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
-
-declare void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_value) #3
-  ret void
-}
+declare void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8minValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %base = alloca %"class.cvc5::internal::BitVector", align 8
-  %shiftAmount = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %result = alloca %"class.cvc5::internal::BitVector", align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %base, i32 noundef %1, i32 noundef 1)
-  %2 = load ptr, ptr %w.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %4 = load ptr, ptr %w.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %sub = sub i32 %5, 1
-  invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount, i32 noundef %3, i32 noundef %sub)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  store i32 %8, ptr %4, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %base, ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount)
-          to label %invoke.cont2 unwind label %lpad1
+10:                                               ; preds = %1
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  ret i1 %9
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont2
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %result) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %base) #3
-  ret void
-
-lpad:                                             ; preds = %entry
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup5
-
-lpad1:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont2
+11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
+  store ptr %13, ptr %5, align 8
   %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %result) #3
-  br label %ehcleanup
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  br label %15
 
-ehcleanup:                                        ; preds = %lpad3, %lpad1
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount) #3
-  br label %ehcleanup5
-
-ehcleanup5:                                       ; preds = %ehcleanup, %lpad
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %base) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup5
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
-declare void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
+}
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call3 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  store i32 %8, ptr %4, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  ret i1 %call3
+10:                                               ; preds = %1
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  ret i1 %9
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
-}
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call3 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  ret void
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  ret i1 %call3
-
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEorERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEorERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+declare void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEanERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEanERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmlERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmlERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
-declare void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+11:                                               ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
-declare void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
-
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+11:                                               ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE20signExtendRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca %"class.cvc5::internal::BitVector", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #3
+  %12 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %13 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %14 unwind label %16
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+14:                                               ; preds = %3
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %15 unwind label %20
+
+15:                                               ; preds = %14
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %9, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %10, align 4
+  br label %24
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE20signExtendRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i32 noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2) #3
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  br label %24
 
-lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+24:                                               ; preds = %20, %16
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %25
+
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
+}
+
+declare void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %9, ptr %8, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !16
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %11, i32 0, i32 1
+  call void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularLeftShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE17modularRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
+
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  ret void
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %ehcleanup
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %q) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i32, align 4
-  %q.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %size, ptr %size.addr, align 4
-  store ptr %q, ptr %q.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_size = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %size.addr, align 4
-  store i32 %0, ptr %d_size, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %q.addr, align 8
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::BitVector", ptr %1, i32 0, i32 1
-  call void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularIncrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularLeftShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularDecrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE17modularRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10modularAddERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  ret void
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularIncrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularDecrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10modularAddERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE13modularNegateEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE13modularNegateEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8toSignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8toSignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10toUnsignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10toUnsignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %extension.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %extension, ptr %extension.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %extension.addr, align 4
-  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
+declare void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %reduction) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %reduction.addr = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %reduction, ptr %reduction.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %sub = sub i32 %call, 1
-  %0 = load i32, ptr %reduction.addr, align 4
-  %sub2 = sub i32 %sub, %0
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub2, i32 noundef 0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %5, align 8
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %9 = sub i32 %8, 1
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = sub i32 %9, %10
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %11, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %upper.addr = alloca i32, align 4
-  %lower.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %upper, ptr %upper.addr, align 4
-  store i32 %lower, ptr %lower.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %upper.addr, align 4
-  %1 = load i32, ptr %lower.addr, align 4
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, i32 noundef %1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.cvc5::internal::BitVector", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #3
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = load i32, ptr %8, align 4, !tbaa !8
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %13, i32 noundef %14)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %15 unwind label %16
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+15:                                               ; preds = %4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+16:                                               ; preds = %4
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %10, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %11, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
+  br label %20
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i32, ptr %11, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6resizeEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %newSize) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %newSize.addr = alloca i32, align 4
-  %width = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newSize, ptr %newSize.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %width, align 4
-  %0 = load i32, ptr %newSize.addr, align 4
-  %1 = load i32, ptr %width, align 4
-  %cmp = icmp ugt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6resizeEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %7, align 4, !tbaa !8
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = icmp ugt i32 %11, %12
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newSize.addr, align 4
-  %3 = load i32, ptr %width, align 4
-  %sub = sub i32 %2, %3
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub)
-  br label %return
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !8
+  %16 = load i32, ptr %7, align 4, !tbaa !8
+  %17 = sub i32 %15, %16
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %17)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-if.else:                                          ; preds = %entry
-  %4 = load i32, ptr %newSize.addr, align 4
-  %5 = load i32, ptr %width, align 4
-  %cmp2 = icmp ult i32 %4, %5
-  br i1 %cmp2, label %if.then3, label %if.else5
+18:                                               ; preds = %3
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  %21 = icmp ult i32 %19, %20
+  br i1 %21, label %22, label %26
 
-if.then3:                                         ; preds = %if.else
-  %6 = load i32, ptr %width, align 4
-  %7 = load i32, ptr %newSize.addr, align 4
-  %sub4 = sub i32 %6, %7
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub4)
-  br label %return
+22:                                               ; preds = %18
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = sub i32 %23, %24
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %25)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-if.else5:                                         ; preds = %if.else
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %return
+26:                                               ; preds = %18
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-return:                                           ; preds = %if.else5, %if.then3, %if.then
+27:                                               ; preds = %26, %22, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10matchWidthERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %call2 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %sub = sub i32 %call, %call2
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10matchWidthERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %11 = sub i32 %9, %10
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6appendERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6appendERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !3
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
-declare void @_ZNK4cvc58internal9BitVector7extractEjj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) #1
+declare void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5Ejj) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %w.addr = alloca i32, align 4
-  %v.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %w, ptr %w.addr, align 4
-  store i32 %v, ptr %v.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %w.addr, align 4
-  %1 = load i32, ptr %v.addr, align 4
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, i32 noundef %1)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5Ejj) align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !24
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4, !tbaa !8
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %8, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %p) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKb) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = load i8, ptr %0, align 1
-  %tobool = trunc i8 %1 to i1
-  %cond = select i1 %tobool, i32 1, i32 0
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 1, i32 noundef %cond)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKb) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !10
+  %7 = load i8, ptr %6, align 1, !tbaa !12, !range !14, !noundef !15
+  %8 = trunc i8 %7 to i1
+  %9 = select i1 %8, i32 1, i32 0
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKS3_) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %old.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %old, ptr %old.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %old.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKS3_) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKNS0_9BitVectorE) align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %old.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %old, ptr %old.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %old.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKNS0_9BitVectorE) align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !16
+  call void @_ZN4cvc58internal9BitVectorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  ret i32 %call
+define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %1, i32 noundef 1)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %1, i32 noundef 0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %3, i32 0, i32 1
+  call void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8maxValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8minValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  %0 = load ptr, ptr %w.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8minValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call3 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  store i32 %8, ptr %4, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  ret i1 %call3
+10:                                               ; preds = %1
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  ret i1 %9
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call3 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8, !tbaa !24
+  %7 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  store i32 %8, ptr %4, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = invoke noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  ret i1 %call3
+10:                                               ; preds = %1
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  ret i1 %9
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val4 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val4
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEorERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEorERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEanERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEanERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmlERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmlERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+9:                                                ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %12 = extractvalue { ptr, i32 } %11, 0
+  store ptr %12, ptr %6, align 8
+  %13 = extractvalue { ptr, i32 } %11, 1
+  store i32 %13, ptr %7, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %14
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %7, align 4
+  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
+  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
+  resume { ptr, i32 } %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+11:                                               ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %6, align 4, !tbaa !8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  invoke void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+11:                                               ; preds = %2
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %7, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %8, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #3
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %8, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE20signExtendRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i32 noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE20signExtendRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca %"class.cvc5::internal::BitVector", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #3
+  %12 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  %13 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZN4cvc58internal9BitVectorC2EjRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %14 unwind label %16
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
+14:                                               ; preds = %3
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %15 unwind label %20
 
-invoke.cont4:                                     ; preds = %invoke.cont
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2) #3
+15:                                               ; preds = %14
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %9, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %10, align 4
+  br label %24
 
-lpad3:                                            ; preds = %invoke.cont
-  %4 = landingpad { ptr, i32 }
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %ehcleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  br label %24
 
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2) #3
-  br label %eh.resume
+24:                                               ; preds = %20, %16
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %25
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val5 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val5
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %9, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = insertvalue { ptr, i32 } poison, ptr %26, 0
+  %29 = insertvalue { ptr, i32 } %28, i32 %27, 1
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularLeftShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularLeftShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE17modularRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE17modularRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularIncrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularIncrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularDecrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularDecrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10modularAddERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10modularAddERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE13modularNegateEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE13modularNegateEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8toSignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8toSignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10toUnsignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10toUnsignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %extension.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %extension, ptr %extension.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %extension.addr, align 4
-  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %reduction) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %reduction.addr = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %reduction, ptr %reduction.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %sub = sub i32 %call, 1
-  %0 = load i32, ptr %reduction.addr, align 4
-  %sub2 = sub i32 %sub, %0
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub2, i32 noundef 0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %5, align 8
+  %8 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %9 = sub i32 %8, 1
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  %11 = sub i32 %9, %10
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %11, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %upper.addr = alloca i32, align 4
-  %lower.addr = alloca i32, align 4
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %upper, ptr %upper.addr, align 4
-  store i32 %lower, ptr %lower.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %upper.addr, align 4
-  %1 = load i32, ptr %lower.addr, align 4
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, i32 noundef %1)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"class.cvc5::internal::BitVector", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !24
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #3
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = load i32, ptr %8, align 4, !tbaa !8
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %13, i32 noundef %14)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
+          to label %15 unwind label %16
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+15:                                               ; preds = %4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+16:                                               ; preds = %4
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %10, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %11, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #3
+  br label %20
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %10, align 8
+  %22 = load i32, ptr %11, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6resizeEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %newSize) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %newSize.addr = alloca i32, align 4
-  %width = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %newSize, ptr %newSize.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store i32 %call, ptr %width, align 4
-  %0 = load i32, ptr %newSize.addr, align 4
-  %1 = load i32, ptr %width, align 4
-  %cmp = icmp ugt i32 %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6resizeEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %9 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 %10, ptr %7, align 4, !tbaa !8
+  %11 = load i32, ptr %6, align 4, !tbaa !8
+  %12 = load i32, ptr %7, align 4, !tbaa !8
+  %13 = icmp ugt i32 %11, %12
+  br i1 %13, label %14, label %18
 
-if.then:                                          ; preds = %entry
-  %2 = load i32, ptr %newSize.addr, align 4
-  %3 = load i32, ptr %width, align 4
-  %sub = sub i32 %2, %3
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub)
-  br label %return
+14:                                               ; preds = %3
+  %15 = load i32, ptr %6, align 4, !tbaa !8
+  %16 = load i32, ptr %7, align 4, !tbaa !8
+  %17 = sub i32 %15, %16
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %17)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-if.else:                                          ; preds = %entry
-  %4 = load i32, ptr %newSize.addr, align 4
-  %5 = load i32, ptr %width, align 4
-  %cmp2 = icmp ult i32 %4, %5
-  br i1 %cmp2, label %if.then3, label %if.else5
+18:                                               ; preds = %3
+  %19 = load i32, ptr %6, align 4, !tbaa !8
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  %21 = icmp ult i32 %19, %20
+  br i1 %21, label %22, label %26
 
-if.then3:                                         ; preds = %if.else
-  %6 = load i32, ptr %width, align 4
-  %7 = load i32, ptr %newSize.addr, align 4
-  %sub4 = sub i32 %6, %7
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub4)
-  br label %return
+22:                                               ; preds = %18
+  %23 = load i32, ptr %7, align 4, !tbaa !8
+  %24 = load i32, ptr %6, align 4, !tbaa !8
+  %25 = sub i32 %23, %24
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %25)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-if.else5:                                         ; preds = %if.else
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  br label %return
+26:                                               ; preds = %18
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  store i32 1, ptr %8, align 4
+  br label %27
 
-return:                                           ; preds = %if.else5, %if.then3, %if.then
+27:                                               ; preds = %26, %22, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10matchWidthERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %call2 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  %sub = sub i32 %call, %call2
-  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %sub)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10matchWidthERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !24
+  %9 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %10 = call noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
+  %11 = sub i32 %9, %10
+  call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6appendERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6appendERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEdvERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEdvERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErmERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  call void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErmERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.cvc5::internal::BitVector", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !24
+  store ptr %2, ptr %6, align 8, !tbaa !24
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %7) #3
+  %11 = load ptr, ptr %6, align 8, !tbaa !24
+  call void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
+12:                                               ; preds = %3
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %8, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %9, align 4
+  call void @_ZN4cvc58internal9BitVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %9, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-declare void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+declare void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  ret i1 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %op.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %op, ptr %op.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %op.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNEEv() #5 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNEEv() #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv() #5 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv() #7 align 2 {
   ret i32 15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTPEv() #5 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTPEv() #7 align 2 {
   ret i32 2048
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTNEv() #5 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTNEv() #7 align 2 {
   ret i32 1024
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTZEv() #5 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTZEv() #7 align 2 {
   ret i32 3072
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %p) #5 align 2 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits13postconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %p) #5 align 2 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits13postconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits9invariantERKb(ptr noundef nonnull align 1 dereferenceable(1) %p) #5 align 2 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits9invariantERKb(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal7IntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %z) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %z.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %z, ptr %z.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %z.addr, align 4
-  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %0)
+define linkonce_odr hidden void @_ZN4cvc58internal7IntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::Integer", ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7)
   ret void
 }
 
-declare void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #1
+declare void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) #1
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %this1, i32 0, i32 0
-  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_value) #3
+define linkonce_odr hidden void @_ZN4cvc58internal7IntegerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::Integer", ptr %3, i32 0, i32 0
+  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %i) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %i.addr, align 4
-  %conv = zext i32 %0 to i64
-  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_E7init_uiEm(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %conv)
+define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = zext i32 %6 to i64
+  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_E7init_uiEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %7)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_E7init_uiEm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %l) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %l.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %l, ptr %l.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %l.addr, align 8
-  %cmp = icmp eq i64 %0, 0
-  %1 = call i1 @llvm.is.constant.i1(i1 %cmp)
-  br i1 %1, label %land.lhs.true, label %if.else
+define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_E7init_uiEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store i64 %1, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !30
+  %7 = icmp eq i64 %6, 0
+  %8 = call i1 @llvm.is.constant.i1(i1 %7)
+  br i1 %8, label %9, label %15
 
-land.lhs.true:                                    ; preds = %entry
-  %2 = load i64, ptr %l.addr, align 8
-  %cmp2 = icmp eq i64 %2, 0
-  br i1 %cmp2, label %if.then, label %if.else
+9:                                                ; preds = %2
+  %10 = load i64, ptr %4, align 8, !tbaa !30
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %land.lhs.true
-  %mp = getelementptr inbounds %class.__gmp_expr, ptr %this1, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %mp, i64 0, i64 0
-  call void @__gmpz_init(ptr noundef %arraydecay) #3
-  br label %if.end
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw %class.__gmp_expr, ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %13, i64 0, i64 0
+  call void @__gmpz_init(ptr noundef %14) #3
+  br label %19
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %mp3 = getelementptr inbounds %class.__gmp_expr, ptr %this1, i32 0, i32 0
-  %arraydecay4 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %mp3, i64 0, i64 0
-  %3 = load i64, ptr %l.addr, align 8
-  call void @__gmpz_init_set_ui(ptr noundef %arraydecay4, i64 noundef %3)
-  br label %if.end
+15:                                               ; preds = %9, %2
+  %16 = getelementptr inbounds nuw %class.__gmp_expr, ptr %5, i32 0, i32 0
+  %17 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %16, i64 0, i64 0
+  %18 = load i64, ptr %4, align 8, !tbaa !30
+  call void @__gmpz_init_set_ui(ptr noundef %17, i64 noundef %18)
+  br label %19
 
-if.end:                                           ; preds = %if.else, %if.then
+19:                                               ; preds = %15, %12
   ret void
 }
 
 ; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
-declare i1 @llvm.is.constant.i1(i1) #6
+declare i1 @llvm.is.constant.i1(i1) #8
 
 ; Function Attrs: nounwind
 declare void @__gmpz_init(ptr noundef) #2
@@ -2958,33 +3012,32 @@ declare void @__gmpz_init(ptr noundef) #2
 declare void @__gmpz_init_set_ui(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mp = getelementptr inbounds %class.__gmp_expr, ptr %this1, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %mp, i64 0, i64 0
-  invoke void @__gmpz_clear(ptr noundef %arraydecay)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.__gmp_expr, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %4, i64 0, i64 0
+  invoke void @__gmpz_clear(ptr noundef %5)
+          to label %6 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
+6:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 }
 
 declare void @__gmpz_clear(ptr noundef) #1
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #9 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #8
+  call void @_ZSt9terminatev() #10
   unreachable
 }
 
@@ -2993,34 +3046,32 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %q) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %q.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %q, ptr %q.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_value = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %q.addr, align 8
-  %d_value2 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %0, i32 0, i32 0
-  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %d_value2)
+define linkonce_odr hidden void @_ZN4cvc58internal7IntegerC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !26
+  store ptr %1, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::Integer", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !26
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Integer", ptr %7, i32 0, i32 0
+  call void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %z) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %z.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %z, ptr %z.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %mp2 = getelementptr inbounds %class.__gmp_expr, ptr %this1, i32 0, i32 0
-  %arraydecay = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %mp2, i64 0, i64 0
-  %0 = load ptr, ptr %z.addr, align 8
-  %mp3 = getelementptr inbounds %class.__gmp_expr, ptr %0, i32 0, i32 0
-  %arraydecay4 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %mp3, i64 0, i64 0
-  call void @__gmpz_init_set(ptr noundef %arraydecay, ptr noundef %arraydecay4)
+define linkonce_odr hidden void @_ZN10__gmp_exprIA1_12__mpz_structS1_EC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !28
+  store ptr %1, ptr %4, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.__gmp_expr, ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %6, i64 0, i64 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !28
+  %9 = getelementptr inbounds nuw %class.__gmp_expr, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds [1 x %struct.__mpz_struct], ptr %9, i64 0, i64 0
+  call void @__gmpz_init_set(ptr noundef %7, ptr noundef %10)
   ret void
 }
 
@@ -3028,24 +3079,53 @@ declare void @__gmpz_init_set(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_floatingpoint_literal_symfpu_traits.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 bool", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"bool", !6, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN4cvc58internal9BitVectorE", !5, i64 0}
+!18 = !{!19, !9, i64 0}
+!19 = !{!"_ZTSN4cvc58internal9BitVectorE", !9, i64 0, !20, i64 8}
+!20 = !{!"_ZTSN4cvc58internal7IntegerE", !21, i64 0}
+!21 = !{!"_ZTS10__gmp_exprIA1_12__mpz_structS1_E", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !5, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTSN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEE", !5, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTSN4cvc58internal7IntegerE", !5, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS10__gmp_exprIA1_12__mpz_structS1_E", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"long", !6, i64 0}

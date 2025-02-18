@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NullC" = type { i8 }
@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::context::CDO.0" = type { %"class.cvc5::context::ContextObj", i64 }
 %"class.cvc5::context::ContextObj" = type { ptr, ptr, ptr, ptr, ptr }
-%"class.cvc5::context::CDList" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector", i64, i8, %"class.cvc5::context::DefaultCleanUp", [6 x i8] }>
+%"class.cvc5::context::CDList" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector", i64, i8, [7 x i8] }>
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
@@ -31,10 +31,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::expr::NodeValue::iterator" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator.53" = type { ptr }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
+%"class.std::ctype" = type <{ %"class.std::locale::facet.base", [4 x i8], ptr, i8, [7 x i8], ptr, ptr, ptr, i8, [256 x i8], [256 x i8], i8, [6 x i8] }>
+%"class.std::locale::facet.base" = type <{ ptr, i32 }>
+%"class.cvc5::internal::expr::NodeValue" = type { i64, i64, ptr, [0 x ptr] }
 %"class.__gnu_cxx::__normal_iterator.41" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.cvc5::internal::OstreamVoider" = type { i8 }
@@ -147,11 +150,19 @@ $_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_
 
 $_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEEC2Ev = comdat any
 
+$_ZSt13__check_facetISt5ctypeIcEERKT_PS3_ = comdat any
+
+$_ZNKSt5ctypeIcE5widenEc = comdat any
+
 $_ZNSt8ios_base5iwordEi = comdat any
 
-$_ZN4cvc58internal4expr9NodeValue3decEv = comdat any
-
 $__clang_call_terminate = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZStorSt12_Ios_IostateS_ = comdat any
+
+$_ZN4cvc58internal4expr9NodeValue3decEv = comdat any
 
 $_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE = comdat any
 
@@ -217,15 +228,11 @@ $_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_ = comdat any
 
 $_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m = comdat any
 
-$_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE10deallocateERS4_PS3_m = comdat any
 
 $_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE10deallocateEPS3_m = comdat any
-
-$_ZNSaIN4cvc58internal12NodeTemplateILb1EEEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev = comdat any
 
 $_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm = comdat any
 
@@ -339,15 +346,11 @@ $_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb0EEEEvPT_ = comdat any
 
 $_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m = comdat any
 
-$_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE10deallocateERS4_PS3_m = comdat any
 
 $_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE10deallocateEPS3_m = comdat any
-
-$_ZNSaIN4cvc58internal12NodeTemplateILb0EEEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev = comdat any
 
 $_ZNK4cvc58internal4expr9NodeValue5beginINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv = comdat any
 
@@ -429,27 +432,27 @@ $_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null = comdat any
 
 $_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = comdat any
 
-$_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = comdat any
+$_ZTIN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = comdat any
 
-$_ZTSN4cvc57context10ContextObjE = comdat any
+$_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = comdat any
 
 $_ZTIN4cvc57context10ContextObjE = comdat any
 
-$_ZTIN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = comdat any
+$_ZTSN4cvc57context10ContextObjE = comdat any
 
 $_ZTVN4cvc57context10ContextObjE = comdat any
 
 $_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = comdat any
 
-$_ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = comdat any
-
 $_ZTIN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = comdat any
+
+$_ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = comdat any
 
 $_ZTVN4cvc57context3CDOImEE = comdat any
 
-$_ZTSN4cvc57context3CDOImEE = comdat any
-
 $_ZTIN4cvc57context3CDOImEE = comdat any
+
+$_ZTSN4cvc57context3CDOImEE = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -467,12 +470,12 @@ $_ZTIN4cvc57context3CDOImEE = comdat any
 @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null = linkonce_odr global ptr null, comdat, align 8
 @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null = linkonce_odr global i64 0, comdat, align 8
 @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE4saveEPNS0_20ContextMemoryManagerE, ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE7restoreEPNS0_10ContextObjE, ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev, ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED0Ev] }, comdat, align 8
+@_ZTIN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, ptr @_ZTIN4cvc57context10ContextObjE }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = linkonce_odr hidden constant [91 x i8] c"N4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE\00", comdat, align 1
+@_ZTIN4cvc57context10ContextObjE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4cvc57context10ContextObjE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN4cvc57context10ContextObjE = linkonce_odr constant [28 x i8] c"N4cvc57context10ContextObjE\00", comdat, align 1
-@_ZTIN4cvc57context10ContextObjE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4cvc57context10ContextObjE }, comdat, align 8
-@_ZTIN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, ptr @_ZTIN4cvc57context10ContextObjE }, comdat, align 8
 @.str.6 = private unnamed_addr constant [12 x i8] c"copy ctor: \00", align 1
 @.str.7 = private unnamed_addr constant [7 x i8] c" from \00", align 1
 @.str.8 = private unnamed_addr constant [7 x i8] c" size \00", align 1
@@ -484,11 +487,11 @@ $_ZTIN4cvc57context3CDOImEE = comdat any
 @.str.12 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.13 = private unnamed_addr constant [51 x i8] c"It is not allowed to delete a ContextObj this way!\00", align 1
 @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE4saveEPNS0_20ContextMemoryManagerE, ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE7restoreEPNS0_10ContextObjE, ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev, ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED0Ev] }, comdat, align 8
-@_ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = linkonce_odr hidden constant [55 x i8] c"N4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE\00", comdat, align 1
 @_ZTIN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, ptr @_ZTIN4cvc57context10ContextObjE }, comdat, align 8
+@_ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE = linkonce_odr hidden constant [55 x i8] c"N4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE\00", comdat, align 1
 @_ZTVN4cvc57context3CDOImEE = linkonce_odr hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN4cvc57context3CDOImEE, ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20ContextMemoryManagerE, ptr @_ZN4cvc57context3CDOImE7restoreEPNS0_10ContextObjE, ptr @_ZN4cvc57context3CDOImED2Ev, ptr @_ZN4cvc57context3CDOImED0Ev] }, comdat, align 8
-@_ZTSN4cvc57context3CDOImEE = linkonce_odr hidden constant [23 x i8] c"N4cvc57context3CDOImEE\00", comdat, align 1
 @_ZTIN4cvc57context3CDOImEE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4cvc57context3CDOImEE, ptr @_ZTIN4cvc57context10ContextObjE }, comdat, align 8
+@_ZTSN4cvc57context3CDOImEE = linkonce_odr hidden constant [23 x i8] c"N4cvc57context3CDOImEE\00", comdat, align 1
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.5, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_pattern_term_info.cpp, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE], section "llvm.metadata"
@@ -497,9 +500,8 @@ $_ZTIN4cvc57context3CDOImEE = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -512,2081 +514,2517 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfoC2EPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %c) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp = alloca i64, align 8
-  %ref.tmp4 = alloca %"class.cvc5::context::DefaultCleanUp", align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_pattern = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_pattern)
-  %d_eq = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %c.addr, align 8
-  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_eq, ptr noundef %0)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfoC2EPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca %"class.cvc5::context::DefaultCleanUp", align 1
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %9, i32 0, i32 0
+  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %11 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %4, align 8, !tbaa !8
+  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12)
+          to label %13 unwind label %23
 
-invoke.cont:                                      ; preds = %entry
-  %d_numUnassigned = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %c.addr, align 8
-  store i64 0, ptr %ref.tmp, align 8
-  invoke void @_ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm(ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont3 unwind label %lpad2
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  store i64 0, ptr %7, align 8, !tbaa !10
+  invoke void @_ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %16 unwind label %27
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  %d_parentNotify = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %c.addr, align 8
-  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2EPNS0_7ContextEbRKS6_(ptr noundef nonnull align 8 dereferenceable(74) %d_parentNotify, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4)
-          to label %invoke.cont6 unwind label %lpad5
+16:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %9, i32 0, i32 3
+  %18 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2EPNS0_7ContextEbRKS6_(ptr noundef nonnull align 8 dereferenceable(74) %17, ptr noundef %18, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %19 unwind label %31
 
-invoke.cont6:                                     ; preds = %invoke.cont3
-  %d_evalExpChild = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 4
-  %3 = load ptr, ptr %c.addr, align 8
-  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %d_evalExpChild, ptr noundef %3)
-          to label %invoke.cont8 unwind label %lpad7
+19:                                               ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %9, i32 0, i32 4
+  %21 = load ptr, ptr %4, align 8, !tbaa !8
+  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %21)
+          to label %22 unwind label %35
 
-invoke.cont8:                                     ; preds = %invoke.cont6
+22:                                               ; preds = %19
   ret void
 
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  br label %ehcleanup10
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %5, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %6, align 4
+  br label %41
 
-lpad2:                                            ; preds = %invoke.cont
-  %7 = landingpad { ptr, i32 }
+27:                                               ; preds = %13
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %ehcleanup9
+  %29 = extractvalue { ptr, i32 } %28, 0
+  store ptr %29, ptr %5, align 8
+  %30 = extractvalue { ptr, i32 } %28, 1
+  store i32 %30, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %40
 
-lpad5:                                            ; preds = %invoke.cont3
-  %10 = landingpad { ptr, i32 }
+31:                                               ; preds = %16
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  store ptr %11, ptr %exn.slot, align 8
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store i32 %12, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %5, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  br label %39
 
-lpad7:                                            ; preds = %invoke.cont6
-  %13 = landingpad { ptr, i32 }
+35:                                               ; preds = %19
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %exn.slot, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %d_parentNotify) #3
-  br label %ehcleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %5, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %6, align 4
+  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %17) #3
+  br label %39
 
-ehcleanup:                                        ; preds = %lpad7, %lpad5
-  call void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned) #3
-  br label %ehcleanup9
+39:                                               ; preds = %35, %31
+  call void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #3
+  br label %40
 
-ehcleanup9:                                       ; preds = %ehcleanup, %lpad2
-  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_eq) #3
-  br label %ehcleanup10
+40:                                               ; preds = %39, %27
+  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  br label %41
 
-ehcleanup10:                                      ; preds = %ehcleanup9, %lpad
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_pattern) #3
-  br label %eh.resume
+41:                                               ; preds = %40, %23
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br label %42
 
-eh.resume:                                        ; preds = %ehcleanup10
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val11 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val11
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i32, ptr %6, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
-  store ptr %call, ptr %d_nv, align 8
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
+  store ptr %5, ptr %4, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %context) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %context.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_data)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !8
+  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %7, i32 0, i32 1
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
+10:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(8) %data) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %context.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  store i64 0, ptr %d_data, align 8
-  invoke void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
-invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %data.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  store i64 %3, ptr %d_data2, align 8
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImEC2EPNS0_7ContextERKm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !21
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !23
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %5, align 8, !tbaa !8
+  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10)
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2), ptr %9, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %9, i32 0, i32 1
+  store i64 0, ptr %11, align 8, !tbaa !25
+  invoke void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+          to label %12 unwind label %16
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %6, align 8, !tbaa !23
+  %14 = load i64, ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %9, i32 0, i32 1
+  store i64 %14, ptr %15, align 8, !tbaa !25
   ret void
 
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  store ptr %5, ptr %exn.slot, align 8
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  br label %eh.resume
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  br label %20
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2EPNS0_7ContextEbRKS6_(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef %context, i1 noundef zeroext %callCleanup, ptr noundef nonnull align 1 dereferenceable(1) %cleanup) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %context.addr = alloca ptr, align 8
-  %callCleanup.addr = alloca i8, align 1
-  %cleanup.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %context, ptr %context.addr, align 8
-  %frombool = zext i1 %callCleanup to i8
-  store i8 %frombool, ptr %callCleanup.addr, align 1
-  store ptr %cleanup, ptr %cleanup.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %context.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  call void @llvm.memset.p0.i64(ptr align 8 %d_list, i8 0, i64 24, i1 false)
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
-  %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  store i64 0, ptr %d_size, align 8
-  %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  %2 = load i8, ptr %callCleanup.addr, align 1
-  %tobool = trunc i8 %2 to i1
-  %frombool2 = zext i1 %tobool to i8
-  store i8 %frombool2, ptr %d_callCleanup, align 8
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2EPNS0_7ContextEbRKS6_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !31
+  store ptr %1, ptr %6, align 8, !tbaa !8
+  %9 = zext i1 %2 to i8
+  store i8 %9, ptr %7, align 1, !tbaa !33
+  store ptr %3, ptr %8, align 8, !tbaa !35
+  %10 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8, !tbaa !8
+  call void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11)
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %10, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %10, i32 0, i32 1
+  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %13 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %10, i32 0, i32 2
+  store i64 0, ptr %13, align 8, !tbaa !37
+  %14 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %10, i32 0, i32 3
+  %15 = load i8, ptr %7, align 1, !tbaa !33, !range !45, !noundef !46
+  %16 = trunc i8 %15 to i1
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %14, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !19
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %4 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  %1 = load i8, ptr %d_callCleanup, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then, label %if.end
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %3, i32 0, i32 3
+  %6 = load i8, ptr %5, align 8, !tbaa !47, !range !45, !noundef !46
+  %7 = trunc i8 %6 to i1
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %invoke.cont
-  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %this1, i64 noundef 0)
-          to label %invoke.cont2 unwind label %terminate.lpad
+8:                                                ; preds = %4
+  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %3, i64 noundef 0)
+          to label %9 unwind label %12
 
-invoke.cont2:                                     ; preds = %if.then
-  br label %if.end
+9:                                                ; preds = %8
+  br label %10
 
-if.end:                                           ; preds = %invoke.cont2, %invoke.cont
-  %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
+10:                                               ; preds = %9, %4
+  %11 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 
-terminate.lpad:                                   ; preds = %if.then, %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %8, %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !19
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %4 unwind label %5
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
+4:                                                ; preds = %1
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_data) #3
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfo10initializeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %pattern) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pattern.indirect_addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pattern, ptr %pattern.indirect_addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_pattern = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_pattern, ptr noundef nonnull align 8 dereferenceable(8) %pattern)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %1 = load ptr, ptr %e.addr, align 8
-  %d_nv2 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %d_nv2, align 8
-  %cmp = icmp ne ptr %0, %2
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %e.addr, align 8
-  %d_nv3 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %d_nv3, align 8
-  %d_nv4 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  store ptr %4, ptr %d_nv4, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret ptr %this1
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers5ieval11PatTermInfo8isActiveEv(ptr noundef nonnull align 8 dereferenceable(232) %this) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_eq = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_eq)
-  %call2 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  ret i1 %call2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  ret ptr %d_data
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
-  %cmp = icmp eq ptr %0, %call
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfo11notifyChildERNS3_5StateENS0_12NodeTemplateILb0EEES8_PNS3_13TermEvaluatorE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(424) %s, ptr noundef %child, ptr noundef %val, ptr noundef %tec) #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %s.addr = alloca ptr, align 8
-  %child.indirect_addr = alloca ptr, align 8
-  %val.indirect_addr = alloca ptr, align 8
-  %tec.addr = alloca ptr, align 8
-  %exp = alloca %"class.cvc5::internal::NodeTemplate.1", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %agg.tmp3 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp6 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %ref.tmp23 = alloca %"class.cvc5::internal::__cvc5_true", align 1
-  %tmp = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %agg.tmp.ensured = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp27 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp45 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %cleanup.dest.slot = alloca i32, align 4
-  %ref.tmp52 = alloca i64, align 8
-  %ref.tmp58 = alloca %"class.cvc5::internal::__cvc5_true", align 1
-  %tmp62 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %agg.tmp.ensured65 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp66 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %childValues = alloca %"class.std::vector.23", align 8
-  %__range3 = alloca ptr, align 8
-  %__begin3 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %__end3 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %pc = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %pcv = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp91 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %ref.tmp103 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp104 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %ref.tmp117 = alloca %"class.cvc5::internal::__cvc5_true", align 1
-  %tmp121 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %agg.tmp.ensured124 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp125 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %s, ptr %s.addr, align 8
-  store ptr %child, ptr %child.indirect_addr, align 8
-  store ptr %val, ptr %val.indirect_addr, align 8
-  store ptr %tec, ptr %tec.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_eq = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_eq)
-  %call2 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  br i1 %call2, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  call void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %exp)
-  %0 = load ptr, ptr %tec.addr, align 8
-  %1 = load ptr, ptr %s.addr, align 8
-  %d_pattern = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %d_pattern)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %child)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %val)
-          to label %invoke.cont8 unwind label %lpad7
-
-invoke.cont8:                                     ; preds = %invoke.cont5
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %2 = load ptr, ptr %vfn, align 8
-  invoke void %2(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef %agg.tmp, ptr noundef %agg.tmp3, ptr noundef %agg.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %exp)
-          to label %invoke.cont10 unwind label %lpad9
-
-invoke.cont10:                                    ; preds = %invoke.cont8
-  %d_eq11 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call14 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %d_eq11, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-          to label %invoke.cont13 unwind label %lpad12
-
-invoke.cont13:                                    ; preds = %invoke.cont10
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #3
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #3
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  %d_eq17 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_eq17)
-          to label %invoke.cont18 unwind label %lpad
-
-invoke.cont18:                                    ; preds = %invoke.cont13
-  %call21 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %call19)
-          to label %invoke.cont20 unwind label %lpad
-
-invoke.cont20:                                    ; preds = %invoke.cont18
-  br i1 %call21, label %if.end51, label %if.then22
-
-if.then22:                                        ; preds = %invoke.cont20
-  %call25 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
-          to label %invoke.cont24 unwind label %lpad
-
-invoke.cont24:                                    ; preds = %if.then22
-  br i1 %call25, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %invoke.cont24
-  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %tmp, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
-          to label %invoke.cont26 unwind label %lpad
-
-invoke.cont26:                                    ; preds = %cond.true
-  br label %cond.end
-
-cond.false:                                       ; preds = %invoke.cont24
-  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
-          to label %invoke.cont28 unwind label %lpad
-
-invoke.cont28:                                    ; preds = %cond.false
-  %call30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp27, ptr noundef nonnull align 1 dereferenceable(3) @.str)
-          to label %invoke.cont29 unwind label %lpad
-
-invoke.cont29:                                    ; preds = %invoke.cont28
-  %d_pattern31 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  %call33 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call30, ptr noundef nonnull align 8 dereferenceable(8) %d_pattern31)
-          to label %invoke.cont32 unwind label %lpad
-
-invoke.cont32:                                    ; preds = %invoke.cont29
-  %call35 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call33, ptr noundef nonnull align 1 dereferenceable(5) @.str.1)
-          to label %invoke.cont34 unwind label %lpad
-
-invoke.cont34:                                    ; preds = %invoke.cont32
-  %d_eq36 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_eq36)
-          to label %invoke.cont37 unwind label %lpad
-
-invoke.cont37:                                    ; preds = %invoke.cont34
-  %call40 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call35, ptr noundef nonnull align 8 dereferenceable(8) %call38)
-          to label %invoke.cont39 unwind label %lpad
-
-invoke.cont39:                                    ; preds = %invoke.cont37
-  %call42 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA20_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call40, ptr noundef nonnull align 1 dereferenceable(20) @.str.2)
-          to label %invoke.cont41 unwind label %lpad
-
-invoke.cont41:                                    ; preds = %invoke.cont39
-  %call44 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %call42, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %invoke.cont43 unwind label %lpad
-
-invoke.cont43:                                    ; preds = %invoke.cont41
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.ensured, ptr align 8 %call44, i64 24, i1 false)
-  br label %cond.end
-
-cond.end:                                         ; preds = %invoke.cont43, %invoke.cont26
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKNS1_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(8) %exp)
-          to label %invoke.cont46 unwind label %lpad
-
-invoke.cont46:                                    ; preds = %cond.end
-  %d_evalExpChild = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 4
-  %call49 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %d_evalExpChild, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45)
-          to label %invoke.cont48 unwind label %lpad47
-
-invoke.cont48:                                    ; preds = %invoke.cont46
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #3
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %cond.end75, %invoke.cont71, %invoke.cont68, %invoke.cont67, %cond.false64, %cond.true61, %invoke.cont56, %invoke.cont53, %if.end51, %cond.end, %invoke.cont41, %invoke.cont39, %invoke.cont37, %invoke.cont34, %invoke.cont32, %invoke.cont29, %invoke.cont28, %cond.false, %cond.true, %if.then22, %invoke.cont18, %invoke.cont13, %if.end
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup145
-
-lpad4:                                            ; preds = %invoke.cont
+5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
-          cleanup
+          catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  br label %ehcleanup16
-
-lpad7:                                            ; preds = %invoke.cont5
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %10 = extractvalue { ptr, i32 } %9, 0
-  store ptr %10, ptr %exn.slot, align 8
-  %11 = extractvalue { ptr, i32 } %9, 1
-  store i32 %11, ptr %ehselector.slot, align 4
-  br label %ehcleanup15
-
-lpad9:                                            ; preds = %invoke.cont8
-  %12 = landingpad { ptr, i32 }
-          cleanup
-  %13 = extractvalue { ptr, i32 } %12, 0
-  store ptr %13, ptr %exn.slot, align 8
-  %14 = extractvalue { ptr, i32 } %12, 1
-  store i32 %14, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad12:                                           ; preds = %invoke.cont10
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %exn.slot, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad12, %lpad9
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6) #3
-  br label %ehcleanup15
-
-ehcleanup15:                                      ; preds = %ehcleanup, %lpad7
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #3
-  br label %ehcleanup16
-
-ehcleanup16:                                      ; preds = %ehcleanup15, %lpad4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  br label %ehcleanup145
-
-lpad47:                                           ; preds = %invoke.cont46
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp45) #3
-  br label %ehcleanup145
-
-if.end51:                                         ; preds = %invoke.cont20
-  %d_numUnassigned = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 2
-  %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned)
-          to label %invoke.cont53 unwind label %lpad
-
-invoke.cont53:                                    ; preds = %if.end51
-  %21 = load i64, ptr %call54, align 8
-  %sub = sub i64 %21, 1
-  store i64 %sub, ptr %ref.tmp52, align 8
-  %d_numUnassigned55 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 2
-  %call57 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOImEaSERKm(ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned55, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52)
-          to label %invoke.cont56 unwind label %lpad
-
-invoke.cont56:                                    ; preds = %invoke.cont53
-  %call60 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58)
-          to label %invoke.cont59 unwind label %lpad
-
-invoke.cont59:                                    ; preds = %invoke.cont56
-  br i1 %call60, label %cond.true61, label %cond.false64
-
-cond.true61:                                      ; preds = %invoke.cont59
-  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %tmp62, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
-          to label %invoke.cont63 unwind label %lpad
-
-invoke.cont63:                                    ; preds = %cond.true61
-  br label %cond.end75
-
-cond.false64:                                     ; preds = %invoke.cont59
-  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
-          to label %invoke.cont67 unwind label %lpad
-
-invoke.cont67:                                    ; preds = %cond.false64
-  %call69 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA28_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp66, ptr noundef nonnull align 1 dereferenceable(28) @.str.3)
-          to label %invoke.cont68 unwind label %lpad
-
-invoke.cont68:                                    ; preds = %invoke.cont67
-  %d_numUnassigned70 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 2
-  %call72 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS_7context3CDOImEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call69, ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned70)
-          to label %invoke.cont71 unwind label %lpad
-
-invoke.cont71:                                    ; preds = %invoke.cont68
-  %call74 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %call72, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %invoke.cont73 unwind label %lpad
-
-invoke.cont73:                                    ; preds = %invoke.cont71
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.ensured65, ptr align 8 %call74, i64 24, i1 false)
-  br label %cond.end75
-
-cond.end75:                                       ; preds = %invoke.cont73, %invoke.cont63
-  %d_numUnassigned76 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 2
-  %call78 = invoke noundef i64 @_ZN4cvc57context3CDOImEcvmEv(ptr noundef nonnull align 8 dereferenceable(48) %d_numUnassigned76)
-          to label %invoke.cont77 unwind label %lpad
-
-invoke.cont77:                                    ; preds = %cond.end75
-  %cmp = icmp ugt i64 %call78, 0
-  br i1 %cmp, label %if.then79, label %if.end80
-
-if.then79:                                        ; preds = %invoke.cont77
-  store i1 false, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-if.end80:                                         ; preds = %invoke.cont77
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %childValues) #3
-  %d_pattern81 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  store ptr %d_pattern81, ptr %__range3, align 8
-  %22 = load ptr, ptr %__range3, align 8
-  %call84 = invoke ptr @_ZN4cvc58internal12NodeTemplateILb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %invoke.cont83 unwind label %lpad82
-
-invoke.cont83:                                    ; preds = %if.end80
-  %coerce.dive = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %__begin3, i32 0, i32 0
-  store ptr %call84, ptr %coerce.dive, align 8
-  %23 = load ptr, ptr %__range3, align 8
-  %call86 = invoke ptr @_ZN4cvc58internal12NodeTemplateILb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %invoke.cont85 unwind label %lpad82
-
-invoke.cont85:                                    ; preds = %invoke.cont83
-  %coerce.dive87 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %__end3, i32 0, i32 0
-  store ptr %call86, ptr %coerce.dive87, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %invoke.cont101, %invoke.cont85
-  %call89 = invoke noundef zeroext i1 @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %__begin3, ptr noundef nonnull align 8 dereferenceable(8) %__end3)
-          to label %invoke.cont88 unwind label %lpad82
-
-invoke.cont88:                                    ; preds = %for.cond
-  br i1 %call89, label %for.body, label %for.end
-
-for.body:                                         ; preds = %invoke.cont88
-  invoke void @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEdeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %pc, ptr noundef nonnull align 8 dereferenceable(8) %__begin3)
-          to label %invoke.cont90 unwind label %lpad82
-
-invoke.cont90:                                    ; preds = %for.body
-  %24 = load ptr, ptr %s.addr, align 8
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp91, ptr noundef nonnull align 8 dereferenceable(8) %pc)
-          to label %invoke.cont93 unwind label %lpad92
-
-invoke.cont93:                                    ; preds = %invoke.cont90
-  invoke void @_ZNK4cvc58internal6theory11quantifiers5ieval5State8getValueENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %pcv, ptr noundef nonnull align 8 dereferenceable(424) %24, ptr noundef %agg.tmp91)
-          to label %invoke.cont95 unwind label %lpad94
-
-invoke.cont95:                                    ; preds = %invoke.cont93
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp91) #3
-  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %childValues, ptr noundef nonnull align 8 dereferenceable(8) %pcv)
-          to label %invoke.cont98 unwind label %lpad97
-
-invoke.cont98:                                    ; preds = %invoke.cont95
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pcv) #3
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pc) #3
-  br label %for.inc
-
-for.inc:                                          ; preds = %invoke.cont98
-  %call102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin3)
-          to label %invoke.cont101 unwind label %lpad82
-
-invoke.cont101:                                   ; preds = %for.inc
-  br label %for.cond
-
-lpad82:                                           ; preds = %invoke.cont139, %invoke.cont137, %invoke.cont135, %invoke.cont132, %invoke.cont130, %invoke.cont127, %invoke.cont126, %cond.false123, %cond.true120, %invoke.cont113, %for.end, %for.inc, %for.body, %for.cond, %invoke.cont83, %if.end80
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  br label %ehcleanup144
-
-lpad92:                                           ; preds = %invoke.cont90
-  %28 = landingpad { ptr, i32 }
-          cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %exn.slot, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %ehselector.slot, align 4
-  br label %ehcleanup100
-
-lpad94:                                           ; preds = %invoke.cont93
-  %31 = landingpad { ptr, i32 }
-          cleanup
-  %32 = extractvalue { ptr, i32 } %31, 0
-  store ptr %32, ptr %exn.slot, align 8
-  %33 = extractvalue { ptr, i32 } %31, 1
-  store i32 %33, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp91) #3
-  br label %ehcleanup100
-
-lpad97:                                           ; preds = %invoke.cont95
-  %34 = landingpad { ptr, i32 }
-          cleanup
-  %35 = extractvalue { ptr, i32 } %34, 0
-  store ptr %35, ptr %exn.slot, align 8
-  %36 = extractvalue { ptr, i32 } %34, 1
-  store i32 %36, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pcv) #3
-  br label %ehcleanup100
-
-ehcleanup100:                                     ; preds = %lpad97, %lpad94, %lpad92
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %pc) #3
-  br label %ehcleanup144
-
-for.end:                                          ; preds = %invoke.cont88
-  %37 = load ptr, ptr %tec.addr, align 8
-  %38 = load ptr, ptr %s.addr, align 8
-  %d_pattern105 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp104, ptr noundef nonnull align 8 dereferenceable(8) %d_pattern105)
-          to label %invoke.cont106 unwind label %lpad82
-
-invoke.cont106:                                   ; preds = %for.end
-  %vtable107 = load ptr, ptr %37, align 8
-  %vfn108 = getelementptr inbounds ptr, ptr %vtable107, i64 4
-  %39 = load ptr, ptr %vfn108, align 8
-  invoke void %39(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef nonnull align 8 dereferenceable(424) %38, ptr noundef %agg.tmp104, ptr noundef nonnull align 8 dereferenceable(24) %childValues)
-          to label %invoke.cont110 unwind label %lpad109
-
-invoke.cont110:                                   ; preds = %invoke.cont106
-  %d_eq111 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call114 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %d_eq111, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103)
-          to label %invoke.cont113 unwind label %lpad112
-
-invoke.cont113:                                   ; preds = %invoke.cont110
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #3
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp104) #3
-  %call119 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp117)
-          to label %invoke.cont118 unwind label %lpad82
-
-invoke.cont118:                                   ; preds = %invoke.cont113
-  br i1 %call119, label %cond.true120, label %cond.false123
-
-cond.true120:                                     ; preds = %invoke.cont118
-  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %tmp121, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
-          to label %invoke.cont122 unwind label %lpad82
-
-invoke.cont122:                                   ; preds = %cond.true120
-  br label %cond.end143
-
-cond.false123:                                    ; preds = %invoke.cont118
-  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
-          to label %invoke.cont126 unwind label %lpad82
-
-invoke.cont126:                                   ; preds = %cond.false123
-  %call128 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp125, ptr noundef nonnull align 1 dereferenceable(3) @.str)
-          to label %invoke.cont127 unwind label %lpad82
-
-invoke.cont127:                                   ; preds = %invoke.cont126
-  %d_pattern129 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 0
-  %call131 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call128, ptr noundef nonnull align 8 dereferenceable(8) %d_pattern129)
-          to label %invoke.cont130 unwind label %lpad82
-
-invoke.cont130:                                   ; preds = %invoke.cont127
-  %call133 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call131, ptr noundef nonnull align 1 dereferenceable(5) @.str.1)
-          to label %invoke.cont132 unwind label %lpad82
-
-invoke.cont132:                                   ; preds = %invoke.cont130
-  %d_eq134 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %this1, i32 0, i32 1
-  %call136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %d_eq134)
-          to label %invoke.cont135 unwind label %lpad82
-
-invoke.cont135:                                   ; preds = %invoke.cont132
-  %call138 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call133, ptr noundef nonnull align 8 dereferenceable(8) %call136)
-          to label %invoke.cont137 unwind label %lpad82
-
-invoke.cont137:                                   ; preds = %invoke.cont135
-  %call140 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call138, ptr noundef nonnull align 1 dereferenceable(12) @.str.4)
-          to label %invoke.cont139 unwind label %lpad82
-
-invoke.cont139:                                   ; preds = %invoke.cont137
-  %call142 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %call140, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %invoke.cont141 unwind label %lpad82
-
-invoke.cont141:                                   ; preds = %invoke.cont139
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.ensured124, ptr align 8 %call142, i64 24, i1 false)
-  br label %cond.end143
-
-cond.end143:                                      ; preds = %invoke.cont141, %invoke.cont122
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %childValues) #3
-  br label %cleanup
-
-lpad109:                                          ; preds = %invoke.cont106
-  %40 = landingpad { ptr, i32 }
-          cleanup
-  %41 = extractvalue { ptr, i32 } %40, 0
-  store ptr %41, ptr %exn.slot, align 8
-  %42 = extractvalue { ptr, i32 } %40, 1
-  store i32 %42, ptr %ehselector.slot, align 4
-  br label %ehcleanup116
-
-lpad112:                                          ; preds = %invoke.cont110
-  %43 = landingpad { ptr, i32 }
-          cleanup
-  %44 = extractvalue { ptr, i32 } %43, 0
-  store ptr %44, ptr %exn.slot, align 8
-  %45 = extractvalue { ptr, i32 } %43, 1
-  store i32 %45, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp103) #3
-  br label %ehcleanup116
-
-ehcleanup116:                                     ; preds = %lpad112, %lpad109
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp104) #3
-  br label %ehcleanup144
-
-ehcleanup144:                                     ; preds = %ehcleanup116, %ehcleanup100, %lpad82
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %childValues) #3
-  br label %ehcleanup145
-
-cleanup:                                          ; preds = %cond.end143, %if.then79, %invoke.cont48
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %exp) #3
-  br label %return
-
-ehcleanup145:                                     ; preds = %ehcleanup144, %lpad47, %ehcleanup16, %lpad
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %exp) #3
-  br label %eh.resume
-
-return:                                           ; preds = %cleanup, %if.then
-  %46 = load i1, ptr %retval, align 1
-  ret i1 %46
-
-eh.resume:                                        ; preds = %ehcleanup145
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val146 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val146
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
-  store ptr %call, ptr %d_nv, align 8
-  ret void
+  call void @__clang_call_terminate(ptr %7) #18
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %e.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %d_nv, align 8
-  %d_nv2 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  store ptr %1, ptr %d_nv2, align 8
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !19
+  invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %4 unwind label %6
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %3, i32 0, i32 1
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
+  ret void
+
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #18
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %data) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3setERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  ret ptr %this1
+define hidden void @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfo10initializeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %5, i32 0, i32 0
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
+  %11 = icmp ne ptr %7, %10
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 1)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %20
+
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %4, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !14
+  %19 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  store ptr %18, ptr %19, align 8, !tbaa !14
+  br label %20
+
+20:                                               ; preds = %15, %2
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers5ieval11PatTermInfo8isActiveEv(ptr noundef nonnull align 8 dereferenceable(232) %0) #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
+  %6 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %3, i32 0, i32 1
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %6 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
+  %7 = icmp eq ptr %5, %6
+  ret i1 %7
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5ieval11PatTermInfo11notifyChildERNS3_5StateENS0_12NodeTemplateILb0EEES8_PNS3_13TermEvaluatorE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(424) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %"class.cvc5::internal::NodeTemplate.1", align 8
+  %13 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %14 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %18 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %19 = alloca %"class.cvc5::internal::__cvc5_true", align 1
+  %20 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %21 = alloca i1, align 1
+  %22 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %23 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %24 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i64, align 8
+  %27 = alloca %"class.cvc5::internal::__cvc5_true", align 1
+  %28 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %29 = alloca i1, align 1
+  %30 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %31 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %32 = alloca %"class.std::vector.23", align 8
+  %33 = alloca ptr, align 8
+  %34 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %35 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %36 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %37 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %38 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %39 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %40 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %41 = alloca %"class.cvc5::internal::__cvc5_true", align 1
+  %42 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %43 = alloca i1, align 1
+  %44 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %45 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  store ptr %0, ptr %7, align 8, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !48
+  store ptr %2, ptr %9, align 8, !tbaa !12
+  store ptr %3, ptr %10, align 8, !tbaa !12
+  store ptr %4, ptr %11, align 8, !tbaa !50
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %47)
+  %49 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
+  br i1 %49, label %51, label %50
+
+50:                                               ; preds = %5
+  store i1 false, ptr %6, align 1
+  br label %327
+
+51:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %52 = load ptr, ptr %11, align 8, !tbaa !50
+  %53 = load ptr, ptr %8, align 8, !tbaa !48
+  %54 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 0
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %54)
+          to label %55 unwind label %101
+
+55:                                               ; preds = %51
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %56 unwind label %105
+
+56:                                               ; preds = %55
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %57 unwind label %109
+
+57:                                               ; preds = %56
+  %58 = load ptr, ptr %52, align 8, !tbaa !19
+  %59 = getelementptr inbounds ptr, ptr %58, i64 3
+  %60 = load ptr, ptr %59, align 8
+  invoke void %60(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %13, ptr noundef nonnull align 8 dereferenceable(20) %52, ptr noundef nonnull align 8 dereferenceable(424) %53, ptr noundef %14, ptr noundef %17, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %61 unwind label %113
+
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %63 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %64 unwind label %117
+
+64:                                               ; preds = %61
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  %65 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %65)
+          to label %67 unwind label %125
+
+67:                                               ; preds = %64
+  %68 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv(ptr noundef nonnull align 8 dereferenceable(8) %66)
+          to label %69 unwind label %125
+
+69:                                               ; preds = %67
+  br i1 %68, label %154, label %70
+
+70:                                               ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #3
+  store i1 false, ptr %21, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr %23) #3
+  %71 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %19)
+          to label %72 unwind label %129
+
+72:                                               ; preds = %70
+  br i1 %71, label %73, label %78
+
+73:                                               ; preds = %72
+  call void @llvm.lifetime.start.p0(i64 24, ptr %20) #3
+  store i1 true, ptr %21, align 1
+  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
+          to label %74 unwind label %133
+
+74:                                               ; preds = %73
+  %75 = load i1, ptr %21, align 1
+  br i1 %75, label %76, label %77
+
+76:                                               ; preds = %74
+  call void @llvm.lifetime.end.p0(i64 24, ptr %20) #3
+  br label %77
+
+77:                                               ; preds = %76, %74
+  br label %96
+
+78:                                               ; preds = %72
+  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
+          to label %79 unwind label %140
+
+79:                                               ; preds = %78
+  %80 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 1 dereferenceable(3) @.str)
+          to label %81 unwind label %140
+
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 0
+  %83 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(8) %82)
+          to label %84 unwind label %140
+
+84:                                               ; preds = %81
+  %85 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 1 dereferenceable(5) @.str.1)
+          to label %86 unwind label %140
+
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %87)
+          to label %89 unwind label %140
+
+89:                                               ; preds = %86
+  %90 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(8) %88)
+          to label %91 unwind label %140
+
+91:                                               ; preds = %89
+  %92 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA20_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 1 dereferenceable(20) @.str.2)
+          to label %93 unwind label %140
+
+93:                                               ; preds = %91
+  %94 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %95 unwind label %140
+
+95:                                               ; preds = %93
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %94, i64 24, i1 false), !tbaa.struct !52
+  br label %96
+
+96:                                               ; preds = %95, %77
+  call void @llvm.lifetime.end.p0(i64 24, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #3
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKNS1_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %97 unwind label %145
+
+97:                                               ; preds = %96
+  %98 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 4
+  %99 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %100 unwind label %149
+
+100:                                              ; preds = %97
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %25, align 4
+  br label %325
+
+101:                                              ; preds = %51
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %15, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %16, align 4
+  br label %124
+
+105:                                              ; preds = %55
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %15, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %16, align 4
+  br label %123
+
+109:                                              ; preds = %56
+  %110 = landingpad { ptr, i32 }
+          cleanup
+  %111 = extractvalue { ptr, i32 } %110, 0
+  store ptr %111, ptr %15, align 8
+  %112 = extractvalue { ptr, i32 } %110, 1
+  store i32 %112, ptr %16, align 4
+  br label %122
+
+113:                                              ; preds = %57
+  %114 = landingpad { ptr, i32 }
+          cleanup
+  %115 = extractvalue { ptr, i32 } %114, 0
+  store ptr %115, ptr %15, align 8
+  %116 = extractvalue { ptr, i32 } %114, 1
+  store i32 %116, ptr %16, align 4
+  br label %121
+
+117:                                              ; preds = %61
+  %118 = landingpad { ptr, i32 }
+          cleanup
+  %119 = extractvalue { ptr, i32 } %118, 0
+  store ptr %119, ptr %15, align 8
+  %120 = extractvalue { ptr, i32 } %118, 1
+  store i32 %120, ptr %16, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  br label %121
+
+121:                                              ; preds = %117, %113
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br label %122
+
+122:                                              ; preds = %121, %109
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  br label %123
+
+123:                                              ; preds = %122, %105
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
+  br label %124
+
+124:                                              ; preds = %123, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  br label %326
+
+125:                                              ; preds = %179, %67, %64
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  %127 = extractvalue { ptr, i32 } %126, 0
+  store ptr %127, ptr %15, align 8
+  %128 = extractvalue { ptr, i32 } %126, 1
+  store i32 %128, ptr %16, align 4
+  br label %326
+
+129:                                              ; preds = %70
+  %130 = landingpad { ptr, i32 }
+          cleanup
+  %131 = extractvalue { ptr, i32 } %130, 0
+  store ptr %131, ptr %15, align 8
+  %132 = extractvalue { ptr, i32 } %130, 1
+  store i32 %132, ptr %16, align 4
+  br label %144
+
+133:                                              ; preds = %73
+  %134 = landingpad { ptr, i32 }
+          cleanup
+  %135 = extractvalue { ptr, i32 } %134, 0
+  store ptr %135, ptr %15, align 8
+  %136 = extractvalue { ptr, i32 } %134, 1
+  store i32 %136, ptr %16, align 4
+  %137 = load i1, ptr %21, align 1
+  br i1 %137, label %138, label %139
+
+138:                                              ; preds = %133
+  call void @llvm.lifetime.end.p0(i64 24, ptr %20) #3
+  br label %139
+
+139:                                              ; preds = %138, %133
+  br label %144
+
+140:                                              ; preds = %93, %91, %89, %86, %84, %81, %79, %78
+  %141 = landingpad { ptr, i32 }
+          cleanup
+  %142 = extractvalue { ptr, i32 } %141, 0
+  store ptr %142, ptr %15, align 8
+  %143 = extractvalue { ptr, i32 } %141, 1
+  store i32 %143, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %23) #3
+  br label %144
+
+144:                                              ; preds = %140, %139, %129
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #3
+  br label %326
+
+145:                                              ; preds = %96
+  %146 = landingpad { ptr, i32 }
+          cleanup
+  %147 = extractvalue { ptr, i32 } %146, 0
+  store ptr %147, ptr %15, align 8
+  %148 = extractvalue { ptr, i32 } %146, 1
+  store i32 %148, ptr %16, align 4
+  br label %153
+
+149:                                              ; preds = %97
+  %150 = landingpad { ptr, i32 }
+          cleanup
+  %151 = extractvalue { ptr, i32 } %150, 0
+  store ptr %151, ptr %15, align 8
+  %152 = extractvalue { ptr, i32 } %150, 1
+  store i32 %152, ptr %16, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #3
+  br label %153
+
+153:                                              ; preds = %149, %145
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  br label %326
+
+154:                                              ; preds = %69
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #3
+  %155 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 2
+  %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %155)
+          to label %157 unwind label %185
+
+157:                                              ; preds = %154
+  %158 = load i64, ptr %156, align 8, !tbaa !10
+  %159 = sub i64 %158, 1
+  store i64 %159, ptr %26, align 8, !tbaa !10
+  %160 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 2
+  %161 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOImEaSERKm(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(8) %26)
+          to label %162 unwind label %185
+
+162:                                              ; preds = %157
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #3
+  store i1 false, ptr %29, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr %31) #3
+  %163 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %27)
+          to label %164 unwind label %189
+
+164:                                              ; preds = %162
+  br i1 %163, label %165, label %170
+
+165:                                              ; preds = %164
+  call void @llvm.lifetime.start.p0(i64 24, ptr %28) #3
+  store i1 true, ptr %29, align 1
+  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %28, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
+          to label %166 unwind label %193
+
+166:                                              ; preds = %165
+  %167 = load i1, ptr %29, align 1
+  br i1 %167, label %168, label %169
+
+168:                                              ; preds = %166
+  call void @llvm.lifetime.end.p0(i64 24, ptr %28) #3
+  br label %169
+
+169:                                              ; preds = %168, %166
+  br label %179
+
+170:                                              ; preds = %164
+  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
+          to label %171 unwind label %200
+
+171:                                              ; preds = %170
+  %172 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA28_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 1 dereferenceable(28) @.str.3)
+          to label %173 unwind label %200
+
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 2
+  %175 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS_7context3CDOImEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull align 8 dereferenceable(48) %174)
+          to label %176 unwind label %200
+
+176:                                              ; preds = %173
+  %177 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %175, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %178 unwind label %200
+
+178:                                              ; preds = %176
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %177, i64 24, i1 false), !tbaa.struct !52
+  br label %179
+
+179:                                              ; preds = %178, %169
+  call void @llvm.lifetime.end.p0(i64 24, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #3
+  %180 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 2
+  %181 = invoke noundef i64 @_ZN4cvc57context3CDOImEcvmEv(ptr noundef nonnull align 8 dereferenceable(48) %180)
+          to label %182 unwind label %125
+
+182:                                              ; preds = %179
+  %183 = icmp ugt i64 %181, 0
+  br i1 %183, label %184, label %205
+
+184:                                              ; preds = %182
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %25, align 4
+  br label %325
+
+185:                                              ; preds = %157, %154
+  %186 = landingpad { ptr, i32 }
+          cleanup
+  %187 = extractvalue { ptr, i32 } %186, 0
+  store ptr %187, ptr %15, align 8
+  %188 = extractvalue { ptr, i32 } %186, 1
+  store i32 %188, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  br label %326
+
+189:                                              ; preds = %162
+  %190 = landingpad { ptr, i32 }
+          cleanup
+  %191 = extractvalue { ptr, i32 } %190, 0
+  store ptr %191, ptr %15, align 8
+  %192 = extractvalue { ptr, i32 } %190, 1
+  store i32 %192, ptr %16, align 4
+  br label %204
+
+193:                                              ; preds = %165
+  %194 = landingpad { ptr, i32 }
+          cleanup
+  %195 = extractvalue { ptr, i32 } %194, 0
+  store ptr %195, ptr %15, align 8
+  %196 = extractvalue { ptr, i32 } %194, 1
+  store i32 %196, ptr %16, align 4
+  %197 = load i1, ptr %29, align 1
+  br i1 %197, label %198, label %199
+
+198:                                              ; preds = %193
+  call void @llvm.lifetime.end.p0(i64 24, ptr %28) #3
+  br label %199
+
+199:                                              ; preds = %198, %193
+  br label %204
+
+200:                                              ; preds = %176, %173, %171, %170
+  %201 = landingpad { ptr, i32 }
+          cleanup
+  %202 = extractvalue { ptr, i32 } %201, 0
+  store ptr %202, ptr %15, align 8
+  %203 = extractvalue { ptr, i32 } %201, 1
+  store i32 %203, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %31) #3
+  br label %204
+
+204:                                              ; preds = %200, %199, %189
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #3
+  br label %326
+
+205:                                              ; preds = %182
+  call void @llvm.lifetime.start.p0(i64 24, ptr %32) #3
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #3
+  %206 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 0
+  store ptr %206, ptr %33, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #3
+  %207 = load ptr, ptr %33, align 8, !tbaa !12
+  %208 = invoke ptr @_ZN4cvc58internal12NodeTemplateILb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %207)
+          to label %209 unwind label %219
+
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %34, i32 0, i32 0
+  store ptr %208, ptr %210, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #3
+  %211 = load ptr, ptr %33, align 8, !tbaa !12
+  %212 = invoke ptr @_ZN4cvc58internal12NodeTemplateILb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %211)
+          to label %213 unwind label %223
+
+213:                                              ; preds = %209
+  %214 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %35, i32 0, i32 0
+  store ptr %212, ptr %214, align 8
+  br label %215
+
+215:                                              ; preds = %235, %213
+  %216 = invoke noundef zeroext i1 @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %217 unwind label %223
+
+217:                                              ; preds = %215
+  br i1 %216, label %227, label %218
+
+218:                                              ; preds = %217
+  store i32 2, ptr %25, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #3
+  br label %256
+
+219:                                              ; preds = %205
+  %220 = landingpad { ptr, i32 }
+          cleanup
+  %221 = extractvalue { ptr, i32 } %220, 0
+  store ptr %221, ptr %15, align 8
+  %222 = extractvalue { ptr, i32 } %220, 1
+  store i32 %222, ptr %16, align 4
+  br label %255
+
+223:                                              ; preds = %233, %215, %209
+  %224 = landingpad { ptr, i32 }
+          cleanup
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %15, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %16, align 4
+  br label %254
+
+227:                                              ; preds = %217
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #3
+  invoke void @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEdeEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %228 unwind label %236
+
+228:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #3
+  %229 = load ptr, ptr %8, align 8, !tbaa !48
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %36)
+          to label %230 unwind label %240
+
+230:                                              ; preds = %228
+  invoke void @_ZNK4cvc58internal6theory11quantifiers5ieval5State8getValueENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %37, ptr noundef nonnull align 8 dereferenceable(424) %229, ptr noundef %38)
+          to label %231 unwind label %244
+
+231:                                              ; preds = %230
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %232 unwind label %248
+
+232:                                              ; preds = %231
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #3
+  br label %233
+
+233:                                              ; preds = %232
+  %234 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %235 unwind label %223
+
+235:                                              ; preds = %233
+  br label %215
+
+236:                                              ; preds = %227
+  %237 = landingpad { ptr, i32 }
+          cleanup
+  %238 = extractvalue { ptr, i32 } %237, 0
+  store ptr %238, ptr %15, align 8
+  %239 = extractvalue { ptr, i32 } %237, 1
+  store i32 %239, ptr %16, align 4
+  br label %253
+
+240:                                              ; preds = %228
+  %241 = landingpad { ptr, i32 }
+          cleanup
+  %242 = extractvalue { ptr, i32 } %241, 0
+  store ptr %242, ptr %15, align 8
+  %243 = extractvalue { ptr, i32 } %241, 1
+  store i32 %243, ptr %16, align 4
+  br label %252
+
+244:                                              ; preds = %230
+  %245 = landingpad { ptr, i32 }
+          cleanup
+  %246 = extractvalue { ptr, i32 } %245, 0
+  store ptr %246, ptr %15, align 8
+  %247 = extractvalue { ptr, i32 } %245, 1
+  store i32 %247, ptr %16, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #3
+  br label %252
+
+248:                                              ; preds = %231
+  %249 = landingpad { ptr, i32 }
+          cleanup
+  %250 = extractvalue { ptr, i32 } %249, 0
+  store ptr %250, ptr %15, align 8
+  %251 = extractvalue { ptr, i32 } %249, 1
+  store i32 %251, ptr %16, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #3
+  br label %252
+
+252:                                              ; preds = %248, %244, %240
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #3
+  br label %253
+
+253:                                              ; preds = %252, %236
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #3
+  br label %254
+
+254:                                              ; preds = %253, %223
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #3
+  br label %255
+
+255:                                              ; preds = %254, %219
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #3
+  br label %324
+
+256:                                              ; preds = %218
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #3
+  %257 = load ptr, ptr %11, align 8, !tbaa !50
+  %258 = load ptr, ptr %8, align 8, !tbaa !48
+  %259 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 0
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %259)
+          to label %260 unwind label %294
+
+260:                                              ; preds = %256
+  %261 = load ptr, ptr %257, align 8, !tbaa !19
+  %262 = getelementptr inbounds ptr, ptr %261, i64 4
+  %263 = load ptr, ptr %262, align 8
+  invoke void %263(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %39, ptr noundef nonnull align 8 dereferenceable(20) %257, ptr noundef nonnull align 8 dereferenceable(424) %258, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %32)
+          to label %264 unwind label %298
+
+264:                                              ; preds = %260
+  %265 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %266 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %265, ptr noundef nonnull align 8 dereferenceable(8) %39)
+          to label %267 unwind label %302
+
+267:                                              ; preds = %264
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %41) #3
+  store i1 false, ptr %43, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr %45) #3
+  %268 = invoke noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %41)
+          to label %269 unwind label %308
+
+269:                                              ; preds = %267
+  br i1 %268, label %270, label %275
+
+270:                                              ; preds = %269
+  call void @llvm.lifetime.start.p0(i64 24, ptr %42) #3
+  store i1 true, ptr %43, align 1
+  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %42, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
+          to label %271 unwind label %312
+
+271:                                              ; preds = %270
+  %272 = load i1, ptr %43, align 1
+  br i1 %272, label %273, label %274
+
+273:                                              ; preds = %271
+  call void @llvm.lifetime.end.p0(i64 24, ptr %42) #3
+  br label %274
+
+274:                                              ; preds = %273, %271
+  br label %293
+
+275:                                              ; preds = %269
+  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
+          to label %276 unwind label %319
+
+276:                                              ; preds = %275
+  %277 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 1 dereferenceable(3) @.str)
+          to label %278 unwind label %319
+
+278:                                              ; preds = %276
+  %279 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 0
+  %280 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %277, ptr noundef nonnull align 8 dereferenceable(8) %279)
+          to label %281 unwind label %319
+
+281:                                              ; preds = %278
+  %282 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %280, ptr noundef nonnull align 1 dereferenceable(5) @.str.1)
+          to label %283 unwind label %319
+
+283:                                              ; preds = %281
+  %284 = getelementptr inbounds nuw %"class.cvc5::internal::theory::quantifiers::ieval::PatTermInfo", ptr %46, i32 0, i32 1
+  %285 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %284)
+          to label %286 unwind label %319
+
+286:                                              ; preds = %283
+  %287 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %282, ptr noundef nonnull align 8 dereferenceable(8) %285)
+          to label %288 unwind label %319
+
+288:                                              ; preds = %286
+  %289 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %287, ptr noundef nonnull align 1 dereferenceable(12) @.str.4)
+          to label %290 unwind label %319
+
+290:                                              ; preds = %288
+  %291 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %289, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %292 unwind label %319
+
+292:                                              ; preds = %290
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr align 8 %291, i64 24, i1 false), !tbaa.struct !52
+  br label %293
+
+293:                                              ; preds = %292, %274
+  call void @llvm.lifetime.end.p0(i64 24, ptr %45) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %41) #3
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %25, align 4
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %32) #3
+  br label %325
+
+294:                                              ; preds = %256
+  %295 = landingpad { ptr, i32 }
+          cleanup
+  %296 = extractvalue { ptr, i32 } %295, 0
+  store ptr %296, ptr %15, align 8
+  %297 = extractvalue { ptr, i32 } %295, 1
+  store i32 %297, ptr %16, align 4
+  br label %307
+
+298:                                              ; preds = %260
+  %299 = landingpad { ptr, i32 }
+          cleanup
+  %300 = extractvalue { ptr, i32 } %299, 0
+  store ptr %300, ptr %15, align 8
+  %301 = extractvalue { ptr, i32 } %299, 1
+  store i32 %301, ptr %16, align 4
+  br label %306
+
+302:                                              ; preds = %264
+  %303 = landingpad { ptr, i32 }
+          cleanup
+  %304 = extractvalue { ptr, i32 } %303, 0
+  store ptr %304, ptr %15, align 8
+  %305 = extractvalue { ptr, i32 } %303, 1
+  store i32 %305, ptr %16, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
+  br label %306
+
+306:                                              ; preds = %302, %298
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #3
+  br label %307
+
+307:                                              ; preds = %306, %294
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #3
+  br label %324
+
+308:                                              ; preds = %267
+  %309 = landingpad { ptr, i32 }
+          cleanup
+  %310 = extractvalue { ptr, i32 } %309, 0
+  store ptr %310, ptr %15, align 8
+  %311 = extractvalue { ptr, i32 } %309, 1
+  store i32 %311, ptr %16, align 4
+  br label %323
+
+312:                                              ; preds = %270
+  %313 = landingpad { ptr, i32 }
+          cleanup
+  %314 = extractvalue { ptr, i32 } %313, 0
+  store ptr %314, ptr %15, align 8
+  %315 = extractvalue { ptr, i32 } %313, 1
+  store i32 %315, ptr %16, align 4
+  %316 = load i1, ptr %43, align 1
+  br i1 %316, label %317, label %318
+
+317:                                              ; preds = %312
+  call void @llvm.lifetime.end.p0(i64 24, ptr %42) #3
+  br label %318
+
+318:                                              ; preds = %317, %312
+  br label %323
+
+319:                                              ; preds = %290, %288, %286, %283, %281, %278, %276, %275
+  %320 = landingpad { ptr, i32 }
+          cleanup
+  %321 = extractvalue { ptr, i32 } %320, 0
+  store ptr %321, ptr %15, align 8
+  %322 = extractvalue { ptr, i32 } %320, 1
+  store i32 %322, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %45) #3
+  br label %323
+
+323:                                              ; preds = %319, %318, %308
+  call void @llvm.lifetime.end.p0(i64 1, ptr %41) #3
+  br label %324
+
+324:                                              ; preds = %323, %307, %255
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %32) #3
+  br label %326
+
+325:                                              ; preds = %293, %184, %100
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  br label %327
+
+326:                                              ; preds = %324, %204, %185, %153, %144, %125, %124
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  br label %329
+
+327:                                              ; preds = %325, %50
+  %328 = load i1, ptr %6, align 1
+  ret i1 %328
+
+329:                                              ; preds = %326
+  %330 = load ptr, ptr %15, align 8
+  %331 = load i32, ptr %16, align 4
+  %332 = insertvalue { ptr, i32 } poison, ptr %330, 0
+  %333 = insertvalue { ptr, i32 } %332, i32 %331, 1
+  resume { ptr, i32 } %333
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
+  store ptr %5, ptr %4, align 8, !tbaa !57
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3setERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr noalias sret(%"class.cvc5::internal::Cvc5ostream") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @_ZN4cvc58internal11Cvc5ostreamC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result)
+define linkonce_odr hidden void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !61
+  call void @_ZN4cvc58internal11Cvc5ostreamC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK4cvc58internal6TraceCclEv(ptr noalias sret(%"class.cvc5::internal::Cvc5ostream") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::TraceC", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  call void @_ZN4cvc58internal11Cvc5ostreamC2EPSo(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef %0)
+define linkonce_odr hidden void @_ZNK4cvc58internal6TraceCclEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  store ptr %1, ptr %3, align 8, !tbaa !63
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.cvc5::internal::TraceC", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  call void @_ZN4cvc58internal11Cvc5ostreamC2EPSo(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(3) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA3_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(3) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !4
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !81
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [3 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [3 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %t) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS0_12NodeTemplateILb0EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !76
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %53
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 1
+  %16 = load i8, ptr %15, align 8, !tbaa !78, !range !45, !noundef !46
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %43
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 1
+  store i8 0, ptr %19, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  %22 = load ptr, ptr %21, align 8, !tbaa !19
+  %23 = getelementptr i8, ptr %22, i64 -24
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %21, i64 %24
+  %26 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %25, i32 noundef %26)
+  %28 = load i64, ptr %27, align 8, !tbaa !10
+  store i64 %28, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %29
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+29:                                               ; preds = %39, %18
+  %30 = load i64, ptr %6, align 8, !tbaa !10
+  %31 = load i64, ptr %5, align 8, !tbaa !10
+  %32 = icmp slt i64 %30, %31
+  br i1 %32, label %34, label %33
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+33:                                               ; preds = %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %42
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !6
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8, !tbaa !76
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %38 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 0
+  store ptr %37, ptr %38, align 8, !tbaa !76
+  br label %39
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+39:                                               ; preds = %34
+  %40 = load i64, ptr %6, align 8, !tbaa !10
+  %41 = add nsw i64 %40, 1
+  store i64 %41, ptr %6, align 8, !tbaa !10
+  br label %29, !llvm.loop !83
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %agg.tmp)
-          to label %invoke.cont unwind label %lpad
+42:                                               ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %43
 
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  br label %if.end11
+43:                                               ; preds = %42, %14
+  %44 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %10, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8, !tbaa !76
+  %46 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %7)
+          to label %48 unwind label %49
 
-lpad:                                             ; preds = %if.end
-  %11 = landingpad { ptr, i32 }
+48:                                               ; preds = %43
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %53
+
+49:                                               ; preds = %43
+  %50 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %exn.slot, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  br label %eh.resume
+  %51 = extractvalue { ptr, i32 } %50, 0
+  store ptr %51, ptr %8, align 8
+  %52 = extractvalue { ptr, i32 } %50, 1
+  store i32 %52, ptr %9, align 4
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %54
 
-if.end11:                                         ; preds = %invoke.cont, %entry
-  ret ptr %this1
+53:                                               ; preds = %48, %2
+  ret ptr %10
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val12 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val12
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %8, align 8
+  %56 = load i32, ptr %9, align 4
+  %57 = insertvalue { ptr, i32 } poison, ptr %55, 0
+  %58 = insertvalue { ptr, i32 } %57, i32 %56, 1
+  resume { ptr, i32 } %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(5) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA5_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(5) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !84
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [5 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA20_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(20) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA20_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(20) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !8
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !85
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [20 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [20 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pf) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pf.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pf, ptr %pf.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end6
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !76
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %22
 
-if.then:                                          ; preds = %entry
-  %d_os2 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %d_os2, align 8
-  %2 = load ptr, ptr %pf.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
-  %d_os3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call, ptr %d_os3, align 8
-  %3 = load ptr, ptr %pf.addr, align 8
-  %d_endl = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %d_endl, align 8
-  %cmp4 = icmp eq ptr %3, %4
-  br i1 %cmp4, label %if.then5, label %if.end
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
+  %12 = load ptr, ptr %4, align 8, !tbaa !55
+  %13 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12)
+  %14 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 0
+  store ptr %13, ptr %14, align 8, !tbaa !76
+  %15 = load ptr, ptr %4, align 8, !tbaa !55
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
+  %18 = icmp eq ptr %15, %17
+  br i1 %18, label %19, label %21
 
-if.then5:                                         ; preds = %if.then
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 1, ptr %d_firstColumn, align 8
-  br label %if.end
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 1
+  store i8 1, ptr %20, align 8, !tbaa !78
+  br label %21
 
-if.end:                                           ; preds = %if.then5, %if.then
-  br label %if.end6
+21:                                               ; preds = %19, %9
+  br label %22
 
-if.end6:                                          ; preds = %if.end, %entry
-  ret ptr %this1
+22:                                               ; preds = %21, %2
+  ret ptr %5
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = load ptr, ptr %2, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %6 = getelementptr i8, ptr %5, i64 -24
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %9 = call noundef signext i8 @_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc(ptr noundef nonnull align 8 dereferenceable(264) %8, i8 noundef signext 10)
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext %9)
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %10)
+  ret ptr %11
+}
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKNS1_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %e.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %d_nv, align 8
-  %d_nv2 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  store ptr %1, ptr %d_nv2, align 8
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKNS1_ILb1EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  ret ptr %d_data
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %3, i32 0, i32 1
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOImEaSERKm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %data) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  call void @_ZN4cvc57context3CDOImE3setERKm(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  ret ptr %this1
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc57context3CDOImEaSERKm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  call void @_ZN4cvc57context3CDOImE3setERKm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA28_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(28) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA28_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(28) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !9
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !87
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [28 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [28 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS_7context3CDOImEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(48) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end12
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsINS_7context3CDOImEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !10
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !88
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %call10 = call noundef i64 @_ZNK4cvc57context3CDOImEcvKmEv(ptr noundef nonnull align 8 dereferenceable(48) %10)
-  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %call10)
-  br label %if.end12
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end12:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !21
+  %44 = call noundef i64 @_ZNK4cvc57context3CDOImEcvKmEv(ptr noundef nonnull align 8 dereferenceable(48) %43)
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN4cvc57context3CDOImEcvmEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  %0 = load i64, ptr %call, align 8
-  ret i64 %0
+define linkonce_odr hidden noundef i64 @_ZN4cvc57context3CDOImEcvmEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !10
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN4cvc58internal12NodeTemplateILb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %call = call ptr @_ZNK4cvc58internal4expr9NodeValue5beginINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %coerce.dive = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZN4cvc58internal12NodeTemplateILb0EE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %7 = call ptr @_ZNK4cvc58internal4expr9NodeValue5beginINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZN4cvc58internal12NodeTemplateILb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %call = call ptr @_ZNK4cvc58internal4expr9NodeValue3endINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %coerce.dive = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %coerce.dive2 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive2, align 8
-  ret ptr %1
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZN4cvc58internal12NodeTemplateILb0EE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 comdat align 2 {
+  %2 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  %4 = load ptr, ptr %3, align 8
+  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %5 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %7 = call ptr @_ZNK4cvc58internal4expr9NodeValue3endINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %i) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %i, ptr %i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_i, align 8
-  %1 = load ptr, ptr %i.addr, align 8
-  %d_i2 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %d_i2, align 8
-  %cmp = icmp ne ptr %0, %2
-  ret i1 %cmp
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEneERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %8 = load ptr, ptr %4, align 8, !tbaa !91
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !93
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEdeEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_i, align 8
-  %1 = load ptr, ptr %0, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %1)
+define linkonce_odr hidden void @_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEdeEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !93
+  %8 = load ptr, ptr %7, align 8, !tbaa !96
+  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %8)
   ret void
 }
 
-declare void @_ZNK4cvc58internal6theory11quantifiers5ieval5State8getValueENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(424), ptr noundef) #1
+declare void @_ZNK4cvc58internal6theory11quantifiers5ieval5State8getValueENS0_12NodeTemplateILb0EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(424), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %__x) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !97
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !99
+  %13 = icmp ne ptr %9, %12
+  br i1 %13, label %14, label %24
 
-if.then:                                          ; preds = %entry
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish5 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 1
-  %2 = load ptr, ptr %_M_finish5, align 8
-  %3 = load ptr, ptr %__x.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl3, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %_M_impl6 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish7 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl6, i32 0, i32 1
-  %4 = load ptr, ptr %_M_finish7, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %_M_finish7, align 8
-  br label %if.end
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !97
+  %19 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8, !tbaa !97
+  %23 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8, !tbaa !97
+  br label %30
 
-if.else:                                          ; preds = %entry
-  %call = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %5 = load ptr, ptr %__x.addr, align 8
-  %coerce.dive8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %agg.tmp, i32 0, i32 0
-  %6 = load ptr, ptr %coerce.dive8, align 8
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %if.end
+24:                                               ; preds = %2
+  %25 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %5, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %5, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  br label %30
 
-if.end:                                           ; preds = %if.else, %if.then
+30:                                               ; preds = %24, %14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_i, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i32 1
-  store ptr %incdec.ptr, ptr %d_i, align 8
-  ret ptr %this1
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !93
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(12) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(12) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !11
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !100
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [12 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [12 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !97
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !57
+  invoke void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %6 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
+6:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #14
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #18
   unreachable
 }
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.5() #0 section ".text.startup" comdat($_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE) {
-entry:
-  %0 = load i8, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end
+  %1 = load i8, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %6
 
-init.check:                                       ; preds = %entry
+3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
-  call void @_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr noundef %call)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr @__dso_handle) #3
-  br label %init.end
+  %4 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv()
+  call void @_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr noundef %4)
+  %5 = call i32 @__cxa_atexit(ptr @_ZN4cvc58internal12NodeTemplateILb1EED2Ev, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, ptr @__dso_handle) #3
+  br label %6
 
-init.end:                                         ; preds = %init.check, %entry
+6:                                                ; preds = %3, %0
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv() #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !12
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal4expr9NodeValue4nullEv() #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca i32, align 4
+  %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
+  %4 = icmp eq i8 %3, 0
+  br i1 %4, label %5, label %12, !prof !102
 
-init.check:                                       ; preds = %entry
-  %1 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #3
-  %tobool = icmp ne i32 %1, 0
-  br i1 %tobool, label %init, label %init.end
+5:                                                ; preds = %0
+  %6 = call i32 @__cxa_guard_acquire(ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #3
+  %7 = icmp ne i32 %6, 0
+  br i1 %7, label %8, label %12
 
-init:                                             ; preds = %init.check
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #15
-          to label %invoke.cont unwind label %lpad
+8:                                                ; preds = %5
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #19
+          to label %10 unwind label %14
 
-invoke.cont:                                      ; preds = %init
-  invoke void @_ZN4cvc58internal4expr9NodeValueC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %call, i32 noundef 0)
-          to label %invoke.cont2 unwind label %lpad1
+10:                                               ; preds = %8
+  invoke void @_ZN4cvc58internal4expr9NodeValueC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 0)
+          to label %11 unwind label %18
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  store ptr %call, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
+11:                                               ; preds = %10
+  store ptr %9, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !96
   call void @__cxa_guard_release(ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #3
-  br label %init.end
+  br label %12
 
-init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
-  %2 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  ret ptr %2
+12:                                               ; preds = %11, %5, %0
+  %13 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !96
+  ret ptr %13
 
-lpad:                                             ; preds = %init
-  %3 = landingpad { ptr, i32 }
+14:                                               ; preds = %8
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %1, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %2, align 4
+  br label %22
 
-lpad1:                                            ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
+18:                                               ; preds = %10
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #16
-  br label %ehcleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %1, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %2, align 4
+  call void @_ZdlPvm(ptr noundef %9, i64 noundef 24) #20
+  br label %22
 
-ehcleanup:                                        ; preds = %lpad1, %lpad
+22:                                               ; preds = %18, %14
   call void @__cxa_guard_abort(ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #3
-  br label %eh.resume
+  br label %23
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+23:                                               ; preds = %22
+  %24 = load ptr, ptr %1, align 8
+  %25 = load i32, ptr %2, align 4
+  %26 = insertvalue { ptr, i32 } poison, ptr %24, 0
+  %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
+  resume { ptr, i32 } %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %ev) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ev.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ev, ptr %ev.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ev.addr, align 8
-  store ptr %0, ptr %d_nv, align 8
-  %d_nv2 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %d_nv2, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !96
+  store ptr %7, ptr %6, align 8, !tbaa !57
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !57
+  call void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal11Cvc5ostreamC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %d_os, align 8
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn, align 8
-  %d_endl = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 2
-  store ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, ptr %d_endl, align 8
+define linkonce_odr hidden void @_ZN4cvc58internal11Cvc5ostreamC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !72
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !76
+  %5 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %3, i32 0, i32 1
+  store i8 0, ptr %5, align 8, !tbaa !78
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %3, i32 0, i32 2
+  store ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, ptr %6, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal11Cvc5ostreamC2EPSo(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %os) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %os.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %os, ptr %os.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %os.addr, align 8
-  store ptr %0, ptr %d_os, align 8
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 1, ptr %d_firstColumn, align 8
-  %d_endl = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 2
-  store ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, ptr %d_endl, align 8
-  ret void
-}
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_start, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %_M_end_of_storage, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZN4cvc58internal11Cvc5ostreamC2EPSo(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  store ptr %7, ptr %6, align 8, !tbaa !76
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 1
+  store i8 1, ptr %8, align 8, !tbaa !78
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %5, i32 0, i32 2
+  store ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, ptr %9, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %__ix) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__ix.addr = alloca i32, align 4
-  %__word = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %__ix, ptr %__ix.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %__ix.addr, align 4
-  %_M_word_size = getelementptr inbounds %"class.std::ios_base", ptr %this1, i32 0, i32 9
-  %1 = load i32, ptr %_M_word_size, align 8
-  %cmp = icmp ult i32 %0, %1
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %_M_word = getelementptr inbounds %"class.std::ios_base", ptr %this1, i32 0, i32 10
-  %2 = load ptr, ptr %_M_word, align 8
-  %3 = load i32, ptr %__ix.addr, align 4
-  %idxprom = sext i32 %3 to i64
-  %arrayidx = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %2, i64 %idxprom
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %4 = load i32, ptr %__ix.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %this1, i32 noundef %4, i1 noundef zeroext true)
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond-lvalue = phi ptr [ %arrayidx, %cond.true ], [ %call, %cond.false ]
-  store ptr %cond-lvalue, ptr %__word, align 8
-  %5 = load ptr, ptr %__word, align 8
-  %_M_iword = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %5, i32 0, i32 1
-  ret ptr %_M_iword
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !55
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  ret ptr %7
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #1
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !105
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !101
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !97
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !99
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %0) #8 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  ret ptr %4
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) #1
+
+; Function Attrs: mustprogress uwtable
+define available_externally noundef signext i8 @_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc(ptr noundef nonnull align 8 dereferenceable(264) %0, i8 noundef signext %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store i8 %1, ptr %4, align 1, !tbaa !115
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::basic_ios", ptr %5, i32 0, i32 5
+  %7 = load ptr, ptr %6, align 8, !tbaa !116
+  %8 = call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt13__check_facetISt5ctypeIcEERKT_PS3_(ptr noundef %7)
+  %9 = load i8, ptr %4, align 1, !tbaa !115
+  %10 = call noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %8, i8 noundef signext %9)
+  ret i8 %10
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(570) ptr @_ZSt13__check_facetISt5ctypeIcEERKT_PS3_(ptr noundef %0) #8 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !130
+  %3 = load ptr, ptr %2, align 8, !tbaa !130
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %1
+  call void @_ZSt16__throw_bad_castv() #21
+  unreachable
+
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !130
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef signext i8 @_ZNKSt5ctypeIcE5widenEc(ptr noundef nonnull align 8 dereferenceable(570) %0, i8 noundef signext %1) #4 comdat align 2 {
+  %3 = alloca i8, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !130
+  store i8 %1, ptr %5, align 1, !tbaa !115
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds nuw %"class.std::ctype", ptr %6, i32 0, i32 8
+  %8 = load i8, ptr %7, align 8, !tbaa !131
+  %9 = icmp ne i8 %8, 0
+  br i1 %9, label %10, label %16
+
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw %"class.std::ctype", ptr %6, i32 0, i32 9
+  %12 = load i8, ptr %5, align 1, !tbaa !115
+  %13 = zext i8 %12 to i64
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !115
+  store i8 %15, ptr %3, align 1
+  br label %22
+
+16:                                               ; preds = %2
+  call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %6)
+  %17 = load i8, ptr %5, align 1, !tbaa !115
+  %18 = load ptr, ptr %6, align 8, !tbaa !19
+  %19 = getelementptr inbounds ptr, ptr %18, i64 6
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef signext i8 %20(ptr noundef nonnull align 8 dereferenceable(570) %6, i8 noundef signext %17)
+  store i8 %21, ptr %3, align 1
+  br label %22
+
+22:                                               ; preds = %16, %10
+  %23 = load i8, ptr %3, align 1
+  ret i8 %23
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt16__throw_bad_castv() #10
+
+declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !137
+  store i32 %1, ptr %4, align 4, !tbaa !79
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = load i32, ptr %4, align 4, !tbaa !79
+  %8 = getelementptr inbounds nuw %"class.std::ios_base", ptr %6, i32 0, i32 9
+  %9 = load i32, ptr %8, align 8, !tbaa !139
+  %10 = icmp ult i32 %7, %9
+  br i1 %10, label %11, label %17
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.std::ios_base", ptr %6, i32 0, i32 10
+  %13 = load ptr, ptr %12, align 8, !tbaa !140
+  %14 = load i32, ptr %4, align 4, !tbaa !79
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %13, i64 %15
+  br label %20
+
+17:                                               ; preds = %2
+  %18 = load i32, ptr %4, align 4, !tbaa !79
+  %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %18, i1 noundef zeroext true)
+  br label %20
+
+20:                                               ; preds = %17, %11
+  %21 = phi ptr [ %16, %11 ], [ %19, %17 ]
+  store ptr %21, ptr %5, align 8, !tbaa !141
+  %22 = load ptr, ptr %5, align 8, !tbaa !141
+  %23 = getelementptr inbounds nuw %"struct.std::ios_base::_Words", ptr %22, i32 0, i32 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret ptr %23
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !142
+  %5 = load ptr, ptr %3, align 8, !tbaa !53
+  %6 = load ptr, ptr %4, align 8, !tbaa !142
+  %7 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %8 = load ptr, ptr %4, align 8, !tbaa !142
+  %9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7, i64 noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %2
+  %8 = load ptr, ptr %3, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %10 = getelementptr i8, ptr %9, i64 -24
+  %11 = load i64, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %8, i64 %11
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %12, i32 noundef 1)
+  br label %19
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8, !tbaa !53
+  %15 = load ptr, ptr %4, align 8, !tbaa !74
+  %16 = load ptr, ptr %4, align 8, !tbaa !74
+  %17 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %16)
+  %18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %15, i64 noundef %17)
+  br label %19
+
+19:                                               ; preds = %13, %7
+  %20 = load ptr, ptr %3, align 8, !tbaa !53
+  ret ptr %20
+}
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, i1 noundef zeroext) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bf.load = load i64, ptr %this1, align 8
-  %bf.lshr = lshr i64 %bf.load, 40
-  %bf.clear = and i64 %bf.lshr, 1048575
-  %bf.cast = trunc i64 %bf.clear to i32
-  %cmp = icmp ult i32 %bf.cast, 1048575
-  br i1 %cmp, label %if.then, label %if.end14
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) #1
 
-if.then:                                          ; preds = %entry
-  %bf.load2 = load i64, ptr %this1, align 8
-  %bf.lshr3 = lshr i64 %bf.load2, 40
-  %bf.clear4 = and i64 %bf.lshr3, 1048575
-  %bf.cast5 = trunc i64 %bf.clear4 to i32
-  %dec = add i32 %bf.cast5, -1
-  %0 = zext i32 %dec to i64
-  %bf.load6 = load i64, ptr %this1, align 8
-  %bf.value = and i64 %0, 1048575
-  %bf.shl = shl i64 %bf.value, 40
-  %bf.clear7 = and i64 %bf.load6, -1152920405095219201
-  %bf.set = or i64 %bf.clear7, %bf.shl
-  store i64 %bf.set, ptr %this1, align 8
-  %bf.load8 = load i64, ptr %this1, align 8
-  %bf.lshr9 = lshr i64 %bf.load8, 40
-  %bf.clear10 = and i64 %bf.lshr9, 1048575
-  %bf.cast11 = trunc i64 %bf.clear10 to i32
-  %cmp12 = icmp eq i32 %bf.cast11, 0
-  br i1 %cmp12, label %if.then13, label %if.end
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
+  %3 = load ptr, ptr %2, align 8
+  %4 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+          to label %5 unwind label %6
 
-if.then13:                                        ; preds = %if.then
-  call void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  br label %if.end
+5:                                                ; preds = %1
+  ret ptr %4
 
-if.end:                                           ; preds = %if.then13, %if.then
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end, %entry
-  ret void
+6:                                                ; preds = %1
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #18
+  unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8, !tbaa !143
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !142
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !146
+  ret ptr %6
+}
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #11 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #14
+  call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -2594,84 +3032,184 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16)) #1
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef %n) #4 comdat {
-entry:
-  %out.addr = alloca ptr, align 8
-  %n.indirect_addr = alloca ptr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  store ptr %n, ptr %n.indirect_addr, align 8
-  %0 = load ptr, ptr %out.addr, align 8
-  call void @_ZNK4cvc58internal12NodeTemplateILb0EE8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(8) %n, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %1 = load ptr, ptr %out.addr, align 8
-  ret ptr %1
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %out.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %out, ptr %out.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %1 = load ptr, ptr %out.addr, align 8
-  call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+define available_externally void @_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !113
+  store i32 %1, ptr %4, align 4, !tbaa !147
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %5)
+  %7 = load i32, ptr %4, align 4, !tbaa !147
+  %8 = call noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %6, i32 noundef %7)
+  call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %5, i32 noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %4 = call i64 @strlen(ptr noundef %3) #3
+  ret i64 %4
+}
+
+declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) #1
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZStorSt12_Ios_IostateS_(i32 noundef %0, i32 noundef %1) #7 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !147
+  store i32 %1, ptr %4, align 4, !tbaa !147
+  %5 = load i32, ptr %3, align 4, !tbaa !147
+  %6 = load i32, ptr %4, align 4, !tbaa !147
+  %7 = or i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define available_externally noundef i32 @_ZNKSt9basic_iosIcSt11char_traitsIcEE7rdstateEv(ptr noundef nonnull align 8 dereferenceable(264) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !113
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::ios_base", ptr %3, i32 0, i32 5
+  %5 = load i32, ptr %4, align 8, !tbaa !148
+  ret i32 %5
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %3, align 8
+  %5 = lshr i64 %4, 40
+  %6 = and i64 %5, 1048575
+  %7 = trunc i64 %6 to i32
+  %8 = icmp ult i32 %7, 1048575
+  %9 = zext i1 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 1)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %34
+
+12:                                               ; preds = %1
+  %13 = load i64, ptr %3, align 8
+  %14 = lshr i64 %13, 40
+  %15 = and i64 %14, 1048575
+  %16 = trunc i64 %15 to i32
+  %17 = add i32 %16, -1
+  %18 = zext i32 %17 to i64
+  %19 = load i64, ptr %3, align 8
+  %20 = and i64 %18, 1048575
+  %21 = shl i64 %20, 40
+  %22 = and i64 %19, -1152920405095219201
+  %23 = or i64 %22, %21
+  store i64 %23, ptr %3, align 8
+  %24 = load i64, ptr %3, align 8
+  %25 = lshr i64 %24, 40
+  %26 = and i64 %25, 1048575
+  %27 = trunc i64 %26 to i32
+  %28 = icmp eq i32 %27, 0
+  %29 = zext i1 %28 to i64
+  %30 = call i64 @llvm.expect.i64(i64 %29, i64 0)
+  %31 = icmp ne i64 %30, 0
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %12
+  call void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %33
+
+33:                                               ; preds = %32, %12
+  br label %34
+
+34:                                               ; preds = %33, %1
   ret void
 }
 
-declare void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #12
+
+declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoNS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !53
+  call void @_ZNK4cvc58internal12NodeTemplateILb0EE8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = load ptr, ptr %3, align 8, !tbaa !53
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNK4cvc58internal12NodeTemplateILb0EE21assertTNodeNotExpiredEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  ret void
+}
+
+declare void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) #1
 
 ; Function Attrs: nounwind
 declare i32 @__cxa_guard_acquire(ptr) #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) #13
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValueC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bf.load = load i64, ptr %this1, align 8
-  %bf.clear = and i64 %bf.load, -1099511627776
-  %bf.set = or i64 %bf.clear, 0
-  store i64 %bf.set, ptr %this1, align 8
-  %bf.load2 = load i64, ptr %this1, align 8
-  %bf.clear3 = and i64 %bf.load2, -1152920405095219201
-  %bf.set4 = or i64 %bf.clear3, 1152920405095219200
-  store i64 %bf.set4, ptr %this1, align 8
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 1
-  %bf.load5 = load i16, ptr %d_kind, align 8
-  %bf.clear6 = and i16 %bf.load5, -1024
-  %bf.set7 = or i16 %bf.clear6, 0
-  store i16 %bf.set7, ptr %d_kind, align 8
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 2
-  %bf.load8 = load i32, ptr %d_nchildren, align 4
-  %bf.clear9 = and i32 %bf.load8, -67108864
-  %bf.set10 = or i32 %bf.clear9, 0
-  store i32 %bf.set10, ptr %d_nchildren, align 4
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValueC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store i32 %1, ptr %4, align 4, !tbaa !79
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %5, align 8
+  %7 = and i64 %6, -1099511627776
+  %8 = or i64 %7, 0
+  store i64 %8, ptr %5, align 8
+  %9 = load i64, ptr %5, align 8
+  %10 = and i64 %9, -1152920405095219201
+  %11 = or i64 %10, 1152920405095219200
+  store i64 %11, ptr %5, align 8
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %5, i32 0, i32 1
+  %13 = load i64, ptr %12, align 8
+  %14 = and i64 %13, -1024
+  %15 = or i64 %14, 0
+  store i64 %15, ptr %12, align 8
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %5, i32 0, i32 1
+  %17 = load i64, ptr %16, align 8
+  %18 = and i64 %17, -288230371856744449
+  %19 = or i64 %18, 0
+  store i64 %19, ptr %16, align 8
+  %20 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %5, i32 0, i32 2
+  store ptr null, ptr %20, align 8, !tbaa !149
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #14
 
 ; Function Attrs: nounwind
 declare void @__cxa_guard_abort(ptr) #3
@@ -2680,1649 +3218,1727 @@ declare void @__cxa_guard_abort(ptr) #3
 declare void @__cxa_guard_release(ptr) #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %bf.load = load i64, ptr %this1, align 8
-  %bf.lshr = lshr i64 %bf.load, 40
-  %bf.clear = and i64 %bf.lshr, 1048575
-  %bf.cast = trunc i64 %bf.clear to i32
-  %cmp = icmp ult i32 %bf.cast, 1048574
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = load i64, ptr %3, align 8
+  %5 = lshr i64 %4, 40
+  %6 = and i64 %5, 1048575
+  %7 = trunc i64 %6 to i32
+  %8 = icmp ult i32 %7, 1048574
+  %9 = zext i1 %8 to i64
+  %10 = call i64 @llvm.expect.i64(i64 %9, i64 1)
+  %11 = icmp ne i64 %10, 0
+  br i1 %11, label %12, label %24
 
-if.then:                                          ; preds = %entry
-  %bf.load2 = load i64, ptr %this1, align 8
-  %bf.lshr3 = lshr i64 %bf.load2, 40
-  %bf.clear4 = and i64 %bf.lshr3, 1048575
-  %bf.cast5 = trunc i64 %bf.clear4 to i32
-  %inc = add i32 %bf.cast5, 1
-  %0 = zext i32 %inc to i64
-  %bf.load6 = load i64, ptr %this1, align 8
-  %bf.value = and i64 %0, 1048575
-  %bf.shl = shl i64 %bf.value, 40
-  %bf.clear7 = and i64 %bf.load6, -1152920405095219201
-  %bf.set = or i64 %bf.clear7, %bf.shl
-  store i64 %bf.set, ptr %this1, align 8
-  br label %if.end25
+12:                                               ; preds = %1
+  %13 = load i64, ptr %3, align 8
+  %14 = lshr i64 %13, 40
+  %15 = and i64 %14, 1048575
+  %16 = trunc i64 %15 to i32
+  %17 = add i32 %16, 1
+  %18 = zext i32 %17 to i64
+  %19 = load i64, ptr %3, align 8
+  %20 = and i64 %18, 1048575
+  %21 = shl i64 %20, 40
+  %22 = and i64 %19, -1152920405095219201
+  %23 = or i64 %22, %21
+  store i64 %23, ptr %3, align 8
+  br label %46
 
-if.else:                                          ; preds = %entry
-  %bf.load8 = load i64, ptr %this1, align 8
-  %bf.lshr9 = lshr i64 %bf.load8, 40
-  %bf.clear10 = and i64 %bf.lshr9, 1048575
-  %bf.cast11 = trunc i64 %bf.clear10 to i32
-  %cmp12 = icmp eq i32 %bf.cast11, 1048574
-  br i1 %cmp12, label %if.then13, label %if.end
+24:                                               ; preds = %1
+  %25 = load i64, ptr %3, align 8
+  %26 = lshr i64 %25, 40
+  %27 = and i64 %26, 1048575
+  %28 = trunc i64 %27 to i32
+  %29 = icmp eq i32 %28, 1048574
+  %30 = zext i1 %29 to i64
+  %31 = call i64 @llvm.expect.i64(i64 %30, i64 0)
+  %32 = icmp ne i64 %31, 0
+  br i1 %32, label %33, label %45
 
-if.then13:                                        ; preds = %if.else
-  %bf.load14 = load i64, ptr %this1, align 8
-  %bf.lshr15 = lshr i64 %bf.load14, 40
-  %bf.clear16 = and i64 %bf.lshr15, 1048575
-  %bf.cast17 = trunc i64 %bf.clear16 to i32
-  %inc18 = add i32 %bf.cast17, 1
-  %1 = zext i32 %inc18 to i64
-  %bf.load19 = load i64, ptr %this1, align 8
-  %bf.value20 = and i64 %1, 1048575
-  %bf.shl21 = shl i64 %bf.value20, 40
-  %bf.clear22 = and i64 %bf.load19, -1152920405095219201
-  %bf.set23 = or i64 %bf.clear22, %bf.shl21
-  store i64 %bf.set23, ptr %this1, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  br label %if.end
+33:                                               ; preds = %24
+  %34 = load i64, ptr %3, align 8
+  %35 = lshr i64 %34, 40
+  %36 = and i64 %35, 1048575
+  %37 = trunc i64 %36 to i32
+  %38 = add i32 %37, 1
+  %39 = zext i32 %38 to i64
+  %40 = load i64, ptr %3, align 8
+  %41 = and i64 %39, 1048575
+  %42 = shl i64 %41, 40
+  %43 = and i64 %40, -1152920405095219201
+  %44 = or i64 %43, %42
+  store i64 %44, ptr %3, align 8
+  call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  br label %45
 
-if.end:                                           ; preds = %if.then13, %if.else
-  br label %if.end25
+45:                                               ; preds = %33, %24
+  br label %46
 
-if.end25:                                         ; preds = %if.end, %if.then
+46:                                               ; preds = %45, %12
   ret void
 }
 
-declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16)) #1
+declare void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 declare void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef %pCMM) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pCMM.addr = alloca ptr, align 8
-  %data = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pCMM, ptr %pCMM.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pCMM.addr, align 8
-  %call = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 80, ptr noundef %0)
-  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(74) %call, ptr noundef nonnull align 8 dereferenceable(74) %this1)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden noundef ptr @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !154
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %9 = load ptr, ptr %4, align 8, !tbaa !154
+  %10 = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 80, ptr noundef %9)
+  invoke void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(74) %10, ptr noundef nonnull align 8 dereferenceable(74) %8)
+          to label %11 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  store ptr %call, ptr %data, align 8
-  %1 = load ptr, ptr %data, align 8
-  ret ptr %1
+11:                                               ; preds = %2
+  store ptr %10, ptr %5, align 8, !tbaa !156
+  %12 = load ptr, ptr %5, align 8, !tbaa !156
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret ptr %12
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  store ptr %3, ptr %exn.slot, align 8
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store i32 %4, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %call, ptr noundef %0) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %10, ptr noundef %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef %data) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %data.addr, align 8
-  %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %0, i32 0, i32 2
-  %1 = load i64, ptr %d_size, align 8
-  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %this1, i64 noundef %1)
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !156
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !156
+  %7 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %6, i32 0, i32 2
+  %8 = load i64, ptr %7, align 8, !tbaa !37
+  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %5, i64 noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(74) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %this1) #3
-  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %this1) #3
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED0Ev(ptr noundef nonnull align 8 dereferenceable(74) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !31
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %3) #3
+  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl) #3
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !159
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !161
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this1, i32 0, i32 0
-  store ptr null, ptr %_M_start, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this1, i32 0, i32 1
-  store ptr null, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this1, i32 0, i32 2
-  store ptr null, ptr %_M_end_of_storage, align 8
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !163
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8, !tbaa !165
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8, !tbaa !166
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8, !tbaa !167
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !168
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef %size, ptr noundef %pCMM) #4 comdat align 2 {
-entry:
-  %size.addr = alloca i64, align 8
-  %pCMM.addr = alloca ptr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  store ptr %pCMM, ptr %pCMM.addr, align 8
-  %0 = load ptr, ptr %pCMM.addr, align 8
-  %1 = load i64, ptr %size.addr, align 8
-  %call = call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %0, i64 noundef %1)
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  store i64 %0, ptr %3, align 8, !tbaa !10
+  store ptr %1, ptr %4, align 8, !tbaa !154
+  %5 = load ptr, ptr %4, align 8, !tbaa !154
+  %6 = load i64, ptr %3, align 8, !tbaa !10
+  %7 = call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %5, i64 noundef %6)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(74) %l) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %l.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::__cvc5_true", align 1
-  %tmp = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %agg.tmp.ensured = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp4 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
-  %ref.tmp8 = alloca ptr, align 8
-  %ref.tmp13 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %l, ptr %l.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %l.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
-  %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %l.addr, align 8
-  %d_size2 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %2, i32 0, i32 2
-  %3 = load i64, ptr %d_size2, align 8
-  store i64 %3, ptr %d_size, align 8
-  %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  store i8 0, ptr %d_callCleanup, align 8
-  %call = call noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  br i1 %call, label %cond.true, label %cond.false
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.cvc5::internal::__cvc5_true", align 1
+  %6 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %7 = alloca i1, align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %11 = alloca %"class.cvc5::internal::Cvc5ostream", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %4, align 8, !tbaa !31
+  %14 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !31
+  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %15) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE, i32 0, i32 0, i32 2), ptr %14, align 8, !tbaa !19
+  %16 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %14, i32 0, i32 1
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %14, i32 0, i32 2
+  %18 = load ptr, ptr %4, align 8, !tbaa !31
+  %19 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %18, i32 0, i32 2
+  %20 = load i64, ptr %19, align 8, !tbaa !37
+  store i64 %20, ptr %17, align 8, !tbaa !37
+  %21 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %14, i32 0, i32 3
+  store i8 0, ptr %21, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %22 = call noundef zeroext i1 @_ZN4cvc58internal11__cvc5_truecvbEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  store i1 false, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  br i1 %22, label %23, label %28
 
-cond.true:                                        ; preds = %entry
-  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %tmp, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
-          to label %invoke.cont unwind label %lpad
+23:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr %6) #3
+  store i1 true, ptr %7, align 1
+  invoke void @_ZNK4cvc58internal5NullCcvNS0_11Cvc5ostreamEEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4cvc58internal10nullStreamE)
+          to label %24 unwind label %47
 
-invoke.cont:                                      ; preds = %cond.true
-  br label %cond.end
+24:                                               ; preds = %23
+  %25 = load i1, ptr %7, align 1
+  br i1 %25, label %26, label %27
 
-cond.false:                                       ; preds = %entry
-  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr sret(%"class.cvc5::internal::Cvc5ostream") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
-          to label %invoke.cont5 unwind label %lpad
+26:                                               ; preds = %24
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  br label %27
 
-invoke.cont5:                                     ; preds = %cond.false
-  %call7 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4, ptr noundef nonnull align 1 dereferenceable(12) @.str.6)
-          to label %invoke.cont6 unwind label %lpad
+27:                                               ; preds = %26, %24
+  br label %46
 
-invoke.cont6:                                     ; preds = %invoke.cont5
-  store ptr %this1, ptr %ref.tmp8, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
-          to label %invoke.cont9 unwind label %lpad
+28:                                               ; preds = %2
+  invoke void @_ZNK4cvc58internal6TraceCclEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Cvc5ostream") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal12TraceChannelE)
+          to label %29 unwind label %54
 
-invoke.cont9:                                     ; preds = %invoke.cont6
-  %call12 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call10, ptr noundef nonnull align 1 dereferenceable(7) @.str.7)
-          to label %invoke.cont11 unwind label %lpad
+29:                                               ; preds = %28
+  %30 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA12_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.6)
+          to label %31 unwind label %54
 
-invoke.cont11:                                    ; preds = %invoke.cont9
-  %4 = load ptr, ptr %l.addr, align 8
-  store ptr %4, ptr %ref.tmp13, align 8
-  %call15 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call12, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13)
-          to label %invoke.cont14 unwind label %lpad
+31:                                               ; preds = %29
+  store ptr %14, ptr %12, align 8, !tbaa !31
+  %32 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %33 unwind label %58
 
-invoke.cont14:                                    ; preds = %invoke.cont11
-  %call17 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call15, ptr noundef nonnull align 1 dereferenceable(7) @.str.8)
-          to label %invoke.cont16 unwind label %lpad
+33:                                               ; preds = %31
+  %34 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 1 dereferenceable(7) @.str.7)
+          to label %35 unwind label %58
 
-invoke.cont16:                                    ; preds = %invoke.cont14
-  %d_size18 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %call20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsImEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %call17, ptr noundef nonnull align 8 dereferenceable(8) %d_size18)
-          to label %invoke.cont19 unwind label %lpad
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %4, align 8, !tbaa !31
+  store ptr %36, ptr %13, align 8, !tbaa !31
+  %37 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %38 unwind label %62
 
-invoke.cont19:                                    ; preds = %invoke.cont16
-  %call22 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %call20, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %invoke.cont21 unwind label %lpad
+38:                                               ; preds = %35
+  %39 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 1 dereferenceable(7) @.str.8)
+          to label %40 unwind label %62
 
-invoke.cont21:                                    ; preds = %invoke.cont19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp.ensured, ptr align 8 %call22, i64 24, i1 false)
-  br label %cond.end
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %14, i32 0, i32 2
+  %42 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsImEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(8) %41)
+          to label %43 unwind label %62
 
-cond.end:                                         ; preds = %invoke.cont21, %invoke.cont
+43:                                               ; preds = %40
+  %44 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %45 unwind label %62
+
+45:                                               ; preds = %43
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %44, i64 24, i1 false), !tbaa.struct !52
+  br label %46
+
+46:                                               ; preds = %45, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
   ret void
 
-lpad:                                             ; preds = %invoke.cont19, %invoke.cont16, %invoke.cont14, %invoke.cont11, %invoke.cont9, %invoke.cont6, %invoke.cont5, %cond.false, %cond.true
-  %5 = landingpad { ptr, i32 }
+47:                                               ; preds = %23
+  %48 = landingpad { ptr, i32 }
           cleanup
-  %6 = extractvalue { ptr, i32 } %5, 0
-  store ptr %6, ptr %exn.slot, align 8
-  %7 = extractvalue { ptr, i32 } %5, 1
-  store i32 %7, ptr %ehselector.slot, align 4
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_list) #3
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  br label %eh.resume
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %8, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %9, align 4
+  %51 = load i1, ptr %7, align 1
+  br i1 %51, label %52, label %53
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val23 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val23
+52:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 24, ptr %6) #3
+  br label %53
+
+53:                                               ; preds = %52, %47
+  br label %68
+
+54:                                               ; preds = %29, %28
+  %55 = landingpad { ptr, i32 }
+          cleanup
+  %56 = extractvalue { ptr, i32 } %55, 0
+  store ptr %56, ptr %8, align 8
+  %57 = extractvalue { ptr, i32 } %55, 1
+  store i32 %57, ptr %9, align 4
+  br label %67
+
+58:                                               ; preds = %33, %31
+  %59 = landingpad { ptr, i32 }
+          cleanup
+  %60 = extractvalue { ptr, i32 } %59, 0
+  store ptr %60, ptr %8, align 8
+  %61 = extractvalue { ptr, i32 } %59, 1
+  store i32 %61, ptr %9, align 4
+  br label %66
+
+62:                                               ; preds = %43, %40, %38, %35
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %8, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  br label %66
+
+66:                                               ; preds = %62, %58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  br label %67
+
+67:                                               ; preds = %66, %54
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #3
+  br label %68
+
+68:                                               ; preds = %67, %53
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #3
+  br label %69
+
+69:                                               ; preds = %68
+  %70 = load ptr, ptr %8, align 8
+  %71 = load i32, ptr %9, align 4
+  %72 = insertvalue { ptr, i32 } poison, ptr %70, 0
+  %73 = insertvalue { ptr, i32 } %72, i32 %71, 1
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %pMem, ptr noundef %pCMM) #5 comdat align 2 {
-entry:
-  %pMem.addr = alloca ptr, align 8
-  %pCMM.addr = alloca ptr, align 8
-  store ptr %pMem, ptr %pMem.addr, align 8
-  store ptr %pCMM, ptr %pCMM.addr, align 8
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %0, ptr noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !55
+  store ptr %1, ptr %4, align 8, !tbaa !154
   ret void
 }
 
 declare noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %.addr, align 8
-  %d_pScope2 = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %2, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %d_pScope, ptr align 8 %d_pScope2, i64 32, i1 false)
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !156
+  store ptr %1, ptr %4, align 8, !tbaa !156
+  %5 = load ptr, ptr %3, align 8
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !19
+  %6 = getelementptr inbounds nuw %"class.cvc5::context::ContextObj", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::context::ContextObj", ptr %7, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !13
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !172
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !170
+  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(7) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIA7_cEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(7) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !74
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !14
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !173
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %arraydecay = getelementptr inbounds [7 x i8], ptr %10, i64 0, i64 0
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %arraydecay)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !74
+  %44 = getelementptr inbounds [7 x i8], ptr %43, i64 0, i64 0
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsIPKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEEEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !170
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !15
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !174
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %11 = load ptr, ptr %10, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %11)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !170
+  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsImEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %t) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %indent = alloca i64, align 8
-  %i = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_os = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_os, align 8
-  %cmp = icmp ne ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end11
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal11Cvc5ostreamlsImEERS1_RKT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !72
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %46
 
-if.then:                                          ; preds = %entry
-  %d_firstColumn = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  %1 = load i8, ptr %d_firstColumn, align 8
-  %tobool = trunc i8 %1 to i1
-  br i1 %tobool, label %if.then2, label %if.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  %13 = load i8, ptr %12, align 8, !tbaa !78, !range !45, !noundef !46
+  %14 = trunc i8 %13 to i1
+  br i1 %14, label %15, label %40
 
-if.then2:                                         ; preds = %if.then
-  %d_firstColumn3 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 1
-  store i8 0, ptr %d_firstColumn3, align 8
-  %d_os4 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %d_os4, align 8
-  %vtable = load ptr, ptr %2, align 8
-  %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
-  %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %vbase.offset
-  %3 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %add.ptr, i32 noundef %3)
-  %4 = load i64, ptr %call, align 8
-  store i64 %4, ptr %indent, align 8
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 1
+  store i8 0, ptr %16, align 8, !tbaa !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %17 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
+  %20 = getelementptr i8, ptr %19, i64 -24
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %23 = load i32, ptr @_ZN4cvc58internal11Cvc5ostream16s_indentIosIndexE, align 4, !tbaa !79
+  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8ios_base5iwordEi(ptr noundef nonnull align 8 dereferenceable(216) %22, i32 noundef %23)
+  %25 = load i64, ptr %24, align 8, !tbaa !10
+  store i64 %25, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  store i64 0, ptr %6, align 8, !tbaa !10
+  br label %26
 
-for.cond:                                         ; preds = %for.inc, %if.then2
-  %5 = load i64, ptr %i, align 8
-  %6 = load i64, ptr %indent, align 8
-  %cmp5 = icmp slt i64 %5, %6
-  br i1 %cmp5, label %for.body, label %for.end
+26:                                               ; preds = %36, %15
+  %27 = load i64, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = icmp slt i64 %27, %28
+  br i1 %29, label %31, label %30
 
-for.body:                                         ; preds = %for.cond
-  %d_os6 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %7 = load ptr, ptr %d_os6, align 8
-  %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
-  %d_os8 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  store ptr %call7, ptr %d_os8, align 8
-  br label %for.inc
+30:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %for.body
-  %8 = load i64, ptr %i, align 8
-  %inc = add nsw i64 %8, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !16
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8, !tbaa !76
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(32) @_ZN4cvc58internal11Cvc5ostream5s_tabB5cxx11E)
+  %35 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  store ptr %34, ptr %35, align 8, !tbaa !76
+  br label %36
 
-for.end:                                          ; preds = %for.cond
-  br label %if.end
+36:                                               ; preds = %31
+  %37 = load i64, ptr %6, align 8, !tbaa !10
+  %38 = add nsw i64 %37, 1
+  store i64 %38, ptr %6, align 8, !tbaa !10
+  br label %26, !llvm.loop !175
 
-if.end:                                           ; preds = %for.end, %if.then
-  %d_os9 = getelementptr inbounds %"class.cvc5::internal::Cvc5ostream", ptr %this1, i32 0, i32 0
-  %9 = load ptr, ptr %d_os9, align 8
-  %10 = load ptr, ptr %t.addr, align 8
-  %11 = load i64, ptr %10, align 8
-  %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %11)
-  br label %if.end11
+39:                                               ; preds = %30
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %entry
-  ret ptr %this1
+40:                                               ; preds = %39, %11
+  %41 = getelementptr inbounds nuw %"class.cvc5::internal::Cvc5ostream", ptr %7, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8, !tbaa !76
+  %43 = load ptr, ptr %4, align 8, !tbaa !23
+  %44 = load i64, ptr %43, align 8, !tbaa !10
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %42, i64 noundef %44)
+  br label %46
+
+46:                                               ; preds = %40, %2
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !165
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !166
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObjD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #14
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObjD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  call void @llvm.trap() #18
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #11
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_(ptr noundef %1, ptr noundef %2)
-  ret void
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !55
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
+  ret ptr %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start4 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl3, i32 0, i32 0
-  %2 = load ptr, ptr %_M_start4, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, i64 noundef %sub.ptr.div)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl5) #3
-  ret void
-
-terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
-  unreachable
-}
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_(ptr noundef %__first, ptr noundef %__last) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_(ptr noundef %0, ptr noundef %1)
-  ret void
+define available_externally noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6)
+  ret ptr %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_(ptr noundef %__first, ptr noundef %__last) #4 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  br label %for.cond
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__first.addr, align 8
-  call void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_(ptr noundef %2)
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %3 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %3, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  br label %for.cond, !llvm.loop !17
-
-for.end:                                          ; preds = %for.cond
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !161
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_(ptr noundef %__pointer) #5 comdat {
-entry:
-  %__pointer.addr = alloca ptr, align 8
-  store ptr %__pointer, ptr %__pointer.addr, align 8
-  %0 = load ptr, ptr %__pointer.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %1, i64 noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %this, i64 noundef %size) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %size.addr = alloca i64, align 8
-  %elem = alloca ptr, align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %ref.tmp6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp12 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %ref.tmp13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %size, ptr %size.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_callCleanup = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %d_callCleanup, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %if.then
-  %d_size = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %1 = load i64, ptr %d_size, align 8
-  %2 = load i64, ptr %size.addr, align 8
-  %cmp = icmp ne i64 %1, %2
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %d_size2 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %3 = load i64, ptr %d_size2, align 8
-  %dec = add i64 %3, -1
-  store i64 %dec, ptr %d_size2, align 8
-  %d_list = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  %d_size3 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %4 = load i64, ptr %d_size3, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %d_list, i64 noundef %4) #3
-  store ptr %call, ptr %elem, align 8
-  %d_cleanUp = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 4
-  %5 = load ptr, ptr %elem, align 8
-  call void @_ZNK4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEclERS4_(ptr noundef nonnull align 1 dereferenceable(1) %d_cleanUp, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br label %while.cond, !llvm.loop !18
-
-while.end:                                        ; preds = %while.cond
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %6 = load i64, ptr %size.addr, align 8
-  %d_size4 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  store i64 %6, ptr %d_size4, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %while.end
-  %d_list5 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  %d_list7 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  %call8 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %d_list7) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp6, i32 0, i32 0
-  store ptr %call8, ptr %coerce.dive, align 8
-  %d_size9 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 2
-  %7 = load i64, ptr %d_size9, align 8
-  %call10 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, i64 noundef %7) #3
-  %coerce.dive11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call10, ptr %coerce.dive11, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  %d_list14 = getelementptr inbounds %"class.cvc5::context::CDList", ptr %this1, i32 0, i32 1
-  %call15 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %d_list14) #3
-  %coerce.dive16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp13, i32 0, i32 0
-  store ptr %call15, ptr %coerce.dive16, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13) #3
-  %coerce.dive17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %agg.tmp, i32 0, i32 0
-  %8 = load ptr, ptr %coerce.dive17, align 8
-  %coerce.dive18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %agg.tmp12, i32 0, i32 0
-  %9 = load ptr, ptr %coerce.dive18, align 8
-  %call19 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %d_list5, ptr %8, ptr %9)
-  %coerce.dive20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %coerce, i32 0, i32 0
-  store ptr %call19, ptr %coerce.dive20, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %0, i64 %1
-  ret ptr %add.ptr
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEclERS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__first.coerce, ptr %__last.coerce) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %this.addr = alloca ptr, align 8
-  %__beg = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__cbeg = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %__first, i32 0, i32 0
-  store ptr %__first.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %__last, i32 0, i32 0
-  store ptr %__last.coerce, ptr %coerce.dive1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this2) #3
-  %coerce.dive3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__beg, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive3, align 8
-  %call4 = call ptr @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %this2) #3
-  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %__cbeg, i32 0, i32 0
-  store ptr %call4, ptr %coerce.dive5, align 8
-  %call6 = call noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__first, ptr noundef nonnull align 8 dereferenceable(8) %__cbeg) #3
-  %call7 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %__beg, i64 noundef %call6) #3
-  %coerce.dive8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call7, ptr %coerce.dive8, align 8
-  %call10 = call noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__last, ptr noundef nonnull align 8 dereferenceable(8) %__cbeg) #3
-  %call11 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %__beg, i64 noundef %call10) #3
-  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp9, i32 0, i32 0
-  store ptr %call11, ptr %coerce.dive12, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive13, align 8
-  %coerce.dive14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp9, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive14, align 8
-  %call15 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %this2, ptr %0, ptr %1)
-  %coerce.dive16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call15, ptr %coerce.dive16, align 8
-  %coerce.dive17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive17, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_start) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %__n) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %ref.tmp = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_current, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %0, i64 %1
-  store ptr %add.ptr, ptr %ref.tmp, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  %1 = load ptr, ptr %call, align 8
-  store ptr %1, ptr %_M_current, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_finish) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_start) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__first.coerce, ptr %__last.coerce) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %ref.tmp17 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__first, i32 0, i32 0
-  store ptr %__first.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__last, i32 0, i32 0
-  store ptr %__last.coerce, ptr %coerce.dive1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this2 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %__first, ptr noundef nonnull align 8 dereferenceable(8) %__last) #3
-  br i1 %call, label %if.then, label %if.end21
-
-if.then:                                          ; preds = %entry
-  %call3 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this2) #3
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call3, ptr %coerce.dive4, align 8
-  %call5 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %__last, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  br i1 %call5, label %if.then6, label %if.end
-
-if.then6:                                         ; preds = %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__last, i64 8, i1 false)
-  %call8 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this2) #3
-  %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp7, i32 0, i32 0
-  store ptr %call8, ptr %coerce.dive9, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %__first, i64 8, i1 false)
-  %coerce.dive11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive11, align 8
-  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp7, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive12, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp10, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive13, align 8
-  %call14 = call ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_(ptr %0, ptr %1, ptr %2)
-  %coerce.dive15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %coerce, i32 0, i32 0
-  store ptr %call14, ptr %coerce.dive15, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then6, %if.then
-  %call16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__first) #3
-  %3 = load ptr, ptr %call16, align 8
-  %call18 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this2) #3
-  %coerce.dive19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp17, i32 0, i32 0
-  store ptr %call18, ptr %coerce.dive19, align 8
-  %call20 = call noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %__last) #3
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %3, i64 %call20
-  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this2, ptr noundef %add.ptr) #3
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.end, %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %__first, i64 8, i1 false)
-  %coerce.dive22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive22, align 8
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #5 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %__rhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  %3 = load ptr, ptr %call1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
-}
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !165
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !167
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !165
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 8
+  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_current, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #5 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %__rhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  %3 = load ptr, ptr %call1, align 8
-  %cmp = icmp ne ptr %1, %3
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_(ptr %__first.coerce, ptr %__last.coerce, ptr %__result.coerce) #4 comdat {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__result = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__first, i32 0, i32 0
-  store ptr %__first.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__last, i32 0, i32 0
-  store ptr %__last.coerce, ptr %coerce.dive1, align 8
-  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__result, i32 0, i32 0
-  store ptr %__result.coerce, ptr %coerce.dive2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %__first, i64 8, i1 false)
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  %call = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %0)
-  %coerce.dive5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp7, ptr align 8 %__last, i64 8, i1 false)
-  %coerce.dive8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp7, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive8, align 8
-  %call9 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %1)
-  %coerce.dive10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp6, i32 0, i32 0
-  store ptr %call9, ptr %coerce.dive10, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp11, ptr align 8 %__result, i64 8, i1 false)
-  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive12, align 8
-  %coerce.dive13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp6, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive13, align 8
-  %coerce.dive14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp11, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive14, align 8
-  %call15 = call ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET1_T0_SC_SB_(ptr %2, ptr %3, ptr %4)
-  %coerce.dive16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call15, ptr %coerce.dive16, align 8
-  %coerce.dive17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %5 = load ptr, ptr %coerce.dive17, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__pos) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__pos.addr = alloca ptr, align 8
-  %__n = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__pos, ptr %__pos.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %1 = load ptr, ptr %__pos.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %__n, align 8
-  %2 = load i64, ptr %__n, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %__pos.addr, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish3 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %4 = load ptr, ptr %_M_finish3, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %if.then
-  %5 = load ptr, ptr %__pos.addr, align 8
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish5 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 1
-  store ptr %5, ptr %_M_finish5, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont, %entry
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #14
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  ret ptr %_M_current
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #5 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %__rhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  %3 = load ptr, ptr %call1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_(ptr noundef %0, ptr noundef %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8, !tbaa !56
+  %6 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_(ptr noundef %5, ptr noundef %6)
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET1_T0_SC_SB_(ptr %__first.coerce, ptr %__last.coerce, ptr %__result.coerce) #4 comdat {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__first = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__last = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__result = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %agg.tmp8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__first, i32 0, i32 0
-  store ptr %__first.coerce, ptr %coerce.dive, align 8
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__last, i32 0, i32 0
-  store ptr %__last.coerce, ptr %coerce.dive1, align 8
-  %coerce.dive2 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__result, i32 0, i32 0
-  store ptr %__result.coerce, ptr %coerce.dive2, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__result, i64 8, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp3, ptr align 8 %__first, i64 8, i1 false)
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp3, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive4, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %0) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %__last, i64 8, i1 false)
-  %coerce.dive6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp5, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive6, align 8
-  %call7 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %1) #3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp8, ptr align 8 %__result, i64 8, i1 false)
-  %coerce.dive9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp8, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive9, align 8
-  %call10 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %2) #3
-  %call11 = call noundef ptr @_ZSt14__copy_move_a1ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %call, ptr noundef %call7, ptr noundef %call10)
-  %coerce.dive12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %3 = load ptr, ptr %coerce.dive12, align 8
-  %call13 = call ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET_SB_T0_(ptr %3, ptr noundef %call11)
-  %coerce.dive14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call13, ptr %coerce.dive14, align 8
-  %coerce.dive15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %4 = load ptr, ptr %coerce.dive15, align 8
-  ret ptr %4
+define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  br label %5
+
+5:                                                ; preds = %11, %2
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8, !tbaa !56
+  call void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !56
+  %13 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !56
+  br label %5, !llvm.loop !176
+
+14:                                               ; preds = %5
+  ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %__it.coerce) #5 comdat {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__it = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__it, i32 0, i32 0
-  store ptr %__it.coerce, ptr %coerce.dive, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %__it, i64 8, i1 false)
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive1, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET_SB_T0_(ptr %__from.coerce, ptr noundef %__res) #5 comdat {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__from = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %__res.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__from, i32 0, i32 0
-  store ptr %__from.coerce, ptr %coerce.dive, align 8
-  store ptr %__res, ptr %__res.addr, align 8
-  %0 = load ptr, ptr %__res.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %__from, i64 8, i1 false)
-  %coerce.dive1 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %agg.tmp, i32 0, i32 0
-  %1 = load ptr, ptr %coerce.dive1, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %1) #3
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %call to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  %call2 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %__from, i64 noundef %sub.ptr.div) #3
-  %coerce.dive3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  store ptr %call2, ptr %coerce.dive3, align 8
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive4, align 8
-  ret ptr %2
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt14__copy_move_a1ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZSt14__copy_move_a2ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !157
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !56
+  %13 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %__it.coerce) #5 comdat {
-entry:
-  %__it = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %__it, i32 0, i32 0
-  store ptr %__it.coerce, ptr %coerce.dive, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__it) #3
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !168
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt14__copy_move_a2ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4cvc58internal12NodeTemplateILb1EEES7_EET0_T_S9_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !161
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !161
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !168
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !56
+  %8 = load i64, ptr %6, align 8, !tbaa !10
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #20
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4cvc58internal12NodeTemplateILb1EEES7_EET0_T_S9_S8_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__n = alloca i64, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %__n, align 8
-  br label %for.cond
+define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EE12truncateListEm(ptr noundef nonnull align 8 dereferenceable(74) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !31
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 3
+  %14 = load i8, ptr %13, align 8, !tbaa !47, !range !45, !noundef !46
+  %15 = trunc i8 %14 to i1
+  br i1 %15, label %16, label %33
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load i64, ptr %__n, align 8
-  %cmp = icmp sgt i64 %2, 0
-  br i1 %cmp, label %for.body, label %for.end
+16:                                               ; preds = %2
+  br label %17
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__first.addr, align 8
-  %4 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %5 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  %6 = load ptr, ptr %__result.addr, align 8
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %6, i32 1
-  store ptr %incdec.ptr1, ptr %__result.addr, align 8
-  br label %for.inc
+17:                                               ; preds = %22, %16
+  %18 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 2
+  %19 = load i64, ptr %18, align 8, !tbaa !37
+  %20 = load i64, ptr %4, align 8, !tbaa !10
+  %21 = icmp ne i64 %19, %20
+  br i1 %21, label %22, label %32
 
-for.inc:                                          ; preds = %for.body
-  %7 = load i64, ptr %__n, align 8
-  %dec = add nsw i64 %7, -1
-  store i64 %dec, ptr %__n, align 8
-  br label %for.cond, !llvm.loop !19
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 2
+  %24 = load i64, ptr %23, align 8, !tbaa !37
+  %25 = add i64 %24, -1
+  store i64 %25, ptr %23, align 8, !tbaa !37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %26 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 2
+  %28 = load i64, ptr %27, align 8, !tbaa !37
+  %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %28) #3
+  store ptr %29, ptr %5, align 8, !tbaa !56
+  %30 = getelementptr inbounds i8, ptr %12, i64 73
+  %31 = load ptr, ptr %5, align 8, !tbaa !56
+  call void @_ZNK4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEclERS4_(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  br label %17, !llvm.loop !177
 
-for.end:                                          ; preds = %for.cond
-  %8 = load ptr, ptr %__result.addr, align 8
+32:                                               ; preds = %17
+  br label %36
+
+33:                                               ; preds = %2
+  %34 = load i64, ptr %4, align 8, !tbaa !10
+  %35 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 2
+  store i64 %34, ptr %35, align 8, !tbaa !37
+  br label %36
+
+36:                                               ; preds = %33, %32
+  %37 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %38 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 1
+  %39 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #3
+  %40 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 2
+  %42 = load i64, ptr %41, align 8, !tbaa !37
+  %43 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %42) #3
+  %44 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %43, ptr %44, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  %45 = getelementptr inbounds nuw %"class.cvc5::context::CDList", ptr %12, i32 0, i32 1
+  %46 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #3
+  %47 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  store ptr %46, ptr %47, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  %48 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %6, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %9, i32 0, i32 0
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr %49, ptr %51)
+  %53 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store ptr %52, ptr %53, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !165
+  %9 = load i64, ptr %4, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNK4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEclERS4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) #4 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %6, i32 0, i32 0
+  store ptr %2, ptr %13, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !152
+  %14 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %15 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %17 = call ptr @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %9, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = call noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %20 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %19) #3
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = call noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %23 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %22) #3
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %26, ptr %28)
+  %30 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  ret ptr %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #6 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !178
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !180
+  %10 = load i64, ptr %5, align 8, !tbaa !10
+  %11 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %9, i64 %10
+  store ptr %11, ptr %6, align 8, !tbaa !56
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2IPS4_vEERKNS0_IT_S9_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !178
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !178
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  store ptr %9, ptr %6, align 8, !tbaa !184
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.41", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %e.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %e, ptr %e.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_nv, align 8
-  %1 = load ptr, ptr %e.addr, align 8
-  %d_nv2 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %d_nv2, align 8
-  %cmp = icmp ne ptr %0, %2
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS3_S5_EES9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) #4 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %2, ptr %15, align 8
+  store ptr %0, ptr %7, align 8, !tbaa !152
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  br i1 %17, label %18, label %40
 
-if.then:                                          ; preds = %entry
-  %d_nv3 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %3 = load ptr, ptr %d_nv3, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %4 = load ptr, ptr %e.addr, align 8
-  %d_nv4 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %4, i32 0, i32 0
-  %5 = load ptr, ptr %d_nv4, align 8
-  %d_nv5 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  store ptr %5, ptr %d_nv5, align 8
-  %d_nv6 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %this1, i32 0, i32 0
-  %6 = load ptr, ptr %d_nv6, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br label %if.end
+18:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %19 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %19, ptr %20, align 8
+  %21 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  br i1 %21, label %22, label %33
 
-if.end:                                           ; preds = %if.then, %entry
-  ret ptr %this1
+22:                                               ; preds = %18
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !186
+  %23 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  store ptr %23, ptr %24, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !186
+  %25 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  %31 = call ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_(ptr %26, ptr %28, ptr %30)
+  %32 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %22, %18
+  %34 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %35 = load ptr, ptr %34, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %36 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %37 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %13, i32 0, i32 0
+  store ptr %36, ptr %37, align 8
+  %38 = call noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %39 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.1", ptr %35, i64 %38
+  call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef %39) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  br label %40
+
+40:                                               ; preds = %33, %3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !186
+  %41 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %42 = load ptr, ptr %41, align 8
+  ret ptr %42
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSD_SG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !182
+  %5 = load ptr, ptr %3, align 8, !tbaa !182
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %8 = load ptr, ptr %4, align 8, !tbaa !182
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.41", ptr %this1, i32 0, i32 0
-  ret ptr %_M_current
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_current, align 8
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !182
+  store ptr %1, ptr %4, align 8, !tbaa !187
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !187
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  store ptr %8, ptr %6, align 8, !tbaa !184
   ret void
 }
 
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN9__gnu_cxxneIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %4, align 8, !tbaa !178
+  %5 = load ptr, ptr %3, align 8, !tbaa !178
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %8 = load ptr, ptr %4, align 8, !tbaa !178
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_(ptr %0, ptr %1, ptr %2) #8 comdat {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %13, align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %15, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !186
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %17)
+  %19 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  store ptr %18, ptr %19, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !186
+  %20 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %21)
+  %23 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !186
+  %24 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %12, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET1_T0_SC_SB_(ptr %25, ptr %27, ptr %29)
+  %31 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %33 = load ptr, ptr %32, align 8
+  ret ptr %33
+}
+
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %pMem) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %pMem.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.cvc5::internal::OstreamVoider", align 1
-  %ref.tmp1 = alloca %"class.cvc5::internal::FatalStream", align 1
-  store ptr %pMem, ptr %pMem.addr, align 8
-  invoke void @_ZN4cvc58internal13OstreamVoiderC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE15_M_erase_at_endEPS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !152
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !166
+  %10 = load ptr, ptr %4, align 8, !tbaa !56
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  store i64 %14, ptr %5, align 8, !tbaa !10
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1, ptr noundef @__PRETTY_FUNCTION__._ZN4cvc57context10ContextObjdlEPv, ptr noundef @.str.9, i32 noundef 566)
-          to label %invoke.cont2 unwind label %terminate.lpad
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !166
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %23 unwind label %28
 
-invoke.cont2:                                     ; preds = %invoke.cont
-  %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1)
-          to label %invoke.cont3 unwind label %terminate.lpad
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !56
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !166
+  br label %27
 
-invoke.cont3:                                     ; preds = %invoke.cont2
-  %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef @.str.10)
-          to label %invoke.cont4 unwind label %terminate.lpad
+27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  ret void
 
-invoke.cont4:                                     ; preds = %invoke.cont3
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef @.str.11)
-          to label %invoke.cont6 unwind label %terminate.lpad
-
-invoke.cont6:                                     ; preds = %invoke.cont4
-  %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call7, ptr noundef @.str.12)
-          to label %invoke.cont8 unwind label %terminate.lpad
-
-invoke.cont8:                                     ; preds = %invoke.cont6
-  %call11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef @.str.13)
-          to label %invoke.cont10 unwind label %terminate.lpad
-
-invoke.cont10:                                    ; preds = %invoke.cont8
-  invoke void @_ZN4cvc58internal13OstreamVoideranERSo(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %call11)
-          to label %invoke.cont12 unwind label %terminate.lpad
-
-invoke.cont12:                                    ; preds = %invoke.cont10
-  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #14
-  unreachable
-
-terminate.lpad:                                   ; preds = %invoke.cont10, %invoke.cont8, %invoke.cont6, %invoke.cont4, %invoke.cont3, %invoke.cont2, %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #14
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal13OstreamVoiderC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !178
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %4, align 8, !tbaa !178
+  %5 = load ptr, ptr %3, align 8, !tbaa !178
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %8 = load ptr, ptr %4, align 8, !tbaa !178
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZSt13__copy_move_aILb1EN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEESA_ET1_T0_SC_SB_(ptr %0, ptr %1, ptr %2) #8 comdat {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %12, align 8
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  store ptr %2, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !186
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false), !tbaa.struct !186
+  %15 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %9, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %16) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false), !tbaa.struct !186
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %10, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %19) #3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %7, i64 8, i1 false), !tbaa.struct !186
+  %21 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %22) #3
+  %24 = call noundef ptr @_ZSt14__copy_move_a1ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %17, ptr noundef %20, ptr noundef %23)
+  %25 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %8, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  %27 = call ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET_SB_T0_(ptr %26, ptr noundef %24)
+  %28 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  %30 = load ptr, ptr %29, align 8
+  ret ptr %30
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEEET_SB_(ptr %0) #7 comdat {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %0, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %3, i64 8, i1 false), !tbaa.struct !186
+  %5 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  ret ptr %6
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden ptr @_ZSt12__niter_wrapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES6_ET_SB_T0_(ptr %0, ptr noundef %1) #7 comdat {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false), !tbaa.struct !186
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %6, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = call noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %10) #3
+  %12 = ptrtoint ptr %8 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 8
+  %16 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEplEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %15) #3
+  %17 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %16, ptr %17, align 8
+  %18 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  ret ptr %19
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt14__copy_move_a1ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = load ptr, ptr %6, align 8, !tbaa !56
+  %10 = call noundef ptr @_ZSt14__copy_move_a2ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZSt12__niter_baseIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEET_N9__gnu_cxx17__normal_iteratorIS8_T0_EE(ptr %0) #6 comdat {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  store ptr %0, ptr %3, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt14__copy_move_a2ILb1EPN4cvc58internal12NodeTemplateILb1EEES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8, !tbaa !56
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = load ptr, ptr %6, align 8, !tbaa !56
+  %10 = call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4cvc58internal12NodeTemplateILb1EEES7_EET0_T_S9_S8_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPN4cvc58internal12NodeTemplateILb1EEES7_EET0_T_S9_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %8 = load ptr, ptr %5, align 8, !tbaa !56
+  %9 = load ptr, ptr %4, align 8, !tbaa !56
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  store i64 %13, ptr %7, align 8, !tbaa !10
+  br label %14
+
+14:                                               ; preds = %26, %3
+  %15 = load i64, ptr %7, align 8, !tbaa !10
+  %16 = icmp sgt i64 %15, 0
+  br i1 %16, label %18, label %17
+
+17:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %29
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %4, align 8, !tbaa !56
+  %20 = load ptr, ptr %6, align 8, !tbaa !56
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %22 = load ptr, ptr %4, align 8, !tbaa !56
+  %23 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %22, i32 1
+  store ptr %23, ptr %4, align 8, !tbaa !56
+  %24 = load ptr, ptr %6, align 8, !tbaa !56
+  %25 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %24, i32 1
+  store ptr %25, ptr %6, align 8, !tbaa !56
+  br label %26
+
+26:                                               ; preds = %18
+  %27 = load i64, ptr %7, align 8, !tbaa !10
+  %28 = add nsw i64 %27, -1
+  store i64 %28, ptr %7, align 8, !tbaa !10
+  br label %14, !llvm.loop !189
+
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %6, align 8, !tbaa !56
+  ret ptr %30
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !57
+  %11 = icmp ne ptr %7, %10
+  %12 = zext i1 %11 to i64
+  %13 = call i64 @llvm.expect.i64(i64 %12, i64 1)
+  %14 = icmp ne i64 %13, 0
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
+  call void @_ZN4cvc58internal4expr9NodeValue3decEv(ptr noundef nonnull align 8 dereferenceable(24) %17)
+  %18 = load ptr, ptr %4, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %21 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  store ptr %20, ptr %21, align 8, !tbaa !57
+  %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate.1", ptr %5, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  call void @_ZN4cvc58internal4expr9NodeValue3incEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
+  br label %24
+
+24:                                               ; preds = %15, %2
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !182
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.41", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !178
+  store ptr %1, ptr %4, align 8, !tbaa !187
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !187
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  store ptr %8, ptr %6, align 8, !tbaa !180
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal13OstreamVoideranERSo(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.cvc5::internal::OstreamVoider", align 1
+  %4 = alloca %"class.cvc5::internal::FatalStream", align 1
+  store ptr %0, ptr %2, align 8, !tbaa !55
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  invoke void @_ZN4cvc58internal13OstreamVoiderC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %5 unwind label %18
+
+5:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #3
+  invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef @__PRETTY_FUNCTION__._ZN4cvc57context10ContextObjdlEPv, ptr noundef @.str.9, i32 noundef 566)
+          to label %6 unwind label %18
+
+6:                                                ; preds = %5
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1) %4)
+          to label %8 unwind label %18
+
+8:                                                ; preds = %6
+  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.10)
+          to label %10 unwind label %18
+
+10:                                               ; preds = %8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef @.str.11)
+          to label %12 unwind label %18
+
+12:                                               ; preds = %10
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef @.str.12)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %12
+  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef @.str.13)
+          to label %16 unwind label %18
+
+16:                                               ; preds = %14
+  invoke void @_ZN4cvc58internal13OstreamVoideranERSo(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
+  unreachable
+
+18:                                               ; preds = %16, %14, %12, %10, %8, %6, %5, %1
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #18
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal13OstreamVoiderC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !190
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal13OstreamVoideranERSo(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !190
+  store ptr %1, ptr %4, align 8, !tbaa !53
   ret void
 }
 
@@ -4331,1080 +4947,1051 @@ declare void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11FatalStream6streamEv(ptr noundef nonnull align 1 dereferenceable(1)) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
+declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #17
 
 declare void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pCMM) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pCMM.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pCMM, ptr %pCMM.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pCMM.addr, align 8
-  %call = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 48, ptr noundef %0)
-  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef nonnull align 8 dereferenceable(48) %this1)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !154
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !154
+  %9 = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 48, ptr noundef %8)
+  invoke void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  ret ptr %call
+10:                                               ; preds = %2
+  ret ptr %9
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %call, ptr noundef %0) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %9, ptr noundef %8) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pContextObj) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pContextObj.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pContextObj, ptr %pContextObj.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pContextObj.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %1, i32 0, i32 1
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_data2, ptr noundef nonnull align 8 dereferenceable(8) %d_data)
-  %2 = load ptr, ptr %p, align 8
-  %d_data3 = getelementptr inbounds %"class.cvc5::context::CDO", ptr %2, i32 0, i32 1
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_data3) #3
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !156
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !156
+  store ptr %7, ptr %5, align 8, !tbaa !17
+  %8 = load ptr, ptr %5, align 8, !tbaa !17
+  %9 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %8, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %6, i32 0, i32 1
+  %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %12 = load ptr, ptr %5, align 8, !tbaa !17
+  %13 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %12, i32 0, i32 1
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
-  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %this1) #3
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %cdo) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %cdo.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %cdo, ptr %cdo.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %cdo.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %cdo.addr, align 8
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO", ptr %2, i32 0, i32 1
-  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_data, ptr noundef nonnull align 8 dereferenceable(8) %d_data2)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !17
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !17
+  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE, i32 0, i32 0, i32 2), ptr %7, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %7, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8, !tbaa !17
+  %11 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %10, i32 0, i32 1
+  invoke void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
+12:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %5, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %6, align 4
+  call void @_ZN4cvc57context10ContextObjD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val3 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val3
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %d_pScope, align 8
-  %call = call noundef zeroext i1 @_ZNK4cvc57context5Scope9isCurrentEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  br i1 %call, label %if.end, label %if.then
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !156
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::context::ContextObj", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !192
+  %6 = call noundef zeroext i1 @_ZNK4cvc57context5Scope9isCurrentEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
+  br i1 %6, label %8, label %7
 
-if.then:                                          ; preds = %entry
-  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  br label %if.end
+7:                                                ; preds = %1
+  call void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+  br label %8
 
-if.end:                                           ; preds = %if.then, %entry
+8:                                                ; preds = %7, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pCMM) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pCMM.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pCMM, ptr %pCMM.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pCMM.addr, align 8
-  %call = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 48, ptr noundef %0)
-  invoke void @_ZN4cvc57context3CDOImEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %call, ptr noundef nonnull align 8 dereferenceable(48) %this1)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20ContextMemoryManagerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !154
+  %7 = load ptr, ptr %3, align 8
+  %8 = load ptr, ptr %4, align 8, !tbaa !154
+  %9 = call noundef ptr @_ZN4cvc57context10ContextObjnwEmPNS0_20ContextMemoryManagerE(i64 noundef 48, ptr noundef %8)
+  invoke void @_ZN4cvc57context3CDOImEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %7)
+          to label %10 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  ret ptr %call
+10:                                               ; preds = %2
+  ret ptr %9
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %call, ptr noundef %0) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %5, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %6, align 4
+  call void @_ZN4cvc57context10ContextObjdlEPvPNS0_20ContextMemoryManagerE(ptr noundef %9, ptr noundef %8) #3
+  br label %15
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %5, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = insertvalue { ptr, i32 } poison, ptr %16, 0
+  %19 = insertvalue { ptr, i32 } %18, i32 %17, 1
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pContextObj) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pContextObj.addr = alloca ptr, align 8
-  %p = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pContextObj, ptr %pContextObj.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %pContextObj.addr, align 8
-  store ptr %0, ptr %p, align 8
-  %1 = load ptr, ptr %p, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %1, i32 0, i32 1
-  %2 = load i64, ptr %d_data, align 8
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  store i64 %2, ptr %d_data2, align 8
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !156
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %7 = load ptr, ptr %4, align 8, !tbaa !156
+  store ptr %7, ptr %5, align 8, !tbaa !21
+  %8 = load ptr, ptr %5, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !25
+  %11 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %6, i32 0, i32 1
+  store i64 %10, ptr %11, align 8, !tbaa !25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
-  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %this1) #3
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4cvc57context3CDOImED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  call void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc57context5Scope9isCurrentEv(ptr noundef nonnull align 8 dereferenceable(56) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_pContext = getelementptr inbounds %"class.cvc5::context::Scope", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %d_pContext, align 8
-  %call = call noundef ptr @_ZNK4cvc57context7Context11getTopScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %cmp = icmp eq ptr %this1, %call
-  ret i1 %cmp
+define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc57context5Scope9isCurrentEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !193
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::context::Scope", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !194
+  %6 = call noundef ptr @_ZNK4cvc57context7Context11getTopScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  %7 = icmp eq ptr %3, %6
+  ret i1 %7
 }
 
 declare void @_ZN4cvc57context10ContextObj6updateEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4cvc57context7Context11getTopScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_scopeList = getelementptr inbounds %"class.cvc5::context::Context", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %d_scopeList) #3
-  %0 = load ptr, ptr %call, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNK4cvc57context7Context11getTopScopeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::context::Context", ptr %3, i32 0, i32 1
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %6 = load ptr, ptr %5, align 8, !tbaa !193
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
-  %ref.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %ref.tmp2, i32 0, i32 0
-  store ptr %call, ptr %coerce.dive, align 8
-  %call3 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, i64 noundef 1) #3
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call3, ptr %coerce.dive4, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  ret ptr %call5
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !200
+  %5 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %6 = call ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #3
+  %9 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %3, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.48", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_finish) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNKSt6vectorIPN4cvc57context5ScopeESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !200
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.48", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %__n) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %ref.tmp = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_current, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %idx.neg = sub i64 0, %1
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %idx.neg
-  store ptr %add.ptr, ptr %ref.tmp, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %2
+define linkonce_odr hidden ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #6 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.52", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !202
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %8 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !204
+  %10 = load i64, ptr %5, align 8, !tbaa !10
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  store ptr %12, ptr %6, align 8, !tbaa !207
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  %13 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %3, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_current, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !202
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !204
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.52", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_current, align 8
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !202
+  store ptr %1, ptr %4, align 8, !tbaa !208
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.52", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !208
+  %8 = load ptr, ptr %7, align 8, !tbaa !207
+  store ptr %8, ptr %6, align 8, !tbaa !204
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %cdo) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %cdo.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %cdo, ptr %cdo.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %cdo.addr, align 8
-  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
-  %1 = getelementptr inbounds { [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2
-  store ptr %1, ptr %this1, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %cdo.addr, align 8
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %2, i32 0, i32 1
-  %3 = load i64, ptr %d_data2, align 8
-  store i64 %3, ptr %d_data, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3setERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %data) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  %0 = load ptr, ptr %data.addr, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO", ptr %this1, i32 0, i32 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_data, ptr noundef nonnull align 8 dereferenceable(8) %0)
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @_ZN4cvc57context10ContextObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6) #3
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i32 0, i32 0, i32 2), ptr %5, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %5, i32 0, i32 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !25
+  store i64 %10, ptr %7, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc57context3CDOImE3setERKm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %data) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %data.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %data, ptr %data.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  %0 = load ptr, ptr %data.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.0", ptr %this1, i32 0, i32 1
-  store i64 %1, ptr %d_data, align 8
+define linkonce_odr hidden void @_ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEE3setERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !17
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  %7 = getelementptr inbounds nuw %"class.cvc5::context::CDO", ptr %5, i32 0, i32 1
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNK4cvc57context3CDOImEcvKmEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  %0 = load i64, ptr %call, align 8
-  ret i64 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %1, ptr noundef %2)
+define linkonce_odr hidden void @_ZN4cvc57context3CDOImE3setERKm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZN4cvc57context10ContextObj11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %"class.cvc5::context::CDO.0", ptr %5, i32 0, i32 1
+  store i64 %7, ptr %8, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr hidden noundef i64 @_ZNK4cvc57context3CDOImEcvKmEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc57context3CDOImE3getEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %5 = load i64, ptr %4, align 8, !tbaa !10
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !107
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %7, ptr noundef %8)
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start4 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl3, i32 0, i32 0
-  %2 = load ptr, ptr %_M_start4, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, i64 noundef %sub.ptr.div)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
 
-invoke.cont:                                      ; preds = %entry
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl5) #3
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !99
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !101
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 8
+  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #14
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #18
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %__first, ptr noundef %__last) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb0EEEEEvT_S7_(ptr noundef %0, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %0, ptr noundef %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb0EEEEEvT_S7_(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb0EEEEEvT_S7_(ptr noundef %__first, ptr noundef %__last) #4 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  br label %for.cond
+define linkonce_odr hidden void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb0EEEEEvT_S7_(ptr noundef %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  br label %5
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %for.body, label %for.end
+5:                                                ; preds = %11, %2
+  %6 = load ptr, ptr %3, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %14
 
-for.body:                                         ; preds = %for.cond
-  %2 = load ptr, ptr %__first.addr, align 8
-  call void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb0EEEEvPT_(ptr noundef %2)
-  br label %for.inc
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb0EEEEvPT_(ptr noundef %10)
+  br label %11
 
-for.inc:                                          ; preds = %for.body
-  %3 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %3, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  br label %for.cond, !llvm.loop !20
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8, !tbaa !12
+  br label %5, !llvm.loop !210
 
-for.end:                                          ; preds = %for.cond
+14:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb0EEEEvPT_(ptr noundef %__pointer) #5 comdat {
-entry:
-  %__pointer.addr = alloca ptr, align 8
-  store ptr %__pointer, ptr %__pointer.addr, align 8
-  %0 = load ptr, ptr %__pointer.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %1, i64 noundef %2)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb0EEEEvPT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr hidden void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !103
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !12
+  %13 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSaIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK4cvc58internal4expr9NodeValue5beginINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %firstChild = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [0 x ptr], ptr %d_children, i64 0, i64 0
-  store ptr %arraydecay, ptr %firstChild, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal4expr9NodeValue11getMetaKindEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  %cmp = icmp eq i32 %call, 2
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %firstChild, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %0, i32 1
-  store ptr %incdec.ptr, ptr %firstChild, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %1 = load ptr, ptr %firstChild, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %1)
-  %coerce.dive = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  %2 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK4cvc58internal4expr9NodeValue11getMetaKindEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i32 @_ZNK4cvc58internal4expr9NodeValue7getKindEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  %call2 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %call)
-  ret i32 %call2
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !107
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !107
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %i, ptr %i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %i.addr, align 8
-  store ptr %0, ptr %d_i, align 8
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !111
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !12
+  %8 = load i64, ptr %6, align 8, !tbaa !10
+  %9 = mul i64 %8, 8
+  call void @_ZdlPvm(ptr noundef %7, i64 noundef %9) #20
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNK4cvc58internal4expr9NodeValue5beginINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #8 comdat align 2 {
+  %2 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %5, i32 0, i32 3
+  %7 = getelementptr inbounds [0 x ptr], ptr %6, i64 0, i64 0
+  store ptr %7, ptr %4, align 8, !tbaa !211
+  %8 = call noundef i32 @_ZNK4cvc58internal4expr9NodeValue11getMetaKindEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %9 = icmp eq i32 %8, 2
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8, !tbaa !211
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i32 1
+  store ptr %12, ptr %4, align 8, !tbaa !211
+  br label %13
+
+13:                                               ; preds = %10, %1
+  %14 = load ptr, ptr %4, align 8, !tbaa !211
+  call void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  %15 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK4cvc58internal4expr9NodeValue11getMetaKindEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNK4cvc58internal4expr9NodeValue7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %5 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %4)
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %1, ptr %4, align 8, !tbaa !211
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !211
+  store ptr %7, ptr %6, align 8, !tbaa !93
   ret void
 }
 
 declare noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK4cvc58internal4expr9NodeValue7getKindEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_kind = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 1
-  %bf.load = load i16, ptr %d_kind, align 8
-  %bf.clear = and i16 %bf.load, 1023
-  %bf.cast = zext i16 %bf.clear to i32
-  %call = call noundef i32 @_ZN4cvc58internal4expr9NodeValue11dKindToKindEj(i32 noundef %bf.cast)
-  ret i32 %call
+define linkonce_odr hidden noundef i32 @_ZNK4cvc58internal4expr9NodeValue7getKindEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !96
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 1023
+  %7 = trunc i64 %6 to i32
+  %8 = call noundef i32 @_ZN4cvc58internal4expr9NodeValue11dKindToKindEj(i32 noundef %7)
+  ret i32 %8
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN4cvc58internal4expr9NodeValue11dKindToKindEj(i32 noundef %0) #7 comdat align 2 {
+  %2 = alloca i32, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !79
+  %3 = load i32, ptr %2, align 4, !tbaa !79
+  %4 = icmp eq i32 %3, 1023
+  br i1 %4, label %5, label %6
+
+5:                                                ; preds = %1
+  br label %8
+
+6:                                                ; preds = %1
+  %7 = load i32, ptr %2, align 4, !tbaa !79
+  br label %8
+
+8:                                                ; preds = %6, %5
+  %9 = phi i32 [ -1, %5 ], [ %7, %6 ]
+  ret i32 %9
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden ptr @_ZNK4cvc58internal4expr9NodeValue3endINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #8 comdat align 2 {
+  %2 = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 0
+  %7 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue", ptr %4, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = lshr i64 %8, 32
+  %10 = and i64 %9, 67108863
+  %11 = trunc i64 %10 to i32
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds ptr, ptr %6, i64 %12
+  call void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %13)
+  %14 = getelementptr inbounds nuw %"class.cvc5::internal::expr::NodeValue::iterator", ptr %2, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN4cvc58internal4expr9NodeValue11dKindToKindEj(i32 noundef %d) #5 comdat align 2 {
-entry:
-  %d.addr = alloca i32, align 4
-  store i32 %d, ptr %d.addr, align 4
-  %0 = load i32, ptr %d.addr, align 4
-  %cmp = icmp eq i32 %0, 1023
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  %1 = load i32, ptr %d.addr, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ -1, %cond.true ], [ %1, %cond.false ]
-  ret i32 %cond
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden ptr @_ZNK4cvc58internal4expr9NodeValue3endINS0_12NodeTemplateILb0EEEEENS2_8iteratorIT_EEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca %"class.cvc5::internal::expr::NodeValue::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_children = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 3
-  %arraydecay = getelementptr inbounds [0 x ptr], ptr %d_children, i64 0, i64 0
-  %d_nchildren = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %this1, i32 0, i32 2
-  %bf.load = load i32, ptr %d_nchildren, align 4
-  %bf.clear = and i32 %bf.load, 67108863
-  %idx.ext = sext i32 %bf.clear to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %arraydecay, i64 %idx.ext
-  call void @_ZN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEC2EPKPKS2_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef %add.ptr)
-  %coerce.dive = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue::iterator", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %ev) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %ev.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %ev, ptr %ev.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d_nv = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %ev.addr, align 8
-  store ptr %0, ptr %d_nv, align 8
+define linkonce_odr hidden void @_ZN4cvc58internal12NodeTemplateILb0EEC2EPKNS0_4expr9NodeValueE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !96
+  store ptr %7, ptr %6, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args) #4 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !107
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !107
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__position = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %__old_start = alloca ptr, align 8
-  %__old_finish = alloca ptr, align 8
-  %__elems_before = alloca i64, align 8
-  %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
-  %__new_start = alloca ptr, align 8
-  %__new_finish = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %__position, i32 0, i32 0
-  store ptr %__position.coerce, ptr %coerce.dive, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef 1, ptr noundef @.str.14)
-  store i64 %call, ptr %__len, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  store ptr %0, ptr %__old_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  store ptr %1, ptr %__old_finish, align 8
-  %call3 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %coerce.dive4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %ref.tmp, i32 0, i32 0
-  store ptr %call3, ptr %coerce.dive4, align 8
-  %call5 = call noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %__position, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  store i64 %call5, ptr %__elems_before, align 8
-  %2 = load i64, ptr %__len, align 8
-  %call6 = call noundef ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %2)
-  store ptr %call6, ptr %__new_start, align 8
-  %3 = load ptr, ptr %__new_start, align 8
-  store ptr %3, ptr %__new_finish, align 8
-  %_M_impl7 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %__new_start, align 8
-  %5 = load i64, ptr %__elems_before, align 8
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %4, i64 %5
-  %6 = load ptr, ptr %__args.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl7, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %16, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !89
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %18 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, ptr noundef @.str.14)
+  store i64 %18, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !101
+  store ptr %21, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !97
+  store ptr %24, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %25 = call ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %26 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %11, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  store i64 %27, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  %28 = load i64, ptr %7, align 8, !tbaa !10
+  %29 = call noundef ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
+  store ptr %29, ptr %12, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %30 = load ptr, ptr %12, align 8, !tbaa !12
+  store ptr %30, ptr %13, align 8, !tbaa !12
+  %31 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %32 = load ptr, ptr %12, align 8, !tbaa !12
+  %33 = load i64, ptr %10, align 8, !tbaa !10
+  %34 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %32, i64 %33
+  %35 = load ptr, ptr %6, align 8, !tbaa !12
+  invoke void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %36 unwind label %53
 
-invoke.cont:                                      ; preds = %entry
-  store ptr null, ptr %__new_finish, align 8
-  %7 = load ptr, ptr %__old_start, align 8
-  %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__position) #3
-  %8 = load ptr, ptr %call8, align 8
-  %9 = load ptr, ptr %__new_start, align 8
-  %call9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %call11 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %call9)
-          to label %invoke.cont10 unwind label %lpad
+36:                                               ; preds = %3
+  store ptr null, ptr %13, align 8, !tbaa !12
+  %37 = load ptr, ptr %8, align 8, !tbaa !12
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %39 = load ptr, ptr %38, align 8, !tbaa !12
+  %40 = load ptr, ptr %12, align 8, !tbaa !12
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %42 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41)
+          to label %43 unwind label %53
 
-invoke.cont10:                                    ; preds = %invoke.cont
-  store ptr %call11, ptr %__new_finish, align 8
-  %10 = load ptr, ptr %__new_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %10, i32 1
-  store ptr %incdec.ptr, ptr %__new_finish, align 8
-  %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %__position) #3
-  %11 = load ptr, ptr %call12, align 8
-  %12 = load ptr, ptr %__old_finish, align 8
-  %13 = load ptr, ptr %__new_finish, align 8
-  %call13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %call15 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %call13)
-          to label %invoke.cont14 unwind label %lpad
+43:                                               ; preds = %36
+  store ptr %42, ptr %13, align 8, !tbaa !12
+  %44 = load ptr, ptr %13, align 8, !tbaa !12
+  %45 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %44, i32 1
+  store ptr %45, ptr %13, align 8, !tbaa !12
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %47 = load ptr, ptr %46, align 8, !tbaa !12
+  %48 = load ptr, ptr %9, align 8, !tbaa !12
+  %49 = load ptr, ptr %13, align 8, !tbaa !12
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %51 = invoke noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50)
+          to label %52 unwind label %53
 
-invoke.cont14:                                    ; preds = %invoke.cont10
-  store ptr %call15, ptr %__new_finish, align 8
-  br label %try.cont
+52:                                               ; preds = %43
+  store ptr %51, ptr %13, align 8, !tbaa !12
+  br label %81
 
-lpad:                                             ; preds = %invoke.cont10, %invoke.cont, %entry
-  %14 = landingpad { ptr, i32 }
+53:                                               ; preds = %43, %36, %3
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
-  br label %catch
+  %55 = extractvalue { ptr, i32 } %54, 0
+  store ptr %55, ptr %14, align 8
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store i32 %56, ptr %15, align 4
+  br label %57
 
-catch:                                            ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %17 = call ptr @__cxa_begin_catch(ptr %exn) #3
-  %18 = load ptr, ptr %__new_finish, align 8
-  %tobool = icmp ne ptr %18, null
-  br i1 %tobool, label %if.else, label %if.then
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %14, align 8
+  %59 = call ptr @__cxa_begin_catch(ptr %58) #3
+  %60 = load ptr, ptr %13, align 8, !tbaa !12
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %67, label %62
 
-if.then:                                          ; preds = %catch
-  %_M_impl16 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %19 = load ptr, ptr %__new_start, align 8
-  %20 = load i64, ptr %__elems_before, align 8
-  %add.ptr17 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %19, i64 %20
-  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl16, ptr noundef %add.ptr17) #3
-  br label %if.end
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %64 = load ptr, ptr %12, align 8, !tbaa !12
+  %65 = load i64, ptr %10, align 8, !tbaa !10
+  %66 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %64, i64 %65
+  call void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef %66) #3
+  br label %76
 
-if.else:                                          ; preds = %catch
-  %21 = load ptr, ptr %__new_start, align 8
-  %22 = load ptr, ptr %__new_finish, align 8
-  %call18 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %21, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %call18)
-          to label %invoke.cont20 unwind label %lpad19
+67:                                               ; preds = %57
+  %68 = load ptr, ptr %12, align 8, !tbaa !12
+  %69 = load ptr, ptr %13, align 8, !tbaa !12
+  %70 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %68, ptr noundef %69, ptr noundef nonnull align 1 dereferenceable(1) %70)
+          to label %71 unwind label %72
 
-invoke.cont20:                                    ; preds = %if.else
-  br label %if.end
+71:                                               ; preds = %67
+  br label %76
 
-lpad19:                                           ; preds = %invoke.cont21, %if.end, %if.else
-  %23 = landingpad { ptr, i32 }
+72:                                               ; preds = %79, %76, %67
+  %73 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %74 = extractvalue { ptr, i32 } %73, 0
+  store ptr %74, ptr %14, align 8
+  %75 = extractvalue { ptr, i32 } %73, 1
+  store i32 %75, ptr %15, align 4
   invoke void @__cxa_end_catch()
-          to label %invoke.cont22 unwind label %terminate.lpad
+          to label %80 unwind label %110
 
-if.end:                                           ; preds = %invoke.cont20, %if.then
-  %26 = load ptr, ptr %__new_start, align 8
-  %27 = load i64, ptr %__len, align 8
-  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %26, i64 noundef %27)
-          to label %invoke.cont21 unwind label %lpad19
+76:                                               ; preds = %71, %62
+  %77 = load ptr, ptr %12, align 8, !tbaa !12
+  %78 = load i64, ptr %7, align 8, !tbaa !10
+  invoke void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %77, i64 noundef %78)
+          to label %79 unwind label %72
 
-invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #17
-          to label %unreachable unwind label %lpad19
+79:                                               ; preds = %76
+  invoke void @__cxa_rethrow() #21
+          to label %113 unwind label %72
 
-invoke.cont22:                                    ; preds = %lpad19
-  br label %eh.resume
+80:                                               ; preds = %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %105
 
-try.cont:                                         ; preds = %invoke.cont14
-  %28 = load ptr, ptr %__old_start, align 8
-  %29 = load ptr, ptr %__old_finish, align 8
-  %call23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %28, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %call23)
-  %30 = load ptr, ptr %__old_start, align 8
-  %_M_impl24 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl24, i32 0, i32 2
-  %31 = load ptr, ptr %_M_end_of_storage, align 8
-  %32 = load ptr, ptr %__old_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %32 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %30, i64 noundef %sub.ptr.div)
-  %33 = load ptr, ptr %__new_start, align 8
-  %_M_impl25 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start26 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl25, i32 0, i32 0
-  store ptr %33, ptr %_M_start26, align 8
-  %34 = load ptr, ptr %__new_finish, align 8
-  %_M_impl27 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish28 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl27, i32 0, i32 1
-  store ptr %34, ptr %_M_finish28, align 8
-  %35 = load ptr, ptr %__new_start, align 8
-  %36 = load i64, ptr %__len, align 8
-  %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %35, i64 %36
-  %_M_impl30 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage31 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl30, i32 0, i32 2
-  store ptr %add.ptr29, ptr %_M_end_of_storage31, align 8
+81:                                               ; preds = %52
+  %82 = load ptr, ptr %8, align 8, !tbaa !12
+  %83 = load ptr, ptr %9, align 8, !tbaa !12
+  %84 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  call void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEES3_EvT_S5_RSaIT0_E(ptr noundef %82, ptr noundef %83, ptr noundef nonnull align 1 dereferenceable(1) %84)
+  %85 = load ptr, ptr %8, align 8, !tbaa !12
+  %86 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %87 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %86, i32 0, i32 2
+  %88 = load ptr, ptr %87, align 8, !tbaa !99
+  %89 = load ptr, ptr %8, align 8, !tbaa !12
+  %90 = ptrtoint ptr %88 to i64
+  %91 = ptrtoint ptr %89 to i64
+  %92 = sub i64 %90, %91
+  %93 = sdiv exact i64 %92, 8
+  call void @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE13_M_deallocateEPS3_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %85, i64 noundef %93)
+  %94 = load ptr, ptr %12, align 8, !tbaa !12
+  %95 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %96 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %95, i32 0, i32 0
+  store ptr %94, ptr %96, align 8, !tbaa !101
+  %97 = load ptr, ptr %13, align 8, !tbaa !12
+  %98 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %99 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %98, i32 0, i32 1
+  store ptr %97, ptr %99, align 8, !tbaa !97
+  %100 = load ptr, ptr %12, align 8, !tbaa !12
+  %101 = load i64, ptr %7, align 8, !tbaa !10
+  %102 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %100, i64 %101
+  %103 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %17, i32 0, i32 0
+  %104 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %103, i32 0, i32 2
+  store ptr %102, ptr %104, align 8, !tbaa !99
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret void
 
-eh.resume:                                        ; preds = %invoke.cont22
-  %exn32 = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn32, 0
-  %lpad.val33 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val33
+105:                                              ; preds = %80
+  %106 = load ptr, ptr %14, align 8
+  %107 = load i32, ptr %15, align 4
+  %108 = insertvalue { ptr, i32 } poison, ptr %106, 0
+  %109 = insertvalue { ptr, i32 } %108, i32 %107, 1
+  resume { ptr, i32 } %109
 
-terminate.lpad:                                   ; preds = %lpad19
-  %37 = landingpad { ptr, i32 }
+110:                                              ; preds = %72
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #14
+  %112 = extractvalue { ptr, i32 } %111, 0
+  call void @__clang_call_terminate(ptr %112) #18
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont21
+113:                                              ; preds = %79
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_finish) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE9constructIS3_JRKS3_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !111
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %5, align 8, !tbaa !12
+  %8 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef %__s) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__s.addr = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %call2 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %sub = sub i64 %call, %call2
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ult i64 %sub, %0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !89
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !74
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %11 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8, !tbaa !10
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #17
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !74
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #21
   unreachable
 
-if.end:                                           ; preds = %entry
-  %call3 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %call4 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store i64 %call4, ptr %ref.tmp, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__n.addr)
-  %2 = load i64, ptr %call5, align 8
-  %add = add i64 %call3, %2
-  store i64 %add, ptr %__len, align 8
-  %3 = load i64, ptr %__len, align 8
-  %call6 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %cmp7 = icmp ult i64 %3, %call6
-  br i1 %cmp7, label %cond.true, label %lor.lhs.false
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %18 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %19 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  store i64 %19, ptr %8, align 8, !tbaa !10
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8, !tbaa !10
+  %22 = add i64 %18, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  store i64 %22, ptr %7, align 8, !tbaa !10
+  %23 = load i64, ptr %7, align 8, !tbaa !10
+  %24 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
 
-lor.lhs.false:                                    ; preds = %if.end
-  %4 = load i64, ptr %__len, align 8
-  %call8 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %cmp9 = icmp ugt i64 %4, %call8
-  br i1 %cmp9, label %cond.true, label %cond.false
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8, !tbaa !10
+  %28 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
 
-cond.true:                                        ; preds = %lor.lhs.false, %if.end
-  %call10 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  br label %cond.end
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %34
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %5 = load i64, ptr %__len, align 8
-  br label %cond.end
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8, !tbaa !10
+  br label %34
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %call10, %cond.true ], [ %5, %cond.false ]
-  ret i64 %cond
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret i64 %35
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !212
+  store ptr %1, ptr %4, align 8, !tbaa !212
+  %5 = load ptr, ptr %3, align 8, !tbaa !212
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8, !tbaa !12
+  %8 = load ptr, ptr %4, align 8, !tbaa !212
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN9__gnu_cxxmiIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSC_SF_(ptr noundef nonnull align 8 dereferenceable(8) %__lhs, ptr noundef nonnull align 8 dereferenceable(8) %__rhs) #5 comdat {
-entry:
-  %__lhs.addr = alloca ptr, align 8
-  %__rhs.addr = alloca ptr, align 8
-  store ptr %__lhs, ptr %__lhs.addr, align 8
-  store ptr %__rhs, ptr %__rhs.addr, align 8
-  %0 = load ptr, ptr %__lhs.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  %1 = load ptr, ptr %call, align 8
-  %2 = load ptr, ptr %__rhs.addr, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  %3 = load ptr, ptr %call1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %retval, ptr noundef nonnull align 8 dereferenceable(8) %_M_start) #3
-  %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %retval, i32 0, i32 0
-  %0 = load ptr, ptr %coerce.dive, align 8
-  ret ptr %0
+define linkonce_odr hidden ptr @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr hidden noundef ptr @_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !103
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
 
-cond.true:                                        ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef %1)
-  br label %cond.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !10
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+12:                                               ; preds = %2
+  br label %13
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %0)
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %1)
-  %2 = load ptr, ptr %__result.addr, align 8
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call2 = call noundef ptr @_ZSt22__uninitialized_copy_aIPKN4cvc58internal12NodeTemplateILb0EEEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %call, ptr noundef %call1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  ret ptr %call2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %this1, i32 0, i32 0
-  ret ptr %_M_current
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal12NodeTemplateILb0EEES4_SaIS3_EET0_T_S7_S6_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !107
+  %9 = load ptr, ptr %5, align 8, !tbaa !12
+  %10 = call noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8, !tbaa !12
+  %12 = call noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %11)
+  %13 = load ptr, ptr %7, align 8, !tbaa !12
+  %14 = load ptr, ptr %8, align 8, !tbaa !107
+  %15 = call noundef ptr @_ZSt22__uninitialized_copy_aIPKN4cvc58internal12NodeTemplateILb0EEEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %10, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) #5 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #3
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !212
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !107
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #3
   ret void
 }
 
@@ -5413,466 +6000,660 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  %call2 = call noundef i64 @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %call) #3
-  ret i64 %call2
+define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  %5 = call noundef i64 @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 0
-  %1 = load ptr, ptr %_M_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
+define linkonce_odr hidden noundef i64 @_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !97
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<false>, std::allocator<cvc5::internal::NodeTemplate<false>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  ret i64 %13
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #10
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %4, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  store ptr %12, ptr %3, align 8
+  br label %15
 
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %14, ptr %3, align 8
+  br label %15
 
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__diffmax = alloca i64, align 8
-  %__allocmax = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 1152921504606846975, ptr %__diffmax, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
-  store i64 %call, ptr %__allocmax, align 8
-  %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__diffmax, ptr noundef nonnull align 8 dereferenceable(8) %__allocmax)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr hidden noundef i64 @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE11_S_max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #3
+  store i64 1152921504606846975, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %5 = load ptr, ptr %2, align 8, !tbaa !107
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  store i64 %6, ptr %4, align 8, !tbaa !10
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  %1 = load i64, ptr %call1, align 8
-  ret i64 %1
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #3
+  ret i64 %9
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #14
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base.24", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base.24", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #5 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #3
-  ret i64 %call
+define linkonce_odr hidden noundef i64 @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8max_sizeERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8, !tbaa !107
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !23
+  store ptr %1, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !23
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #5 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr hidden noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !111
   ret i64 1152921504606846975
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %__i) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__i.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_current = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.53", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__i.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %_M_current, align 8
+define linkonce_odr hidden void @_ZN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !212
+  store ptr %1, ptr %4, align 8, !tbaa !214
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.53", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !214
+  %8 = load ptr, ptr %7, align 8, !tbaa !12
+  store ptr %8, ptr %6, align 8, !tbaa !216
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #4 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+define linkonce_odr hidden noundef ptr @_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb0EEEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !107
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #3
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr hidden noundef ptr @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !111
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %cmp2, label %if.then3, label %if.end
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #17
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #17
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #15
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
+  ret ptr %22
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #13
+declare void @_ZSt17__throw_bad_allocv() #10
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt22__uninitialized_copy_aIPKN4cvc58internal12NodeTemplateILb0EEEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  %3 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZSt18uninitialized_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt22__uninitialized_copy_aIPKN4cvc58internal12NodeTemplateILb0EEEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #8 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !12
+  store ptr %1, ptr %6, align 8, !tbaa !12
+  store ptr %2, ptr %7, align 8, !tbaa !12
+  store ptr %3, ptr %8, align 8, !tbaa !107
+  %9 = load ptr, ptr %5, align 8, !tbaa !12
+  %10 = load ptr, ptr %6, align 8, !tbaa !12
+  %11 = load ptr, ptr %7, align 8, !tbaa !12
+  %12 = call noundef ptr @_ZSt18uninitialized_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %__i) #5 comdat {
-entry:
-  %__i.addr = alloca ptr, align 8
-  store ptr %__i, ptr %__i.addr, align 8
-  %0 = load ptr, ptr %__i.addr, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZSt32__make_move_if_noexcept_iteratorIN4cvc58internal12NodeTemplateILb0EEEPKS3_ET0_PT_(ptr noundef %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !12
+  %3 = load ptr, ptr %2, align 8, !tbaa !12
+  ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt18uninitialized_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__can_memmove = alloca i8, align 1
-  %__assignable = alloca i8, align 1
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store i8 0, ptr %__can_memmove, align 1
-  store i8 0, ptr %__assignable, align 1
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS5_EET0_T_SA_S9_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS5_EET0_T_SA_S9_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt18uninitialized_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #8 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  store i8 0, ptr %7, align 1, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  store i8 0, ptr %8, align 1, !tbaa !33
+  %9 = load ptr, ptr %4, align 8, !tbaa !12
+  %10 = load ptr, ptr %5, align 8, !tbaa !12
+  %11 = load ptr, ptr %6, align 8, !tbaa !12
+  %12 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS5_EET0_T_SA_S9_(ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #4 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__cur = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__result.addr, align 8
-  store ptr %0, ptr %__cur, align 8
-  br label %for.cond
+define linkonce_odr hidden noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS5_EET0_T_SA_S9_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  %8 = load ptr, ptr %5, align 8, !tbaa !12
+  %9 = load ptr, ptr %6, align 8, !tbaa !12
+  %10 = call noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
+}
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb0EEEPS3_ET0_T_S8_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !12
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %10 = load ptr, ptr %6, align 8, !tbaa !12
+  store ptr %10, ptr %7, align 8, !tbaa !12
+  br label %11
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__cur, align 8
-  %4 = load ptr, ptr %__first.addr, align 8
-  invoke void @_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb0EEEJRKS3_EEvPT_DpOT0_(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %invoke.cont unwind label %lpad
+11:                                               ; preds = %19, %3
+  %12 = load ptr, ptr %4, align 8, !tbaa !12
+  %13 = load ptr, ptr %5, align 8, !tbaa !12
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %34
 
-invoke.cont:                                      ; preds = %for.body
-  br label %for.inc
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %7, align 8, !tbaa !12
+  %17 = load ptr, ptr %4, align 8, !tbaa !12
+  invoke void @_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb0EEEJRKS3_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %18 unwind label %24
 
-for.inc:                                          ; preds = %invoke.cont
-  %5 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  %6 = load ptr, ptr %__cur, align 8
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %6, i32 1
-  store ptr %incdec.ptr1, ptr %__cur, align 8
-  br label %for.cond, !llvm.loop !21
+18:                                               ; preds = %15
+  br label %19
 
-lpad:                                             ; preds = %for.body
-  %7 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !12
+  %21 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %20, i32 1
+  store ptr %21, ptr %4, align 8, !tbaa !12
+  %22 = load ptr, ptr %7, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i32 1
+  store ptr %23, ptr %7, align 8, !tbaa !12
+  br label %11, !llvm.loop !218
+
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  store ptr %8, ptr %exn.slot, align 8
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store i32 %9, ptr %ehselector.slot, align 4
-  br label %catch
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %8, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %9, align 4
+  br label %28
 
-catch:                                            ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %10 = call ptr @__cxa_begin_catch(ptr %exn) #3
-  %11 = load ptr, ptr %__result.addr, align 8
-  %12 = load ptr, ptr %__cur, align 8
-  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %11, ptr noundef %12)
-          to label %invoke.cont3 unwind label %lpad2
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %8, align 8
+  %30 = call ptr @__cxa_begin_catch(ptr %29) #3
+  %31 = load ptr, ptr %6, align 8, !tbaa !12
+  %32 = load ptr, ptr %7, align 8, !tbaa !12
+  invoke void @_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb0EEEEvT_S5_(ptr noundef %31, ptr noundef %32)
+          to label %33 unwind label %36
 
-invoke.cont3:                                     ; preds = %catch
-  invoke void @__cxa_rethrow() #17
-          to label %unreachable unwind label %lpad2
+33:                                               ; preds = %28
+  invoke void @__cxa_rethrow() #21
+          to label %50 unwind label %36
 
-for.end:                                          ; preds = %for.cond
-  %13 = load ptr, ptr %__cur, align 8
-  ret ptr %13
+34:                                               ; preds = %11
+  %35 = load ptr, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  ret ptr %35
 
-lpad2:                                            ; preds = %invoke.cont3, %catch
-  %14 = landingpad { ptr, i32 }
+36:                                               ; preds = %33, %28
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %15 = extractvalue { ptr, i32 } %14, 0
-  store ptr %15, ptr %exn.slot, align 8
-  %16 = extractvalue { ptr, i32 } %14, 1
-  store i32 %16, ptr %ehselector.slot, align 4
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %8, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %9, align 4
   invoke void @__cxa_end_catch()
-          to label %invoke.cont4 unwind label %terminate.lpad
+          to label %40 unwind label %47
 
-invoke.cont4:                                     ; preds = %lpad2
-  br label %eh.resume
+40:                                               ; preds = %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  br label %42
 
-try.cont:                                         ; No predecessors!
-  call void @llvm.trap()
+41:                                               ; No predecessors!
   unreachable
 
-eh.resume:                                        ; preds = %invoke.cont4
-  %exn5 = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn5, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %8, align 8
+  %44 = load i32, ptr %9, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
 
-terminate.lpad:                                   ; preds = %lpad2
-  %17 = landingpad { ptr, i32 }
+47:                                               ; preds = %36
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #14
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #18
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont3
+50:                                               ; preds = %33
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb0EEEJRKS3_EEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__args) #4 comdat {
-entry:
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZSt10_ConstructIN4cvc58internal12NodeTemplateILb0EEEJRKS3_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #8 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !12
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8, !tbaa !12
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN4cvc58internal12NodeTemplateILb0EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
+define linkonce_odr hidden void @_ZNSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !111
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
+  call void @_ZN4cvc58internal12NodeTemplateILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_pattern_term_info.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{!"branch_weights", i32 1, i32 1048575}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers5ieval11PatTermInfoE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4cvc57context7ContextE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb0EEE", !5, i64 0}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN4cvc58internal12NodeTemplateILb0EEE", !16, i64 0}
+!16 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTSN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEE", !5, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"vtable pointer", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTSN4cvc57context3CDOImEE", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 long", !5, i64 0}
+!25 = !{!26, !11, i64 40}
+!26 = !{!"_ZTSN4cvc57context3CDOImEE", !27, i64 0, !11, i64 40}
+!27 = !{!"_ZTSN4cvc57context10ContextObjE", !28, i64 8, !29, i64 16, !29, i64 24, !30, i64 32}
+!28 = !{!"p1 _ZTSN4cvc57context5ScopeE", !5, i64 0}
+!29 = !{!"p1 _ZTSN4cvc57context10ContextObjE", !5, i64 0}
+!30 = !{!"p2 _ZTSN4cvc57context10ContextObjE", !5, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE", !5, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"bool", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTSN4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEE", !5, i64 0}
+!37 = !{!38, !11, i64 64}
+!38 = !{!"_ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE", !27, i64 0, !39, i64 40, !11, i64 64, !34, i64 72, !44, i64 73}
+!39 = !{!"_ZTSSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !40, i64 0}
+!40 = !{!"_ZTSSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !41, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implE", !42, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !5, i64 0}
+!44 = !{!"_ZTSN4cvc57context14DefaultCleanUpINS_8internal12NodeTemplateILb1EEEEE"}
+!45 = !{i8 0, i8 2}
+!46 = !{}
+!47 = !{!38, !34, i64 72}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers5ieval5StateE", !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN4cvc58internal6theory11quantifiers5ieval13TermEvaluatorE", !5, i64 0}
+!52 = !{i64 0, i64 8, !53, i64 8, i64 1, !33, i64 16, i64 8, !55}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTSSo", !5, i64 0}
+!55 = !{!5, !5, i64 0}
+!56 = !{!43, !43, i64 0}
+!57 = !{!58, !16, i64 0}
+!58 = !{!"_ZTSN4cvc58internal12NodeTemplateILb1EEE", !16, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN4cvc58internal11__cvc5_trueE", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSN4cvc58internal5NullCE", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSN4cvc58internal6TraceCE", !5, i64 0}
+!65 = !{!66, !54, i64 0}
+!66 = !{!"_ZTSN4cvc58internal6TraceCE", !54, i64 0, !67, i64 8}
+!67 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !68, i64 0}
+!68 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !69, i64 0}
+!69 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !70, i64 0}
+!70 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !71, i64 0, !71, i64 8, !71, i64 16}
+!71 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSN4cvc58internal11Cvc5ostreamE", !5, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 omnipotent char", !5, i64 0}
+!76 = !{!77, !54, i64 0}
+!77 = !{!"_ZTSN4cvc58internal11Cvc5ostreamE", !54, i64 0, !34, i64 8, !5, i64 16}
+!78 = !{!77, !34, i64 8}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"int", !6, i64 0}
+!81 = distinct !{!81, !82}
+!82 = !{!"llvm.loop.mustprogress"}
+!83 = distinct !{!83, !82}
+!84 = distinct !{!84, !82}
+!85 = distinct !{!85, !82}
+!86 = !{!77, !5, i64 16}
+!87 = distinct !{!87, !82}
+!88 = distinct !{!88, !82}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTSSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE", !5, i64 0}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEE", !5, i64 0}
+!93 = !{!94, !95, i64 0}
+!94 = !{!"_ZTSN4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb0EEEEE", !95, i64 0}
+!95 = !{!"p2 _ZTSN4cvc58internal4expr9NodeValueE", !5, i64 0}
+!96 = !{!16, !16, i64 0}
+!97 = !{!98, !13, i64 8}
+!98 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataE", !13, i64 0, !13, i64 8, !13, i64 16}
+!99 = !{!98, !13, i64 16}
+!100 = distinct !{!100, !82}
+!101 = !{!98, !13, i64 0}
+!102 = !{!"branch_weights", i32 1, i32 1048575}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTSSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE", !5, i64 0}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"p1 _ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_Vector_implE", !5, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTSSaIN4cvc58internal12NodeTemplateILb0EEEE", !5, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_Vector_impl_dataE", !5, i64 0}
+!111 = !{!112, !112, i64 0}
+!112 = !{!"p1 _ZTSSt15__new_allocatorIN4cvc58internal12NodeTemplateILb0EEEE", !5, i64 0}
+!113 = !{!114, !114, i64 0}
+!114 = !{!"p1 _ZTSSt9basic_iosIcSt11char_traitsIcEE", !5, i64 0}
+!115 = !{!6, !6, i64 0}
+!116 = !{!117, !127, i64 240}
+!117 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !118, i64 0, !54, i64 216, !6, i64 224, !34, i64 225, !126, i64 232, !127, i64 240, !128, i64 248, !129, i64 256}
+!118 = !{!"_ZTSSt8ios_base", !11, i64 8, !11, i64 16, !119, i64 24, !120, i64 28, !120, i64 32, !121, i64 40, !122, i64 48, !6, i64 64, !80, i64 192, !123, i64 200, !124, i64 208}
+!119 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!120 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!121 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!122 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !11, i64 8}
+!123 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!124 = !{!"_ZTSSt6locale", !125, i64 0}
+!125 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
+!126 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !5, i64 0}
+!127 = !{!"p1 _ZTSSt5ctypeIcE", !5, i64 0}
+!128 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!129 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !5, i64 0}
+!130 = !{!127, !127, i64 0}
+!131 = !{!132, !6, i64 56}
+!132 = !{!"_ZTSSt5ctypeIcE", !133, i64 0, !134, i64 16, !34, i64 24, !135, i64 32, !135, i64 40, !136, i64 48, !6, i64 56, !6, i64 57, !6, i64 313, !6, i64 569}
+!133 = !{!"_ZTSNSt6locale5facetE", !80, i64 8}
+!134 = !{!"p1 _ZTS15__locale_struct", !5, i64 0}
+!135 = !{!"p1 int", !5, i64 0}
+!136 = !{!"p1 short", !5, i64 0}
+!137 = !{!138, !138, i64 0}
+!138 = !{!"p1 _ZTSSt8ios_base", !5, i64 0}
+!139 = !{!118, !80, i64 192}
+!140 = !{!118, !123, i64 200}
+!141 = !{!123, !123, i64 0}
+!142 = !{!71, !71, i64 0}
+!143 = !{!144, !11, i64 8}
+!144 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !145, i64 0, !11, i64 8, !6, i64 16}
+!145 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !75, i64 0}
+!146 = !{!144, !75, i64 0}
+!147 = !{!120, !120, i64 0}
+!148 = !{!118, !120, i64 32}
+!149 = !{!150, !151, i64 16}
+!150 = !{!"_ZTSN4cvc58internal4expr9NodeValueE", !11, i64 0, !80, i64 5, !80, i64 8, !80, i64 12, !151, i64 16, !6, i64 24}
+!151 = !{!"p1 _ZTSN4cvc58internal11NodeManagerE", !5, i64 0}
+!152 = !{!153, !153, i64 0}
+!153 = !{!"p1 _ZTSSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !5, i64 0}
+!154 = !{!155, !155, i64 0}
+!155 = !{!"p1 _ZTSN4cvc57context20ContextMemoryManagerE", !5, i64 0}
+!156 = !{!29, !29, i64 0}
+!157 = !{!158, !158, i64 0}
+!158 = !{!"p1 _ZTSSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE", !5, i64 0}
+!159 = !{!160, !160, i64 0}
+!160 = !{!"p1 _ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE12_Vector_implE", !5, i64 0}
+!161 = !{!162, !162, i64 0}
+!162 = !{!"p1 _ZTSSaIN4cvc58internal12NodeTemplateILb1EEEE", !5, i64 0}
+!163 = !{!164, !164, i64 0}
+!164 = !{!"p1 _ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataE", !5, i64 0}
+!165 = !{!42, !43, i64 0}
+!166 = !{!42, !43, i64 8}
+!167 = !{!42, !43, i64 16}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTSSt15__new_allocatorIN4cvc58internal12NodeTemplateILb1EEEE", !5, i64 0}
+!170 = !{!171, !171, i64 0}
+!171 = !{!"p2 _ZTSN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4_EESaIS4_EEE", !5, i64 0}
+!172 = distinct !{!172, !82}
+!173 = distinct !{!173, !82}
+!174 = distinct !{!174, !82}
+!175 = distinct !{!175, !82}
+!176 = distinct !{!176, !82}
+!177 = distinct !{!177, !82}
+!178 = !{!179, !179, i64 0}
+!179 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!180 = !{!181, !43, i64 0}
+!181 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEE", !43, i64 0}
+!182 = !{!183, !183, i64 0}
+!183 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!184 = !{!185, !43, i64 0}
+!185 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_SaIS4_EEEE", !43, i64 0}
+!186 = !{i64 0, i64 8, !56}
+!187 = !{!188, !188, i64 0}
+!188 = !{!"p2 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !5, i64 0}
+!189 = distinct !{!189, !82}
+!190 = !{!191, !191, i64 0}
+!191 = !{!"p1 _ZTSN4cvc58internal13OstreamVoiderE", !5, i64 0}
+!192 = !{!27, !28, i64 8}
+!193 = !{!28, !28, i64 0}
+!194 = !{!195, !9, i64 0}
+!195 = !{!"_ZTSN4cvc57context5ScopeE", !9, i64 0, !155, i64 8, !80, i64 16, !29, i64 24, !196, i64 32}
+!196 = !{!"_ZTSSt6vectorIPN4cvc57context10ContextObjESaIS3_EE", !197, i64 0}
+!197 = !{!"_ZTSSt12_Vector_baseIPN4cvc57context10ContextObjESaIS3_EE", !198, i64 0}
+!198 = !{!"_ZTSNSt12_Vector_baseIPN4cvc57context10ContextObjESaIS3_EE12_Vector_implE", !199, i64 0}
+!199 = !{!"_ZTSNSt12_Vector_baseIPN4cvc57context10ContextObjESaIS3_EE17_Vector_impl_dataE", !30, i64 0, !30, i64 8, !30, i64 16}
+!200 = !{!201, !201, i64 0}
+!201 = !{!"p1 _ZTSSt6vectorIPN4cvc57context5ScopeESaIS3_EE", !5, i64 0}
+!202 = !{!203, !203, i64 0}
+!203 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!204 = !{!205, !206, i64 0}
+!205 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPKPN4cvc57context5ScopeESt6vectorIS4_SaIS4_EEEE", !206, i64 0}
+!206 = !{!"p2 _ZTSN4cvc57context5ScopeE", !5, i64 0}
+!207 = !{!206, !206, i64 0}
+!208 = !{!209, !209, i64 0}
+!209 = !{!"p3 _ZTSN4cvc57context5ScopeE", !5, i64 0}
+!210 = distinct !{!210, !82}
+!211 = !{!95, !95, i64 0}
+!212 = !{!213, !213, i64 0}
+!213 = !{!"p1 _ZTSN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEE", !5, i64 0}
+!214 = !{!215, !215, i64 0}
+!215 = !{!"p2 _ZTSN4cvc58internal12NodeTemplateILb0EEE", !5, i64 0}
+!216 = !{!217, !13, i64 0}
+!217 = !{!"_ZTSN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb0EEESt6vectorIS4_SaIS4_EEEE", !13, i64 0}
+!218 = distinct !{!218, !82}

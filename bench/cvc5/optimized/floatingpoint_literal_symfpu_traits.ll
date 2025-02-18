@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/cvc5/original/floatingpoint_literal_symfpu_traits.ll'
 source_filename = "bench/cvc5/original/floatingpoint_literal_symfpu_traits.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::symfpuLiteral::wrappedBitVector" = type { %"class.cvc5::internal::BitVector" }
@@ -189,3259 +189,3366 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5Ejj) align 2 {
-entry:
-  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5Ejj) align 2 {
+  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %p) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKb) align 2 {
-entry:
-  %0 = load i8, ptr %p, align 1
-  %1 = and i8 %0, 1
-  %cond = zext nneg i8 %1 to i32
-  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 1, i32 noundef %cond)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKb) align 2 {
+  %3 = load i8, ptr %1, align 1, !tbaa !3, !range !7, !noundef !8
+  %4 = zext nneg i8 %3 to i32
+  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKS3_) align 2 {
-entry:
-  %0 = load i32, ptr %old, align 8
-  store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
-  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKS3_) align 2 {
+  %3 = load i32, ptr %1, align 8, !tbaa !9
+  store i32 %3, ptr %0, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKNS0_9BitVectorE) align 2 {
-entry:
-  %0 = load i32, ptr %old, align 8
-  store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
-  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC5ERKNS0_9BitVectorE) align 2 {
+  %3 = load i32, ptr %1, align 8, !tbaa !9
+  store i32 %3, ptr %0, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %call = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret i32 %call
+define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 {
+  %2 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  ret i32 %2
 }
 
 declare noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load i32, ptr %w, align 4
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %0, i32 noundef 1)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE3oneERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !14
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load i32, ptr %w, align 4
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %0, i32 noundef 0)
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !14
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %0 = load i32, ptr %w, align 4, !noalias !4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = load i32, ptr %1, align 4, !tbaa !14, !noalias !15
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !18
+  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
 
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
-  unreachable
-
-lpad.i:                                           ; preds = %.noexc
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
+8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #9
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5: ; preds = %lpad.body
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2.i unwind label %14
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !18
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !18
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit2.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit2.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   resume { ptr, i32 } %eh.lpad-body
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  resume { ptr, i32 } %10
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %base = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp1 = alloca %"class.cvc5::internal::BitVector", align 8
-  %0 = load i32, ptr %w, align 4
-  %sub = add i32 %0, -1
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %base, i32 noundef %sub, i32 noundef 0)
-  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %base)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, i32 noundef 1)
-          to label %invoke.cont3 unwind label %lpad2
-
-invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont5 unwind label %lpad4
-
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont5
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont5
-  %d_value.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i3)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
-
-terminate.lpad.i.i.i4:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i6 = getelementptr inbounds nuw i8, ptr %base, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit8 unwind label %terminate.lpad.i.i.i7
-
-terminate.lpad.i.i.i7:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit5
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit8:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit5
-  ret void
-
-lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup6
-
-lpad2:                                            ; preds = %invoke.cont
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont3
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i9 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i9)
-          to label %ehcleanup unwind label %terminate.lpad.i.i.i10
-
-terminate.lpad.i.i.i10:                           ; preds = %lpad4
-  %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #9
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad4, %lpad2
-  %.pn = phi { ptr, i32 } [ %8, %lpad2 ], [ %9, %lpad4 ]
-  %d_value.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i12)
-          to label %ehcleanup6 unwind label %terminate.lpad.i.i.i13
-
-terminate.lpad.i.i.i13:                           ; preds = %ehcleanup
-  %12 = landingpad { ptr, i32 }
-          catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #9
-  unreachable
-
-ehcleanup6:                                       ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i15 = getelementptr inbounds nuw i8, ptr %base, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i15)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit17 unwind label %terminate.lpad.i.i.i16
-
-terminate.lpad.i.i.i16:                           ; preds = %ehcleanup6
-  %14 = landingpad { ptr, i32 }
-          catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit17:           ; preds = %ehcleanup6
-  resume { ptr, i32 } %.pn.pn
-}
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %size, i32 noundef %z) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  store i32 %size, ptr %this, align 8
-  %d_value = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %conv.i.i = zext i32 %z to i64
-  tail call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %d_value, i64 noundef %conv.i.i)
-  invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %d_value, i32 noundef %size)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8maxValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  %6 = load i32, ptr %1, align 4, !tbaa !14
+  %7 = add i32 %6, -1
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %7, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %8 unwind label %23
 
-invoke.cont:                                      ; preds = %entry
-  %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_value, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont5 unwind label %lpad4
+8:                                                ; preds = %2
+  invoke void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
+          to label %9 unwind label %25
 
-invoke.cont5:                                     ; preds = %invoke.cont
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
+9:                                                ; preds = %8
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %10 unwind label %27
 
-terminate.lpad.i.i:                               ; preds = %invoke.cont5
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %12
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %invoke.cont5
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad4:                                            ; preds = %invoke.cont
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %ehcleanup unwind label %terminate.lpad.i.i3
-
-terminate.lpad.i.i3:                              ; preds = %lpad4
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad4, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad4 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %terminate.lpad.i.i5
-
-terminate.lpad.i.i5:                              ; preds = %ehcleanup
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-_ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %ehcleanup
-  resume { ptr, i32 } %.pn
-}
-
-declare void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-declare void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8minValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %base = alloca %"class.cvc5::internal::BitVector", align 8
-  %shiftAmount = alloca %"class.cvc5::internal::BitVector", align 8
-  %result = alloca %"class.cvc5::internal::BitVector", align 8
-  %0 = load i32, ptr %w, align 4
-  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %base, i32 noundef %0, i32 noundef 1)
-  %1 = load i32, ptr %w, align 4
-  %sub = add i32 %1, -1
-  invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount, i32 noundef %1, i32 noundef %sub)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %base, ptr noundef nonnull align 8 dereferenceable(24) %shiftAmount)
-          to label %invoke.cont2 unwind label %lpad1
-
-invoke.cont2:                                     ; preds = %invoke.cont
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %result)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont2
-  %d_value.i = getelementptr inbounds nuw i8, ptr %result, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont4
-  %d_value.i5 = getelementptr inbounds nuw i8, ptr %shiftAmount, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i5)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %terminate.lpad.i.i.i6
-
-terminate.lpad.i.i.i6:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %d_value.i8 = getelementptr inbounds nuw i8, ptr %base, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i8)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit10 unwind label %terminate.lpad.i.i.i9
-
-terminate.lpad.i.i.i9:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit7
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit10:           ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit7
-  ret void
-
-lpad:                                             ; preds = %entry
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup5
-
-lpad1:                                            ; preds = %invoke.cont
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont2
-  %10 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i11 = getelementptr inbounds nuw i8, ptr %result, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i11)
-          to label %ehcleanup unwind label %terminate.lpad.i.i.i12
-
-terminate.lpad.i.i.i12:                           ; preds = %lpad3
-  %11 = landingpad { ptr, i32 }
-          catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #9
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad3, %lpad1
-  %.pn = phi { ptr, i32 } [ %9, %lpad1 ], [ %10, %lpad3 ]
-  %d_value.i14 = getelementptr inbounds nuw i8, ptr %shiftAmount, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i14)
-          to label %ehcleanup5 unwind label %terminate.lpad.i.i.i15
-
-terminate.lpad.i.i.i15:                           ; preds = %ehcleanup
+12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #9
+  call void @__clang_call_terminate(ptr %14) #10
   unreachable
 
-ehcleanup5:                                       ; preds = %ehcleanup, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %8, %lpad ], [ %.pn, %ehcleanup ]
-  %d_value.i17 = getelementptr inbounds nuw i8, ptr %base, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i17)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit19 unwind label %terminate.lpad.i.i.i18
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit6 unwind label %16
 
-terminate.lpad.i.i.i18:                           ; preds = %ehcleanup5
-  %15 = landingpad { ptr, i32 }
+16:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #9
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit19:           ; preds = %ehcleanup5
+_ZN4cvc58internal9BitVectorD2Ev.exit6:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %19)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %20
+
+20:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  %21 = landingpad { ptr, i32 }
+          catch ptr null
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  ret void
+
+23:                                               ; preds = %2
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit9
+
+25:                                               ; preds = %8
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit8
+
+27:                                               ; preds = %9
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit8 unwind label %30
+
+30:                                               ; preds = %27
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit8:            ; preds = %27, %25
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %33)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit9 unwind label %34
+
+34:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit8
+  %35 = landingpad { ptr, i32 }
+          catch ptr null
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit9:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit8, %23
+  %.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit8 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %37)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit10 unwind label %38
+
+38:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit9
+  %39 = landingpad { ptr, i32 }
+          catch ptr null
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit10:           ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   resume { ptr, i32 } %.pn.pn
 }
 
-declare void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  store i32 %call.i, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr nonnull sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call.i12 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+_ZN4cvc58internal7IntegerC2Ej.exit:
+  %3 = alloca %"class.cvc5::internal::Integer", align 8
+  store i32 %1, ptr %0, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = zext i32 %2 to i64
+  tail call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %1)
+          to label %6 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
+6:                                                ; preds = %_ZN4cvc58internal7IntegerC2Ej.exit
+  %7 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %8 unwind label %14
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %9
+
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #10
   unreachable
 
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %invoke.cont
-  ret i1 %call.i12
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5: ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 0)
-  %call.i12 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %invoke.cont
-  ret i1 %call.i12
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5: ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ej.exit
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  br label %_ZN4cvc58internal7IntegerD2Ev.exit7
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEorERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+14:                                               ; preds = %6
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit7 unwind label %16
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
+_ZN4cvc58internal7IntegerD2Ev.exit7:              ; preds = %14, %12
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %15, %14 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit8 unwind label %19
 
-declare void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEanERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+19:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit7
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmlERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5: ; preds = %lpad.body
-  resume { ptr, i32 } %eh.lpad-body
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EED2Ev.exit5: ; preds = %lpad.body
-  resume { ptr, i32 } %eh.lpad-body
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE20signExtendRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
-  %d_value2.i = getelementptr inbounds nuw i8, ptr %op, i64 8
-  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2.i)
-  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
-
-invoke.cont4:                                     ; preds = %invoke.cont
-  %d_value.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
-
-terminate.lpad.i.i.i4:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  ret void
-
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup
-
-lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
-          to label %ehcleanup unwind label %terminate.lpad.i.i.i7
-
-terminate.lpad.i.i.i7:                            ; preds = %lpad3
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit11 unwind label %terminate.lpad.i.i.i10
-
-terminate.lpad.i.i.i10:                           ; preds = %ehcleanup
-  %8 = landingpad { ptr, i32 }
-          catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit11:           ; preds = %ehcleanup
+_ZN4cvc58internal7IntegerD2Ev.exit8:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit7
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+declare void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+declare void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularLeftShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !7
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8minValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  %6 = load i32, ptr %1, align 4, !tbaa !14
+  call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %6, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %7 = load i32, ptr %1, align 4, !tbaa !14
+  %8 = add i32 %7, -1
+  invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %7, i32 noundef %8)
+          to label %9 unwind label %24
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
+9:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  invoke void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %10 unwind label %26
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %9
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %11 unwind label %28
+
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %13
+
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %16)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit8 unwind label %17
+
+17:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  %18 = landingpad { ptr, i32 }
+          catch ptr null
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit8:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %20)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit9 unwind label %21
+
+21:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit8
+  %22 = landingpad { ptr, i32 }
+          catch ptr null
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit9:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  ret void
+
+24:                                               ; preds = %2
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit11
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE17modularRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !10
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+26:                                               ; preds = %9
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit10
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+28:                                               ; preds = %10
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %30)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit10 unwind label %31
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+31:                                               ; preds = %28
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
+_ZN4cvc58internal9BitVectorD2Ev.exit10:           ; preds = %28, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %34)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit11 unwind label %35
 
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularIncrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularDecrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10modularAddERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !13
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit10
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+_ZN4cvc58internal9BitVectorD2Ev.exit11:           ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit10, %24
+  %.pn.pn = phi { ptr, i32 } [ %25, %24 ], [ %.pn, %_ZN4cvc58internal9BitVectorD2Ev.exit10 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %38)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit12 unwind label %39
+
+39:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit11
+  %40 = landingpad { ptr, i32 }
+          catch ptr null
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit12:           ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  resume { ptr, i32 } %.pn.pn
+}
+
+declare void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  %4 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store i32 %4, ptr %3, align 4, !tbaa !14
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7allOnesERKj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %5 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit unwind label %10
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  ret i1 %5
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %13
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  resume { ptr, i32 } %11
+}
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #9
+  %3 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef 0)
+  %4 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit unwind label %9
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit: ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
+
+6:                                                ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEeqERKS3_.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  ret i1 %4
+
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
+
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  resume { ptr, i32 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEorERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEanERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmlERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
+
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
+
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  resume { ptr, i32 } %10
+}
+
+declare void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !21
+  invoke void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
+
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
+  unreachable
+
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %14
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !21
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !21
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit3.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %eh.lpad-body
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !24
+  invoke void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
+
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
+  unreachable
+
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %14
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !24
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit3.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %eh.lpad-body
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE20signExtendRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  store i32 %6, ptr %5, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %18
+
+9:                                                ; preds = %3
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %10 unwind label %20
+
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %12
+
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %10
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %15
+
+15:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit6
+
+20:                                               ; preds = %9
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %22)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit6 unwind label %23
+
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
+          catch ptr null
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit6:            ; preds = %20, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %26
+
+26:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  %27 = landingpad { ptr, i32 }
+          catch ptr null
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %.pn
+}
+
+declare void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularLeftShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !27
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !27
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !27
+  resume { ptr, i32 } %11
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE13modularNegateEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !16
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE17modularRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !30
+  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !30
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv.exit unwind label %terminate.lpad.i.i.i.i
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_.exit unwind label %7
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !30
+  resume { ptr, i32 } %11
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !30
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularIncrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9incrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE16modularDecrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE9decrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10modularAddERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !33
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !33
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !33
+  resume { ptr, i32 } %11
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !33
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE13modularNegateEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !36
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !36
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv.exit unwind label %6
+
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2.i unwind label %12
+
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !36
+  resume { ptr, i32 } %10
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv.exit: ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !36
   ret void
 }
 
 declare noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8toSignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8toSignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10toUnsignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10toUnsignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %reduction) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %0 = xor i32 %reduction, -1
-  %sub2 = add i32 %call.i, %0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2, i32 noundef 0), !noalias !19
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %3
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6resizeEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %newSize) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %cmp = icmp ugt i32 %newSize, %call.i
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %sub = sub nuw i32 %newSize, %call.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !22
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %common.resume unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-common.resume:                                    ; preds = %lpad.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %9, %lpad.i.i ]
-  resume { ptr, i32 } %common.resume.op
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i32 %newSize, %call.i
-  br i1 %cmp2, label %if.then3, label %if.else5
-
-if.then3:                                         ; preds = %if.else
-  %call.i.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !25
-  %5 = xor i32 %call.i, -1
-  %6 = add i32 %newSize, %5
-  %sub2.i = add i32 %6, %call.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !25
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2.i, i32 noundef 0), !noalias !28
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then3
-  %d_value.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #9
-  unreachable
-
-lpad.i.i:                                         ; preds = %if.then3
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i.i)
-          to label %common.resume unwind label %terminate.lpad.i.i.i2.i.i
-
-terminate.lpad.i.i.i2.i.i:                        ; preds = %lpad.i.i
-  %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #9
-  unreachable
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit: ; preds = %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !25
-  br label %return
-
-if.else5:                                         ; preds = %if.else
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  br label %return
-
-return:                                           ; preds = %if.else5, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10matchWidthERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %call.i1 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %sub = sub i32 %call.i, %call.i1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !31
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6appendERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-declare void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
-declare void @_ZNK4cvc58internal9BitVector7extractEjj(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5Ejj) align 2 {
-entry:
-  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %w, i32 noundef %v)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %p) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKb) align 2 {
-entry:
-  %0 = load i8, ptr %p, align 1
-  %1 = and i8 %0, 1
-  %cond = zext nneg i8 %1 to i32
-  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef 1, i32 noundef %cond)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKS3_) align 2 {
-entry:
-  %0 = load i32, ptr %old, align 8
-  store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
-  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %old) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKNS0_9BitVectorE) align 2 {
-entry:
-  %0 = load i32, ptr %old, align 8
-  store i32 %0, ptr %this, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %d_value3.i = getelementptr inbounds nuw i8, ptr %old, i64 8
-  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value3.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %call = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load i32, ptr %w, align 4
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %0, i32 noundef 1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load i32, ptr %w, align 4
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %0, i32 noundef 0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %0 = load i32, ptr %w, align 4, !noalias !34
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %0, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
-  unreachable
-
-lpad.i:                                           ; preds = %.noexc
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %6 = landingpad { ptr, i32 }
-          catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.body
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
 
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %8, %lpad ], [ %3, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
 
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %6 = xor i32 %2, -1
+  %7 = add i32 %5, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !39
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %7, i32 noundef 0), !noalias !39
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %8 unwind label %13
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj.exit unwind label %10
+
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
+  unreachable
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4.i unwind label %16
+
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit4.i:          ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !39
+  resume { ptr, i32 } %14
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj.exit: ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !39
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %8
+
+8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #9
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5: ; preds = %lpad.body
-  resume { ptr, i32 } %eh.lpad-body
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4 unwind label %14
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit4:            ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  resume { ptr, i32 } %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8maxValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6resizeEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %7 = icmp ugt i32 %2, %6
+  br i1 %7, label %8, label %21
+
+8:                                                ; preds = %3
+  %9 = sub nuw i32 %2, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9, !noalias !42
+  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %9), !noalias !42
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %10 unwind label %15
+
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %12
+
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %18
+
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #10
+  unreachable
+
+common.resume:                                    ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i
+  %common.resume.op = phi { ptr, i32 } [ %16, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ], [ %34, %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i ]
+  resume { ptr, i32 } %common.resume.op
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !42
+  br label %common.resume
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit: ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !42
+  br label %40
+
+21:                                               ; preds = %3
+  %22 = icmp ult i32 %2, %6
+  br i1 %22, label %23, label %39
+
+23:                                               ; preds = %21
+  %24 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !45
+  %25 = xor i32 %6, -1
+  %26 = add i32 %2, %25
+  %27 = add i32 %26, %24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !48
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %27, i32 noundef 0), !noalias !48
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %28 unwind label %33
+
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit unwind label %30
+
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #10
+  unreachable
+
+33:                                               ; preds = %23
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %35)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i unwind label %36
+
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
+          catch ptr null
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i:        ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !48
+  br label %common.resume
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit: ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !48
+  br label %40
+
+39:                                               ; preds = %21
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  br label %40
+
+40:                                               ; preds = %39, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj.exit, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8minValueERKj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %w) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load i32, ptr %w, align 4, !noalias !37
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i32 noundef %0, i32 noundef 0)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE10matchWidthERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %7 = sub i32 %5, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !51
+  call void @_ZNK4cvc58internal9BitVector10signExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %7), !noalias !51
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %8 unwind label %13
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit unwind label %10
+
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
+  unreachable
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %16
+
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !51
+  resume { ptr, i32 } %14
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj.exit: ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !51
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %ref.tmp2 = alloca i32, align 4
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  store i32 %call.i, ptr %ref.tmp2, align 4
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr nonnull sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  %call.i12 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont
-  ret i1 %call.i12
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5: ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 0)
-  %call.i12 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont
-  ret i1 %call.i12
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5: ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEorERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEanERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmlERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad.body
-
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
-
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6appendERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5: ; preds = %lpad.body
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+declare void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5Ejj) align 2 {
+  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKb) align 2 {
+  %3 = load i8, ptr %1, align 1, !tbaa !3, !range !7, !noundef !8
+  %4 = zext nneg i8 %3 to i32
+  tail call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1, i32 noundef %4)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKS3_) align 2 {
+  %3 = load i32, ptr %1, align 8, !tbaa !9
+  store i32 %3, ptr %0, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC2ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat($_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC5ERKNS0_9BitVectorE) align 2 {
+  %3 = load i32, ptr %1, align 8, !tbaa !9
+  store i32 %3, ptr %0, align 8, !tbaa !9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef i32 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8getWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 {
+  %2 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  ret i32 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE3oneERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !14
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3, i32 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !14
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = load i32, ptr %1, align 4, !tbaa !14, !noalias !54
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !57
+  invoke void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
+
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
+  unreachable
+
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2.i unwind label %14
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !57
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !57
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit2.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit2.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %call.i, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  invoke void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %.noexc unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @_ZN4cvc58internalcoERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
 
-.noexc:                                           ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
 
-invoke.cont.i:                                    ; preds = %.noexc
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %invoke.cont unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
   unreachable
 
-lpad.i:                                           ; preds = %.noexc
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %lpad.body unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-invoke.cont:                                      ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  %d_value.i.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i1)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit unwind label %terminate.lpad.i.i.i.i2
-
-terminate.lpad.i.i.i.i2:                          ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
-          catch ptr null
-  %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #9
-  unreachable
-
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit: ; preds = %invoke.cont
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %7 = landingpad { ptr, i32 }
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad.body
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
 
-lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %7, %lpad ], [ %2, %lpad.i ]
-  %d_value.i.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i3)
-          to label %_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5 unwind label %terminate.lpad.i.i.i.i4
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
 
-terminate.lpad.i.i.i.i4:                          ; preds = %lpad.body
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  resume { ptr, i32 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8maxValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8minValueERKj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load i32, ptr %1, align 4, !tbaa !14, !noalias !60
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %3, i32 noundef 0)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9isAllOnesEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  %4 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  store i32 %4, ptr %3, align 4, !tbaa !14
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7allOnesERKj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %5 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit unwind label %10
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit: ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit5: ; preds = %lpad.body
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  ret i1 %5
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10isAllZerosEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #9
+  %3 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef 0)
+  %4 = invoke noundef zeroext i1 @_ZN4cvc58internaleqERKNS0_9BitVectorES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit unwind label %9
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit: ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
+
+6:                                                ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  ret i1 %4
+
+9:                                                ; preds = %1
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
+
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #9
+  resume { ptr, i32 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEorERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalorERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEanERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmlERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZN4cvc58internalmlERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %6
+
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          cleanup
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %12
+
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
+  resume { ptr, i32 } %10
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !63
+  invoke void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
+
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
+  unreachable
+
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %14
+
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !63
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !63
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit3.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   resume { ptr, i32 } %eh.lpad-body
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE20signExtendRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp2 = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  store i32 %call.i, ptr %ref.tmp2, align 8
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
-  %d_value2.i = getelementptr inbounds nuw i8, ptr %op, i64 8
-  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %d_value2.i)
-  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  %4 = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1Ejj(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5, i32 noundef 1)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !66
+  invoke void @_ZN4cvc58internalmiERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %.noexc unwind label %22
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont4 unwind label %lpad3
+.noexc:                                           ; preds = %2
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %6 unwind label %11
 
-invoke.cont4:                                     ; preds = %invoke.cont
-  %d_value.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i2)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+6:                                                ; preds = %.noexc
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %17 unwind label %8
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont4
-  %0 = landingpad { ptr, i32 }
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont4
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %terminate.lpad.i.i.i4
+11:                                               ; preds = %.noexc
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %14
 
-terminate.lpad.i.i.i4:                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %2 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !66
+  br label %.body
+
+17:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !66
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %18)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %19
+
+19:                                               ; preds = %17
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+22:                                               ; preds = %2
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+.body:                                            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit3.i, %22
+  %eh.lpad-body = phi { ptr, i32 } [ %23, %22 ], [ %12, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2 unwind label %25
+
+25:                                               ; preds = %.body
+  %26 = landingpad { ptr, i32 }
+          catch ptr null
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit2:            ; preds = %.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %eh.lpad-body
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE20signExtendRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  store i32 %6, ptr %5, align 8, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  invoke void @_ZNK4cvc58internal9BitVector15arithRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %9 unwind label %18
+
+9:                                                ; preds = %3
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %10 unwind label %20
+
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %12
+
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %10
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit5 unwind label %15
+
+15:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #10
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit5:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup
+  br label %_ZN4cvc58internal9BitVectorD2Ev.exit6
 
-lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+20:                                               ; preds = %9
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i6)
-          to label %ehcleanup unwind label %terminate.lpad.i.i.i7
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %22)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit6 unwind label %23
 
-terminate.lpad.i.i.i7:                            ; preds = %lpad3
-  %6 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #10
   unreachable
 
-ehcleanup:                                        ; preds = %lpad3, %lpad
-  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad3 ]
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit11 unwind label %terminate.lpad.i.i.i10
+_ZN4cvc58internal9BitVectorD2Ev.exit6:            ; preds = %20, %18
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %21, %20 ]
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit7 unwind label %26
 
-terminate.lpad.i.i.i10:                           ; preds = %ehcleanup
-  %8 = landingpad { ptr, i32 }
+26:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #9
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit11:           ; preds = %ehcleanup
+_ZN4cvc58internal9BitVectorD2Ev.exit7:            ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularLeftShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !40
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularLeftShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !69
+  call void @_ZNK4cvc58internal9BitVector9leftShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !69
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_.exit unwind label %7
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !69
+  resume { ptr, i32 } %11
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !69
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE17modularRightShiftERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !43
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE17modularRightShiftERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !72
+  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !72
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_.exit unwind label %terminate.lpad.i.i.i.i
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_.exit unwind label %7
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !72
+  resume { ptr, i32 } %11
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !72
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularIncrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularIncrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9incrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularDecrementEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE16modularDecrementEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE9decrementEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10modularAddERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op), !noalias !46
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10modularAddERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !75
+  call void @_ZN4cvc58internalplERKNS0_9BitVectorES3_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !75
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_.exit unwind label %terminate.lpad.i.i.i.i
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_.exit unwind label %7
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %13
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !75
+  resume { ptr, i32 } %11
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_.exit: ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !75
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE13modularNegateEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !49
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE13modularNegateEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9, !noalias !78
+  call void @_ZN4cvc58internalngERKNS0_9BitVectorE(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !78
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
+          to label %4 unwind label %9
 
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv.exit unwind label %terminate.lpad.i.i.i.i
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv.exit unwind label %6
 
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8toSignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10toUnsignedEv(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %extension)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %reduction) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %0 = xor i32 %reduction, -1
-  %sub2 = add i32 %call.i, %0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2, i32 noundef 0), !noalias !52
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %3 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %4 = landingpad { ptr, i32 }
-          catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %3
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %upper, i32 noundef %lower)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
-
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
-  ret void
-
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
-
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6resizeEj(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %newSize) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %cmp = icmp ugt i32 %newSize, %call.i
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %sub = sub nuw i32 %newSize, %call.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !55
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %common.resume unwind label %terminate.lpad.i.i.i2.i
-
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
-          catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
-  unreachable
-
-common.resume:                                    ; preds = %lpad.i.i, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %2, %lpad.i ], [ %9, %lpad.i.i ]
-  resume { ptr, i32 } %common.resume.op
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %cmp2 = icmp ult i32 %newSize, %call.i
-  br i1 %cmp2, label %if.then3, label %if.else5
-
-if.then3:                                         ; preds = %if.else
-  %call.i.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this), !noalias !58
-  %5 = xor i32 %call.i, -1
-  %6 = add i32 %newSize, %5
-  %sub2.i = add i32 %6, %call.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !58
-  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub2.i, i32 noundef 0), !noalias !61
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
-          to label %invoke.cont.i.i unwind label %lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then3
-  %d_value.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit unwind label %terminate.lpad.i.i.i.i.i
-
-terminate.lpad.i.i.i.i.i:                         ; preds = %invoke.cont.i.i
+6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #9
+  call void @__clang_call_terminate(ptr %8) #10
   unreachable
 
-lpad.i.i:                                         ; preds = %if.then3
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  %d_value.i1.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i.i)
-          to label %common.resume unwind label %terminate.lpad.i.i.i2.i.i
-
-terminate.lpad.i.i.i2.i.i:                        ; preds = %lpad.i.i
+9:                                                ; preds = %2
   %10 = landingpad { ptr, i32 }
-          catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #9
-  unreachable
-
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit: ; preds = %invoke.cont.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i), !noalias !58
-  br label %return
-
-if.else5:                                         ; preds = %if.else
-  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this)
-  br label %return
-
-return:                                           ; preds = %if.else5, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10matchWidthERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp.i = alloca %"class.cvc5::internal::BitVector", align 8
-  %call.i = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %call.i1 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  %sub = sub i32 %call.i, %call.i1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sub), !noalias !64
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %entry
-  %d_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i.i)
-          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %terminate.lpad.i.i.i.i
-
-terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont.i
-  %0 = landingpad { ptr, i32 }
-          catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
-  unreachable
-
-lpad.i:                                           ; preds = %entry
-  %2 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %terminate.lpad.i.i.i2.i
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit2.i unwind label %12
 
-terminate.lpad.i.i.i2.i:                          ; preds = %lpad.i
-  %3 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %lpad.i
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit2.i:          ; preds = %9
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !78
+  resume { ptr, i32 } %10
 
-_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit: ; preds = %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv.exit: ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9, !noalias !78
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6appendERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8toSignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret void
+}
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10toUnsignedEv(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 {
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret void
+}
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
 }
 
-declare void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEdvERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %6 = xor i32 %2, -1
+  %7 = add i32 %5, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !81
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %7, i32 noundef 0), !noalias !81
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %8 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj.exit unwind label %10
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4.i unwind label %16
+
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit4.i:          ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !81
+  resume { ptr, i32 } %14
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj.exit: ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !81
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %6 unwind label %11
+
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %8
+
+8:                                                ; preds = %6
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+11:                                               ; preds = %4
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %13)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4 unwind label %14
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+14:                                               ; preds = %11
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit4:            ; preds = %11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  resume { ptr, i32 } %12
 }
 
-declare void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErmERKS3_(ptr noalias sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"class.cvc5::internal::BitVector", align 8
-  call void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
-          to label %invoke.cont unwind label %lpad
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6resizeEj(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = alloca %"class.cvc5::internal::BitVector", align 8
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %7 = icmp ugt i32 %2, %6
+  br i1 %7, label %8, label %21
 
-invoke.cont:                                      ; preds = %entry
-  %d_value.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %terminate.lpad.i.i.i
+8:                                                ; preds = %3
+  %9 = sub nuw i32 %2, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9, !noalias !84
+  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %9), !noalias !84
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+          to label %10 unwind label %15
 
-terminate.lpad.i.i.i:                             ; preds = %invoke.cont
-  %0 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %11)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %12
+
+12:                                               ; preds = %10
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
+15:                                               ; preds = %8
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %17)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %18
+
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #10
+  unreachable
+
+common.resume:                                    ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i
+  %common.resume.op = phi { ptr, i32 } [ %16, %_ZN4cvc58internal9BitVectorD2Ev.exit3.i ], [ %34, %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i ]
+  resume { ptr, i32 } %common.resume.op
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !84
+  br label %common.resume
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit: ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9, !noalias !84
+  br label %40
+
+21:                                               ; preds = %3
+  %22 = icmp ult i32 %2, %6
+  br i1 %22, label %23, label %39
+
+23:                                               ; preds = %21
+  %24 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !87
+  %25 = xor i32 %6, -1
+  %26 = add i32 %2, %25
+  %27 = add i32 %26, %24
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !90
+  call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %27, i32 noundef 0), !noalias !90
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %28 unwind label %33
+
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %29)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit unwind label %30
+
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
+          catch ptr null
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #10
+  unreachable
+
+33:                                               ; preds = %23
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %35)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i unwind label %36
+
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
+          catch ptr null
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit4.i.i:        ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !90
+  br label %common.resume
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit: ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !90
+  br label %40
+
+39:                                               ; preds = %21
+  tail call void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  br label %40
+
+40:                                               ; preds = %39, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj.exit, %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE10matchWidthERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  %5 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %6 = tail call noundef i32 @_ZNK4cvc58internal9BitVector7getSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %7 = sub i32 %5, %6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9, !noalias !93
+  call void @_ZNK4cvc58internal9BitVector10zeroExtendEj(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %7), !noalias !93
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %8 unwind label %13
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %9)
+          to label %_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit unwind label %10
+
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #10
+  unreachable
+
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %15)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3.i unwind label %16
+
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3.i:          ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !93
+  resume { ptr, i32 } %14
+
+_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj.exit: ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9, !noalias !93
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6appendERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector6concatERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   ret void
 
-lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %d_value.i1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_value.i1)
-          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %terminate.lpad.i.i.i2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
 
-terminate.lpad.i.i.i2:                            ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
   unreachable
 
-_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %lpad
-  resume { ptr, i32 } %2
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
 }
 
-declare void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+declare void @_ZNK4cvc58internal9BitVector17logicalRightShiftERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEdvERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZNK4cvc58internal9BitVector16unsignedDivTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErmERKS3_(ptr dead_on_unwind noalias writable sret(%"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.cvc5::internal::BitVector", align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
+  call void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::BitVector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEC1ERKNS0_9BitVectorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4)
+          to label %5 unwind label %10
+
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %6)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit unwind label %7
+
+7:                                                ; preds = %5
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  ret void
+
+10:                                               ; preds = %3
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %12)
+          to label %_ZN4cvc58internal9BitVectorD2Ev.exit3 unwind label %13
+
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
+          catch ptr null
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #10
+  unreachable
+
+_ZN4cvc58internal9BitVectorD2Ev.exit3:            ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
+  resume { ptr, i32 } %11
+}
+
+declare void @_ZNK4cvc58internal9BitVector16unsignedRemTotalERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %4 = xor i1 %3, true
+  ret i1 %4
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16signedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %4 = xor i1 %3, true
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEleERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgeERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %4 = xor i1 %3, true
+  ret i1 %4
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  ret i1 %call
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEltERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector16unsignedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %op)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define hidden noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEgtERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef zeroext i1 @_ZNK4cvc58internal9BitVector18unsignedLessThanEqERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %4 = xor i1 %3, true
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNEEv() local_unnamed_addr #4 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNEEv() local_unnamed_addr #5 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv() local_unnamed_addr #4 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RNAEv() local_unnamed_addr #5 align 2 {
   ret i32 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTPEv() local_unnamed_addr #4 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTPEv() local_unnamed_addr #5 align 2 {
   ret i32 2048
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTNEv() local_unnamed_addr #4 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTNEv() local_unnamed_addr #5 align 2 {
   ret i32 1024
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTZEv() local_unnamed_addr #4 align 2 {
-entry:
+define hidden noundef i32 @_ZN4cvc58internal13symfpuLiteral6traits3RTZEv() local_unnamed_addr #5 align 2 {
   ret i32 3072
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %p) local_unnamed_addr #4 align 2 {
-entry:
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits13postconditionERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %p) local_unnamed_addr #4 align 2 {
-entry:
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits13postconditionERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc58internal13symfpuLiteral6traits9invariantERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %p) local_unnamed_addr #4 align 2 {
-entry:
+define hidden void @_ZN4cvc58internal13symfpuLiteral6traits9invariantERKb(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #5 align 2 {
   ret void
 }
 
-declare void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
+declare void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -3449,112 +3556,134 @@ declare void @__gmpz_init_set_ui(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #9
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 declare void @__gmpz_init_set(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_floatingpoint_literal_symfpu_traits.cpp() #7 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_floatingpoint_literal_symfpu_traits.cpp() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj: %agg.result"}
-!6 = distinct !{!6, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_: %agg.result"}
-!9 = distinct !{!9, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_: %agg.result"}
-!12 = distinct !{!12, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_: %agg.result"}
-!15 = distinct !{!15, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv: %agg.result"}
-!18 = distinct !{!18, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj: %agg.result"}
-!21 = distinct !{!21, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj: %agg.result"}
-!24 = distinct !{!24, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj: %agg.result"}
-!27 = distinct !{!27, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj"}
-!28 = !{!29, !26}
-!29 = distinct !{!29, !30, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj: %agg.result"}
-!30 = distinct !{!30, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj: %agg.result"}
-!33 = distinct !{!33, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj: %agg.result"}
-!36 = distinct !{!36, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj: %agg.result"}
-!39 = distinct !{!39, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_: %agg.result"}
-!42 = distinct !{!42, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_: %agg.result"}
-!45 = distinct !{!45, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_: %agg.result"}
-!48 = distinct !{!48, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv: %agg.result"}
-!51 = distinct !{!51, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj: %agg.result"}
-!54 = distinct !{!54, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj: %agg.result"}
-!57 = distinct !{!57, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj: %agg.result"}
-!60 = distinct !{!60, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj"}
-!61 = !{!62, !59}
-!62 = distinct !{!62, !63, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj: %agg.result"}
-!63 = distinct !{!63, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj: %agg.result"}
-!66 = distinct !{!66, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"bool", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"_ZTSN4cvc58internal9BitVectorE", !11, i64 0, !12, i64 8}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!"_ZTSN4cvc58internal7IntegerE", !13, i64 0}
+!13 = !{!"_ZTS10__gmp_exprIA1_12__mpz_structS1_E", !5, i64 0}
+!14 = !{!11, !11, i64 0}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj: argument 0"}
+!17 = distinct !{!17, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE4zeroERKj"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEcoEv"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_: argument 0"}
+!23 = distinct !{!23, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_: argument 0"}
+!26 = distinct !{!26, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEmiERKS3_"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_: argument 0"}
+!29 = distinct !{!29, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EElsERKS3_"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_: argument 0"}
+!32 = distinct !{!32, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EErsERKS3_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_: argument 0"}
+!35 = distinct !{!35, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEplERKS3_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv: argument 0"}
+!38 = distinct !{!38, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EEngEv"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj: argument 0"}
+!41 = distinct !{!41, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj: argument 0"}
+!44 = distinct !{!44, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj: argument 0"}
+!47 = distinct !{!47, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE8contractEj"}
+!48 = !{!49, !46}
+!49 = distinct !{!49, !50, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj: argument 0"}
+!50 = distinct !{!50, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE7extractEjj"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj: argument 0"}
+!53 = distinct !{!53, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb1EE6extendEj"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj: argument 0"}
+!56 = distinct !{!56, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv: argument 0"}
+!59 = distinct !{!59, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEcoEv"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj: argument 0"}
+!62 = distinct !{!62, !"_ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE4zeroERKj"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_: argument 0"}
+!65 = distinct !{!65, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_: argument 0"}
+!68 = distinct !{!68, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEmiERKS3_"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_: argument 0"}
+!71 = distinct !{!71, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EElsERKS3_"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_: argument 0"}
+!74 = distinct !{!74, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EErsERKS3_"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_: argument 0"}
+!77 = distinct !{!77, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEplERKS3_"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv: argument 0"}
+!80 = distinct !{!80, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEngEv"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj: argument 0"}
+!83 = distinct !{!83, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj: argument 0"}
+!86 = distinct !{!86, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj: argument 0"}
+!89 = distinct !{!89, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE8contractEj"}
+!90 = !{!91, !88}
+!91 = distinct !{!91, !92, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj: argument 0"}
+!92 = distinct !{!92, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE7extractEjj"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj: argument 0"}
+!95 = distinct !{!95, !"_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EE6extendEj"}
